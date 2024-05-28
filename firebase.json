@@ -1,0 +1,41 @@
+{
+  "hosting": {
+    "public": "packages/firebase/public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "packages/firebase/storage.rules"
+  },
+  "functions": [
+    {
+      "codebase": "api",
+      "source": "dist/packages/api",
+      "runtime": "nodejs16",
+      "ignore": ["*.local"]
+    }
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5003
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
+}
