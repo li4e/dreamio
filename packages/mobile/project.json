@@ -14,9 +14,7 @@
     },
     "run-android": {
       "executor": "@nx/react-native:run-android",
-      "options": {
-        "deviceId": "emulator-5554"
-      }
+      "options": {}
     },
     "run-ios": {
       "executor": "@nx/react-native:run-ios",
