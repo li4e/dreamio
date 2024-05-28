@@ -119,3 +119,6 @@ yarn-error.log
 
 # testing
 /coverage
+
+# xcode ide
+IDEWorkspaceChecks.plist

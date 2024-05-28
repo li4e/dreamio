@@ -68,6 +68,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "express": "^4.19.2",
     "firebase": "^10.10.0",
     "firebase-admin": "^11.11.1",
     "firebase-functions": "^4.8.2",

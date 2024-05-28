@@ -7,7 +7,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "echo Build succeeded."
+        "commands": ["nx run-many --targets=build --projects=tag:firebase:function --parallel=100","echo Build succeeded."]
       }
     },
     "watch": {
