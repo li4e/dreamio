@@ -5,6 +5,12 @@
   "projectType": "application",
   "tags": ["firebase:function", "firebase:name:api", "firebase:dep:firebase"],
   "targets": {
+    "createMigration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate dev --schema packages/api/src/models/prisma/schema.prisma"
+      }
+    },
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
