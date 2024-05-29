@@ -122,3 +122,5 @@ yarn-error.log
 
 # xcode ide
 IDEWorkspaceChecks.plist
+
+packages/api/prisma/client
