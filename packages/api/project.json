@@ -29,9 +29,9 @@
         "format": ["esm"],
         "esbuildOptions": {
           "logLevel": "info",
-          "banner":{
-            "js":"const require = (await import('node:module')).createRequire(import.meta.url);const __filename = (await import('node:url')).fileURLToPath(import.meta.url);const __dirname = (await import('node:path')).dirname(__filename);"
-         }
+          "banner": {
+            "js": "const require = (await import('node:module')).createRequire(import.meta.url);const __filename = (await import('node:url')).fileURLToPath(import.meta.url);const __dirname = (await import('node:path')).dirname(__filename);"
+          }
         }
       }
     },
@@ -51,6 +51,14 @@
         "command": "nx run firebase:deploy --only functions:api"
       },
       "dependsOn": ["build"]
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -p tsconfig.app.json --noEmit"],
+        "cwd": "packages/api",
+        "forwardAllArgs": false
+      }
     }
   }
 }

@@ -24,6 +24,14 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -p tsconfig.app.json --noEmit"],
+        "cwd": "packages/mobile",
+        "forwardAllArgs": false
+      }
     }
   }
 }
