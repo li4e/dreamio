@@ -21,6 +21,9 @@
       "options": {
         "udid": "A3724D92-D20A-491A-A948-F3A368093D07"
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
     }
   }
 }

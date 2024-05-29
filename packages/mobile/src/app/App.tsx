@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,12 +9,12 @@ import {
   StatusBar,
   TouchableOpacity,
   Linking,
-} from 'react-native';
-import Svg, { G, Path } from 'react-native-svg';
+} from 'react-native'
+import Svg, { G, Path } from 'react-native-svg'
 
 export const App = () => {
-  const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
-  const scrollViewRef = useRef<null | ScrollView>(null);
+  const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0)
+  const scrollViewRef = useRef<null | ScrollView>(null)
 
   return (
     <>
@@ -26,7 +26,7 @@ export const App = () => {
       >
         <ScrollView
           ref={(ref) => {
-            scrollViewRef.current = ref;
+            scrollViewRef.current = ref
           }}
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
@@ -68,7 +68,7 @@ export const App = () => {
                   scrollViewRef.current?.scrollTo({
                     x: 0,
                     y: whatsNextYCoord,
-                  });
+                  })
                 }}
               >
                 <Text style={[styles.textMd, styles.textCenter]}>
@@ -439,8 +439,8 @@ export const App = () => {
           <View
             style={styles.section}
             onLayout={(event) => {
-              const layout = event.nativeEvent.layout;
-              setWhatsNextYCoord(layout.y);
+              const layout = event.nativeEvent.layout
+              setWhatsNextYCoord(layout.y)
             }}
           >
             <View style={styles.shadowBox}>
@@ -619,8 +619,8 @@ export const App = () => {
         </ScrollView>
       </SafeAreaView>
     </>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#ffffff',
@@ -743,6 +743,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
     justifyContent: 'center',
   },
-});
+})
 
-export default App;
+export default App

@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
 
   if (
     process.env.NX_TASK_TARGET_TARGET === 'build' ||
@@ -14,12 +14,12 @@ module.exports = function (api) {
           },
         ],
       ],
-    };
+    }
   }
 
   return {
     presets: [
       ['module:@react-native/babel-preset', { useTransformReactJSX: true }],
     ],
-  };
-};
+  }
+}
