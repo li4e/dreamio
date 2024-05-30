@@ -7,12 +7,6 @@
     "lint": "nx run mobile:lint --fix && nx run api:lint --fix",
     "postinstall": "nx run db:prepare && nx run api:generate:routes && nx run api:generate:spec"
   },
-  "nx": {
-    "includedScripts": [
-      "prepare",
-      "lint"
-    ]
-  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
