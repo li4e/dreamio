@@ -1,11 +1,17 @@
-import userService from '../services/users'
-import { Controller, Get, Route, Path } from 'tsoa'
+import { Controller, Get, Route, Path, Request, Security } from 'tsoa'
 import { UserDto } from '@choco/db'
+import { AuthenticatedRequest } from '../types/express'
 
 @Route('users')
 export class UserController extends Controller {
+  @Security('firebase')
   @Get('{userId}')
-  public async getUser(@Path() userId: string): Promise<UserDto> {
-    return await userService.getUserByFirebaseId(userId)
+  public async getUser(
+    @Path() userId: string,
+    @Request() req: AuthenticatedRequest
+  ): Promise<{ data: UserDto }> {
+    console.log('Super puper', { userId, user: req.user })
+
+    return { data: req.user }
   }
 }

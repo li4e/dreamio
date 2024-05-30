@@ -4,10 +4,18 @@
   "controllerPathGlobs": ["src/controllers/**/*.ts"],
   "spec": {
     "outputDirectory": "generated",
-    "specVersion": 3
+    "specVersion": 3,
+    "securityDefinitions": {
+      "firebase": {
+        "type": "apiKey",
+        "name": "firebaseIdToken",
+        "in": "header"
+      }
+    }
   },
   "routes": {
-    "routesDir": "generated"
+    "routesDir": "generated",
+    "authenticationModule": "./src/middleware/authentication.ts"
   },
   "compilerOptions": {
     "paths": {

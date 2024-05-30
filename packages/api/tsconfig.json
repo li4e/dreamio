@@ -11,7 +11,7 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
-  },
-  "exclude": ["./generated"]
+    "esModuleInterop": true,
+    "lib": ["ES2021.Promise"]
+  }
 }
