@@ -13,9 +13,11 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "strictNullChecks": true,
+    "strict": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@choco/db": ["packages/db/src/index.ts"]
+    }
   },
-  "exclude": ["node_modules", "tmp", "packages/api/prisma/client"]
+  "exclude": ["node_modules", "tmp"]
 }

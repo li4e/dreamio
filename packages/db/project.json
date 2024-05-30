@@ -1,0 +1,35 @@
+{
+  "name": "db",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/db/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "prisma:migrate:dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate dev --schema packages/db/src/schema.prisma && nx run postinstall"
+      }
+    },
+    "prisma:generate:client": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx prisma generate --schema src/schema.prisma && npx ts-node src/scripts/generateModelsIndex.ts",
+        "cwd": "packages/db"
+      }
+    },
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": " npx nx run db:prisma:generate:client"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/db/jest.config.ts"
+      }
+    }
+  }
+}

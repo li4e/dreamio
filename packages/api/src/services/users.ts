@@ -1,8 +1,8 @@
-import { prisma } from '../config/prisma'
+import { dbClient } from '@choco/db'
 
 export default {
   async getUserByFirebaseId(firebaseId: string) {
-    return await prisma.$transaction(async (transaction) => {
+    return await dbClient.$transaction(async (transaction) => {
       let firebaseUser = await transaction.firebaseUser.findFirst({
         where: {
           firebaseId,
