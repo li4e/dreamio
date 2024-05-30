@@ -7,7 +7,10 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["nx run-many --targets=build --projects=tag:firebase:function --parallel=100","echo Build succeeded."]
+        "commands": [
+          "nx run-many --targets=build --projects=tag:firebase:function --parallel=100",
+          "echo Build succeeded."
+        ]
       }
     },
     "watch": {
@@ -42,7 +45,7 @@
     "killports": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "kill-port --port 9099,5001,8080,9000,5000,8085,9199,9299,4000,4400,4500"
+        "command": "kill-port --port 9099,5001,5003,8080,9000,5000,8085,9199,9299,4000,4400,4500"
       }
     },
     "getconfig": {

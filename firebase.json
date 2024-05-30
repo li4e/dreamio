@@ -16,7 +16,7 @@
     {
       "codebase": "api",
       "source": "dist/packages/api",
-      "runtime": "nodejs16",
+      "runtime": "nodejs20",
       "ignore": ["*.local"]
     }
   ],
