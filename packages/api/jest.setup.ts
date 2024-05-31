@@ -9,3 +9,7 @@ jest.mock('./src/integrations/openai', () => {
 jest.mock('./src/integrations/storage', () => {
   return jest.requireActual('./src/integrations/__mocks__/storage')
 })
+
+jest.mock('./src/integrations/adapty', () => {
+  return jest.requireActual('./src/integrations/__mocks__/adapty')
+})
