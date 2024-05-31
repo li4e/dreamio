@@ -17,12 +17,8 @@ export async function expressAuthentication(
       )
     }
 
-    try {
-      const uid = await FirebaseService.convertTokenToUID(firebaseIdToken)
-      const user = await userService.getUserByFirebaseId(uid)
-      return user
-    } catch {
-      throw new ServerError('User validation failed', StatusCode.UNAUTHORIZED)
-    }
+    const uid = await FirebaseService.convertTokenToUID(firebaseIdToken)
+    const user = await userService.getUserByFirebaseId(uid)
+    return user
   }
 }

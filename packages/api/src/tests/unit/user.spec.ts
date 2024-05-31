@@ -1,4 +1,4 @@
-import { UserController } from '../controllers/user'
+import { UserController } from '../../controllers/user'
 
 describe('Test /users/1', () => {
   describe('GET user test', () => {

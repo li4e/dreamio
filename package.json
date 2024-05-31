@@ -5,7 +5,8 @@
   "scripts": {
     "prepare": "husky",
     "lint": "nx run mobile:lint --fix && nx run api:lint --fix",
-    "postinstall": "nx run db:prepare && nx run api:generate:routes && nx run api:generate:spec"
+    "postinstall": "nx run db:prepare && nx run api:generate:routes && nx run api:generate:spec",
+    "test:all": "nx run-many -t test"
   },
   "private": true,
   "devDependencies": {
@@ -37,7 +38,9 @@
     "@types/jest": "^29.4.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "~18.16.9",
+    "@types/pg": "^8.11.6",
     "@types/react": "~18.2.45",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "@vitejs/plugin-react": "^4.2.0",
@@ -65,15 +68,18 @@
     "lint-staged": "^15.2.5",
     "mocha": "^10.4.0",
     "nx": "19.1.0",
+    "pg": "^8.11.5",
     "prettier": "^3.2.5",
     "prisma": "^5.14.0",
     "react-native-svg": "15.1.0",
     "react-native-svg-transformer": "1.3.0",
     "react-native-web": "^0.19.10",
     "react-test-renderer": "18.2.0",
+    "supertest": "^7.0.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "tsoa": "^6.2.1",
+    "tsx": "^4.11.0",
     "typescript": "~5.4.2",
     "vite": "~5.0.0",
     "vitest": "^1.3.1"
