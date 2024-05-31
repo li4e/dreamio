@@ -1,7 +1,11 @@
-jest.mock('./src/services/firebase', () => {
-  return jest.requireActual('./src/services/__mocks__/firebase')
+jest.mock('./src/integrations/firebase_auth', () => {
+  return jest.requireActual('./src/integrations/__mocks__/firebase_auth')
 })
 
-jest.mock('./src/services/openai', () => {
-  return jest.requireActual('./src/services/__mocks__/openai')
+jest.mock('./src/integrations/openai', () => {
+  return jest.requireActual('./src/integrations/__mocks__/openai')
+})
+
+jest.mock('./src/integrations/storage', () => {
+  return jest.requireActual('./src/integrations/__mocks__/storage')
 })

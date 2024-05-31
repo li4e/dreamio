@@ -1,4 +1,4 @@
-export class FirebaseService {
+export class FirebaseAuthService {
   static async convertTokenToUID(firebaseIdToken: string) {
     if (firebaseIdToken === 'invalid') {
       throw new Error('FirebaseIdToken invalid')
