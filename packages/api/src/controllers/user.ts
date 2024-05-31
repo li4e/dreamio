@@ -10,8 +10,6 @@ export class UserController extends Controller {
     @Path() userId: string,
     @Request() req: AuthenticatedRequest
   ): Promise<{ data: UserDto }> {
-    console.log('Super puper', { userId, user: req.user })
-
     return { data: req.user }
   }
 }
