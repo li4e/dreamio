@@ -22,6 +22,7 @@ export class SubscriptionEventTransformer {
       transaction_Id: this.event.event_properties.transaction_id,
       product_id: this.event.event_properties.vendor_product_id,
       store: this.event.event_properties.store,
+      credits: this.credits,
     }
   }
 
@@ -35,6 +36,7 @@ export class SubscriptionEventTransformer {
       ...(this.changeIsInTrial && {
         is_in_trial: this.isInTrial,
       }),
+      ...(this.shouldTopUpBalance && { credits: this.credits }),
     }
   }
 
@@ -75,13 +77,13 @@ export class SubscriptionEventTransformer {
     return ['entered_grace_period'].includes(this.event.event_type)
   }
 
-  // public get shouldTopUpBalance() {
-  //   return [
-  //     'trial_started',
-  //     'subscription_started',
-  //     'subscription_renewed',
-  //   ].includes(this.event.event_type)
-  // }
+  public get shouldTopUpBalance() {
+    return [
+      'trial_started',
+      'subscription_started',
+      'subscription_renewed',
+    ].includes(this.event.event_type)
+  }
 
   private get changeIsActive() {
     return [
@@ -123,5 +125,10 @@ export class SubscriptionEventTransformer {
 
   private get isSandbox() {
     return this.event.event_properties.environment === 'Sandbox'
+  }
+
+  private get credits() {
+    // TODO: Change for a real data
+    return this.isActive ? 100 : 0
   }
 }

@@ -64,6 +64,7 @@ model Subscription {
     will_renew              Boolean
     is_sandbox              Boolean
     base_plan_id            String?
+    credits                 Int
 
     users User[] @relation("UserSubscriptions")
 
@@ -78,6 +79,7 @@ model InAppPurchase {
     store                   Store
     is_refunded             Boolean
     is_sandbox              Boolean
+    credits                 Int
     users                   User[]  @relation("UserInAppPurchases")
 
     @@unique([store, original_transaction_id])

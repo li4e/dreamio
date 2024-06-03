@@ -1,3 +1,9 @@
+import { prepareDB } from './src/tests/tools/prepare_db'
+
+beforeAll(async () => {
+  await prepareDB()
+})
+
 jest.mock('./src/integrations/firebase_auth', () => {
   return jest.requireActual('./src/integrations/__mocks__/firebase_auth')
 })

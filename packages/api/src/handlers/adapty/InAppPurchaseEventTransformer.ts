@@ -18,6 +18,7 @@ export class InAppPurchaseEventTransformer {
       store: this.event.event_properties.store,
       is_refunded: this.isRefunded,
       is_sandbox: this.isSandbox,
+      credits: this.credits,
     }
   }
 
@@ -34,5 +35,9 @@ export class InAppPurchaseEventTransformer {
 
   private get isSandbox() {
     return this.event.event_properties.environment === 'Sandbox'
+  }
+
+  private get credits() {
+    return this.isRefunded ? 0 : 100
   }
 }

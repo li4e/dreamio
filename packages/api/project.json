@@ -64,9 +64,6 @@
       "options": {
         "commands": [
           {
-            "command": "tsx ./src/tests/tools/setup_db.ts"
-          },
-          {
             "command": "nx testPlain"
           }
         ],
