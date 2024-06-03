@@ -2,9 +2,9 @@ import { CreateSubscriptionDto, UpdateSubscriptionDto } from '@choco/db'
 import { AdaptyWebhookEvent } from '../../types/adapty'
 import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
 
-export class SubscriptionTransformer {
+export class SubscriptionEventTransformer {
   constructor(private event: AdaptyWebhookEvent) {
-    if (!isNonSubscriptionEvent(event.event_type)) {
+    if (isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a non_subscription type')
     }
   }

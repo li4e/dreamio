@@ -1,6 +1,6 @@
 import { AdaptyWebhookEvent } from '../../types/adapty'
-import { InAppPurchaseTransformer } from './InAppPurchaseTransformer'
-import { SubscriptionTransformer } from './SubscriptionTransformer'
+import { InAppPurchaseEventTransformer } from './InAppPurchaseEventTransformer'
+import { SubscriptionEventTransformer } from './SubscriptionEventTransformer'
 import { dbClient } from '@choco/db'
 import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
 
@@ -20,7 +20,7 @@ export class AdaptyWebhookHandler {
   }
 
   private async savePurchase() {
-    const purchase = new InAppPurchaseTransformer(this.event)
+    const purchase = new InAppPurchaseEventTransformer(this.event)
     const createData = purchase.getCreateData()
 
     await dbClient.inAppPurchase.upsert({
@@ -36,7 +36,7 @@ export class AdaptyWebhookHandler {
   }
 
   private async saveSubscription() {
-    const subscription = new SubscriptionTransformer(this.event)
+    const subscription = new SubscriptionEventTransformer(this.event)
     const createData = subscription.getСreateData()
 
     await dbClient.subscription.upsert({

@@ -2,7 +2,7 @@ import { AdaptyWebhookEvent } from '../../types/adapty'
 import { CreateInAppPurchaseDto, UpdateInAppPurchaseDto } from '@choco/db'
 import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
 
-export class InAppPurchaseTransformer {
+export class InAppPurchaseEventTransformer {
   constructor(private event: AdaptyWebhookEvent) {
     if (!isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a subscription type')
