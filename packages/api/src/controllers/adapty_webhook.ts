@@ -12,7 +12,7 @@ export class UserController extends Controller {
   ): Promise<{ adapty_check_response: unknown } | { success: true }> {
     const authHeader = req.header.Authorization
 
-    // TODO: Use real key
+    // TODO: Use a real key
     if (authHeader !== '123') {
       throw new ServerError('Token is invalid', 401)
     }
