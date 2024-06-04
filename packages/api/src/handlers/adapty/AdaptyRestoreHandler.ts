@@ -1,0 +1,41 @@
+import { AdaptyProfile } from '../../types/adapty'
+import { InAppPurchaseFromProfileTransformer } from './transformers/InAppPurchaseFromProfileTransformer'
+import { SubscriptionFromProfileTransformer } from './transformers/SubscriptionFromProfileTransformer'
+import { SubscriptionsService } from '../../services/subscriptions'
+import { InAppPurchasesService } from '../../services/in_app_purchases'
+
+export class AdaptyRestoreHandler {
+  constructor(private userProfile: AdaptyProfile) {}
+
+  public async handle() {
+    const promises: Promise<void>[] = []
+
+    if (this.userProfile.subscriptions) {
+      for (const subscription of Object.values(
+        this.userProfile.subscriptions
+      )) {
+        const dataTransformer =
+          SubscriptionFromProfileTransformer.create(subscription)
+
+        if (dataTransformer) {
+          promises.push(new SubscriptionsService().save(dataTransformer))
+        }
+      }
+    }
+
+    if (this.userProfile.non_subscriptions) {
+      for (const inApps of Object.values(this.userProfile.non_subscriptions)) {
+        for (const inApp of inApps) {
+          const dataTransformer =
+            InAppPurchaseFromProfileTransformer.create(inApp)
+
+          if (dataTransformer) {
+            promises.push(new InAppPurchasesService().save(dataTransformer))
+          }
+        }
+      }
+    }
+
+    await Promise.all(promises)
+  }
+}

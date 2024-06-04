@@ -1,8 +1,9 @@
-import { AdaptyWebhookEvent } from '../../types/adapty'
+import { AdaptyWebhookEvent } from '../../../types/adapty'
 import { CreateInAppPurchaseDto, UpdateInAppPurchaseDto } from '@choco/db'
-import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
+import { isNonSubscriptionEvent } from '../utils/isNonSubscriptionEvent'
+import { IDBInAppAdapter } from '../../../services/db_adapters'
 
-export class InAppPurchaseEventTransformer {
+export class InAppPurchaseEventTransformer implements IDBInAppAdapter {
   constructor(private event: AdaptyWebhookEvent) {
     if (!isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a subscription type')
@@ -38,6 +39,7 @@ export class InAppPurchaseEventTransformer {
   }
 
   private get credits() {
-    return this.isRefunded ? 0 : 100
+    // TODO: Upadate with a real data
+    return 100
   }
 }

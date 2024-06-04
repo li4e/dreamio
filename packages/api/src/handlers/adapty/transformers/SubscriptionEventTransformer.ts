@@ -1,15 +1,16 @@
 import { CreateSubscriptionDto, UpdateSubscriptionDto } from '@choco/db'
-import { AdaptyWebhookEvent } from '../../types/adapty'
-import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
+import { AdaptyWebhookEvent } from '../../../types/adapty'
+import { isNonSubscriptionEvent } from '../utils/isNonSubscriptionEvent'
+import { IDBSubscriptionAdapter } from '../../../services/db_adapters'
 
-export class SubscriptionEventTransformer {
+export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
   constructor(private event: AdaptyWebhookEvent) {
     if (isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a non_subscription type')
     }
   }
 
-  public getСreateData(): CreateSubscriptionDto {
+  public getCreateData(): CreateSubscriptionDto {
     return {
       is_active: this.isActive,
       will_renew: this.willRenew,
