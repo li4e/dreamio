@@ -5,18 +5,31 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "migration:create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate dev --schema packages/db/src/schema.prisma --create-only"
+      }
+    },
+    "migration:apply": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate deploy --schema packages/db/src/schema.prisma && npm run postinstall && nx run db:migration:apply:test"
+      }
+    },
+    "migration:apply:test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/api/.test.env -- npx prisma migrate deploy --schema packages/db/src/schema.prisma"
+      }
+    },
     "prisma:migrate:dev": {
       "executor": "nx:run-commands",
       "options": {
         "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate dev --schema packages/db/src/schema.prisma && npm run postinstall"
       }
     },
-    "prisma:migrate": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx prisma migrate deploy --schema packages/db/src/schema.prisma && npx run postinstall"
-      }
-    },
+
     "prisma:generate:client": {
       "executor": "nx:run-commands",
       "options": {

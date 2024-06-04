@@ -54,7 +54,7 @@ enum Store {
 model Subscription {
     id                      Int     @id @default(autoincrement())
     product_id              String
-    transaction_Id          String
+    transaction_id          String
     original_transaction_id String
     store                   Store
     is_active               Boolean
@@ -65,6 +65,7 @@ model Subscription {
     is_sandbox              Boolean
     base_plan_id            String?
     credits                 Int
+    version                 Int     @default(0)
 
     users User[] @relation("UserSubscriptions")
 
@@ -81,6 +82,7 @@ model InAppPurchase {
     is_sandbox              Boolean
     credits                 Int
     users                   User[]  @relation("UserInAppPurchases")
+    version                 Int     @default(0)
 
     @@unique([store, original_transaction_id])
 }

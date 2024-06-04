@@ -1,4 +1,4 @@
-import { AdaptyProfile } from '../../types/adapty'
+import { AdaptyProfile } from '../../../types/adapty'
 
 export class AdaptyService {
   async getProfile(firebaseUID: string): Promise<AdaptyProfile> {

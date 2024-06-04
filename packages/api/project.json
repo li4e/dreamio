@@ -52,22 +52,11 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "testPlain": {
+    "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "packages/api/jest.config.ts"
-      }
-    },
-    "test": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          {
-            "command": "nx testPlain"
-          }
-        ],
-        "cwd": "packages/api"
       }
     },
     "deploy": {

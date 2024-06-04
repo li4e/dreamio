@@ -19,14 +19,17 @@ export class SubscriptionEventTransformer {
       is_sandbox: this.isSandbox,
       original_transaction_id:
         this.event.event_properties.original_transaction_id,
-      transaction_Id: this.event.event_properties.transaction_id,
+      transaction_id: this.event.event_properties.transaction_id,
       product_id: this.event.event_properties.vendor_product_id,
       store: this.event.event_properties.store,
       credits: this.credits,
     }
   }
 
-  public getUpdateData(): UpdateSubscriptionDto {
+  public getUpdateData(existedTransactionId: string): UpdateSubscriptionDto {
+    const isSameTransaction =
+      this.event.event_properties.transaction_id === existedTransactionId
+
     return {
       ...(this.changeIsActive && { is_active: this.isActive }),
       ...(this.chnageWillRenew && { will_renew: this.willRenew }),
@@ -36,7 +39,10 @@ export class SubscriptionEventTransformer {
       ...(this.changeIsInTrial && {
         is_in_trial: this.isInTrial,
       }),
-      ...(this.shouldTopUpBalance && { credits: this.credits }),
+      ...(this.shouldTopUpBalance &&
+        !isSameTransaction && {
+          credits: this.credits,
+        }),
     }
   }
 
