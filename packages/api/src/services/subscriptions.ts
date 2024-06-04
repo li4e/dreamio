@@ -2,11 +2,10 @@ import { IDBSubscriptionAdapter } from './db_adapters'
 import { dbClient, Prisma } from '@choco/db'
 
 export class SubscriptionsService {
-  public async save(dataAdapter: IDBSubscriptionAdapter): Promise<void> {
+  public async save(dataAdapter: IDBSubscriptionAdapter): Promise<number> {
     for (let attempts = 0; attempts < 3; attempts++) {
       try {
-        await this.createOrUpdateSubscription(dataAdapter)
-        return
+        return await this.createOrUpdateSubscription(dataAdapter)
       } catch (error) {
         if (
           error instanceof Prisma.PrismaClientKnownRequestError &&
@@ -26,7 +25,7 @@ export class SubscriptionsService {
 
   private async createOrUpdateSubscription(
     dataAdapter: IDBSubscriptionAdapter
-  ) {
+  ): Promise<number> {
     const createData = dataAdapter.getCreateData()
 
     const existedSubscription = await dbClient.subscription.findUnique({
@@ -44,20 +43,26 @@ export class SubscriptionsService {
         existedSubscription.transaction_id
       )
 
-      await dbClient.subscription.update({
-        where: {
-          store_original_transaction_id: {
-            store: createData.store,
-            original_transaction_id: createData.original_transaction_id,
+      return dbClient.subscription
+        .update({
+          where: {
+            store_original_transaction_id: {
+              store: createData.store,
+              original_transaction_id: createData.original_transaction_id,
+            },
+            version: existedSubscription.version,
           },
-          version: existedSubscription.version,
-        },
-        data: updateData,
-      })
+          data: updateData,
+          select: { id: true },
+        })
+        .then((data) => data.id)
     } else {
-      await dbClient.subscription.create({
-        data: createData,
-      })
+      return dbClient.subscription
+        .create({
+          data: createData,
+          select: { id: true },
+        })
+        .then((data) => data.id)
     }
   }
 }

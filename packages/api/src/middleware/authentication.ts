@@ -1,14 +1,15 @@
 import { Request } from 'express'
-import userService from '../services/users'
+import { UsersService } from '../services/users'
 import { ServerError, StatusCode } from '../shared/ServerError'
 import { FirebaseAuthService } from '../integrations/firebase_auth'
+import { AuthenticatedRequest } from '../types/express'
 
 export async function expressAuthentication(
   request: Request,
   securityName: string
-) {
+): Promise<AuthenticatedRequest['user'] | null> {
   if (securityName === 'firebase') {
-    const firebaseIdToken = request.get('firebaseIdToken')
+    const firebaseIdToken = request.get('firebase-token')
 
     if (!firebaseIdToken) {
       throw new ServerError(
@@ -18,7 +19,9 @@ export async function expressAuthentication(
     }
 
     const uid = await FirebaseAuthService.convertTokenToUID(firebaseIdToken)
-    const user = await userService.getUserByFirebaseId(uid)
-    return user
+    const userId = await new UsersService().getUserIdByFirebaseId(uid)
+    return { id: userId }
   }
+
+  return null
 }

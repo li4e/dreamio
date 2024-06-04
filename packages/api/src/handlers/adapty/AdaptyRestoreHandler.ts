@@ -3,12 +3,17 @@ import { InAppPurchaseFromProfileTransformer } from './transformers/InAppPurchas
 import { SubscriptionFromProfileTransformer } from './transformers/SubscriptionFromProfileTransformer'
 import { SubscriptionsService } from '../../services/subscriptions'
 import { InAppPurchasesService } from '../../services/in_app_purchases'
+import { UsersService } from '../../services/users'
+import { PopulatedUser } from '../../types/user'
 
 export class AdaptyRestoreHandler {
   constructor(private userProfile: AdaptyProfile) {}
 
-  public async handle() {
-    const promises: Promise<void>[] = []
+  public async handleAngGetUser(userId: number): Promise<PopulatedUser> {
+    const promises: Promise<{
+      type: 'inApp' | 'subscription'
+      id: number
+    }>[] = []
 
     if (this.userProfile.subscriptions) {
       for (const subscription of Object.values(
@@ -18,7 +23,12 @@ export class AdaptyRestoreHandler {
           SubscriptionFromProfileTransformer.create(subscription)
 
         if (dataTransformer) {
-          promises.push(new SubscriptionsService().save(dataTransformer))
+          promises.push(
+            new SubscriptionsService().save(dataTransformer).then((id) => ({
+              type: 'subscription',
+              id,
+            }))
+          )
         }
       }
     }
@@ -30,12 +40,19 @@ export class AdaptyRestoreHandler {
             InAppPurchaseFromProfileTransformer.create(inApp)
 
           if (dataTransformer) {
-            promises.push(new InAppPurchasesService().save(dataTransformer))
+            promises.push(
+              new InAppPurchasesService().save(dataTransformer).then((id) => ({
+                type: 'inApp',
+                id,
+              }))
+            )
           }
         }
       }
     }
 
-    await Promise.all(promises)
+    const savingResults = await Promise.all(promises)
+
+    return new UsersService().assignPurchases(userId, savingResults)
   }
 }

@@ -4,7 +4,7 @@ import { ServerError } from '../shared/ServerError'
 import { AdaptyWebhookHandler } from '../handlers/adapty/AdaptyWebhookHandler'
 
 @Route('adapty_webhook')
-export class UserController extends Controller {
+export class AdaptyWebhookController extends Controller {
   @Post()
   public async getUser(
     @Body() body: AdaptyWebhookEvent,
@@ -21,8 +21,7 @@ export class UserController extends Controller {
       return { adapty_check_response: body['adapty_check'] }
     }
 
-    const adaptyWebhookHandler = new AdaptyWebhookHandler(body)
-    await adaptyWebhookHandler.handle()
+    await new AdaptyWebhookHandler(body).handle()
 
     return { success: true }
   }

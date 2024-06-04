@@ -9,16 +9,13 @@ export class AdaptyService {
     this.apiKey = adaptyApiKey.value()
   }
 
-  getProfile(firebaseUID: string): Promise<AdaptyProfile> {
+  getProfile(userId: number): Promise<AdaptyProfile> {
     return axios
-      .get<{ data: AdaptyProfile }>(
-        `${this.baseURL}/profiles/${firebaseUID}/`,
-        {
-          headers: {
-            Authorization: `Api-Key ${this.apiKey}`,
-          },
-        }
-      )
+      .get<{ data: AdaptyProfile }>(`${this.baseURL}/profiles/${userId}/`, {
+        headers: {
+          Authorization: `Api-Key ${this.apiKey}`,
+        },
+      })
       .then((res) => res.data.data)
   }
 }
