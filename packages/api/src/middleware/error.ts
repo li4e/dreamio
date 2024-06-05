@@ -10,6 +10,10 @@ export function errorHandler(
   const error = _err as ServerError
   const status = error.status || 500
 
+  if (status !== 401) {
+    console.log(error)
+  }
+
   const body = {
     name: error.name,
     message: error.message || 'Internal server error',

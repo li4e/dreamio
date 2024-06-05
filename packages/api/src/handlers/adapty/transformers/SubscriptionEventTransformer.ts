@@ -16,7 +16,7 @@ export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
       will_renew: this.willRenew,
       is_in_grace_period: this.isInGracePeriod,
       is_in_trial: this.isInTrial,
-      is_lifetime: this.event.event_properties.is_lifetime || false,
+      is_lifetime: this.event.event_properties.is_lifetime ?? false,
       is_sandbox: this.isSandbox,
       original_transaction_id:
         this.event.event_properties.original_transaction_id,
