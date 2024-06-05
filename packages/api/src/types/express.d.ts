@@ -3,11 +3,11 @@
 declare global {
   namespace Express {
     interface Request {
-      user: { id: number } | null
+      userId?: number
     }
   }
 }
 
 export interface AuthenticatedRequest extends Express.Request {
-  user: { id: number }
+  userId: number
 }

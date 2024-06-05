@@ -9,6 +9,6 @@ export class UsersController extends Controller {
     @Path('userId') userIdFromPath: string,
     @Request() request: AuthenticatedRequest
   ): Promise<{ data: { userId: number; userIdFromPath: string } }> {
-    return { data: { userId: request.user.id, userIdFromPath } }
+    return { data: { userId: request.userId, userIdFromPath } }
   }
 }

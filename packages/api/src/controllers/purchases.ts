@@ -12,12 +12,12 @@ export class PurchasesController extends Controller {
   public async getUser(
     @Request() req: AuthenticatedRequest
   ): Promise<{ data: IUserSettings }> {
-    const adaptyProfile = await new AdaptyService().getProfile(req.user.id)
+    const adaptyProfile = await new AdaptyService().getProfile(req.userId)
 
-    const populatedUser = await new AdaptyRestoreHandler(
+    const userWithRestoredPuchases = await new AdaptyRestoreHandler(
       adaptyProfile
-    ).handleAngGetUser(req.user.id)
-    const user = new UserModel(populatedUser)
+    ).handleAngGetUser(req.userId)
+    const user = new UserModel(userWithRestoredPuchases)
 
     return { data: user.settings }
   }
