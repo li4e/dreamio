@@ -2,6 +2,11 @@ import supertest from 'supertest'
 import { app } from '../../app'
 import mockedAdaptyData from '../__mocks__/data/adapty'
 import { dbClient } from '@choco/db'
+import { prepareDB } from '../tools/prepare_db'
+
+beforeAll(async () => {
+  await prepareDB()
+})
 
 describe('Integration test /adapty_webhook', () => {
   it('connection should be returned correctly', async () => {

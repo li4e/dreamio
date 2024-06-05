@@ -1,5 +1,10 @@
 import supertest from 'supertest'
 import { app } from '../../app'
+import { prepareDB } from '../tools/prepare_db'
+
+beforeAll(async () => {
+  await prepareDB()
+})
 
 describe('Integration test /users', () => {
   describe('Valid GET user test', () => {
