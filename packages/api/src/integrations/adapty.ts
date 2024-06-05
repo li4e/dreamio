@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { adaptyApiKey } from '../config/secrets'
+import { secrets } from '../config/secrets'
 import { AdaptyProfile } from '../types/adapty'
 
 export class AdaptyService {
   private readonly baseURL = 'https://api.adapty.io/api/v1/sdk'
   private readonly apiKey: string
   constructor() {
-    this.apiKey = adaptyApiKey.value()
+    this.apiKey = secrets.adaptyApiKey.value()
   }
 
   getProfile(userId: number): Promise<AdaptyProfile> {

@@ -3,7 +3,7 @@
   "description": "API for the chocolate application",
   "version": "0.0.0",
   "scripts": {
-    "test": "nx test api",
+    "test": "nx test api --runInBand",
     "lint": "nx lint api",
     "build": "nx build api",
     "deploy": "nx deploy api"

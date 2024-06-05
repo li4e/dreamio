@@ -1,12 +1,12 @@
 import OpenAI from 'openai'
-import { openaiOrganization, openaiApiKey } from '../config/secrets'
+import { secrets } from '../config/secrets'
 
 export class OpenAIService {
   private openAI: OpenAI
 
   constructor() {
-    const apiKey = openaiApiKey.value()
-    const organization = openaiOrganization.value()
+    const apiKey = secrets.openAIApiKey.value()
+    const organization = secrets.openAIOrg.value()
 
     this.openAI = new OpenAI({
       apiKey,

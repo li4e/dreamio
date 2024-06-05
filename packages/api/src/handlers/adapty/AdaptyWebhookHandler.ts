@@ -14,11 +14,11 @@ export class AdaptyWebhookHandler {
 
   public async handle(): Promise<void> {
     if (this.isNonSubscription) {
-      new InAppPurchasesService().save(
+      await new InAppPurchasesService().save(
         new InAppPurchaseEventTransformer(this.event)
       )
     } else {
-      new SubscriptionsService().save(
+      await new SubscriptionsService().save(
         new SubscriptionEventTransformer(this.event)
       )
     }

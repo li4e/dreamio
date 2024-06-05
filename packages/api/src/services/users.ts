@@ -49,12 +49,16 @@ export class UsersService {
     return dbClient.user.update({
       where: { id: userId },
       data: {
-        subscriptions: {
-          connect: userSubscriptions,
-        },
-        inAppPurchases: {
-          connect: userInApps,
-        },
+        ...(userSubscriptions.length > 0 && {
+          subscriptions: {
+            connect: userSubscriptions,
+          },
+        }),
+        ...(userInApps.length > 0 && {
+          inAppPurchases: {
+            connect: userInApps,
+          },
+        }),
       },
       select: {
         id: true,
