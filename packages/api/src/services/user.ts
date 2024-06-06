@@ -4,6 +4,26 @@ import { PopulatedUser } from '../types/user'
 export class UserService {
   constructor(private userId: number) {}
 
+  public async getPopulated(): Promise<PopulatedUser> {
+    const user = await dbClient.user.findUnique({
+      where: {
+        id: this.userId,
+      },
+      select: {
+        id: true,
+        freeCredits: true,
+        inAppPurchases: true,
+        subscriptions: true,
+      },
+    })
+
+    if (user === null) {
+      throw new Error('User with the provided id is not defined')
+    }
+
+    return user
+  }
+
   static async getUserIdByFirebaseId(firebaseId: string): Promise<number> {
     return await dbClient.$transaction(async (transaction) => {
       let firebaseUser = await transaction.firebaseUser.findFirst({
