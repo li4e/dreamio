@@ -3,7 +3,7 @@ import { InAppPurchaseEventTransformer } from './transformers/InAppPurchaseEvent
 import { SubscriptionEventTransformer } from './transformers/SubscriptionEventTransformer'
 import { isNonSubscriptionEvent } from './utils/isNonSubscriptionEvent'
 import { SubscriptionService } from '../../services/subscription'
-import { InAppPurchasesService } from '../../services/in_app_purchases'
+import { InAppPurchaseService } from '../../services/in_app_purchase'
 
 export class AdaptyWebhookHandler {
   constructor(private event: AdaptyWebhookEvent) {}
@@ -14,7 +14,7 @@ export class AdaptyWebhookHandler {
 
   public async handle(): Promise<void> {
     if (this.isNonSubscription) {
-      await new InAppPurchasesService().save(
+      await InAppPurchaseService.save(
         new InAppPurchaseEventTransformer(this.event)
       )
     } else {
