@@ -19,6 +19,13 @@
         "cwd": "packages/api"
       }
     },
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx generate:routes && nx generate:spec",
+        "cwd": "packages/api"
+      }
+    },
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
@@ -57,7 +64,7 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "packages/api/jest.config.ts",
-        "args": ["--runInBand"]
+        "runInBand": true
       }
     },
     "deploy": {

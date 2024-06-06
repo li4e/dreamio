@@ -1,10 +1,10 @@
-import { IUserSettings } from '../types/client'
+import { IUserData } from '../types/client'
 import { PopulatedUser } from '../types/user'
 
 export class UserModel {
   constructor(private user: PopulatedUser) {}
 
-  get settings(): IUserSettings {
+  get data(): IUserData {
     return {
       id: this.user.id,
       credits: this.credits,
@@ -12,7 +12,7 @@ export class UserModel {
     }
   }
 
-  get credits() {
+  private get credits() {
     return (
       this.user.freeCredits +
       this.user.subscriptions
@@ -24,7 +24,7 @@ export class UserModel {
     )
   }
 
-  get hasPremium() {
+  private get hasPremium() {
     return this.user.subscriptions.findIndex((sub) => sub.is_active) !== -1
   }
 }

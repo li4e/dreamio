@@ -1,6 +1,6 @@
 import { Controller, Get, Route, Request, Security } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { IUserSettings } from '../types/client'
+import { IUserData } from '../types/client'
 import { AdaptyService } from '../integrations/adapty'
 import { AdaptyRestoreHandler } from '../handlers/adapty/AdaptyRestoreHandler'
 import { UserModel } from '../models/UserModel'
@@ -9,9 +9,9 @@ import { UserModel } from '../models/UserModel'
 export class PurchasesController extends Controller {
   @Security('firebase')
   @Get('restore')
-  public async getUser(
+  public async getUserData(
     @Request() req: AuthenticatedRequest
-  ): Promise<{ data: IUserSettings }> {
+  ): Promise<{ data: IUserData }> {
     const adaptyProfile = await new AdaptyService().getProfile(req.userId)
 
     const userWithRestoredPuchases = await new AdaptyRestoreHandler(
@@ -19,6 +19,6 @@ export class PurchasesController extends Controller {
     ).handleAngGetUser(req.userId)
     const user = new UserModel(userWithRestoredPuchases)
 
-    return { data: user.settings }
+    return { data: user.data }
   }
 }

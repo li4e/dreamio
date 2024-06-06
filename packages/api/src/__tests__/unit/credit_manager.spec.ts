@@ -14,24 +14,24 @@ describe('CreditManager Test', () => {
     const userId = await UserService.getUserIdByFirebaseId('super')
     const creditManager = new CreditManager(userId)
 
-    let userData = new UserModel(await new UserService(userId).getPopulated())
+    let user = new UserModel(await new UserService(userId).getPopulated())
     async function refreshUser() {
-      userData = new UserModel(await new UserService(userId).getPopulated())
+      user = new UserModel(await new UserService(userId).getPopulated())
     }
 
-    expect(userData.credits).toBe(1)
+    expect(user.data.credits).toBe(1)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(userData.credits).toBe(0)
+    expect(user.data.credits).toBe(0)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(userData.credits).toBe(1)
+    expect(user.data.credits).toBe(1)
   })
 
   it('subscription credits should be consumed and reverted back correctly', async () => {
@@ -47,24 +47,24 @@ describe('CreditManager Test', () => {
 
     const creditManager = new CreditManager(userId)
 
-    let userData = new UserModel(await new UserService(userId).getPopulated())
+    let user = new UserModel(await new UserService(userId).getPopulated())
     async function refreshUser() {
-      userData = new UserModel(await new UserService(userId).getPopulated())
+      user = new UserModel(await new UserService(userId).getPopulated())
     }
 
-    expect(userData.credits).toBe(101)
+    expect(user.data.credits).toBe(101)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(userData.credits).toBe(100)
+    expect(user.data.credits).toBe(100)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(userData.credits).toBe(101)
+    expect(user.data.credits).toBe(101)
 
     await creditManager.consume()
     await creditManager.consume()
@@ -72,6 +72,6 @@ describe('CreditManager Test', () => {
 
     await refreshUser()
 
-    expect(userData.credits).toBe(98)
+    expect(user.data.credits).toBe(98)
   })
 })

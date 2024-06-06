@@ -19,10 +19,9 @@ BEGIN
 END $$;`
 
 export async function clearDB() {
-  await dbClient.$queryRawUnsafe(clearQuery)
+  await dbClient.$executeRawUnsafe(clearQuery)
 }
 
 export async function prepareDB() {
-  await dbClient.$connect()
   await clearDB()
 }
