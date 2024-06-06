@@ -3,7 +3,7 @@ import { InAppPurchaseFromProfileTransformer } from './transformers/InAppPurchas
 import { SubscriptionFromProfileTransformer } from './transformers/SubscriptionFromProfileTransformer'
 import { SubscriptionsService } from '../../services/subscriptions'
 import { InAppPurchasesService } from '../../services/in_app_purchases'
-import { UsersService } from '../../services/users'
+import { UserService } from '../../services/user'
 import { PopulatedUser } from '../../types/user'
 
 export class AdaptyRestoreHandler {
@@ -53,6 +53,6 @@ export class AdaptyRestoreHandler {
 
     const savingResults = await Promise.all(promises)
 
-    return new UsersService().assignPurchases(userId, savingResults)
+    return new UserService(userId).assignPurchases(savingResults)
   }
 }

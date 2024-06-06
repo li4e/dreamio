@@ -1,5 +1,5 @@
 import { Request } from 'express'
-import { UsersService } from '../services/users'
+import { UserService } from '../services/user'
 import { ServerError, StatusCode } from '../shared/ServerError'
 import { FirebaseAuthService } from '../integrations/firebase_auth'
 
@@ -18,7 +18,7 @@ export async function expressAuthentication(
     }
 
     const uid = await FirebaseAuthService.convertTokenToUID(firebaseIdToken)
-    const userId = await new UsersService().getUserIdByFirebaseId(uid)
+    const userId = await UserService.getUserIdByFirebaseId(uid)
     request.userId = userId
   }
 }

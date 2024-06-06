@@ -1,7 +1,10 @@
-import { dbClient } from '@choco/db'
+import { dbClient, Prisma } from '@choco/db'
+import { PopulatedUser } from '../types/user'
 
-export class UsersService {
-  async getUserIdByFirebaseId(firebaseId: string): Promise<number> {
+export class UserService {
+  constructor(private userId: number) {}
+
+  static async getUserIdByFirebaseId(firebaseId: string): Promise<number> {
     return await dbClient.$transaction(async (transaction) => {
       let firebaseUser = await transaction.firebaseUser.findFirst({
         where: {
@@ -32,9 +35,8 @@ export class UsersService {
   }
 
   assignPurchases(
-    userId: number,
     items: { type: 'inApp' | 'subscription'; id: number }[]
-  ) {
+  ): Promise<PopulatedUser> {
     const userSubscriptions: { id: number }[] = []
     const userInApps: { id: number }[] = []
 
@@ -47,7 +49,7 @@ export class UsersService {
     }
 
     return dbClient.user.update({
-      where: { id: userId },
+      where: { id: this.userId },
       data: {
         ...(userSubscriptions.length > 0 && {
           subscriptions: {
@@ -62,10 +64,60 @@ export class UsersService {
       },
       select: {
         id: true,
+        freeCredits: true,
         subscriptions: true,
         inAppPurchases: true,
-        freeCredits: true,
       },
     })
+  }
+
+  async consumeFreeCredits(): Promise<number | null> {
+    try {
+      const data = await dbClient.user.update({
+        where: {
+          id: this.userId,
+          freeCredits: {
+            gt: 0,
+          },
+        },
+        data: {
+          freeCredits: {
+            decrement: 1,
+          },
+        },
+        select: {
+          freeCredits: true,
+        },
+      })
+
+      return data.freeCredits
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === 'P2025'
+      ) {
+        // P2025 error code indicates that the record does not exist
+        return null
+      }
+      throw error
+    }
+  }
+
+  incrementFreeCredits(): Promise<number> {
+    return dbClient.user
+      .update({
+        where: {
+          id: this.userId,
+        },
+        data: {
+          freeCredits: {
+            increment: 1,
+          },
+        },
+        select: {
+          freeCredits: true,
+        },
+      })
+      .then((data) => data.freeCredits)
   }
 }
