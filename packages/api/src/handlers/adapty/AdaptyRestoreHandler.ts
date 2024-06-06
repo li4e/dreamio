@@ -1,7 +1,7 @@
 import { AdaptyProfile } from '../../types/adapty'
 import { InAppPurchaseFromProfileTransformer } from './transformers/InAppPurchaseFromProfileTransformer'
 import { SubscriptionFromProfileTransformer } from './transformers/SubscriptionFromProfileTransformer'
-import { SubscriptionsService } from '../../services/subscriptions'
+import { SubscriptionService } from '../../services/subscription'
 import { InAppPurchasesService } from '../../services/in_app_purchases'
 import { UserService } from '../../services/user'
 import { PopulatedUser } from '../../types/user'
@@ -24,7 +24,7 @@ export class AdaptyRestoreHandler {
 
         if (dataTransformer) {
           promises.push(
-            new SubscriptionsService().save(dataTransformer).then((id) => ({
+            SubscriptionService.save(dataTransformer).then((id) => ({
               type: 'subscription',
               id,
             }))
