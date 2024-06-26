@@ -8,7 +8,7 @@
     "securityDefinitions": {
       "firebase": {
         "type": "apiKey",
-        "name": "firebaseIdToken",
+        "name": "firebase-token",
         "in": "header"
       }
     }
