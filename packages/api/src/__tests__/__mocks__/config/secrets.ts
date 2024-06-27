@@ -10,9 +10,10 @@ function defineSecret(envVariable: string) {
 
 export const secrets: ISecrets = {
   pgConenctionUrl: defineSecret('POSTGRESS_CONNECTION_URL'),
-  openAIOrg: defineSecret('_'),
-  openAIApiKey: defineSecret('_'),
-  adaptyApiKey: defineSecret('_'),
+  openAIOrg: defineSecret('OPEN_AI_ORG'),
+  openAIApiKey: defineSecret('OPEN_AI_API_KEY'),
+  adaptyApiKey: defineSecret('ADAPTY_API_KEY'),
+  adaptyWebhookApiKey: defineSecret('ADAPTY_WEBHOOK_API_KEY'),
 }
 
 export default Object.values(secrets)

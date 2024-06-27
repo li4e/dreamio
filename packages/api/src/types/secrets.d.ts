@@ -7,4 +7,5 @@ export interface ISecrets {
   openAIOrg: SecretValue
   openAIApiKey: SecretValue
   adaptyApiKey: SecretValue
+  adaptyWebhookApiKey: SecretValue
 }

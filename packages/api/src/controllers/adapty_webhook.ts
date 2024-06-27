@@ -2,6 +2,7 @@ import { Controller, Post, Route, Body, Header } from 'tsoa'
 import { AdaptyWebhookEvent } from '../types/adapty'
 import { ServerError } from '../shared/ServerError'
 import { AdaptyWebhookHandler } from '../handlers/adapty/AdaptyWebhookHandler'
+import { secrets } from '../config/secrets'
 
 @Route('adapty_webhook')
 export class AdaptyWebhookController extends Controller {
@@ -10,8 +11,9 @@ export class AdaptyWebhookController extends Controller {
     @Body() body: { adapty_check: unknown } | object,
     @Header('Authorization') authHeader: unknown
   ): Promise<{ adapty_check_response: unknown } | { success: true }> {
-    // TODO: Use a real key
-    if (authHeader !== '123') {
+    const token = secrets.adaptyWebhookApiKey.value()
+
+    if (authHeader !== token) {
       throw new ServerError('Token is invalid', 401)
     }
 
