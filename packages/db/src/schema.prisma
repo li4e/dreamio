@@ -36,6 +36,7 @@ model User {
     firebaseUsers  FirebaseUser[]
     subscriptions  Subscription[]  @relation("UserSubscriptions")
     inAppPurchases InAppPurchase[] @relation("UserInAppPurchases")
+    Generation     Generation[]
 }
 
 model FirebaseUser {
@@ -85,4 +86,48 @@ model InAppPurchase {
     version                 Int     @default(0)
 
     @@unique([store, original_transaction_id])
+}
+
+model Image {
+    id              Int               @id @default(autoincrement())
+    filePath        String            @unique @map("file_path")
+    publicUrl       String            @map("public_url")
+    GenerationImage GenerationImage[]
+}
+
+enum Status {
+    processing
+    completed
+    error
+}
+
+enum GenerationModel {
+    dalle_2
+    dalle_3
+}
+
+model GenerationImage {
+    id           Int        @id @default(autoincrement())
+    generationId Int
+    imageId      Int
+    generation   Generation @relation(fields: [generationId], references: [id])
+    image        Image      @relation(fields: [imageId], references: [id])
+
+    @@unique([generationId, imageId])
+}
+
+model Generation {
+    id          Int             @id @default(autoincrement())
+    userId      Int             @map("user_id")
+    promptFull  String          @db.VarChar(1000)
+    prompt      String          @db.VarChar(500)
+    style       String?         @db.VarChar(255)
+    model       GenerationModel
+    highQuality Boolean?
+    enhancer    Boolean
+    status      Status          @default(processing)
+    version     Int             @default(0)
+
+    images GenerationImage[]
+    user   User              @relation(fields: [userId], references: [id])
 }
