@@ -41,6 +41,15 @@ export class GenerationService {
     })
   }
 
+  public async setErrorStatus() {
+    await dbClient.generation.update({
+      where: { id: this._id },
+      data: {
+        status: 'error',
+      },
+    })
+  }
+
   async saveResults(images: CreateImageDto[]): Promise<PopulatedGeneration> {
     const result = await dbClient.$transaction(async ($transaction) => {
       const savedImages = await $transaction.image.createManyAndReturn({
