@@ -11,15 +11,15 @@ describe('Integration test /generations', () => {
     const result = await supertest(app)
       .post('/generations')
       .set('firebase-token', 'valid')
-      .send({ prompt: 'best image ever' })
+      .send({
+        prompt: `"Very cute kitty in Taiwan streets" in cartoon style`,
+      })
       .expect(201)
       .expect('Content-Type', /json/)
 
-    console.log(result.body)
-
-    expect(result.body.data.url).toBeDefined()
+    expect(result.body.data.imageUrl).toBeDefined()
     expect(result.body.data.userData.credits).toBe(0)
-  })
+  }, 60000)
 
   it('No credits generation', async () => {
     const result = await supertest(app)
@@ -29,9 +29,7 @@ describe('Integration test /generations', () => {
       .expect(206)
       .expect('Content-Type', /json/)
 
-    console.log(result.body)
-
-    expect(result.body.data.url).toBeNull()
+    expect(result.body.data.imageUrl).toBeNull()
     expect(result.body.data.userData.credits).toBe(0)
   })
 })

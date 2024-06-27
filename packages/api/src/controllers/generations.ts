@@ -26,7 +26,7 @@ export class GenerationsController extends Controller {
   public async startGeneration(
     @Body() body: RequestBody,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: { url: string | null; userData: IUserData } }> {
+  ): Promise<{ data: { imageUrl: string | null; userData: IUserData } }> {
     const { userId } = request
 
     const userManager = await UserManager.get(userId)
@@ -34,14 +34,14 @@ export class GenerationsController extends Controller {
     await userManager.consumeCredits()
     if (!userManager.isConsumed) {
       this.setStatus(206)
-      return { data: { userData: userManager.userData, url: null } }
+      return { data: { userData: userManager.userData, imageUrl: null } }
     }
 
     try {
       const result = await new OpenAIService().generateImage(body.prompt)
 
       this.setStatus(201)
-      return { data: { url: result, userData: userManager.userData } }
+      return { data: { imageUrl: result, userData: userManager.userData } }
     } catch (error) {
       await userManager.revertBackCredits()
       throw error
