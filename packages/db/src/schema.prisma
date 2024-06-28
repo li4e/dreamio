@@ -118,6 +118,7 @@ model GenerationImage {
 
 model Generation {
     id          Int             @id @default(autoincrement())
+    /// @DtoRelationIncludeId
     userId      Int             @map("user_id")
     promptFull  String          @db.VarChar(1000)
     prompt      String          @db.VarChar(500)

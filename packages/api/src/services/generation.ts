@@ -29,13 +29,22 @@ export class GenerationService {
     }
   }
 
-  static create(
-    data: CreateGenerationDto,
-    userId: number
-  ): Promise<GenerationDto> {
+  async getShortInfo() {
+    return dbClient.generation.findUnique({
+      where: {
+        id: this.id,
+      },
+      select: {
+        id: true,
+        userId: true,
+        status: true,
+      },
+    })
+  }
+
+  static create(data: CreateGenerationDto): Promise<GenerationDto> {
     return dbClient.generation.create({
       data: {
-        userId,
         ...data,
       },
     })

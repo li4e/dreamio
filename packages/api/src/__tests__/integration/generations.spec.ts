@@ -3,7 +3,6 @@ import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
 import { StartGenerationBody } from '../../types/controllers/generation'
 import { GenerationsItemManager } from '../../managers/generation'
-import { GenerationService } from '../../services/generation'
 
 beforeAll(async () => {
   await prepareDB()
@@ -48,10 +47,18 @@ describe('Integration test /generations', () => {
     }
 
     const generation = new GenerationsItemManager(generationId)
-    await generation.start()
 
-    const data = await new GenerationService(generationId).getData()
+    setTimeout(() => {
+      generation.start()
+    }, 10)
 
-    expect(data.id).toBe(generationId)
+    const result = await supertest(app)
+      .get('/generations/' + generationId)
+      .set('firebase-token', 'valid')
+      .send(request)
+      .expect(200)
+      .expect('Content-Type', /json/)
+
+    expect(result.body.data.status).toBe('completed')
   })
 })

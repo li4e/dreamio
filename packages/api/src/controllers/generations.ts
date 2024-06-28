@@ -1,6 +1,8 @@
 import {
   Controller,
   Post,
+  Get,
+  Path,
   Body,
   Route,
   Request,
@@ -14,6 +16,10 @@ import { UserManager } from '../managers/user'
 import { GenerationDto } from '@choco/db'
 import { StartGenerationBody } from '../types/controllers/generation'
 import { GenerationsManager } from '../managers/generation'
+import { PopulatedGeneration } from '../types/generation'
+import { GenerationService } from '../services/generation'
+import { ServerError } from '../shared/ServerError'
+import { wait } from '../utils/wait'
 
 @Route('generations')
 export class GenerationsController extends Controller {
@@ -21,7 +27,7 @@ export class GenerationsController extends Controller {
   @Post()
   @SuccessResponse('201')
   @Response('206')
-  public async startGeneration(
+  public async createGeneration(
     @Body() body: StartGenerationBody,
     @Request() request: AuthenticatedRequest
   ): Promise<{
@@ -44,7 +50,40 @@ export class GenerationsController extends Controller {
       return { data: { generation: result, userData: userManager.userData } }
     } catch (error) {
       await userManager.revertBackCredits()
-      throw error
+      throw new ServerError('Not found', 404)
     }
+  }
+
+  @Security('firebase')
+  @Get('{generationId}')
+  @SuccessResponse('200')
+  public async getGeneration(
+    @Path('generationId') generationId: number,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ data: PopulatedGeneration }> {
+    const { userId } = request
+
+    const generation = new GenerationService(generationId)
+
+    let generationInfo = await generation.getShortInfo()
+
+    if (generationInfo === null || generationInfo.userId !== userId) {
+      throw new ServerError('Not found', 404)
+    }
+
+    const startTime = Date.now()
+
+    while (
+      generationInfo &&
+      generationInfo.status === 'processing' &&
+      Date.now() - startTime < 40_000
+    ) {
+      await wait(2000)
+      generationInfo = await generation.getShortInfo()
+    }
+
+    const generationData = await generation.getData()
+
+    return { data: generationData }
   }
 }
