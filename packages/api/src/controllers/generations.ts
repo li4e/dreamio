@@ -20,6 +20,7 @@ import { PopulatedGeneration } from '../types/generation'
 import { GenerationService } from '../services/generation'
 import { ServerError } from '../shared/ServerError'
 import { wait } from '../utils/wait'
+import { pubSubService } from '../integrations/pub_sub'
 
 @Route('generations')
 export class GenerationsController extends Controller {
@@ -45,6 +46,7 @@ export class GenerationsController extends Controller {
 
     try {
       const result = await new GenerationsManager(body, userId).create()
+      await pubSubService.startGeneration(result.id)
 
       this.setStatus(201)
       return { data: { generation: result, userData: userManager.userData } }

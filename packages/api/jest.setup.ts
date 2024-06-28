@@ -23,3 +23,7 @@ jest.mock('./src/config/secrets', () => {
 jest.mock('./src/utils/wait', () => {
   return jest.requireActual('./src/__tests__/__mocks__/utils/wait')
 })
+
+jest.mock('./src/integrations/pub_sub', () => {
+  return jest.requireActual('./src/__tests__/__mocks__/integrations/pub_sub')
+})

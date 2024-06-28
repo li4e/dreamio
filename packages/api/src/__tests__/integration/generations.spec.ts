@@ -2,7 +2,6 @@ import supertest from 'supertest'
 import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
 import { StartGenerationBody } from '../../types/controllers/generation'
-import { GenerationsItemManager } from '../../managers/generation'
 
 beforeAll(async () => {
   await prepareDB()
@@ -45,12 +44,6 @@ describe('Integration test /generations', () => {
     if (generationId === null) {
       throw new Error('generationId is null')
     }
-
-    const generation = new GenerationsItemManager(generationId)
-
-    setTimeout(() => {
-      generation.start()
-    }, 2)
 
     const result = await supertest(app)
       .get('/generations/' + generationId)
