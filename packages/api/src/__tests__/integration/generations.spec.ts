@@ -50,7 +50,7 @@ describe('Integration test /generations', () => {
 
     setTimeout(() => {
       generation.start()
-    }, 10)
+    }, 2)
 
     const result = await supertest(app)
       .get('/generations/' + generationId)
