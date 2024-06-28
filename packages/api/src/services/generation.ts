@@ -50,8 +50,8 @@ export class GenerationService {
     })
   }
 
-  async saveResults(images: CreateImageDto[]): Promise<PopulatedGeneration> {
-    const result = await dbClient.$transaction(async ($transaction) => {
+  async saveResults(images: CreateImageDto[]): Promise<void> {
+    await dbClient.$transaction(async ($transaction) => {
       const savedImages = await $transaction.image.createManyAndReturn({
         data: images,
       })
@@ -78,9 +78,5 @@ export class GenerationService {
         },
       })
     })
-    return {
-      ...result,
-      images: result.images.map((image) => image.image),
-    }
   }
 }

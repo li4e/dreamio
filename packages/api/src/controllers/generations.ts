@@ -10,12 +10,10 @@ import {
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
 import { IUserData } from '../types/client'
-import { OpenAIService } from '../integrations/openai'
 import { UserManager } from '../managers/user'
-
-interface RequestBody {
-  prompt: string
-}
+import { GenerationDto } from '@choco/db'
+import { StartGenerationBody } from '../types/controllers/generation'
+import { GenerationsManager } from '../managers/generation'
 
 @Route('generations')
 export class GenerationsController extends Controller {
@@ -24,9 +22,11 @@ export class GenerationsController extends Controller {
   @SuccessResponse('201')
   @Response('206')
   public async startGeneration(
-    @Body() body: RequestBody,
+    @Body() body: StartGenerationBody,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: { imageUrl: string | null; userData: IUserData } }> {
+  ): Promise<{
+    data: { generation: GenerationDto | null; userData: IUserData }
+  }> {
     const { userId } = request
 
     const userManager = await UserManager.get(userId)
@@ -34,14 +34,14 @@ export class GenerationsController extends Controller {
     await userManager.consumeCredits()
     if (!userManager.isConsumed) {
       this.setStatus(206)
-      return { data: { userData: userManager.userData, imageUrl: null } }
+      return { data: { userData: userManager.userData, generation: null } }
     }
 
     try {
-      const result = await new OpenAIService().generateImage(body.prompt)
+      const result = await new GenerationsManager(body, userId).create()
 
       this.setStatus(201)
-      return { data: { imageUrl: result, userData: userManager.userData } }
+      return { data: { generation: result, userData: userManager.userData } }
     } catch (error) {
       await userManager.revertBackCredits()
       throw error

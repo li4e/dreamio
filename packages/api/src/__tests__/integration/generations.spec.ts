@@ -1,23 +1,28 @@
 import supertest from 'supertest'
 import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
+import { StartGenerationBody } from '../../types/controllers/generation'
 
 beforeAll(async () => {
   await prepareDB()
 })
 
 describe('Integration test /generations', () => {
+  const request: StartGenerationBody = {
+    prompt: 'very pretty kitty on Taipei streets',
+    enhancer: false,
+    style: 'photorealistic',
+  }
+
   it('Valid create generation', async () => {
     const result = await supertest(app)
       .post('/generations')
       .set('firebase-token', 'valid')
-      .send({
-        prompt: `"Very cute kitty in Taiwan streets" in cartoon style`,
-      })
+      .send(request)
       .expect(201)
       .expect('Content-Type', /json/)
 
-    expect(result.body.data.imageUrl).toBeDefined()
+    expect(result.body.data.generation).toBeDefined()
     expect(result.body.data.userData.credits).toBe(0)
   }, 60000)
 
@@ -25,11 +30,11 @@ describe('Integration test /generations', () => {
     const result = await supertest(app)
       .post('/generations')
       .set('firebase-token', 'valid')
-      .send({ prompt: 'best image ever' })
+      .send(request)
       .expect(206)
       .expect('Content-Type', /json/)
 
-    expect(result.body.data.imageUrl).toBeNull()
+    expect(result.body.data.generation).toBeNull()
     expect(result.body.data.userData.credits).toBe(0)
   })
 })

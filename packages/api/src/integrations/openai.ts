@@ -16,21 +16,26 @@ export class OpenAIService implements IOpenAiService {
   }
 
   async generateImage(prompt: string, highQuality = false): Promise<string> {
-    const result = await this.openAI.images.generate({
-      model: 'dall-e-3',
-      prompt,
-      size: '1024x1024',
-      response_format: 'url',
-      n: 1,
-      quality: highQuality ? 'hd' : 'standard',
-    })
+    try {
+      const result = await this.openAI.images.generate({
+        model: 'dall-e-3',
+        prompt,
+        size: '1024x1024',
+        response_format: 'b64_json',
+        n: 1,
+        quality: highQuality ? 'hd' : 'standard',
+      })
 
-    const imageUrl = result.data[0].url
+      const imageBase64 = result.data[0].b64_json
 
-    if (!imageUrl) {
-      throw new Error('Images length is below 1')
+      if (!imageBase64) {
+        throw new Error('Images generation result length is below 1')
+      }
+
+      return imageBase64
+    } catch (error) {
+      console.error('Error during generating image with OpenAI', error)
+      throw new Error('Error during generating image with OpenAI')
     }
-
-    return imageUrl
   }
 }
