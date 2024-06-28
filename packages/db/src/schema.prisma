@@ -31,19 +31,23 @@ datasource db {
 }
 
 model User {
-    id             Int             @id @default(autoincrement())
-    freeCredits    Int             @default(1)
+    id          Int @id @default(autoincrement())
+    freeCredits Int @default(1)
+
     firebaseUsers  FirebaseUser[]
     subscriptions  Subscription[]  @relation("UserSubscriptions")
     inAppPurchases InAppPurchase[] @relation("UserInAppPurchases")
-    Generation     Generation[]
+    generations    Generation[]
+    likedPosts     PostLike[]
 }
 
 model FirebaseUser {
-    id         Int    @id @default(autoincrement())
     firebaseId String @unique
     userId     Int
-    user       User   @relation(fields: [userId], references: [id])
+
+    user User @relation(fields: [userId], references: [id])
+
+    @@unique([firebaseId, userId])
 }
 
 enum Store {
@@ -89,10 +93,10 @@ model InAppPurchase {
 }
 
 model Image {
-    id              Int               @id @default(autoincrement())
-    filePath        String            @unique @map("file_path")
-    publicUrl       String            @map("public_url")
-    GenerationImage GenerationImage[]
+    id              Int              @id @default(autoincrement())
+    filePath        String           @unique @map("file_path")
+    publicUrl       String           @map("public_url")
+    imageGeneration ImageGeneration?
 }
 
 enum Status {
@@ -106,14 +110,11 @@ enum GenerationModel {
     dalle_3
 }
 
-model GenerationImage {
-    id           Int        @id @default(autoincrement())
+model ImageGeneration {
+    imageId      Int        @id @unique
     generationId Int
-    imageId      Int
     generation   Generation @relation(fields: [generationId], references: [id])
     image        Image      @relation(fields: [imageId], references: [id])
-
-    @@unique([generationId, imageId])
 }
 
 model Generation {
@@ -124,11 +125,40 @@ model Generation {
     prompt      String          @db.VarChar(500)
     style       String?         @db.VarChar(255)
     model       GenerationModel
+    n           Int             @default(1)
     highQuality Boolean?
     enhancer    Boolean
     status      Status          @default(processing)
-    version     Int             @default(0)
+    createdAt   DateTime        @default(now()) @map("created_at")
+    updatedAt   DateTime        @updatedAt @map("updated_at")
 
-    images GenerationImage[]
+    images ImageGeneration[]
     user   User              @relation(fields: [userId], references: [id])
+    Post   Post[]
+}
+
+model Post {
+    id                Int      @id @default(autoincrement())
+    generationId      Int      @map("generation_id")
+    imageGenerationId Int      @map("image_generation_id")
+    deleted           Boolean  @default(false)
+    createdAt         DateTime @default(now()) @map("created_at")
+    updatedAt         DateTime @updatedAt @map("updated_at")
+    likesCount        Int      @default(0) @map("likes_count")
+
+    likes PostLike[]
+
+    generation Generation @relation(fields: [generationId], references: [id])
+
+    @@unique([generationId, imageGenerationId])
+}
+
+model PostLike {
+    postId Int
+    userId Int
+
+    post Post @relation(fields: [postId], references: [id])
+    user User @relation(fields: [userId], references: [id])
+
+    @@unique([userId, postId])
 }

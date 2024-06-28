@@ -65,7 +65,7 @@ export class GenerationService {
         data: images,
       })
 
-      await $transaction.generationImage.createMany({
+      await $transaction.imageGeneration.createMany({
         data: savedImages.map((image) => ({
           imageId: image.id,
           generationId: this.id,
