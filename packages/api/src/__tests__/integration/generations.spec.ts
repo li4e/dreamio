@@ -2,6 +2,8 @@ import supertest from 'supertest'
 import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
 import { StartGenerationBody } from '../../types/controllers/generation'
+import { GenerationsItemManager } from '../../managers/generation'
+import { GenerationService } from '../../services/generation'
 
 beforeAll(async () => {
   await prepareDB()
@@ -13,6 +15,7 @@ describe('Integration test /generations', () => {
     enhancer: false,
     style: 'photorealistic',
   }
+  let generationId: number | null = null
 
   it('Valid create generation', async () => {
     const result = await supertest(app)
@@ -22,6 +25,7 @@ describe('Integration test /generations', () => {
       .expect(201)
       .expect('Content-Type', /json/)
 
+    generationId = result.body.data.generation.id
     expect(result.body.data.generation).toBeDefined()
     expect(result.body.data.userData.credits).toBe(0)
   }, 60000)
@@ -36,5 +40,18 @@ describe('Integration test /generations', () => {
 
     expect(result.body.data.generation).toBeNull()
     expect(result.body.data.userData.credits).toBe(0)
+  })
+
+  it('save generation', async () => {
+    if (generationId === null) {
+      throw new Error('generationId is null')
+    }
+
+    const generation = new GenerationsItemManager(generationId)
+    await generation.start()
+
+    const data = await new GenerationService(generationId).getData()
+
+    expect(data.id).toBe(generationId)
   })
 })
