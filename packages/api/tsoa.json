@@ -3,7 +3,7 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/controllers/**/*.ts"],
   "spec": {
-    "outputDirectory": "generated",
+    "outputDirectory": "__generated",
     "specVersion": 3,
     "securityDefinitions": {
       "firebase": {
@@ -14,7 +14,7 @@
     }
   },
   "routes": {
-    "routesDir": "generated",
+    "routesDir": "__generated",
     "authenticationModule": "./src/middleware/authentication.ts"
   },
   "compilerOptions": {

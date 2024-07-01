@@ -70,7 +70,7 @@ export class PostsController extends Controller {
   @Security('firebase')
   @Get('{postId}')
   @SuccessResponse('200')
-  public async getGeneration(
+  public async getPost(
     @Path('postId') postId: number
   ): Promise<{ data: IPost }> {
     const post = await new PostService(postId).getData()
@@ -98,7 +98,7 @@ export class PostsController extends Controller {
 
   @Security('firebase')
   @Delete('{postId}/likes')
-  public async unlike(
+  public async unlikePost(
     @Path('postId') postId: number,
     @Request() request: AuthenticatedRequest
   ): Promise<{ data: boolean }> {

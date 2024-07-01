@@ -1,12 +1,12 @@
 generator client {
     provider      = "prisma-client-js"
     binaryTargets = ["native", "darwin-arm64"]
-    output        = "../generated/client"
+    output        = "../__generated/client"
 }
 
 generator model {
     provider                        = "prisma-generator-nestjs-dto"
-    output                          = "../generated/models"
+    output                          = "../__generated/models"
     outputToNestJsResourceStructure = "false"
     flatResourceStructure           = "false"
     exportRelationModifierClasses   = "false"

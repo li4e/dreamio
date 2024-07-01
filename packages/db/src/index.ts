@@ -1,6 +1,6 @@
-import { PrismaClient, Prisma as PrismaNative } from '../generated/client'
+import { PrismaClient, Prisma as PrismaNative } from '../__generated/client'
 
-export * from '../generated/models'
+export * from '../__generated/models'
 
 export const dbClient = new PrismaClient()
 

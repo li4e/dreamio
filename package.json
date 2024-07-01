@@ -24,6 +24,7 @@
     "@nx/react-native": "^19.1.0",
     "@nx/vite": "19.1.0",
     "@nx/web": "19.1.0",
+    "@openapitools/openapi-generator-cli": "^2.13.4",
     "@playwright/test": "^1.36.0",
     "@react-native-community/cli-platform-android": "~12.3.6",
     "@react-native/babel-preset": "^0.73.21",

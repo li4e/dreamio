@@ -1,7 +1,7 @@
 import { CreateInAppPurchaseDto, UpdateInAppPurchaseDto } from '@choco/db'
 import { AdaptyNonSubscription } from '../../../types/adapty'
 import { IDBInAppAdapter } from '../../../services/db_adapters'
-import { Store } from 'packages/db/generated/client'
+import { Store } from 'packages/db/__generated/client'
 
 class InAppPurchaseFromProfileTransformerStrict implements IDBInAppAdapter {
   private store: Store
