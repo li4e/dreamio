@@ -16,8 +16,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@choco/db": ["packages/db/src/index.ts"],
-      "@choco/api-client": ["packages/api-client/src/index.ts"]
+      "@choco/api-client": ["packages/api-client/src/index.ts"],
+      "@choco/db": ["packages/db/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
