@@ -5,8 +5,8 @@
   "scripts": {
     "prepare": "husky",
     "lint": "nx run mobile:lint --fix && nx run api:lint --fix",
-    "postinstall": "nx run db:prepare && nx run api:generate:routes",
-    "test:all": "nx run db:prepare && nx run api:prepare && nx run-many -t test --parallel=false"
+    "postinstall": "nx run api:prepare",
+    "test:all": "nx run-many -t test --parallel=false"
   },
   "private": true,
   "devDependencies": {

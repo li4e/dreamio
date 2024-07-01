@@ -23,23 +23,11 @@
         "command": "dotenvx run --env-file=packages/api/.test.env -- npx prisma migrate deploy --schema packages/db/src/schema.prisma"
       }
     },
-    "prisma:migrate:dev": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate dev --schema packages/db/src/schema.prisma && npm run postinstall"
-      }
-    },
 
-    "prisma:generate:client": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx prisma generate --schema packages/db/src/schema.prisma && npx ts-node packages/db/src/scripts/generateModelsIndex.ts"
-      }
-    },
     "prepare": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx nx run db:prisma:generate:client"
+        "command": "npx prisma generate --schema packages/db/src/schema.prisma && npx ts-node packages/db/src/scripts/generateModelsIndex.ts"
       }
     },
     "test": {

@@ -5,20 +5,14 @@
   "projectType": "application",
   "tags": ["firebase:function", "firebase:name:api", "firebase:dep:firebase"],
   "targets": {
-    "generate:routes": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx tsoa routes && npx tsoa spec && openapi-generator-cli generate -i ./__generated/swagger.json -g typescript-axios -o ../api-client/__generated",
-        "cwd": "packages/api"
-      }
-    },
     "prepare": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx generate:routes",
+        "command": "nx run db:prepare && npx tsoa routes && npx tsoa spec && openapi-generator-cli generate -i ./__generated/swagger.json -g typescript-axios -o ../api-client/__generated",
         "cwd": "packages/api"
       }
     },
+
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
@@ -47,7 +41,8 @@
             "js": "const require = (await import('node:module')).createRequire(import.meta.url);const __filename = (await import('node:url')).fileURLToPath(import.meta.url);const __dirname = (await import('node:path')).dirname(__filename);"
           }
         }
-      }
+      },
+      "dependsOn": ["prepare"]
     },
     "lint": {
       "executor": "@nx/eslint:lint"
@@ -58,7 +53,8 @@
       "options": {
         "jestConfig": "packages/api/jest.config.ts",
         "runInBand": true
-      }
+      },
+      "dependsOn": ["prepare"]
     },
     "deploy": {
       "executor": "nx:run-commands",
