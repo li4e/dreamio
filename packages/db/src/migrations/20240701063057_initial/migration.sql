@@ -7,6 +7,9 @@ CREATE TYPE "Status" AS ENUM ('processing', 'completed', 'error');
 -- CreateEnum
 CREATE TYPE "GenerationModel" AS ENUM ('dalle_2', 'dalle_3');
 
+-- CreateEnum
+CREATE TYPE "ClaimStatus" AS ENUM ('pending', 'accepted', 'rejected');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -67,10 +70,10 @@ CREATE TABLE "Image" (
 
 -- CreateTable
 CREATE TABLE "ImageGeneration" (
-    "imageId" INTEGER NOT NULL,
-    "generationId" INTEGER NOT NULL,
+    "image_id" INTEGER NOT NULL,
+    "generation_id" INTEGER NOT NULL,
 
-    CONSTRAINT "ImageGeneration_pkey" PRIMARY KEY ("imageId")
+    CONSTRAINT "ImageGeneration_pkey" PRIMARY KEY ("image_id")
 );
 
 -- CreateTable
@@ -96,18 +99,72 @@ CREATE TABLE "Post" (
     "id" SERIAL NOT NULL,
     "generation_id" INTEGER NOT NULL,
     "image_generation_id" INTEGER NOT NULL,
-    "deleted" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "likes_count" INTEGER NOT NULL DEFAULT 0,
+    "comments_count" INTEGER NOT NULL DEFAULT 0,
+    "deleted" BOOLEAN NOT NULL DEFAULT false,
+    "blocked" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "PostLike" (
-    "postId" INTEGER NOT NULL,
-    "userId" INTEGER NOT NULL
+    "post_id" INTEGER NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "PostComment" (
+    "id" BIGSERIAL NOT NULL,
+    "post_id" INTEGER NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "content" TEXT NOT NULL,
+    "likes_count" INTEGER NOT NULL DEFAULT 0,
+    "child_count" INTEGER NOT NULL DEFAULT 0,
+    "deleted" BOOLEAN NOT NULL DEFAULT false,
+    "blocked" BOOLEAN NOT NULL DEFAULT false,
+    "parent_id" BIGINT,
+    "reply_id" BIGINT,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "PostComment_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "PostCommentLike" (
+    "comment_id" BIGINT NOT NULL,
+    "user_id" INTEGER NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "PostClaim" (
+    "id" SERIAL NOT NULL,
+    "post_id" INTEGER NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "reason" CHAR(255) NOT NULL,
+    "status" "ClaimStatus" NOT NULL DEFAULT 'pending',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "PostClaim_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "CommentClaim" (
+    "id" SERIAL NOT NULL,
+    "comment_id" BIGINT NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "reason" TEXT NOT NULL,
+    "status" "ClaimStatus" NOT NULL DEFAULT 'pending',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "CommentClaim_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -138,13 +195,22 @@ CREATE UNIQUE INDEX "InAppPurchase_store_original_transaction_id_key" ON "InAppP
 CREATE UNIQUE INDEX "Image_file_path_key" ON "Image"("file_path");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "ImageGeneration_imageId_key" ON "ImageGeneration"("imageId");
+CREATE UNIQUE INDEX "ImageGeneration_image_id_key" ON "ImageGeneration"("image_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Post_generation_id_image_generation_id_key" ON "Post"("generation_id", "image_generation_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "PostLike_userId_postId_key" ON "PostLike"("userId", "postId");
+CREATE UNIQUE INDEX "PostLike_user_id_post_id_key" ON "PostLike"("user_id", "post_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "PostCommentLike_user_id_comment_id_key" ON "PostCommentLike"("user_id", "comment_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "PostClaim_user_id_post_id_key" ON "PostClaim"("user_id", "post_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "CommentClaim_user_id_comment_id_key" ON "CommentClaim"("user_id", "comment_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_UserSubscriptions_AB_unique" ON "_UserSubscriptions"("A", "B");
@@ -162,10 +228,10 @@ CREATE INDEX "_UserInAppPurchases_B_index" ON "_UserInAppPurchases"("B");
 ALTER TABLE "FirebaseUser" ADD CONSTRAINT "FirebaseUser_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_generationId_fkey" FOREIGN KEY ("generationId") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_generation_id_fkey" FOREIGN KEY ("generation_id") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_imageId_fkey" FOREIGN KEY ("imageId") REFERENCES "Image"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_image_id_fkey" FOREIGN KEY ("image_id") REFERENCES "Image"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Generation" ADD CONSTRAINT "Generation_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -174,10 +240,40 @@ ALTER TABLE "Generation" ADD CONSTRAINT "Generation_user_id_fkey" FOREIGN KEY ("
 ALTER TABLE "Post" ADD CONSTRAINT "Post_generation_id_fkey" FOREIGN KEY ("generation_id") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "PostLike" ADD CONSTRAINT "PostLike_postId_fkey" FOREIGN KEY ("postId") REFERENCES "Post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "PostLike" ADD CONSTRAINT "PostLike_post_id_fkey" FOREIGN KEY ("post_id") REFERENCES "Post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "PostLike" ADD CONSTRAINT "PostLike_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "PostLike" ADD CONSTRAINT "PostLike_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostComment" ADD CONSTRAINT "PostComment_post_id_fkey" FOREIGN KEY ("post_id") REFERENCES "Post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostComment" ADD CONSTRAINT "PostComment_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostComment" ADD CONSTRAINT "PostComment_parent_id_fkey" FOREIGN KEY ("parent_id") REFERENCES "PostComment"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostComment" ADD CONSTRAINT "PostComment_reply_id_fkey" FOREIGN KEY ("reply_id") REFERENCES "PostComment"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostCommentLike" ADD CONSTRAINT "PostCommentLike_comment_id_fkey" FOREIGN KEY ("comment_id") REFERENCES "PostComment"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostCommentLike" ADD CONSTRAINT "PostCommentLike_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostClaim" ADD CONSTRAINT "PostClaim_post_id_fkey" FOREIGN KEY ("post_id") REFERENCES "Post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PostClaim" ADD CONSTRAINT "PostClaim_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CommentClaim" ADD CONSTRAINT "CommentClaim_comment_id_fkey" FOREIGN KEY ("comment_id") REFERENCES "PostComment"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CommentClaim" ADD CONSTRAINT "CommentClaim_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_UserSubscriptions" ADD CONSTRAINT "_UserSubscriptions_A_fkey" FOREIGN KEY ("A") REFERENCES "Subscription"("id") ON DELETE CASCADE ON UPDATE CASCADE;

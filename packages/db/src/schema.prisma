@@ -35,10 +35,14 @@ model User {
     freeCredits Int @default(1)
 
     firebaseUsers  FirebaseUser[]
-    subscriptions  Subscription[]  @relation("UserSubscriptions")
-    inAppPurchases InAppPurchase[] @relation("UserInAppPurchases")
+    subscriptions  Subscription[]    @relation("UserSubscriptions")
+    inAppPurchases InAppPurchase[]   @relation("UserInAppPurchases")
     generations    Generation[]
     likedPosts     PostLike[]
+    likesComments  PostCommentLike[]
+    comments       PostComment[]
+    postsClaims    PostClaim[]
+    commentsClaims CommentClaim[]
 }
 
 model FirebaseUser {
@@ -111,8 +115,8 @@ enum GenerationModel {
 }
 
 model ImageGeneration {
-    imageId      Int        @id @unique
-    generationId Int
+    imageId      Int        @id @unique @map("image_id")
+    generationId Int        @map("generation_id")
     generation   Generation @relation(fields: [generationId], references: [id])
     image        Image      @relation(fields: [imageId], references: [id])
 }
@@ -141,24 +145,109 @@ model Post {
     id                Int      @id @default(autoincrement())
     generationId      Int      @map("generation_id")
     imageGenerationId Int      @map("image_generation_id")
-    deleted           Boolean  @default(false)
     createdAt         DateTime @default(now()) @map("created_at")
     updatedAt         DateTime @updatedAt @map("updated_at")
     likesCount        Int      @default(0) @map("likes_count")
+    commentsCount     Int      @default(0) @map("comments_count")
 
-    likes PostLike[]
+    deleted Boolean @default(false)
+    blocked Boolean @default(false)
+
+    likes    PostLike[]
+    comments PostComment[]
 
     generation Generation @relation(fields: [generationId], references: [id])
+
+    claims PostClaim[]
 
     @@unique([generationId, imageGenerationId])
 }
 
 model PostLike {
-    postId Int
-    userId Int
+    postId Int @map("post_id")
+    userId Int @map("user_id")
+
+    post Post @relation(fields: [postId], references: [id])
+    user User @relation(fields: [userId], references: [id])
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@unique([userId, postId])
+}
+
+model PostComment {
+    id         BigInt @id @default(autoincrement())
+    postId     Int    @map("post_id")
+    userId     Int    @map("user_id")
+    content    String @db.Text
+    likesCount Int    @default(0) @map("likes_count")
+    childCount Int    @default(0) @map("child_count")
+
+    deleted Boolean @default(false)
+    blocked Boolean @default(false)
+
+    parentId BigInt? @map("parent_id")
+    replyId  BigInt? @map("reply_id")
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    post Post @relation(fields: [postId], references: [id])
+    user User @relation(fields: [userId], references: [id])
+
+    parentComment PostComment?  @relation("ParentChildRelation", fields: [parentId], references: [id])
+    childComments PostComment[] @relation("ParentChildRelation")
+
+    replyComment PostComment?      @relation("ReplyRelation", fields: [replyId], references: [id])
+    replies      PostComment[]     @relation("ReplyRelation")
+    likes        PostCommentLike[]
+
+    claims CommentClaim[]
+}
+
+model PostCommentLike {
+    commentId BigInt @map("comment_id")
+    userId    Int    @map("user_id")
+
+    comment PostComment @relation(fields: [commentId], references: [id])
+    user    User        @relation(fields: [userId], references: [id])
+
+    @@unique([userId, commentId])
+}
+
+enum ClaimStatus {
+    pending
+    accepted
+    rejected
+}
+
+model PostClaim {
+    id        Int         @id @default(autoincrement())
+    postId    Int         @map("post_id")
+    userId    Int         @map("user_id")
+    reason    String      @db.Char(255)
+    status    ClaimStatus @default(pending)
+    createdAt DateTime    @default(now()) @map("created_at")
+    updatedAt DateTime    @updatedAt @map("updated_at")
 
     post Post @relation(fields: [postId], references: [id])
     user User @relation(fields: [userId], references: [id])
 
     @@unique([userId, postId])
+}
+
+model CommentClaim {
+    id        Int         @id @default(autoincrement())
+    commentId BigInt      @map("comment_id")
+    userId    Int         @map("user_id")
+    reason    String      @db.Text
+    status    ClaimStatus @default(pending)
+    createdAt DateTime    @default(now()) @map("created_at")
+    updatedAt DateTime    @updatedAt @map("updated_at")
+
+    comment PostComment @relation(fields: [commentId], references: [id])
+    user    User        @relation(fields: [userId], references: [id])
+
+    @@unique([userId, commentId])
 }
