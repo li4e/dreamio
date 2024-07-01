@@ -137,28 +137,6 @@ AFTER INSERT OR DELETE OR UPDATE OF deleted, blocked ON "PostComment"
 FOR EACH ROW
 EXECUTE FUNCTION update_post_comment_child_count();
 
--- Create or replace the function check_post_image_generation
-CREATE OR REPLACE FUNCTION check_post_image_generation()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF EXISTS (
-        SELECT 1
-        FROM "ImageGeneration" ig
-        WHERE ig.image_id = NEW.image_generation_id
-        AND ig.generation_id != NEW.generation_id
-    ) THEN
-        RAISE EXCEPTION 'The image_generation_id must belong to the same generation as the generation_id.';
-    END IF;
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
--- Create trigger to call check_post_image_generation function before insert or update
-CREATE TRIGGER before_insert_or_update_post
-BEFORE INSERT OR UPDATE ON "Post"
-FOR EACH ROW
-EXECUTE FUNCTION check_post_image_generation();
-
 -- Constraint to ensure that parent_id has the same postId
 CREATE OR REPLACE FUNCTION validate_parent_post_id()
 RETURNS TRIGGER AS $$

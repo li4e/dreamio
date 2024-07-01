@@ -97,7 +97,6 @@ CREATE TABLE "Generation" (
 -- CreateTable
 CREATE TABLE "Post" (
     "id" SERIAL NOT NULL,
-    "generation_id" INTEGER NOT NULL,
     "image_generation_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -198,7 +197,7 @@ CREATE UNIQUE INDEX "Image_file_path_key" ON "Image"("file_path");
 CREATE UNIQUE INDEX "ImageGeneration_image_id_key" ON "ImageGeneration"("image_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Post_generation_id_image_generation_id_key" ON "Post"("generation_id", "image_generation_id");
+CREATE UNIQUE INDEX "Post_image_generation_id_key" ON "Post"("image_generation_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "PostLike_user_id_post_id_key" ON "PostLike"("user_id", "post_id");
@@ -237,7 +236,7 @@ ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_image_id_fkey" FOR
 ALTER TABLE "Generation" ADD CONSTRAINT "Generation_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Post" ADD CONSTRAINT "Post_generation_id_fkey" FOREIGN KEY ("generation_id") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Post" ADD CONSTRAINT "Post_image_generation_id_fkey" FOREIGN KEY ("image_generation_id") REFERENCES "ImageGeneration"("image_id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "PostLike" ADD CONSTRAINT "PostLike_post_id_fkey" FOREIGN KEY ("post_id") REFERENCES "Post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -8,21 +8,14 @@
     "generate:routes": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx tsoa routes",
-        "cwd": "packages/api"
-      }
-    },
-    "generate:spec": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx tsoa spec",
+        "command": "npx tsoa routes && npx tsoa spec",
         "cwd": "packages/api"
       }
     },
     "prepare": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx generate:routes && nx generate:spec",
+        "command": "nx generate:routes",
         "cwd": "packages/api"
       }
     },

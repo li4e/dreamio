@@ -115,10 +115,12 @@ enum GenerationModel {
 }
 
 model ImageGeneration {
-    imageId      Int        @id @unique @map("image_id")
-    generationId Int        @map("generation_id")
-    generation   Generation @relation(fields: [generationId], references: [id])
-    image        Image      @relation(fields: [imageId], references: [id])
+    imageId      Int @id @unique @map("image_id")
+    generationId Int @map("generation_id")
+
+    generation Generation @relation(fields: [generationId], references: [id])
+    image      Image      @relation(fields: [imageId], references: [id])
+    post       Post?
 }
 
 model Generation {
@@ -138,13 +140,11 @@ model Generation {
 
     images ImageGeneration[]
     user   User              @relation(fields: [userId], references: [id])
-    Post   Post[]
 }
 
 model Post {
     id                Int      @id @default(autoincrement())
-    generationId      Int      @map("generation_id")
-    imageGenerationId Int      @map("image_generation_id")
+    imageGenerationId Int      @unique @map("image_generation_id")
     createdAt         DateTime @default(now()) @map("created_at")
     updatedAt         DateTime @updatedAt @map("updated_at")
     likesCount        Int      @default(0) @map("likes_count")
@@ -156,11 +156,9 @@ model Post {
     likes    PostLike[]
     comments PostComment[]
 
-    generation Generation @relation(fields: [generationId], references: [id])
+    imageGeneration ImageGeneration @relation(fields: [imageGenerationId], references: [imageId])
 
     claims PostClaim[]
-
-    @@unique([generationId, imageGenerationId])
 }
 
 model PostLike {
