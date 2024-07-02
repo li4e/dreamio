@@ -122,7 +122,7 @@ export type AdaptyEventType =
   | 'trial_started'
   | 'trial_converted'
   | 'trial_expired'
-  // | 'billing_issue_detected'
+  | 'billing_issue_detected'
   | 'entered_grace_period'
   | 'trial_renewal_cancelled'
   | 'trial_renewal_reactivated'

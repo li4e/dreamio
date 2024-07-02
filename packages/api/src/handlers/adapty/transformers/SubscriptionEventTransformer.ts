@@ -1,5 +1,5 @@
 import { CreateSubscriptionDto, UpdateSubscriptionDto } from '@choco/db'
-import { AdaptyWebhookEvent } from '../../../types/adapty'
+import { AdaptyEventType, AdaptyWebhookEvent } from '../../../types/adapty'
 import { isNonSubscriptionEvent } from '../utils/isNonSubscriptionEvent'
 import { IDBSubscriptionAdapter } from '../../../services/db_adapters'
 
@@ -48,7 +48,7 @@ export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
   }
 
   private get isActive() {
-    return [
+    const events: AdaptyEventType[] = [
       'entered_grace_period',
       'subscription_renewal_cancelled',
       'subscription_renewal_reactivated',
@@ -58,76 +58,99 @@ export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
       'trial_renewal_cancelled',
       'trial_renewal_reactivated',
       'trial_started',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get willRenew() {
-    return [
+    const events: AdaptyEventType[] = [
       'subscription_renewal_reactivated',
       'subscription_renewed',
       'subscription_started',
       'trial_converted',
       'trial_renewal_reactivated',
       'trial_started',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get isInTrial() {
-    return [
+    const events: AdaptyEventType[] = [
       'trial_started',
       'trial_renewal_reactivated',
       'trial_renewal_cancelled',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get isInGracePeriod() {
-    return ['entered_grace_period'].includes(this.event.event_type)
+    const events: AdaptyEventType[] = ['entered_grace_period']
+
+    return events.includes(this.event.event_type)
   }
 
   public get shouldTopUpBalance() {
-    return [
+    const events: AdaptyEventType[] = [
       'trial_started',
       'subscription_started',
       'subscription_renewed',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get changeIsActive() {
-    return [
+    const events: AdaptyEventType[] = [
+      'billing_issue_detected',
       'subscription_refunded',
       'subscription_paused',
       'subscription_expired',
       'subscription_started',
       'trial_expired',
       'trial_started',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get changeIsInGracePeriod() {
-    return [
+    const events: AdaptyEventType[] = [
       'entered_grace_period',
       'subscription_expired',
       'subscription_paused',
       'subscription_refunded',
       'subscription_renewed',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get chnageWillRenew() {
-    return [
+    const events: AdaptyEventType[] = [
+      'billing_issue_detected',
       'trial_renewal_cancelled',
       'trial_renewal_reactivated',
       'subscription_renewal_reactivated',
       'subscription_renewal_cancelled',
       'subscription_renewed',
       'subscription_expired',
-    ].includes(this.event.event_type)
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get changeIsInTrial() {
-    return ['trial_started', 'trial_expired', 'trial_converted'].includes(
-      this.event.event_type
-    )
+    const events: AdaptyEventType[] = [
+      'billing_issue_detected',
+      'trial_started',
+      'trial_expired',
+      'trial_converted',
+    ]
+
+    return events.includes(this.event.event_type)
   }
 
   private get isSandbox() {
