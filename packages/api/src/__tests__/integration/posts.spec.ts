@@ -1,53 +1,58 @@
-import supertest from 'supertest'
-import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
-import { Server } from 'http'
-import { DefaultApi, Configuration } from '@choco/api-client'
-import axios from 'axios'
-
-let server: Server
+import {
+  startTestServer,
+  closeTestServer,
+  testApiClient,
+} from '../tools/test_server'
 
 beforeAll(async () => {
   await prepareDB()
-  server = await app.listen(4009)
+  await startTestServer()
 })
 
 afterAll(async () => {
-  if (server) {
-    await server.close()
-  }
+  await closeTestServer()
 })
 
 describe('Integration test /posts', () => {
-  const axiosInstance = axios.create({ headers: { 'firebase-token': 'valid' } })
-  const apiClient = new DefaultApi(
-    new Configuration(),
-    'http://localhost:4009',
-    axiosInstance
-  )
+  it('post should be created succeessfully', async () => {
+    const genId = await testApiClient
+      .createGeneration({
+        prompt: 'Super image',
+        enhancer: false,
+      })
+      .then((res) => res.data.generation?.id)
 
-  describe('Valid GET user test', () => {
-    it('user should be returned without error', async () => {
-      const generation = await apiClient
-        .createGeneration({
-          prompt: 'Super image',
-          enhancer: false,
-        })
-        .then((res) => res.data.data.generation)
+    if (!genId) {
+      throw new Error('genId is null')
+    }
 
-      if (!generation) {
-        throw new Error('Generation is null')
-      }
+    const imgGenId = await testApiClient
+      .getGeneration(genId)
+      .then((res) => res.data.generation.images?.[0].id)
 
-      expect(generation).not.toBeNull()
+    if (!imgGenId) {
+      throw new Error('imgGenId is null')
+    }
+
+    const creatPostRes = await testApiClient.createPost({
+      imageGenerationId: imgGenId,
     })
 
-    it('401 should be returned with error', async () => {
-      await supertest(app)
-        .get('/users/2')
-        .set('content-type', 'application/json')
-        .expect(401)
-        .expect('Content-Type', /json/)
-    })
+    expect(creatPostRes.data.post).toBeDefined()
+
+    await testApiClient.likePost(creatPostRes.data.post.id)
+    await testApiClient.likePost(creatPostRes.data.post.id)
+    await testApiClient.likePost(creatPostRes.data.post.id)
+
+    let getPostRes = await testApiClient.getPost(creatPostRes.data.post.id)
+
+    expect(getPostRes.data.post.likes).toBe(1)
+
+    await testApiClient.unlikePost(creatPostRes.data.post.id)
+
+    getPostRes = await testApiClient.getPost(creatPostRes.data.post.id)
+
+    expect(getPostRes.data.post.likes).toBe(0)
   })
 })

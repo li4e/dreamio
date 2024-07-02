@@ -1,30 +1,42 @@
-import supertest from 'supertest'
-import { app } from '../../app'
+import { isAxiosError } from 'axios'
 import { prepareDB } from '../tools/prepare_db'
+
+import {
+  startTestServer,
+  closeTestServer,
+  testApiClient,
+  testApiClientNoAuth,
+} from '../tools/test_server'
 
 beforeAll(async () => {
   await prepareDB()
+  await startTestServer()
+})
+
+afterAll(async () => {
+  await closeTestServer()
 })
 
 describe('Integration test /users', () => {
   describe('Valid GET user test', () => {
     it('user should be returned without error', async () => {
-      const result = await supertest(app)
-        .get('/users/2')
-        .set('content-type', 'application/json')
-        .set('firebase-token', 'valid')
-        .expect(200)
-        .expect('Content-Type', /json/)
+      const getUserRes = await testApiClient.getUser(2)
 
-      expect(result.body.data.userId).toBe(1)
+      expect(getUserRes.data.profile.userId).toBe(1)
+      expect(getUserRes.data.profile.userIdFromPath).toBe(2)
     })
 
     it('401 should be returned with error', async () => {
-      await supertest(app)
-        .get('/users/2')
-        .set('content-type', 'application/json')
-        .expect(401)
-        .expect('Content-Type', /json/)
+      try {
+        await testApiClientNoAuth.getUser(2)
+        expect(true).toBe(false)
+      } catch (error) {
+        if (isAxiosError(error)) {
+          expect(error.response?.status).toBe(401)
+        } else {
+          throw error
+        }
+      }
     })
   })
 })

@@ -1,16 +1,16 @@
 import {
   CreateGenerationDto,
   CreateImageDto,
-  GenerationDto,
+  Generation,
   dbClient,
 } from '@choco/db'
-import { PopulatedGeneration } from '../types/generation'
+import { IGeneration } from '../types/client'
 
 export class GenerationService {
   constructor(private readonly id: number) {}
 
-  async getData(): Promise<PopulatedGeneration> {
-    const result = await dbClient.generation.findFirstOrThrow({
+  async getData(): Promise<IGeneration> {
+    const generation = await dbClient.generation.findFirstOrThrow({
       where: {
         id: this.id,
       },
@@ -23,10 +23,7 @@ export class GenerationService {
       },
     })
 
-    return {
-      ...result,
-      images: result.images.map((item) => item.image),
-    }
+    return GenerationService.transformToCLient(generation)
   }
 
   async getShortInfo() {
@@ -42,12 +39,12 @@ export class GenerationService {
     })
   }
 
-  static create(data: CreateGenerationDto): Promise<GenerationDto> {
-    return dbClient.generation.create({
-      data: {
-        ...data,
-      },
+  static async create(data: CreateGenerationDto): Promise<IGeneration> {
+    const generation = await dbClient.generation.create({
+      data,
     })
+
+    return GenerationService.transformToCLient(generation)
   }
 
   public async setErrorStatus() {
@@ -79,5 +76,30 @@ export class GenerationService {
         },
       })
     })
+  }
+
+  static transformToCLient(generation: Generation): IGeneration {
+    const images: IGeneration['images'] = []
+
+    if (generation.status === 'completed' && generation.images) {
+      for (const genImage of generation.images) {
+        if (genImage.image) {
+          images.push({ id: genImage.imageId, url: genImage.image.publicUrl })
+        }
+      }
+    }
+
+    return {
+      id: generation.id,
+      prompt: generation.prompt,
+      promptFull: generation.promptFull,
+      style: generation.style,
+      highQuality: generation.highQuality,
+      enhancer: generation.enhancer,
+      status: generation.status,
+      createdAt: generation.createdAt.getTime(),
+      updatedAt: generation.updatedAt.getTime(),
+      images: images,
+    }
   }
 }

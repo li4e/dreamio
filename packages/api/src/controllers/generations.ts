@@ -11,12 +11,10 @@ import {
   Response,
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { IUserData } from '../types/client'
+import { IGeneration, IUserData } from '../types/client'
 import { UserManager } from '../managers/user'
-import { GenerationDto } from '@choco/db'
 import { StartGenerationBody } from '../types/controllers/generation'
 import { GenerationsManager } from '../managers/generation'
-import { PopulatedGeneration } from '../types/generation'
 import { GenerationService } from '../services/generation'
 import { ServerError } from '../shared/ServerError'
 import { wait } from '../utils/wait'
@@ -32,7 +30,8 @@ export class GenerationsController extends Controller {
     @Body() body: StartGenerationBody,
     @Request() request: AuthenticatedRequest
   ): Promise<{
-    data: { generation: GenerationDto | null; userData: IUserData }
+    generation: IGeneration | null
+    userData: IUserData
   }> {
     const { userId } = request
 
@@ -41,7 +40,7 @@ export class GenerationsController extends Controller {
     await userManager.consumeCredits()
     if (!userManager.isConsumed) {
       this.setStatus(206)
-      return { data: { userData: userManager.userData, generation: null } }
+      return { userData: userManager.userData, generation: null }
     }
 
     try {
@@ -49,7 +48,7 @@ export class GenerationsController extends Controller {
       await pubSubService.startGeneration(result.id)
 
       this.setStatus(201)
-      return { data: { generation: result, userData: userManager.userData } }
+      return { generation: result, userData: userManager.userData }
     } catch (error) {
       await userManager.revertBackCredits()
       throw new ServerError('Not found', 404)
@@ -62,7 +61,7 @@ export class GenerationsController extends Controller {
   public async getGeneration(
     @Path('generationId') generationId: number,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: PopulatedGeneration }> {
+  ): Promise<{ generation: IGeneration }> {
     const { userId } = request
 
     const generation = new GenerationService(generationId)
@@ -86,6 +85,6 @@ export class GenerationsController extends Controller {
 
     const generationData = await generation.getData()
 
-    return { data: generationData }
+    return { generation: generationData }
   }
 }

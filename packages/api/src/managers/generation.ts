@@ -1,8 +1,8 @@
-import { GenerationDto } from '@choco/db'
 import { OpenAIService } from '../integrations/openai'
 import { CloudStorage } from '../integrations/storage'
 import { GenerationService } from '../services/generation'
 import { StartGenerationBody } from '../types/controllers/generation'
+import { IGeneration } from '../types/client'
 
 export class GenerationsManager {
   constructor(
@@ -10,7 +10,7 @@ export class GenerationsManager {
     private readonly userId: number
   ) {}
 
-  public async create(): Promise<GenerationDto> {
+  public async create(): Promise<IGeneration> {
     return GenerationService.create({
       ...this.body,
       promptFull: this._promptFull,

@@ -26,17 +26,17 @@ export class PostsController extends Controller {
     @Query('sortBy') sortBy: 'likes' | 'updatedAt',
     @Query('lastSeenLikesCount') lastSeenLikesCount: number,
     @Query('lastSeenUpdatedAt') lastSeenUpdatedAt: number
-  ): Promise<{ data: IPost[] }> {
+  ): Promise<{ post: IPost[] }> {
     if (sortBy === 'likes') {
       return {
-        data: await PostService.feedListSortedByLikes(
+        post: await PostService.feedListSortedByLikes(
           lastSeenLikesCount,
           userId
         ),
       }
     } else {
       return {
-        data: await PostService.feedListSortedByUpdatedAt(
+        post: await PostService.feedListSortedByUpdatedAt(
           lastSeenUpdatedAt,
           userId
         ),
@@ -53,7 +53,7 @@ export class PostsController extends Controller {
     },
     @Request() request: AuthenticatedRequest
   ): Promise<{
-    data: IPost
+    post: IPost
   }> {
     const { userId } = request
     const post = await PostService.create(body.imageGenerationId, userId)
@@ -64,7 +64,7 @@ export class PostsController extends Controller {
       )
     }
     this.setStatus(201)
-    return { data: post }
+    return { post: post }
   }
 
   @Security('firebase')
@@ -72,7 +72,7 @@ export class PostsController extends Controller {
   @SuccessResponse('200')
   public async getPost(
     @Path('postId') postId: number
-  ): Promise<{ data: IPost }> {
+  ): Promise<{ post: IPost }> {
     const post = await new PostService(postId).getData()
 
     if (!post) {
@@ -82,7 +82,7 @@ export class PostsController extends Controller {
       )
     }
 
-    return { data: post }
+    return { post: post }
   }
 
   @Security('firebase')
@@ -90,10 +90,10 @@ export class PostsController extends Controller {
   public async likePost(
     @Path('postId') postId: number,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: boolean }> {
+  ): Promise<{ success: boolean }> {
     const { userId } = request
     await new PostService(postId).like(userId)
-    return { data: true }
+    return { success: true }
   }
 
   @Security('firebase')
@@ -101,9 +101,9 @@ export class PostsController extends Controller {
   public async unlikePost(
     @Path('postId') postId: number,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: boolean }> {
+  ): Promise<{ success: boolean }> {
     const { userId } = request
     await new PostService(postId).unlike(userId)
-    return { data: true }
+    return { success: true }
   }
 }

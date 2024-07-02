@@ -11,6 +11,13 @@
       "options": {
         "jestConfig": "packages/api-client/jest.config.ts"
       }
+    },
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "openapi-generator-cli generate -i ./__generated/swagger.json -g typescript-axios -o ./__generated",
+        "cwd": "packages/api-client"
+      }
     }
   }
 }

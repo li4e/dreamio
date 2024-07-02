@@ -1,10 +1,18 @@
-import supertest from 'supertest'
-import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
 import { StartGenerationBody } from '../../types/controllers/generation'
+import {
+  startTestServer,
+  closeTestServer,
+  testApiClient,
+} from '../tools/test_server'
 
 beforeAll(async () => {
   await prepareDB()
+  await startTestServer()
+})
+
+afterAll(async () => {
+  await closeTestServer()
 })
 
 describe('Integration test /generations', () => {
@@ -13,31 +21,26 @@ describe('Integration test /generations', () => {
     enhancer: false,
     style: 'photorealistic',
   }
+
   let generationId: number | null = null
 
   it('Valid create generation', async () => {
-    const result = await supertest(app)
-      .post('/generations')
-      .set('firebase-token', 'valid')
-      .send(request)
-      .expect(201)
-      .expect('Content-Type', /json/)
+    const createGenRes = await testApiClient.createGeneration(request)
 
-    generationId = result.body.data.generation.id
-    expect(result.body.data.generation).toBeDefined()
-    expect(result.body.data.userData.credits).toBe(0)
-  }, 60000)
+    if (!createGenRes.data.generation) {
+      throw new Error('Generation is null')
+    }
+
+    generationId = createGenRes.data.generation.id
+
+    expect(createGenRes.data.generation).toBeDefined()
+    expect(createGenRes.data.userData.credits).toBe(0)
+  })
 
   it('No credits generation', async () => {
-    const result = await supertest(app)
-      .post('/generations')
-      .set('firebase-token', 'valid')
-      .send(request)
-      .expect(206)
-      .expect('Content-Type', /json/)
-
-    expect(result.body.data.generation).toBeNull()
-    expect(result.body.data.userData.credits).toBe(0)
+    const createGenRes = await testApiClient.createGeneration(request)
+    expect(createGenRes.data.generation).toBeNull()
+    expect(createGenRes.data.userData.credits).toBe(0)
   })
 
   it('save generation', async () => {
@@ -45,13 +48,9 @@ describe('Integration test /generations', () => {
       throw new Error('generationId is null')
     }
 
-    const result = await supertest(app)
-      .get('/generations/' + generationId)
-      .set('firebase-token', 'valid')
-      .send(request)
-      .expect(200)
-      .expect('Content-Type', /json/)
+    const genRes = await testApiClient.getGeneration(generationId)
 
-    expect(result.body.data.status).toBe('completed')
-  })
+    expect(genRes.data.generation.status).toBe('completed')
+    expect(genRes.data.generation.images).toHaveLength(1)
+  }, 60000)
 })

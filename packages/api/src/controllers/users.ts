@@ -6,9 +6,9 @@ export class UsersController extends Controller {
   @Security('firebase')
   @Get('{userId}')
   public async getUser(
-    @Path('userId') userIdFromPath: string,
+    @Path('userId') userIdFromPath: number,
     @Request() request: AuthenticatedRequest
-  ): Promise<{ data: { userId: number; userIdFromPath: string } }> {
-    return { data: { userId: request.userId, userIdFromPath } }
+  ): Promise<{ profile: { userId: number; userIdFromPath: number } }> {
+    return { profile: { userId: request.userId, userIdFromPath } }
   }
 }

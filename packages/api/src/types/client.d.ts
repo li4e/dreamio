@@ -4,6 +4,19 @@ export interface IUserData {
   hasPremium: boolean
 }
 
+export interface IGeneration {
+  id: number
+  prompt: string
+  promptFull: string
+  style: string | null
+  highQuality: boolean | null
+  status: 'processing' | 'completed' | 'error'
+  enhancer: boolean
+  createdAt: number
+  updatedAt: number
+  images: { id: number; url: string }[] | null
+}
+
 export interface IPost {
   id: number
   imageUrl: string

@@ -3,7 +3,7 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/controllers/**/*.ts"],
   "spec": {
-    "outputDirectory": "__generated",
+    "outputDirectory": "../api-client/__generated",
     "specVersion": 3,
     "securityDefinitions": {
       "firebase": {
