@@ -18,91 +18,109 @@ export class PostService {
     })
 
     if (post) {
-      return PostService.transformToClient(post)
+      return PostService.transformToClient(post, userId)
     }
 
     return null
   }
 
   public async remove(userId: number): Promise<void> {
-    await dbClient.post.update({
-      where: {
-        id: this.id,
-        imageGeneration: {
-          generation: {
-            userId,
+    try {
+      await dbClient.post.update({
+        where: {
+          id: this.id,
+          imageGeneration: {
+            generation: {
+              userId,
+            },
           },
         },
-      },
-      data: {
-        deleted: true,
-      },
-    })
+        data: {
+          deleted: true,
+        },
+      })
+    } catch (error) {
+      throw new Error(`Unable to delete the post with id=${this.id}`)
+    }
   }
 
   public async like(userId: number): Promise<void> {
-    await dbClient.postLike.upsert({
-      where: {
-        userId_postId: {
+    try {
+      await dbClient.postLike.upsert({
+        where: {
+          userId_postId: {
+            postId: this.id,
+            userId: userId,
+          },
+        },
+        create: {
           postId: this.id,
           userId: userId,
         },
-      },
-      create: {
-        postId: this.id,
-        userId: userId,
-      },
-      update: {
-        postId: this.id,
-        userId: userId,
-      },
-    })
+        update: {
+          postId: this.id,
+          userId: userId,
+        },
+      })
+    } catch (error) {
+      throw new Error(`Unable to like the post with id=${this.id}`)
+    }
   }
 
   public async unlike(userId: number): Promise<void> {
-    await dbClient.postLike.delete({
-      where: {
-        userId_postId: {
-          postId: this.id,
-          userId: userId,
+    try {
+      await dbClient.postLike.delete({
+        where: {
+          userId_postId: {
+            postId: this.id,
+            userId: userId,
+          },
         },
-      },
-    })
+      })
+    } catch (error) {
+      throw new Error(`Unable to unlike the post with id=${this.id}`)
+    }
   }
 
   static async create(
     imageGenerationId: number,
     userId: number
   ): Promise<IPost | null> {
-    const imageGeneration = await dbClient.imageGeneration.findFirstOrThrow({
-      where: { imageId: imageGenerationId },
-      select: {
-        generation: {
-          select: {
-            userId: true,
+    try {
+      const imageGeneration = await dbClient.imageGeneration.findFirstOrThrow({
+        where: { imageId: imageGenerationId },
+        select: {
+          generation: {
+            select: {
+              userId: true,
+            },
           },
         },
-      },
-    })
-
-    if (imageGeneration.generation.userId !== userId) {
-      return null
-    }
-
-    const postId = await dbClient.post
-      .create({
-        data: {
-          imageGenerationId,
-        },
-        select: {
-          id: true,
-        },
       })
-      .then((post) => post.id)
 
-    const post = new PostService(postId)
+      if (imageGeneration.generation.userId !== userId) {
+        return null
+      }
 
-    return post.getData(userId)
+      const postId = await dbClient.post
+        .create({
+          data: {
+            imageGenerationId,
+          },
+          select: {
+            id: true,
+          },
+        })
+        .then((post) => post.id)
+
+      const post = new PostService(postId)
+
+      return post.getData(userId)
+    } catch (error) {
+      throw new Error(
+        `Error during the post creation with imageGenerationId=${imageGenerationId}, for userId=${userId}`
+      )
+    }
   }
 
   static async feedListSortedByLikes(
@@ -131,7 +149,7 @@ export class PostService {
       select: postSelect,
     })
 
-    return posts.map((post) => PostService.transformToClient(post))
+    return posts.map((post) => PostService.transformToClient(post, authorId))
   }
 
   static async feedListSortedByUpdatedAt(
@@ -160,20 +178,32 @@ export class PostService {
       select: postSelect,
     })
 
-    return posts.map((post) => PostService.transformToClient(post))
+    return posts.map((post) => PostService.transformToClient(post, authorId))
   }
 
-  static transformToClient(post: PostData): IPost {
+  static transformToClient(post: PostData, userId?: number): IPost {
+    const deleted = post.deleted || post.blocked
+    const postUserId = post.imageGeneration.generation.user.id
+
+    if (post.deleted || (post.blocked && userId !== postUserId)) {
+      return {
+        id: post.id,
+        updatedAt: post.updatedAt.getTime(),
+        deleted: true,
+      }
+    }
+
     return {
       id: post.id,
       imageUrl: post.imageGeneration.image.publicUrl,
       prompt: post.imageGeneration.generation.promptFull,
-      deleted: post.deleted || post.blocked,
-      likes: post.likesCount,
-      comments: post.commentsCount,
+      deleted,
+      likesCount: post.likesCount,
+      commentsCount: post.commentsCount,
       createdAt: post.createdAt.getTime(),
       updatedAt: post.updatedAt.getTime(),
-      authorId: post.imageGeneration.generation.user.id,
+      authorId: postUserId,
+      ...(userId === postUserId && post.blocked && { blocked: true }),
     }
   }
 }

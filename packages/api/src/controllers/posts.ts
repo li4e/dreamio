@@ -9,7 +9,6 @@ import {
   Route,
   Request,
   Security,
-  SuccessResponse,
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
 import { IPost } from '../types/client'
@@ -18,27 +17,25 @@ import { PostService } from '../services/post'
 
 @Route('posts')
 export class PostsController extends Controller {
-  @Security('firebase')
   @Get()
-  @SuccessResponse('200')
   public async getPosts(
-    @Query('userId') userId: number,
     @Query('sortBy') sortBy: 'likes' | 'updatedAt',
-    @Query('lastSeenLikesCount') lastSeenLikesCount: number,
-    @Query('lastSeenUpdatedAt') lastSeenUpdatedAt: number
+    @Query('lastSeenLikesCount') lastSeenLikesCount?: number,
+    @Query('lastSeenUpdatedAt') lastSeenUpdatedAt?: number,
+    @Query('authorId') authorId?: number
   ): Promise<{ post: IPost[] }> {
     if (sortBy === 'likes') {
       return {
         post: await PostService.feedListSortedByLikes(
           lastSeenLikesCount,
-          userId
+          authorId
         ),
       }
     } else {
       return {
         post: await PostService.feedListSortedByUpdatedAt(
           lastSeenUpdatedAt,
-          userId
+          authorId
         ),
       }
     }
@@ -67,9 +64,7 @@ export class PostsController extends Controller {
     return { post: post }
   }
 
-  @Security('firebase')
   @Get('{postId}')
-  @SuccessResponse('200')
   public async getPost(
     @Path('postId') postId: number
   ): Promise<{ post: IPost }> {
@@ -83,6 +78,16 @@ export class PostsController extends Controller {
     }
 
     return { post: post }
+  }
+
+  @Security('firebase')
+  @Delete('{postId}')
+  public async deletePost(
+    @Path('postId') postId: number,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ success: boolean }> {
+    await new PostService(postId).remove(request.userId)
+    return { success: true }
   }
 
   @Security('firebase')

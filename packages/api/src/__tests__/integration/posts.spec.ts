@@ -3,7 +3,11 @@ import {
   startTestServer,
   closeTestServer,
   testApiClient,
+  getTestClient,
 } from '../tools/test_server'
+import { GenerationTestUtils } from '../data/generation'
+import { PostTestUtils } from '../data/post'
+import { isAxiosError } from 'axios'
 
 beforeAll(async () => {
   await prepareDB()
@@ -15,44 +19,104 @@ afterAll(async () => {
 })
 
 describe('Integration test /posts', () => {
-  it('post should be created succeessfully', async () => {
-    const genId = await testApiClient
-      .createGeneration({
-        prompt: 'Super image',
-        enhancer: false,
-      })
-      .then((res) => res.data.generation?.id)
-
-    if (!genId) {
-      throw new Error('genId is null')
-    }
-
-    const imgGenId = await testApiClient
-      .getGeneration(genId)
-      .then((res) => res.data.generation.images?.[0].id)
+  it('should successfully create a post', async () => {
+    const imgGenId = await GenerationTestUtils.create('1').then(
+      (data) => data.images?.[0].id
+    )
 
     if (!imgGenId) {
       throw new Error('imgGenId is null')
     }
 
-    const creatPostRes = await testApiClient.createPost({
+    const createPostRes = await getTestClient('1').createPost({
       imageGenerationId: imgGenId,
     })
 
-    expect(creatPostRes.data.post).toBeDefined()
+    expect(createPostRes.data.post).toBeDefined()
+  })
 
-    await testApiClient.likePost(creatPostRes.data.post.id)
-    await testApiClient.likePost(creatPostRes.data.post.id)
-    await testApiClient.likePost(creatPostRes.data.post.id)
+  it(`should not create a post using imgGenId from another user's generation`, async () => {
+    const imgGenId = await GenerationTestUtils.create('2').then(
+      (data) => data.images?.[0].id
+    )
 
-    let getPostRes = await testApiClient.getPost(creatPostRes.data.post.id)
+    if (!imgGenId) {
+      throw new Error('imgGenId is null')
+    }
 
-    expect(getPostRes.data.post.likes).toBe(1)
+    try {
+      await getTestClient('1').createPost({
+        imageGenerationId: imgGenId,
+      })
+      fail('Expected error not thrown')
+    } catch (error) {
+      if (isAxiosError(error)) {
+        expect(error.response?.status).toBeGreaterThanOrEqual(400)
+      } else {
+        throw new Error('Error instance is not Axios')
+      }
+    }
+  })
 
-    await testApiClient.unlikePost(creatPostRes.data.post.id)
+  it('should be liked/unliked correctly', async () => {
+    const post = await PostTestUtils.create('3')
 
-    getPostRes = await testApiClient.getPost(creatPostRes.data.post.id)
+    for (let i = 0; i < 3; i++) {
+      await getTestClient('1').likePost(post.id)
+    }
 
-    expect(getPostRes.data.post.likes).toBe(0)
+    expect(
+      await testApiClient
+        .getPost(post.id)
+        .then((res) => res.data.post.likesCount)
+    ).toBe(1)
+
+    await getTestClient('1').unlikePost(post.id)
+
+    expect(
+      await testApiClient
+        .getPost(post.id)
+        .then((res) => res.data.post.likesCount)
+    ).toBe(0)
+
+    await getTestClient('1').likePost(post.id)
+    await getTestClient('2').likePost(post.id)
+    await getTestClient('3').likePost(post.id)
+
+    const lastPostVersion = await testApiClient
+      .getPost(post.id)
+      .then((res) => res.data.post)
+
+    expect(lastPostVersion.likesCount).toBe(3)
+
+    expect(lastPostVersion.createdAt).toBe(lastPostVersion.updatedAt)
+  })
+
+  it('Should be deleted correctly', async () => {
+    const post = await PostTestUtils.create('4')
+
+    await getTestClient('4').deletePost(post.id)
+
+    const lastPostVersion = await getTestClient('4')
+      .getPost(post.id)
+      .then((res) => res.data.post)
+
+    expect(post.createdAt).not.toBe(lastPostVersion.updatedAt)
+    expect(Object.keys(lastPostVersion).length).toBe(3)
+  })
+
+  it('Should not be deleted by another user', async () => {
+    const post = await PostTestUtils.create('5')
+
+    try {
+      await getTestClient('3').deletePost(post.id)
+      expect(true).toBe(false)
+    } catch (error) {
+      if (isAxiosError(error)) {
+        expect(error.response?.status).toBeGreaterThanOrEqual(400)
+      } else {
+        throw new Error('Instace of error is not an Axios')
+      }
+    }
   })
 })
