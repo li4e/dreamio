@@ -21,9 +21,19 @@ export interface IPost {
   id: number
   imageUrl: string
   prompt: string
+  style: string | null
   likesCount: number
   commentsCount: number
   authorId: number
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface IPostComment {
+  id: string
+  content: string
+  postId: number
+  userId: number
   createdAt: Date
   updatedAt: Date
 }

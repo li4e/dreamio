@@ -11,9 +11,11 @@ import {
   Security,
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { IPost } from '../types/client'
+import { IPost, IPostComment } from '../types/client'
 import { ServerError } from '../shared/ServerError'
 import { PostService } from '../services/post'
+import { PostCommentsService } from '../services/post_comments'
+import { CreatePostClaimDto, CreatePostCommentDto } from '@choco/db'
 
 @Route('posts')
 export class PostsController extends Controller {
@@ -105,8 +107,21 @@ export class PostsController extends Controller {
     @Path('postId') postId: number,
     @Request() request: AuthenticatedRequest
   ): Promise<{ success: boolean }> {
-    await new PostService(postId).remove(request.userId)
+    const { userId } = request
+    await new PostService(postId).delete(userId)
     return { success: true }
+  }
+
+  @Security('firebase')
+  @Post('{postId}/reports')
+  public async createPostReport(
+    @Body() body: CreatePostClaimDto,
+    @Path('postId') postId: number,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ reportId: number }> {
+    const { userId } = request
+    const postReport = await new PostService(postId).report(userId, body.reason)
+    return { reportId: postReport.reportId }
   }
 
   @Security('firebase')
@@ -129,5 +144,50 @@ export class PostsController extends Controller {
     const { userId } = request
     await new PostService(postId).unlike(userId)
     return { success: true }
+  }
+
+  @Get('{postId}/comments')
+  public async getPostComments(
+    @Path('postId') postId: number,
+    @Query('limit') queryLimit?: number,
+    @Query('lastSeenUpdatedAt') lastSeenUpdatedAt?: Date,
+    @Query('lastSeenCommentId') lastSeenCommentId?: string
+  ): Promise<{ postComments: IPostComment[] }> {
+    let limit = queryLimit || 20
+    if (limit > 20) {
+      limit = 20
+    }
+
+    const lastSeen =
+      lastSeenUpdatedAt !== undefined && lastSeenCommentId !== undefined
+        ? {
+            updatedAt: lastSeenUpdatedAt,
+            commentId: lastSeenCommentId,
+          }
+        : undefined
+
+    const commentsByPostId = await PostCommentsService.getByPostId(
+      postId,
+      limit,
+      lastSeen
+    )
+
+    return commentsByPostId
+  }
+
+  @Security('firebase')
+  @Post('{postId}/comments')
+  public async createPostComment(
+    @Path('postId') postId: number,
+    @Body()
+    body: CreatePostCommentDto,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{
+    postComment: IPostComment
+  }> {
+    const { userId } = request
+    const comment = await PostCommentsService.create(body, postId, userId)
+
+    return { postComment: comment }
   }
 }

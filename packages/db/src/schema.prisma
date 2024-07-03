@@ -246,7 +246,7 @@ model PostClaim {
     post Post @relation(fields: [postId], references: [id])
     user User @relation(fields: [userId], references: [id])
 
-    @@unique([userId, postId])
+    @@unique([postId, userId])
 }
 
 model CommentClaim {
@@ -261,5 +261,5 @@ model CommentClaim {
     comment PostComment @relation(fields: [commentId], references: [id])
     user    User        @relation(fields: [userId], references: [id])
 
-    @@unique([userId, commentId])
+    @@unique([commentId, userId])
 }

@@ -1,4 +1,4 @@
-import { Controller, Post, Route, Body, Header } from 'tsoa'
+import { Controller, Post, Route, Body, Hidden, Header } from 'tsoa'
 import { AdaptyWebhookEvent } from '../types/adapty'
 import { ServerError } from '../shared/ServerError'
 import { AdaptyWebhookHandler } from '../handlers/adapty/AdaptyWebhookHandler'
@@ -7,7 +7,8 @@ import { secrets } from '../config/secrets'
 @Route('adapty_webhook')
 export class AdaptyWebhookController extends Controller {
   @Post()
-  public async postEvent(
+  @Hidden()
+  public async handleAdaptyWebhookEvent(
     @Body() body: { adapty_check: unknown } | object,
     @Header('Authorization') authHeader: unknown
   ): Promise<{ adapty_check_response: unknown } | { success: true }> {

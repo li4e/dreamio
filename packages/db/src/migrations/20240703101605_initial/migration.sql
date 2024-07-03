@@ -234,10 +234,10 @@ CREATE INDEX "PostComment_post_id_likes_count_idx" ON "PostComment"("post_id", "
 CREATE UNIQUE INDEX "PostCommentLike_user_id_comment_id_key" ON "PostCommentLike"("user_id", "comment_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "PostClaim_user_id_post_id_key" ON "PostClaim"("user_id", "post_id");
+CREATE UNIQUE INDEX "PostClaim_post_id_user_id_key" ON "PostClaim"("post_id", "user_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "CommentClaim_user_id_comment_id_key" ON "CommentClaim"("user_id", "comment_id");
+CREATE UNIQUE INDEX "CommentClaim_comment_id_user_id_key" ON "CommentClaim"("comment_id", "user_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_UserSubscriptions_AB_unique" ON "_UserSubscriptions"("A", "B");
