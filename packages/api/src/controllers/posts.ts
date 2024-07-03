@@ -21,8 +21,9 @@ export class PostsController extends Controller {
   public async getPosts(
     @Query('sortBy') sortBy: 'likes' | 'updatedAt',
     @Query('limit') queryLimit?: number,
-    @Query('lastSeenLikesCount') lastSeenLikesCount?: number,
-    @Query('lastSeenUpdatedAt') lastSeenUpdatedAt?: number,
+    @Query('lastSeenLikesCount') lsLikesCount?: number,
+    @Query('lastSeenUpdatedAt') lsUpdatedAt?: Date,
+    @Query('lastSeenPostId') lsPostId?: number,
     @Query('authorId') authorId?: number
   ): Promise<{ post: IPost[] }> {
     let limit = queryLimit || 20
@@ -34,7 +35,12 @@ export class PostsController extends Controller {
       return {
         post: await PostService.feedListSortedByLikes(
           limit,
-          lastSeenLikesCount,
+          lsLikesCount !== undefined && lsPostId !== undefined
+            ? {
+                likesCount: lsLikesCount,
+                postId: lsPostId,
+              }
+            : undefined,
           authorId
         ),
       }
@@ -42,7 +48,12 @@ export class PostsController extends Controller {
       return {
         post: await PostService.feedListSortedByUpdatedAt(
           limit,
-          lastSeenUpdatedAt,
+          lsUpdatedAt !== undefined && lsPostId !== undefined
+            ? {
+                updatedAt: lsUpdatedAt,
+                postId: lsPostId,
+              }
+            : undefined,
           authorId
         ),
       }

@@ -12,8 +12,8 @@ export interface IGeneration {
   highQuality: boolean | null
   status: 'processing' | 'completed' | 'error'
   enhancer: boolean
-  createdAt: number
-  updatedAt: number
+  createdAt: Date
+  updatedAt: Date
   images: { id: number; url: string }[] | null
 }
 
@@ -24,15 +24,15 @@ export interface IPostExisted {
   likesCount: number
   commentsCount: number
   authorId: number
-  createdAt: number
-  updatedAt: number
+  createdAt: Date
+  updatedAt: Date
   deleted: false
   blocked?: true
 }
 
 export interface IPostDeleted {
   id: number
-  updatedAt: number
+  updatedAt: Date
   deleted: true
 }
 

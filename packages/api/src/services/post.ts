@@ -126,15 +126,28 @@ export class PostService {
 
   static async feedListSortedByLikes(
     limit: number,
-    lastSeenLikesCount?: number,
+    lastSeen?: {
+      likesCount: number
+      postId: number
+    },
     authorId?: number
   ): Promise<IPost[]> {
     const posts = await dbClient.post.findMany({
       where: {
-        ...(lastSeenLikesCount && {
-          likesCount: {
-            lte: lastSeenLikesCount,
-          },
+        ...(lastSeen && {
+          OR: [
+            {
+              likesCount: {
+                lt: lastSeen.likesCount,
+              },
+            },
+            {
+              likesCount: lastSeen.likesCount,
+              id: {
+                lt: lastSeen.postId,
+              },
+            },
+          ],
         }),
         ...(authorId && {
           userId: authorId,
@@ -152,15 +165,28 @@ export class PostService {
 
   static async feedListSortedByUpdatedAt(
     limit: number,
-    lastSeenUpdatedAt?: number,
+    lastSeen?: {
+      updatedAt: Date
+      postId: number
+    },
     authorId?: number
   ): Promise<IPost[]> {
     const posts = await dbClient.post.findMany({
       where: {
-        ...(lastSeenUpdatedAt && {
-          updatedAt: {
-            lte: new Date(lastSeenUpdatedAt),
-          },
+        ...(lastSeen && {
+          OR: [
+            {
+              updatedAt: {
+                lt: lastSeen.updatedAt,
+              },
+            },
+            {
+              updatedAt: lastSeen.updatedAt,
+              id: {
+                lt: lastSeen.postId,
+              },
+            },
+          ],
         }),
         ...(authorId && {
           userId: authorId,
@@ -182,7 +208,7 @@ export class PostService {
     if (post.deleted || (post.blocked && userId !== post.userId)) {
       return {
         id: post.id,
-        updatedAt: post.updatedAt.getTime(),
+        updatedAt: post.updatedAt,
         deleted: true,
       }
     }
@@ -194,8 +220,8 @@ export class PostService {
       deleted,
       likesCount: post.likesCount,
       commentsCount: post.commentsCount,
-      createdAt: post.createdAt.getTime(),
-      updatedAt: post.updatedAt.getTime(),
+      createdAt: post.createdAt,
+      updatedAt: post.updatedAt,
       authorId: post.userId,
       ...(userId === post.userId && post.blocked && { blocked: true }),
     }

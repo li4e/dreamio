@@ -103,8 +103,8 @@ export class GenerationService {
       highQuality: generation.highQuality,
       enhancer: generation.enhancer,
       status: generation.status,
-      createdAt: generation.createdAt.getTime(),
-      updatedAt: generation.updatedAt.getTime(),
+      createdAt: generation.createdAt,
+      updatedAt: generation.updatedAt,
       images: images,
     }
   }
