@@ -11,12 +11,14 @@ export class GenerationsManager {
   ) {}
 
   public async create(): Promise<IGeneration> {
-    return GenerationService.create({
-      ...this.body,
-      promptFull: this._promptFull,
-      model: 'dalle_3',
-      userId: this.userId,
-    })
+    return GenerationService.create(
+      {
+        ...this.body,
+        promptFull: this._promptFull,
+        model: 'dalle_3',
+      },
+      this.userId
+    )
   }
 
   private get _promptFull() {

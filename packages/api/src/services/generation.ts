@@ -39,9 +39,15 @@ export class GenerationService {
     })
   }
 
-  static async create(data: CreateGenerationDto): Promise<IGeneration> {
+  static async create(
+    data: CreateGenerationDto,
+    userId: number
+  ): Promise<IGeneration> {
     const generation = await dbClient.generation.create({
-      data,
+      data: {
+        ...data,
+        userId,
+      },
     })
 
     return GenerationService.transformToCLient(generation)

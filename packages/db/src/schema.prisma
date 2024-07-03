@@ -34,6 +34,7 @@ model User {
     id          Int @id @default(autoincrement())
     freeCredits Int @default(1)
 
+    posts          Post[]
     firebaseUsers  FirebaseUser[]
     subscriptions  Subscription[]    @relation("UserSubscriptions")
     inAppPurchases InAppPurchase[]   @relation("UserInAppPurchases")
@@ -121,11 +122,12 @@ model ImageGeneration {
     generation Generation @relation(fields: [generationId], references: [id])
     image      Image      @relation(fields: [imageId], references: [id])
     post       Post?
+
+    @@index([generationId])
 }
 
 model Generation {
     id          Int             @id @default(autoincrement())
-    /// @DtoRelationIncludeId
     userId      Int             @map("user_id")
     promptFull  String          @db.VarChar(1000)
     prompt      String          @db.VarChar(500)
@@ -144,6 +146,7 @@ model Generation {
 
 model Post {
     id                Int      @id @default(autoincrement())
+    userId            Int      @map("user_id")
     imageGenerationId Int      @unique @map("image_generation_id")
     createdAt         DateTime @default(now()) @map("created_at")
     updatedAt         DateTime @updatedAt @map("updated_at")
@@ -153,12 +156,19 @@ model Post {
     deleted Boolean @default(false)
     blocked Boolean @default(false)
 
+    user     User          @relation(fields: [userId], references: [id])
     likes    PostLike[]
     comments PostComment[]
 
     imageGeneration ImageGeneration @relation(fields: [imageGenerationId], references: [imageId])
 
     claims PostClaim[]
+
+    @@index([userId])
+    @@index([updatedAt])
+    @@index([likesCount])
+    @@index([userId, updatedAt])
+    @@index([userId, likesCount])
 }
 
 model PostLike {
@@ -202,6 +212,12 @@ model PostComment {
     likes        PostCommentLike[]
 
     claims CommentClaim[]
+
+    @@index([postId])
+    @@index([createdAt])
+    @@index([likesCount])
+    @@index([postId, createdAt])
+    @@index([postId, likesCount])
 }
 
 model PostCommentLike {

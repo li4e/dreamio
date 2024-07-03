@@ -106,6 +106,7 @@ export class PostService {
         .create({
           data: {
             imageGenerationId,
+            userId,
           },
           select: {
             id: true,
@@ -124,6 +125,7 @@ export class PostService {
   }
 
   static async feedListSortedByLikes(
+    limit: number,
     lastSeenLikesCount?: number,
     authorId?: number
   ): Promise<IPost[]> {
@@ -135,17 +137,13 @@ export class PostService {
           },
         }),
         ...(authorId && {
-          imageGeneration: {
-            generation: {
-              userId: authorId,
-            },
-          },
+          userId: authorId,
         }),
       },
       orderBy: {
         likesCount: 'desc',
       },
-      take: 20,
+      take: limit,
       select: postSelect,
     })
 
@@ -153,6 +151,7 @@ export class PostService {
   }
 
   static async feedListSortedByUpdatedAt(
+    limit: number,
     lastSeenUpdatedAt?: number,
     authorId?: number
   ): Promise<IPost[]> {
@@ -164,17 +163,13 @@ export class PostService {
           },
         }),
         ...(authorId && {
-          imageGeneration: {
-            generation: {
-              userId: authorId,
-            },
-          },
+          userId: authorId,
         }),
       },
       orderBy: {
         updatedAt: 'desc',
       },
-      take: 20,
+      take: limit,
       select: postSelect,
     })
 
@@ -183,9 +178,8 @@ export class PostService {
 
   static transformToClient(post: PostData, userId?: number): IPost {
     const deleted = post.deleted || post.blocked
-    const postUserId = post.imageGeneration.generation.user.id
 
-    if (post.deleted || (post.blocked && userId !== postUserId)) {
+    if (post.deleted || (post.blocked && userId !== post.userId)) {
       return {
         id: post.id,
         updatedAt: post.updatedAt.getTime(),
@@ -196,14 +190,14 @@ export class PostService {
     return {
       id: post.id,
       imageUrl: post.imageGeneration.image.publicUrl,
-      prompt: post.imageGeneration.generation.promptFull,
+      prompt: post.imageGeneration.generation.prompt,
       deleted,
       likesCount: post.likesCount,
       commentsCount: post.commentsCount,
       createdAt: post.createdAt.getTime(),
       updatedAt: post.updatedAt.getTime(),
-      authorId: postUserId,
-      ...(userId === postUserId && post.blocked && { blocked: true }),
+      authorId: post.userId,
+      ...(userId === post.userId && post.blocked && { blocked: true }),
     }
   }
 }
@@ -216,12 +210,10 @@ interface PostData {
   commentsCount: number
   deleted: boolean
   blocked: boolean
+  userId: number
   imageGeneration: {
     generation: {
-      promptFull: string
-      user: {
-        id: number
-      }
+      prompt: string
     }
     image: {
       publicUrl: string
@@ -237,6 +229,7 @@ const postSelect = Object.freeze({
   commentsCount: true,
   createdAt: true,
   updatedAt: true,
+  userId: true,
   imageGeneration: {
     select: {
       image: {
@@ -246,12 +239,7 @@ const postSelect = Object.freeze({
       },
       generation: {
         select: {
-          promptFull: true,
-          user: {
-            select: {
-              id: true,
-            },
-          },
+          prompt: true,
         },
       },
     },
