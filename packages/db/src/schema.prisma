@@ -164,7 +164,6 @@ model Post {
 
     claims PostClaim[]
 
-    @@index([userId])
     @@index([updatedAt])
     @@index([likesCount])
     @@index([userId, updatedAt])
@@ -213,9 +212,8 @@ model PostComment {
 
     claims CommentClaim[]
 
-    @@index([postId])
-    @@index([createdAt])
-    @@index([likesCount])
+    @@index([userId, createdAt])
+    @@index([userId, likesCount])
     @@index([postId, createdAt])
     @@index([postId, likesCount])
 }

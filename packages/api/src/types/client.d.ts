@@ -17,7 +17,7 @@ export interface IGeneration {
   images: { id: number; url: string }[] | null
 }
 
-export interface IPostExisted {
+export interface IPost {
   id: number
   imageUrl: string
   prompt: string
@@ -26,14 +26,4 @@ export interface IPostExisted {
   authorId: number
   createdAt: Date
   updatedAt: Date
-  deleted: false
-  blocked?: true
 }
-
-export interface IPostDeleted {
-  id: number
-  updatedAt: Date
-  deleted: true
-}
-
-export type IPost = IPostExisted | IPostDeleted

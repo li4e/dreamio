@@ -25,7 +25,7 @@ export class PostsController extends Controller {
     @Query('lastSeenUpdatedAt') lsUpdatedAt?: Date,
     @Query('lastSeenPostId') lsPostId?: number,
     @Query('authorId') authorId?: number
-  ): Promise<{ post: IPost[] }> {
+  ): Promise<{ posts: IPost[] }> {
     let limit = queryLimit || 20
     if (limit > 20) {
       limit = 20
@@ -33,7 +33,7 @@ export class PostsController extends Controller {
 
     if (sortBy === 'likes') {
       return {
-        post: await PostService.feedListSortedByLikes(
+        posts: await PostService.feedListSortedByLikes(
           limit,
           lsLikesCount !== undefined && lsPostId !== undefined
             ? {
@@ -46,7 +46,7 @@ export class PostsController extends Controller {
       }
     } else {
       return {
-        post: await PostService.feedListSortedByUpdatedAt(
+        posts: await PostService.feedListSortedByUpdatedAt(
           limit,
           lsUpdatedAt !== undefined && lsPostId !== undefined
             ? {

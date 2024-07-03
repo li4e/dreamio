@@ -8,9 +8,13 @@ import {
 import { GenerationTestUtils } from '../data/generation'
 import { PostTestUtils } from '../data/post'
 import { isAxiosError } from 'axios'
+import { IPost } from '@choco/api-client'
+
+beforeEach(async () => {
+  await prepareDB()
+})
 
 beforeAll(async () => {
-  await prepareDB()
   await startTestServer()
 })
 
@@ -97,12 +101,18 @@ describe('Integration test /posts', () => {
 
     await getTestClient('4').deletePost(post.id)
 
-    const lastPostVersion = await getTestClient('4')
-      .getPost(post.id)
-      .then((res) => res.data.post)
-
-    expect(post.createdAt).not.toBe(lastPostVersion.updatedAt)
-    expect(Object.keys(lastPostVersion).length).toBe(3)
+    try {
+      await getTestClient('4')
+        .getPost(post.id)
+        .then((res) => res.data.post)
+      expect(true).toBe(false)
+    } catch (error) {
+      if (isAxiosError(error)) {
+        expect(error.response?.status).toBe(404)
+      } else {
+        throw new Error('Instace of error is not an Axios')
+      }
+    }
   })
 
   it('Should not be deleted by another user', async () => {
@@ -118,5 +128,88 @@ describe('Integration test /posts', () => {
         throw new Error('Instace of error is not an Axios')
       }
     }
+  })
+
+  it('Should be sorted correctly by updatedAt', async () => {
+    const posts: IPost[] = []
+
+    for (let i = 0; i < 10; i++) {
+      posts.push(await PostTestUtils.create(String(i + 5)))
+    }
+
+    const apiClient = getTestClient('5')
+
+    let apiPosts = await apiClient
+      .getPosts('updatedAt', 5)
+      .then((res) => res.data.posts)
+
+    let fisrtSeen = apiPosts[0]
+    const lastSeen = apiPosts[apiPosts.length - 1]
+    expect(apiPosts[0].id).toBe(posts[posts.length - 1].id)
+
+    apiPosts = await apiClient
+      .getPosts('updatedAt', 5, undefined, lastSeen.updatedAt, lastSeen.id)
+      .then((res) => res.data.posts)
+
+    fisrtSeen = apiPosts[0]
+    expect(fisrtSeen.id).not.toBe(lastSeen.id)
+    expect(new Date(fisrtSeen.updatedAt).getTime()).toBeLessThanOrEqual(
+      new Date(lastSeen.updatedAt).getTime()
+    )
+  })
+
+  it('Should be sorted correctly by likes with limit', async () => {
+    const posts: IPost[] = []
+
+    for (let i = 0; i < 10; i++) {
+      posts.push(await PostTestUtils.create(String(i)))
+    }
+
+    await getTestClient('1').likePost(posts[4].id)
+    await getTestClient('2').likePost(posts[4].id)
+    await getTestClient('3').likePost(posts[4].id)
+
+    await getTestClient('1').likePost(posts[6].id)
+    await getTestClient('2').likePost(posts[6].id)
+
+    let apiPosts = await getTestClient('1')
+      .getPosts('likes', 3)
+      .then((res) => res.data.posts)
+
+    expect(apiPosts[0].id).toBe(posts[4].id)
+    expect(apiPosts[1].id).toBe(posts[6].id)
+    expect(apiPosts[2].id).toBe(posts[9].id)
+
+    apiPosts = await getTestClient('1')
+      .getPosts('likes', 3, apiPosts[2].likesCount, undefined, apiPosts[2].id)
+      .then((res) => res.data.posts)
+
+    expect(apiPosts[0].id).toBe(posts[8].id)
+    expect(apiPosts[1].id).toBe(posts[7].id)
+    expect(apiPosts[2].id).toBe(posts[5].id)
+
+    apiPosts = await getTestClient('1')
+      .getPosts('likes', 3, apiPosts[2].likesCount, undefined, apiPosts[2].id)
+      .then((res) => res.data.posts)
+
+    expect(apiPosts[0].id).toBe(posts[3].id)
+    expect(apiPosts[1].id).toBe(posts[2].id)
+    expect(apiPosts[2].id).toBe(posts[1].id)
+  })
+
+  it('Should be sorted correctly by updatedAt after deletion', async () => {
+    const posts: IPost[] = []
+
+    for (let i = 0; i < 10; i++) {
+      posts.push(await PostTestUtils.create(String(i)))
+    }
+
+    await getTestClient('9').deletePost(posts[posts.length - 1].id)
+
+    const apiPosts = await getTestClient('4')
+      .getPosts('updatedAt', 3)
+      .then((res) => res.data.posts)
+
+    expect(apiPosts[0].id).toBe(posts[posts.length - 2].id)
   })
 })

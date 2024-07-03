@@ -204,9 +204,6 @@ CREATE INDEX "ImageGeneration_generation_id_idx" ON "ImageGeneration"("generatio
 CREATE UNIQUE INDEX "Post_image_generation_id_key" ON "Post"("image_generation_id");
 
 -- CreateIndex
-CREATE INDEX "Post_user_id_idx" ON "Post"("user_id");
-
--- CreateIndex
 CREATE INDEX "Post_updated_at_idx" ON "Post"("updated_at");
 
 -- CreateIndex
@@ -222,13 +219,10 @@ CREATE INDEX "Post_user_id_likes_count_idx" ON "Post"("user_id", "likes_count");
 CREATE UNIQUE INDEX "PostLike_user_id_post_id_key" ON "PostLike"("user_id", "post_id");
 
 -- CreateIndex
-CREATE INDEX "PostComment_post_id_idx" ON "PostComment"("post_id");
+CREATE INDEX "PostComment_user_id_created_at_idx" ON "PostComment"("user_id", "created_at");
 
 -- CreateIndex
-CREATE INDEX "PostComment_created_at_idx" ON "PostComment"("created_at");
-
--- CreateIndex
-CREATE INDEX "PostComment_likes_count_idx" ON "PostComment"("likes_count");
+CREATE INDEX "PostComment_user_id_likes_count_idx" ON "PostComment"("user_id", "likes_count");
 
 -- CreateIndex
 CREATE INDEX "PostComment_post_id_created_at_idx" ON "PostComment"("post_id", "created_at");

@@ -7,6 +7,8 @@ export class PostService {
   public async getData(userId?: number): Promise<IPost | null> {
     const post = await dbClient.post.findUnique({
       where: {
+        blocked: false,
+        deleted: false,
         id: this.id,
         ...(userId && {
           imageGeneration: {
@@ -18,7 +20,7 @@ export class PostService {
     })
 
     if (post) {
-      return PostService.transformToClient(post, userId)
+      return PostService.transformToClient(post)
     }
 
     return null
@@ -134,6 +136,8 @@ export class PostService {
   ): Promise<IPost[]> {
     const posts = await dbClient.post.findMany({
       where: {
+        deleted: false,
+        blocked: false,
         ...(lastSeen && {
           OR: [
             {
@@ -160,7 +164,7 @@ export class PostService {
       select: postSelect,
     })
 
-    return posts.map((post) => PostService.transformToClient(post, authorId))
+    return posts.map((post) => PostService.transformToClient(post))
   }
 
   static async feedListSortedByUpdatedAt(
@@ -173,6 +177,8 @@ export class PostService {
   ): Promise<IPost[]> {
     const posts = await dbClient.post.findMany({
       where: {
+        deleted: false,
+        blocked: false,
         ...(lastSeen && {
           OR: [
             {
@@ -199,31 +205,19 @@ export class PostService {
       select: postSelect,
     })
 
-    return posts.map((post) => PostService.transformToClient(post, authorId))
+    return posts.map((post) => PostService.transformToClient(post))
   }
 
-  static transformToClient(post: PostData, userId?: number): IPost {
-    const deleted = post.deleted || post.blocked
-
-    if (post.deleted || (post.blocked && userId !== post.userId)) {
-      return {
-        id: post.id,
-        updatedAt: post.updatedAt,
-        deleted: true,
-      }
-    }
-
+  static transformToClient(post: PostData): IPost {
     return {
       id: post.id,
       imageUrl: post.imageGeneration.image.publicUrl,
       prompt: post.imageGeneration.generation.prompt,
-      deleted,
       likesCount: post.likesCount,
       commentsCount: post.commentsCount,
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
       authorId: post.userId,
-      ...(userId === post.userId && post.blocked && { blocked: true }),
     }
   }
 }
