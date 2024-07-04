@@ -52,4 +52,18 @@ export class TestData {
 
     return postRes.data.post
   }
+
+  async createPostWithComments(
+    data?: StartGenerationBody
+  ): Promise<{ postId: number }> {
+    const post = await this.createPost(data)
+
+    for (let i = 0; i < 12; i++) {
+      await this.apiClient.createPostComment(post.id, {
+        content: 'Super comment!!!',
+      })
+    }
+
+    return { postId: post.id }
+  }
 }

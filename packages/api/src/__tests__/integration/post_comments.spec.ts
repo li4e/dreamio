@@ -119,4 +119,24 @@ describe('Integration test /post_comments and /posts/{postId}/comments', () => {
 
     expect(commentsCount).toBe(1)
   })
+
+  it('should be error during deleting a comment by other user', async () => {
+    const { postId } = await new TestData().createPostWithComments()
+    const client = getTestClient()
+    const descRes = await client
+      .getPostComments(postId, 2, 'asc')
+      .then((res) => res.data)
+
+    expect(new Date(descRes.items[0].updatedAt).getTime()).toBeLessThan(
+      new Date(descRes.items[1].updatedAt).getTime()
+    )
+
+    const ascRes = await client
+      .getPostComments(postId, 2, 'desc')
+      .then((res) => res.data)
+
+    expect(new Date(ascRes.items[0].updatedAt).getTime()).toBeGreaterThan(
+      new Date(ascRes.items[1].updatedAt).getTime()
+    )
+  })
 })
