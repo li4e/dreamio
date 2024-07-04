@@ -2,6 +2,7 @@ import { DefaultApi, Configuration } from '@choco/api-client'
 import axios from 'axios'
 import { Server } from 'http'
 import { app } from '../../app'
+import { randomUUID } from 'crypto'
 
 let server: Server
 
@@ -15,10 +16,20 @@ export async function closeTestServer() {
   }
 }
 
-export function getTestClient(fbToken?: string) {
-  const axiosInstance = axios.create({
-    headers: { 'firebase-token': fbToken },
-  })
+export function getTestClient(fbToken?: string | null) {
+  let token = fbToken
+
+  if (token === undefined) {
+    token = randomUUID()
+  }
+
+  const axiosInstance = axios.create(
+    token !== null
+      ? {
+          headers: { 'firebase-token': token },
+        }
+      : undefined
+  )
 
   return new DefaultApi(
     new Configuration(),
@@ -26,6 +37,3 @@ export function getTestClient(fbToken?: string) {
     axiosInstance
   )
 }
-
-export const testApiClient = getTestClient('valid')
-export const testApiClientNoAuth = getTestClient()

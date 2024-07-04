@@ -99,58 +99,73 @@ export class PostCommentsService {
       }))
   }
 
-  static async getByPostId(
+  static async getCommentsByPostId(
     postId: number,
     limit: number,
+    sortOrder: 'asc' | 'desc',
     lastSeen?: {
       updatedAt: Date
       commentId: string
     }
-  ): Promise<{ postComments: IPostComment[] }> {
-    const postComments = await dbClient.postComment
-      .findMany({
-        where: {
-          blocked: false,
-          deleted: false,
-          postId,
-          ...(lastSeen && {
-            OR: [
-              {
-                updatedAt: {
-                  lt: lastSeen.updatedAt,
-                },
+  ): Promise<{ items: IPostComment[]; deletedItems: string[] }> {
+    const orderCondition = sortOrder === 'asc' ? 'gt' : 'lt'
+
+    const allComments = await dbClient.postComment.findMany({
+      where: {
+        postId,
+        ...(lastSeen && {
+          OR: [
+            {
+              updatedAt: {
+                [orderCondition]: lastSeen.updatedAt,
               },
-              {
-                updatedAt: {
-                  lt: lastSeen.updatedAt,
-                },
-                id: {
-                  lt: BigInt(lastSeen.commentId),
-                },
+            },
+            {
+              updatedAt: {
+                [orderCondition]: lastSeen.updatedAt,
               },
-            ],
-          }),
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        take: limit,
-        select: {
-          id: true,
-          content: true,
-          postId: true,
-          createdAt: true,
-          updatedAt: true,
-          userId: true,
-          likesCount: true,
-        },
-      })
-      .then((posts) =>
-        posts.map((post) => ({ ...post, id: post.id.toString() }))
-      )
+              id: {
+                [orderCondition]: BigInt(lastSeen.commentId),
+              },
+            },
+          ],
+        }),
+      },
+      orderBy: {
+        createdAt: sortOrder,
+      },
+      take: limit,
+      select: {
+        id: true,
+        content: true,
+        postId: true,
+        createdAt: true,
+        updatedAt: true,
+        userId: true,
+        likesCount: true,
+        blocked: true,
+        deleted: true,
+      },
+    })
+
+    const items: IPostComment[] = []
+    const deletedItems: string[] = []
+
+    for (const comment of allComments) {
+      const { blocked, deleted, id, ...restCommentProps } = comment
+      if (deleted || blocked) {
+        deletedItems.push(id.toString())
+      } else {
+        items.push({
+          ...restCommentProps,
+          id: id.toString(),
+        })
+      }
+    }
 
     return {
-      postComments,
+      items,
+      deletedItems,
     }
   }
 }

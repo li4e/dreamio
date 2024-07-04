@@ -2,11 +2,9 @@ import { prepareDB } from '../tools/prepare_db'
 import {
   startTestServer,
   closeTestServer,
-  testApiClient,
   getTestClient,
 } from '../tools/test_server'
-import { GenerationTestUtils } from '../data/generation'
-import { PostTestUtils } from '../data/post'
+import { TestData } from '../data/TestData'
 import { isAxiosError } from 'axios'
 import { IPost } from '@choco/api-client'
 
@@ -24,9 +22,9 @@ afterAll(async () => {
 
 describe('Integration test /posts', () => {
   it('should successfully create a post', async () => {
-    const imgGenId = await GenerationTestUtils.create('1').then(
-      (data) => data.images?.[0].id
-    )
+    const imgGenId = await new TestData('1')
+      .createGeneration()
+      .then((gen) => gen.images?.[0].id)
 
     if (!imgGenId) {
       throw new Error('imgGenId is null')
@@ -40,9 +38,9 @@ describe('Integration test /posts', () => {
   })
 
   it(`should not create a post using imgGenId from another user's generation`, async () => {
-    const imgGenId = await GenerationTestUtils.create('2').then(
-      (data) => data.images?.[0].id
-    )
+    const imgGenId = await new TestData('2')
+      .createGeneration()
+      .then((gen) => gen.images?.[0].id)
 
     if (!imgGenId) {
       throw new Error('imgGenId is null')
@@ -63,14 +61,14 @@ describe('Integration test /posts', () => {
   })
 
   it('should be liked/unliked correctly', async () => {
-    const post = await PostTestUtils.create('3')
+    const post = await new TestData().createPost()
 
     for (let i = 0; i < 3; i++) {
       await getTestClient('1').likePost(post.id)
     }
 
     expect(
-      await testApiClient
+      await getTestClient()
         .getPost(post.id)
         .then((res) => res.data.post.likesCount)
     ).toBe(1)
@@ -78,7 +76,7 @@ describe('Integration test /posts', () => {
     await getTestClient('1').unlikePost(post.id)
 
     expect(
-      await testApiClient
+      await getTestClient()
         .getPost(post.id)
         .then((res) => res.data.post.likesCount)
     ).toBe(0)
@@ -87,7 +85,7 @@ describe('Integration test /posts', () => {
     await getTestClient('2').likePost(post.id)
     await getTestClient('3').likePost(post.id)
 
-    const lastPostVersion = await testApiClient
+    const lastPostVersion = await getTestClient()
       .getPost(post.id)
       .then((res) => res.data.post)
 
@@ -97,7 +95,7 @@ describe('Integration test /posts', () => {
   })
 
   it('Should be deleted correctly', async () => {
-    const post = await PostTestUtils.create('4')
+    const post = await new TestData('4').createPost()
 
     await getTestClient('4').deletePost(post.id)
 
@@ -116,7 +114,7 @@ describe('Integration test /posts', () => {
   })
 
   it('Should not be deleted by another user', async () => {
-    const post = await PostTestUtils.create('5')
+    const post = await new TestData('5').createPost()
 
     try {
       await getTestClient('3').deletePost(post.id)
@@ -134,7 +132,7 @@ describe('Integration test /posts', () => {
     const posts: IPost[] = []
 
     for (let i = 0; i < 10; i++) {
-      posts.push(await PostTestUtils.create(String(i + 5)))
+      posts.push(await new TestData(String(i + 5)).createPost())
     }
 
     const apiClient = getTestClient('5')
@@ -162,7 +160,7 @@ describe('Integration test /posts', () => {
     const posts: IPost[] = []
 
     for (let i = 0; i < 10; i++) {
-      posts.push(await PostTestUtils.create(String(i)))
+      posts.push(await new TestData(String(i)).createPost())
     }
 
     await getTestClient('1').likePost(posts[4].id)
@@ -201,7 +199,7 @@ describe('Integration test /posts', () => {
     const posts: IPost[] = []
 
     for (let i = 0; i < 10; i++) {
-      posts.push(await PostTestUtils.create(String(i)))
+      posts.push(await new TestData(String(i)).createPost())
     }
 
     await getTestClient('9').deletePost(posts[posts.length - 1].id)

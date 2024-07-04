@@ -150,25 +150,27 @@ export class PostsController extends Controller {
   public async getPostComments(
     @Path('postId') postId: number,
     @Query('limit') queryLimit?: number,
+    @Query('sortOrder') sortOrder: 'desc' | 'asc' = 'asc',
     @Query('lastSeenUpdatedAt') lastSeenUpdatedAt?: Date,
     @Query('lastSeenCommentId') lastSeenCommentId?: string
-  ): Promise<{ postComments: IPostComment[] }> {
+  ): Promise<{ items: IPostComment[]; deletedItems: string[] }> {
     let limit = queryLimit || 20
     if (limit > 20) {
       limit = 20
     }
 
     const lastSeen =
-      lastSeenUpdatedAt !== undefined && lastSeenCommentId !== undefined
+      lastSeenUpdatedAt && lastSeenCommentId
         ? {
             updatedAt: lastSeenUpdatedAt,
             commentId: lastSeenCommentId,
           }
         : undefined
 
-    const commentsByPostId = await PostCommentsService.getByPostId(
+    const commentsByPostId = await PostCommentsService.getCommentsByPostId(
       postId,
       limit,
+      sortOrder,
       lastSeen
     )
 

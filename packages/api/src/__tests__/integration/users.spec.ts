@@ -4,8 +4,7 @@ import { prepareDB } from '../tools/prepare_db'
 import {
   startTestServer,
   closeTestServer,
-  testApiClient,
-  testApiClientNoAuth,
+  getTestClient,
 } from '../tools/test_server'
 
 beforeAll(async () => {
@@ -20,7 +19,7 @@ afterAll(async () => {
 describe('Integration test /users', () => {
   describe('Valid GET user test', () => {
     it('user should be returned without error', async () => {
-      const getUserRes = await testApiClient.getUser(2)
+      const getUserRes = await getTestClient().getUser(2)
 
       expect(getUserRes.data.profile.userId).toBe(1)
       expect(getUserRes.data.profile.userIdFromPath).toBe(2)
@@ -28,7 +27,7 @@ describe('Integration test /users', () => {
 
     it('401 should be returned with error', async () => {
       try {
-        await testApiClientNoAuth.getUser(2)
+        await getTestClient(null).getUser(2)
         expect(true).toBe(false)
       } catch (error) {
         if (isAxiosError(error)) {

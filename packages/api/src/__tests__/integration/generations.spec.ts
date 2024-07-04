@@ -3,7 +3,7 @@ import { StartGenerationBody } from '../../types/controllers/generation'
 import {
   startTestServer,
   closeTestServer,
-  testApiClient,
+  getTestClient,
 } from '../tools/test_server'
 
 beforeAll(async () => {
@@ -25,7 +25,7 @@ describe('Integration test /generations', () => {
   let generationId: number | null = null
 
   it('Valid create generation', async () => {
-    const createGenRes = await testApiClient.createGeneration(request)
+    const createGenRes = await getTestClient().createGeneration(request)
 
     if (!createGenRes.data.generation) {
       throw new Error('Generation is null')
@@ -38,17 +38,29 @@ describe('Integration test /generations', () => {
   })
 
   it('No credits generation', async () => {
-    const createGenRes = await testApiClient.createGeneration(request)
+    const client = getTestClient()
+    await client.createGeneration(request)
+
+    const createGenRes = await client.createGeneration(request)
     expect(createGenRes.data.generation).toBeNull()
     expect(createGenRes.data.userData.credits).toBe(0)
   })
 
   it('save generation', async () => {
-    if (generationId === null) {
-      throw new Error('generationId is null')
+    const client = getTestClient()
+
+    const genId = await client
+      .createGeneration({
+        prompt: 'Hay',
+        enhancer: false,
+      })
+      .then((res) => res.data.generation?.id)
+
+    if (!genId) {
+      throw new Error('genId is null')
     }
 
-    const genRes = await testApiClient.getGeneration(generationId)
+    const genRes = await client.getGeneration(genId)
 
     expect(genRes.data.generation.status).toBe('completed')
     expect(genRes.data.generation.images).toHaveLength(1)

@@ -4,7 +4,7 @@ import {
   closeTestServer,
   getTestClient,
 } from '../tools/test_server'
-import { PostTestUtils } from '../data/post'
+import { TestData } from '../data/TestData'
 
 beforeAll(async () => {
   await prepareDB()
@@ -17,10 +17,10 @@ afterAll(async () => {
 
 describe('Integration test /post_comments and /posts/{postId}/comments', () => {
   it('should successfully create a comment', async () => {
-    await PostTestUtils.create('1')
+    const postId = await new TestData().createPost().then((post) => post.id)
 
-    const comment = await getTestClient('super')
-      .createPostComment(1, { content: 'Sss' })
+    const comment = await getTestClient()
+      .createPostComment(postId, { content: 'Sss' })
       .then((res) => res.data.postComment)
 
     expect(comment.id).toBe('1')
@@ -29,7 +29,7 @@ describe('Integration test /post_comments and /posts/{postId}/comments', () => {
 
   it('should be 401 error trying post a comment without an auth', async () => {
     try {
-      const postComment = await getTestClient('1').createPostComment(1, {
+      const postComment = await getTestClient(null).createPostComment(1, {
         content: 'Sss',
       })
       expect(postComment).not.toBeDefined()
@@ -38,73 +38,84 @@ describe('Integration test /post_comments and /posts/{postId}/comments', () => {
     }
   })
 
-  it('should be liked successfully and only once', async () => {
-    await getTestClient('1').likePostComment('1')
-    await getTestClient('1').likePostComment('1')
+  it('should be liked successfully only once and unliked', async () => {
+    const postId = await new TestData().createPost().then((post) => post.id)
 
-    const comments = await getTestClient('1')
-      .getPostComments(1)
-      .then((res) => res.data.postComments)
+    const commentId = await getTestClient('super')
+      .createPostComment(postId, { content: 'Sss' })
+      .then((res) => res.data.postComment.id)
 
-    expect(comments[1].likesCount).toBe(1)
+    await getTestClient('1').likePostComment(commentId)
+    await getTestClient().likePostComment(commentId)
+
+    let likesCount = await getTestClient()
+      .getPostComments(postId)
+      .then((res) => res.data.items[0].likesCount)
+
+    expect(likesCount).toBe(2)
+
+    await getTestClient('1').unlikePostComment(commentId)
+
+    likesCount = await getTestClient()
+      .getPostComments(postId)
+      .then((res) => res.data.items[0].likesCount)
+
+    expect(likesCount).toBe(1)
   })
 
-  it('should be unliked successfully', async () => {
-    await getTestClient('1').unlikePostComment('1')
+  it('should be liked successfully by a few people', async () => {
+    const postId = await new TestData().createPost().then((post) => post.id)
 
-    const comments = await getTestClient('1')
-      .getPostComments(1)
-      .then((res) => res.data.postComments)
+    const commentId = await getTestClient('super')
+      .createPostComment(postId, { content: 'Sss' })
+      .then((res) => res.data.postComment.id)
 
-    expect(comments[1].likesCount).toBe(0)
+    await getTestClient().likePostComment(commentId)
+    await getTestClient().likePostComment(commentId)
+    await getTestClient().likePostComment(commentId)
+
+    const likesCount = await getTestClient()
+      .getPostComments(postId)
+      .then((res) => res.data.items[0].likesCount)
+
+    expect(likesCount).toBe(3)
   })
 
-  it('should be like successfully by few people', async () => {
-    await getTestClient('1').likePostComment('1')
-    await getTestClient('2').likePostComment('1')
-    await getTestClient('3').likePostComment('1')
-
-    const comments = await getTestClient('1')
-      .getPostComments(1)
-      .then((res) => res.data.postComments)
-
-    expect(comments[1].likesCount).toBe(3)
-  })
-
-  it('should successfully delete a comment', async () => {
-    const post = await PostTestUtils.create('2')
-    const apiClient = getTestClient('super')
+  it('should be successfully deleted', async () => {
+    const postId = await new TestData().createPost().then((post) => post.id)
+    const apiClient = getTestClient()
 
     const comment = await apiClient
-      .createPostComment(post.id, { content: 'Sss' })
+      .createPostComment(postId, { content: 'Sss' })
       .then((res) => res.data.postComment)
 
     await apiClient.deletePostComment(comment.id)
 
-    const commentsCount = await apiClient
-      .getPostComments(post.id)
-      .then((res) => res.data.postComments.length)
+    const comments = await apiClient
+      .getPostComments(postId)
+      .then((res) => res.data)
 
-    expect(commentsCount).toBe(0)
+    expect(comments.items.length).toBe(0)
+    expect(comments.deletedItems.length).toBe(1)
   })
 
   it('should be error during deleting a comment by other user', async () => {
-    const post = await PostTestUtils.create('3')
-    const apiClient = getTestClient('super1')
+    const postId = await new TestData().createPost().then((post) => post.id)
+    const apiClient = getTestClient()
 
-    const comment = await apiClient
-      .createPostComment(post.id, { content: 'Sss' })
-      .then((res) => res.data.postComment)
+    const commentId = await apiClient
+      .createPostComment(postId, { content: 'Sss' })
+      .then((res) => res.data.postComment.id)
 
     try {
-      await getTestClient('_').deletePostComment(comment.id)
+      await getTestClient('1').deletePostComment(commentId)
     } catch {
       expect(true).toBe(true)
     }
 
     const commentsCount = await apiClient
-      .getPostComments(post.id)
-      .then((res) => res.data.postComments.length)
+      .getPostComments(postId)
+      .then((res) => res.data.items.length)
 
     expect(commentsCount).toBe(1)
   })
