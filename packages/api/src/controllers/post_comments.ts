@@ -26,8 +26,30 @@ export class PostsCommentsController extends Controller {
   }
 
   @Security('firebase')
+  @Post('{commentId}/likes')
+  public async likePostComment(
+    @Path('commentId') commentId: string,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ success: boolean }> {
+    const { userId } = request
+    await new PostCommentsService(BigInt(commentId)).like(userId)
+    return { success: true }
+  }
+
+  @Security('firebase')
+  @Delete('{commentId}/likes')
+  public async unlikePostComment(
+    @Path('commentId') commentId: string,
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ success: boolean }> {
+    const { userId } = request
+    await new PostCommentsService(BigInt(commentId)).unlike(userId)
+    return { success: true }
+  }
+
+  @Security('firebase')
   @Post('{commentId}/reports')
-  public async createPostCommentReport(
+  public async reportPostComment(
     @Body() body: CreatePostClaimDto,
     @Path('commentId') commentId: string,
     @Request() request: AuthenticatedRequest

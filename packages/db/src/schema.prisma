@@ -40,7 +40,7 @@ model User {
     inAppPurchases InAppPurchase[]   @relation("UserInAppPurchases")
     generations    Generation[]
     likedPosts     PostLike[]
-    likesComments  PostCommentLike[]
+    likedComments  PostCommentLike[]
     comments       PostComment[]
     postsClaims    PostClaim[]
     commentsClaims CommentClaim[]

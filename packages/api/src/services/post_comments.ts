@@ -31,10 +31,40 @@ export class PostCommentsService {
   }
 
   public async delete(requestUserId: number) {
-    await dbClient.postComment.delete({
+    await dbClient.postComment.update({
       where: {
         id: this.commentId,
         userId: requestUserId,
+      },
+      data: {
+        deleted: true,
+      },
+    })
+  }
+
+  public async like(requestUserId: number): Promise<void> {
+    await dbClient.postCommentLike.upsert({
+      where: {
+        userId_commentId: {
+          userId: requestUserId,
+          commentId: this.commentId,
+        },
+      },
+      create: {
+        userId: requestUserId,
+        commentId: this.commentId,
+      },
+      update: {},
+    })
+  }
+
+  public async unlike(requestUserId: number): Promise<void> {
+    await dbClient.postCommentLike.delete({
+      where: {
+        userId_commentId: {
+          userId: requestUserId,
+          commentId: this.commentId,
+        },
       },
     })
   }
@@ -56,6 +86,7 @@ export class PostCommentsService {
         select: {
           id: true,
           createdAt: true,
+          likesCount: true,
         },
       })
       .then((data) => ({
@@ -111,6 +142,7 @@ export class PostCommentsService {
           createdAt: true,
           updatedAt: true,
           userId: true,
+          likesCount: true,
         },
       })
       .then((posts) =>

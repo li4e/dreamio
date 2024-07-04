@@ -18,7 +18,9 @@ export class GenerationTestUtils {
       .then((res) => res.data.generation?.id)
 
     if (!genId) {
-      throw new Error('genId is null')
+      throw new Error(
+        `Test User can't to create the generation due an issuficent of coins`
+      )
     }
 
     const generation = await apiClient

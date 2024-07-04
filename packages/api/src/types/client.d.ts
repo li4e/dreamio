@@ -34,6 +34,7 @@ export interface IPostComment {
   content: string
   postId: number
   userId: number
+  likesCount: number
   createdAt: Date
   updatedAt: Date
 }
