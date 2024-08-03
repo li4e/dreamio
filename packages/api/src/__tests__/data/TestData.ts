@@ -21,7 +21,6 @@ export class TestData {
       .createGeneration(
         data || {
           prompt: 'Super image',
-          enhancer: false,
         }
       )
       .then((res) => res.data.generation?.id)

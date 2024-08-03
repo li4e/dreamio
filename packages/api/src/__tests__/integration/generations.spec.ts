@@ -18,7 +18,6 @@ afterAll(async () => {
 describe('Integration test /generations', () => {
   const request: StartGenerationBody = {
     prompt: 'very pretty kitty on Taipei streets',
-    enhancer: false,
     style: 'photorealistic',
   }
 
@@ -52,7 +51,6 @@ describe('Integration test /generations', () => {
     const genId = await client
       .createGeneration({
         prompt: 'Hay',
-        enhancer: false,
       })
       .then((res) => res.data.generation?.id)
 

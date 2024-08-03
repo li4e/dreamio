@@ -1,6 +1,6 @@
 {
   "name": "@choco/api",
-  "description": "API for the chocolate application",
+  "description": "API for the dreamio application",
   "version": "0.0.0",
   "scripts": {
     "test": "nx test api",

@@ -101,7 +101,6 @@ export class GenerationService {
       promptFull: generation.promptFull,
       style: generation.style,
       highQuality: generation.highQuality,
-      enhancer: generation.enhancer,
       status: generation.status,
       createdAt: generation.createdAt,
       updatedAt: generation.updatedAt,

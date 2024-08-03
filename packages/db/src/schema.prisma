@@ -135,7 +135,6 @@ model Generation {
     model       GenerationModel
     n           Int             @default(1)
     highQuality Boolean?
-    enhancer    Boolean
     status      Status          @default(processing)
     createdAt   DateTime        @default(now()) @map("created_at")
     updatedAt   DateTime        @updatedAt @map("updated_at")

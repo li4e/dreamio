@@ -11,7 +11,6 @@ export interface IGeneration {
   style: string | null
   highQuality: boolean | null
   status: 'processing' | 'completed' | 'error'
-  enhancer: boolean
   createdAt: Date
   updatedAt: Date
   images: { id: number; url: string }[] | null

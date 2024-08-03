@@ -86,7 +86,6 @@ CREATE TABLE "Generation" (
     "model" "GenerationModel" NOT NULL,
     "n" INTEGER NOT NULL DEFAULT 1,
     "highQuality" BOOLEAN,
-    "enhancer" BOOLEAN NOT NULL,
     "status" "Status" NOT NULL DEFAULT 'processing',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
