@@ -1,5 +1,6 @@
 import { dbClient, Prisma } from '@choco/db'
 import { PopulatedUser } from '../types/user'
+import { UserSettings } from '../config/settings'
 
 export class UserService {
   constructor(private userId: number) {}
@@ -26,31 +27,26 @@ export class UserService {
 
   static async getUserIdByFirebaseId(firebaseId: string): Promise<number> {
     return await dbClient.$transaction(async (transaction) => {
-      let firebaseUser = await transaction.firebaseUser.findFirst({
+      let user = await transaction.user.findFirst({
         where: {
           firebaseId,
         },
         select: {
-          userId: true,
+          id: true,
         },
       })
 
-      if (!firebaseUser) {
-        const user = await transaction.user.create({
-          data: {},
-          select: { id: true },
-        })
-
-        firebaseUser = await transaction.firebaseUser.create({
+      if (!user) {
+        user = await transaction.user.create({
           data: {
-            firebaseId,
-            userId: user.id,
+            firebaseId: firebaseId,
+            freeCredits: UserSettings.initialfreeCredits,
           },
-          select: { userId: true },
+          select: { id: true },
         })
       }
 
-      return firebaseUser.userId
+      return user.id
     })
   }
 

@@ -31,11 +31,11 @@ datasource db {
 }
 
 model User {
-    id          Int @id @default(autoincrement())
-    freeCredits Int @default(1)
+    id          Int    @id @default(autoincrement())
+    firebaseId  String @unique
+    freeCredits Int
 
     posts          Post[]
-    firebaseUsers  FirebaseUser[]
     subscriptions  Subscription[]    @relation("UserSubscriptions")
     inAppPurchases InAppPurchase[]   @relation("UserInAppPurchases")
     generations    Generation[]
@@ -44,15 +44,6 @@ model User {
     comments       PostComment[]
     postsClaims    PostClaim[]
     commentsClaims CommentClaim[]
-}
-
-model FirebaseUser {
-    firebaseId String @unique
-    userId     Int
-
-    user User @relation(fields: [userId], references: [id])
-
-    @@unique([firebaseId, userId])
 }
 
 enum Store {

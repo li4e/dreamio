@@ -13,15 +13,10 @@ CREATE TYPE "ClaimStatus" AS ENUM ('pending', 'accepted', 'rejected');
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
-    "freeCredits" INTEGER NOT NULL DEFAULT 1,
+    "firebaseId" TEXT NOT NULL,
+    "freeCredits" INTEGER NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "FirebaseUser" (
-    "firebaseId" TEXT NOT NULL,
-    "userId" INTEGER NOT NULL
 );
 
 -- CreateTable
@@ -179,10 +174,7 @@ CREATE TABLE "_UserInAppPurchases" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "FirebaseUser_firebaseId_key" ON "FirebaseUser"("firebaseId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "FirebaseUser_firebaseId_userId_key" ON "FirebaseUser"("firebaseId", "userId");
+CREATE UNIQUE INDEX "User_firebaseId_key" ON "User"("firebaseId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Subscription_store_original_transaction_id_key" ON "Subscription"("store", "original_transaction_id");
@@ -249,9 +241,6 @@ CREATE UNIQUE INDEX "_UserInAppPurchases_AB_unique" ON "_UserInAppPurchases"("A"
 
 -- CreateIndex
 CREATE INDEX "_UserInAppPurchases_B_index" ON "_UserInAppPurchases"("B");
-
--- AddForeignKey
-ALTER TABLE "FirebaseUser" ADD CONSTRAINT "FirebaseUser_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "ImageGeneration" ADD CONSTRAINT "ImageGeneration_generation_id_fkey" FOREIGN KEY ("generation_id") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
