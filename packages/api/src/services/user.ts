@@ -2,6 +2,7 @@ import { dbClient, Prisma } from '@choco/db'
 import { PopulatedUser } from '../types/user'
 import { UserSettings } from '../config/settings'
 import { generateUsername } from 'unique-username-generator'
+import { FileInfo } from '../types/integrations/cloudStorage'
 
 export class UserService {
   constructor(private userId: number) {}
@@ -15,6 +16,8 @@ export class UserService {
         id: true,
         freeCredits: true,
         userName: true,
+        avatarPublicUrl: true,
+        avatarFilePath: true,
         inAppPurchases: true,
         subscriptions: true,
       },
@@ -85,6 +88,8 @@ export class UserService {
         id: true,
         userName: true,
         freeCredits: true,
+        avatarPublicUrl: true,
+        avatarFilePath: true,
         subscriptions: true,
         inAppPurchases: true,
       },
@@ -148,6 +153,18 @@ export class UserService {
       },
       data: {
         userName,
+      },
+    })
+  }
+
+  async updateAvatar(avatarInfo: FileInfo) {
+    await dbClient.user.update({
+      where: {
+        id: this.userId,
+      },
+      data: {
+        avatarFilePath: avatarInfo.filePath,
+        avatarPublicUrl: avatarInfo.publicUrl,
       },
     })
   }

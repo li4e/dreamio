@@ -16,6 +16,8 @@ CREATE TABLE "User" (
     "firebaseId" TEXT NOT NULL,
     "freeCredits" INTEGER NOT NULL,
     "userName" VARCHAR(20) NOT NULL,
+    "avatar_file_path" TEXT,
+    "avatar_public_url" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -179,6 +181,9 @@ CREATE UNIQUE INDEX "User_firebaseId_key" ON "User"("firebaseId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_userName_key" ON "User"("userName");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_avatar_file_path_key" ON "User"("avatar_file_path");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Subscription_store_original_transaction_id_key" ON "Subscription"("store", "original_transaction_id");

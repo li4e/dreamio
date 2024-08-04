@@ -50,7 +50,9 @@ export class GenerationsItemManager {
         data.highQuality ?? undefined
       )
 
-      const image = await new CloudStorage().saveImageFromBase64(base64Image)
+      const image = await new CloudStorage().saveGenerationImageFromBase64(
+        base64Image
+      )
 
       try {
         await this.item.saveResults([image.imageData])

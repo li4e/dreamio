@@ -13,6 +13,7 @@ import { PopulatedUser } from '../types/user'
 import { UserService } from '../services/user'
 import { isValidUsername } from '../utils/isUserNameValid'
 import { ServerError, StatusCode } from '../shared/ServerError'
+import { UserManager } from '../managers/user'
 
 @Route('users')
 export class UsersController extends Controller {
@@ -37,10 +38,10 @@ export class UsersController extends Controller {
   @Security('firebase')
   @Patch()
   public async updateUser(
-    @Body() user: { userName: string },
+    @Body() body: { userName: string },
     @Request() request: AuthenticatedRequest
   ): Promise<{ success: true }> {
-    const newUserName = user.userName.toLowerCase()
+    const newUserName = body.userName.toLowerCase()
 
     if (!isValidUsername(newUserName)) {
       throw new ServerError(
@@ -50,6 +51,19 @@ export class UsersController extends Controller {
     }
 
     await new UserService(request.userId).changeUserName(newUserName)
+
+    return { success: true }
+  }
+
+  @Security('firebase')
+  @Patch('avatar')
+  public async updateUserAvatar(
+    @Body() body: { filePath: string },
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ success: true }> {
+    await new UserManager(
+      await new UserService(request.userId).getPopulated()
+    ).updateAvatar(body.filePath)
 
     return { success: true }
   }

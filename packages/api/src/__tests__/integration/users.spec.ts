@@ -86,5 +86,14 @@ describe('Integration test /users', () => {
         expect(true).toBe(true)
       }
     })
+
+    it('user avatar should be updated successfully', async () => {
+      const client = getTestClient('username_update_2')
+
+      await client.updateUserAvatar({ filePath: 'testPath' })
+      const user = await client.getCurrentUser().then((res) => res.data.user)
+      expect(user.avatarFilePath).toBeDefined()
+      expect(user.avatarPublicUrl).toBeDefined()
+    })
   })
 })

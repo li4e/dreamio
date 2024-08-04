@@ -1,3 +1,4 @@
+import { CloudStorage } from '../integrations/storage'
 import { UserModel } from '../models/UserModel'
 import { UserService } from '../services/user'
 import { IUserData } from '../types/client'
@@ -38,5 +39,20 @@ export class UserManager {
 
   public static async get(userId: number) {
     return new UserManager(await new UserService(userId).getPopulated())
+  }
+
+  public async updateAvatar(tempFileName: string) {
+    const oldAvatarPath = this.user.avatarFilePath
+
+    const file = await new CloudStorage().saveUserAvatar(
+      this.user.id,
+      tempFileName
+    )
+
+    await new UserService(this.user.id).updateAvatar(file.imageData)
+
+    if (oldAvatarPath) {
+      await new CloudStorage().deleteFile(oldAvatarPath)
+    }
   }
 }

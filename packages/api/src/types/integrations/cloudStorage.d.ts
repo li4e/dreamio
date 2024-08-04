@@ -1,11 +1,20 @@
+export interface FileInfo {
+  filePath: string
+  publicUrl: string
+}
+
 export interface ICloudStorageItem {
-  delete: () => Promise<void>
-  imageData: {
-    filePath: string
-    publicUrl: string
-  }
+  delete(): Promise<void>
+  imageData: FileInfo
 }
 
 export interface ICloudStorage {
-  saveImageFromBase64: (base64Image: string) => Promise<ICloudStorageItem>
+  saveGenerationImageFromBase64(base64Image: string): Promise<ICloudStorageItem>
+
+  saveUserAvatar(
+    userId: number,
+    tempFilePath: string
+  ): Promise<ICloudStorageItem>
+
+  deleteFile(filePath: string): Promise<void>
 }

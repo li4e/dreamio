@@ -36,6 +36,9 @@ model User {
     freeCredits Int
     userName    String @unique @db.VarChar(20)
 
+    avatarFilePath  String? @unique @map("avatar_file_path")
+    avatarPublicUrl String? @map("avatar_public_url")
+
     posts          Post[]
     subscriptions  Subscription[]    @relation("UserSubscriptions")
     inAppPurchases InAppPurchase[]   @relation("UserInAppPurchases")
