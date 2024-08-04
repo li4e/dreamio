@@ -37,5 +37,15 @@ describe('Integration test /users', () => {
         }
       }
     })
+
+    it('current user should be returned without error', async () => {
+      const user = await getTestClient()
+        .getCurrentUser()
+        .then((res) => res.data.user)
+
+      expect(user.id).toBeDefined()
+      expect(user.userName.length).toBeGreaterThanOrEqual(3)
+      expect(user.userName.length).toBeLessThanOrEqual(20)
+    })
   })
 })

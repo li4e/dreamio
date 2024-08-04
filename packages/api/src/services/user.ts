@@ -1,6 +1,7 @@
 import { dbClient, Prisma } from '@choco/db'
 import { PopulatedUser } from '../types/user'
 import { UserSettings } from '../config/settings'
+import { generateUsername } from 'unique-username-generator'
 
 export class UserService {
   constructor(private userId: number) {}
@@ -13,6 +14,7 @@ export class UserService {
       select: {
         id: true,
         freeCredits: true,
+        userName: true,
         inAppPurchases: true,
         subscriptions: true,
       },
@@ -41,6 +43,7 @@ export class UserService {
           data: {
             firebaseId: firebaseId,
             freeCredits: UserSettings.initialfreeCredits,
+            userName: generateUsername('_', 3, 20),
           },
           select: { id: true },
         })
@@ -80,6 +83,7 @@ export class UserService {
       },
       select: {
         id: true,
+        userName: true,
         freeCredits: true,
         subscriptions: true,
         inAppPurchases: true,

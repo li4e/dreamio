@@ -15,6 +15,7 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "firebaseId" TEXT NOT NULL,
     "freeCredits" INTEGER NOT NULL,
+    "userName" VARCHAR(20) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -175,6 +176,9 @@ CREATE TABLE "_UserInAppPurchases" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_firebaseId_key" ON "User"("firebaseId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_userName_key" ON "User"("userName");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Subscription_store_original_transaction_id_key" ON "Subscription"("store", "original_transaction_id");
