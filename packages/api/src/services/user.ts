@@ -140,4 +140,15 @@ export class UserService {
       })
       .then((data) => data.freeCredits)
   }
+
+  async changeUserName(userName: string): Promise<void> {
+    await dbClient.user.update({
+      where: {
+        id: this.userId,
+      },
+      data: {
+        userName,
+      },
+    })
+  }
 }

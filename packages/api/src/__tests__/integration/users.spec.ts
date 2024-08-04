@@ -47,5 +47,44 @@ describe('Integration test /users', () => {
       expect(user.userName.length).toBeGreaterThanOrEqual(3)
       expect(user.userName.length).toBeLessThanOrEqual(20)
     })
+
+    it('userName should be updated successfully', async () => {
+      const client = getTestClient('username_update_1')
+
+      const oldUserName = await client
+        .getCurrentUser()
+        .then((res) => res.data.user.userName)
+
+      await client.updateUser({ userName: 'Super_User_1' })
+
+      const newUserName = await client
+        .getCurrentUser()
+        .then((res) => res.data.user.userName)
+
+      expect(oldUserName).not.toEqual(newUserName)
+      expect('super_user_1').toEqual(newUserName)
+    })
+
+    it('userName should not be updated successfully', async () => {
+      const client = getTestClient('username_update_2')
+
+      try {
+        await client.updateUser({ userName: 'Super_User_1' })
+        expect(true).toBe(false)
+      } catch (error) {
+        expect(true).toBe(true)
+      }
+    })
+
+    it('userName should not be updated successfully', async () => {
+      const client = getTestClient('username_update_2')
+
+      try {
+        await client.updateUser({ userName: 'sd' })
+        expect(true).toBe(false)
+      } catch (error) {
+        expect(true).toBe(true)
+      }
+    })
   })
 })

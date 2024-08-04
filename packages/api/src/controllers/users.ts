@@ -1,7 +1,18 @@
-import { Controller, Get, Route, Path, Request, Security } from 'tsoa'
+import {
+  Controller,
+  Get,
+  Patch,
+  Route,
+  Body,
+  Path,
+  Request,
+  Security,
+} from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
 import { PopulatedUser } from '../types/user'
 import { UserService } from '../services/user'
+import { isValidUsername } from '../utils/isUserNameValid'
+import { ServerError, StatusCode } from '../shared/ServerError'
 
 @Route('users')
 export class UsersController extends Controller {
@@ -21,5 +32,25 @@ export class UsersController extends Controller {
     @Request() request: AuthenticatedRequest
   ): Promise<{ profile: { userId: number; userIdFromPath: number } }> {
     return { profile: { userId: request.userId, userIdFromPath } }
+  }
+
+  @Security('firebase')
+  @Patch()
+  public async updateUser(
+    @Body() user: { userName: string },
+    @Request() request: AuthenticatedRequest
+  ): Promise<{ success: true }> {
+    const newUserName = user.userName.toLowerCase()
+
+    if (!isValidUsername(newUserName)) {
+      throw new ServerError(
+        'Provided username is not valid',
+        StatusCode.BAD_REQUEST
+      )
+    }
+
+    await new UserService(request.userId).changeUserName(newUserName)
+
+    return { success: true }
   }
 }
