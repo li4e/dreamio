@@ -1,5 +1,5 @@
 export class UserSettings {
-  static initialfreeCredits = 1
+  static initialfreeCredits = 2
 }
 
 export class UserAvatarSettings {
