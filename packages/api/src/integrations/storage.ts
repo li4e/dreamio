@@ -42,7 +42,7 @@ export class CloudStorage implements ICloudStorage {
     userId: number,
     tempFileName: string
   ): Promise<ICloudStorageItem> {
-    const filePath = `users/${userId}/${tempFileName}`
+    const filePath = `users/${userId}/temp/${tempFileName}`
     const file = this._bucket.file(filePath)
     const item = new CloudStorageItem(file)
 
