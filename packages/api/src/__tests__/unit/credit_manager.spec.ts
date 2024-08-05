@@ -1,5 +1,5 @@
 import { prepareDB } from '../tools/prepare_db'
-import { CreditManager } from '../../services/credit_manager'
+import { CreditManager } from '../../managers/credit'
 import { UserService } from '../../services/user'
 import { UserModel } from '../../models/UserModel'
 import { app } from '../../app'
@@ -12,7 +12,8 @@ beforeAll(async () => {
 describe('CreditManager Test', () => {
   it('FreeCredits should be consumed and reverted back correctly', async () => {
     const userId = await UserService.getUserIdByFirebaseId('super')
-    const creditManager = new CreditManager(userId)
+    const populatedUser = await new UserService(userId).getPopulated()
+    const creditManager = new CreditManager(populatedUser)
 
     let user = new UserModel(await new UserService(userId).getPopulated())
     async function refreshUser() {
@@ -45,7 +46,8 @@ describe('CreditManager Test', () => {
       'firebase_user_id_valid'
     )
 
-    const creditManager = new CreditManager(userId)
+    const populatedUser = await new UserService(userId).getPopulated()
+    const creditManager = new CreditManager(populatedUser)
 
     let user = new UserModel(await new UserService(userId).getPopulated())
     async function refreshUser() {
