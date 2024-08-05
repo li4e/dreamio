@@ -5,6 +5,7 @@ import {
   closeTestServer,
   getTestClient,
 } from '../tools/test_server'
+import { UserSettings } from '../../config/settings'
 
 beforeAll(async () => {
   await prepareDB()
@@ -33,12 +34,19 @@ describe('Integration test /generations', () => {
     generationId = createGenRes.data.generation.id
 
     expect(createGenRes.data.generation).toBeDefined()
-    expect(createGenRes.data.userData.credits).toBe(0)
+    expect(createGenRes.data.userData.credits).toBe(
+      UserSettings.initialfreeCredits - 1
+    )
   })
 
   it('No credits generation', async () => {
     const client = getTestClient()
-    await client.createGeneration(request)
+
+    let credits = UserSettings.initialfreeCredits
+    while (credits > 0) {
+      await client.createGeneration(request)
+      credits--
+    }
 
     const createGenRes = await client.createGeneration(request)
     expect(createGenRes.data.generation).toBeNull()

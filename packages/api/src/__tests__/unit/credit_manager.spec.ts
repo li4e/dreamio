@@ -4,6 +4,7 @@ import { UserService } from '../../services/user'
 import { UserModel } from '../../models/UserModel'
 import { app } from '../../app'
 import supertest from 'supertest'
+import { UserSettings } from '../../config/settings'
 
 beforeAll(async () => {
   await prepareDB()
@@ -20,19 +21,19 @@ describe('CreditManager Test', () => {
       user = new UserModel(await new UserService(userId).getPopulated())
     }
 
-    expect(user.data.credits).toBe(1)
+    expect(user.data.credits).toBe(UserSettings.initialfreeCredits)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(0)
+    expect(user.data.credits).toBe(UserSettings.initialfreeCredits - 1)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(1)
+    expect(user.data.credits).toBe(UserSettings.initialfreeCredits)
   })
 
   it('subscription credits should be consumed and reverted back correctly', async () => {
@@ -54,19 +55,21 @@ describe('CreditManager Test', () => {
       user = new UserModel(await new UserService(userId).getPopulated())
     }
 
-    expect(user.data.credits).toBe(101)
+    const intial = 100 + UserSettings.initialfreeCredits
+
+    expect(user.data.credits).toBe(intial)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(100)
+    expect(user.data.credits).toBe(intial - 1)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(101)
+    expect(user.data.credits).toBe(intial)
 
     await creditManager.consume()
     await creditManager.consume()
@@ -74,6 +77,6 @@ describe('CreditManager Test', () => {
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(98)
+    expect(user.data.credits).toBe(intial - 3)
   })
 })

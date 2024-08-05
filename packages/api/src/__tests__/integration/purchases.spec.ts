@@ -1,6 +1,7 @@
 import supertest from 'supertest'
 import { app } from '../../app'
 import { prepareDB } from '../tools/prepare_db'
+import { UserSettings } from '../../config/settings'
 
 beforeAll(async () => {
   await prepareDB()
@@ -15,6 +16,6 @@ describe('Integration test /purchases', () => {
       .expect('Content-Type', /json/)
 
     expect(result.body.data.hasPremium).toBe(true)
-    expect(result.body.data.credits).toBe(101)
+    expect(result.body.data.credits).toBe(100 + UserSettings.initialfreeCredits)
   })
 })
