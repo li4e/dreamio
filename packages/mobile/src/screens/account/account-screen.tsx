@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native'
+import { View, Text } from 'react-native-ui-lib'
 
 export function AccountScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View center flex>
       <Text>AccountScreen</Text>
     </View>
   )

@@ -1,5 +1,6 @@
 module.exports = function (api) {
   api.cache(true)
+  const plugins = ['react-native-reanimated/plugin']
 
   if (
     process.env.NX_TASK_TARGET_TARGET === 'build' ||
@@ -14,6 +15,7 @@ module.exports = function (api) {
           },
         ],
       ],
+      plugins,
     }
   }
 
@@ -21,5 +23,6 @@ module.exports = function (api) {
     presets: [
       ['module:@react-native/babel-preset', { useTransformReactJSX: true }],
     ],
+    plugins,
   }
 }
