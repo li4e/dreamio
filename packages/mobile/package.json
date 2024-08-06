@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@os-team/i18next-react-native-language-detector": "^1.0.34",
     "@react-native-community/blur": "^4.4.0",
     "@react-native-community/datetimepicker": "^8.2.0",
     "@react-native-community/netinfo": "^11.3.2",

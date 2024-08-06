@@ -1,0 +1,9 @@
+{
+  "components": {
+    "tabBar": {
+      "discovery": "Discovery",
+      "generation": "Create",
+      "account": "Account"
+    }
+  }
+}
