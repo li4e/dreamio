@@ -125,3 +125,6 @@ yarn-error.log
 IDEWorkspaceChecks.plist
 
 packages/api/prisma/client
+
+packages/mobile/.eslintcache
+packages/mobile/.fontello

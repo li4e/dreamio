@@ -3,8 +3,9 @@ module.exports = function (api) {
   const plugins = ['react-native-reanimated/plugin']
 
   if (
-    process.env.NX_TASK_TARGET_TARGET === 'build' ||
-    process.env.NX_TASK_TARGET_TARGET.includes('storybook')
+    process.env.NX_TASK_TARGET_TARGET &&
+    (process.env.NX_TASK_TARGET_TARGET === 'build' ||
+      process.env.NX_TASK_TARGET_TARGET.includes('storybook'))
   ) {
     return {
       presets: [
