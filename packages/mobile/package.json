@@ -33,7 +33,7 @@
     "iconsConfig": "src/shared/ui/Icon/config.json",
     "iconTypesPath": "src/shared/ui/Icon/Icon.d.ts",
     "iconsLocation": [
-      "src/assets/fonts"
+      "assets/fonts"
     ]
   },
   "devDependencies": {
