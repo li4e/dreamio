@@ -1,11 +1,11 @@
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import { AccountScreen } from '../screens/account'
-import { DiscoverScreen } from '../screens/discover'
-import { ImageGenerationScreen } from '../screens/image-generation'
-import { useTranslation } from 'react-i18next'
+import { AccountScreen } from 'screens/account'
+import { DiscoverScreen } from 'screens/discover'
+import { ImageGenerationScreen } from 'screens/image-generation'
 
 const Tab = createBottomTabNavigator()
 
