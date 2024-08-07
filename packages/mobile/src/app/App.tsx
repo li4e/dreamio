@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { AppRouter } from './navigation/AppRouter'
-
 import { enableFreeze } from 'react-native-screens'
+import { AppRouter } from './navigation/AppRouter'
 import { Providers } from './Providers'
 enableFreeze(true)
 

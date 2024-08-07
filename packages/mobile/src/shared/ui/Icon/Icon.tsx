@@ -1,6 +1,5 @@
 import React from 'react'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
-
 import config from './config.json'
 import { IconName } from './Icon.d'
 
