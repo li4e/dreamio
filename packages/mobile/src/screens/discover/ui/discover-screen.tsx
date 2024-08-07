@@ -1,5 +1,5 @@
 import { View, Text, Button } from 'react-native-ui-lib'
-import { Icon } from '../../shared/ui/Icon'
+import { Icon } from 'shared/ui/Icon'
 
 export function DiscoverScreen() {
   return (

@@ -1,4 +1,4 @@
-import i18next from 'i18next'
+import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import RNLanguageDetector from '@os-team/i18next-react-native-language-detector'
 import { locales } from '../../locales'
@@ -6,7 +6,7 @@ import { locales } from '../../locales'
 export const defaultNS = 'translation'
 export const resources = locales
 
-i18next
+i18n
   .use(RNLanguageDetector)
   .use(initReactI18next)
   .init({
@@ -22,4 +22,4 @@ i18next
     },
   })
 
-export const i18n = i18next
+export const i18next = i18n

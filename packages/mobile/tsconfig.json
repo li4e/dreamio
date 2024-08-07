@@ -7,7 +7,11 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "*": ["packages/mobile/src/*"],
+      "@choco/api-client": ["packages/api-client/src/index.ts"]
+    }
   },
   "files": [],
   "include": [],

@@ -1,1 +1,1 @@
-export { AccountScreen } from './account-screen'
+export { AccountScreen } from './ui/account-screen'

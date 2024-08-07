@@ -1,1 +1,1 @@
-export { DiscoverScreen } from './discover-screen'
+export { DiscoverScreen } from './ui/discover-screen'
