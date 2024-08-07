@@ -15,7 +15,7 @@
 		7699B88040F8A987B510C191 /* libPods-Mobile-MobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Mobile-MobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
-		EEE6DD98A2174380BAD64C3A /* app-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FEDE35D7DBF44BE8732246A /* app-icons.ttf */; };
+		E3260EA8FD314F0AA713EDCC /* app-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-Mobile-MobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-MobileTests.release.xcconfig"; path = "Target Support Files/Pods-Mobile-MobileTests/Pods-Mobile-MobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		6FEDE35D7DBF44BE8732246A /* app-icons.ttf */ = {isa = PBXFileReference; name = "app-icons.ttf"; path = "../assets/fonts/app-icons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */ = {isa = PBXFileReference; name = "app-icons.ttf"; path = "../assets/fonts/app-icons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 		786B1444BE874871BF38443C /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				6FEDE35D7DBF44BE8732246A /* app-icons.ttf */,
+				B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */,
-				EEE6DD98A2174380BAD64C3A /* app-icons.ttf in Resources */,
+				E3260EA8FD314F0AA713EDCC /* app-icons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

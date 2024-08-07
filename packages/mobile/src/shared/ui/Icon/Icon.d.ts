@@ -1,1 +1,1 @@
-export type IconName = 'magic-wand'
+export type IconName = 'magic-wand' | 'sliders'
