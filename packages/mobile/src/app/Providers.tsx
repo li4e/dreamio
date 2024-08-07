@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { i18next } from './libs/i18next'
+import { i18next } from './lib/i18next'
 
 export function Providers({ children }: PropsWithChildren) {
   return (
