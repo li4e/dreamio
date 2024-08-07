@@ -5,5 +5,10 @@
       "generation": "Create",
       "account": "Account"
     }
+  },
+  "screens": {
+    "settings": {
+      "title": "Settings"
+    }
   }
 }

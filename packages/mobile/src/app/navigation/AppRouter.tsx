@@ -1,9 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { TouchableOpacity } from 'react-native-ui-lib'
 import {
   HomeTabsNavigatorParamList,
   RootStackParamList,
@@ -12,12 +11,14 @@ import { AccountScreen } from 'pages/account'
 import { DiscoverScreen } from 'pages/discover'
 import { ImageGenerationScreen } from 'pages/image-generation'
 import { SettingsScreen } from 'pages/settings'
-import { Icon } from 'shared/ui/Icon'
+import { SettingsButton } from 'shared/ui/SettingsButton'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createBottomTabNavigator<HomeTabsNavigatorParamList>()
 
 export function AppRouter() {
+  const { t } = useTranslation()
+
   return (
     <NavigationContainer>
       <RootStack.Navigator>
@@ -25,10 +26,17 @@ export function AppRouter() {
           name={'home_tabs'}
           component={HomeTabs}
           options={{
-            headerShown: false,
+            headerTitle: '',
+            headerRight: () => <SettingsButton />,
           }}
         />
-        <RootStack.Screen name={'settings'} component={SettingsScreen} />
+        <RootStack.Screen
+          name={'settings'}
+          component={SettingsScreen}
+          options={{
+            title: t('screens.settings.title'),
+          }}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   )
@@ -36,38 +44,32 @@ export function AppRouter() {
 
 const HomeTabs = () => {
   const { t } = useTranslation()
-  const { navigate } = useNavigation()
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Tab.Screen
         name="discover"
         component={DiscoverScreen}
         options={{
-          title: t('components.tabBar.discovery'),
-          headerRight: () => (
-            <TouchableOpacity
-              paddingH-20
-              paddingV-10
-              onPress={() => navigate('settings')}
-            >
-              <Icon name="sliders" size={20} />
-            </TouchableOpacity>
-          ),
+          tabBarLabel: t('components.tabBar.discovery'),
         }}
       />
       <Tab.Screen
         name="generation"
         component={ImageGenerationScreen}
         options={{
-          title: t('components.tabBar.generation'),
+          tabBarLabel: t('components.tabBar.generation'),
         }}
       />
       <Tab.Screen
         name="account"
         component={AccountScreen}
         options={{
-          title: t('components.tabBar.account'),
+          tabBarLabel: t('components.tabBar.account'),
         }}
       />
     </Tab.Navigator>
