@@ -1,8 +1,8 @@
-import { Text, View } from 'react-native-ui-lib'
+import { Text, View } from 'react-native'
 
 export function SettingsScreen() {
   return (
-    <View flex center>
+    <View>
       <Text>Settings screen</Text>
     </View>
   )

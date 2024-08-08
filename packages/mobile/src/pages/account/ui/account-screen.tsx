@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native-ui-lib'
+import { View, Text } from 'react-native'
 
 export function AccountScreen() {
   return (
-    <View center flex>
+    <View>
       <Text>AccountScreen</Text>
     </View>
   )

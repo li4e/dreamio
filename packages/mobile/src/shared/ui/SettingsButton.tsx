@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { TouchableOpacity } from 'react-native-ui-lib'
+import { TouchableOpacity } from 'react-native'
 import { Icon } from './Icon'
 
 export function SettingsButton() {

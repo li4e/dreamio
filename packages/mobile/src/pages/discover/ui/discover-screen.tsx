@@ -1,21 +1,21 @@
-import { View, Text, Button } from 'react-native-ui-lib'
-import { Icon } from 'shared/ui/Icon'
+import { View, Text } from 'react-native'
+// import { Icon } from 'shared/ui/Icon'
 
 export function DiscoverScreen() {
   return (
-    <View flex>
-      <View flex center>
+    <View>
+      <View>
         <Text>DiscoverScreen</Text>
       </View>
-      <View padding-16>
-        <Button>
-          <View row centerV>
-            <Text white marginR-10>
+      <View>
+        {/* <Button>
+          <View>
+            <Text>
               <Icon name="magic-wand" size={16} />
             </Text>
-            <Text white>Generate</Text>
+            <Text>Generate</Text>
           </View>
-        </Button>
+        </Button> */}
       </View>
     </View>
   )
