@@ -62,7 +62,7 @@ export function ImageGenerationScreen() {
       </View>
       <View className="items-center">
         <Button
-          icon="magic-staff"
+          icon="creation"
           mode="contained"
           className="rounded-full"
           contentStyle="px-4 py-2"

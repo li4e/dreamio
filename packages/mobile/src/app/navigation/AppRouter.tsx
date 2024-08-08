@@ -59,7 +59,7 @@ const HomeTabs = () => {
         component={ImageGenerationScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="creation" color={color} size={26} />
+            <MaterialCommunityIcons name="draw" color={color} size={26} />
           ),
           tabBarLabel: t('components.tabBar.generation'),
         }}
