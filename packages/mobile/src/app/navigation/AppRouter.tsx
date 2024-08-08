@@ -1,8 +1,9 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
   HomeTabsNavigatorParamList,
   RootStackParamList,
@@ -11,32 +12,28 @@ import { AccountScreen } from 'pages/account'
 import { DiscoverScreen } from 'pages/discover'
 import { ImageGenerationScreen } from 'pages/image-generation'
 import { SettingsScreen } from 'pages/settings'
-import { SettingsButton } from 'shared/ui/SettingsButton'
+import { HomeNavigationBar } from './HomeNavigationBar'
 
-const RootStack = createNativeStackNavigator<RootStackParamList>()
-const Tab = createBottomTabNavigator<HomeTabsNavigatorParamList>()
+const RootStack = createStackNavigator<RootStackParamList>()
+const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
 
 export function AppRouter() {
-  const { t } = useTranslation()
-
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
+      <RootStack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <RootStack.Screen
           name={'home_tabs'}
           component={HomeTabs}
           options={{
-            headerTitle: '',
-            headerRight: () => <SettingsButton />,
+            headerShown: true,
+            header: (props) => <HomeNavigationBar />,
           }}
         />
-        <RootStack.Screen
-          name={'settings'}
-          component={SettingsScreen}
-          options={{
-            title: t('screens.settings.title'),
-          }}
-        />
+        <RootStack.Screen name={'settings'} component={SettingsScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   )
@@ -46,15 +43,14 @@ const HomeTabs = () => {
   const { t } = useTranslation()
 
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
+    <Tab.Navigator keyboardHidesNavigationBar={true}>
       <Tab.Screen
         name="discover"
         component={DiscoverScreen}
         options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
           tabBarLabel: t('components.tabBar.discovery'),
         }}
       />
@@ -62,6 +58,13 @@ const HomeTabs = () => {
         name="generation"
         component={ImageGenerationScreen}
         options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="magic-staff"
+              color={color}
+              size={26}
+            />
+          ),
           tabBarLabel: t('components.tabBar.generation'),
         }}
       />
@@ -69,6 +72,9 @@ const HomeTabs = () => {
         name="account"
         component={AccountScreen}
         options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
           tabBarLabel: t('components.tabBar.account'),
         }}
       />
