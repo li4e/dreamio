@@ -22,5 +22,23 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  },
+  "tailwindCSS.classAttributes": [
+    "contentContainerStyle",
+    "className",
+    ".*ClassName"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    ["styled\\([^,]+,\\s*('([^']*)')", "'([^']*)'"],
+    ["styled\\([^,]+,\\s*(\"([^\"]*)\")", "\"([^\"]*)\""],
+    ["styled\\([^,]+,\\s*(\\`([^\\`]*)\\`)", "\\`([^\\`]*)\\`"]
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
   }
 }
