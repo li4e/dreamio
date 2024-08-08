@@ -1,6 +1,10 @@
 module.exports = function (api) {
   api.cache(true)
-  const plugins = ['react-native-reanimated/plugin', 'react-native-paper/babel']
+  const plugins = [
+    'react-native-reanimated/plugin',
+    'react-native-paper/babel',
+    'nativewind/babel',
+  ]
 
   if (
     process.env.NX_TASK_TARGET_TARGET &&

@@ -10,7 +10,7 @@ enableFreeze(true)
 export function App() {
   return (
     <Providers>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+      <KeyboardAvoidingView behavior="padding" className="flex-1">
         <StatusBar
           barStyle="dark-content"
           backgroundColor="transparent"

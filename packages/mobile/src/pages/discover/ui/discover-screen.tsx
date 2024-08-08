@@ -1,9 +1,9 @@
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { TextInput } from 'react-native-paper'
 
 export function DiscoverScreen() {
   return (
-    <View style={styles.container}>
+    <View className="flex-1 justify-center p-4">
       <TextInput
         multiline
         mode="outlined"
@@ -13,11 +13,3 @@ export function DiscoverScreen() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    paddingHorizontal: 16,
-  },
-})
