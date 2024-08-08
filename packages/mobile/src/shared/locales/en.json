@@ -9,6 +9,13 @@
   "screens": {
     "settings": {
       "title": "Settings"
+    },
+    "generation": {
+      "inputLabel": "Enter a prompt",
+      "inputPlaceholder": "Type here a detailed description of what you want to see in your artwork...",
+      "styleLabel": "Select style",
+      "randomButton": "Surprise me",
+      "startButton": "Create image"
     }
   }
 }

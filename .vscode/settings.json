@@ -30,6 +30,8 @@
   },
   "tailwindCSS.classAttributes": [
     "contentContainerStyle",
+    "contentStyle",
+    "labelStyle",
     "className",
     ".*ClassName"
   ],
