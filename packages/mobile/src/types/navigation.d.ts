@@ -1,9 +1,9 @@
 import { NavigatorScreenParams } from '@react-navigation/native'
 
 export type HomeTabsNavigatorParamList = {
-  discover: undefined
+  history: undefined
   generation: undefined
-  account: undefined
+  settings: undefined
 }
 
 export type RootStackParamList = {

@@ -1,15 +1,12 @@
 {
   "components": {
     "tabBar": {
-      "discovery": "Discovery",
+      "history": "History",
       "generation": "Create",
-      "account": "Account"
+      "settings": "Settings"
     }
   },
   "screens": {
-    "settings": {
-      "title": "Settings"
-    },
     "generation": {
       "inputLabel": "Enter a prompt",
       "inputPlaceholder": "Type here a detailed description of what you want to see in your artwork...",

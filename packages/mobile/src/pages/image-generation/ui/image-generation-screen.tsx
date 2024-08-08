@@ -28,7 +28,6 @@ export function ImageGenerationScreen() {
                 mode="outlined"
                 icon="dice-multiple"
                 contentStyle="flex-row-reverse px-1"
-                onPress={() => {}}
               >
                 {t('screens.generation.randomButton')}
               </Button>
@@ -45,15 +44,14 @@ export function ImageGenerationScreen() {
           >
             {artStyles.map((artStyle) => (
               <TouchableRipple
-                onPress={() => {}}
                 key={artStyle.name}
                 className="mx-1 rounded-xl overflow-hidden"
               >
-                <View className="w-[110] h-[110] border-[1px] border-gray-100 bg-white">
+                <View className="w-[150] h-[150] border-[1px] border-gray-100 bg-white">
                   <Image
                     source={artStyle.imageSource}
                     resizeMode="cover"
-                    className="w-full h-[110]"
+                    className="w-full h-[150]"
                   />
                   <Text>{artStyle.name}</Text>
                 </View>
@@ -68,7 +66,6 @@ export function ImageGenerationScreen() {
           mode="contained"
           className="rounded-full"
           contentStyle="px-4 py-2"
-          onPress={() => {}}
         >
           {t('screens.generation.startButton')}
         </Button>

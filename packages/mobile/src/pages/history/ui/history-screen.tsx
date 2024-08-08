@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import { Text } from 'react-native-paper'
 
-export function DiscoverScreen() {
+export function HistoryScreen() {
   return (
     <View>
       <Text>Super</Text>

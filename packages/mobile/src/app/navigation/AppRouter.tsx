@@ -8,11 +8,9 @@ import {
   HomeTabsNavigatorParamList,
   RootStackParamList,
 } from 'types/navigation'
-import { AccountScreen } from 'pages/account'
-import { DiscoverScreen } from 'pages/discover'
+import { HistoryScreen } from 'pages/history'
 import { ImageGenerationScreen } from 'pages/image-generation'
 import { SettingsScreen } from 'pages/settings'
-import { HomeNavigationBar } from './HomeNavigationBar'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
@@ -29,8 +27,7 @@ export function AppRouter() {
           name={'home_tabs'}
           component={HomeTabs}
           options={{
-            headerShown: true,
-            header: (props) => <HomeNavigationBar />,
+            headerShown: false,
           }}
         />
         <RootStack.Screen name={'settings'} component={SettingsScreen} />
@@ -48,13 +45,13 @@ const HomeTabs = () => {
       initialRouteName="generation"
     >
       <Tab.Screen
-        name="discover"
-        component={DiscoverScreen}
+        name="history"
+        component={HistoryScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons name="history" color={color} size={26} />
           ),
-          tabBarLabel: t('components.tabBar.discovery'),
+          tabBarLabel: t('components.tabBar.history'),
         }}
       />
       <Tab.Screen
@@ -62,23 +59,19 @@ const HomeTabs = () => {
         component={ImageGenerationScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="magic-staff"
-              color={color}
-              size={26}
-            />
+            <MaterialCommunityIcons name="creation" color={color} size={26} />
           ),
           tabBarLabel: t('components.tabBar.generation'),
         }}
       />
       <Tab.Screen
-        name="account"
-        component={AccountScreen}
+        name="settings"
+        component={SettingsScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <MaterialCommunityIcons name="tune" color={color} size={26} />
           ),
-          tabBarLabel: t('components.tabBar.account'),
+          tabBarLabel: t('components.tabBar.settings'),
         }}
       />
     </Tab.Navigator>
