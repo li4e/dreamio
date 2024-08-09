@@ -1,19 +1,34 @@
 import { View, Image, ImageSourcePropType } from 'react-native'
 import { TouchableRipple, Text } from 'react-native-paper'
+import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
 
-export function StylesList() {
+interface StylesListProps {
+  selectedStyle: string | null
+  onSelect(item: string): void
+}
+
+export function StylesList(props: StylesListProps) {
+  const { selectedStyle, onSelect } = props
+
   return (
     <ScrollView
+      contentInsetAdjustmentBehavior="never"
       horizontal
-      className="-mx-5"
+      className="-mx-5 max-h-[315]"
       contentContainerStyle="px-4"
       showsHorizontalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled"
     >
-      {artStyles.map((artStylesCol) => (
-        <View>
-          {artStylesCol.map((artStyle) => (
-            <StyleCard item={artStyle} key={artStyle.name} />
+      {artStyles.map((artStylesCol, colIndex) => (
+        <View key={colIndex}>
+          {artStylesCol.map((artStyle, rowIndex) => (
+            <StyleCard
+              item={artStyle}
+              key={artStyle.name}
+              selected={selectedStyle === artStyle.name}
+              onPress={() => onSelect(artStyle.name)}
+            />
           ))}
         </View>
       ))}
@@ -21,22 +36,36 @@ export function StylesList() {
   )
 }
 
-function StyleCard({ item, ...rest }: { item: ArtStyle }) {
+interface StyleCardProps {
+  item: ArtStyle
+  selected: boolean
+  onPress(): void
+}
+
+function StyleCard(props: StyleCardProps) {
+  const { item, selected, onPress, ...rest } = props
+
   return (
     <TouchableRipple
       key={item.name}
       className="m-[6] rounded-xl overflow-hidden"
+      onPress={onPress}
       {...rest}
     >
-      <View className="w-[120] border-[1px] rounded-xl border-gray-200 bg-white">
+      <View
+        className={twMerge(
+          'w-[120] border-[1px] rounded-xl border-gray-200 bg-white',
+          selected && 'bg-gray-200'
+        )}
+      >
         <Image
           source={item.imageSource}
           resizeMode="cover"
-          className="w-full h-[120]"
+          className="w-full h-[120] rounded-t-xl"
         />
         <Text
           numberOfLines={1}
-          className="text-center py-1 px-2"
+          className={'text-center py-1 px-2'}
           variant="labelMedium"
         >
           {item.name}
