@@ -1,38 +1,57 @@
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { View, Image, ImageSourcePropType } from 'react-native'
-import { TouchableRipple, Text } from 'react-native-paper'
+import { TouchableRipple, Text, Chip } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
 
 interface StylesListProps {
-  selectedStyle: string | null
-  onSelect(item: string): void
+  onSelect(item: string | null): void
 }
 
 export function StylesList(props: StylesListProps) {
-  const { selectedStyle, onSelect } = props
+  const { onSelect } = props
+  const [selected, setSelected] = useState<string | null>(null)
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    onSelect(selected)
+  }, [selected, onSelect])
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="never"
-      horizontal
-      className="-mx-5 max-h-[315]"
-      contentContainerStyle="px-4"
-      showsHorizontalScrollIndicator={false}
-      keyboardShouldPersistTaps="handled"
-    >
-      {artStyles.map((artStylesCol, colIndex) => (
-        <View key={colIndex}>
-          {artStylesCol.map((artStyle, rowIndex) => (
-            <StyleCard
-              item={artStyle}
-              key={artStyle.name}
-              selected={selectedStyle === artStyle.name}
-              onPress={() => onSelect(artStyle.name)}
-            />
-          ))}
-        </View>
-      ))}
-    </ScrollView>
+    <View>
+      <View className="flex-row justify-between items-center min-h-[35] mb-3">
+        <Text variant="titleMedium" className="mb-1">
+          {t('screens.generation.styleLabel')}
+        </Text>
+        {selected && (
+          <Chip compact onClose={() => setSelected(null)}>
+            {selected}
+          </Chip>
+        )}
+      </View>
+      <ScrollView
+        contentInsetAdjustmentBehavior="never"
+        horizontal
+        className="-mx-5 max-h-[315]"
+        contentContainerStyle="px-4"
+        showsHorizontalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        {artStyles.map((artStylesCol, colIndex) => (
+          <View key={colIndex}>
+            {artStylesCol.map((artStyle, rowIndex) => (
+              <StyleCard
+                item={artStyle}
+                key={artStyle.name}
+                selected={selected === artStyle.name}
+                onPress={() => onSelect(artStyle.name)}
+              />
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+    </View>
   )
 }
 
