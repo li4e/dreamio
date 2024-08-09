@@ -9,10 +9,15 @@
   "screens": {
     "generation": {
       "inputLabel": "Enter a prompt",
-      "inputPlaceholder": "Type here a detailed description of what you want to see in your artwork...",
-      "styleLabel": "Select style",
+      "inputPlaceholder": "Type a detailed description of what you want to see in your artwork...",
+      "styleLabel": "Select a style",
       "surpriseButton": "Surprise me",
-      "startButton": "Start magic"
+      "startButton": "Start magic",
+      "errors": {
+        "minLength": "The prompt must be at least {{min}} characters long",
+        "maxLength": "The prompt must be shorter than {{max}} characters",
+        "required": "Prompt is required"
+      }
     }
   }
 }
