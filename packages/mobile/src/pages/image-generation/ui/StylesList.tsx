@@ -18,6 +18,14 @@ export function StylesList(props: StylesListProps) {
     onSelect(selected)
   }, [selected, onSelect])
 
+  const handleChange = (style: string | null) =>
+    setSelected((currentStyle) => {
+      if (currentStyle === style) {
+        return null
+      }
+      return style
+    })
+
   return (
     <View>
       <View className="flex-row justify-between items-center min-h-[35] mb-3">
@@ -25,7 +33,7 @@ export function StylesList(props: StylesListProps) {
           {t('screens.generation.styleLabel')}
         </Text>
         {selected && (
-          <Chip compact onClose={() => setSelected(null)}>
+          <Chip compact onClose={() => handleChange(null)}>
             {selected}
           </Chip>
         )}
@@ -45,7 +53,7 @@ export function StylesList(props: StylesListProps) {
                 item={artStyle}
                 key={artStyle.name}
                 selected={selected === artStyle.name}
-                onPress={() => setSelected(artStyle.name)}
+                onPress={() => handleChange(artStyle.name)}
               />
             ))}
           </View>
