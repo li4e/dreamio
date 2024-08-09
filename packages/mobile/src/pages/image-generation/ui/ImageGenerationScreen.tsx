@@ -55,7 +55,7 @@ export function ImageGenerationScreen() {
                 icon="dice-multiple"
                 contentStyle="flex-row-reverse px-1"
               >
-                {t('screens.generation.randomButton')}
+                {t('screens.generation.surpriseButton')}
               </Button>
             </View>
           </View>
