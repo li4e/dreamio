@@ -17,7 +17,6 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9759EF47EF12D3B99F23A837 /* Pods_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D422E4A694E995ED38A0CED9 /* Pods_Mobile.framework */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
-		E3260EA8FD314F0AA713EDCC /* app-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +48,6 @@
 		704A81362C636BA0002AF3D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Mobile-MobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile-MobileTests.release.xcconfig"; path = "Target Support Files/Pods-Mobile-MobileTests/Pods-Mobile-MobileTests.release.xcconfig"; sourceTree = "<group>"; };
-		B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "app-icons.ttf"; path = "../assets/fonts/app-icons.ttf"; sourceTree = "<group>"; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D422E4A694E995ED38A0CED9 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -120,7 +118,6 @@
 		786B1444BE874871BF38443C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B28997D71C4D4B62B7C8BF4F /* app-icons.ttf */,
 				4D2EEE98D34B4938BBF090F2 /* MaterialCommunityIcons.ttf */,
 			);
 			name = Resources;
@@ -268,7 +265,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				704A81372C636BA0002AF3D6 /* GoogleService-Info.plist in Resources */,
 				E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */,
-				E3260EA8FD314F0AA713EDCC /* app-icons.ttf in Resources */,
 				2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

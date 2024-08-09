@@ -35,7 +35,6 @@
 	<string/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>app-icons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

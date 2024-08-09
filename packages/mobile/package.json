@@ -2,10 +2,6 @@
   "name": "mobile",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "icons:edit": "gulp icons-edit",
-    "icons:save": "gulp icons-save && gulp generate-icon-types && react-native-asset"
-  },
   "dependencies": {
     "@os-team/i18next-react-native-language-detector": "^1.0.34",
     "@react-native-firebase/app": "^20.3.0",
@@ -28,14 +24,6 @@
     "react-native-screens": "^3.34.0",
     "react-native-svg": "*",
     "react-native-vector-icons": "^10.1.0"
-  },
-  "config": {
-    "iconsServer": "https://fontello.com",
-    "iconsConfig": "src/shared/ui/Icon/config.json",
-    "iconTypesPath": "src/shared/ui/Icon/Icon.d.ts",
-    "iconsLocation": [
-      "assets/fonts"
-    ]
   },
   "devDependencies": {
     "@types/react-native-vector-icons": "^6.4.18",
