@@ -1,1 +1,1 @@
-export { ImageGenerationScreen } from './ui/image-generation-screen'
+export { ImageGenerationScreen } from './ui/ImageGenerationScreen'
