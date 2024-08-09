@@ -45,7 +45,7 @@ export function StylesList(props: StylesListProps) {
                 item={artStyle}
                 key={artStyle.name}
                 selected={selected === artStyle.name}
-                onPress={() => onSelect(artStyle.name)}
+                onPress={() => setSelected(artStyle.name)}
               />
             ))}
           </View>
