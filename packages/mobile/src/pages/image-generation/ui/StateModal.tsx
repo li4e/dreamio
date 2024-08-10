@@ -32,7 +32,7 @@ export function StateModal(props: StateModalProps) {
       dismissable={dismissable}
       contentContainerStyle="bg-white rounded-2xl p-5 pb-8 items-center justify-end mx-[50] min-h-[300]"
     >
-      <View className="flex-grow justify-center min-h-[140]">
+      <View className="flex-grow justify-center">
         <LottieView {...animation} />
       </View>
       <Text variant="titleMedium" className="mb-1 text-center">
@@ -102,7 +102,7 @@ function useStateContent(): Record<StateModalVariant, StateContent> {
         description: t('screens.generation.modalGeneration.description'),
         animation: {
           source: require('./animations/spell.json'),
-          style: { width: 220, height: 220 },
+          style: { width: 200, height: 200 },
           autoPlay: true,
         },
       },
