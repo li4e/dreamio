@@ -28,7 +28,7 @@ export function StylesList(props: StylesListProps) {
 
   return (
     <View>
-      <View className="flex-row justify-between items-center min-h-[35] mb-3">
+      <View className="flex-row justify-between items-center min-h-[35] mb-1">
         <Text variant="titleMedium" className="mb-1">
           {t('screens.generation.styleLabel')}
         </Text>
