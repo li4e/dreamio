@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View } from 'react-native'
-import { HelperText, Text, TextInput } from 'react-native-paper'
+import { HelperText, Text, TextInput, useTheme } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
@@ -51,6 +51,8 @@ export function ImageGenerationScreen() {
     setTimeout(() => setPending(false), 2000)
   }
 
+  const { colors } = useTheme()
+
   return (
     <View className="flex-1">
       <ScrollView
@@ -84,6 +86,7 @@ export function ImageGenerationScreen() {
                         activeUnderlineColor="transparent"
                         multiline
                         placeholder={t('screens.generation.inputPlaceholder')}
+                        placeholderTextColor={colors.backdrop}
                         className="bg-transparent px-0"
                         onBlur={onBlur}
                         onChangeText={onChange}

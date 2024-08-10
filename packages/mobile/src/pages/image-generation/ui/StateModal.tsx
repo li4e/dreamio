@@ -8,7 +8,7 @@ export function StateModal() {
   const dismissable = false
   return (
     <Modal
-      visible
+      visible={false}
       dismissableBackButton={dismissable}
       dismissable={dismissable}
       contentContainerStyle="bg-white rounded-2xl p-5 pb-8 items-center justify-center mx-[50]"
