@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View } from 'react-native'
@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
+import { StateModal } from './StateModal'
 import { StylesList } from './StylesList'
 
 export function ImageGenerationScreen() {
@@ -20,13 +21,13 @@ export function ImageGenerationScreen() {
           prompt: yup
             .string()
             .min(3, ({ min }) =>
-              t('screens.generation.errors.minLength', { min })
+              t('screens.generation.promptValidationErrors.minLength', { min })
             )
             .max(300, ({ max }) =>
-              t('screens.generation.errors.maxLength', { max })
+              t('screens.generation.promptValidationErrors.maxLength', { max })
             )
-            .required(t('screens.generation.errors.required')),
-          style: yup.string().max(100).nullable(),
+            .required(t('screens.generation.promptValidationErrors.required')),
+          style: yup.string().max(100).nullable().default(null),
         })
         .required(),
     [t]
@@ -41,10 +42,13 @@ export function ImageGenerationScreen() {
   })
 
   const insets = useSafeAreaInsets()
+  const [pending, setPending] = useState(false)
 
-  const handleStartPress = ({ prompt }: { prompt: string }) => {
+  const handleStartPress = (form: { prompt: string; style: string | null }) => {
+    setPending(true)
     Keyboard.dismiss()
-    console.log({ prompt })
+    console.log(form)
+    setTimeout(() => setPending(false), 2000)
   }
 
   return (
@@ -123,13 +127,17 @@ export function ImageGenerationScreen() {
               className="rounded-full"
               contentStyle="px-4 py-2"
               onPress={handleSubmit(handleStartPress)}
-              disabled={formState.submitCount > 0 && !formState.isValid}
+              disabled={
+                pending || (formState.submitCount > 0 && !formState.isValid)
+              }
+              loading={pending}
             >
               {t('screens.generation.startButton')}
             </Button>
           )}
         />
       </View>
+      <StateModal />
     </View>
   )
 }

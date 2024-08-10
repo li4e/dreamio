@@ -8,15 +8,35 @@
   },
   "screens": {
     "generation": {
-      "inputLabel": "Enter a prompt",
+      "inputLabel": "Prompt",
       "inputPlaceholder": "Type a detailed description of what you want to see in your artwork...",
       "styleLabel": "Select a style",
       "surpriseButton": "Surprise me",
       "startButton": "Start magic",
-      "errors": {
+      "promptValidationErrors": {
         "minLength": "The prompt must be at least {{min}} characters long",
         "maxLength": "The prompt must be shorter than {{max}} characters",
         "required": "Prompt is required"
+      },
+      "modalError": {
+        "title": "Oops!",
+        "description": "Something went wrong during the magic process. Please try again."
+      },
+      "modalTopUp": {
+        "title": "Insufficient Tokens",
+        "description": "Not enough tokens to start the magic. Please top up.",
+        "button": "Top Up Now"
+      },
+      "modalPremium": {
+        "title": "Start Magic?",
+        "description": "Upgrade your plan and let us create the best Artwork for you.",
+        "button_free": "Try for Free",
+        "button": "Subscribe Now",
+        "topUp": "Top Up"
+      },
+      "modalGeneration": {
+        "title": "Magic in Progress",
+        "description": "This usually takes about 15 seconds..."
       }
     }
   }

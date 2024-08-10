@@ -1,2 +1,3 @@
-export { ScrollView } from './ScrollView'
-export { Button } from './Button'
+export * from './ScrollView'
+export * from './Button'
+export * from './Modal'

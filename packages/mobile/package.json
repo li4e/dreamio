@@ -12,6 +12,7 @@
     "@react-navigation/native-stack": "^6.11.0",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "lottie-react-native": "^6.7.2",
     "metro-config": "*",
     "nativewind": "^2.0.11",
     "react": "*",
