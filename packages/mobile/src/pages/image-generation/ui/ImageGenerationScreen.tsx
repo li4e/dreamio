@@ -140,7 +140,12 @@ export function ImageGenerationScreen() {
           )}
         />
       </View>
-      <StateModal variant={StateModalVariant.Generation} />
+      <StateModal
+        variant={StateModalVariant.TopUp}
+        onDismiss={() => {
+          // TODO: Replace to a real one
+        }}
+      />
     </View>
   )
 }

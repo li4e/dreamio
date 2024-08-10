@@ -1,7 +1,7 @@
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
-import { Text } from 'react-native-paper'
+import { IconButton, Text, useTheme } from 'react-native-paper'
 import { Button, Modal } from 'shared/ui/styled'
 
 export enum StateModalVariant {
@@ -13,17 +13,19 @@ export enum StateModalVariant {
 
 interface StateModalProps {
   variant: StateModalVariant
+  onDismiss?(): void
 }
 
 export function StateModal(props: StateModalProps) {
-  const { variant } = props
+  const { variant, onDismiss } = props
   const texts = useStateTexts()
   const title = texts[variant].title
   const description = texts[variant].description
   const buttonTitle = texts[variant].button
   const { t } = useTranslation()
+  const { colors } = useTheme()
+  const dismissable = !!onDismiss
 
-  const dismissable = false
   return (
     <Modal
       visible={true}
@@ -46,15 +48,33 @@ export function StateModal(props: StateModalProps) {
           icon="arrow-right-thin"
           contentStyle="flex-row-reverse"
           className="mt-6"
+          onPress={() => {
+            // TODO: Replace to a real one
+          }}
         >
           {buttonTitle}
         </Button>
       )}
 
       {variant === StateModalVariant.Premium && (
-        <Button className="absolute top-2 right-2">
+        <Button
+          className="absolute top-2 left-2"
+          onPress={() => {
+            // TODO: Replace to a real one
+          }}
+        >
           {t('screens.generation.modalPremium.topUp')}
         </Button>
+      )}
+
+      {onDismiss && (
+        <IconButton
+          icon="close"
+          iconColor={colors.backdrop}
+          size={20}
+          className="absolute right-1 top-1"
+          onPress={onDismiss}
+        />
       )}
     </Modal>
   )
@@ -86,6 +106,7 @@ function StateAnimation({ variant }: { variant: StateModalVariant }) {
           source={require('shared/ui/lottie-animations/top_up.json')}
           style={{ width: 100, height: 100 }}
           autoPlay
+          loop={false}
         />
       )
     }
@@ -95,6 +116,7 @@ function StateAnimation({ variant }: { variant: StateModalVariant }) {
           source={require('shared/ui/lottie-animations/error.json')}
           style={{ width: 90, height: 90 }}
           autoPlay
+          loop={false}
         />
       )
     }
