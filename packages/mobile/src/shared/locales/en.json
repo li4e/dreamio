@@ -20,7 +20,8 @@
       },
       "modalError": {
         "title": "Oops!",
-        "description": "Something went wrong during the magic process. Please try again."
+        "description": "Something went wrong during the magic process. Please try again.",
+        "button": "Continue"
       },
       "modalTopUp": {
         "title": "Insufficient Tokens",
@@ -28,8 +29,8 @@
         "button": "Top Up Now"
       },
       "modalPremium": {
-        "title": "Start Magic?",
-        "description": "Upgrade your plan and let us create the best Artwork for you.",
+        "title": "Unlock the Magic",
+        "description": "Subscribe now to get tokens and create amazing artwork.",
         "button_free": "Try for Free",
         "button": "Subscribe Now",
         "topUp": "Top Up"

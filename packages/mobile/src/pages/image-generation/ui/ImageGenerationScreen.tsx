@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
-import { StateModal } from './StateModal'
+import { StateModal, StateModalVariant } from './StateModal'
 import { StylesList } from './StylesList'
 
 export function ImageGenerationScreen() {
@@ -140,7 +140,7 @@ export function ImageGenerationScreen() {
           )}
         />
       </View>
-      <StateModal />
+      <StateModal variant={StateModalVariant.Generation} />
     </View>
   )
 }
