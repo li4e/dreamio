@@ -6,32 +6,55 @@ import { IconButton, Text, useTheme } from 'react-native-paper'
 import { Button, Modal } from 'shared/ui/styled'
 
 export enum StateModalVariant {
-  Generation,
-  Premium,
-  TopUp,
-  Error,
+  Generation = 'generation',
+  Premium = 'premium',
+  TopUp = 'top_up',
+  Error = 'error',
 }
 
 interface StateModalProps {
-  variant: StateModalVariant
+  variant: StateModalVariant | null
   onDismiss(): void
 }
 
 export function StateModal(props: StateModalProps) {
   const { variant, onDismiss } = props
-  const { title, description, button, animation } = useStateContent()[variant]
-  const { t } = useTranslation()
-  const { colors } = useTheme()
+
   const dismissable = variant !== StateModalVariant.Generation
 
   return (
     <Modal
       onDismiss={onDismiss}
-      visible={true}
+      visible={variant !== null}
       dismissableBackButton={dismissable}
       dismissable={dismissable}
       contentContainerStyle="bg-white rounded-2xl p-5 pb-8 items-center justify-end mx-[50] min-h-[300]"
     >
+      {variant && (
+        <StateModalContent
+          variant={variant}
+          dismissable={dismissable}
+          onDismiss={onDismiss}
+        />
+      )}
+    </Modal>
+  )
+}
+
+interface StateModalContentProps {
+  variant: StateModalVariant
+  dismissable: boolean
+  onDismiss(): void
+}
+
+function StateModalContent(props: StateModalContentProps) {
+  const { variant, onDismiss, dismissable } = props
+  const { title, description, button, animation } = useStateContent(variant)
+  const { t } = useTranslation()
+  const { colors } = useTheme()
+
+  return (
+    <>
       <View className="flex-grow justify-center">
         <LottieView {...animation} />
       </View>
@@ -75,7 +98,7 @@ export function StateModal(props: StateModalProps) {
           onPress={onDismiss}
         />
       )}
-    </Modal>
+    </>
   )
 }
 
@@ -92,10 +115,10 @@ interface StateContent {
   }
 }
 
-function useStateContent(): Record<StateModalVariant, StateContent> {
+function useStateContent(variant: StateModalVariant): StateContent {
   const { t } = useTranslation()
 
-  return useMemo(
+  const content: Record<StateModalVariant, StateContent> = useMemo(
     () => ({
       [StateModalVariant.Generation]: {
         title: t('screens.generation.modalGeneration.title'),
@@ -144,4 +167,6 @@ function useStateContent(): Record<StateModalVariant, StateContent> {
     }),
     [t]
   )
+
+  return content[variant]
 }

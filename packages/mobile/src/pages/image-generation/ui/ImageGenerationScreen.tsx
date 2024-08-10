@@ -48,7 +48,6 @@ export function ImageGenerationScreen() {
   const handleStartPress = (form: { prompt: string; style: string | null }) => {
     setPending(true)
     Keyboard.dismiss()
-    console.log(form)
     setTimeout(() => {
       setPending(false)
       reset()
@@ -148,12 +147,7 @@ export function ImageGenerationScreen() {
           )}
         />
       </View>
-      {modalState !== null && (
-        <StateModal
-          variant={modalState}
-          onDismiss={() => setModalState(null)}
-        />
-      )}
+      <StateModal variant={modalState} onDismiss={() => setModalState(null)} />
     </View>
   )
 }
