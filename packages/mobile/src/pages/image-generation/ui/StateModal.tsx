@@ -147,7 +147,7 @@ function useStateContent(variant: StateModalVariant): StateContent {
         button: t('screens.generation.modalTopUp.button'),
         animation: {
           source: require('./animations/top_up.json'),
-          style: { width: 100, height: 100 },
+          style: { width: 90, height: 90 },
           autoPlay: true,
           loop: false,
           speed: 2,

@@ -54,7 +54,7 @@ export function ImageGenerationScreen() {
       setModalState(StateModalVariant.Generation)
       setTimeout(() => {
         setModalState(StateModalVariant.Premium)
-      }, 2000)
+      }, 5000)
     }, 500)
   }
 
