@@ -29,8 +29,8 @@
         "button": "Top Up Now"
       },
       "modalPremium": {
-        "title": "Unlock the Magic",
-        "description": "Subscribe now to get tokens and create amazing artwork.",
+        "title": "Insufficient Tokens",
+        "description": "Subscribe now to get tokens, create amazing artwork, and unlock all premium features.",
         "button_free": "Try for Free",
         "button": "Subscribe Now",
         "topUp": "Top Up"
