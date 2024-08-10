@@ -13,6 +13,8 @@ import { StylesList } from './StylesList'
 
 export function ImageGenerationScreen() {
   const { t } = useTranslation()
+  const [modalState, setModalState] = useState<StateModalVariant | null>(null)
+  const [pending, setPending] = useState(false)
 
   const generationSchema = useMemo(
     () =>
@@ -33,7 +35,7 @@ export function ImageGenerationScreen() {
     [t]
   )
 
-  const { control, handleSubmit, setValue } = useForm({
+  const { control, handleSubmit, setValue, reset } = useForm({
     resolver: yupResolver(generationSchema),
     defaultValues: {
       prompt: '',
@@ -42,13 +44,19 @@ export function ImageGenerationScreen() {
   })
 
   const insets = useSafeAreaInsets()
-  const [pending, setPending] = useState(false)
 
   const handleStartPress = (form: { prompt: string; style: string | null }) => {
     setPending(true)
     Keyboard.dismiss()
     console.log(form)
-    setTimeout(() => setPending(false), 2000)
+    setTimeout(() => {
+      setPending(false)
+      reset()
+      setModalState(StateModalVariant.Generation)
+      setTimeout(() => {
+        setModalState(StateModalVariant.Premium)
+      }, 2000)
+    }, 500)
   }
 
   const { colors } = useTheme()
@@ -140,12 +148,12 @@ export function ImageGenerationScreen() {
           )}
         />
       </View>
-      <StateModal
-        variant={StateModalVariant.TopUp}
-        onDismiss={() => {
-          // TODO: Replace to a real one
-        }}
-      />
+      {modalState !== null && (
+        <StateModal
+          variant={modalState}
+          onDismiss={() => setModalState(null)}
+        />
+      )}
     </View>
   )
 }
