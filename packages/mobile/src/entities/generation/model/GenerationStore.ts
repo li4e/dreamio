@@ -1,4 +1,4 @@
-import { observable, makeAutoObservable, set, remove } from 'mobx'
+import { observable, makeAutoObservable, set, remove, get } from 'mobx'
 import { GenerationEntity } from './GenerationEntity'
 
 export class GenerationStore {
@@ -14,5 +14,9 @@ export class GenerationStore {
 
   removeItem(id: number) {
     remove(this.items, id)
+  }
+
+  getItem(id: number): GenerationEntity | null {
+    return get(this.items, id) || null
   }
 }
