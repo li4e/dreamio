@@ -41,7 +41,13 @@
       }
     },
     "generationResult": {
-      "title": "Result"
+      "title": "Result",
+      "saveButton": "Save",
+      "copyButton": "Copy Prompt",
+      "deleteButton": "Delete",
+      "shareButton": "Share",
+      "promptLabel": "Prompt",
+      "styleLabel": "Style"
     }
   }
 }
