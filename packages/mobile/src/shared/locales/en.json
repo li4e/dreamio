@@ -39,6 +39,9 @@
         "title": "Magic in Progress",
         "description": "This usually takes about 15 seconds..."
       }
+    },
+    "generationResult": {
+      "title": "Result"
     }
   }
 }

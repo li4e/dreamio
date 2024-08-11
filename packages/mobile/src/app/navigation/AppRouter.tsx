@@ -8,6 +8,7 @@ import {
   HomeTabsNavigatorParamList,
   RootStackParamList,
 } from 'types/navigation'
+import { GenerationResultScreen } from 'pages/generation-result'
 import { HistoryScreen } from 'pages/history'
 import { ImageGenerationScreen } from 'pages/image-generation'
 import { SettingsScreen } from 'pages/settings'
@@ -21,7 +22,11 @@ export function AppRouter() {
       <RootStack.Navigator
         screenOptions={{
           headerShown: false,
+          contentStyle: {
+            backgroundColor: 'transparent',
+          },
         }}
+        initialRouteName="generation_result"
       >
         <RootStack.Screen
           name={'home_tabs'}
@@ -29,6 +34,10 @@ export function AppRouter() {
           options={{
             headerShown: false,
           }}
+        />
+        <RootStack.Screen
+          name={'generation_result'}
+          component={GenerationResultScreen}
         />
         <RootStack.Screen name={'settings'} component={SettingsScreen} />
       </RootStack.Navigator>
