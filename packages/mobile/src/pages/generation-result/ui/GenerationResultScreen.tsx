@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { View, Image, ScrollView } from 'react-native'
+import { View, Image, ScrollView, Platform } from 'react-native'
 import {
   Appbar,
   Chip,
@@ -23,13 +23,13 @@ import { Button } from 'shared/ui/styled'
 const generation = {
   url: 'https://i.ibb.co/zVS6L0B/Img.png',
   prompt:
-    'Create a highly detailed image of a magical forest at sunset. The scene should be filled with towering ancient trees, their bark covered in glowing, bioluminescent moss. The forest floor is a tapestry of vibrant, multi-colored flowers, with some emitting a soft light. In the center of the image, there is a small crystal-clear pond with a mirror-like surface, reflecting the orange and pink hues of the sky. A gentle mist rises from the water, adding a mystical atmosphere. Around the pond, a few ethereal creatures, such as delicate fairies with translucent wings, are seen fluttering. The lighting should be soft, with the warm tones of the sunset filtering through the dense foliage, casting long shadows and creating a sense of depth. The sky is partly cloudy, with rays of sunlight breaking through, adding to the serene and magical feeling of the forest. The image should evoke a sense of peace, wonder, and enchantment.',
+    'A serene sunset in a mystical forest with glowing trees and a calm pond reflecting the colorful sky. Soft light filters through the leaves, creating a peaceful and enchanting atmosphere.',
   style: 'Anime',
 }
 
 export function GenerationResultScreen() {
   const { goBack } = useNavigation()
-  const [promptExpanded, setPromptExpanded] = useState(false)
+  const [promptExpanded, setPromptExpanded] = useState(true)
   const [visible, setVisible] = useState(false)
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
@@ -59,13 +59,17 @@ export function GenerationResultScreen() {
         >
           <Menu.Item
             leadingIcon="content-copy"
-            onPress={() => {}}
+            onPress={() => {
+              // TODO: Replace to a real one
+            }}
             title={t('screens.generationResult.copyButton')}
           />
           <Divider />
           <Menu.Item
             leadingIcon="delete"
-            onPress={() => {}}
+            onPress={() => {
+              // TODO: Replace to a real one
+            }}
             title={t('screens.generationResult.deleteButton')}
           />
         </Menu>
@@ -106,6 +110,9 @@ export function GenerationResultScreen() {
           layout={LinearTransition.duration(300)}
         >
           <TouchableRipple
+            rippleColor={
+              Platform.OS === 'android' ? colors.secondaryContainer : undefined
+            }
             className="rounded-xl overflow-hidden"
             onPress={() => setPromptExpanded((current) => !current)}
           >
@@ -122,7 +129,7 @@ export function GenerationResultScreen() {
           </TouchableRipple>
           {promptExpanded && (
             <Animated.View
-              className="px-4 pb-4"
+              className="p-4 pt-2"
               entering={FadeIn.duration(200).delay(100)}
               exiting={FadeOut.duration(100)}
             >
