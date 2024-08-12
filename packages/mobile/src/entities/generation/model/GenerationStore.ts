@@ -8,7 +8,7 @@ export class GenerationStore {
     makeAutoObservable(this)
   }
 
-  addItem(item: GenerationEntity) {
+  setItem(item: GenerationEntity) {
     set(this.items, item.id, item)
   }
 

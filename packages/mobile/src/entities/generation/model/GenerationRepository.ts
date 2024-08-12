@@ -12,7 +12,7 @@ export class GenerationRepository {
   getGeneration(id: number): Promise<GenerationEntity> {
     return api.getGeneration(id).then((res) => {
       const generation = mapGenerationDtoToEntity(res.data.generation)
-      this.store.addItem(generation)
+      this.store.setItem(generation)
       return generation
     })
   }
@@ -28,7 +28,7 @@ export class GenerationRepository {
 
         if (generation) {
           const entity = mapGenerationDtoToEntity(generation)
-          this.store.addItem(entity)
+          this.store.setItem(entity)
           return entity
         }
         return null
