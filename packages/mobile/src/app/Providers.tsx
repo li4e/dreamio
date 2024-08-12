@@ -1,17 +1,14 @@
-import { PropsWithChildren, useMemo } from 'react'
+import { PropsWithChildren } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { KeyboardAvoidingView, StatusBar, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { PaperProvider, useTheme } from 'react-native-paper'
-import { StoreContext } from 'shared/store'
+import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
-import { Store } from './store'
 
 export function Providers({ children }: PropsWithChildren) {
-  const rootStore = useMemo(() => new Store(), [])
-
   return (
-    <StoreContext.Provider value={rootStore}>
+    <DiProvider>
       <GestureHandlerRootView>
         <PaperProvider>
           <StatusBar
@@ -26,7 +23,7 @@ export function Providers({ children }: PropsWithChildren) {
           </KeyboardAvoidingView>
         </PaperProvider>
       </GestureHandlerRootView>
-    </StoreContext.Provider>
+    </DiProvider>
   )
 }
 

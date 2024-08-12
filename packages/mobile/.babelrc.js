@@ -4,6 +4,16 @@ module.exports = function (api) {
     'react-native-reanimated/plugin',
     'react-native-paper/babel',
     'nativewind/babel',
+    [
+      'module-resolver',
+      {
+        alias: {
+          'react-native-sqlite-storage': 'react-native-quick-sqlite',
+        },
+      },
+    ],
+    'babel-plugin-transform-typescript-metadata',
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
   ]
 
   if (
