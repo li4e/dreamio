@@ -33,7 +33,7 @@ export function getTestClient(fbToken?: string | null) {
 
   return new DefaultApi(
     new Configuration(),
-    'http://localhost:4009',
+    'http://localhost:4009/api/v1',
     axiosInstance
   )
 }

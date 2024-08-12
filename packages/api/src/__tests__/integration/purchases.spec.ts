@@ -7,10 +7,10 @@ beforeAll(async () => {
   await prepareDB()
 })
 
-describe('Integration test /purchases', () => {
+describe('Integration test /api/v1/purchases', () => {
   it('purchases should be restore correctly', async () => {
     const result = await supertest(app)
-      .get('/purchases/restore')
+      .get('/api/v1/purchases/restore')
       .set('firebase-token', 'valid')
       .expect(200)
       .expect('Content-Type', /json/)

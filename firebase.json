@@ -4,6 +4,12 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
+        "source": "/api/v1{,/**}",
+        "function": {
+          "functionId": "api"
+        }
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
@@ -26,6 +32,9 @@
     },
     "functions": {
       "port": 5001
+    },
+    "pubsub": {
+      "port": 8085
     },
     "hosting": {
       "port": 5003

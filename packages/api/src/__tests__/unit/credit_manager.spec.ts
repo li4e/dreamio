@@ -38,7 +38,7 @@ describe('CreditManager Test', () => {
 
   it('subscription credits should be consumed and reverted back correctly', async () => {
     await supertest(app)
-      .get('/purchases/restore')
+      .get('/api/v1/purchases/restore')
       .set('firebase-token', 'valid')
       .expect(200)
       .expect('Content-Type', /json/)

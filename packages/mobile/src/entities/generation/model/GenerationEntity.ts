@@ -16,5 +16,5 @@ export interface GenerationEntity {
 
 export interface CreateGenerationRequest {
   prompt: string
-  style: string
+  style: string | null
 }

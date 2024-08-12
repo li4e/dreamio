@@ -26,7 +26,6 @@ export function AppRouter() {
             backgroundColor: 'transparent',
           },
         }}
-        initialRouteName="generation_result"
       >
         <RootStack.Screen
           name={'home_tabs'}

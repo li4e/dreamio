@@ -8,10 +8,10 @@ beforeAll(async () => {
   await prepareDB()
 })
 
-describe('Integration test /adapty_webhook', () => {
+describe('Integration test /api/v1/adapty_webhook', () => {
   it('connection should be returned correctly', async () => {
     const result = await supertest(app)
-      .post('/adapty_webhook')
+      .post('/api/v1/adapty_webhook')
       .set('Authorization', '123')
       .send({ adapty_check: 'check' })
       .expect(200)
@@ -24,7 +24,7 @@ describe('Integration test /adapty_webhook', () => {
     const event = mockedAdaptyData.webhookEvent
 
     const result = await supertest(app)
-      .post('/adapty_webhook')
+      .post('/api/v1/adapty_webhook')
       .set('Authorization', '123')
       .send({ ...event, customAdd: 's' })
       .expect(200)

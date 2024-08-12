@@ -9,12 +9,12 @@ export class Generation implements GenerationEntity {
   prompt!: string
   @Column()
   style!: string | null
-  @Column()
-  status!: GenerationEntityStatus
+  @Column({ type: 'simple-enum', enum: GenerationEntityStatus })
+  status!: number
   @Column()
   createdAt!: number // timestamp in nanoseconds
   @Column()
   updatedAt!: number // timestamp in nanoseconds
-  @Column()
+  @Column({ type: 'simple-array' })
   images!: Array<{ url: string }>
 }
