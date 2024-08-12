@@ -10,5 +10,3 @@ export const appDataSource = new DataSource({
   entities: [Generation],
   synchronize: true,
 })
-
-appDataSource.initialize()
