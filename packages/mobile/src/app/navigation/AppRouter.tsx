@@ -9,8 +9,8 @@ import {
   RootStackParamList,
 } from 'types/navigation'
 import { GenerationResultScreen } from 'pages/generation-result'
+import { GenerationStartScreen } from 'pages/generation-start'
 import { HistoryScreen } from 'pages/history'
-import { ImageGenerationScreen } from 'pages/image-generation'
 import { SettingsScreen } from 'pages/settings'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
@@ -64,7 +64,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name="generation"
-        component={ImageGenerationScreen}
+        component={GenerationStartScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="draw" color={color} size={26} />

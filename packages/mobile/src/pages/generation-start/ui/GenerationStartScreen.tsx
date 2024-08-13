@@ -11,7 +11,7 @@ import { ScrollView, Button } from 'shared/ui/styled'
 import { StateModal, StateModalVariant } from './StateModal'
 import { StylesList } from './StylesList'
 
-export function ImageGenerationScreen() {
+export function GenerationStartScreen() {
   const { t } = useTranslation()
   const [modalState, setModalState] = useState<StateModalVariant | null>(null)
   const [pending, setPending] = useState(false)
