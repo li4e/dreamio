@@ -1,4 +1,5 @@
 import { PropsWithChildren, useMemo } from 'react'
+import { useAuthListeners } from 'shared/auth/useAuthListeners'
 import { DiContext } from 'shared/di'
 import { appDataSource } from './db'
 import { Store } from './store'
@@ -14,6 +15,8 @@ export function DiProvider({ children }: PropsWithChildren) {
       db: appDataSource,
     }
   }, [])
+
+  useAuthListeners(di.store.account)
 
   return <DiContext.Provider value={di}>{children}</DiContext.Provider>
 }
