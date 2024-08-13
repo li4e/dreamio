@@ -4,11 +4,13 @@ import { useDI } from '../di'
 import { api } from '../lib/api'
 import { mkkvStorage } from '../lib/mmkv'
 
+interface Membership {
+  credits: number
+  hasPremium: boolean
+}
+
 export interface AccountData {
-  membership: {
-    credits: number
-    hasPremium: boolean
-  }
+  membership: Membership
 }
 
 export class AccountStore {
@@ -37,6 +39,14 @@ export class AccountStore {
   set data(data: AccountData | null) {
     this._data = data
     this.persist()
+  }
+
+  updateMembership(membership: Membership) {
+    this.data = {
+      ...AccountStore.defaultAccountData,
+      ...this.data,
+      membership,
+    }
   }
 
   private restore() {

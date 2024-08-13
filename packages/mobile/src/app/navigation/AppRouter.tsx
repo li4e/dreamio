@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, useTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -17,13 +17,14 @@ const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
 
 export function AppRouter() {
+  const { colors } = useTheme()
   return (
     <NavigationContainer>
       <RootStack.Navigator
         screenOptions={{
           headerShown: false,
           contentStyle: {
-            backgroundColor: 'transparent',
+            backgroundColor: colors.background,
           },
         }}
       >

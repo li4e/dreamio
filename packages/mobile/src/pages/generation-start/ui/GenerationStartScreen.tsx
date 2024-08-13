@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useMemo, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View } from 'react-native'
@@ -8,13 +9,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
+import {
+  useCurrentGeneration,
+  Status as CurGenStatus,
+} from '../model/useCurrentGeneration'
 import { StateModal, StateModalVariant } from './StateModal'
 import { StylesList } from './StylesList'
 
 export function GenerationStartScreen() {
   const { t } = useTranslation()
-  const [modalState, setModalState] = useState<StateModalVariant | null>(null)
-  const [pending, setPending] = useState(false)
+  const { navigate } = useNavigation()
 
   const generationSchema = useMemo(
     () =>
@@ -35,7 +39,12 @@ export function GenerationStartScreen() {
     [t]
   )
 
-  const { control, handleSubmit, setValue, reset } = useForm({
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(generationSchema),
     defaultValues: {
       prompt: '',
@@ -43,19 +52,22 @@ export function GenerationStartScreen() {
     },
   })
 
+  const handleFinish = useCallback(
+    (generationId: number) => {
+      resetForm()
+      navigate('generation_result', { generationId })
+    },
+    [navigate, resetForm]
+  )
+
+  const curGen = useCurrentGeneration(handleFinish)
+
   const insets = useSafeAreaInsets()
+  const modalState = mapCurGenStatusToModalState(curGen.state.status)
 
   const handleStartPress = (form: { prompt: string; style: string | null }) => {
-    setPending(true)
     Keyboard.dismiss()
-    setTimeout(() => {
-      setPending(false)
-      reset()
-      setModalState(StateModalVariant.Generation)
-      setTimeout(() => {
-        setModalState(StateModalVariant.Premium)
-      }, 5000)
-    }, 500)
+    curGen.submit(form)
   }
 
   const { colors } = useTheme()
@@ -138,16 +150,35 @@ export function GenerationStartScreen() {
               contentStyle="px-4 py-2"
               onPress={handleSubmit(handleStartPress)}
               disabled={
-                pending || (formState.submitCount > 0 && !formState.isValid)
+                curGen.state.isPending ||
+                (formState.submitCount > 0 && !formState.isValid)
               }
-              loading={pending}
+              loading={curGen.state.isPending}
             >
               {t('screens.generation.startButton')}
             </Button>
           )}
         />
       </View>
-      <StateModal variant={modalState} onDismiss={() => setModalState(null)} />
+      <StateModal variant={modalState} onDismiss={curGen.clear} />
     </View>
   )
+}
+
+function mapCurGenStatusToModalState(
+  status: CurGenStatus
+): StateModalVariant | null {
+  if ([CurGenStatus.PREMIUM].includes(status)) {
+    return StateModalVariant.Premium
+  } else if ([CurGenStatus.TOP_UP].includes(status)) {
+    return StateModalVariant.TopUp
+  } else if (
+    [CurGenStatus.IN_PROGRESS, CurGenStatus.READY_TO_RESUBMIT].includes(status)
+  ) {
+    return StateModalVariant.Generation
+  } else if ([CurGenStatus.ERROR].includes(status)) {
+    return StateModalVariant.Error
+  }
+
+  return null
 }

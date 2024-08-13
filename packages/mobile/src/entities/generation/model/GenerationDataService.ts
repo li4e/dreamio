@@ -1,3 +1,4 @@
+import { AccountStore } from 'shared/auth/AccountStore'
 import { api } from 'shared/lib/api'
 import { GenerationRepository } from './db/GenerationRepository'
 import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
@@ -10,7 +11,8 @@ import {
 export class GenerationDataService {
   constructor(
     private store: GenerationStore,
-    private db: GenerationRepository
+    private db: GenerationRepository,
+    private accountStore: AccountStore
   ) {}
 
   getGeneration(id: number): Promise<GenerationEntity> {
@@ -27,8 +29,8 @@ export class GenerationDataService {
     return api
       .createGeneration(mapCreateGenerationRequestToDto(data))
       .then(async (res) => {
-        const { generation } = res.data
-        // TODO: Update user balance somehow
+        const { generation, userData } = res.data
+        this.accountStore.updateMembership(userData)
 
         if (generation) {
           const entity = mapGenerationDtoToEntity(generation)
