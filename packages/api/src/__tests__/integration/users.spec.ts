@@ -41,7 +41,7 @@ describe('Integration test /users', () => {
     it('current user should be returned without error', async () => {
       const user = await getTestClient()
         .getCurrentUser()
-        .then((res) => res.data.user)
+        .then((res) => res.data.currentUser)
 
       expect(user.id).toBeDefined()
       expect(user.userName.length).toBeGreaterThanOrEqual(3)
@@ -53,13 +53,13 @@ describe('Integration test /users', () => {
 
       const oldUserName = await client
         .getCurrentUser()
-        .then((res) => res.data.user.userName)
+        .then((res) => res.data.currentUser.userName)
 
       await client.updateUser({ userName: 'Super_User_1' })
 
       const newUserName = await client
         .getCurrentUser()
-        .then((res) => res.data.user.userName)
+        .then((res) => res.data.currentUser.userName)
 
       expect(oldUserName).not.toEqual(newUserName)
       expect('super_user_1').toEqual(newUserName)
@@ -91,9 +91,11 @@ describe('Integration test /users', () => {
       const client = getTestClient('username_update_2')
 
       await client.updateUserAvatar({ filePath: 'testPath' })
-      const user = await client.getCurrentUser().then((res) => res.data.user)
-      expect(user.avatarFilePath).toBeDefined()
-      expect(user.avatarPublicUrl).toBeDefined()
+      const user = await client
+        .getCurrentUser()
+        .then((res) => res.data.currentUser)
+      expect(user.avatar).toBeDefined()
+      expect(user.avatar).toBeDefined()
     })
   })
 })

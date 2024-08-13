@@ -11,7 +11,7 @@ import {
   Response,
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { IGeneration, IUserData } from '../types/client'
+import { IGeneration, IUserPremiumInfo } from '../types/client'
 import { UserManager } from '../managers/user'
 import { StartGenerationBody } from '../types/controllers/generation'
 import { GenerationsManager } from '../managers/generation'
@@ -31,7 +31,7 @@ export class GenerationsController extends Controller {
     @Request() request: AuthenticatedRequest
   ): Promise<{
     generation: IGeneration | null
-    userData: IUserData
+    userData: IUserPremiumInfo
   }> {
     const { userId } = request
 

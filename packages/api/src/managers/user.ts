@@ -1,7 +1,7 @@
 import { CloudStorage } from '../integrations/storage'
 import { UserModel } from '../models/UserModel'
 import { UserService } from '../services/user'
-import { IUserData } from '../types/client'
+import { IUserPremiumInfo } from '../types/client'
 import { PopulatedUser } from '../types/user'
 import { CreditManager } from './credit'
 
@@ -29,11 +29,11 @@ export class UserManager {
     return this._isConsumed
   }
 
-  public get userData(): IUserData {
+  public get userData(): IUserPremiumInfo {
     const user = new UserModel(this.user)
     return {
-      ...user.data,
-      credits: user.data.credits - (this._isConsumed ? 1 : 0),
+      ...user.premiumInfo,
+      credits: user.premiumInfo.credits - (this._isConsumed ? 1 : 0),
     }
   }
 

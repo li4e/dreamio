@@ -1,7 +1,16 @@
-export interface IUserData {
-  id: number
+export interface IUserPremiumInfo {
   credits: number
   hasPremium: boolean
+}
+
+interface IUser {
+  id: number
+  userName: string
+  avatar: string | null
+}
+
+export interface IUserAccountInfo extends IUser {
+  premiumInfo: IUserPremiumInfo
 }
 
 export interface IGeneration {

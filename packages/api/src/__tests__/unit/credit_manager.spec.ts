@@ -21,19 +21,19 @@ describe('CreditManager Test', () => {
       user = new UserModel(await new UserService(userId).getPopulated())
     }
 
-    expect(user.data.credits).toBe(UserSettings.initialfreeCredits)
+    expect(user.premiumInfo.credits).toBe(UserSettings.initialfreeCredits)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(UserSettings.initialfreeCredits - 1)
+    expect(user.premiumInfo.credits).toBe(UserSettings.initialfreeCredits - 1)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(UserSettings.initialfreeCredits)
+    expect(user.premiumInfo.credits).toBe(UserSettings.initialfreeCredits)
   })
 
   it('subscription credits should be consumed and reverted back correctly', async () => {
@@ -57,19 +57,19 @@ describe('CreditManager Test', () => {
 
     const intial = 100 + UserSettings.initialfreeCredits
 
-    expect(user.data.credits).toBe(intial)
+    expect(user.premiumInfo.credits).toBe(intial)
 
     await creditManager.consume()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(intial - 1)
+    expect(user.premiumInfo.credits).toBe(intial - 1)
 
     await creditManager.revertBack()
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(intial)
+    expect(user.premiumInfo.credits).toBe(intial)
 
     await creditManager.consume()
     await creditManager.consume()
@@ -77,6 +77,6 @@ describe('CreditManager Test', () => {
 
     await refreshUser()
 
-    expect(user.data.credits).toBe(intial - 3)
+    expect(user.premiumInfo.credits).toBe(intial - 3)
   })
 })

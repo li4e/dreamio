@@ -9,11 +9,12 @@ import {
   Security,
 } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { PopulatedUser } from '../types/user'
 import { UserService } from '../services/user'
 import { isValidUsername } from '../utils/isUserNameValid'
 import { ServerError, StatusCode } from '../shared/ServerError'
 import { UserManager } from '../managers/user'
+import { IUserAccountInfo } from '../types/client'
+import { UserModel } from '../models/UserModel'
 
 @Route('users')
 export class UsersController extends Controller {
@@ -21,9 +22,11 @@ export class UsersController extends Controller {
   @Get()
   public async getCurrentUser(
     @Request() request: AuthenticatedRequest
-  ): Promise<{ user: PopulatedUser }> {
-    const user = await new UserService(request.userId).getPopulated()
-    return { user }
+  ): Promise<{ currentUser: IUserAccountInfo }> {
+    const user = new UserModel(
+      await new UserService(request.userId).getPopulated()
+    )
+    return { currentUser: user.data }
   }
 
   @Security('firebase')

@@ -1,6 +1,6 @@
 import { Controller, Get, Route, Request, Security } from 'tsoa'
 import { AuthenticatedRequest } from '../types/express'
-import { IUserData } from '../types/client'
+import { IUserPremiumInfo } from '../types/client'
 import { AdaptyService } from '../integrations/adapty'
 import { AdaptyRestoreHandler } from '../handlers/adapty/AdaptyRestoreHandler'
 import { UserModel } from '../models/UserModel'
@@ -11,7 +11,7 @@ export class PurchasesController extends Controller {
   @Get('restore')
   public async getUserData(
     @Request() req: AuthenticatedRequest
-  ): Promise<{ data: IUserData }> {
+  ): Promise<{ data: IUserPremiumInfo }> {
     const adaptyProfile = await new AdaptyService().getProfile(req.userId)
 
     const userWithRestoredPuchases = await new AdaptyRestoreHandler(
@@ -19,6 +19,6 @@ export class PurchasesController extends Controller {
     ).handleAngGetUser(req.userId)
     const user = new UserModel(userWithRestoredPuchases)
 
-    return { data: user.data }
+    return { data: user.premiumInfo }
   }
 }

@@ -1,12 +1,20 @@
-import { IUserData } from '../types/client'
+import { IUserAccountInfo, IUserPremiumInfo } from '../types/client'
 import { PopulatedUser } from '../types/user'
 
 export class UserModel {
   constructor(private user: PopulatedUser) {}
 
-  get data(): IUserData {
+  get data(): IUserAccountInfo {
     return {
       id: this.user.id,
+      userName: this.user.userName,
+      avatar: this.user.avatarPublicUrl ?? null,
+      premiumInfo: this.premiumInfo,
+    }
+  }
+
+  get premiumInfo(): IUserPremiumInfo {
+    return {
       credits: this.credits,
       hasPremium: this.hasPremium,
     }
