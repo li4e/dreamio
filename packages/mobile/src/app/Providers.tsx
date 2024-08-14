@@ -3,27 +3,30 @@ import { I18nextProvider } from 'react-i18next'
 import { KeyboardAvoidingView, StatusBar, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { PaperProvider, useTheme } from 'react-native-paper'
+import { SnackbarProvider } from 'shared/ui/Snackbar'
 import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
 
 export function Providers({ children }: PropsWithChildren) {
   return (
-    <DiProvider>
+    <KeyboardAvoidingView behavior="padding" className="flex-1">
       <GestureHandlerRootView>
         <PaperProvider>
-          <StatusBar
-            barStyle="dark-content"
-            backgroundColor="transparent"
-            translucent={true}
-          />
-          <KeyboardAvoidingView behavior="padding" className="flex-1">
-            <ThemeProvider>
-              <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
-            </ThemeProvider>
-          </KeyboardAvoidingView>
+          <SnackbarProvider>
+            <DiProvider>
+              <StatusBar
+                barStyle="dark-content"
+                backgroundColor="transparent"
+                translucent={true}
+              />
+              <ThemeProvider>
+                <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
+              </ThemeProvider>
+            </DiProvider>
+          </SnackbarProvider>
         </PaperProvider>
       </GestureHandlerRootView>
-    </DiProvider>
+    </KeyboardAvoidingView>
   )
 }
 

@@ -4,6 +4,12 @@
       "history": "History",
       "generation": "Create",
       "settings": "Settings"
+    },
+    "snackBar": {
+      "generalError": {
+        "title": "Ooops! ",
+        "description": "Something went wrong, try again later "
+      }
     }
   },
   "screens": {

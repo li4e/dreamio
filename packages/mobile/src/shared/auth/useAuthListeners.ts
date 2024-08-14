@@ -1,15 +1,31 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { firebaseAuth } from '../lib/firebase'
+import { SnackBarVariant, useSnackbar } from '../ui/Snackbar'
 import { getAccountData, AccountStore } from './AccountStore'
 
 export function useAuthListeners(accountStore: AccountStore) {
-  useEffect(() => {
-    firebaseAuth.signOut().finally(() =>
-      firebaseAuth.signInAnonymously().then(() => {
-        getAccountData().then((data) => {
-          accountStore.data = data
-        })
-      })
-    )
+  const { showSnackbar } = useSnackbar()
+  const { t } = useTranslation()
+
+  const reSignIn = useCallback(async () => {
+    await firebaseAuth.signOut().catch(() => {
+      //ignore error
+    })
+    await firebaseAuth.signInAnonymously()
+    const accountData = await getAccountData()
+    accountStore.data = accountData
   }, [accountStore])
+
+  useEffect(() => {
+    reSignIn().catch((error) => {
+      showSnackbar(
+        {
+          title: t('components.snackBar.generalError.title'),
+          description: t('components.snackBar.generalError.description'),
+        },
+        { variant: SnackBarVariant.ERROR }
+      )
+    })
+  }, [reSignIn, showSnackbar])
 }
