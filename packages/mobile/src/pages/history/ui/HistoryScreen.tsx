@@ -41,8 +41,8 @@ export function HistoryScreen() {
             />
           )}
           ListEmptyComponent={<EmpyState />}
-          ListFooterComponent={<ListFooter />}
-          ListFooterComponentStyle={{ flexGrow: 1 }}
+          // ListFooterComponent={<ListFooter />}
+          // ListFooterComponentStyle={{ flexGrow: 1 }}
           numColumns={2}
         />
       )}
@@ -50,7 +50,7 @@ export function HistoryScreen() {
   )
 }
 
-export function HistoryItem(props: {
+function HistoryItem(props: {
   generation: GenerationEntity
   even: boolean
   firstRow: boolean
@@ -78,7 +78,7 @@ export function HistoryItem(props: {
   )
 }
 
-export function EmpyState() {
+function EmpyState() {
   const { t } = useTranslation()
   const { navigate } = useNavigation()
 
@@ -107,26 +107,26 @@ export function EmpyState() {
   )
 }
 
-export function ListFooter() {
-  const { t } = useTranslation()
-  const { navigate } = useNavigation()
+// function ListFooter() {
+//   const { t } = useTranslation()
+//   const { navigate } = useNavigation()
 
-  return (
-    <View className="flex-grow items-center justify-center py-10">
-      <Text variant="titleLarge" className="mb-2 mt-4">
-        {t('screens.history.end.title')}
-      </Text>
-      <Text variant="bodyMedium" className="text-center max-w-[300] mb-4">
-        {t('screens.history.end.description')}
-      </Text>
+//   return (
+//     <View className="flex-grow items-center justify-center py-10">
+//       <Text variant="titleLarge" className="mb-2 mt-4">
+//         {t('screens.history.end.title')}
+//       </Text>
+//       <Text variant="bodyMedium" className="text-center max-w-[300] mb-4">
+//         {t('screens.history.end.description')}
+//       </Text>
 
-      <Button
-        icon="creation"
-        onPress={() => navigate('home_tabs', { screen: 'generation' })}
-        mode="contained"
-      >
-        {t('screens.history.end.button')}
-      </Button>
-    </View>
-  )
-}
+//       <Button
+//         icon="creation"
+//         onPress={() => navigate('home_tabs', { screen: 'generation' })}
+//         mode="contained"
+//       >
+//         {t('screens.history.end.button')}
+//       </Button>
+//     </View>
+//   )
+// }
