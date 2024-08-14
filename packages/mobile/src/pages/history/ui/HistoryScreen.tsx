@@ -2,7 +2,13 @@ import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
 import { FlatList, View, Image } from 'react-native'
-import { Appbar, Button, Text, TouchableRipple } from 'react-native-paper'
+import {
+  ActivityIndicator,
+  Appbar,
+  Button,
+  Text,
+  TouchableRipple,
+} from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import { GenerationEntity } from 'entities/generation'
@@ -12,7 +18,7 @@ import EmptyAnimation from './assets/austroman.json'
 export function HistoryScreen() {
   const { t } = useTranslation()
   const insets = useSafeAreaInsets()
-  const history = useHistory()
+  const { history, isPending } = useHistory()
   const isEmpty = history.length === 0
 
   return (
@@ -20,8 +26,10 @@ export function HistoryScreen() {
       <Appbar.Header>
         <Appbar.Content title={t('screens.history.title')} />
       </Appbar.Header>
-      {isEmpty ? (
-        <EmpyState />
+      {isEmpty && isPending ? (
+        <View className="flex-1 items-center justify-center">
+          <ActivityIndicator />
+        </View>
       ) : (
         <FlatList<GenerationEntity>
           className="flex-1"
@@ -34,6 +42,7 @@ export function HistoryScreen() {
           renderItem={({ item, index }) => (
             <HistoryItem generation={item} even={index % 2 === 0} />
           )}
+          ListEmptyComponent={<EmpyState />}
           numColumns={2}
         />
       )}

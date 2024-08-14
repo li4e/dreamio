@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
   GenerationEntity,
   GenerationEntityStatus,
@@ -7,7 +7,11 @@ import {
 } from 'entities/generation'
 import { useStoreData } from 'shared/store'
 
-export function useHistory(): GenerationEntity[] {
+export function useHistory(): {
+  history: GenerationEntity[]
+  isPending: boolean
+} {
+  const [isPending, setPending] = useState(false)
   const genDataService = useGenerationDataService()
   const genStore = useGenerationStore()
   const history = useStoreData(() => {
@@ -18,10 +22,15 @@ export function useHistory(): GenerationEntity[] {
   }, [genStore])
 
   useEffect(() => {
-    setTimeout(() => {
-      genDataService.restoreAll()
+    setPending(true)
+    setTimeout(async () => {
+      try {
+        await genDataService.restoreAll()
+      } finally {
+        setPending(false)
+      }
     }, 500)
-  }, [genDataService])
+  }, [genDataService, setPending])
 
-  return history
+  return { history, isPending }
 }
