@@ -80,6 +80,7 @@ export function GenerationResultScreen(
           <ScrollView
             className="flex-1"
             contentContainerStyle={{
+              paddingTop: 20,
               paddingHorizontal: 16,
               paddingBottom: insets.bottom + 70,
             }}

@@ -4,7 +4,13 @@ import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View } from 'react-native'
-import { HelperText, Text, TextInput, useTheme } from 'react-native-paper'
+import {
+  Appbar,
+  HelperText,
+  Text,
+  TextInput,
+  useTheme,
+} from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
@@ -74,69 +80,67 @@ export function GenerationStartScreen() {
 
   return (
     <View className="flex-1">
+      <Appbar.Header>
+        <Appbar.Content title={t('screens.generation.title')} />
+      </Appbar.Header>
       <ScrollView
         className="flex-1"
-        contentContainerStyle="px-5 pb-[95] flex-grow"
+        contentContainerStyle="px-5 pb-[95] flex-grow pt-5 justify-end"
         keyboardShouldPersistTaps="handled"
       >
-        <View
-          className="flex-grow justify-end"
-          style={{ paddingTop: insets.top + 20 }}
-        >
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value }, formState }) => {
-              const hasError = formState.submitCount > 0 && !formState.isValid
+        <Controller
+          control={control}
+          render={({ field: { onChange, onBlur, value }, formState }) => {
+            const hasError = formState.submitCount > 0 && !formState.isValid
 
-              return (
-                <>
-                  <View
-                    className={twMerge(
-                      'px-1 py-6 bg-white rounded-2xl border-gray-200 border-[1px] min-h-[210] justify-between',
-                      hasError && 'border-red-700'
-                    )}
-                  >
-                    <View>
-                      <Text variant="titleLarge" className="mx-4">
-                        {t('screens.generation.inputLabel')}
-                      </Text>
-                      <TextInput
-                        underlineColor="transparent"
-                        activeUnderlineColor="transparent"
-                        multiline
-                        placeholder={t('screens.generation.inputPlaceholder')}
-                        placeholderTextColor={colors.backdrop}
-                        className="bg-transparent px-0"
-                        onBlur={onBlur}
-                        onChangeText={onChange}
-                        value={value}
-                      />
-                    </View>
-                    <View className="items-end px-4">
-                      <Button
-                        compact
-                        mode="outlined"
-                        icon="dice-multiple"
-                        contentStyle="flex-row-reverse px-1"
-                      >
-                        {t('screens.generation.surpriseButton')}
-                      </Button>
-                    </View>
+            return (
+              <>
+                <View
+                  className={twMerge(
+                    'px-1 py-6 bg-white rounded-2xl border-gray-200 border-[1px] min-h-[210] justify-between',
+                    hasError && 'border-red-700'
+                  )}
+                >
+                  <View>
+                    <Text variant="titleLarge" className="mx-4">
+                      {t('screens.generation.inputLabel')}
+                    </Text>
+                    <TextInput
+                      underlineColor="transparent"
+                      activeUnderlineColor="transparent"
+                      multiline
+                      placeholder={t('screens.generation.inputPlaceholder')}
+                      placeholderTextColor={colors.backdrop}
+                      className="bg-transparent px-0"
+                      onBlur={onBlur}
+                      onChangeText={onChange}
+                      value={value}
+                    />
                   </View>
-                  <View className="h-8">
-                    <HelperText type="error" visible={hasError}>
-                      {formState.errors.prompt?.message}
-                    </HelperText>
+                  <View className="items-end px-4">
+                    <Button
+                      compact
+                      mode="outlined"
+                      icon="dice-multiple"
+                      contentStyle="flex-row-reverse px-1"
+                    >
+                      {t('screens.generation.surpriseButton')}
+                    </Button>
                   </View>
-                </>
-              )
-            }}
-            name="prompt"
-          />
-          <StylesList
-            onSelect={(style: string | null) => setValue('style', style)}
-          />
-        </View>
+                </View>
+                <View className="h-8">
+                  <HelperText type="error" visible={hasError}>
+                    {formState.errors.prompt?.message}
+                  </HelperText>
+                </View>
+              </>
+            )
+          }}
+          name="prompt"
+        />
+        <StylesList
+          onSelect={(style: string | null) => setValue('style', style)}
+        />
       </ScrollView>
       <View className="absolute left-0 bottom-0 right-0 items-center pb-5">
         <Controller

@@ -1,7 +1,8 @@
-import { NavigationContainer, useTheme } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import { adaptNavigationTheme } from 'react-native-paper'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
@@ -16,16 +17,16 @@ import { SettingsScreen } from 'pages/settings'
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
 
+const { LightTheme } = adaptNavigationTheme({
+  reactNavigationLight: DefaultTheme,
+})
+
 export function AppRouter() {
-  const { colors } = useTheme()
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={LightTheme}>
       <RootStack.Navigator
         screenOptions={{
           headerShown: false,
-          contentStyle: {
-            backgroundColor: colors.background,
-          },
         }}
       >
         <RootStack.Screen
@@ -51,7 +52,8 @@ const HomeTabs = () => {
   return (
     <Tab.Navigator
       keyboardHidesNavigationBar={true}
-      initialRouteName="generation"
+      initialRouteName="history"
+      theme={LightTheme}
     >
       <Tab.Screen
         name="history"

@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { KeyboardAvoidingView, StatusBar, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { PaperProvider, useTheme } from 'react-native-paper'
+import { MD3LightTheme, PaperProvider } from 'react-native-paper'
 import { SnackbarProvider } from 'shared/ui/Snackbar'
 import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
@@ -11,7 +11,7 @@ export function Providers({ children }: PropsWithChildren) {
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
       <GestureHandlerRootView>
-        <PaperProvider>
+        <PaperProvider theme={MD3LightTheme}>
           <SnackbarProvider>
             <DiProvider>
               <StatusBar
@@ -32,14 +32,9 @@ export function Providers({ children }: PropsWithChildren) {
 
 function ThemeProvider(props: PropsWithChildren) {
   const { children, ...rest } = props
-  const { colors } = useTheme()
 
   return (
-    <View
-      className="flex-1"
-      style={{ backgroundColor: colors.background }}
-      {...rest}
-    >
+    <View className="flex-1" {...rest}>
       {children}
     </View>
   )

@@ -1,4 +1,4 @@
-import { observable, makeAutoObservable, set, remove, get } from 'mobx'
+import { observable, makeAutoObservable, set, remove, get, values } from 'mobx'
 import { GenerationEntity } from './GenerationEntity'
 
 export class GenerationStore {
@@ -12,11 +12,21 @@ export class GenerationStore {
     set(this.items, item.id, item)
   }
 
+  setItems(items: GenerationEntity[]) {
+    items.forEach((item) => {
+      this.setItem(item)
+    })
+  }
+
   removeItem(id: number) {
     remove(this.items, id)
   }
 
   getItem(id: number): GenerationEntity | null {
     return get(this.items, id) || null
+  }
+
+  get list(): Readonly<GenerationEntity[]> {
+    return values(this.items)
   }
 }

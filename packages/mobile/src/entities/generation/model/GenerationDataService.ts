@@ -41,6 +41,11 @@ export class GenerationDataService {
       })
   }
 
+  async restoreAll() {
+    const entities = await this.db.find()
+    this.store.setItems(entities)
+  }
+
   private async setItem(generation: GenerationEntity) {
     this.store.setItem(generation)
     await this.db.save(generation)

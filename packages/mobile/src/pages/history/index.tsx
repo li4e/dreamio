@@ -1,1 +1,1 @@
-export { HistoryScreen } from './ui/history-screen'
+export { HistoryScreen } from './ui/HistoryScreen'
