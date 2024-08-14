@@ -1,3 +1,4 @@
+export { useGenerationEntity } from './model/useGenerationEntity'
 export { useGenerationStore } from './model/useGenerationStore'
 export {
   GenerationEntity,
