@@ -11,7 +11,6 @@ import {
   TextInput,
   useTheme,
 } from 'react-native-paper'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
@@ -68,7 +67,6 @@ export function GenerationStartScreen() {
 
   const curGen = useCurrentGeneration(handleFinish)
 
-  const insets = useSafeAreaInsets()
   const modalState = mapCurGenStatusToModalState(curGen.state.status)
 
   const handleStartPress = (form: { prompt: string; style: string | null }) => {

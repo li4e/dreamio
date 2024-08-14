@@ -27,15 +27,10 @@ export function AppRouter() {
       <RootStack.Navigator
         screenOptions={{
           headerShown: false,
+          keyboardHandlingEnabled: true,
         }}
       >
-        <RootStack.Screen
-          name={'home_tabs'}
-          component={HomeTabs}
-          options={{
-            headerShown: false,
-          }}
-        />
+        <RootStack.Screen name={'home_tabs'} component={HomeTabs} />
         <RootStack.Screen
           name={'generation_result'}
           component={GenerationResultScreen}
@@ -50,11 +45,7 @@ const HomeTabs = () => {
   const { t } = useTranslation()
 
   return (
-    <Tab.Navigator
-      keyboardHidesNavigationBar={true}
-      initialRouteName="history"
-      theme={LightTheme}
-    >
+    <Tab.Navigator initialRouteName="history" theme={LightTheme}>
       <Tab.Screen
         name="history"
         component={HistoryScreen}
