@@ -4,13 +4,7 @@ import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View } from 'react-native'
-import {
-  Appbar,
-  HelperText,
-  Text,
-  TextInput,
-  useTheme,
-} from 'react-native-paper'
+import { HelperText, Text, TextInput, useTheme } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
@@ -78,9 +72,6 @@ export function GenerationStartScreen() {
 
   return (
     <View className="flex-1">
-      <Appbar.Header>
-        <Appbar.Content title={t('screens.generation.title')} />
-      </Appbar.Header>
       <ScrollView
         className="flex-1"
         contentContainerStyle="px-5 pb-[95] flex-grow pt-5 justify-end"

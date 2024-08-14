@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { FlatList, View, Image } from 'react-native'
 import {
   ActivityIndicator,
-  Appbar,
   Button,
   Text,
   TouchableRipple,
@@ -16,16 +15,12 @@ import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
 
 export function HistoryScreen() {
-  const { t } = useTranslation()
   const insets = useSafeAreaInsets()
   const { history, isPending } = useHistory()
   const isEmpty = history.length === 0
 
   return (
     <View className="flex-1">
-      <Appbar.Header>
-        <Appbar.Content title={t('screens.history.title')} />
-      </Appbar.Header>
       {isEmpty && isPending ? (
         <View className="flex-1 items-center justify-center">
           <ActivityIndicator />
@@ -35,14 +30,19 @@ export function HistoryScreen() {
           className="flex-1"
           contentContainerStyle={{
             flexGrow: 1,
-            paddingTop: 20,
             paddingBottom: insets.bottom,
           }}
           data={history}
           renderItem={({ item, index }) => (
-            <HistoryItem generation={item} even={index % 2 === 0} />
+            <HistoryItem
+              firstRow={index <= 1}
+              generation={item}
+              even={index % 2 === 0}
+            />
           )}
           ListEmptyComponent={<EmpyState />}
+          ListFooterComponent={<ListFooter />}
+          ListFooterComponentStyle={{ flexGrow: 1 }}
           numColumns={2}
         />
       )}
@@ -53,15 +53,17 @@ export function HistoryScreen() {
 export function HistoryItem(props: {
   generation: GenerationEntity
   even: boolean
+  firstRow: boolean
 }) {
-  const { generation, even } = props
+  const { generation, even, firstRow } = props
   const { navigate } = useNavigation()
 
   return (
     <View
       className={twMerge(
         'w-1/2 aspect-square py-[2]',
-        even ? 'pr-[2]' : 'pl-[2]'
+        even ? 'pr-[2]' : 'pl-[2]',
+        firstRow && 'pt-0'
       )}
     >
       <TouchableRipple
@@ -70,7 +72,7 @@ export function HistoryItem(props: {
         }
         className="flex-1 bg-slate-300"
       >
-        <Image className="flex-1" source={{ uri: generation.images[0]?.url }} />
+        <Image className="flex-1" source={{ uri: generation.images[0] }} />
       </TouchableRipple>
     </View>
   )
@@ -100,6 +102,30 @@ export function EmpyState() {
         mode="contained"
       >
         {t('screens.history.empty.button')}
+      </Button>
+    </View>
+  )
+}
+
+export function ListFooter() {
+  const { t } = useTranslation()
+  const { navigate } = useNavigation()
+
+  return (
+    <View className="flex-grow items-center justify-center py-10">
+      <Text variant="titleLarge" className="mb-2 mt-4">
+        {t('screens.history.end.title')}
+      </Text>
+      <Text variant="bodyMedium" className="text-center max-w-[300] mb-4">
+        {t('screens.history.end.description')}
+      </Text>
+
+      <Button
+        icon="creation"
+        onPress={() => navigate('home_tabs', { screen: 'generation' })}
+        mode="contained"
+      >
+        {t('screens.history.end.button')}
       </Button>
     </View>
   )

@@ -24,7 +24,9 @@ export function mapGenerationDtoToEntity(
     status: statusMapping[generation.status],
     createdAt: convertDateToTimestamp(generation.createdAt),
     updatedAt: convertDateToTimestamp(generation.updatedAt),
-    images: generation.images ? mapImages(generation.images) : [],
+    images: generation.images
+      ? mapImages(generation.images).map((image) => image.url)
+      : [],
   }
 }
 

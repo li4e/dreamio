@@ -16,5 +16,5 @@ export class Generation implements GenerationEntity {
   @Column()
   updatedAt!: number // timestamp in nanoseconds
   @Column({ type: 'simple-array' })
-  images!: Array<{ url: string }>
+  images!: Array<string>
 }

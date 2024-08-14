@@ -1,5 +1,8 @@
 {
   "components": {
+    "appBar": {
+      "back": "Back"
+    },
     "tabBar": {
       "history": "History",
       "generation": "Create",
@@ -61,6 +64,11 @@
       "empty": {
         "title": "Nothing Here Yet...",
         "description": "You haven't created any artwork yet. Start generating to see it appear here.",
+        "button": "Create"
+      },
+      "end": {
+        "title": "That's Everything So Far",
+        "description": "But there's always room for more creativity. Ready to make something new?",
         "button": "Create"
       }
     }

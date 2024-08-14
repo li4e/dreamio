@@ -11,7 +11,7 @@ export interface GenerationEntity {
   status: GenerationEntityStatus
   createdAt: number // timestamp in nanoseconds
   updatedAt: number // timestamp in nanoseconds
-  images: Array<{ url: string }>
+  images: Array<string>
 }
 
 export interface CreateGenerationRequest {
