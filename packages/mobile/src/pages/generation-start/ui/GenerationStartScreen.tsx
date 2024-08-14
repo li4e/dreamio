@@ -86,7 +86,7 @@ export function GenerationStartScreen() {
               <>
                 <View
                   className={twMerge(
-                    'px-1 py-6 bg-white rounded-2xl border-gray-200 border-[1px] min-h-[210] justify-between',
+                    'px-1 py-6 bg-white rounded-2xl border-gray-200 border-[1px] justify-between',
                     hasError && 'border-red-700'
                   )}
                 >
