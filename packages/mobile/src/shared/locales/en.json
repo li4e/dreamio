@@ -11,7 +11,7 @@
     "snackBar": {
       "generalError": {
         "title": "Ooops! ",
-        "description": "Something went wrong, try again later "
+        "description": "Something went wrong, try again later"
       }
     }
   },
@@ -57,7 +57,7 @@
         "premium": {
           "title": "Premium",
           "active": "Active",
-          "notActive": "Not active"
+          "notActive": "Not Active"
         },
         "restore": "Restore",
         "balance": "Credits Left",

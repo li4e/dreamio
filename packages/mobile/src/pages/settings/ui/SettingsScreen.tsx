@@ -1,7 +1,13 @@
 import { styled } from 'nativewind'
 import { useTranslation } from 'react-i18next'
 import { ScrollView, View } from 'react-native'
-import { Button, Divider, List, Switch, Text } from 'react-native-paper'
+import {
+  Button,
+  Divider,
+  List,
+  // Switch,
+  Text,
+} from 'react-native-paper'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export function SettingsScreen() {
@@ -45,7 +51,7 @@ export function SettingsScreen() {
 
           <SettingsDivider />
 
-          <List.Section>
+          {/* <List.Section>
             <SubHeader>{t('screens.settings.user.title')}</SubHeader>
             <List.Item
               title={t('screens.settings.user.darkMode')}
@@ -60,7 +66,7 @@ export function SettingsScreen() {
               )}
             />
           </List.Section>
-          <SettingsDivider />
+          <SettingsDivider /> */}
 
           <List.Section>
             <SubHeader>{t('screens.settings.about.title')}</SubHeader>
