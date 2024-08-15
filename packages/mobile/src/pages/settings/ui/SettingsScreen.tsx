@@ -3,7 +3,6 @@ import { styled } from 'nativewind'
 import { useTranslation } from 'react-i18next'
 import { ScrollView, View } from 'react-native'
 import {
-  Button,
   Divider,
   List,
   // Switch,
@@ -12,6 +11,7 @@ import {
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Button } from 'shared/ui/styled'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
@@ -26,8 +26,8 @@ export function SettingsScreen() {
         contentContainerStyle={{
           flexGrow: 1,
           paddingTop: insets.top,
-          paddingBottom: 0,
           paddingHorizontal: 20,
+          paddingBottom: 0,
         }}
       >
         <View className="flex-grow">
@@ -38,37 +38,47 @@ export function SettingsScreen() {
               autoPlay={true}
             />
           </View>
-          <View className="flex-grow">
-            <List.Section>
-              <SubHeader>{t('screens.settings.membership.title')}</SubHeader>
-              <List.Item
-                title={t('screens.settings.membership.premium.title')}
-                right={({ color }) => (
-                  <Text variant="labelLarge" style={{ color }}>
-                    {hasPremium
-                      ? t('screens.settings.membership.premium.active')
-                      : t('screens.settings.membership.premium.notActive')}
-                  </Text>
-                )}
-              />
-              <List.Item
-                title={t('screens.settings.membership.balance')}
-                right={({ color }) => <Text style={{ color }}>0</Text>}
-              />
-              <Button
-                icon="crown"
-                mode="contained"
-                className="self-center my-2"
-              >
-                {t(
-                  hasPremium
-                    ? 'screens.settings.membership.topUp'
-                    : 'screens.settings.membership.subscribe'
-                )}
-              </Button>
-            </List.Section>
+          <View className="flex-grow justify-center">
+            <Button
+              className="rounded-full mb-10"
+              icon="crown"
+              mode="contained"
+              contentStyle="py-2"
+              elevation={1}
+              onPress={() => {
+                // TODO: Replace for a real one
+              }}
+            >
+              {t(
+                hasPremium
+                  ? 'screens.settings.membership.topUp'
+                  : 'screens.settings.membership.subscribe'
+              )}
+            </Button>
 
-            <SettingsDivider />
+            <View
+              className="mb-10 rounded-2xl pb-1"
+              style={{ backgroundColor: colors.inverseOnSurface }}
+            >
+              <List.Section>
+                <SubHeader>{t('screens.settings.membership.title')}</SubHeader>
+                <List.Item
+                  title={t('screens.settings.membership.premium.title')}
+                  right={({ color }) => (
+                    <Text variant="labelLarge" style={{ color }}>
+                      {hasPremium
+                        ? t('screens.settings.membership.premium.active')
+                        : t('screens.settings.membership.premium.notActive')}
+                    </Text>
+                  )}
+                />
+                <Divider />
+                <List.Item
+                  title={t('screens.settings.membership.balance')}
+                  right={({ color }) => <Text style={{ color }}>0</Text>}
+                />
+              </List.Section>
+            </View>
 
             {/* <List.Section>
             <SubHeader>{t('screens.settings.user.title')}</SubHeader>
@@ -87,30 +97,37 @@ export function SettingsScreen() {
           </List.Section>
           <SettingsDivider /> */}
 
-            <List.Section>
-              <SubHeader>{t('screens.settings.about.title')}</SubHeader>
-              <List.Item
-                onPress={() => {
-                  // TODO: Replace to a real one
-                }}
-                title={t('screens.settings.about.privacy')}
-                right={({ color }) => <RightIcon color={color} />}
-              />
-              <List.Item
-                onPress={() => {
-                  // TODO: Replace to a real one
-                }}
-                title={t('screens.settings.about.terms')}
-                right={({ color }) => <RightIcon color={color} />}
-              />
-              <List.Item
-                onPress={() => {
-                  // TODO: Replace to a real one
-                }}
-                title={t('screens.settings.about.contact')}
-                right={({ color }) => <RightIcon color={color} />}
-              />
-            </List.Section>
+            <View
+              className="rounded-2xl pb-1"
+              style={{ backgroundColor: colors.inverseOnSurface }}
+            >
+              <List.Section className="">
+                <SubHeader>{t('screens.settings.about.title')}</SubHeader>
+                <List.Item
+                  onPress={() => {
+                    // TODO: Replace to a real one
+                  }}
+                  title={t('screens.settings.about.privacy')}
+                  right={({ color }) => <RightIcon color={color} />}
+                />
+                <Divider />
+                <List.Item
+                  onPress={() => {
+                    // TODO: Replace to a real one
+                  }}
+                  title={t('screens.settings.about.terms')}
+                  right={({ color }) => <RightIcon color={color} />}
+                />
+                <Divider />
+                <List.Item
+                  onPress={() => {
+                    // TODO: Replace to a real one
+                  }}
+                  title={t('screens.settings.about.contact')}
+                  right={({ color }) => <RightIcon color={color} />}
+                />
+              </List.Section>
+            </View>
           </View>
 
           <Button
@@ -128,7 +145,6 @@ export function SettingsScreen() {
   )
 }
 
-const SettingsDivider = styled(Divider, 'my-5')
 const SubHeader = styled(List.Subheader, 'text-base font-semibold ')
 const RightIcon = (props: { color: string }) => (
   <MaterialCommunityIcons color={props.color} name="arrow-right" size={20} />

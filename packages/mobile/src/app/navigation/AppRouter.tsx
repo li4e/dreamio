@@ -44,7 +44,11 @@ const HomeTabs = () => {
   const { t } = useTranslation()
 
   return (
-    <Tab.Navigator theme={LightTheme} initialRouteName="generation">
+    <Tab.Navigator
+      theme={LightTheme}
+      initialRouteName="generation"
+      sceneAnimationEnabled={true}
+    >
       <Tab.Screen
         name="history"
         component={HistoryScreen}
