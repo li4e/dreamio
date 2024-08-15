@@ -4,6 +4,7 @@ import { StatusBar, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { MD3LightTheme, PaperProvider } from 'react-native-paper'
 import Animated, {
+  KeyboardState,
   useAnimatedKeyboard,
   useAnimatedStyle,
 } from 'react-native-reanimated'
@@ -51,7 +52,8 @@ export function KBAvoidingView({ children }: PropsWithChildren) {
   const keyboard = useAnimatedKeyboard({ isStatusBarTranslucentAndroid: true })
   const style = useAnimatedStyle(
     () => ({
-      paddingBottom: keyboard.height.value,
+      paddingBottom:
+        keyboard.state.value === KeyboardState.OPEN ? keyboard.height.value : 0,
     }),
     []
   )

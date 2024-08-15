@@ -131,7 +131,7 @@ export function GenerationStartScreen() {
           onSelect={(style: string | null) => setValue('style', style)}
         />
       </ScrollView>
-      <View className="absolute left-0 bottom-0 right-0 items-center pb-5">
+      <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
         <Controller
           control={control}
           name="prompt"

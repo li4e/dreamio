@@ -9,12 +9,10 @@ import {
 } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
-import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { View } from 'react-native'
 import { adaptNavigationTheme, BottomNavigation } from 'react-native-paper'
 import Animated, {
-  interpolate,
+  KeyboardState,
   useAnimatedKeyboard,
   useAnimatedStyle,
 } from 'react-native-reanimated'
@@ -71,17 +69,15 @@ const HomeTabs = () => {
   const { t } = useTranslation()
   const insets = useSafeAreaInsets()
   const keyboard = useAnimatedKeyboard()
-  const paddingBottom = insets.bottom + 80
+
+  const bottomBarHeight = insets.bottom + 80
 
   const style = useAnimatedStyle(
     () => ({
-      paddingBottom: interpolate(
-        keyboard.height.value,
-        [0, paddingBottom],
-        [paddingBottom, 0]
-      ),
+      paddingBottom:
+        keyboard.state.value === KeyboardState.OPEN ? 0 : bottomBarHeight,
     }),
-    [paddingBottom]
+    [bottomBarHeight, keyboard]
   )
 
   return (
@@ -89,7 +85,7 @@ const HomeTabs = () => {
       <Tab.Navigator
         initialRouteName="generation"
         tabBar={(props) => (
-          <CustomTabBar paddingBottom={paddingBottom} {...props} />
+          <CustomTabBar bottomBarHeight={bottomBarHeight} {...props} />
         )}
       >
         <Tab.Screen
@@ -132,20 +128,17 @@ const HomeTabs = () => {
 }
 
 interface CustomTabBarProps extends BottomTabBarProps {
-  paddingBottom: number
+  bottomBarHeight: number
 }
 
 function CustomTabBar(props: CustomTabBarProps) {
-  const { paddingBottom, state, navigation, descriptors } = props
-  const style = useMemo(
-    () => ({
-      transform: [{ translateY: paddingBottom }],
-    }),
-    [paddingBottom]
-  )
+  const { bottomBarHeight, state, navigation, descriptors } = props
 
   return (
-    <View className="absolute left-0 right-0 bottom-0" style={style}>
+    <Animated.View
+      className="absolute left-0 right-0"
+      style={{ bottom: -bottomBarHeight }}
+    >
       <BottomNavigation.Bar
         navigationState={state}
         onTabPress={({ route, preventDefault }) => {
@@ -177,6 +170,6 @@ function CustomTabBar(props: CustomTabBarProps) {
           return options.tabBarLabel as string
         }}
       />
-    </View>
+    </Animated.View>
   )
 }
