@@ -33,7 +33,7 @@ export function StylesList(props: StylesListProps) {
           {t('screens.generation.styleLabel')}
         </Text>
         {selected && (
-          <Chip compact onClose={() => handleChange(null)}>
+          <Chip mode="outlined" compact onClose={() => handleChange(null)}>
             {selected}
           </Chip>
         )}

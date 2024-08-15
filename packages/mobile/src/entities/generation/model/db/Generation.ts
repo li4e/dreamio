@@ -7,7 +7,7 @@ export class Generation implements GenerationEntity {
   id!: number
   @Column()
   prompt!: string
-  @Column()
+  @Column({ nullable: true })
   style!: string | null
   @Column({ type: 'simple-enum', enum: GenerationEntityStatus })
   status!: number

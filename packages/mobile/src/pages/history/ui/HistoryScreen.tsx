@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { FlatList, View, Image } from 'react-native'
 import {
   ActivityIndicator,
+  Appbar,
   Button,
   Text,
   TouchableRipple,
@@ -18,9 +19,13 @@ export function HistoryScreen() {
   const insets = useSafeAreaInsets()
   const { history, isPending } = useHistory()
   const isEmpty = history.length === 0
+  const { t } = useTranslation()
 
   return (
     <View className="flex-1">
+      <Appbar.Header>
+        <Appbar.Content title={t('screens.history.title')} />
+      </Appbar.Header>
       {isEmpty && isPending ? (
         <View className="flex-1 items-center justify-center">
           <ActivityIndicator />
@@ -41,8 +46,10 @@ export function HistoryScreen() {
             />
           )}
           ListEmptyComponent={<EmpyState />}
-          // ListFooterComponent={<ListFooter />}
-          // ListFooterComponentStyle={{ flexGrow: 1 }}
+          ListFooterComponent={
+            !isEmpty && history.length < 5 ? <ListFooter /> : null
+          }
+          ListFooterComponentStyle={{ flexGrow: 1 }}
           numColumns={2}
         />
       )}
@@ -107,26 +114,26 @@ function EmpyState() {
   )
 }
 
-// function ListFooter() {
-//   const { t } = useTranslation()
-//   const { navigate } = useNavigation()
+function ListFooter() {
+  const { t } = useTranslation()
+  const { navigate } = useNavigation()
 
-//   return (
-//     <View className="flex-grow items-center justify-center py-10">
-//       <Text variant="titleLarge" className="mb-2 mt-4">
-//         {t('screens.history.end.title')}
-//       </Text>
-//       <Text variant="bodyMedium" className="text-center max-w-[300] mb-4">
-//         {t('screens.history.end.description')}
-//       </Text>
+  return (
+    <View className="flex-grow items-center justify-center py-10">
+      <Text variant="titleLarge" className="mb-2 mt-4">
+        {t('screens.history.end.title')}
+      </Text>
+      <Text variant="bodyMedium" className="text-center max-w-[300] mb-4">
+        {t('screens.history.end.description')}
+      </Text>
 
-//       <Button
-//         icon="creation"
-//         onPress={() => navigate('home_tabs', { screen: 'generation' })}
-//         mode="contained"
-//       >
-//         {t('screens.history.end.button')}
-//       </Button>
-//     </View>
-//   )
-// }
+      <Button
+        icon="creation"
+        onPress={() => navigate('home_tabs', { screen: 'generation' })}
+        mode="contained"
+      >
+        {t('screens.history.end.button')}
+      </Button>
+    </View>
+  )
+}

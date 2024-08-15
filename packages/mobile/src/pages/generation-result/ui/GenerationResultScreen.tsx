@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ScrollView, Platform } from 'react-native'
-import { Chip, Text, TouchableRipple, useTheme } from 'react-native-paper'
+import {
+  Appbar,
+  Chip,
+  Text,
+  TouchableRipple,
+  useTheme,
+} from 'react-native-paper'
 import { ActivityIndicator } from 'react-native-paper'
 import Animated, {
   FadeIn,
@@ -27,6 +33,10 @@ export function GenerationResultScreen(
 
   return (
     <View className="flex-1">
+      <Appbar.Header className="bg-transparent">
+        <Appbar.BackAction onPress={props.navigation.goBack} />
+        <Appbar.Content title={t('screens.generationResult.title')} />
+      </Appbar.Header>
       {generation ? (
         <>
           <ScrollView
@@ -54,9 +64,6 @@ export function GenerationResultScreen(
                 </View>
                 {generation.style && (
                   <Chip mode="outlined" compact>
-                    <Text variant="labelSmall" className="text-gray-500">
-                      {t('screens.generationResult.styleLabel')}:
-                    </Text>{' '}
                     <Text variant="titleSmall">{generation.style}</Text>
                   </Chip>
                 )}

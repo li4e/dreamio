@@ -5,7 +5,7 @@
     },
     "tabBar": {
       "history": "History",
-      "generation": "Generate",
+      "generation": "Create",
       "settings": "Settings"
     },
     "snackBar": {
@@ -17,12 +17,12 @@
   },
   "screens": {
     "generation": {
-      "title": "Begin Your Art",
-      "inputLabel": "Prompt",
-      "inputPlaceholder": "Type a detailed description of what you want to see in your artwork...",
-      "styleLabel": "Select a style",
-      "surpriseButton": "Surprise me",
-      "startButton": "Start magic",
+      "title": "Start Creating",
+      "inputLabel": "Your Idea",
+      "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
+      "styleLabel": "Choose Your Style",
+      "surpriseButton": "Inspire",
+      "startButton": "Start Magic",
       "promptValidationErrors": {
         "minLength": "The prompt must be at least {{min}} characters long",
         "maxLength": "The prompt must be shorter than {{max}} characters",
@@ -51,7 +51,7 @@
       }
     },
     "settings": {
-      "title": "Adjust Settings",
+      "title": "Settings",
       "membership": {
         "title": "Membership",
         "premium": {
@@ -60,7 +60,7 @@
           "notActive": "Not Active"
         },
         "restore": "Restore",
-        "balance": "Credits Left",
+        "balance": "Credits Balance",
         "balanceDescription": "These credits are using to generation images",
         "topUp": "Top Up",
         "subscribe": "Get Premium"
@@ -84,11 +84,10 @@
       "copyButton": "Copy Prompt",
       "deleteButton": "Delete",
       "shareButton": "Share",
-      "promptLabel": "Prompt",
-      "styleLabel": "Style"
+      "promptLabel": "Prompt"
     },
     "history": {
-      "title": "Review Your Art",
+      "title": "Earlier Works",
       "empty": {
         "title": "Nothing Here Yet...",
         "description": "You haven't created any artwork yet. Start generating to see it appear here.",

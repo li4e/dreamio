@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native'
 import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Keyboard, View } from 'react-native'
-import { HelperText, Text, TextInput, useTheme } from 'react-native-paper'
+import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
+import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
@@ -68,93 +68,92 @@ export function GenerationStartScreen() {
     curGen.submit(form)
   }
 
-  const { colors } = useTheme()
-
   return (
-    <View className="flex-1">
-      <ScrollView
-        className="flex-1"
-        contentContainerStyle="px-5 pb-[95] flex-grow pt-5 justify-end"
-        keyboardShouldPersistTaps="handled"
-      >
-        <Controller
-          control={control}
-          render={({ field: { onChange, onBlur, value }, formState }) => {
-            const hasError = formState.submitCount > 0 && !formState.isValid
+    <KeyboardAvoidingView behavior="padding" className="flex-1">
+      <View className="flex-1">
+        <Appbar.Header>
+          <Appbar.Content title={t('screens.generation.title')} />
+        </Appbar.Header>
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle="px-5 pb-[95] flex-grow pt-5 justify-end"
+          keyboardShouldPersistTaps="handled"
+        >
+          <View className="flex-grow justify-center">
+            <Controller
+              control={control}
+              render={({ field: { onChange, onBlur, value }, formState }) => {
+                const hasError = formState.submitCount > 0 && !formState.isValid
 
-            return (
-              <>
-                <View
-                  className={twMerge(
-                    'px-1 py-6 bg-white rounded-2xl border-gray-200 border-[1px] justify-between',
-                    hasError && 'border-red-700'
-                  )}
-                >
-                  <View>
-                    <Text variant="titleLarge" className="mx-4">
-                      {t('screens.generation.inputLabel')}
-                    </Text>
+                return (
+                  <>
+                    <View className="flex-row justify-between items-center mb-3">
+                      <Text variant="titleMedium">
+                        {t('screens.generation.inputLabel')}
+                      </Text>
+                      <Button
+                        compact
+                        mode="contained-tonal"
+                        icon="dice-multiple"
+                        contentStyle="flex-row-reverse px-2"
+                      >
+                        {t('screens.generation.surpriseButton')}
+                      </Button>
+                    </View>
+
                     <TextInput
                       underlineColor="transparent"
                       activeUnderlineColor="transparent"
                       multiline
                       placeholder={t('screens.generation.inputPlaceholder')}
-                      placeholderTextColor={colors.backdrop}
-                      className="bg-transparent px-0"
+                      className={twMerge(
+                        'bg-white rounded-md border-[0.5px] justify-between border-transparent border-gray-300 min-h-[85] focus:border-gray-600'
+                      )}
                       onBlur={onBlur}
                       onChangeText={onChange}
                       value={value}
                     />
-                  </View>
-                  <View className="items-end px-4">
-                    <Button
-                      compact
-                      mode="outlined"
-                      icon="dice-multiple"
-                      contentStyle="flex-row-reverse px-1"
-                    >
-                      {t('screens.generation.surpriseButton')}
-                    </Button>
-                  </View>
-                </View>
-                <View className="h-8">
-                  <HelperText type="error" visible={hasError}>
-                    {formState.errors.prompt?.message}
-                  </HelperText>
-                </View>
-              </>
-            )
-          }}
-          name="prompt"
-        />
-        <StylesList
-          onSelect={(style: string | null) => setValue('style', style)}
-        />
-      </ScrollView>
-      <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
-        <Controller
-          control={control}
-          name="prompt"
-          render={({ formState }) => (
-            <Button
-              icon="creation"
-              mode="contained"
-              className="rounded-full"
-              contentStyle="px-4 py-2"
-              onPress={handleSubmit(handleStartPress)}
-              disabled={
-                curGen.state.isPending ||
-                (formState.submitCount > 0 && !formState.isValid)
-              }
-              loading={curGen.state.isPending}
-            >
-              {t('screens.generation.startButton')}
-            </Button>
-          )}
-        />
+
+                    <View className="h-8">
+                      <HelperText type="error" visible={hasError}>
+                        {formState.errors.prompt?.message}
+                      </HelperText>
+                    </View>
+                  </>
+                )
+              }}
+              name="prompt"
+            />
+          </View>
+          <StylesList
+            onSelect={(style: string | null) => setValue('style', style)}
+          />
+        </ScrollView>
+        <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
+          <Controller
+            control={control}
+            name="prompt"
+            render={({ formState }) => (
+              <Button
+                icon="creation"
+                mode="contained"
+                className="rounded-full"
+                contentStyle="px-4 py-2"
+                onPress={handleSubmit(handleStartPress)}
+                disabled={
+                  curGen.state.isPending ||
+                  (formState.submitCount > 0 && !formState.isValid)
+                }
+                loading={curGen.state.isPending}
+              >
+                {t('screens.generation.startButton')}
+              </Button>
+            )}
+          />
+        </View>
+        <StateModal variant={modalState} onDismiss={curGen.clear} />
       </View>
-      <StateModal variant={modalState} onDismiss={curGen.clear} />
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
