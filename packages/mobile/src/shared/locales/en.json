@@ -50,6 +50,34 @@
         "description": "This usually takes about 15 seconds..."
       }
     },
+    "settings": {
+      "title": "Preferences",
+      "membership": {
+        "title": "Membership",
+        "premium": {
+          "title": "Premium",
+          "active": "Active",
+          "notActive": "Not active"
+        },
+        "restore": "Restore",
+        "balance": "Credits Left",
+        "balanceDescription": "These credits are using to generation images",
+        "topUp": "Top Up",
+        "subscribe": "Get Premium"
+      },
+      "user": {
+        "title": "User Settings",
+        "darkMode": "Dark Mode",
+        "language": "Language"
+      },
+      "about": {
+        "title": "About App",
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions",
+        "contact": "Contact Us"
+      },
+      "clearButton": "Clear All User Data"
+    },
     "generationResult": {
       "title": "Result",
       "saveButton": "Save",

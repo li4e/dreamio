@@ -132,7 +132,7 @@ const HomeTabs = () => {
               <MaterialCommunityIcons name="tune" color={color} size={26} />
             ),
             tabBarLabel: t('components.tabBar.settings'),
-            title: t('components.tabBar.settings'),
+            title: t('screens.settings.title'),
           }}
         />
       </Tab.Navigator>
