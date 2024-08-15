@@ -17,7 +17,7 @@
   },
   "screens": {
     "generation": {
-      "title": "Start your journey",
+      "title": "Start Your Journey",
       "inputLabel": "Prompt",
       "inputPlaceholder": "Type a detailed description of what you want to see in your artwork...",
       "styleLabel": "Select a style",

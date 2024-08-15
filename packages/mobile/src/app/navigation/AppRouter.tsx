@@ -1,16 +1,25 @@
 import {
   BottomTabBarProps,
+  BottomTabHeaderProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
+import { getHeaderTitle } from '@react-navigation/elements'
 import {
   NavigationContainer,
   DefaultTheme,
   CommonActions,
 } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import {
+  createNativeStackNavigator,
+  NativeStackHeaderProps,
+} from '@react-navigation/native-stack'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { adaptNavigationTheme, BottomNavigation } from 'react-native-paper'
+import {
+  adaptNavigationTheme,
+  Appbar,
+  BottomNavigation,
+} from 'react-native-paper'
 import Animated, {
   KeyboardState,
   useAnimatedKeyboard,
@@ -42,6 +51,7 @@ export function AppRouter() {
       <RootStack.Navigator
         screenOptions={{
           keyboardHandlingEnabled: true,
+          header: (props) => <CustomAppBar {...props} />,
         }}
       >
         <RootStack.Screen
@@ -84,6 +94,9 @@ const HomeTabs = () => {
     <Animated.View className="flex-1" style={style}>
       <Tab.Navigator
         initialRouteName="generation"
+        screenOptions={{
+          header: (props) => <CustomAppBar {...props} />,
+        }}
         tabBar={(props) => (
           <CustomTabBar bottomBarHeight={bottomBarHeight} {...props} />
         )}
@@ -129,6 +142,18 @@ const HomeTabs = () => {
 
 interface CustomTabBarProps extends BottomTabBarProps {
   bottomBarHeight: number
+}
+
+function CustomAppBar(props: NativeStackHeaderProps | BottomTabHeaderProps) {
+  const { options, route, back, navigation } = props as NativeStackHeaderProps
+  const title = getHeaderTitle(options, route.name)
+
+  return (
+    <Appbar.Header elevated>
+      {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+      <Appbar.Content title={title} />
+    </Appbar.Header>
+  )
 }
 
 function CustomTabBar(props: CustomTabBarProps) {
