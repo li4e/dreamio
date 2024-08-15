@@ -5,7 +5,7 @@
     },
     "tabBar": {
       "history": "History",
-      "generation": "Create",
+      "generation": "Generate",
       "settings": "Settings"
     },
     "snackBar": {
@@ -17,7 +17,7 @@
   },
   "screens": {
     "generation": {
-      "title": "Start Your Journey",
+      "title": "Begin Your Art",
       "inputLabel": "Prompt",
       "inputPlaceholder": "Type a detailed description of what you want to see in your artwork...",
       "styleLabel": "Select a style",
@@ -51,7 +51,7 @@
       }
     },
     "settings": {
-      "title": "Preferences",
+      "title": "Adjust Settings",
       "membership": {
         "title": "Membership",
         "premium": {
@@ -88,7 +88,7 @@
       "styleLabel": "Style"
     },
     "history": {
-      "title": "Art Works",
+      "title": "Review Your Art",
       "empty": {
         "title": "Nothing Here Yet...",
         "description": "You haven't created any artwork yet. Start generating to see it appear here.",

@@ -118,7 +118,11 @@ const HomeTabs = () => {
           component={GenerationStartScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="draw" color={color} size={26} />
+              <MaterialCommunityIcons
+                name="image-plus"
+                color={color}
+                size={26}
+              />
             ),
             tabBarLabel: t('components.tabBar.generation'),
             title: t('screens.generation.title'),
