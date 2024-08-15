@@ -18,9 +18,9 @@
   "screens": {
     "generation": {
       "title": "Start Creating",
-      "inputLabel": "Your Idea",
+      "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
-      "styleLabel": "Choose Your Style",
+      "styleLabel": "Choose Your Style:",
       "surpriseButton": "Inspire",
       "startButton": "Start Magic",
       "promptValidationErrors": {

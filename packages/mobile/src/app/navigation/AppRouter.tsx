@@ -13,12 +13,14 @@ import { GenerationResultScreen } from 'pages/generation-result'
 import { GenerationStartScreen } from 'pages/generation-start'
 import { HistoryScreen } from 'pages/history'
 import { SettingsScreen } from 'pages/settings'
+import { theme } from '../ui/customTheme'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
 
 const { LightTheme } = adaptNavigationTheme({
   reactNavigationLight: DefaultTheme,
+  materialLight: theme,
 })
 
 export function AppRouter() {

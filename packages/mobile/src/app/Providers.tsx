@@ -2,17 +2,18 @@ import { PropsWithChildren } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { StatusBar } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { MD3LightTheme, PaperProvider } from 'react-native-paper'
+import { PaperProvider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { SnackbarProvider } from 'shared/ui/Snackbar'
 import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
+import { theme } from './ui/customTheme'
 
 export function Providers({ children }: PropsWithChildren) {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
-        <PaperProvider theme={MD3LightTheme}>
+        <PaperProvider theme={theme}>
           <SnackbarProvider>
             <DiProvider>
               <StatusBar

@@ -5,7 +5,6 @@ import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
 import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
-import { twMerge } from 'tailwind-merge'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
 import {
@@ -87,7 +86,7 @@ export function GenerationStartScreen() {
 
                 return (
                   <>
-                    <View className="flex-row justify-between items-center mb-3">
+                    <View className="flex-row justify-between items-end mb-3">
                       <Text variant="titleMedium">
                         {t('screens.generation.inputLabel')}
                       </Text>
@@ -102,16 +101,14 @@ export function GenerationStartScreen() {
                     </View>
 
                     <TextInput
-                      underlineColor="transparent"
-                      activeUnderlineColor="transparent"
                       multiline
+                      mode="outlined"
+                      className="min-h-[85]"
                       placeholder={t('screens.generation.inputPlaceholder')}
-                      className={twMerge(
-                        'bg-white rounded-md border-[0.5px] justify-between border-transparent border-gray-300 min-h-[85] focus:border-gray-600'
-                      )}
                       onBlur={onBlur}
                       onChangeText={onChange}
                       value={value}
+                      error={hasError}
                     />
 
                     <View className="h-8">

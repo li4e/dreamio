@@ -28,8 +28,8 @@ export function StylesList(props: StylesListProps) {
 
   return (
     <View>
-      <View className="flex-row justify-between items-center min-h-[35] mb-1">
-        <Text variant="titleMedium" className="mb-1">
+      <View className="flex-row items-end justify-between min-h-[35] mb-1">
+        <Text variant="titleMedium" className="mr-3">
           {t('screens.generation.styleLabel')}
         </Text>
         {selected && (
