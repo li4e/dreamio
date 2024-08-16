@@ -4,13 +4,7 @@ import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
-import {
-  Appbar,
-  HelperText,
-  Text,
-  TextInput,
-  useTheme,
-} from 'react-native-paper'
+import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
 import * as yup from 'yup'
 import { GenerationEntity } from 'entities/generation'
 import { ScrollView, Button } from 'shared/ui/styled'
@@ -74,8 +68,6 @@ export function GenerationStartScreen() {
     curGen.submit(form)
   }
 
-  const { colors } = useTheme()
-
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
       <View className="flex-1">
@@ -118,11 +110,6 @@ export function GenerationStartScreen() {
                       onChangeText={onChange}
                       value={value}
                       error={hasError}
-                      style={{
-                        backgroundColor: hasError
-                          ? colors.errorContainer
-                          : colors.secondaryContainer,
-                      }}
                     />
 
                     <View className="h-8">

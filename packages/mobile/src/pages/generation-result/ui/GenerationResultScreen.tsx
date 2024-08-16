@@ -74,9 +74,6 @@ export function GenerationResultScreen(
                   multiline
                   className="min-h-[120]"
                   value={generation.prompt}
-                  style={{
-                    backgroundColor: colors.secondaryContainer,
-                  }}
                 />
               </View>
             </View>
