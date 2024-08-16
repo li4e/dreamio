@@ -4,7 +4,13 @@ import { useCallback, useMemo } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
-import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
+import {
+  Appbar,
+  HelperText,
+  Text,
+  TextInput,
+  useTheme,
+} from 'react-native-paper'
 import * as yup from 'yup'
 import { ScrollView, Button } from 'shared/ui/styled'
 import {
@@ -53,7 +59,7 @@ export function GenerationStartScreen() {
   const handleFinish = useCallback(
     (generationId: number) => {
       resetForm()
-      navigate('generation_result', { generationId })
+      navigate('generation_result', { generationId, showTitle: true })
     },
     [navigate, resetForm]
   )
@@ -67,6 +73,8 @@ export function GenerationStartScreen() {
     curGen.submit(form)
   }
 
+  const { colors } = useTheme()
+
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
       <View className="flex-1">
@@ -75,10 +83,10 @@ export function GenerationStartScreen() {
         </Appbar.Header>
         <ScrollView
           className="flex-1"
-          contentContainerStyle="px-5 pb-[95] flex-grow pt-5 justify-end"
+          contentContainerStyle="px-5 pb-[95] flex-grow pt-5"
           keyboardShouldPersistTaps="handled"
         >
-          <View className="flex-grow justify-center">
+          <View className="justify-center">
             <Controller
               control={control}
               render={({ field: { onChange, onBlur, value }, formState }) => {
@@ -86,13 +94,13 @@ export function GenerationStartScreen() {
 
                 return (
                   <>
-                    <View className="flex-row justify-between items-end mb-3">
+                    <View className="flex-row justify-between items-center mb-3">
                       <Text variant="titleMedium">
                         {t('screens.generation.inputLabel')}
                       </Text>
                       <Button
                         compact
-                        mode="contained-tonal"
+                        mode="outlined"
                         icon="dice-multiple"
                         contentStyle="flex-row-reverse px-2"
                       >
@@ -102,13 +110,18 @@ export function GenerationStartScreen() {
 
                     <TextInput
                       multiline
-                      mode="outlined"
-                      className="min-h-[85]"
+                      mode="flat"
+                      className="min-h-[120]"
                       placeholder={t('screens.generation.inputPlaceholder')}
                       onBlur={onBlur}
                       onChangeText={onChange}
                       value={value}
                       error={hasError}
+                      style={{
+                        backgroundColor: hasError
+                          ? colors.errorContainer
+                          : colors.secondaryContainer,
+                      }}
                     />
 
                     <View className="h-8">
@@ -122,9 +135,11 @@ export function GenerationStartScreen() {
               name="prompt"
             />
           </View>
-          <StylesList
-            onSelect={(style: string | null) => setValue('style', style)}
-          />
+          <View className="-mx-5 flex-grow justify-center">
+            <StylesList
+              onSelect={(style: string | null) => setValue('style', style)}
+            />
+          </View>
         </ScrollView>
         <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
           <Controller

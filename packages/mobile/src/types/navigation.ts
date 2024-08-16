@@ -12,6 +12,7 @@ export type RootStackParamList = {
   sign_in: undefined
   home_tabs: NavigatorScreenParams<HomeTabsNavigatorParamList>
   generation_result: {
+    showTitle?: boolean
     generationId: number
   }
   generations_history: undefined

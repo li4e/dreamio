@@ -46,9 +46,7 @@ export function HistoryScreen() {
             />
           )}
           ListEmptyComponent={<EmpyState />}
-          ListFooterComponent={
-            !isEmpty && history.length < 5 ? <ListFooter /> : null
-          }
+          ListFooterComponent={!isEmpty ? <ListFooter /> : null}
           ListFooterComponentStyle={{ flexGrow: 1 }}
           numColumns={2}
         />

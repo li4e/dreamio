@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ImageSourcePropType } from 'react-native'
-import { TouchableRipple, Text, Chip } from 'react-native-paper'
+import { TouchableRipple, Text, Chip, useTheme } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
 
@@ -28,21 +28,22 @@ export function StylesList(props: StylesListProps) {
 
   return (
     <View>
-      <View className="flex-row items-end justify-between min-h-[35] mb-1">
+      <View className="flex-row items-end justify-between min-h-[35] mb-3 px-5">
         <Text variant="titleMedium" className="mr-3">
           {t('screens.generation.styleLabel')}
         </Text>
         {selected && (
-          <Chip mode="outlined" compact onClose={() => handleChange(null)}>
+          <Chip compact onClose={() => handleChange(null)}>
             {selected}
           </Chip>
         )}
       </View>
+
       <ScrollView
         contentInsetAdjustmentBehavior="never"
         horizontal
-        className="-mx-5 max-h-[315]"
-        contentContainerStyle="px-4"
+        className="max-h-[315]"
+        contentContainerStyle="px-[1]"
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
@@ -71,32 +72,43 @@ interface StyleCardProps {
 
 function StyleCard(props: StyleCardProps) {
   const { item, selected, onPress, ...rest } = props
+  const { colors } = useTheme()
 
   return (
     <TouchableRipple
       key={item.name}
-      className="m-[6] rounded-xl overflow-hidden"
+      className="m-[1]"
       onPress={onPress}
       {...rest}
     >
       <View
         className={twMerge(
-          'w-[120] border-[1px] rounded-xl border-gray-200 bg-white',
-          selected && 'bg-gray-200'
+          'w-[120] opacity-80',
+          selected && 'bg-gray-200 opacity-100'
         )}
       >
         <Image
           source={item.imageSource}
           resizeMode="cover"
-          className="w-full h-[120] rounded-t-xl"
+          className="w-full h-[120]"
         />
-        <Text
-          numberOfLines={1}
-          className={'text-center py-1 px-2'}
-          variant="labelMedium"
+        <View
+          className="absolute left-0 bottom-0 right-0"
+          style={{
+            backgroundColor: selected
+              ? colors.primaryContainer
+              : 'rgba(0,0,0,.7)',
+          }}
         >
-          {item.name}
-        </Text>
+          <Text
+            numberOfLines={1}
+            className={'text-center py-1 px-2'}
+            variant="labelMedium"
+            style={{ color: selected ? colors.onBackground : colors.onPrimary }}
+          >
+            {item.name}
+          </Text>
+        </View>
       </View>
     </TouchableRipple>
   )

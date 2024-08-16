@@ -22,7 +22,7 @@ import { Button } from 'shared/ui/styled'
 export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
-  const { generationId } = props.route.params
+  const { generationId, showTitle } = props.route.params
   const generation = useGenerationEntity(generationId)
 
   const [promptExpanded, setPromptExpanded] = useState(true)
@@ -35,7 +35,9 @@ export function GenerationResultScreen(
     <View className="flex-1">
       <Appbar.Header className="bg-transparent">
         <Appbar.BackAction onPress={props.navigation.goBack} />
-        <Appbar.Content title={t('screens.generationResult.title')} />
+        {showTitle && (
+          <Appbar.Content title={t('screens.generationResult.title')} />
+        )}
       </Appbar.Header>
       {generation ? (
         <>
