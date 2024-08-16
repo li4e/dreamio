@@ -190,7 +190,7 @@ class CurrentGenerationService {
 }
 
 export function useCurrentGeneration(
-  onGeneratingFinished: (generationId: number) => void
+  onGeneratingFinished: (generation: GenerationEntity) => void
 ) {
   const genStore = useGenerationStore()
   const accountStore = useAccountStore()
@@ -224,7 +224,7 @@ export function useCurrentGeneration(
         } else if (status === Status.IN_PROGRESS) {
           return curGenService.addWorkers()
         } else if (status === Status.SUCCESS && curGenStore.currentGeneration) {
-          onGeneratingFinished(curGenStore.currentGeneration.id)
+          onGeneratingFinished(curGenStore.currentGeneration)
           curGenService.clear()
         }
       }

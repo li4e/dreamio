@@ -12,6 +12,7 @@ import {
   useTheme,
 } from 'react-native-paper'
 import * as yup from 'yup'
+import { GenerationEntity } from 'entities/generation'
 import { ScrollView, Button } from 'shared/ui/styled'
 import {
   useCurrentGeneration,
@@ -57,9 +58,9 @@ export function GenerationStartScreen() {
   })
 
   const handleFinish = useCallback(
-    (generationId: number) => {
+    (generation: GenerationEntity) => {
       resetForm()
-      navigate('generation_result', { generationId, showTitle: true })
+      navigate('generation_result', { generation })
     },
     [navigate, resetForm]
   )

@@ -1,5 +1,6 @@
 import { NavigatorScreenParams } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { GenerationEntity } from 'entities/generation'
 
 export type HomeTabsNavigatorParamList = {
   history: undefined
@@ -12,8 +13,7 @@ export type RootStackParamList = {
   sign_in: undefined
   home_tabs: NavigatorScreenParams<HomeTabsNavigatorParamList>
   generation_result: {
-    showTitle?: boolean
-    generationId: number
+    generation: GenerationEntity
   }
   generations_history: undefined
   settings: undefined

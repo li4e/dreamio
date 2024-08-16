@@ -84,7 +84,7 @@
       "copyButton": "Copy Prompt",
       "deleteButton": "Delete",
       "shareButton": "Share",
-      "promptLabel": "Prompt"
+      "promptLabel": "Your Input"
     },
     "history": {
       "title": "Art Works",

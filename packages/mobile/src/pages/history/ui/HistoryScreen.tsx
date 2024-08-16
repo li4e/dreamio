@@ -73,7 +73,7 @@ function HistoryItem(props: {
     >
       <TouchableRipple
         onPress={() =>
-          navigate('generation_result', { generationId: generation.id })
+          navigate('generation_result', { generation: generation })
         }
         className="flex-1 bg-slate-300"
       >

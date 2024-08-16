@@ -1,31 +1,28 @@
+import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ScrollView, Platform } from 'react-native'
 import {
   Appbar,
   Chip,
+  Divider,
+  Menu,
   Text,
-  TouchableRipple,
+  TextInput,
   useTheme,
 } from 'react-native-paper'
 import { ActivityIndicator } from 'react-native-paper'
-import Animated, {
-  FadeIn,
-  FadeOut,
-  LinearTransition,
-} from 'react-native-reanimated'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { useGenerationEntity } from 'entities/generation'
+import { GenerationEntityStatus } from 'entities/generation'
 import { Button } from 'shared/ui/styled'
+
+const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
 export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
-  const { generationId, showTitle } = props.route.params
-  const generation = useGenerationEntity(generationId)
-
-  const [promptExpanded, setPromptExpanded] = useState(true)
+  const { generation } = props.route.params
 
   const { t } = useTranslation()
   const { colors } = useTheme()
@@ -33,78 +30,55 @@ export function GenerationResultScreen(
 
   return (
     <View className="flex-1">
-      <Appbar.Header className="bg-transparent">
-        <Appbar.BackAction onPress={props.navigation.goBack} />
-        {showTitle && (
-          <Appbar.Content title={t('screens.generationResult.title')} />
-        )}
-      </Appbar.Header>
-      {generation ? (
+      <Header />
+      {generation && generation.status === GenerationEntityStatus.SUCCESS ? (
         <>
           <ScrollView
             className="flex-1"
             contentContainerStyle={{
+              flexGrow: 1,
               paddingBottom: insets.bottom + 70,
             }}
           >
             <Image
               source={{ uri: generation.images[0] }}
-              className="w-full aspect-square mb-4"
+              className="w-full aspect-square"
               style={{ backgroundColor: colors.primaryContainer }}
             />
-            <View className="px-5">
-              <View className="flex-row items-center justify-between mb-10">
+            <View className="flex-grow">
+              <View className="flex-row items-center justify-between p-5">
                 <View className="flex-row items-center">
                   <MaterialCommunityIcons
                     name="calendar"
                     size={20}
                     color={colors.secondary}
                   />
-                  <Text variant="labelMedium" className="ml-2">
+                  <Text variant="labelLarge" className="ml-2">
                     20 seconds ago
                   </Text>
                 </View>
                 {generation.style && (
-                  <Chip mode="outlined" compact>
+                  <Chip mode="outlined" compact icon="palette">
                     <Text variant="titleSmall">{generation.style}</Text>
                   </Chip>
                 )}
               </View>
-
-              <Animated.View
-                className="overflow-hidden rounded-xl mb-2 border border-gray-300"
-                layout={LinearTransition.duration(300)}
-              >
-                <TouchableRipple
-                  rippleColor={
-                    Platform.OS === 'android'
-                      ? colors.secondaryContainer
-                      : undefined
-                  }
-                  className="rounded-xl overflow-hidden"
-                  onPress={() => setPromptExpanded((current) => !current)}
-                >
-                  <View className="flex-row items-center justify-between p-4 ">
-                    <Text variant="titleMedium" className="mr-5">
-                      {t('screens.generationResult.promptLabel')}
-                    </Text>
-
-                    <MaterialCommunityIcons
-                      name={promptExpanded ? 'arrow-down' : 'arrow-right'}
-                      size={20}
-                    />
-                  </View>
-                </TouchableRipple>
-                {promptExpanded && (
-                  <Animated.View
-                    className="p-4 pt-2"
-                    entering={FadeIn.duration(200).delay(100)}
-                    exiting={FadeOut.duration(100)}
-                  >
-                    <Text variant="bodyMedium">{generation.prompt}</Text>
-                  </Animated.View>
-                )}
-              </Animated.View>
+              <Divider className="w-full mb-5" />
+              <View className="px-5">
+                <Text variant="titleMedium" className="mb-3">
+                  {t('screens.generationResult.promptLabel')}
+                </Text>
+                <TextInput
+                  editable={false}
+                  mode="flat"
+                  multiline
+                  className="min-h-[120]"
+                  value={generation.prompt}
+                  style={{
+                    backgroundColor: colors.secondaryContainer,
+                  }}
+                />
+              </View>
             </View>
           </ScrollView>
           <View
@@ -137,5 +111,38 @@ export function GenerationResultScreen(
         </View>
       )}
     </View>
+  )
+}
+
+function Header() {
+  const { goBack } = useNavigation()
+  const { t } = useTranslation()
+  const [visible, setVisible] = useState(false)
+  const openMenu = () => setVisible(true)
+  const closeMenu = () => setVisible(false)
+
+  return (
+    <Appbar.Header className="bg-transparent">
+      <Appbar.BackAction onPress={goBack} />
+      <Appbar.Content title={t('screens.generationResult.title')} />
+      <Menu
+        anchorPosition="bottom"
+        visible={visible}
+        onDismiss={closeMenu}
+        anchor={<Appbar.Action icon={MORE_ICON} onPress={() => openMenu()} />}
+      >
+        <Menu.Item
+          leadingIcon="content-copy"
+          onPress={() => {}}
+          title={t('screens.generationResult.copyButton')}
+        />
+        <Divider />
+        <Menu.Item
+          leadingIcon="trash-can-outline"
+          onPress={() => {}}
+          title={t('screens.generationResult.deleteButton')}
+        />
+      </Menu>
+    </Appbar.Header>
   )
 }
