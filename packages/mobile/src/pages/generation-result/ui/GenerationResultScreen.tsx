@@ -16,6 +16,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Share from 'react-native-share'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { GenerationEntityStatus } from 'entities/generation'
+import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
 import { Button } from 'shared/ui/styled'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
@@ -29,18 +30,6 @@ export function GenerationResultScreen(
   const { colors } = useTheme()
   const insets = useSafeAreaInsets()
 
-  const handleSharePress = async () => {
-    try {
-      const shareOptions = {
-        url: generation.images[0],
-      }
-
-      await Share.open(shareOptions)
-    } catch (error) {
-      console.log('Error sharing image:', error)
-    }
-  }
-
   return (
     <View className="flex-1">
       <Header />
@@ -53,10 +42,9 @@ export function GenerationResultScreen(
               paddingBottom: insets.bottom + 70,
             }}
           >
-            <Image
+            <CachedImage
               source={{ uri: generation.images[0] }}
               className="w-full aspect-square"
-              style={{ backgroundColor: colors.primaryContainer }}
             />
             <View className="flex-grow">
               <View className="flex-row items-center justify-between p-5">
@@ -98,16 +86,14 @@ export function GenerationResultScreen(
             <Button
               mode="contained-tonal"
               icon="share-variant"
-              onPress={handleSharePress}
+              onPress={() => shareImage(generation.images[0])}
             >
               {t('screens.generationResult.shareButton')}
             </Button>
             <Button
               mode="contained"
               icon="download"
-              onPress={() => {
-                // TODO: Replace to a real one
-              }}
+              onPress={() => saveImage(generation.images[0])}
             >
               {t('screens.generationResult.saveButton')}
             </Button>
@@ -153,4 +139,28 @@ function Header() {
       </Menu>
     </Appbar.Header>
   )
+}
+
+async function shareImage(url: string) {
+  try {
+    await Share.open({
+      url,
+    })
+  } catch (error) {
+    console.log('Error sharing image:', error)
+  }
+}
+
+async function saveImage(url: string) {
+  try {
+    const localPath = await new ImageCache(url).download()
+    Image.resolveAssetSource({ uri: url })
+    await Share.open({
+      url: localPath,
+      type: 'image/jpeg',
+      saveToFiles: true,
+    })
+  } catch (error) {
+    console.log('Error saving image:', error)
+  }
 }

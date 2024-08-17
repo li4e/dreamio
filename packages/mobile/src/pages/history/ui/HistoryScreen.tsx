@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { FlatList, View, Image } from 'react-native'
+import { FlatList, View } from 'react-native'
 import {
   ActivityIndicator,
   Appbar,
@@ -12,6 +12,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import { GenerationEntity } from 'entities/generation'
+import { CachedImage } from 'shared/ui/CachedImage'
 import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
 
@@ -75,9 +76,12 @@ function HistoryItem(props: {
         onPress={() =>
           navigate('generation_result', { generation: generation })
         }
-        className="flex-1 bg-slate-300"
+        className="flex-1"
       >
-        <Image className="flex-1" source={{ uri: generation.images[0] }} />
+        <CachedImage
+          className="flex-1"
+          source={{ uri: generation.images[0] }}
+        />
       </TouchableRipple>
     </View>
   )

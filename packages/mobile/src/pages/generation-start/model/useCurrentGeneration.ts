@@ -151,7 +151,6 @@ class CurrentGenerationService {
   }
 
   async resubmit() {
-    console.log('Resubmitting')
     const data = this.curGenstore.submittedData
     if (!data) {
       throw new Error('this._submittedData is undefined')
