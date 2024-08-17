@@ -142,9 +142,10 @@ function Header() {
 }
 
 async function shareImage(url: string) {
+  const localPath = await new ImageCache(url).download()
   try {
     await Share.open({
-      url,
+      url: localPath,
     })
   } catch (error) {
     console.log('Error sharing image:', error)
