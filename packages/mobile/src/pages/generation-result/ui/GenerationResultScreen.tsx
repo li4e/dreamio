@@ -13,6 +13,7 @@ import {
 } from 'react-native-paper'
 import { ActivityIndicator } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import Share from 'react-native-share'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { GenerationEntityStatus } from 'entities/generation'
 import { Button } from 'shared/ui/styled'
@@ -27,6 +28,18 @@ export function GenerationResultScreen(
   const { t } = useTranslation()
   const { colors } = useTheme()
   const insets = useSafeAreaInsets()
+
+  const handleSharePress = async () => {
+    try {
+      const shareOptions = {
+        url: generation.images[0],
+      }
+
+      await Share.open(shareOptions)
+    } catch (error) {
+      console.log('Error sharing image:', error)
+    }
+  }
 
   return (
     <View className="flex-1">
@@ -85,9 +98,7 @@ export function GenerationResultScreen(
             <Button
               mode="contained-tonal"
               icon="share-variant"
-              onPress={() => {
-                // TODO: Replace to a real one
-              }}
+              onPress={handleSharePress}
             >
               {t('screens.generationResult.shareButton')}
             </Button>
