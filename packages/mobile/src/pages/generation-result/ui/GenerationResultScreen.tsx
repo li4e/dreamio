@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
+import * as Clipboard from 'expo-clipboard'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ScrollView, Platform } from 'react-native'
@@ -32,7 +33,7 @@ export function GenerationResultScreen(
 
   return (
     <View className="flex-1">
-      <Header />
+      <Header onCopyPress={() => saveToClipboard(generation.prompt)} />
       {generation && generation.status === GenerationEntityStatus.SUCCESS ? (
         <>
           <ScrollView
@@ -108,7 +109,12 @@ export function GenerationResultScreen(
   )
 }
 
-function Header() {
+interface HeaderProps {
+  onCopyPress(): void
+}
+
+function Header(props: HeaderProps) {
+  const { onCopyPress } = props
   const { goBack } = useNavigation()
   const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
@@ -127,7 +133,7 @@ function Header() {
       >
         <Menu.Item
           leadingIcon="content-copy"
-          onPress={() => {}}
+          onPress={onCopyPress}
           title={t('screens.generationResult.copyButton')}
         />
         <Divider />
@@ -139,6 +145,10 @@ function Header() {
       </Menu>
     </Appbar.Header>
   )
+}
+
+async function saveToClipboard(prompt: string) {
+  await Clipboard.setStringAsync(prompt)
 }
 
 async function shareImage(url: string) {
