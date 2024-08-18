@@ -19,6 +19,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { GenerationEntityStatus } from 'entities/generation'
 import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
 import { RelativeTime } from 'shared/ui/RelativeTime'
+import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
@@ -121,6 +122,7 @@ function Header(props: HeaderProps) {
   const [visible, setVisible] = useState(false)
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
+  const { showSnackbar } = useSnackbar()
 
   return (
     <Appbar.Header className="bg-transparent">
@@ -134,13 +136,21 @@ function Header(props: HeaderProps) {
       >
         <Menu.Item
           leadingIcon="content-copy"
-          onPress={onCopyPress}
+          onPress={() => {
+            showSnackbar({
+              description: t('screens.generationResult.promtCopied'),
+            })
+            closeMenu()
+            onCopyPress()
+          }}
           title={t('screens.generationResult.copyButton')}
         />
         <Divider />
         <Menu.Item
           leadingIcon="trash-can-outline"
-          onPress={() => {}}
+          onPress={() => {
+            closeMenu()
+          }}
           title={t('screens.generationResult.deleteButton')}
         />
       </Menu>

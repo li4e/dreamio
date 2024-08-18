@@ -6,14 +6,13 @@ import React, {
   useState,
 } from 'react'
 import { View } from 'react-native'
-import { IconButton, Portal, Text } from 'react-native-paper'
+import { IconButton, Portal, Text, useTheme } from 'react-native-paper'
 import Animated, {
   FadeIn,
   FadeOut,
   LinearTransition,
 } from 'react-native-reanimated'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { twMerge } from 'tailwind-merge'
 
 interface SnackBarMessage {
   title?: string
@@ -72,6 +71,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
     },
     [dismissSnackBar]
   )
+  const { colors } = useTheme()
 
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
@@ -83,12 +83,14 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
             entering={FadeIn}
             exiting={FadeOut}
             key={snackbar.id}
-            className={twMerge(
-              'absolute left-0 right-0 bottom-0 bg-indigo-500 rounded-xl h-[50] mx-5 flex-row items-center justify-between',
-              snackbar.options?.variant === SnackBarVariant.ERROR &&
-                'bg-red-500'
-            )}
+            className={
+              'absolute left-0 right-0 bottom-0 rounded-md h-[50] mx-5 flex-row items-center justify-between'
+            }
             style={{
+              backgroundColor:
+                snackbar.options?.variant === SnackBarVariant.ERROR
+                  ? colors.error
+                  : colors.onTertiaryContainer,
               marginBottom: Math.max(insets.bottom, 16) + index * (50 + 10),
             }}
           >
