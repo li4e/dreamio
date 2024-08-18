@@ -18,6 +18,7 @@ import Share from 'react-native-share'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { GenerationEntityStatus } from 'entities/generation'
 import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
+import { RelativeTime } from 'shared/ui/RelativeTime'
 import { Button } from 'shared/ui/styled'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
@@ -56,7 +57,7 @@ export function GenerationResultScreen(
                     color={colors.secondary}
                   />
                   <Text variant="labelLarge" className="ml-2">
-                    20 seconds ago
+                    <RelativeTime time={generation.createdAt} />
                   </Text>
                 </View>
                 {generation.style && (
