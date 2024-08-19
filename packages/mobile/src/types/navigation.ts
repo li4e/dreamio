@@ -22,6 +22,7 @@ export type RootStackParamList = {
   }
   post: undefined
   webview: {
+    title: string
     url: string
   }
 }

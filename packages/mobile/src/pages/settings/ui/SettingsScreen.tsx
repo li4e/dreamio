@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
 import LottieView from 'lottie-react-native'
 import { styled } from 'nativewind'
@@ -25,6 +26,7 @@ export function SettingsScreen() {
   const { colors } = useTheme()
   const clearAllData = useClearAllData()
   const contactUs = useContactUs()
+  const { navigate } = useNavigation()
 
   return (
     <View className="flex-1">
@@ -112,7 +114,10 @@ export function SettingsScreen() {
                 <SubHeader>{t('screens.settings.about.title')}</SubHeader>
                 <List.Item
                   onPress={() => {
-                    // TODO: Replace to a real one
+                    navigate('webview', {
+                      title: t('screens.settings.about.privacy'),
+                      url: 'https://app.aiplantid.com/privacy_policy.html',
+                    })
                   }}
                   title={t('screens.settings.about.privacy')}
                   right={({ color }) => <RightIcon color={color} />}
@@ -120,7 +125,10 @@ export function SettingsScreen() {
                 <Divider />
                 <List.Item
                   onPress={() => {
-                    // TODO: Replace to a real one
+                    navigate('webview', {
+                      title: t('screens.settings.about.terms'),
+                      url: 'https://app.aiplantid.com/privacy_policy.html',
+                    })
                   }}
                   title={t('screens.settings.about.terms')}
                   right={({ color }) => <RightIcon color={color} />}
