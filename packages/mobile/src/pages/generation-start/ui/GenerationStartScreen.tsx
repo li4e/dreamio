@@ -124,8 +124,15 @@ export function GenerationStartScreen() {
             />
           </View>
           <View className="-mx-5 flex-grow justify-center">
-            <StylesList
-              onSelect={(style: string | null) => setValue('style', style)}
+            <Controller
+              control={control}
+              name="style"
+              render={({ field: { value } }) => (
+                <StylesList
+                  value={value}
+                  onSelect={(style: string | null) => setValue('style', style)}
+                />
+              )}
             />
           </View>
         </ScrollView>

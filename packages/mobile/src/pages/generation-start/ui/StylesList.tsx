@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ImageSourcePropType } from 'react-native'
 import { TouchableRipple, Text, Chip, useTheme } from 'react-native-paper'
@@ -6,25 +5,16 @@ import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
 
 interface StylesListProps {
+  value: string | null
   onSelect(item: string | null): void
 }
 
 export function StylesList(props: StylesListProps) {
-  const { onSelect } = props
-  const [selected, setSelected] = useState<string | null>(null)
+  const { onSelect, value } = props
   const { t } = useTranslation()
 
-  useEffect(() => {
-    onSelect(selected)
-  }, [selected, onSelect])
-
   const handleChange = (style: string | null) =>
-    setSelected((currentStyle) => {
-      if (currentStyle === style) {
-        return null
-      }
-      return style
-    })
+    onSelect(style === value ? null : style)
 
   return (
     <View>
@@ -32,9 +22,9 @@ export function StylesList(props: StylesListProps) {
         <Text variant="titleMedium" className="mr-3">
           {t('screens.generation.styleLabel')}
         </Text>
-        {selected && (
+        {value && (
           <Chip compact onClose={() => handleChange(null)}>
-            {selected}
+            {value}
           </Chip>
         )}
       </View>
@@ -53,7 +43,7 @@ export function StylesList(props: StylesListProps) {
               <StyleCard
                 item={artStyle}
                 key={artStyle.name}
-                selected={selected === artStyle.name}
+                selected={value === artStyle.name}
                 onPress={() => handleChange(artStyle.name)}
               />
             ))}
