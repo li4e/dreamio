@@ -1,12 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
 import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
 import * as yup from 'yup'
 import { GenerationEntity } from 'entities/generation'
+import { api } from 'shared/lib/api'
+import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { ScrollView, Button } from 'shared/ui/styled'
 import {
   useCurrentGeneration,
@@ -91,26 +93,25 @@ export function GenerationStartScreen() {
                       <Text variant="titleMedium">
                         {t('screens.generation.inputLabel')}
                       </Text>
-                      <Button
-                        compact
-                        mode="outlined"
-                        icon="dice-multiple"
-                        contentStyle="flex-row-reverse px-2"
-                      >
-                        {t('screens.generation.surpriseButton')}
-                      </Button>
+                      <RandomButton
+                        onCreated={(prompt: string) =>
+                          setValue('prompt', prompt)
+                        }
+                      />
                     </View>
 
-                    <TextInput
-                      multiline
-                      mode="flat"
-                      className="min-h-[120]"
-                      placeholder={t('screens.generation.inputPlaceholder')}
-                      onBlur={onBlur}
-                      onChangeText={onChange}
-                      value={value}
-                      error={hasError}
-                    />
+                    <View>
+                      <TextInput
+                        multiline
+                        mode="flat"
+                        className="min-h-[120]"
+                        placeholder={t('screens.generation.inputPlaceholder')}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                        value={value}
+                        error={hasError}
+                      />
+                    </View>
 
                     <View className="h-8">
                       <HelperText type="error" visible={hasError}>
@@ -180,4 +181,47 @@ function mapCurGenStatusToModalState(
   }
 
   return null
+}
+
+interface RandomButtonProps {
+  onCreated(prompt: string): void
+}
+
+function RandomButton(props: RandomButtonProps) {
+  const { onCreated } = props
+  const [pending, setPending] = useState(false)
+  const { t } = useTranslation()
+  const { showSnackbar } = useSnackbar()
+
+  const onPress = async () => {
+    setPending(true)
+    try {
+      const result = await api.generatePrompt().then((res) => res.data)
+      onCreated(result.prompt)
+    } catch {
+      showSnackbar(
+        {
+          title: t('components.snackBar.generalError.title'),
+          description: t('components.snackBar.generalError.description'),
+        },
+        { variant: SnackBarVariant.ERROR }
+      )
+    } finally {
+      setPending(false)
+    }
+  }
+
+  return (
+    <Button
+      compact
+      mode="outlined"
+      icon="dice-multiple"
+      contentStyle="flex-row-reverse px-2"
+      onPress={onPress}
+      loading={pending}
+      disabled={pending}
+    >
+      {t('screens.generation.surpriseButton')}
+    </Button>
+  )
 }
