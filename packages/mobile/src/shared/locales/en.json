@@ -85,6 +85,10 @@
           "confirm": "Clear",
           "cancel": "Cancel"
         }
+      },
+      "contactUsError": {
+        "title": "Unable to Open Email App",
+        "description": "Our email is: {{address}}"
       }
     },
     "generationResult": {

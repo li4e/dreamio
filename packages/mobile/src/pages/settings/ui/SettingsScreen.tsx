@@ -1,7 +1,8 @@
+import * as MailComposer from 'expo-mail-composer'
 import LottieView from 'lottie-react-native'
 import { styled } from 'nativewind'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, View } from 'react-native'
+import { Linking, ScrollView, View } from 'react-native'
 import {
   Divider,
   List,
@@ -12,8 +13,9 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
+import { APP_NAME, SUPPORT_EMAIL } from 'shared/constants'
 import { useDialog } from 'shared/ui/Dialog'
-import { useSnackbar } from 'shared/ui/Snackbar'
+import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 
 export function SettingsScreen() {
@@ -22,6 +24,7 @@ export function SettingsScreen() {
   const insets = useSafeAreaInsets()
   const { colors } = useTheme()
   const clearAllData = useClearAllData()
+  const contactUs = useContactUs()
 
   return (
     <View className="flex-1">
@@ -124,9 +127,7 @@ export function SettingsScreen() {
                 />
                 <Divider />
                 <List.Item
-                  onPress={() => {
-                    // TODO: Replace to a real one
-                  }}
+                  onPress={contactUs}
                   title={t('screens.settings.about.contact')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
@@ -185,5 +186,35 @@ function useClearAllData() {
         )
       },
     })
+  }
+}
+
+function useContactUs() {
+  const { showSnackbar } = useSnackbar()
+  const { t } = useTranslation()
+
+  return async () => {
+    try {
+      const isComposeAvailable = await MailComposer.isAvailableAsync()
+
+      if (isComposeAvailable) {
+        await MailComposer.composeAsync({
+          recipients: [SUPPORT_EMAIL],
+          subject: `Help me with the ${APP_NAME} app`,
+        })
+      } else {
+        await Linking.openURL(`mailto:${SUPPORT_EMAIL}`)
+      }
+    } catch {
+      showSnackbar(
+        {
+          title: t('screens.settings.contactUsError.title'),
+          description: t('screens.settings.contactUsError.description', {
+            address: SUPPORT_EMAIL,
+          }),
+        },
+        { autoHide: false, variant: SnackBarVariant.ERROR }
+      )
+    }
   }
 }

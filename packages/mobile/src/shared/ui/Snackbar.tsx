@@ -25,6 +25,8 @@ export enum SnackBarVariant {
 }
 
 interface SnackBarOptions {
+  autoHide?: boolean
+  hideDelay?: number
   variant?: SnackBarVariant
   rightAction?: {
     handler(): void
@@ -68,10 +70,13 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
     (message: SnackBarMessage, options?: SnackBarOptions) => {
       const id = new Date().getTime()
       setSnackbars((prev) => [...prev, { id, message, options }])
+      const { autoHide = true, hideDelay = 3000 } = options || {}
 
-      setTimeout(() => {
-        dismissSnackBar(id)
-      }, 3000) // autoClosing in 3 seconds
+      if (autoHide) {
+        setTimeout(() => {
+          dismissSnackBar(id)
+        }, hideDelay)
+      }
     },
     [dismissSnackBar]
   )
@@ -122,7 +127,8 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
                   snackbar.options?.variant === SnackBarVariant.ERROR
                     ? colors.error
                     : colors.onTertiaryContainer,
-                marginBottom: Math.max(insets.bottom, 16) + index * (50 + 10),
+                marginBottom:
+                  Math.max(insets.bottom, 16) + 80 + 12 + index * (50 + 10),
               }}
             >
               <View className="flex-1 justify-center px-3">
