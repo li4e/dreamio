@@ -4,7 +4,13 @@ import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
-import { Appbar, HelperText, Text, TextInput } from 'react-native-paper'
+import {
+  Appbar,
+  HelperText,
+  IconButton,
+  Text,
+  TextInput,
+} from 'react-native-paper'
 import * as yup from 'yup'
 import { GenerationEntity } from 'entities/generation'
 import { api } from 'shared/lib/api'
@@ -104,13 +110,21 @@ export function GenerationStartScreen() {
                       <TextInput
                         multiline
                         mode="flat"
-                        className="min-h-[120]"
+                        className="min-h-[120] pr-5"
                         placeholder={t('screens.generation.inputPlaceholder')}
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}
                         error={hasError}
                       />
+                      {value?.length > 0 && (
+                        <IconButton
+                          className="absolute top-0 right-0"
+                          onPress={() => setValue('prompt', '')}
+                          icon={'close'}
+                          size={20}
+                        />
+                      )}
                     </View>
 
                     <View className="h-8">
