@@ -6,7 +6,8 @@
     "prepare": "husky",
     "lint": "nx run mobile:lint --fix && nx run api:lint --fix",
     "postinstall": "patch-package && nx run api:prepare",
-    "test:all": "nx run-many -t test --parallel=false"
+    "test:all": "nx run-many -t test --parallel=false",
+    "tunnel": "cloudflared tunnel --config ./tunnel.yml run mac-tunnel"
   },
   "private": true,
   "devDependencies": {
