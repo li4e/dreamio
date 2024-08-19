@@ -11,7 +11,7 @@ export class PromtController extends Controller {
     await wait(2000)
     return {
       prompt:
-        "A breathtaking sunset over a serene lake surrounded by tall pine trees. The sky is painted with shades of pink, orange, and purple, reflecting off the calm waters. In the foreground, there's a small wooden dock extending into the lake, with a rowboat gently tied to it. Soft mist rises from the water, adding a magical and tranquil atmosphere. The scene is peaceful, with warm, golden light filtering through the trees and casting long shadows across the landscape.",
+        'A vibrant sunset over a tranquil lake, surrounded by pine trees. The sky is ablaze with pink, orange, and purple hues, reflecting on the calm waters. A small wooden dock and a rowboat add to the peaceful scene, with a soft mist rising from the water, creating a magical, serene atmosphere.',
     }
   }
 }

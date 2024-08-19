@@ -90,8 +90,12 @@ export function GenerationStartScreen() {
           <View className="justify-center">
             <Controller
               control={control}
-              render={({ field: { onChange, onBlur, value }, formState }) => {
-                const hasError = formState.submitCount > 0 && !formState.isValid
+              render={({
+                field: { onChange, onBlur, value },
+                fieldState,
+                formState,
+              }) => {
+                const hasError = formState.submitCount > 0 && fieldState.invalid
 
                 return (
                   <>
@@ -100,9 +104,7 @@ export function GenerationStartScreen() {
                         {t('screens.generation.inputLabel')}
                       </Text>
                       <RandomButton
-                        onCreated={(prompt: string) =>
-                          setValue('prompt', prompt)
-                        }
+                        onCreated={(prompt: string) => onChange(prompt)}
                       />
                     </View>
 
@@ -129,7 +131,7 @@ export function GenerationStartScreen() {
 
                     <View className="h-8">
                       <HelperText type="error" visible={hasError}>
-                        {formState.errors.prompt?.message}
+                        {fieldState.error?.message}
                       </HelperText>
                     </View>
                   </>
