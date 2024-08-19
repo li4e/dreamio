@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 import { View } from 'react-native'
-import { IconButton, Portal, Text, useTheme } from 'react-native-paper'
+import { Button, IconButton, Portal, Text, useTheme } from 'react-native-paper'
 import Animated, {
   FadeIn,
   FadeOut,
@@ -26,6 +26,10 @@ export enum SnackBarVariant {
 
 interface SnackBarOptions {
   variant?: SnackBarVariant
+  rightAction?: {
+    handler(): void
+    label: string
+  }
 }
 
 interface SnackbarStateMessage {
@@ -77,49 +81,72 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
     <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}
       <Portal>
-        {snackbars.map((snackbar, index) => (
-          <Animated.View
-            layout={LinearTransition}
-            entering={FadeIn}
-            exiting={FadeOut}
-            key={snackbar.id}
-            className={
-              'absolute left-0 right-0 bottom-0 rounded-md h-[50] mx-5 flex-row items-center justify-between'
-            }
-            style={{
-              backgroundColor:
-                snackbar.options?.variant === SnackBarVariant.ERROR
-                  ? colors.error
-                  : colors.onTertiaryContainer,
-              marginBottom: Math.max(insets.bottom, 16) + index * (50 + 10),
-            }}
-          >
-            <View className="flex-1 justify-center px-3">
-              {snackbar.message.title && (
-                <Text
-                  numberOfLines={1}
-                  variant="titleSmall"
-                  className="text-white font-bold"
-                >
-                  {snackbar.message.title}
-                </Text>
-              )}
-              <Text
-                numberOfLines={1}
-                variant="bodyMedium"
-                className="text-white"
-              >
-                {snackbar.message.description}
-              </Text>
-            </View>
+        {snackbars.map((snackbar, index) => {
+          const rightAction = snackbar.options?.rightAction
+
+          let rightContent = (
             <IconButton
               icon="close"
               iconColor="white"
               size={20}
               onPress={() => dismissSnackBar(snackbar.id)}
             />
-          </Animated.View>
-        ))}
+          )
+
+          if (rightAction !== undefined) {
+            rightContent = (
+              <Button
+                mode="text"
+                textColor={colors.tertiaryContainer}
+                onPress={() => {
+                  dismissSnackBar(snackbar.id)
+                  rightAction.handler()
+                }}
+              >
+                {rightAction.label}
+              </Button>
+            )
+          }
+
+          return (
+            <Animated.View
+              layout={LinearTransition}
+              entering={FadeIn}
+              exiting={FadeOut}
+              key={snackbar.id}
+              className={
+                'absolute left-0 right-0 bottom-0 rounded-md h-[50] mx-5 flex-row items-center justify-between'
+              }
+              style={{
+                backgroundColor:
+                  snackbar.options?.variant === SnackBarVariant.ERROR
+                    ? colors.error
+                    : colors.onTertiaryContainer,
+                marginBottom: Math.max(insets.bottom, 16) + index * (50 + 10),
+              }}
+            >
+              <View className="flex-1 justify-center px-3">
+                {snackbar.message.title && (
+                  <Text
+                    numberOfLines={1}
+                    variant="titleSmall"
+                    className="text-white font-bold"
+                  >
+                    {snackbar.message.title}
+                  </Text>
+                )}
+                <Text
+                  numberOfLines={1}
+                  variant="bodyMedium"
+                  className="text-white"
+                >
+                  {snackbar.message.description}
+                </Text>
+              </View>
+              {rightContent}
+            </Animated.View>
+          )
+        })}
       </Portal>
     </SnackbarContext.Provider>
   )

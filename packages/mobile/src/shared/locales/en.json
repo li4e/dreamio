@@ -85,7 +85,9 @@
       "deleteButton": "Delete",
       "shareButton": "Share",
       "promptLabel": "Your Input",
-      "promtCopied": "Prompt has been copied successfully"
+      "promtCopied": "Prompt has been copied successfully",
+      "deleted": "Generation has been deleted",
+      "undo": "Undo"
     },
     "history": {
       "title": "Art Works",

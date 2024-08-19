@@ -41,9 +41,22 @@ export class GenerationDataService {
       })
   }
 
+  async removeGeneration(entity: GenerationEntity) {
+    await this.removeItem(entity)
+
+    return async () => {
+      await this.setItem(entity)
+    }
+  }
+
   async restoreAll() {
     const entities = await this.db.find()
     this.store.setItems(entities)
+  }
+
+  private async removeItem(generation: GenerationEntity) {
+    this.store.removeItem(generation.id)
+    await this.db.remove([{ ...generation }])
   }
 
   private async setItem(generation: GenerationEntity) {

@@ -16,7 +16,11 @@ import { ActivityIndicator } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Share from 'react-native-share'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { GenerationEntityStatus } from 'entities/generation'
+import {
+  GenerationEntity,
+  GenerationEntityStatus,
+  useGenerationDataService,
+} from 'entities/generation'
 import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
@@ -32,10 +36,12 @@ export function GenerationResultScreen(
   const { t } = useTranslation()
   const { colors } = useTheme()
   const insets = useSafeAreaInsets()
+  const onDelete = useGenDelete(generation)
+  const onCopy = useOnCopy(generation)
 
   return (
     <View className="flex-1">
-      <Header onCopyPress={() => saveToClipboard(generation.prompt)} />
+      <Header onCopyPress={onCopy} onDeletePress={onDelete} />
       {generation && generation.status === GenerationEntityStatus.SUCCESS ? (
         <>
           <ScrollView
@@ -113,16 +119,16 @@ export function GenerationResultScreen(
 
 interface HeaderProps {
   onCopyPress(): void
+  onDeletePress(): void
 }
 
 function Header(props: HeaderProps) {
-  const { onCopyPress } = props
+  const { onCopyPress, onDeletePress } = props
   const { goBack } = useNavigation()
   const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
-  const { showSnackbar } = useSnackbar()
 
   return (
     <Appbar.Header className="bg-transparent">
@@ -137,9 +143,6 @@ function Header(props: HeaderProps) {
         <Menu.Item
           leadingIcon="content-copy"
           onPress={() => {
-            showSnackbar({
-              description: t('screens.generationResult.promtCopied'),
-            })
             closeMenu()
             onCopyPress()
           }}
@@ -150,6 +153,7 @@ function Header(props: HeaderProps) {
           leadingIcon="trash-can-outline"
           onPress={() => {
             closeMenu()
+            onDeletePress()
           }}
           title={t('screens.generationResult.deleteButton')}
         />
@@ -158,8 +162,35 @@ function Header(props: HeaderProps) {
   )
 }
 
-async function saveToClipboard(prompt: string) {
-  await Clipboard.setStringAsync(prompt)
+function useGenDelete(genertaion: GenerationEntity) {
+  const { showSnackbar } = useSnackbar()
+  const genDataService = useGenerationDataService()
+  const { t } = useTranslation()
+  const { goBack } = useNavigation()
+
+  return async () => {
+    const undo = await genDataService.removeGeneration(genertaion)
+    showSnackbar(
+      { description: t('screens.generationResult.deleted') },
+      {
+        rightAction: {
+          handler: undo,
+          label: t('screens.generationResult.undo'),
+        },
+      }
+    )
+    goBack()
+  }
+}
+
+function useOnCopy(generation: GenerationEntity) {
+  const { showSnackbar } = useSnackbar()
+  const { t } = useTranslation()
+
+  return async () => {
+    await Clipboard.setStringAsync(generation.prompt)
+    showSnackbar({ description: t('screens.generationResult.promtCopied') }, {})
+  }
 }
 
 async function shareImage(url: string) {
