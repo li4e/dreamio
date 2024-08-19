@@ -87,7 +87,13 @@
       "promptLabel": "Your Input",
       "promtCopied": "Prompt has been copied successfully",
       "deleted": "Generation has been deleted",
-      "undo": "Undo"
+      "undo": "Undo",
+      "deleteDialog": {
+        "title": "Are you sure?",
+        "description": "This action will permanently delete the generated image and cannot be undone. Are you sure you want to proceed?",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      }
     },
     "history": {
       "title": "Art Works",

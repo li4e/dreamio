@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { PaperProvider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { DialogProvider } from 'shared/ui/Dialog'
 import { SnackbarProvider } from 'shared/ui/Snackbar'
 import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
@@ -15,15 +16,17 @@ export function Providers({ children }: PropsWithChildren) {
       <GestureHandlerRootView>
         <PaperProvider theme={theme}>
           <SnackbarProvider>
-            <DiProvider>
-              <StatusBar
-                barStyle="dark-content"
-                backgroundColor="transparent"
-                translucent={true}
-              />
+            <DialogProvider>
+              <DiProvider>
+                <StatusBar
+                  barStyle="dark-content"
+                  backgroundColor="transparent"
+                  translucent={true}
+                />
 
-              <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
-            </DiProvider>
+                <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
+              </DiProvider>
+            </DialogProvider>
           </SnackbarProvider>
         </PaperProvider>
       </GestureHandlerRootView>
