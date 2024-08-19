@@ -11,6 +11,9 @@ import {
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useGenerationDataService } from 'entities/generation'
+import { useDialog } from 'shared/ui/Dialog'
+import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 
 export function SettingsScreen() {
@@ -18,6 +21,7 @@ export function SettingsScreen() {
   const hasPremium = false
   const insets = useSafeAreaInsets()
   const { colors } = useTheme()
+  const clearAllData = useClearAllData()
 
   return (
     <View className="flex-1">
@@ -133,11 +137,9 @@ export function SettingsScreen() {
           <Button
             textColor={colors.error}
             className="my-5 self-center"
-            onPress={() => {
-              // TODO: Replace with a real one
-            }}
+            onPress={clearAllData}
           >
-            {t('screens.settings.clearButton')}
+            {t('screens.settings.clear.button')}
           </Button>
         </View>
       </ScrollView>
@@ -149,3 +151,39 @@ const SubHeader = styled(List.Subheader, 'text-base font-semibold ')
 const RightIcon = (props: { color: string }) => (
   <MaterialCommunityIcons color={props.color} name="arrow-right" size={20} />
 )
+
+function useClearAllData() {
+  const genDataService = useGenerationDataService()
+  const { showSnackbar } = useSnackbar()
+  const { showDialog } = useDialog()
+  const { t } = useTranslation()
+  const { colors } = useTheme()
+
+  return () => {
+    showDialog({
+      title: t('screens.settings.clear.dialog.title'),
+      content: t('screens.settings.clear.dialog.description'),
+      renderActions(dismissDialog) {
+        return (
+          <>
+            <Button
+              textColor={colors.error}
+              onPress={async () => {
+                await genDataService.clear()
+                dismissDialog()
+                showSnackbar({
+                  description: t('screens.settings.clear.deleted'),
+                })
+              }}
+            >
+              {t('screens.settings.clear.dialog.confirm')}
+            </Button>
+            <Button onPress={dismissDialog}>
+              {t('screens.settings.clear.dialog.cancel')}
+            </Button>
+          </>
+        )
+      },
+    })
+  }
+}

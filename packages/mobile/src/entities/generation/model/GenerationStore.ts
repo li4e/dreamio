@@ -38,6 +38,12 @@ export class GenerationStore {
     return get(this.items, id) || null
   }
 
+  clear() {
+    for (const item of this.list) {
+      this.removeItem(item.id)
+    }
+  }
+
   get list(): Readonly<GenerationEntity[]> {
     return values(this.items)
   }

@@ -76,7 +76,16 @@
         "terms": "Terms & Conditions",
         "contact": "Contact Us"
       },
-      "clearButton": "Clear All User Data"
+      "clear": {
+        "button": "Clear All User Data",
+        "deleted": "All User data deleted successfully",
+        "dialog": {
+          "title": "Clear All User Data?",
+          "description": "This action will permanently delete all user data and cannot be undone. Are you sure you want to proceed?",
+          "confirm": "Clear",
+          "cancel": "Cancel"
+        }
+      }
     },
     "generationResult": {
       "title": "Result",
