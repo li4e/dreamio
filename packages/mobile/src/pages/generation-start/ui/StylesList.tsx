@@ -113,7 +113,7 @@ const artStyles: ArtStyle[][] = [
   [
     { name: 'Anime', imageSource: require('./assets/anime.jpeg') },
     {
-      name: 'Ultra-realistic',
+      name: 'Photo Realistic',
       imageSource: require('./assets/ultra-realistic.jpeg'),
     },
   ],

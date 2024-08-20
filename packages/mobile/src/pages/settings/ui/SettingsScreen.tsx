@@ -15,6 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
 import { APP_NAME, SUPPORT_EMAIL } from 'shared/constants'
+import { PaywallPlacement, presentPaywall } from 'shared/lib/adapty'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
@@ -55,7 +56,7 @@ export function SettingsScreen() {
               contentStyle="py-2"
               elevation={1}
               onPress={() => {
-                // TODO: Replace for a real one
+                presentPaywall(PaywallPlacement.SETTINGS_SCREEN)
               }}
             >
               {t(

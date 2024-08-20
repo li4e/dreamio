@@ -1,6 +1,9 @@
 import OpenAI from 'openai'
 import { secrets } from '../config/secrets'
 import { IOpenAiService } from '../types/integrations/openai'
+import { OpenAIService as MockedOpenAIService } from '../__tests__/__mocks__/integrations/openai'
+
+const mocked = true
 
 export class OpenAIService implements IOpenAiService {
   private openAI: OpenAI
@@ -16,6 +19,10 @@ export class OpenAIService implements IOpenAiService {
   }
 
   async generateImage(prompt: string, highQuality = false): Promise<string> {
+    if (mocked) {
+      return new MockedOpenAIService().generateImage()
+    }
+
     try {
       const result = await this.openAI.images.generate({
         model: 'dall-e-3',

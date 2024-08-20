@@ -1,5 +1,7 @@
 PODS:
   - Adapty (2.11.1)
+  - AdaptyUI (2.11.2):
+    - Adapty (~> 2.11.0)
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
   - EXConstants (16.0.2):
@@ -1354,6 +1356,11 @@ PODS:
   - react-native-adapty-sdk (2.11.1):
     - Adapty (= 2.11.1)
     - React
+  - react-native-adapty-ui (2.11.0):
+    - Adapty (>= 2.11.0)
+    - AdaptyUI (= 2.11.2)
+    - React-Core
+    - react-native-adapty-sdk (>= 2.11.0)
   - react-native-blob-util (0.19.11):
     - React-Core
   - react-native-mmkv (2.12.2):
@@ -1854,6 +1861,7 @@ DEPENDENCIES:
   - React-Mapbuffer (from `../../../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../../../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-adapty-sdk (from `../../../node_modules/react-native-adapty`)
+  - "react-native-adapty-ui (from `../../../node_modules/@adapty/react-native-ui`)"
   - react-native-blob-util (from `../../../node_modules/react-native-blob-util`)
   - react-native-mmkv (from `../../../node_modules/react-native-mmkv`)
   - react-native-quick-sqlite (from `../../../node_modules/react-native-quick-sqlite`)
@@ -1898,6 +1906,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Adapty
+    - AdaptyUI
     - Firebase
     - FirebaseAppCheckInterop
     - FirebaseAuth
@@ -2001,6 +2010,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
   react-native-adapty-sdk:
     :path: "../../../node_modules/react-native-adapty"
+  react-native-adapty-ui:
+    :path: "../../../node_modules/@adapty/react-native-ui"
   react-native-blob-util:
     :path: "../../../node_modules/react-native-blob-util"
   react-native-mmkv:
@@ -2084,6 +2095,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Adapty: de6ea687c816969091d9a06582748ed8e682f6c8
+  AdaptyUI: 1b66f45263e1daa541d23f4cdc5b84079d74dc7f
   boost: 4cb898d0bf20404aab1850c656dcea009429d6c1
   DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   EXConstants: 409690fbfd5afea964e5e9d6c4eb2c2b59222c59
@@ -2140,6 +2152,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 08a80638581919dc3931d1dbdc9e2f4a6a446138
   React-microtasksnativemodule: 5a66c4c98a5578fbed3d41c98d5cd8728a5d5ade
   react-native-adapty-sdk: 291975d598be08febc9e372d341faef4b6e3c01c
+  react-native-adapty-ui: 4f75188fffa6b3c5d62e38235863be9574c500e5
   react-native-blob-util: 39a20f2ef11556d958dc4beb0aa07d1ef2690745
   react-native-mmkv: 54f5626371820ab9385821db1bbb03b6ab62c28a
   react-native-quick-sqlite: 6587c8547d4d53e06e5f14b7d64f9c9388878560
