@@ -14,7 +14,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
-import { APP_NAME, SUPPORT_EMAIL } from 'shared/constants'
+import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
 import { PaywallPlacement, presentPaywall } from 'shared/lib/adapty'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -111,13 +111,13 @@ export function SettingsScreen() {
               className="rounded-2xl pb-1"
               style={{ backgroundColor: colors.inverseOnSurface }}
             >
-              <List.Section className="">
+              <List.Section>
                 <SubHeader>{t('screens.settings.about.title')}</SubHeader>
                 <List.Item
                   onPress={() => {
                     navigate('webview', {
                       title: t('screens.settings.about.privacy'),
-                      url: 'https://app.aiplantid.com/privacy_policy.html',
+                      url: URLS.PRIVACY,
                     })
                   }}
                   title={t('screens.settings.about.privacy')}
@@ -128,10 +128,21 @@ export function SettingsScreen() {
                   onPress={() => {
                     navigate('webview', {
                       title: t('screens.settings.about.terms'),
-                      url: 'https://app.aiplantid.com/privacy_policy.html',
+                      url: URLS.TERMS,
                     })
                   }}
                   title={t('screens.settings.about.terms')}
+                  right={({ color }) => <RightIcon color={color} />}
+                />
+                <Divider />
+                <List.Item
+                  onPress={() => {
+                    navigate('webview', {
+                      title: t('screens.settings.about.subscritpion'),
+                      url: URLS.SUBSCRIPTION,
+                    })
+                  }}
+                  title={t('screens.settings.about.subscritpion')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
                 <Divider />
