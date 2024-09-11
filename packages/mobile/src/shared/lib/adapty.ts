@@ -2,11 +2,10 @@ import { createPaywallView } from '@adapty/react-native-ui'
 import { adapty } from 'react-native-adapty'
 
 export enum PaywallPlacement {
-  ONBOARDING = 'onboarding',
-  LAUNCH = 'launch',
   GENERATION_SCREEN = 'generation_screen',
   SETTINGS_SCREEN = 'settings_screen',
   TOP_UP_GENERATION_SCREEN = 'top_up_generation_screen',
+  TOP_UP_SETTINGS_SCREEN = 'top_up_settings_screen',
 }
 
 export async function presentPaywall(placement: PaywallPlacement) {
