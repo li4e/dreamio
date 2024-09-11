@@ -9,12 +9,19 @@ export function useAuthListeners(accountStore: AccountStore) {
   const { t } = useTranslation()
 
   const reSignIn = useCallback(async () => {
-    await firebaseAuth.signOut().catch(() => {
-      //ignore error
-    })
-    await firebaseAuth.signInAnonymously()
-    const accountData = await getAccountData()
-    accountStore.data = accountData
+    if (!firebaseAuth.currentUser) {
+      await firebaseAuth.signInAnonymously()
+    }
+
+    console.log({ currentUserId: firebaseAuth.currentUser?.uid })
+
+    try {
+      const accountData = await getAccountData()
+      accountStore.data = accountData
+    } catch (err) {
+      await firebaseAuth.signOut()
+      throw err
+    }
   }, [accountStore])
 
   useEffect(() => {
@@ -27,5 +34,5 @@ export function useAuthListeners(accountStore: AccountStore) {
         { variant: SnackBarVariant.ERROR }
       )
     })
-  }, [reSignIn, showSnackbar])
+  }, [reSignIn, showSnackbar, t])
 }
