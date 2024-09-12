@@ -3,6 +3,8 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleProp, View, ViewStyle } from 'react-native'
 import { IconButton, Text, useTheme } from 'react-native-paper'
+import { usePaywallManager } from 'shared/di'
+import { PaywallPlacement } from 'shared/lib/adapty'
 import { Button, Modal } from 'shared/ui/styled'
 
 export enum StateModalVariant {
@@ -52,6 +54,7 @@ function StateModalContent(props: StateModalContentProps) {
   const { title, description, button, animation } = useStateContent(variant)
   const { t } = useTranslation()
   const { colors } = useTheme()
+  const paywallManager = usePaywallManager()
 
   return (
     <>
@@ -71,7 +74,15 @@ function StateModalContent(props: StateModalContentProps) {
           contentStyle="flex-row-reverse"
           className="mt-6"
           onPress={() => {
-            // TODO: Replace to a real one
+            if (StateModalVariant.Premium) {
+              paywallManager.showPaywall(PaywallPlacement.GENERATION_SCREEN)
+            } else if (StateModalVariant.TopUp) {
+              paywallManager.showPaywall(
+                PaywallPlacement.TOP_UP_GENERATION_SCREEN
+              )
+            } else {
+              onDismiss()
+            }
           }}
         >
           {button}
@@ -82,7 +93,9 @@ function StateModalContent(props: StateModalContentProps) {
         <Button
           className="absolute top-2 left-2"
           onPress={() => {
-            // TODO: Replace to a real one
+            paywallManager.showPaywall(
+              PaywallPlacement.TOP_UP_GENERATION_SCREEN
+            )
           }}
         >
           {t('screens.generation.modalPremium.topUp')}

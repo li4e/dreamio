@@ -15,7 +15,9 @@ describe('Integration test /api/v1/purchases', () => {
       .expect(200)
       .expect('Content-Type', /json/)
 
-    expect(result.body.data.hasPremium).toBe(true)
-    expect(result.body.data.credits).toBe(100 + UserSettings.initialfreeCredits)
+    expect(result.body.membership.hasPremium).toBe(true)
+    expect(result.body.membership.credits).toBe(
+      100 + UserSettings.initialfreeCredits
+    )
   })
 })

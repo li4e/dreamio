@@ -1,7 +1,10 @@
 import { PropsWithChildren, useMemo } from 'react'
+import { adapty } from 'react-native-adapty'
 import { useAuthListeners } from 'shared/auth/useAuthListeners'
+import { ADAPY_PUBLIC_SDK_KEY } from 'shared/constants'
 import { DiContext } from 'shared/di'
 import { appDataSource } from './db'
+import { PaywallsManager } from './paywalls-manager'
 import { Store } from './store'
 
 export function DiProvider({ children }: PropsWithChildren) {
@@ -10,8 +13,21 @@ export function DiProvider({ children }: PropsWithChildren) {
       appDataSource.initialize()
     }
 
+    const store = new Store()
+
+    adapty.activate(ADAPY_PUBLIC_SDK_KEY, {
+      customerUserId: store.account.data.id
+        ? String(store.account.data.id)
+        : undefined,
+    })
+
+    const paywalls = new PaywallsManager(store.account)
+
+    paywalls.initialize()
+
     return {
-      store: new Store(),
+      store,
+      paywalls,
       db: appDataSource,
     }
   }, [])

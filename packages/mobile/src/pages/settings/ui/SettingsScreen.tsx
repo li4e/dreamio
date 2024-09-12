@@ -14,20 +14,23 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
+import { useMemebership } from 'shared/auth/AccountStore'
 import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
-import { PaywallPlacement, presentPaywall } from 'shared/lib/adapty'
+import { usePaywallManager } from 'shared/di'
+import { PaywallPlacement } from 'shared/lib/adapty'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
-  const hasPremium = false
   const insets = useSafeAreaInsets()
   const { colors } = useTheme()
   const clearAllData = useClearAllData()
   const contactUs = useContactUs()
   const { navigate } = useNavigation()
+  const paywallManager = usePaywallManager()
+  const { hasPremium, credits } = useMemebership()
 
   return (
     <View className="flex-1">
@@ -56,7 +59,11 @@ export function SettingsScreen() {
               contentStyle="py-2"
               elevation={1}
               onPress={() => {
-                presentPaywall(PaywallPlacement.SETTINGS_SCREEN)
+                paywallManager.showPaywall(
+                  hasPremium
+                    ? PaywallPlacement.TOP_UP_SETTINGS_SCREEN
+                    : PaywallPlacement.SETTINGS_SCREEN
+                )
               }}
             >
               {t(
@@ -85,7 +92,9 @@ export function SettingsScreen() {
                 <Divider />
                 <List.Item
                   title={t('screens.settings.membership.balance')}
-                  right={({ color }) => <Text style={{ color }}>0</Text>}
+                  right={({ color }) => (
+                    <Text style={{ color }}>{credits}</Text>
+                  )}
                 />
               </List.Section>
             </View>

@@ -8,3 +8,5 @@ export const URLS = Object.freeze({
   TERMS: 'https://dreamio-c6ece.firebaseapp.com/terms.html',
   SUBSCRIPTION: 'https://dreamio-c6ece.firebaseapp.com/subscription.html',
 })
+
+export const HOST_DEV = '172.20.10.3'

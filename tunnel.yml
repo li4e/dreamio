@@ -3,6 +3,6 @@ credentials-file: /Users/li4e/.cloudflared/34e40a04-efc1-46d9-a7fe-d36f6a06bc4d.
 
 ingress:
   - hostname: testcf.li4e.ru
-    service: http://localhost:5003
+    service: http://172.20.10.3:5003
   - service: http_status:404
 # cloudflared tunnel route dns mac-tunnel testcf.li4e.ru

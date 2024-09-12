@@ -9,9 +9,9 @@ import { UserModel } from '../models/UserModel'
 export class PurchasesController extends Controller {
   @Security('firebase')
   @Get('restore')
-  public async getUserData(
+  public async restoreUserMembership(
     @Request() req: AuthenticatedRequest
-  ): Promise<{ data: IUserPremiumInfo }> {
+  ): Promise<{ membership: IUserPremiumInfo }> {
     const adaptyProfile = await new AdaptyService().getProfile(req.userId)
 
     const userWithRestoredPuchases = await new AdaptyRestoreHandler(
@@ -19,6 +19,6 @@ export class PurchasesController extends Controller {
     ).handleAngGetUser(req.userId)
     const user = new UserModel(userWithRestoredPuchases)
 
-    return { data: user.premiumInfo }
+    return { membership: user.premiumInfo }
   }
 }

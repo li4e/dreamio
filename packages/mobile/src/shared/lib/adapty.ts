@@ -1,5 +1,6 @@
 import { createPaywallView } from '@adapty/react-native-ui'
-import { adapty } from 'react-native-adapty'
+import { ViewController } from '@adapty/react-native-ui/dist/view-controller'
+import { adapty, AdaptyPaywall } from 'react-native-adapty'
 
 export enum PaywallPlacement {
   GENERATION_SCREEN = 'generation_screen',
@@ -8,62 +9,26 @@ export enum PaywallPlacement {
   TOP_UP_SETTINGS_SCREEN = 'top_up_settings_screen',
 }
 
-export async function presentPaywall(placement: PaywallPlacement) {
-  try {
-    let startTime = Date.now()
-    const paywall = await adapty.getPaywall(placement)
-    console.log(`Fetching paywal took: ${Date.now() - startTime}ms`)
-    startTime = Date.now()
-    const view = await createPaywallView(paywall)
-    view.registerEventHandlers({
-      onAction() {
-        console.log('onAction')
-      },
-      onLoadingProductsFailed() {
-        console.log('onLoadingProductsFailed')
-      },
-      onProductSelected(product) {
-        console.log('onProductSelected', product)
-      },
-      onPurchaseCancelled() {
-        console.log('onPurchaseCancelled')
-      },
-      onPurchaseFailed(err) {
-        console.log('onPurchaseFailed', err)
-      },
-      onPurchaseStarted() {
-        console.log('onPurchaseStarted')
-      },
-      onRenderingFailed() {
-        console.log('onRenderingFailed')
-      },
-      onRestoreFailed() {
-        console.log('onRestoreFailed')
-      },
-      onRestoreStarted() {
-        console.log('onRestoreStarted')
-      },
-      onUrlPress(url) {
-        console.log('onUrlPress', url)
-      },
-      onCloseButtonPress() {
-        console.log('onCloseButtonPress')
-        view.dismiss()
-      },
-      onPurchaseCompleted(profile) {
-        console.log('onPurchaseCompleted', profile)
-        view.dismiss()
-      },
-      onRestoreCompleted(profile) {
-        console.log('onRestoreCompleted', profile)
-        view.dismiss()
-      },
-    })
-    console.log(`Creating paywalView took: ${Date.now() - startTime}ms`)
-    startTime = Date.now()
-    await view.present()
-    console.log(`Presenting paywal took: ${Date.now() - startTime}ms`)
-  } catch (err) {
-    console.log('function presentPaywall', err)
+export class Paywalls {
+  private paywalls: Map<PaywallPlacement, AdaptyPaywall> = new Map()
+
+  async getPaywallController(
+    placement: PaywallPlacement
+  ): Promise<ViewController> {
+    const cachedPaywall = this.paywalls.get(placement)
+    const paywall = cachedPaywall || (await adapty.getPaywall(placement))
+    this.paywalls.set(placement, paywall)
+
+    const view = await createPaywallView(paywall, { prefetchProducts: true })
+
+    return view
+  }
+
+  async prepareAll() {
+    await Promise.all(
+      Object.values(PaywallPlacement).map((item) =>
+        this.getPaywallController(item)
+      )
+    )
   }
 }

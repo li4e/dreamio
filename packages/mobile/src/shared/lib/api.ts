@@ -4,9 +4,15 @@ import {
   GetGeneration200Response,
 } from '@choco/api-client'
 import axios from 'axios'
+import { HOST_DEV } from '../constants'
 import { firebaseAuth } from './firebase'
 
-const baseUrl = 'http://127.0.0.1:5003/api/v1'
+let host = `https://dreamio.ilsur.me`
+if (__DEV__) {
+  host = `http://${HOST_DEV}:5003`
+}
+
+const baseUrl = `${host}/api/v1`
 
 const config = new Configuration()
 const axiosInstance = axios.create()

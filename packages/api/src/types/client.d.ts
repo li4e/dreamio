@@ -10,6 +10,7 @@ interface IUser {
 }
 
 export interface IUserAccountInfo extends IUser {
+  id: number
   premiumInfo: IUserPremiumInfo
 }
 
