@@ -23,13 +23,9 @@ export function useHistory(): {
 
   useEffect(() => {
     setPending(true)
-    setTimeout(async () => {
-      try {
-        await genDataService.restoreAll()
-      } finally {
-        setPending(false)
-      }
-    }, 500)
+    genDataService.restoreAll().finally(() => {
+      setPending(false)
+    })
   }, [genDataService, setPending])
 
   return { history, isPending }

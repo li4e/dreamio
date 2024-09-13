@@ -4,6 +4,7 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { adaptNavigationTheme } from 'react-native-paper'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
+import Animated, { FadeIn } from 'react-native-reanimated'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
   HomeTabsNavigatorParamList,
@@ -48,42 +49,51 @@ const HomeTabs = () => {
   const { t } = useTranslation()
 
   return (
-    <Tab.Navigator
-      theme={LightTheme}
-      initialRouteName="generation"
-      sceneAnimationEnabled={true}
+    <Animated.View
+      className="flex-1"
+      entering={FadeIn.duration(200).delay(150)}
     >
-      <Tab.Screen
-        name="history"
-        component={HistoryScreen}
-        options={{
-          tabBarIcon: ({ color, focused }) => (
-            <MaterialCommunityIcons name="history" color={color} size={26} />
-          ),
-          tabBarLabel: t('components.tabBar.history'),
-        }}
-      />
+      <Tab.Navigator
+        theme={LightTheme}
+        initialRouteName="generation"
+        sceneAnimationEnabled={true}
+      >
+        <Tab.Screen
+          name="history"
+          component={HistoryScreen}
+          options={{
+            tabBarIcon: ({ color, focused }) => (
+              <MaterialCommunityIcons name="history" color={color} size={26} />
+            ),
+            tabBarLabel: t('components.tabBar.history'),
+          }}
+        />
 
-      <Tab.Screen
-        name="generation"
-        component={GenerationStartScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="image-plus" color={color} size={26} />
-          ),
-          tabBarLabel: t('components.tabBar.generation'),
-        }}
-      />
-      <Tab.Screen
-        name="settings"
-        component={SettingsScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="tune" color={color} size={26} />
-          ),
-          tabBarLabel: t('components.tabBar.settings'),
-        }}
-      />
-    </Tab.Navigator>
+        <Tab.Screen
+          name="generation"
+          component={GenerationStartScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons
+                name="image-plus"
+                color={color}
+                size={26}
+              />
+            ),
+            tabBarLabel: t('components.tabBar.generation'),
+          }}
+        />
+        <Tab.Screen
+          name="settings"
+          component={SettingsScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="tune" color={color} size={26} />
+            ),
+            tabBarLabel: t('components.tabBar.settings'),
+          }}
+        />
+      </Tab.Navigator>
+    </Animated.View>
   )
 }
