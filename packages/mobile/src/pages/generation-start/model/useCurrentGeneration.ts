@@ -146,6 +146,8 @@ class CurrentGenerationService {
       } catch (error) {
         this.curGenstore.setCreatingError(true)
         throw error
+      } finally {
+        this.curGenstore.setPending(false)
       }
     }
   }
