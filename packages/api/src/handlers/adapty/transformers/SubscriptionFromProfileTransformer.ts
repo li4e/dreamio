@@ -5,6 +5,7 @@ import {
 } from '@choco/db'
 import { AdaptySubscription } from '../../../types/adapty'
 import { IDBSubscriptionAdapter } from '../../../services/db_adapters'
+import { TokensByProductMapper } from './TokensByProduct'
 
 class SubscriptionFromProfileTransformerStrict
   implements IDBSubscriptionAdapter
@@ -14,7 +15,10 @@ class SubscriptionFromProfileTransformerStrict
   private transactionId: string
   private productId: string
 
-  constructor(private subscription: AdaptySubscription) {
+  constructor(
+    private subscription: AdaptySubscription,
+    private tokensByProduct: TokensByProductMapper
+  ) {
     if (
       !subscription.store ||
       !subscription.vendor_original_transaction_id ||
@@ -63,8 +67,7 @@ class SubscriptionFromProfileTransformerStrict
   }
 
   private get credits() {
-    // TODO: Upadate with a real data
-    return this.subscription.is_active ? 100 : 0
+    return this.tokensByProduct(this.productId)
   }
 
   static isValid(subscription: AdaptySubscription) {
@@ -79,10 +82,14 @@ class SubscriptionFromProfileTransformerStrict
 
 export class SubscriptionFromProfileTransformer {
   static create(
-    subscription: AdaptySubscription
+    subscription: AdaptySubscription,
+    tokensByProduct: TokensByProductMapper
   ): IDBSubscriptionAdapter | null {
     if (SubscriptionFromProfileTransformerStrict.isValid(subscription)) {
-      return new SubscriptionFromProfileTransformerStrict(subscription)
+      return new SubscriptionFromProfileTransformerStrict(
+        subscription,
+        tokensByProduct
+      )
     }
 
     return null

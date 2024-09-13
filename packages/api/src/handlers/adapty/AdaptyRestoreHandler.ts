@@ -5,6 +5,7 @@ import { SubscriptionService } from '../../services/subscription'
 import { InAppPurchaseService } from '../../services/in_app_purchase'
 import { UserService } from '../../services/user'
 import { PopulatedUser } from '../../types/user'
+import { tokensByProduct } from '../../shared/tokensByProduct'
 
 export class AdaptyRestoreHandler {
   constructor(private userProfile: AdaptyProfile) {}
@@ -19,8 +20,10 @@ export class AdaptyRestoreHandler {
       for (const subscription of Object.values(
         this.userProfile.subscriptions
       )) {
-        const dataTransformer =
-          SubscriptionFromProfileTransformer.create(subscription)
+        const dataTransformer = SubscriptionFromProfileTransformer.create(
+          subscription,
+          tokensByProduct
+        )
 
         if (dataTransformer) {
           promises.push(
@@ -36,8 +39,10 @@ export class AdaptyRestoreHandler {
     if (this.userProfile.non_subscriptions) {
       for (const inApps of Object.values(this.userProfile.non_subscriptions)) {
         for (const inApp of inApps) {
-          const dataTransformer =
-            InAppPurchaseFromProfileTransformer.create(inApp)
+          const dataTransformer = InAppPurchaseFromProfileTransformer.create(
+            inApp,
+            tokensByProduct
+          )
 
           if (dataTransformer) {
             promises.push(

@@ -2,9 +2,13 @@ import { CreateSubscriptionDto, UpdateSubscriptionDto } from '@choco/db'
 import { AdaptyEventType, AdaptyWebhookEvent } from '../../../types/adapty'
 import { isNonSubscriptionEvent } from '../utils/isNonSubscriptionEvent'
 import { IDBSubscriptionAdapter } from '../../../services/db_adapters'
+import { TokensByProductMapper } from './TokensByProduct'
 
 export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
-  constructor(private event: AdaptyWebhookEvent) {
+  constructor(
+    private event: AdaptyWebhookEvent,
+    private tokensByProduct: TokensByProductMapper
+  ) {
     if (isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a non_subscription type')
     }
@@ -158,7 +162,6 @@ export class SubscriptionEventTransformer implements IDBSubscriptionAdapter {
   }
 
   private get credits() {
-    // TODO: Change for a real data
-    return this.isActive ? 100 : 0
+    return this.tokensByProduct(this.event.event_properties.vendor_product_id)
   }
 }

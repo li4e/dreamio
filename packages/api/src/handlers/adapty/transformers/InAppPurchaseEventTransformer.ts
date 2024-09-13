@@ -2,9 +2,13 @@ import { AdaptyWebhookEvent } from '../../../types/adapty'
 import { CreateInAppPurchaseDto, UpdateInAppPurchaseDto } from '@choco/db'
 import { isNonSubscriptionEvent } from '../utils/isNonSubscriptionEvent'
 import { IDBInAppAdapter } from '../../../services/db_adapters'
+import { TokensByProductMapper } from './TokensByProduct'
 
 export class InAppPurchaseEventTransformer implements IDBInAppAdapter {
-  constructor(private event: AdaptyWebhookEvent) {
+  constructor(
+    private event: AdaptyWebhookEvent,
+    private tokensByProduct: TokensByProductMapper
+  ) {
     if (!isNonSubscriptionEvent(event.event_type)) {
       throw Error('Provided event has a subscription type')
     }
@@ -39,7 +43,6 @@ export class InAppPurchaseEventTransformer implements IDBInAppAdapter {
   }
 
   private get credits() {
-    // TODO: Upadate with a real data
-    return 100
+    return this.tokensByProduct(this.event.event_properties.vendor_product_id)
   }
 }

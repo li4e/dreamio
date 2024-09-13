@@ -27,3 +27,7 @@ jest.mock('./src/utils/wait', () => {
 jest.mock('./src/integrations/pub_sub', () => {
   return jest.requireActual('./src/__tests__/__mocks__/integrations/pub_sub')
 })
+
+jest.mock('./src/shared/tokensByProduct', () => {
+  return jest.requireActual('./src/__tests__/__mocks__/shared/tokensByProduct')
+})

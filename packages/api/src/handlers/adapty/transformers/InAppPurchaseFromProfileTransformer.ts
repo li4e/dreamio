@@ -2,6 +2,7 @@ import { CreateInAppPurchaseDto, UpdateInAppPurchaseDto } from '@choco/db'
 import { AdaptyNonSubscription } from '../../../types/adapty'
 import { IDBInAppAdapter } from '../../../services/db_adapters'
 import { Store } from 'packages/db/__generated/client'
+import { TokensByProductMapper } from './TokensByProduct'
 
 class InAppPurchaseFromProfileTransformerStrict implements IDBInAppAdapter {
   private store: Store
@@ -9,7 +10,10 @@ class InAppPurchaseFromProfileTransformerStrict implements IDBInAppAdapter {
   private transactionId: string
   private productId: string
 
-  constructor(private inAppPurchase: AdaptyNonSubscription) {
+  constructor(
+    private inAppPurchase: AdaptyNonSubscription,
+    private tokensByProduct: TokensByProductMapper
+  ) {
     if (
       !inAppPurchase.store ||
       !inAppPurchase.vendor_original_transaction_id ||
@@ -42,8 +46,7 @@ class InAppPurchaseFromProfileTransformerStrict implements IDBInAppAdapter {
   }
 
   private get credits() {
-    // TODO: Upadate with a real data
-    return 100
+    return this.tokensByProduct(this.productId)
   }
 
   static isValid(inAppPurchase: AdaptyNonSubscription) {
@@ -57,9 +60,15 @@ class InAppPurchaseFromProfileTransformerStrict implements IDBInAppAdapter {
 }
 
 export class InAppPurchaseFromProfileTransformer {
-  static create(inAppPurchase: AdaptyNonSubscription): IDBInAppAdapter | null {
+  static create(
+    inAppPurchase: AdaptyNonSubscription,
+    tokensByProduct: TokensByProductMapper
+  ): IDBInAppAdapter | null {
     if (InAppPurchaseFromProfileTransformerStrict.isValid(inAppPurchase)) {
-      return new InAppPurchaseFromProfileTransformerStrict(inAppPurchase)
+      return new InAppPurchaseFromProfileTransformerStrict(
+        inAppPurchase,
+        tokensByProduct
+      )
     }
 
     return null
