@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
 import { useCallback, useMemo, useState } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
 import {
@@ -68,6 +68,9 @@ export function GenerationStartScreen() {
   )
 
   const curGen = useCurrentGeneration(handleFinish)
+
+  const { submitCount, isValid } = useFormState({ control })
+  const isDisabled = curGen.state.isPending || (submitCount > 0 && !isValid)
 
   const modalState = mapCurGenStatusToModalState(curGen.state.status)
 
@@ -154,26 +157,17 @@ export function GenerationStartScreen() {
           </View>
         </ScrollView>
         <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
-          <Controller
-            control={control}
-            name="prompt"
-            render={({ formState }) => (
-              <Button
-                icon="creation"
-                mode="contained"
-                className="rounded-full"
-                contentStyle="px-4 py-2"
-                onPress={handleSubmit(handleStartPress)}
-                disabled={
-                  curGen.state.isPending ||
-                  (formState.submitCount > 0 && !formState.isValid)
-                }
-                loading={curGen.state.isPending}
-              >
-                {t('screens.generation.startButton')}
-              </Button>
-            )}
-          />
+          <Button
+            icon="creation"
+            mode="contained"
+            className="rounded-full"
+            contentStyle="px-4 py-2"
+            onPress={handleSubmit(handleStartPress)}
+            disabled={isDisabled}
+            loading={curGen.state.isPending}
+          >
+            {t('screens.generation.startButton')}
+          </Button>
         </View>
         <StateModal variant={modalState} onDismiss={curGen.clear} />
       </View>

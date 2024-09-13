@@ -49,10 +49,7 @@ const HomeTabs = () => {
   const { t } = useTranslation()
 
   return (
-    <Animated.View
-      className="flex-1"
-      entering={FadeIn.duration(200).delay(150)}
-    >
+    <Animated.View className="flex-1" entering={FadeIn.duration(200)}>
       <Tab.Navigator
         theme={LightTheme}
         initialRouteName="generation"
