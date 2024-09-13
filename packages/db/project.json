@@ -17,6 +17,12 @@
         "command": "dotenvx run --env-file=packages/firebase/environment/.secret.local -- npx prisma migrate deploy --schema packages/db/src/schema.prisma && npm run postinstall && nx run db:migration:apply:test"
       }
     },
+    "migration:apply:PROD": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenvx run --env-file=packages/db/.prod.env -- npx prisma migrate deploy --schema packages/db/src/schema.prisma"
+      }
+    },
     "migration:apply:test": {
       "executor": "nx:run-commands",
       "options": {

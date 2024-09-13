@@ -3,7 +3,7 @@ import { secrets } from '../config/secrets'
 import { IOpenAiService } from '../types/integrations/openai'
 import { OpenAIService as MockedOpenAIService } from '../__tests__/__mocks__/integrations/openai'
 
-const mocked = true
+const mocked = String(process.env.FUNCTIONS_EMULATOR) === 'true'
 
 export class OpenAIService implements IOpenAiService {
   private openAI: OpenAI

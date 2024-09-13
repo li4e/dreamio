@@ -1,13 +1,15 @@
 import { onInit } from 'firebase-functions/v2'
 import { onRequest } from 'firebase-functions/v2/https'
 import { app } from './app'
-import secretsList, { secrets } from './config/secrets'
+import secretsList, { secrets } from './config/secrets' // secrets
 import { initializeAdminSDK } from './integrations/firebase'
+import { handleGenerationRequest } from './functions/handleGenerationRequest'
 
 onInit(async () => {
   process.env.POSTGRESS_CONNECTION_URL = secrets.pgConenctionUrl.value()
   initializeAdminSDK()
 })
 
-export const api = onRequest({ secrets: secretsList }, app)
-export { handleGenerationRequest } from './functions/handleGenerationRequest'
+const api = onRequest({ secrets: secretsList }, app)
+
+export default { api, handleGenerationRequest }

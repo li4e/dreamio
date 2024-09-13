@@ -116,7 +116,7 @@
     "react-i18next": "^15.0.0",
     "react-native": "0.75.1",
     "reflect-metadata": "^0.2.2",
-    "sharp": "^0.33.4",
+    "sharp": "^0.32.6",
     "tailwind-merge": "^2.4.0",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.20",
