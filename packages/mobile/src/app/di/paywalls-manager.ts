@@ -11,16 +11,19 @@ export class PaywallsManager {
 
   showPaywall = async (placement: PaywallPlacement) => {
     const paywall = await this.paywalls.getPaywallController(placement)
-    const update = async () => {
-      await restoreMembership(this.accountStore)
-      paywall.dismiss()
-    }
+
     paywall.registerEventHandlers({
-      onRestoreCompleted: () => {
-        update()
+      onRestoreCompleted: (profile) => {
+        if (profile.accessLevels?.premium?.isActive === true) {
+          paywall.dismiss()
+        }
+        // TODO: Add global app level loader
+        restoreMembership(this.accountStore)
       },
       onPurchaseCompleted: () => {
-        update()
+        paywall.dismiss()
+        // TODO: Add global app level loader
+        restoreMembership(this.accountStore)
       },
     })
     paywall.present()
