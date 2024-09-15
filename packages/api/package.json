@@ -12,7 +12,10 @@
   "engines": {
     "node": "20"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@brakebein/prisma-generator-nestjs-dto": "^1.23.1",
+    "@prisma/client": "^5.19.1",
+    "sharp": "^0.32.6"
+  },
   "private": true
 }

@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma as PrismaNative } from '../__generated/client'
+import { PrismaClient, Prisma as PrismaNative } from '@prisma/client'
 
 export * from '../__generated/models'
 

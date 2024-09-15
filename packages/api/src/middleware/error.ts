@@ -10,6 +10,8 @@ export function errorHandler(
   const error = _err as ServerError
   const status = error.status || 500
 
+  console.log(error)
+
   // if (status !== 401) {
   //   console.log(error)
   // }
