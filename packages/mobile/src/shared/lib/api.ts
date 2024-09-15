@@ -5,10 +5,11 @@ import {
 } from '@choco/api-client'
 import axios from 'axios'
 import { HOST_DEV } from '../constants'
+import { IS_LOCAL_DEV } from '../constants'
 import { firebaseAuth } from './firebase'
 
 let host = `https://dreamio.ilsur.me`
-if (__DEV__) {
+if (IS_LOCAL_DEV) {
   host = `http://${HOST_DEV}:5003`
 }
 

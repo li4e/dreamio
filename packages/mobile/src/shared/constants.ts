@@ -10,3 +10,5 @@ export const URLS = Object.freeze({
 })
 
 export const HOST_DEV = '192.168.2.5'
+
+export const IS_LOCAL_DEV = __DEV__ && false
