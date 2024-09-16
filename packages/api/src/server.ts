@@ -9,5 +9,8 @@ onInit(async () => {
   initializeAdminSDK()
 })
 
-export const api = onRequest({ secrets: secretsList }, app)
+export const api = onRequest(
+  { secrets: secretsList, memory: '512MiB', timeoutSeconds: 540 },
+  app
+)
 export { handleGenerationRequest } from './functions/handleGenerationRequest'

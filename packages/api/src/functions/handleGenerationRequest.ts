@@ -8,7 +8,8 @@ export const handleGenerationRequest = onMessagePublished(
   {
     topic: PubSubTopics.GENERATE_IMAGE,
     secrets,
-    concurrency: 100,
+    memory: '512MiB',
+    timeoutSeconds: 540,
   },
   async (event) => {
     const generationId = Number(event.data.message.json.generationId)
