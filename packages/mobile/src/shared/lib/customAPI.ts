@@ -17,7 +17,7 @@ export class CustomAPI {
     return {
       data: {
         prompt:
-          'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere with vibrant, natural colors.',
+          'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere',
       },
     }
   }
@@ -30,7 +30,7 @@ export class CustomAPI {
       throw new Error('Generation not found')
     }
 
-    const imageUrl = `https://pollinations.ai/p/${encodeURIComponent(generation.promptFull)}?enhance=true&private=true&nologo=true&`
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true`
 
     try {
       const cache = new ImageCache(imageUrl)
@@ -62,7 +62,7 @@ export class CustomAPI {
       id: Date.now(),
       prompt: data.prompt,
       promptFull: data.style
-        ? `"${data.prompt}" in a "${data.style}" style`
+        ? `"${data.prompt}" in the "${data.style}" style.`
         : data.prompt,
       style: data.style ?? null,
       highQuality: null,
