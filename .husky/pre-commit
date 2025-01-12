@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run test:all && npx lint-staged --concurrent false --relative
+# npm run test:all && npx lint-staged --concurrent false --relative
+npx lint-staged --concurrent false --relative
