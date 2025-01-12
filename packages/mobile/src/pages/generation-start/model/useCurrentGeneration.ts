@@ -174,11 +174,9 @@ class CurrentGenerationService {
   addWorkers() {
     this.clearWorkers()
     if (this.curGenstore.status === Status.IN_PROGRESS) {
-      this.timeoutId = setTimeout(async () => {
-        this.updateGeneration().finally(() => {
-          this.addWorkers()
-        })
-      }, 2000)
+      this.updateGeneration().finally(() => {
+        this.addWorkers()
+      })
     }
     return this.clearWorkers
   }
