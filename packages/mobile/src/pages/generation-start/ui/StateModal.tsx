@@ -1,4 +1,5 @@
 import LottieView, { AnimationObject } from 'lottie-react-native'
+import React from 'react'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleProp, View, ViewStyle } from 'react-native'
@@ -74,9 +75,9 @@ function StateModalContent(props: StateModalContentProps) {
           contentStyle="flex-row-reverse"
           className="mt-6"
           onPress={() => {
-            if (StateModalVariant.Premium) {
+            if (variant === StateModalVariant.Premium) {
               paywallManager.showPaywall(PaywallPlacement.GENERATION_SCREEN)
-            } else if (StateModalVariant.TopUp) {
+            } else if (variant === StateModalVariant.TopUp) {
               paywallManager.showPaywall(
                 PaywallPlacement.TOP_UP_GENERATION_SCREEN
               )
