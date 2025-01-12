@@ -23,8 +23,10 @@ export class AccountStore {
   private static readonly defaultAccountData: AccountData = {
     id: null,
     membership: {
-      credits: 0,
-      hasPremium: false,
+      // credits: 0,
+      // hasPremium: false,
+      credits: 10,
+      hasPremium: true,
     },
   }
 
@@ -36,9 +38,9 @@ export class AccountStore {
   }
 
   get data(): AccountData {
-    if (this._data) {
-      return this._data
-    }
+    // if (this._data) {
+    //   return this._data
+    // }
     return AccountStore.defaultAccountData
   }
 

@@ -2,22 +2,23 @@ import { useNavigation } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
 import LottieView from 'lottie-react-native'
 import { styled } from 'nativewind'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Linking, ScrollView, View } from 'react-native'
 import {
   Divider,
   List,
   // Switch,
-  Text,
+  // Text,
   useTheme,
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
-import { useMemebership } from 'shared/auth/AccountStore'
+// import { useMemebership } from 'shared/auth/AccountStore'
 import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
-import { usePaywallManager } from 'shared/di'
-import { PaywallPlacement } from 'shared/lib/adapty'
+// import { usePaywallManager } from 'shared/di'
+// import { PaywallPlacement } from 'shared/lib/adapty'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
@@ -29,8 +30,8 @@ export function SettingsScreen() {
   const clearAllData = useClearAllData()
   const contactUs = useContactUs()
   const { navigate } = useNavigation()
-  const paywallManager = usePaywallManager()
-  const { hasPremium, credits } = useMemebership()
+  // const paywallManager = usePaywallManager()
+  // const { hasPremium, credits } = useMemebership()
 
   return (
     <View className="flex-1">
@@ -52,7 +53,7 @@ export function SettingsScreen() {
             />
           </View>
           <View className="flex-grow justify-center">
-            <Button
+            {/* <Button
               className="rounded-full mb-10"
               icon="crown"
               mode="contained"
@@ -71,9 +72,9 @@ export function SettingsScreen() {
                   ? 'screens.settings.membership.topUp'
                   : 'screens.settings.membership.subscribe'
               )}
-            </Button>
+            </Button> */}
 
-            <View
+            {/* <View
               className="mb-10 rounded-2xl pb-1"
               style={{ backgroundColor: colors.inverseOnSurface }}
             >
@@ -97,7 +98,7 @@ export function SettingsScreen() {
                   )}
                 />
               </List.Section>
-            </View>
+            </View> */}
 
             {/* <List.Section>
             <SubHeader>{t('screens.settings.user.title')}</SubHeader>
@@ -144,7 +145,7 @@ export function SettingsScreen() {
                   right={({ color }) => <RightIcon color={color} />}
                 />
                 <Divider />
-                <List.Item
+                {/* <List.Item
                   onPress={() => {
                     navigate('webview', {
                       title: t('screens.settings.about.subscritpion'),
@@ -154,7 +155,7 @@ export function SettingsScreen() {
                   title={t('screens.settings.about.subscritpion')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
-                <Divider />
+                <Divider /> */}
                 <List.Item
                   onPress={contactUs}
                   title={t('screens.settings.about.contact')}

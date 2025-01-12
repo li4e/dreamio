@@ -1,9 +1,9 @@
 import LottieView from 'lottie-react-native'
 import { PropsWithChildren, useMemo, useState } from 'react'
-import { adapty } from 'react-native-adapty'
+// import { adapty } from 'react-native-adapty'
 import Animated, { FadeOut } from 'react-native-reanimated'
 import { useAuthListeners } from 'shared/auth/useAuthListeners'
-import { ADAPY_PUBLIC_SDK_KEY } from 'shared/constants'
+// import { ADAPY_PUBLIC_SDK_KEY } from 'shared/constants'
 import { DiContext } from 'shared/di'
 import StartAnimation from '../ui/launch_animation.json'
 import { appDataSource } from './db'
@@ -24,15 +24,15 @@ export function DiProvider({ children }: PropsWithChildren) {
 
     const store = new Store()
 
-    adapty.activate(ADAPY_PUBLIC_SDK_KEY, {
-      customerUserId: store.account.data.id
-        ? String(store.account.data.id)
-        : undefined,
-    })
+    // adapty.activate(ADAPY_PUBLIC_SDK_KEY, {
+    //   customerUserId: store.account.data.id
+    //     ? String(store.account.data.id)
+    //     : undefined,
+    // })
 
     const paywalls = new PaywallsManager(store.account)
 
-    paywalls.initialize()
+    // paywalls.initialize()
 
     return {
       store,

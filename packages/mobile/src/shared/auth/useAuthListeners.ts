@@ -1,10 +1,13 @@
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { adapty } from 'react-native-adapty'
+// import { adapty } from 'react-native-adapty'
 import { IS_LOCAL_DEV } from '../constants'
 import { firebaseAuth } from '../lib/firebase'
 import { SnackBarVariant, useSnackbar } from '../ui/Snackbar'
-import { getAndUpdateAccountData, AccountStore } from './AccountStore'
+import {
+  // getAndUpdateAccountData,
+  AccountStore,
+} from './AccountStore'
 
 export function useAuthListeners(accountStore: AccountStore) {
   const { showSnackbar } = useSnackbar()
@@ -20,15 +23,16 @@ export function useAuthListeners(accountStore: AccountStore) {
     }
 
     try {
-      const { id } = await getAndUpdateAccountData(accountStore)
-      await adapty.identify(String(id))
+      // const { id } = await getAndUpdateAccountData(accountStore)
+      // await adapty.identify(String(id))
     } catch (err) {
       if (IS_LOCAL_DEV) {
         await firebaseAuth.signOut()
       }
       throw err
     }
-  }, [accountStore])
+    // }, [accountStore])
+  }, [])
 
   useEffect(() => {
     ensureSignIn().catch((err) => {
