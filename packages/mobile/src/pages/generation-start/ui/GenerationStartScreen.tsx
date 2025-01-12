@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
+import React from 'react'
 import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller, useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -36,7 +37,7 @@ export function GenerationStartScreen() {
             .min(3, ({ min }) =>
               t('screens.generation.promptValidationErrors.minLength', { min })
             )
-            .max(300, ({ max }) =>
+            .max(500, ({ max }) =>
               t('screens.generation.promptValidationErrors.maxLength', { max })
             )
             .required(t('screens.generation.promptValidationErrors.required')),
