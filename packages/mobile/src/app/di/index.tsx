@@ -2,7 +2,7 @@ import LottieView from 'lottie-react-native'
 import { PropsWithChildren, useMemo, useState } from 'react'
 // import { adapty } from 'react-native-adapty'
 import Animated, { FadeOut } from 'react-native-reanimated'
-import { useAuthListeners } from 'shared/auth/useAuthListeners'
+// import { useAuthListeners } from 'shared/auth/useAuthListeners'
 // import { ADAPY_PUBLIC_SDK_KEY } from 'shared/constants'
 import { DiContext } from 'shared/di'
 import StartAnimation from '../ui/launch_animation.json'
@@ -41,7 +41,7 @@ export function DiProvider({ children }: PropsWithChildren) {
     }
   }, [])
 
-  useAuthListeners(di.store.account)
+  // useAuthListeners(di.store.account)
 
   if (showLoader) {
     return (
