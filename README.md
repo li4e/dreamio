@@ -57,6 +57,7 @@ To run locally:
 
 - More customization options.
 - Integration with additional APIs.
+- Social network elements allowing users to share their creations, like, and follow others.
 - Community-driven enhancements.
 
 ## License
