@@ -1,7 +1,6 @@
 {
   "name": "mobile",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.1",
   "dependencies": {
     "@os-team/i18next-react-native-language-detector": "^1.0.34",
     "@react-native/metro-config": "*",

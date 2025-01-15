@@ -55,6 +55,8 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Would you like to receive notifications to stay updated on new posts, likes, comments, and when your creations are ready?</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
