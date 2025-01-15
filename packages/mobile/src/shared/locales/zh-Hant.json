@@ -1,0 +1,100 @@
+{
+  "components": {
+    "appBar": {
+      "back": "返回"
+    },
+    "tabBar": {
+      "history": "歷史記錄",
+      "generation": "創建",
+      "settings": "設定"
+    },
+    "snackBar": {
+      "generalError": {
+        "title": "哎呀！",
+        "description": "出了點問題，請稍後再試"
+      }
+    }
+  },
+  "screens": {
+    "generation": {
+      "title": "開始創建",
+      "inputLabel": "您的想法：",
+      "inputPlaceholder": "您想看到什麼？詳細描述每個細節以獲得最佳結果...",
+      "styleLabel": "選擇您的風格：",
+      "surpriseButton": "啟發",
+      "startButton": "開始魔法",
+      "promptValidationErrors": {
+        "minLength": "提示至少需要 {{min}} 個字符",
+        "maxLength": "提示必須少於 {{max}} 個字符",
+        "required": "提示是必填項"
+      },
+      "modalError": {
+        "title": "哎呀！",
+        "description": "在魔法過程中出現了問題，請再試一次。",
+        "button": "繼續"
+      },
+      "modalGeneration": {
+        "title": "魔法進行中",
+        "description": "這通常需要大約 15 秒..."
+      }
+    },
+    "settings": {
+      "title": "設定",
+      "user": {
+        "title": "用戶設定",
+        "darkMode": "深色模式",
+        "language": "語言"
+      },
+      "about": {
+        "title": "關於應用程式",
+        "privacy": "隱私政策",
+        "terms": "使用條款",
+        "contact": "聯絡我們"
+      },
+      "clear": {
+        "button": "清除所有用戶資料",
+        "deleted": "所有用戶資料已成功清除",
+        "dialog": {
+          "title": "清除所有用戶資料？",
+          "description": "此操作將永久刪除所有用戶資料且無法撤銷。您確定要繼續嗎？",
+          "confirm": "清除",
+          "cancel": "取消"
+        }
+      },
+      "contactUsError": {
+        "title": "無法打開電子郵件應用程式",
+        "description": "我們的電子郵件地址是：{{address}}"
+      }
+    },
+    "generationResult": {
+      "title": "結果",
+      "saveButton": "保存",
+      "copyButton": "複製提示",
+      "deleteButton": "刪除",
+      "shareButton": "分享",
+      "promptLabel": "您的輸入",
+      "promtCopied": "提示已成功複製",
+      "deleted": "生成結果已刪除",
+      "undo": "撤銷",
+      "deleteDialog": {
+        "title": "您確定嗎？",
+        "description": "此操作將永久刪除生成的圖像且無法撤銷。您確定要繼續嗎？",
+        "confirm": "刪除",
+        "cancel": "取消"
+      }
+    },
+    "history": {
+      "title": "藝術作品",
+      "empty": {
+        "title": "這裡還是空的...",
+        "description": "您還沒有創建任何藝術作品。開始創建以在此查看。",
+        "button": "創建"
+      },
+      "end": {
+        "title": "這就是目前的全部",
+        "description": "但創意無止境。準備好創造一些新東西了嗎？",
+        "button": "創建"
+      }
+    }
+  }
+}
