@@ -1,3 +1,4 @@
+import { ImageCache } from 'shared/ui/CachedImage'
 import { api } from '../api'
 import { GenerationRepository } from './db/GenerationRepository'
 import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
@@ -42,7 +43,16 @@ export class GenerationDataService {
   }
 
   async clear() {
-    await this.db.clear()
+    const imagesDeletions = []
+
+    for (const gen of this.store.list) {
+      for (const image of gen.images) {
+        imagesDeletions.push(ImageCache.clearCache(image))
+      }
+    }
+
+    await Promise.all([this.db.clear(), imagesDeletions])
+
     this.store.clear()
   }
 
@@ -53,7 +63,12 @@ export class GenerationDataService {
 
   private async removeItem(generation: GenerationEntity) {
     this.store.removeItem(generation.id)
-    await this.db.remove([{ ...generation }])
+    const dbDeletion = this.db.remove([{ ...generation }])
+    const imageDeletions = generation.images.map((file) =>
+      ImageCache.clearCache(file)
+    )
+
+    await Promise.all([dbDeletion, imageDeletions])
   }
 
   private async setItem(generation: GenerationEntity) {

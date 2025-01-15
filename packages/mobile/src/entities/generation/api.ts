@@ -1,3 +1,4 @@
+import { translate } from '@vitalets/google-translate-api'
 import { ImageCache } from 'shared/ui/CachedImage'
 
 export enum GenerationStatusDTO {
@@ -56,12 +57,23 @@ export class Api {
   createGeneration = async (
     data: StartGenerationBodyDTO
   ): Promise<{ generation: GenerationDTO }> => {
+    let prompt = data.prompt
+
+    try {
+      const { text: translatedPrompt } = await translate(data.prompt, {
+        to: 'en',
+      })
+      prompt = translatedPrompt
+    } catch (err) {
+      console.error('Error during tranlsating prompt')
+    }
+
     const newGeneration = {
       id: Date.now(),
       prompt: data.prompt,
       promptFull: data.style
-        ? `"${data.prompt}" in the "${data.style}" style.`
-        : data.prompt,
+        ? `"${prompt}" in the "${data.style}" style.`
+        : prompt,
       style: data.style ?? null,
       status: GenerationStatusDTO.Processing,
       createdAt: new Date().toString(),

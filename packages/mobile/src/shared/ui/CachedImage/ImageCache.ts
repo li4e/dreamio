@@ -27,4 +27,16 @@ export class ImageCache {
     }
     return this.localFilePath
   }
+
+  /**
+   * Deletes all cached images from the cache directory.
+   * @returns {Promise<void>} - A promise that resolves once all images are deleted.
+   */
+  static async clearCache(path: string): Promise<void> {
+    try {
+      await ReactNativeBlob.fs.unlink(path)
+    } catch (error) {
+      console.error('Error clearing image cache:', error)
+    }
+  }
 }

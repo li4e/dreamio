@@ -13,8 +13,8 @@
 		2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D2EEE98D34B4938BBF090F2 /* MaterialCommunityIcons.ttf */; };
 		5D7C932EA6934339195EF445 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9759EF47EF12D3B99F23A837 /* Pods_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D422E4A694E995ED38A0CED9 /* Pods_Mobile.framework */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
+		FB3BDD7D76514DD2760538AD /* Pods_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275B194C7411BAA2D177372 /* Pods_Mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 		5709B34CF0A7D63546082F79 /* Pods-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile.release.xcconfig"; path = "Target Support Files/Pods-Mobile/Pods-Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Mobile/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9275B194C7411BAA2D177372 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		D422E4A694E995ED38A0CED9 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9759EF47EF12D3B99F23A837 /* Pods_Mobile.framework in Frameworks */,
+				FB3BDD7D76514DD2760538AD /* Pods_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				D422E4A694E995ED38A0CED9 /* Pods_Mobile.framework */,
+				9275B194C7411BAA2D177372 /* Pods_Mobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

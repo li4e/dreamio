@@ -21,6 +21,7 @@ export enum Status {
 class CurrentGenerationStore {
   genId: number | null = null
   private _hasError = false
+  private _isPending = false
 
   constructor(private readonly generationStore: GenerationStore) {
     makeAutoObservable(this, {}, { autoBind: true })
@@ -33,10 +34,15 @@ class CurrentGenerationStore {
   clear() {
     this.genId = null
     this._hasError = false
+    this._isPending = false
   }
 
   setError(error: boolean) {
     this._hasError = error
+  }
+
+  setPending(isPending: boolean) {
+    this._isPending = isPending
   }
 
   get status(): Status {
@@ -61,6 +67,10 @@ class CurrentGenerationStore {
     }
     return null
   }
+
+  get isPending(): boolean {
+    return this._isPending || this.status === Status.IN_PROGRESS
+  }
 }
 
 export function useCurrentGeneration() {
@@ -73,7 +83,7 @@ export function useCurrentGeneration() {
   const state = useStoreData(
     () => ({
       status: curGenStore.status,
-      isPending: curGenStore.status === Status.IN_PROGRESS,
+      isPending: curGenStore.isPending,
     }),
     [curGenStore]
   )
@@ -84,12 +94,15 @@ export function useCurrentGeneration() {
       onGenerated: (generation: GenerationEntity) => void
     ) => {
       try {
+        curGenStore.setPending(true)
         let generation = await genDataService.createGeneration(data)
         curGenStore.setGenId(generation.id)
         generation = await genDataService.getGeneration(generation.id)
         onGenerated(generation)
       } catch {
         curGenStore.setError(true)
+      } finally {
+        curGenStore.setPending(false)
       }
     },
     [curGenStore, genDataService]
