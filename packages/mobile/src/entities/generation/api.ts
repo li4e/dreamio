@@ -34,7 +34,7 @@ export class Api {
       throw new Error('Generation not found')
     }
 
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true`
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true`
 
     try {
       const cache = new ImageCache(imageUrl)
@@ -43,8 +43,9 @@ export class Api {
       generation.status = GenerationStatusDTO.Completed
       generation.updatedAt = new Date().toString()
       generation.images = [imageUrl]
-    } catch {
+    } catch (err) {
       generation.status = GenerationStatusDTO.Error
+      throw err
     }
 
     this.data.delete(id)
@@ -65,7 +66,7 @@ export class Api {
       })
       prompt = translatedPrompt
     } catch (err) {
-      console.error('Error during tranlsating prompt')
+      console.error('Error during tranlsating prompt', err)
     }
 
     const newGeneration = {

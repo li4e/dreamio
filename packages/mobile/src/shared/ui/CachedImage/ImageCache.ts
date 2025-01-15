@@ -23,7 +23,15 @@ export class ImageCache {
     if (!cacheExists) {
       await ReactNativeBlob.config({
         path: this.localFilePath,
-      }).fetch('GET', this.url)
+      })
+        .fetch('GET', this.url)
+        .then((response) => {
+          const statusCode = response.info().status
+
+          if (statusCode !== 200) {
+            throw new Error('Unable to generate image')
+          }
+        })
     }
     return this.localFilePath
   }
