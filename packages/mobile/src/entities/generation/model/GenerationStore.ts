@@ -6,18 +6,6 @@ export class GenerationStore {
 
   constructor() {
     makeAutoObservable(this)
-
-    // this.setItem({
-    //   id: 1,
-    //   prompt: 'Super puper high quality generate image',
-    //   style: 'Noir',
-    //   createdAt: Date.now(),
-    //   updatedAt: Date.now(),
-    //   images: [
-    //     'https://i.natgeofe.com/n/fb52a1e1-024c-4015-a0b8-83e05f0d7038/2MJX38R_square.jpg?w=256&h=256',
-    //   ],
-    //   status: 2,
-    // })
   }
 
   setItem(item: GenerationEntity) {

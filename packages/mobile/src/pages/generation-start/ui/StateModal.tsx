@@ -4,14 +4,10 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleProp, View, ViewStyle } from 'react-native'
 import { IconButton, Text, useTheme } from 'react-native-paper'
-import { usePaywallManager } from 'shared/di'
-import { PaywallPlacement } from 'shared/lib/adapty'
 import { Button, Modal } from 'shared/ui/styled'
 
 export enum StateModalVariant {
   Generation = 'generation',
-  Premium = 'premium',
-  TopUp = 'top_up',
   Error = 'error',
 }
 
@@ -53,9 +49,7 @@ interface StateModalContentProps {
 function StateModalContent(props: StateModalContentProps) {
   const { variant, onDismiss, dismissable } = props
   const { title, description, button, animation } = useStateContent(variant)
-  const { t } = useTranslation()
   const { colors } = useTheme()
-  const paywallManager = usePaywallManager()
 
   return (
     <>
@@ -75,31 +69,10 @@ function StateModalContent(props: StateModalContentProps) {
           contentStyle="flex-row-reverse"
           className="mt-6"
           onPress={() => {
-            if (variant === StateModalVariant.Premium) {
-              paywallManager.showPaywall(PaywallPlacement.GENERATION_SCREEN)
-            } else if (variant === StateModalVariant.TopUp) {
-              paywallManager.showPaywall(
-                PaywallPlacement.TOP_UP_GENERATION_SCREEN
-              )
-            } else {
-              onDismiss()
-            }
+            onDismiss()
           }}
         >
           {button}
-        </Button>
-      )}
-
-      {variant === StateModalVariant.Premium && (
-        <Button
-          className="absolute top-2 left-2"
-          onPress={() => {
-            paywallManager.showPaywall(
-              PaywallPlacement.TOP_UP_GENERATION_SCREEN
-            )
-          }}
-        >
-          {t('screens.generation.modalPremium.topUp')}
         </Button>
       )}
 
@@ -141,30 +114,6 @@ function useStateContent(variant: StateModalVariant): StateContent {
           source: require('./animations/spell.json'),
           style: { width: 200, height: 200 },
           autoPlay: true,
-        },
-      },
-      [StateModalVariant.Premium]: {
-        title: t('screens.generation.modalPremium.title'),
-        description: t('screens.generation.modalPremium.description'),
-        button: t('screens.generation.modalPremium.button_free'),
-        animation: {
-          source: require('./animations/premium_2.json'),
-          style: { width: 90, height: 90 },
-          autoPlay: true,
-          loop: false,
-          speed: 2,
-        },
-      },
-      [StateModalVariant.TopUp]: {
-        title: t('screens.generation.modalTopUp.title'),
-        description: t('screens.generation.modalTopUp.description'),
-        button: t('screens.generation.modalTopUp.button'),
-        animation: {
-          source: require('./animations/top_up.json'),
-          style: { width: 90, height: 90 },
-          autoPlay: true,
-          loop: false,
-          speed: 2,
         },
       },
       [StateModalVariant.Error]: {

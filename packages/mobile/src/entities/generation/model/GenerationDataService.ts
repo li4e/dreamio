@@ -1,4 +1,3 @@
-import { AccountStore } from 'shared/auth/AccountStore'
 import { api } from 'shared/lib/api'
 import { GenerationRepository } from './db/GenerationRepository'
 import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
@@ -11,13 +10,12 @@ import {
 export class GenerationDataService {
   constructor(
     private store: GenerationStore,
-    private db: GenerationRepository,
-    private accountStore: AccountStore
+    private db: GenerationRepository
   ) {}
 
   getGeneration(id: number): Promise<GenerationEntity> {
     return api.getGeneration(id).then(async (res) => {
-      const generation = mapGenerationDtoToEntity(res.data.generation)
+      const generation = mapGenerationDtoToEntity(res.generation)
       await this.setItem(generation)
       return generation
     })
@@ -29,8 +27,7 @@ export class GenerationDataService {
     return api
       .createGeneration(mapCreateGenerationRequestToDto(data))
       .then(async (res) => {
-        const { generation, userData } = res.data
-        this.accountStore.updateMembership(userData)
+        const { generation } = res
 
         if (generation) {
           const entity = mapGenerationDtoToEntity(generation)

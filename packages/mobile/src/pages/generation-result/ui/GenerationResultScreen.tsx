@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import * as Clipboard from 'expo-clipboard'
 import { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, Image, ScrollView, Platform } from 'react-native'
 import {

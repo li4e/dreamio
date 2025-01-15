@@ -9,18 +9,10 @@ export type HomeTabsNavigatorParamList = {
 }
 
 export type RootStackParamList = {
-  onboarding: undefined
-  sign_in: undefined
   home_tabs: NavigatorScreenParams<HomeTabsNavigatorParamList>
   generation_result: {
     generation: GenerationEntity
   }
-  generations_history: undefined
-  settings: undefined
-  user: {
-    userId: number
-  }
-  post: undefined
   webview: {
     title: string
     url: string

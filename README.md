@@ -1,10 +1,65 @@
-1. Change firebase_project_id in .firebaserc
-2. Install postgress locally with 123456 password
-3. Set all secrets from api/src/confgi/secrets
-   firebase functions:secrets:set SECRET_NAME
-   To a firebase/environment/.secret.local, for local testing
+# Dreamio - AI Art Generator
 
-#Migrate on prod
+![Dreamio Logo](https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958)
 
-1. `cd ~ && ./cloud-sql-proxy dreamio-c6ece:us-central1:dreamiodb`
-2. In another tab: `npx nx run db:migration:apply:PROD`
+## Overview
+
+Dreamio is a free React Native app built following the **Feature-Sliced Design (FSD)** methodology ([learn more](https://feature-sliced.design/)). It generates AI art using the Pollinations API, respects user privacy, collects no data, and is available on the [App Store](https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958).
+
+## Features
+
+- **AI Art Creation**: Generate unique images effortlessly.
+- **Powered by Pollinations**: Leverages [Pollinations API](https://pollinations.ai/) for AI-generated art.
+- **Completely Free**: No in-app purchases or subscriptions.
+- **Privacy First**: No data collection.
+
+## Tech Stack
+
+- **TypeScript**: Strongly typed codebase.
+- **React Native**: Cross-platform mobile framework.
+- **React Native Paper**: Provides a Material Design component library.
+- **MobX**: Efficient state management.
+- **SQLite + TypeORM**: Persistent local data storage.
+- **Axios**: Simplified API requests.
+- **Firebase**: Hosts static files like Terms and Privacy Policy.
+- **NX Monorepo**: Used to manage the codebase, originally designed with a backend and external database.
+
+## Development Notes
+
+Originally designed with subscription features, the app was simplified to focus on free functionality. Some parts of the code may appear over-engineered due to these initial plans.
+
+## Installation
+
+To run locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/dreamio.git
+   cd dreamio
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the app:
+   - For iOS: `npm run ios`
+   - For Android: `npm run android`
+
+## Open Source Purpose
+
+- Demonstrates Feature Slice Design in React Native.
+- Shares knowledge and practices with the community.
+
+## Future Plans
+
+- More customization options.
+- Integration with additional APIs.
+- Community-driven enhancements.
+
+## License
+
+Released under the [MIT License](LICENSE). Contributions are welcome.
+
+## Contact
+
+For feedback or issues, please open an issue or reach out directly.

@@ -10,17 +10,13 @@ import {
   useGenerationDataService,
 } from 'entities/generation'
 import { useGenerationStore } from 'entities/generation'
-import { AccountStore, useAccountStore } from 'shared/auth/AccountStore'
 import { useStoreData } from 'shared/store'
 
 export enum Status {
   NO_GENERATION,
   SUBMITTING,
   IN_PROGRESS,
-  PREMIUM,
   SUCCESS,
-  TOP_UP,
-  READY_TO_RESUBMIT,
   ERROR,
 }
 
@@ -30,10 +26,7 @@ class CurrentGenerationStore {
   private _pending = false
   private _creatingError = false
 
-  constructor(
-    private readonly generationStore: GenerationStore,
-    private readonly accountStore: AccountStore
-  ) {
+  constructor(private readonly generationStore: GenerationStore) {
     makeAutoObservable(this, {}, { autoBind: true })
   }
 
@@ -55,8 +48,6 @@ class CurrentGenerationStore {
   }
 
   get status(): Status {
-    const { credits, hasPremium } = this.accountStore.data.membership
-
     if (this.currentGeneration) {
       const mapEntityStatusToStore: Record<GenerationEntityStatus, Status> = {
         [GenerationEntityStatus.ERROR]: Status.ERROR,
@@ -67,16 +58,8 @@ class CurrentGenerationStore {
       return mapEntityStatusToStore[this.currentGeneration.status]
     } else if (this.pending) {
       return Status.SUBMITTING
-    } else if (this.isSubmitted) {
-      if (credits < 1) {
-        if (hasPremium) {
-          return Status.TOP_UP
-        }
-        return Status.PREMIUM
-      } else if (this.creatingError) {
-        return Status.ERROR
-      }
-      return Status.READY_TO_RESUBMIT
+    } else if (this.isSubmitted && this.creatingError) {
+      return Status.ERROR
     }
     return Status.NO_GENERATION
   }
@@ -88,10 +71,7 @@ class CurrentGenerationStore {
   get pending(): boolean {
     return (
       this._pending ||
-      Boolean(
-        this.currentGeneration &&
-          this.currentGeneration.status === GenerationEntityStatus.IN_PROGRESS
-      )
+      this.currentGeneration?.status === GenerationEntityStatus.IN_PROGRESS
     )
   }
 
@@ -115,10 +95,6 @@ class CurrentGenerationStore {
     return null
   }
 
-  get enoughCredits(): boolean {
-    return this.accountStore.data.membership.credits > 0
-  }
-
   get submittedData() {
     return this._submittedData
   }
@@ -136,19 +112,17 @@ class CurrentGenerationService {
   async submit(data: CreateGenerationRequest) {
     this.curGenstore.onSubmitted(data)
 
-    if (this.curGenstore.enoughCredits) {
-      this.curGenstore.setPending(true)
-      try {
-        const result = await this.genDataService.createGeneration(data)
-        if (result) {
-          this.curGenstore.onCreated(result.id)
-        }
-      } catch (error) {
-        this.curGenstore.setCreatingError(true)
-        throw error
-      } finally {
-        this.curGenstore.setPending(false)
+    this.curGenstore.setPending(true)
+    try {
+      const result = await this.genDataService.createGeneration(data)
+      if (result) {
+        this.curGenstore.onCreated(result.id)
       }
+    } catch (error) {
+      this.curGenstore.setCreatingError(true)
+      throw error
+    } finally {
+      this.curGenstore.setPending(false)
     }
   }
 
@@ -192,11 +166,11 @@ export function useCurrentGeneration(
   onGeneratingFinished: (generation: GenerationEntity) => void
 ) {
   const genStore = useGenerationStore()
-  const accountStore = useAccountStore()
+
   const genDataService = useGenerationDataService()
 
   const curGenStore = useLocalObservable(
-    () => new CurrentGenerationStore(genStore, accountStore)
+    () => new CurrentGenerationStore(genStore)
   )
 
   const curGenService = useState(
@@ -214,13 +188,8 @@ export function useCurrentGeneration(
   useEffect(() => {
     return reaction(
       () => curGenStore.status,
-      (status, prevStatus) => {
-        if (
-          status === Status.READY_TO_RESUBMIT &&
-          [Status.TOP_UP, Status.PREMIUM].includes(prevStatus)
-        ) {
-          curGenService.resubmit()
-        } else if (status === Status.IN_PROGRESS) {
+      (status) => {
+        if (status === Status.IN_PROGRESS) {
           return curGenService.addWorkers()
         } else if (status === Status.SUCCESS && curGenStore.currentGeneration) {
           onGeneratingFinished(curGenStore.currentGeneration)

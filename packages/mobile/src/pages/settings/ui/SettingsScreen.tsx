@@ -5,20 +5,11 @@ import { styled } from 'nativewind'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Linking, ScrollView, View } from 'react-native'
-import {
-  Divider,
-  List,
-  // Switch,
-  // Text,
-  useTheme,
-} from 'react-native-paper'
+import { Divider, List, useTheme } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
-// import { useMemebership } from 'shared/auth/AccountStore'
 import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
-// import { usePaywallManager } from 'shared/di'
-// import { PaywallPlacement } from 'shared/lib/adapty'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
@@ -30,8 +21,6 @@ export function SettingsScreen() {
   const clearAllData = useClearAllData()
   const contactUs = useContactUs()
   const { navigate } = useNavigation()
-  // const paywallManager = usePaywallManager()
-  // const { hasPremium, credits } = useMemebership()
 
   return (
     <View className="flex-1">
@@ -53,53 +42,6 @@ export function SettingsScreen() {
             />
           </View>
           <View className="flex-grow justify-center">
-            {/* <Button
-              className="rounded-full mb-10"
-              icon="crown"
-              mode="contained"
-              contentStyle="py-2"
-              elevation={1}
-              onPress={() => {
-                paywallManager.showPaywall(
-                  hasPremium
-                    ? PaywallPlacement.TOP_UP_SETTINGS_SCREEN
-                    : PaywallPlacement.SETTINGS_SCREEN
-                )
-              }}
-            >
-              {t(
-                hasPremium
-                  ? 'screens.settings.membership.topUp'
-                  : 'screens.settings.membership.subscribe'
-              )}
-            </Button> */}
-
-            {/* <View
-              className="mb-10 rounded-2xl pb-1"
-              style={{ backgroundColor: colors.inverseOnSurface }}
-            >
-              <List.Section>
-                <SubHeader>{t('screens.settings.membership.title')}</SubHeader>
-                <List.Item
-                  title={t('screens.settings.membership.premium.title')}
-                  right={({ color }) => (
-                    <Text variant="labelLarge" style={{ color }}>
-                      {hasPremium
-                        ? t('screens.settings.membership.premium.active')
-                        : t('screens.settings.membership.premium.notActive')}
-                    </Text>
-                  )}
-                />
-                <Divider />
-                <List.Item
-                  title={t('screens.settings.membership.balance')}
-                  right={({ color }) => (
-                    <Text style={{ color }}>{credits}</Text>
-                  )}
-                />
-              </List.Section>
-            </View> */}
-
             {/* <List.Section>
             <SubHeader>{t('screens.settings.user.title')}</SubHeader>
             <List.Item
@@ -145,17 +87,6 @@ export function SettingsScreen() {
                   right={({ color }) => <RightIcon color={color} />}
                 />
                 <Divider />
-                {/* <List.Item
-                  onPress={() => {
-                    navigate('webview', {
-                      title: t('screens.settings.about.subscritpion'),
-                      url: URLS.SUBSCRIPTION,
-                    })
-                  }}
-                  title={t('screens.settings.about.subscritpion')}
-                  right={({ color }) => <RightIcon color={color} />}
-                />
-                <Divider /> */}
                 <List.Item
                   onPress={contactUs}
                   title={t('screens.settings.about.contact')}

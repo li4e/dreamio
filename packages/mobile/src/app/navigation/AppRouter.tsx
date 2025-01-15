@@ -38,7 +38,6 @@ export function AppRouter() {
           name={'generation_result'}
           component={GenerationResultScreen}
         />
-        <RootStack.Screen name={'settings'} component={SettingsScreen} />
         <RootStack.Screen name={'webview'} component={WebViewScreen} />
       </RootStack.Navigator>
     </NavigationContainer>

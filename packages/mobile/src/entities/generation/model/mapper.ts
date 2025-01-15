@@ -1,4 +1,4 @@
-import { CreateGenerationDto, GenerationDto } from './dto'
+import { CreateGenerationDTO, GenerationDTO } from './dto'
 import {
   GenerationEntity,
   GenerationEntityStatus,
@@ -6,7 +6,7 @@ import {
 } from './GenerationEntity'
 
 const statusMapping: Record<
-  GenerationDto['status'],
+  GenerationDTO['status'],
   GenerationEntity['status']
 > = {
   completed: GenerationEntityStatus.SUCCESS,
@@ -15,7 +15,7 @@ const statusMapping: Record<
 }
 
 export function mapGenerationDtoToEntity(
-  generation: GenerationDto
+  generation: GenerationDTO
 ): GenerationEntity {
   return {
     id: generation.id,
@@ -32,10 +32,10 @@ export function mapGenerationDtoToEntity(
 
 export function mapCreateGenerationRequestToDto(
   request: CreateGenerationRequest
-): CreateGenerationDto {
+): CreateGenerationDTO {
   return {
     prompt: request.prompt,
-    style: request.style,
+    style: request.style ?? undefined,
   }
 }
 
@@ -43,6 +43,6 @@ function convertDateToTimestamp(dateString: string): number {
   return new Date(dateString).getTime()
 }
 
-function mapImages(images: { url: string }[]): { url: string }[] {
-  return images.map((image) => ({ url: image.url }))
+function mapImages(images: string[]): { url: string }[] {
+  return images.map((image) => ({ url: image }))
 }

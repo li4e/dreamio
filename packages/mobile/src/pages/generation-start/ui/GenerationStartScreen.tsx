@@ -34,7 +34,7 @@ export function GenerationStartScreen() {
         .object({
           prompt: yup
             .string()
-            .min(3, ({ min }) =>
+            .min(10, ({ min }) =>
               t('screens.generation.promptValidationErrors.minLength', { min })
             )
             .max(500, ({ max }) =>
@@ -181,13 +181,7 @@ export function GenerationStartScreen() {
 function mapCurGenStatusToModalState(
   status: CurGenStatus
 ): StateModalVariant | null {
-  if ([CurGenStatus.PREMIUM].includes(status)) {
-    return StateModalVariant.Premium
-  } else if ([CurGenStatus.TOP_UP].includes(status)) {
-    return StateModalVariant.TopUp
-  } else if (
-    [CurGenStatus.IN_PROGRESS, CurGenStatus.READY_TO_RESUBMIT].includes(status)
-  ) {
+  if ([CurGenStatus.IN_PROGRESS].includes(status)) {
     return StateModalVariant.Generation
   } else if ([CurGenStatus.ERROR].includes(status)) {
     return StateModalVariant.Error
@@ -209,7 +203,7 @@ function RandomButton(props: RandomButtonProps) {
   const onPress = async () => {
     setPending(true)
     try {
-      const result = await api.generatePrompt().then((res) => res.data)
+      const result = await api.generatePrompt()
       onCreated(result.prompt)
     } catch {
       showSnackbar(
