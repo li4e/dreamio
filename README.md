@@ -25,6 +25,8 @@ The source code for the mobile application is located in the packages/mobile dir
 - **Axios**: Simplified API requests.
 - **Firebase**: Hosts static files like Terms and Privacy Policy.
 - **NX Monorepo**: Used to manage the codebase, originally designed with a backend and external database.
+- **i18next**: Strongly typed localization strings, based on the base en dictionary.
+- **Google Translate API**: Utilized for translating prompts into English before sending them for art generation.
 
 ## Development Notes
 
