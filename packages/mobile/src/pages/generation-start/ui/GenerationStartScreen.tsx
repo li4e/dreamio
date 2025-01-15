@@ -117,9 +117,7 @@ export function GenerationStartScreen() {
                         multiline
                         mode="flat"
                         className="min-h-[120] pr-5"
-                        placeholder={t(
-                          'screens.generation.inputPlaceholderFree'
-                        )}
+                        placeholder={t('screens.generation.inputPlaceholder')}
                         onBlur={onBlur}
                         onChangeText={onChange}
                         value={value}

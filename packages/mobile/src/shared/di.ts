@@ -11,7 +11,3 @@ export function useDI() {
 
   return di
 }
-
-export function usePaywallManager() {
-  return useDI().paywalls
-}

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useGenerationRepository } from './db/useGenerationDB'
-import { GenerationDataService } from './GenerationDataService'
+import { useGenerationRepository } from '../db/useGenerationDB'
+import { GenerationDataService } from '../GenerationDataService'
 import { useGenerationStore } from './useGenerationStore'
 
 export function useGenerationDataService() {

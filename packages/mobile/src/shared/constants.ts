@@ -4,5 +4,4 @@ export const APP_NAME = 'Dreamio'
 export const URLS = Object.freeze({
   PRIVACY: 'https://dreamio.ilsur.me/privacy.html',
   TERMS: 'https://dreamio.ilsur.me/terms.html',
-  SUBSCRIPTION: 'https://dreamio.ilsur.me/subscription.html',
 })
