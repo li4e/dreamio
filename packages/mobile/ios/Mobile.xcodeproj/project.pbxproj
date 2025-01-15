@@ -33,6 +33,7 @@
 		701DC0622D3816210089AFF9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hant"; path = "zh-Hant.lproj/Info.plist"; sourceTree = "<group>"; };
 		701DC0632D3816310089AFF9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/Info.plist; sourceTree = "<group>"; };
 		701DC0642D3816420089AFF9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = uk; path = uk.lproj/Info.plist; sourceTree = "<group>"; };
+		701DC0652D3819890089AFF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9275B194C7411BAA2D177372 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 				701DC0622D3816210089AFF9 /* zh-Hant */,
 				701DC0632D3816310089AFF9 /* ru */,
 				701DC0642D3816420089AFF9 /* uk */,
+				701DC0652D3819890089AFF9 /* en */,
 			);
 			name = Info.plist;
 			path = Mobile;
