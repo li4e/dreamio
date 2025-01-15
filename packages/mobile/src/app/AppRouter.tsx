@@ -15,7 +15,7 @@ import { GenerationStartScreen } from 'pages/generation-start'
 import { HistoryScreen } from 'pages/history'
 import { SettingsScreen } from 'pages/settings'
 import { WebViewScreen } from 'pages/WebView'
-import { theme } from '../ui/customTheme'
+import { theme } from './ui/customTheme'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()

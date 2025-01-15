@@ -14,7 +14,6 @@ import {
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { GenerationEntity } from 'entities/generation'
-import { api } from 'shared/lib/api'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { ScrollView, Button } from 'shared/ui/styled'
 import {
@@ -201,8 +200,9 @@ function RandomButton(props: RandomButtonProps) {
   const onPress = async () => {
     setPending(true)
     try {
-      const result = await api.generatePrompt()
-      onCreated(result.prompt)
+      const prompt =
+        'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere'
+      onCreated(prompt)
     } catch {
       showSnackbar(
         {

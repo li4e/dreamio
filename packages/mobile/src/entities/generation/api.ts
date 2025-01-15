@@ -1,4 +1,4 @@
-import { ImageCache } from '../ui/CachedImage'
+import { ImageCache } from 'shared/ui/CachedImage'
 
 export enum GenerationStatusDTO {
   Processing = 'processing',
@@ -24,13 +24,6 @@ export interface StartGenerationBodyDTO {
 
 export class Api {
   private readonly data = new Map<number, GenerationDTO>()
-
-  generatePrompt = async (): Promise<{ prompt: string }> => {
-    return {
-      prompt:
-        'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere',
-    }
-  }
   getGeneration = async (
     id: number
   ): Promise<{ generation: GenerationDTO }> => {

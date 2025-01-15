@@ -1,4 +1,4 @@
-import { api } from 'shared/lib/api'
+import { api } from '../api'
 import { GenerationRepository } from './db/GenerationRepository'
 import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
 import { GenerationStore } from './GenerationStore'

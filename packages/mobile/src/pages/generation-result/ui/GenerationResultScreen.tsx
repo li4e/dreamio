@@ -227,7 +227,7 @@ async function shareImage(url: string) {
       url: localPath,
     })
   } catch (error) {
-    console.log('Error sharing image:', error)
+    console.error('Error sharing image:', error)
   }
 }
 
@@ -241,6 +241,6 @@ async function saveImage(url: string) {
       saveToFiles: true,
     })
   } catch (error) {
-    console.log('Error saving image:', error)
+    console.error('Error saving image:', error)
   }
 }

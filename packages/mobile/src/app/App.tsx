@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { enableFreeze } from 'react-native-screens'
-import { AppRouter } from './navigation/AppRouter'
+import { AppRouter } from './AppRouter'
 import { Providers } from './Providers'
 
 import './lib/gesture-handler'

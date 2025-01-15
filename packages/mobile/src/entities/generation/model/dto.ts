@@ -1,2 +1,2 @@
-export { GenerationDTO } from 'shared/lib/api'
-export { StartGenerationBodyDTO as CreateGenerationDTO } from 'shared/lib/api'
+export { GenerationDTO } from '../api'
+export { StartGenerationBodyDTO as CreateGenerationDTO } from '../api'
