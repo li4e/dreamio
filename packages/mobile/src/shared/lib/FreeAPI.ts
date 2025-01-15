@@ -10,7 +10,7 @@ import {
 } from '@choco/api-client'
 import { ImageCache } from '../ui/CachedImage'
 
-export class CustomAPI {
+export class FreeAPI {
   private readonly data = new Map<number, IGeneration>()
 
   generatePrompt = async (): Promise<{ data: GeneratePrompt200Response }> => {

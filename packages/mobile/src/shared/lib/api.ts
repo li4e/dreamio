@@ -6,8 +6,8 @@ import {
 import axios from 'axios'
 // import { HOST_DEV } from '../constants'
 // import { IS_LOCAL_DEV } from '../constants'
-import { CustomAPI } from './customAPI'
 import { firebaseAuth } from './firebase'
+import { FreeAPI } from './FreeAPI'
 
 // let host = `https://dreamio.ilsur.me`
 // if (IS_LOCAL_DEV) {
@@ -29,6 +29,6 @@ axiosInstance.interceptors.request.use(async function (requestConfig) {
 })
 
 // export const api = new DefaultApi(config, baseUrl, axiosInstance)
-export const api = new CustomAPI()
+export const api = new FreeAPI()
 
 export type GenerationDto = GetGeneration200Response['generation']
