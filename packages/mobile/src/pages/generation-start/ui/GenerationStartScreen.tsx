@@ -67,17 +67,20 @@ export function GenerationStartScreen() {
     [navigate, resetForm]
   )
 
-  const curGen = useCurrentGeneration(handleFinish)
+  const curGen = useCurrentGeneration()
 
   const { submitCount, isValid } = useFormState({ control })
   const isDisabled = curGen.state.isPending || (submitCount > 0 && !isValid)
 
   const modalState = mapCurGenStatusToModalState(curGen.state.status)
 
-  const handleStartPress = (form: { prompt: string; style: string | null }) => {
-    Keyboard.dismiss()
-    curGen.submit(form)
-  }
+  const handleStartPress = useCallback(
+    (form: { prompt: string; style: string | null }) => {
+      Keyboard.dismiss()
+      curGen.submit(form, handleFinish)
+    },
+    [curGen, handleFinish]
+  )
 
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">

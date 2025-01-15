@@ -21,20 +21,15 @@ export class GenerationDataService {
     })
   }
 
-  createGeneration(
-    data: CreateGenerationRequest
-  ): Promise<GenerationEntity | null> {
+  createGeneration(data: CreateGenerationRequest): Promise<GenerationEntity> {
     return api
       .createGeneration(mapCreateGenerationRequestToDto(data))
       .then(async (res) => {
         const { generation } = res
 
-        if (generation) {
-          const entity = mapGenerationDtoToEntity(generation)
-          await this.setItem(entity)
-          return entity
-        }
-        return null
+        const entity = mapGenerationDtoToEntity(generation)
+        await this.setItem(entity)
+        return entity
       })
   }
 
