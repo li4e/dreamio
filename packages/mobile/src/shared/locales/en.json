@@ -20,7 +20,6 @@
       "title": "Start Creating",
       "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
-      "inputPlaceholderFree": "What would you like to see? Describe every detail on english...",
       "styleLabel": "Choose Your Style:",
       "surpriseButton": "Inspire",
       "startButton": "Start Magic",
@@ -34,18 +33,6 @@
         "description": "Something went wrong during the magic process. Please try again.",
         "button": "Continue"
       },
-      "modalTopUp": {
-        "title": "Insufficient Tokens",
-        "description": "Not enough tokens to start the magic. Please top up.",
-        "button": "Top Up Now"
-      },
-      "modalPremium": {
-        "title": "Insufficient Tokens",
-        "description": "Subscribe now to get tokens, create amazing artwork, and unlock all premium features.",
-        "button_free": "Try for Free",
-        "button": "Subscribe Now",
-        "topUp": "Top Up"
-      },
       "modalGeneration": {
         "title": "Magic in Progress",
         "description": "This usually takes about 15 seconds..."
@@ -53,19 +40,6 @@
     },
     "settings": {
       "title": "Settings",
-      "membership": {
-        "title": "Membership",
-        "premium": {
-          "title": "Premium",
-          "active": "Active",
-          "notActive": "Not Active"
-        },
-        "restore": "Restore",
-        "balance": "Credits Balance",
-        "balanceDescription": "These credits are using to generation images",
-        "topUp": "Top Up",
-        "subscribe": "Get Premium"
-      },
       "user": {
         "title": "User Settings",
         "darkMode": "Dark Mode",
@@ -75,7 +49,6 @@
         "title": "About App",
         "privacy": "Privacy Policy",
         "terms": "Terms & Conditions",
-        "subscritpion": "Subscription Terms",
         "contact": "Contact Us"
       },
       "clear": {
