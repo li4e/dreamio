@@ -4,14 +4,9 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "/api/v1{,/**}",
-        "function": {
-          "functionId": "api"
-        }
-      },
-      {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/404.html",
+        "type": 404
       }
     ]
   }

@@ -1,51 +1,52 @@
 /* Base styles for the body and container */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #333;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
 }
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 /* Heading styles */
-h1, h2, h3 {
-    color: #6200ea; /* Purple color */
-    margin-top: 0;
+h1,
+h2,
+h3 {
+  color: #6200ea; /* Purple color */
+  margin-top: 0;
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 22px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* Paragraph and list styles */
 p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 ul {
-    margin: 10px 0;
-    padding-left: 20px;
+  margin: 10px 0;
+  padding-left: 20px;
 }
 
 li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-
 a {
-    color: #6200ea; /* Purple color */
+  color: #6200ea; /* Purple color */
 }
