@@ -1,6 +1,6 @@
 # Dreamio - AI Art Generator
 
-![Dreamio Logo](https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958)
+![Dreamio Logo](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/64/1b/0f641b90-f06c-7e65-9cc9-1982f3de820d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/135x135bb.png)
 
 ## Overview
 
@@ -34,16 +34,15 @@ To run locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/dreamio.git
+   git clone git@github.com:li4e/dreamio.git
    cd dreamio
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the app:
-   - For iOS: `npm run ios`
-   - For Android: `npm run android`
+3. Start the bundler:
+   - Start: `npx nx run mobile:start`
 
 ## Open Source Purpose
 
