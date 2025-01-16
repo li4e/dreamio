@@ -13,6 +13,7 @@
 		2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D2EEE98D34B4938BBF090F2 /* MaterialCommunityIcons.ttf */; };
 		5D7C932EA6934339195EF445 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */; };
 		7037846A2D3903B1007F0F44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 703784692D3903B1007F0F44 /* Info.plist */; };
+		703784732D390640007F0F44 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 703784722D390640007F0F44 /* InfoPlist.xcstrings */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
 		FB3BDD7D76514DD2760538AD /* Pods_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275B194C7411BAA2D177372 /* Pods_Mobile.framework */; };
@@ -30,6 +31,7 @@
 		6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Mobile/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		701DC05B2D3811B30089AFF9 /* Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Mobile.entitlements; path = Mobile/Mobile.entitlements; sourceTree = "<group>"; };
 		703784692D3903B1007F0F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		703784722D390640007F0F44 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9275B194C7411BAA2D177372 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		13B07FAE1A68108700A75B9A /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				703784722D390640007F0F44 /* InfoPlist.xcstrings */,
 				703784692D3903B1007F0F44 /* Info.plist */,
 				701DC05B2D3811B30089AFF9 /* Mobile.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703784732D390640007F0F44 /* InfoPlist.xcstrings in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */,
