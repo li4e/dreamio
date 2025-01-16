@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { FlatList, View } from 'react-native'
+import { FlatList, View, Image, StyleSheet } from 'react-native'
 import {
   ActivityIndicator,
   Appbar,
@@ -12,7 +12,6 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { twMerge } from 'tailwind-merge'
 import { GenerationEntity } from 'entities/generation'
-import { CachedImage } from 'shared/ui/CachedImage'
 import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
 
@@ -34,25 +33,46 @@ export function HistoryScreen() {
       ) : (
         <FlatList<GenerationEntity>
           className="flex-1"
-          contentContainerStyle={{
-            flexGrow: 1,
-            paddingBottom: insets.bottom,
-          }}
+          contentContainerStyle={[
+            styles.contentContainer,
+            {
+              paddingBottom: insets.bottom,
+            },
+          ]}
           data={history}
-          renderItem={({ item, index }) => (
-            <HistoryItem
-              firstRow={index <= 1}
-              generation={item}
-              even={index % 2 === 0}
-            />
-          )}
+          renderItem={renderItem}
           ListEmptyComponent={<EmpyState />}
           ListFooterComponent={!isEmpty ? <ListFooter /> : null}
-          ListFooterComponentStyle={{ flexGrow: 1 }}
+          ListFooterComponentStyle={styles.listFooter}
           numColumns={2}
         />
       )}
     </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    flexGrow: 1,
+  },
+  listFooter: {
+    flexGrow: 1,
+  },
+})
+
+function renderItem({
+  item,
+  index,
+}: {
+  item: GenerationEntity
+  index: number
+}) {
+  return (
+    <HistoryItem
+      firstRow={index <= 1}
+      generation={item}
+      even={index % 2 === 0}
+    />
   )
 }
 
@@ -78,10 +98,7 @@ function HistoryItem(props: {
         }
         className="flex-1"
       >
-        <CachedImage
-          className="flex-1"
-          source={{ uri: generation.images[0] }}
-        />
+        <Image className="flex-1" source={{ uri: generation.images[0] }} />
       </TouchableRipple>
     </View>
   )

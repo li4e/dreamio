@@ -22,7 +22,6 @@ import {
   GenerationEntityStatus,
   useGenerationDataService,
 } from 'entities/generation'
-import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
 import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
@@ -53,7 +52,7 @@ export function GenerationResultScreen(
               paddingBottom: insets.bottom + 70,
             }}
           >
-            <CachedImage
+            <Image
               source={{ uri: generation.images[0] }}
               className="w-full aspect-square"
             />
@@ -221,10 +220,9 @@ function useOnCopy(generation: GenerationEntity) {
 }
 
 async function shareImage(url: string) {
-  const localPath = await new ImageCache(url).download()
   try {
     await Share.open({
-      url: localPath,
+      url,
     })
   } catch (error) {
     console.error('Error sharing image:', error)
@@ -233,10 +231,8 @@ async function shareImage(url: string) {
 
 async function saveImage(url: string) {
   try {
-    const localPath = await new ImageCache(url).download()
-    Image.resolveAssetSource({ uri: url })
     await Share.open({
-      url: localPath,
+      url,
       type: 'image/jpeg',
       saveToFiles: true,
     })
