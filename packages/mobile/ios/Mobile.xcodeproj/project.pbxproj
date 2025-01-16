@@ -12,7 +12,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D2EEE98D34B4938BBF090F2 /* MaterialCommunityIcons.ttf */; };
 		5D7C932EA6934339195EF445 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */; };
-		7037846A2D3903B1007F0F44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 703784692D3903B1007F0F44 /* Info.plist */; };
 		703784732D390640007F0F44 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 703784722D390640007F0F44 /* InfoPlist.xcstrings */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
@@ -207,7 +206,6 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */,
-				7037846A2D3903B1007F0F44 /* Info.plist in Resources */,
 				2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
