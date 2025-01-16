@@ -25,10 +25,11 @@ export class ImageCache {
         path: this.localFilePath,
       })
         .fetch('GET', this.url)
-        .then((response) => {
+        .then(async (response) => {
           const statusCode = response.info().status
 
           if (statusCode !== 200) {
+            await ImageCache.clearCache(this.localFilePath)
             throw new Error('Unable to generate image')
           }
         })

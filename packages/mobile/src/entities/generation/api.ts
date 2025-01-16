@@ -35,9 +35,9 @@ export class Api {
     }
 
     const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true`
+    const cache = new ImageCache(imageUrl)
 
     try {
-      const cache = new ImageCache(imageUrl)
       await cache.download()
 
       generation.status = GenerationStatusDTO.Completed
@@ -46,9 +46,9 @@ export class Api {
     } catch (err) {
       generation.status = GenerationStatusDTO.Error
       throw err
+    } finally {
+      this.data.delete(id)
     }
-
-    this.data.delete(id)
 
     return {
       generation,
