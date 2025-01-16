@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>NSUserNotificationsUsageDescription</key>
-	<string>您是否希望接收通知，以便随时了解新帖子、点赞、评论以及您的创作完成情况？</string>
-</dict>
-</plist>

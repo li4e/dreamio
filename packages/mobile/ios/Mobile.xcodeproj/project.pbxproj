@@ -12,6 +12,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D2EEE98D34B4938BBF090F2 /* MaterialCommunityIcons.ttf */; };
 		5D7C932EA6934339195EF445 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */; };
+		7037846A2D3903B1007F0F44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 703784692D3903B1007F0F44 /* Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */; };
 		FB3BDD7D76514DD2760538AD /* Pods_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9275B194C7411BAA2D177372 /* Pods_Mobile.framework */; };
@@ -28,12 +29,7 @@
 		5709B34CF0A7D63546082F79 /* Pods-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile.release.xcconfig"; path = "Target Support Files/Pods-Mobile/Pods-Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		6C0A9C84153321476EFF523E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Mobile/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		701DC05B2D3811B30089AFF9 /* Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Mobile.entitlements; path = Mobile/Mobile.entitlements; sourceTree = "<group>"; };
-		701DC0602D3816040089AFF9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
-		701DC0612D3816170089AFF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
-		701DC0622D3816210089AFF9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hant"; path = "zh-Hant.lproj/Info.plist"; sourceTree = "<group>"; };
-		701DC0632D3816310089AFF9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/Info.plist; sourceTree = "<group>"; };
-		701DC0642D3816420089AFF9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = uk; path = uk.lproj/Info.plist; sourceTree = "<group>"; };
-		701DC0652D3819890089AFF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		703784692D3903B1007F0F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9275B194C7411BAA2D177372 /* Pods_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -55,11 +51,11 @@
 		13B07FAE1A68108700A75B9A /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				703784692D3903B1007F0F44 /* Info.plist */,
 				701DC05B2D3811B30089AFF9 /* Mobile.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				701DC05F2D3815D20089AFF9 /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				B7919CF2E4DF225882EC6C11 /* PrivacyInfo.xcprivacy */,
@@ -184,7 +180,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				ru,
 				uk,
 				"zh-Hans",
@@ -208,6 +203,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				E0BFAB457FD7EABB84D0307C /* PrivacyInfo.xcprivacy in Resources */,
+				7037846A2D3903B1007F0F44 /* Info.plist in Resources */,
 				2BD4BBD31BB74C049E30C959 /* MaterialCommunityIcons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,23 +317,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		701DC05F2D3815D20089AFF9 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				701DC0602D3816040089AFF9 /* zh-Hans */,
-				701DC0612D3816170089AFF9 /* Base */,
-				701DC0622D3816210089AFF9 /* zh-Hant */,
-				701DC0632D3816310089AFF9 /* ru */,
-				701DC0642D3816420089AFF9 /* uk */,
-				701DC0652D3819890089AFF9 /* en */,
-			);
-			name = Info.plist;
-			path = Mobile;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -349,7 +328,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BP325735U9;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Mobile/Base.lproj/Info.plist;
+				INFOPLIST_FILE = Mobile/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,7 +358,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mobile/Mobile.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BP325735U9;
-				INFOPLIST_FILE = Mobile/Base.lproj/Info.plist;
+				INFOPLIST_FILE = Mobile/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
