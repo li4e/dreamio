@@ -2,18 +2,18 @@
   "expo": {
     "name": "AI Art Gen",
     "slug": "mobile",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "backgroundColor": "#ffffff",
     "splash": {
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "backgroundColor": "#ffffff",
-      "buildNumber": "4",
+      "buildNumber": "1",
       "supportsTablet": false,
       "infoPlist": {
         "CFBundleAllowMixedLocalizations": true,
@@ -30,6 +30,7 @@
       }
     },
     "android": {
+      "backgroundColor": "#ffffff",
       "splash": {
         "image": "./assets/icon.png"
       },
