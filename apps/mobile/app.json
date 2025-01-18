@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "AI Art Gen",
+    "slug": "mobile",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "backgroundColor": "#ffffff",
+      "buildNumber": "4",
+      "supportsTablet": false,
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true,
+        "LSApplicationQueriesSchemes": [
+          "fb",
+          "instagram",
+          "twitter",
+          "tiktoksharesdk"
+        ]
+      },
+      "bundleIdentifier": "me.ilsur.aidreamio",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "splash": {
+        "image": "./assets/icon.png"
+      },
+      "versionCode": "1",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "me.ilsur.aidreamio"
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      "expo-localization",
+      [
+        "react-native-share",
+        {
+          "ios": ["fb", "instagram", "twitter", "tiktoksharesdk"],
+          "android": [
+            "com.facebook.katana",
+            "com.instagram.android",
+            "com.twitter.android",
+            "com.zhiliaoapp.musically"
+          ]
+        }
+      ]
+    ],
+    "locales": {
+      "en": "./src/shared/locales/en.json",
+      "ru": "./src/shared/locales/ru.json",
+      "uk": "./src/shared/locales/uk.json",
+      "zh-Hans": "./src/shared/locales/zh-Hans.json",
+      "zh-Hant": "./src/shared/locales/zh-Hant.json"
+    }
+  }
+}

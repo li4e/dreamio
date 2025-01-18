@@ -1,0 +1,101 @@
+{
+  "components": {
+    "appBar": {
+      "back": "Back"
+    },
+    "tabBar": {
+      "history": "History",
+      "generation": "Create",
+      "settings": "Settings"
+    },
+    "snackBar": {
+      "generalError": {
+        "title": "Ooops! ",
+        "description": "Something went wrong, try again later"
+      }
+    }
+  },
+  "screens": {
+    "generation": {
+      "title": "Start Creating",
+      "inputLabel": "Your Idea:",
+      "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
+      "styleLabel": "Choose Your Style:",
+      "surpriseButton": "Inspire",
+      "startButton": "Start Magic",
+      "promptValidationErrors": {
+        "minLength": "The prompt must be at least {{min}} characters long",
+        "maxLength": "The prompt must be shorter than {{max}} characters",
+        "required": "Prompt is required"
+      },
+      "modalError": {
+        "title": "Oops!",
+        "description": "Something went wrong during the magic process. Please try again.",
+        "button": "Continue"
+      },
+      "modalGeneration": {
+        "title": "Magic in Progress",
+        "description": "This usually takes about 15 seconds..."
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "user": {
+        "title": "User Settings",
+        "darkMode": "Dark Mode",
+        "language": "Language"
+      },
+      "about": {
+        "title": "About App",
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions",
+        "contact": "Contact Us"
+      },
+      "clear": {
+        "button": "Clear All User Data",
+        "deleted": "All User data deleted successfully",
+        "dialog": {
+          "title": "Clear All User Data?",
+          "description": "This action will permanently delete all user data and cannot be undone. Are you sure you want to proceed?",
+          "confirm": "Clear",
+          "cancel": "Cancel"
+        }
+      },
+      "contactUsError": {
+        "title": "Unable to Open Email App",
+        "description": "Our email is: {{address}}"
+      }
+    },
+    "generationResult": {
+      "title": "Result",
+      "saveButton": "Save",
+      "copyButton": "Copy Prompt",
+      "deleteButton": "Delete",
+      "shareButton": "Share",
+      "promptLabel": "Your Input",
+      "promtCopied": "Prompt has been copied successfully",
+      "deleted": "Generation has been deleted",
+      "undo": "Undo",
+      "deleteDialog": {
+        "title": "Are you sure?",
+        "description": "This action will permanently delete the generated image and cannot be undone. Are you sure you want to proceed?",
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      }
+    },
+    "history": {
+      "title": "Art Works",
+      "empty": {
+        "title": "Nothing Here Yet...",
+        "description": "You haven't created any artwork yet. Start generating to see it appear here.",
+        "button": "Create"
+      },
+      "end": {
+        "title": "That's Everything So Far",
+        "description": "But there's always room for more creativity. Ready to make something new?",
+        "button": "Create"
+      }
+    }
+  },
+  "NSUserNotificationsUsageDescription": "Would you like to receive notifications to stay updated on new posts, likes, comments, and when your creations are ready?"
+}

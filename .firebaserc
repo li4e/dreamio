@@ -1,7 +1,5 @@
 {
   "projects": {
-    "production": "dreamio-c6ece"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "dreamio-c6ece"
+  }
 }
