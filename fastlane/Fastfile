@@ -1,0 +1,39 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+api_key = app_store_connect_api_key(
+  key_id: ENV["APPLE_API_KEY_ID"],
+  issuer_id: ENV["APPLE_API_KEY_ISSUER_ID"],
+  key_filepath: ENV["APPLE_API_KEY_FILEPATH"],
+)
+
+# api_key = app_store_connect_api_key(
+#   key_id: "LC75WC55N3",
+#   issuer_id: "8b57e2c1-c07c-481f-8de0-3037475643ad",
+#   key_filepath: "~/keys/AuthKey_LC75WC55N3.p8",
+# )
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    match(type: "appstore")
+    build_app(workspace: "apps/mobile/ios/#{ENV['APP_NAME']}.xcworkspace", scheme: ENV["IOS_SCHEME_NAME"], output_directory: "./fastlane/build")
+    upload_to_testflight(
+      api_key: api_key
+    )
+  end
+end

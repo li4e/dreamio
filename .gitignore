@@ -6,3 +6,10 @@ apps/mobile/android
 .firebase/
 
 .DS_Store
+
+fastlane/build
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/README.md
+
+.env
