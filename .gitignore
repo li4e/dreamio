@@ -4,3 +4,5 @@ apps/mobile/ios
 apps/mobile/android
 
 .firebase/
+
+.DS_Store
