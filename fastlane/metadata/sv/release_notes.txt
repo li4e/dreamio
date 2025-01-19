@@ -1,1 +1,3 @@
-Prestandan har förbättrats och mindre buggar har åtgärdats.
+— Förbättrad Prestanda: Vi har optimerat appen för snabbare och smidigare drift.  
+— Buggfixar: Mindre problem har åtgärdats för en mer pålitlig upplevelse.  
+— Global Språkstöd: Appen stödjer nu de flesta världsspråk, vilket gör den tillgänglig för en bredare publik.

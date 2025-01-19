@@ -1,1 +1,3 @@
-Performanța a fost îmbunătățită, iar erorile minore au fost corectate.
+— Performanță Îmbunătățită: Am optimizat aplicația pentru o operare mai rapidă și mai fluidă.  
+— Repararea Erorilor: Problemele minore au fost rezolvate pentru o experiență mai fiabilă.  
+— Suport Lingvistic Global: Aplicația sprijină acum majoritatea limbilor din lume, făcând-o accesibilă unui public mai larg.

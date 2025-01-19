@@ -54,6 +54,5 @@
   "screens.history.empty.button": "생성하다",
   "screens.history.end.title": "지금까지의 모든 내용입니다.",
   "screens.history.end.description": "하지만 언제나 더 많은 창의성을 발휘할 공간이 있습니다. 새로운 것을 만들 준비가 되셨나요?",
-  "screens.history.end.button": "생성하기",
-  "NSUserNotificationsUsageDescription": "새로운 게시물, 좋아요, 댓글 및 귀하의 창작물이 준비되었을 때 알림을 받아보시겠습니까?"
+  "screens.history.end.button": "생성하기"
 }

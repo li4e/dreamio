@@ -54,6 +54,5 @@
   "screens.history.empty.button": "إنشاء",
   "screens.history.end.title": "هذا كل شيء حتى الآن",
   "screens.history.end.description": "لكن دائماً هناك متسع للمزيد من الإبداع. هل أنتم مستعدون لصنع شيء جديد؟",
-  "screens.history.end.button": "إنشاء",
-  "NSUserNotificationsUsageDescription": "هل تود الحصول على إشعارات لتبقى على اطلاع بأحدث المنشورات والإعجابات والتعليقات، وعندما تكون إبداعاتك جاهزة؟"
+  "screens.history.end.button": "إنشاء"
 }

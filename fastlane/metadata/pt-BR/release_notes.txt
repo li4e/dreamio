@@ -1,1 +1,3 @@
-A performance foi aprimorada e pequenos bugs foram corrigidos.
+— Desempenho Aprimorado: Otimizamos o aplicativo para uma operação mais rápida e fluida.  
+— Correções de Bugs: Problemas menores foram resolvidos para uma experiência mais confiável.  
+— Suporte a Idiomas Globais: O aplicativo agora suporta a maioria dos idiomas do mundo, tornando-o acessível a um público mais amplo.

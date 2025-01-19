@@ -54,6 +54,5 @@
   "screens.history.empty.button": "צור",
   "screens.history.end.title": "זה הכל עד כה",
   "screens.history.end.description": "אבל תמיד יש מקום ליותר יצירתיות. מוכן ליצור משהו חדש?",
-  "screens.history.end.button": "צור",
-  "NSUserNotificationsUsageDescription": "האם תרצה לקבל התראות כדי להישאר מעודכן על פוסטים חדשים, לייקים, תגובות וכשיצירות שלך מוכנות?"
+  "screens.history.end.button": "צור"
 }

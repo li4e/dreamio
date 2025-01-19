@@ -1,1 +1,3 @@
-Výkon bol vylepšený a opravené boli drobné chyby.
+— Vylepšený výkon: Optimalizovali sme aplikáciu pre rýchlejší a plynulejší chod.  
+— Opravy chýb: Menšie problémy boli vyriešené pre spoľahlivejší zážitok.  
+— Podpora globálnych jazykov: Aplikácia teraz podporuje väčšinu svetových jazykov, čo ju robí prístupnejšou pre širšie publikum.

@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Opprett",
   "screens.history.end.title": "Det er alt så langt",
   "screens.history.end.description": "Men det er alltid plass for mer kreativitet. Klar til å skape noe nytt?",
-  "screens.history.end.button": "Opprett",
-  "NSUserNotificationsUsageDescription": "Vil du motta varsler for å holde deg oppdatert om nye innlegg, likerklikk, kommentarer og når dine kreasjoner er klare?"
+  "screens.history.end.button": "Opprett"
 }

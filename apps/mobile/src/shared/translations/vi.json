@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Tạo ra",
   "screens.history.end.title": "Đó là tất cả cho đến nay.",
   "screens.history.end.description": "Nhưng luôn có chỗ cho sự sáng tạo hơn nữa. Bạn đã sẵn sàng để tạo ra điều gì đó mới mẻ chưa?",
-  "screens.history.end.button": "Tạo mới",
-  "NSUserNotificationsUsageDescription": "Bạn có muốn nhận thông báo để cập nhật về các bài viết mới, lượt thích, bình luận và khi những tác phẩm của bạn đã sẵn sàng không?"
+  "screens.history.end.button": "Tạo mới"
 }

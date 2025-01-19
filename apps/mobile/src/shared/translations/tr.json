@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Oluştur",
   "screens.history.end.title": "Bu Şimdilik Her Şey",
   "screens.history.end.description": "Ama her zaman daha fazla yaratıcılık için yer vardır. Yeni bir şey yapmaya hazır mısın?",
-  "screens.history.end.button": "Oluştur",
-  "NSUserNotificationsUsageDescription": "Yeni gönderiler, beğeniler, yorumlar ve yarattıklarınız hazır olduğunda güncellemeler almak için bildirim almak ister misiniz?"
+  "screens.history.end.button": "Oluştur"
 }

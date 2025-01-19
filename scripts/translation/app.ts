@@ -13,7 +13,7 @@ async function loadHashes(
 ): Promise<Record<string, { original: string; translations: string[] }>> {
   try {
     const data = await fs.readFile(hashesFile, "utf-8");
-    return JSON.parse(data);
+    return JSON.parse(data.trim());
   } catch (error) {
     return {};
   }
@@ -22,7 +22,7 @@ async function loadHashes(
 async function loadTranslation(path: string): Promise<Record<string, string>> {
   try {
     const data = await fs.readFile(path, "utf-8");
-    return JSON.parse(data);
+    return JSON.parse(data.trim());
   } catch (error) {
     return {};
   }
@@ -83,8 +83,8 @@ async function translateText(
 // Main function for translating metadata
 async function translateApp(
   destLang: string,
-  sourceLang: string = "en-US",
-  translationsFolder: string = "apps/mobile/src/shared/translations"
+  translationsFolder: string,
+  sourceLang: string = "en-US"
 ) {
   const inputFile = path.resolve(translationsFolder, `${sourceLang}.json`); // Directory for source files
   const outputFile = path.resolve(translationsFolder, `${destLang}.json`); // Directory for translated files
@@ -109,7 +109,9 @@ async function translateApp(
         if (existingHashes) {
           // If the value has changed, reset the list of translated locales
           if (existingHashes.original !== value) {
+            console.log(existingHashes.original, value);
             console.log(`Value has changed, resetting translations for ${key}`);
+            existingHashes.original = value;
             existingHashes.translations = [];
           }
 
@@ -176,7 +178,8 @@ async function translateApp(
 
 async function run() {
   for (const locale of locales) {
-    await translateApp(locale);
+    await translateApp(locale, "apps/mobile/src/shared/translations");
+    await translateApp(locale, "apps/mobile/src/shared/translations_native");
   }
 }
 

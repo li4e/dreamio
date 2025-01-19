@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Vytvoriť",
   "screens.history.end.title": "To je zatiaľ všetko.",
   "screens.history.end.description": "Ale vždy je priestor pre viac kreativity. Ste pripravení vytvoriť niečo nové?",
-  "screens.history.end.button": "Vytvoriť",
-  "NSUserNotificationsUsageDescription": "Chceli by ste dostávať oznámenia, aby ste boli informovaní o nových príspevkoch, páčeniach, komentároch a keď sú vaše výtvory pripravené?"
+  "screens.history.end.button": "Vytvoriť"
 }

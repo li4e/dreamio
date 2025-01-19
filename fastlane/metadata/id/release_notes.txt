@@ -1,1 +1,3 @@
-Performa telah ditingkatkan, dan beberapa bug minor telah diperbaiki.
+— Kinerja yang Ditingkatkan: Kami telah mengoptimalkan aplikasi untuk operasi yang lebih cepat dan lebih lancar.  
+— Perbaikan Bug: Masalah kecil telah diselesaikan untuk pengalaman yang lebih andal.  
+— Dukungan Bahasa Global: Aplikasi kini mendukung sebagian besar bahasa dunia, membuatnya lebih mudah diakses oleh audiens yang lebih luas.

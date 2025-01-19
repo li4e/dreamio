@@ -1,1 +1,3 @@
-Suorituskykyä on parannettu ja pieniä virheitä on korjattu.
+— Tehostettu Suorituskyky: Olemme optimoineet sovelluksen nopeammaksi ja sujuvammaksi käytössä.  
+— Virheenkorjaukset: Pienet ongelmat on ratkaistu, jotta kokemus olisi luotettavampi.  
+— Globaali Kielen Tuki: Sovellus tukee nyt useimpia maailman kieliä, mikä tekee siitä saavutettavamman laajemmalle yleisölle.

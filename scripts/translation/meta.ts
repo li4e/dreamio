@@ -28,7 +28,7 @@ async function loadHashes(
 ): Promise<Record<string, { original: string; translations: string[] }>> {
   try {
     const data = await fs.readFile(hashesFile, "utf-8");
-    return JSON.parse(data);
+    return JSON.parse(data.trim());
   } catch (error) {
     return {};
   }
@@ -140,18 +140,21 @@ async function translateMetadata(
           const fileHash = await getFileHash(inputFilePath);
 
           // Check if the file has already been translated for this locale
-          const existingHashes = hashes[fileName];
-          if (existingHashes) {
+          const hash = hashes[fileName];
+          if (hash) {
             // If the hash has changed, reset the list of translated locales
-            if (existingHashes.original !== fileHash) {
+            if (hash.original !== fileHash) {
               console.log(
-                `File has changed, resetting translations for ${fileName}`
+                `File has changed, resetting translations for ${fileName}`,
+                hash.original,
+                fileHash
               );
-              existingHashes.translations = []; // Reset translated locales
+              hash.original = fileHash;
+              hash.translations = []; // Reset translated locales
             }
 
             // If a translation for this locale already exists, skip it
-            if (existingHashes.translations.includes(destLang)) {
+            if (hash.translations.includes(destLang)) {
               console.log(
                 `File already translated for ${destLang}: ${fileName}`
               );
@@ -159,6 +162,9 @@ async function translateMetadata(
               continue; // Skip translation
             }
           } else {
+            console.log(
+              "// If the hash of the original file is not saved, create an entry"
+            );
             // If the hash of the original file is not saved, create an entry
             hashes[fileName] = {
               original: fileHash,
@@ -195,9 +201,7 @@ async function translateMetadata(
           console.log(`File translated and saved: ${outputFilePath}`);
 
           // Update the hash and add the locale to the list of translated ones
-          if (filesToTranslate.includes(fileName)) {
-            hashes[fileName].translations.push(destLang);
-          }
+          hashes[fileName].translations.push(destLang);
 
           // Save the hashes immediately after translating each file
           await saveHashes(hashesFile, hashes);

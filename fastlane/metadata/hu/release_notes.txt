@@ -1,1 +1,3 @@
-A teljesítmény javult, és kisebb hibák lettek javítva.
+— Teljesítményjavítás: Optimalizáltuk az alkalmazást a gyorsabb és zökkenőmentesebb működés érdekében.  
+— Hibajavítások: Kisebb problémák megoldásra kerültek a megbízhatóbb élmény érdekében.  
+— Globális nyelvtámogatás: Az alkalmazás mostantól a világ legtöbb nyelvét támogatja, így szélesebb közönség számára elérhetővé válik.

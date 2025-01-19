@@ -54,6 +54,5 @@
   "screens.history.empty.button": "बनाएँ",
   "screens.history.end.title": "बस अब तक यही सब कुछ है।",
   "screens.history.end.description": "लेकिन हमेशा और रचनात्मकता के लिए स्थान होता है। क्या आप कुछ नया बनाने के लिए तैयार हैं?",
-  "screens.history.end.button": "बनाएँ",
-  "NSUserNotificationsUsageDescription": "क्या आप नई पोस्ट्स, लाइक्स, टिप्पणियों और जब आपकी रचनाएँ तैयार हों, के बारे में अपडेट रहने के लिए सूचनाएँ प्राप्त करना चाहेंगे?"
+  "screens.history.end.button": "बनाएँ"
 }

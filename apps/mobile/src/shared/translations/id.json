@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Buat",
   "screens.history.end.title": "Itu saja untuk saat ini",
   "screens.history.end.description": "Tapi selalu ada ruang untuk lebih banyak kreativitas. Siap untuk membuat sesuatu yang baru?",
-  "screens.history.end.button": "Buat",
-  "NSUserNotificationsUsageDescription": "Apakah Anda ingin menerima notifikasi untuk tetap update tentang pos baru, likes, komentar, dan ketika karya Anda siap?"
+  "screens.history.end.button": "Buat"
 }

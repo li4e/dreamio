@@ -1,1 +1,3 @@
-Ydelsen er blevet forbedret, og mindre fejl er blevet rettet.
+— Forbedret ydeevne: Vi har optimeret appen for hurtigere og mere glat drift.  
+— Fejlretninger: Mindre problemer er blevet løst for en mere pålidelig oplevelse.  
+— Global sprogunderstøttelse: Appen understøtter nu de fleste verdens sprog, hvilket gør den tilgængelig for et bredere publikum.

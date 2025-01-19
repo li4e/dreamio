@@ -1,1 +1,3 @@
-Se ha mejorado el rendimiento y se han corregido errores menores.
+— Rendimiento Mejorado: Hemos optimizado la aplicación para un funcionamiento más rápido y fluido.  
+— Corrección de Errores: Se han resuelto problemas menores para ofrecer una experiencia más confiable.  
+— Soporte de Idiomas Global: La aplicación ahora es compatible con la mayoría de los idiomas del mundo, lo que la hace accesible a un público más amplio.

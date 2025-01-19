@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Luo",
   "screens.history.end.title": "Siinä on kaikki tähän asti.",
   "screens.history.end.description": "Mutta aina on tilaa lisää luovuudelle. Oletko valmis luomaan jotain uutta?",
-  "screens.history.end.button": "Luo",
-  "NSUserNotificationsUsageDescription": "Haluaisitko vastaanottaa ilmoituksia pysyäksesi ajan tasalla uusista julkaisuista, tykkäyksistä, kommenteista ja kun luomuksesi ovat valmiit?"
+  "screens.history.end.button": "Luo"
 }

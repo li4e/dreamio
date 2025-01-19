@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Utwórz",
   "screens.history.end.title": "To wszystko jak na razie",
   "screens.history.end.description": "Ale zawsze jest miejsce na więcej kreatywności. Gotowy, aby stworzyć coś nowego?",
-  "screens.history.end.button": "Stwórz",
-  "NSUserNotificationsUsageDescription": "Czy chciałbyś otrzymywać powiadomienia, aby być na bieżąco z nowymi postami, polubieniami, komentarzami oraz kiedy Twoje dzieła są gotowe?"
+  "screens.history.end.button": "Stwórz"
 }

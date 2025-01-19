@@ -54,6 +54,5 @@
   "screens.history.empty.button": "作成する",
   "screens.history.end.title": "これまでのすべてです。",
   "screens.history.end.description": "しかし、常にさらなる創造性の余地があります。新しいものを作る準備はできていますか？",
-  "screens.history.end.button": "作成する",
-  "NSUserNotificationsUsageDescription": "新しい投稿、いいね、コメントに関する通知や、あなたの作品が準備完了したときの通知を受け取りたいですか？"
+  "screens.history.end.button": "作成する"
 }

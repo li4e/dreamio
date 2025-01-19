@@ -54,6 +54,5 @@
   "screens.history.empty.button": "สร้าง",
   "screens.history.end.title": "นี่คือทั้งหมดที่มีจนถึงตอนนี้",
   "screens.history.end.description": "แต่ยังมีพื้นที่สำหรับความคิดสร้างสรรค์เพิ่มเติมเสมอ พร้อมที่จะสร้างสิ่งใหม่หรือยัง?",
-  "screens.history.end.button": "สร้าง",
-  "NSUserNotificationsUsageDescription": "คุณต้องการรับการแจ้งเตือนเพื่อให้ทันกับโพสต์ใหม่ ๆ ไลค์ ความคิดเห็น และเมื่อผลงานของคุณพร้อมหรือไม่?"
+  "screens.history.end.button": "สร้าง"
 }

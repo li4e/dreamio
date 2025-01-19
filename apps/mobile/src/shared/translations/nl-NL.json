@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Creëren",
   "screens.history.end.title": "Dat is alles tot nu toe.",
   "screens.history.end.description": "Maar er is altijd ruimte voor meer creativiteit. Klaar om iets nieuws te maken?",
-  "screens.history.end.button": "Aanmaken",
-  "NSUserNotificationsUsageDescription": "Wilt u meldingen ontvangen om op de hoogte te blijven van nieuwe berichten, likes, reacties en wanneer uw creaties klaar zijn?"
+  "screens.history.end.button": "Aanmaken"
 }

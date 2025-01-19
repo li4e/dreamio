@@ -1,1 +1,3 @@
-Die Leistung wurde verbessert und kleinere Fehler wurden behoben.
+— Verbesserte Leistung: Wir haben die App für eine schnellere und reibungslosere Nutzung optimiert.  
+— Fehlerbehebungen: Kleinere Probleme wurden behoben, um eine zuverlässigere Nutzung zu gewährleisten.  
+— Unterstützung für globale Sprachen: Die App unterstützt nun die meisten Weltsprachen und ist somit für ein breiteres Publikum zugänglich.

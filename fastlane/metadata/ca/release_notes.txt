@@ -1,1 +1,3 @@
-S'ha millorat el rendiment i s'han solucionat errors menors.
+— Millora del rendiment: Hem optimitzat l'aplicació per a un funcionament més ràpid i fluït.  
+— Correcció de errors: S'han resolt problemes menors per oferir una experiència més fiable.  
+— Suport lingüístic global: L'aplicació ara admet la majoria d'idiomes del món, fent-la accessible a un públic més ampli.

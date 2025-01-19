@@ -1,1 +1,3 @@
-Poboljšana je izvedba, a manji bugovi su ispravljeni.
+— Poboljšane Performanse: Optimizirali smo aplikaciju za brži i nesmetan rad.
+— Ispravke Grešaka: Manji problemi su riješeni za pouzdanije iskustvo.
+— Globalna Podrška za Jezike: Aplikacija sada podržava većinu svjetskih jezika, što je čini dostupnijom široj publici.

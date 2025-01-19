@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Opret",
   "screens.history.end.title": "Det er alt indtil videre.",
   "screens.history.end.description": "Men der er altid plads til mere kreativitet. Klar til at lave noget nyt?",
-  "screens.history.end.button": "Opret",
-  "NSUserNotificationsUsageDescription": "Vil du gerne modtage meddelelser for at holde dig opdateret om nye indlæg, likes, kommentarer og når dine kreationer er klar?"
+  "screens.history.end.button": "Opret"
 }

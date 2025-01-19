@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Crear",
   "screens.history.end.title": "Això és tot fins ara.",
   "screens.history.end.description": "Però sempre hi ha espai per a més creativitat. Estàs preparat per crear alguna cosa nova?",
-  "screens.history.end.button": "Crea",
-  "NSUserNotificationsUsageDescription": "Voleu rebre notifications per mantenir-vos actualitzat sobre les noves publicacions, els \"likes\", els comentaris i quan les vostres creacions estiguin llestes?"
+  "screens.history.end.button": "Crea"
 }

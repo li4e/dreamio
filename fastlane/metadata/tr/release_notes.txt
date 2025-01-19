@@ -1,1 +1,3 @@
-Performans geliştirildi ve küçük hatalar düzeltildi.
+— Geliştirilmiş Performans: Uygulama, daha hızlı ve akıcı bir kullanım için optimize edildi.  
+— Hata Düzeltmeleri: Daha güvenilir bir deneyim sunmak için küçük sorunlar çözüldü.  
+— Küresel Dil Desteği: Uygulama artık dünyanın çoğu dilini destekliyor, bu da daha geniş bir kitleye erişim sağlıyor.

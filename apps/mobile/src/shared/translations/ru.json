@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Создать",
   "screens.history.end.title": "Это всё на данный момент.",
   "screens.history.end.description": "Но всегда есть место для большего творчества. Готовы создать что-то новое?",
-  "screens.history.end.button": "Создать",
-  "NSUserNotificationsUsageDescription": "Хотите ли вы получать уведомления, чтобы оставаться в курсе новых публикаций, лайков, комментариев и когда ваши творения будут готовы?"
+  "screens.history.end.button": "Создать"
 }

@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Criar",
   "screens.history.end.title": "Isso é tudo por enquanto.",
   "screens.history.end.description": "Mas sempre há espaço para mais criatividade. Pronto para criar algo novo?",
-  "screens.history.end.button": "Criar",
-  "NSUserNotificationsUsageDescription": "Você gostaria de receber notificações para ficar atualizado sobre novas publicações, curtidas, comentários e quando suas criações estiverem prontas?"
+  "screens.history.end.button": "Criar"
 }

@@ -54,6 +54,5 @@
   "screens.history.empty.button": "创建",
   "screens.history.end.title": "到目前为止就是这些。",
   "screens.history.end.description": "但总是有更多创造的空间。准备好创造一些新东西了吗？",
-  "screens.history.end.button": "创建",
-  "NSUserNotificationsUsageDescription": "您想接收通知，以便及时了解新动态、点赞、评论，以及您的作品准备好了的消息吗？"
+  "screens.history.end.button": "创建"
 }

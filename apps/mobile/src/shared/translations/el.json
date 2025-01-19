@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Δημιουργία",
   "screens.history.end.title": "Αυτό είναι όλα μέχρι τώρα",
   "screens.history.end.description": "Αλλά πάντα υπάρχει χώρος για περισσότερη δημιουργικότητα. Είσαι έτοιμος να δημιουργήσεις κάτι νέο;",
-  "screens.history.end.button": "Δημιούργησε",
-  "NSUserNotificationsUsageDescription": "Θα θέλατε να λαμβάνετε ειδοποιήσεις για να είστε ενημερωμένοι σχετικά με νέες δημοσιεύσεις, likes, σχόλια και όταν οι δημιουργίες σας είναι έτοιμες;"
+  "screens.history.end.button": "Δημιούργησε"
 }

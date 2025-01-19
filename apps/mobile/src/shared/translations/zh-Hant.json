@@ -54,6 +54,5 @@
   "screens.history.empty.button": "建立",
   "screens.history.end.title": "這就是目前為止的所有內容",
   "screens.history.end.description": "但總是有空間讓創造力更多發揮。準備好來創造一些新東西了嗎？",
-  "screens.history.end.button": "創建",
-  "NSUserNotificationsUsageDescription": "您想要接收通知，以便隨時了解新貼文、按讚、評論以及您的創作何時準備好嗎？"
+  "screens.history.end.button": "創建"
 }

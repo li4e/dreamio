@@ -1,1 +1,3 @@
-Les performances ont été améliorées et des bogues mineurs ont été corrigés.
+— Performance Améliorée : Nous avons optimisé l'application pour un fonctionnement plus rapide et fluide.  
+— Corrections de Bugs : Des problèmes mineurs ont été résolus pour une expérience plus fiable.  
+— Prise en Charge des Langues Globales : L'application prend désormais en charge la plupart des langues du monde, la rendant accessible à un public plus large.

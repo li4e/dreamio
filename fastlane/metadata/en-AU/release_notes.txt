@@ -1,1 +1,3 @@
-Performance has been enhanced, and minor bugs have been resolved.
+— Enhanced Performance: We’ve optimised the app for faster and smoother operation.  
+— Bug Fixes: Minor issues have been resolved to provide a more reliable experience.  
+— Global Language Support: The app now supports a wide range of languages, making it accessible to a broader audience.

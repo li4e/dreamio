@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Skapa",
   "screens.history.end.title": "Det är allt hittills",
   "screens.history.end.description": "Men det finns alltid utrymme för mer kreativitet. Redo att skapa något nytt?",
-  "screens.history.end.button": "Skapa",
-  "NSUserNotificationsUsageDescription": "Vill du ta emot aviseringar för att hålla dig uppdaterad om nya inlägg, gilla-markeringar, kommentarer och när dina skapelser är klara?"
+  "screens.history.end.button": "Skapa"
 }

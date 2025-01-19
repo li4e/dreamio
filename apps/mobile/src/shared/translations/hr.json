@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Stvori",
   "screens.history.end.title": "To je sve do sada.",
   "screens.history.end.description": "Ali uvijek ima prostora za više kreativnosti. Spreman/na za stvaranje nečega novog?",
-  "screens.history.end.button": "Kreiraj",
-  "NSUserNotificationsUsageDescription": "Želite li primati obavijesti kako biste bili u tijeku s novim objavama, lajkovima, komentarima i kada su vaša kreacija spremna?"
+  "screens.history.end.button": "Kreiraj"
 }

@@ -1,1 +1,3 @@
-Prestasi telah ditingkatkan, dan pepijat kecil telah diperbaiki.
+— Prestasi Diperbaiki: Kami telah mengoptimumkan aplikasi untuk operasi yang lebih cepat dan lancer.  
+— Pembetulan Pepijat: Isu kecil telah diselesaikan untuk pengalaman yang lebih boleh dipercayai.  
+— Sokongan Bahasa Global: Aplikasi kini menyokong kebanyakan bahasa di dunia, menjadikannya boleh diakses oleh lebih ramai pengguna.

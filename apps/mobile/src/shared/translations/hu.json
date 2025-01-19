@@ -54,6 +54,5 @@
   "screens.history.empty.button": "Hozzon létre",
   "screens.history.end.title": "Ez eddig minden.",
   "screens.history.end.description": "De mindig van hely a több kreativitás számára. Készen állsz valami újat alkotni?",
-  "screens.history.end.button": "Készítsd el",
-  "NSUserNotificationsUsageDescription": "Szeretnéd megkapni a értesítéseket, hogy naprakész maradj az új bejegyzésekkel, lájkokkal, kommentekkel kapcsolatban, és amikor a munkáid elkészültek?"
+  "screens.history.end.button": "Készítsd el"
 }
