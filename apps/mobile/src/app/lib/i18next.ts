@@ -1,14 +1,13 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import * as Localization from "expo-localization";
-import { locales } from "shared/locales";
+import { resources } from "shared/translations";
+import { getMatchingLocale } from "./getMachingLocale";
 
 export const defaultNS = "translation";
-export const resources = locales;
 
 i18n.use(initReactI18next).init({
-  lng: Localization.locale,
-  fallbackLng: "en",
+  lng: getMatchingLocale(),
+  fallbackLng: "en-US",
   supportedLngs: Object.keys(resources),
   ns: ["translation"],
   defaultNS,

@@ -2,53 +2,13 @@ import * as fs from "fs/promises";
 import * as path from "path";
 import * as crypto from "crypto";
 import { OpenAI } from "openai";
+import { SUPPORTED_LANGUAGES as locales } from "./constants";
 
 const filesToTranslate = [
   "description.txt",
   "subtitle.txt",
   "name.txt",
   "release_notes.txt",
-];
-
-const locales = [
-  "ar-SA",
-  "ca",
-  "cs",
-  "da",
-  "de-DE",
-  "el",
-  "en-AU",
-  "en-CA",
-  "en-GB",
-  "es-ES",
-  "es-MX",
-  "fi",
-  "fr-CA",
-  "fr-FR",
-  "he",
-  "hi",
-  "hr",
-  "hu",
-  "id",
-  "it",
-  "ja",
-  "ko",
-  "ms",
-  "nl-NL",
-  "no",
-  "pl",
-  "pt-BR",
-  "pt-PT",
-  "ro",
-  "ru",
-  "sk",
-  "sv",
-  "th",
-  "tr",
-  "uk",
-  "vi",
-  "zh-Hans",
-  "zh-Hant",
 ];
 
 // Create OpenAI client
@@ -150,7 +110,11 @@ async function translateMetadata(
 ) {
   const inputDir = path.resolve(translationsFolder, sourceLang); // Directory for source files
   const outputDir = path.resolve(translationsFolder, destLang); // Directory for translated files
-  const hashesFile = path.resolve("scripts", "translation", ".hashes.json"); // Path to the file storing hashes
+  const hashesFile = path.resolve(
+    "scripts",
+    "translation",
+    ".meta.hashes.json"
+  ); // Path to the file storing hashes
 
   try {
     // 1. Check if the translation directory exists

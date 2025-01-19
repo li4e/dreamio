@@ -12,7 +12,8 @@
     "prebuild:mobile": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "deploy:web": "firebase deploy --only hosting",
     "beta:ios": "dotenv -e .env -- npm run prebuild:mobile && bundle exec fastlane beta",
-    "translate": "dotenv -e .env -- npx ts-node ./scripts/translation/index.ts",
+    "translate:meta": "dotenv -e .env -- npx esrun ./scripts/translation/meta.ts",
+    "translate:app": "dotenv -e .env -- npx esrun ./scripts/translation/app.ts",
     "deploy:appstore:meta": "dotenv -e .env -- bundle exec fastlane update_meta"
   },
   "engines": {
@@ -21,6 +22,8 @@
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "dotenv-cli": "^8.0.0",
+    "esrun": "^3.2.26",
+    "flat": "^6.0.1",
     "jest": "^29.2.1",
     "openai": "^4.79.1",
     "typescript": "^5.3.3"
