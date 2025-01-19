@@ -1,0 +1,1 @@
+Se ha mejorado el rendimiento y se han corregido errores menores.

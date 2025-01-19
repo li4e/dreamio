@@ -1,1 +1,1 @@
-Đã cải thiện hiệu suất và sửa một số lỗi nhỏ.
+Hiệu suất đã được cải thiện và một số lỗi nhỏ đã được sửa.

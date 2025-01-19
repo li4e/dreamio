@@ -1,1 +1,1 @@
-Покращено продуктивність і виправлено незначні помилки.
+Performance improvements have been made, and minor bugs have been addressed.

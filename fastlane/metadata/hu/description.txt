@@ -1,0 +1,13 @@
+AI Művészeti Generátor - Dreamio
+
+Engedd szabadjára kreativitásodat a Dreamio-val, a tökéletes ingyenes AI-alapú művészeti generátorral. Egyszerűen írd be a kívánt promptot, válaszd ki a stílust, és nézd, ahogy a Dreamio lenyűgöző műalkotásokat hoz létre a képzeleted alapján. A szabad Pollination API erejével a Dreamio lehetővé teszi, hogy könnyedén magas minőségű képeket készíts.
+
+Főbb jellemzők:
+
+Ingyenes és Egyszerűen Használható: A Dreamio teljesen ingyenes, rejtett költségek nélkül.
+Több Stílus: Válassz a különböző művészeti stílusok közül, amelyeket a víziódhoz igazíthatsz.
+Írd Meg a Promptjeidet: Személyre szabhatod a műalkotások létrehozását a saját promptjaiddal, hogy igazán egyedi eredményt kapj.
+Történelem: Mentheted a kedvenc alkotásaidat a történetedben, hogy könnyen hozzáférhess.
+Letöltés és Megosztás: Töltsd le a műalkotásodat, oszd meg barátaiddal, vagy másold ki a promptot, hogy később újra felhasználhasd.
+Adatvédelem Először: Minden adat helyben marad az eszközödön. Nem gyűjtünk vagy tárolunk felhasználói adatokat.
+A Dreamio a tökéletes társad az egyedi és gyönyörű AI művészetek létrehozásában, miközben megőrzi információidat. Kezdj el alkotni most!

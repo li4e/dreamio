@@ -12,7 +12,8 @@
     "prebuild:mobile": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "deploy:web": "firebase deploy --only hosting",
     "beta:ios": "dotenv -e .env -- npm run prebuild:mobile && bundle exec fastlane beta",
-    "translate": "dotenv -e .env -- npx ts-node ./scripts/translation/index.ts"
+    "translate": "dotenv -e .env -- npx ts-node ./scripts/translation/index.ts",
+    "deploy:appstore:meta": "dotenv -e .env -- bundle exec fastlane update_meta"
   },
   "engines": {
     "node": "22.x"

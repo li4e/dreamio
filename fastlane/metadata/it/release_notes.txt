@@ -1,1 +1,1 @@
-Le prestazioni sono state migliorate e sono stati risolti alcuni piccoli bug.
+Le prestazioni sono state migliorate e sono stati risolti alcuni bug minori.

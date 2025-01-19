@@ -1,1 +1,1 @@
-Генератор зображень з тексту
+Text to image generator

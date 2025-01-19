@@ -19,12 +19,6 @@ api_key = app_store_connect_api_key(
   key_filepath: ENV["APPLE_API_KEY_FILEPATH"],
 )
 
-# api_key = app_store_connect_api_key(
-#   key_id: "LC75WC55N3",
-#   issuer_id: "8b57e2c1-c07c-481f-8de0-3037475643ad",
-#   key_filepath: "~/keys/AuthKey_LC75WC55N3.p8",
-# )
-
 default_platform(:ios)
 
 platform :ios do
@@ -34,6 +28,21 @@ platform :ios do
     build_app(workspace: "apps/mobile/ios/#{ENV['APP_NAME']}.xcworkspace", scheme: ENV["IOS_SCHEME_NAME"], output_directory: "./fastlane/build")
     upload_to_testflight(
       api_key: api_key
+    )
+  end
+
+  desc "Update app's meta in AppStore"
+  lane :update_meta do
+    deliver(
+      api_key: api_key,
+      # build_number: '830',
+      submit_for_review: false,
+      automatic_release: true,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      precheck_include_in_app_purchases: false
     )
   end
 end

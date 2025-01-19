@@ -1,0 +1,1 @@
+Poprawiono wydajność oraz usunięto drobne błędy.

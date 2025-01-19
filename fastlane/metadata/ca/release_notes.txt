@@ -1,0 +1,1 @@
+S'ha millorat el rendiment i s'han solucionat errors menors.

@@ -1,13 +1,13 @@
 AI Sanat Üretici - Dreamio
 
-Yaratıcılığınızı Dreamio ile serbest bırakın, en iyi Ücretsiz AI destekli sanat üreticisi. Sadece bir komut yazın, istediğiniz stili seçin ve Dreamio'nun hayal gücünüze dayalı olarak muhteşem sanat eserleri oluşturmasını izleyin. Ücretsiz Pollination API'nin gücü sayesinde, Dreamio yüksek kaliteli görselleri zahmetsizce üretmenizi sağlar.
+Yaratıcılığınızı Dreamio ile serbest bırakın, nihai ücretsiz AI destekli sanat üreticisi. Basitçe bir istem girin, istediğiniz tarzı seçin ve Dreamio'nun hayal gücünüze dayalı muhteşem sanat eserleri yaratmasını izleyin. Ücretsiz Pollination API'nin gücü ile Dreamio, yüksek kaliteli görüntüleri zahmetsizce üretmenizi sağlar.
 
 Ana Özellikler:
 
-Ücretsiz ve Kullanımı Kolay: Dreamio tamamen ücretsizdir ve gizli ücret yoktur.
-Birden Fazla Stil: Görüşünüze uygun çeşitli sanatsal stiller arasından seçim yapın.
-Komutlarınızı Yazın: Kendi komutlarınızı kullanarak sanat üretimini özelleştirin ve gerçekten kişiye özel sonuçlar elde edin.
+Ücretsiz ve Kolay Kullanım: Dreamio tamamen ücretsizdir ve gizli ücret yoktur.
+Çeşitli Tarzlar: Görselliğinize uyum sağlamak için çeşitli sanatsal stillerden birini seçin.
+İstemlerinizi Yazın: Kendi istemlerinizi kullanarak sanat üretimini özelleştirin ve gerçekten kişiselleştirilmiş sonuçlar elde edin.
 Geçmiş: Favori yaratımlarınızı kolay erişim için geçmişinize kaydedin.
-İndir & Paylaş: Sanat eserlerinizi indirin, arkadaşlarınızla paylaşın veya daha sonra yeniden kullanmak için komutu kopyalayın.
-Öncelik Gizliliği: Tüm veriler cihazınızda yerel olarak kalır. Kullanıcı verilerini toplamaz veya saklamaz.
-Dreamio, benzersiz ve güzel AI sanatı oluştururken bilgilerinizi gizli tutmanız için mükemmel bir ortağınızdır. Şimdi yaratmaya başlayın!
+İndirin ve Paylaşın: Sanat eserlerinizi indirin, arkadaşlarınızla paylaşın veya tekrar kullanmak üzere istemi kopyalayın.
+Gizlilik Önceliği: Tüm veriler cihazınızda yerel olarak kalır. Hiçbir kullanıcı verisini toplamaz veya saklamıyoruz.
+Dreamio, benzersiz ve güzel AI sanatı üretirken bilgilerinizin gizli kalmasını sağlayan mükemmel bir yardımcıdır. Şimdi yaratmaya başlayın!

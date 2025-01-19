@@ -1,0 +1,13 @@
+Generador d'Art AI - Dreamio
+
+Desperta la teva creativitat amb Dreamio, el generador d'art AI gratuït definitiu. Només cal que introdueixis un missatge, seleccionis l'estil desitjat i vegis com Dreamio crea obres d'art impressionants basades en la teva imaginació. Amb el poder de l'API Pollination gratuïta, Dreamio et permet produir imatges d'alta qualitat sense esforç.
+
+Funcions Clau:
+
+Gratuït i Fàcil d'Usar: Dreamio és completament gratuït amb cap càrrec ocult.
+Múltiples Estils: Tria entre una varietat d'estils artístics per coincidir amb la teva visió.
+Escriu els Teus Missatges: Personalitza la generació d'art amb els teus propis missatges per obtenir un resultat realment personalitzat.
+Historial: Desa les teves creacions favorites a l'historial per tenir-les a mà.
+Descarregar i Compartir: Descarrega la teva obra d'art, comparteix-la amb amics o copia el missatge per reutilitzar-lo més tard.
+Privadesa Primer: Totes les dades romanen locals al teu dispositiu. No recollim ni emmagatzemem cap dada d'usuari.
+Dreamio és el teu company perfecte per generar art AI únic i bell, mentre mantens la teva informació privada. Comença a crear ara!
