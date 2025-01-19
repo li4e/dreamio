@@ -1,5 +1,5 @@
 {
-  "extends": ["expo/tsconfig.base"],
+  "extends": ["expo/tsconfig.base", "../../tsconfig.json"],
   "compilerOptions": {
     "strict": true,
     "paths": {
@@ -7,7 +7,6 @@
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false,
-    "skipLibCheck": true
+    "strictPropertyInitialization": false
   }
 }
