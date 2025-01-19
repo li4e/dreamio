@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "strict": true, // Включает все строгие проверки
+    "strictNullChecks": true, // Проверка на null/undefined
+    "noImplicitAny": true, // Обязывает указывать типы для переменных
+    "esModuleInterop": true // Обеспечивает правильный импорт
+  }
+}

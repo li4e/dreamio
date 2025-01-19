@@ -1,0 +1,13 @@
+AI Sanat Üretici - Dreamio
+
+Yaratıcılığınızı Dreamio ile serbest bırakın, en iyi Ücretsiz AI destekli sanat üreticisi. Sadece bir komut yazın, istediğiniz stili seçin ve Dreamio'nun hayal gücünüze dayalı olarak muhteşem sanat eserleri oluşturmasını izleyin. Ücretsiz Pollination API'nin gücü sayesinde, Dreamio yüksek kaliteli görselleri zahmetsizce üretmenizi sağlar.
+
+Ana Özellikler:
+
+Ücretsiz ve Kullanımı Kolay: Dreamio tamamen ücretsizdir ve gizli ücret yoktur.
+Birden Fazla Stil: Görüşünüze uygun çeşitli sanatsal stiller arasından seçim yapın.
+Komutlarınızı Yazın: Kendi komutlarınızı kullanarak sanat üretimini özelleştirin ve gerçekten kişiye özel sonuçlar elde edin.
+Geçmiş: Favori yaratımlarınızı kolay erişim için geçmişinize kaydedin.
+İndir & Paylaş: Sanat eserlerinizi indirin, arkadaşlarınızla paylaşın veya daha sonra yeniden kullanmak için komutu kopyalayın.
+Öncelik Gizliliği: Tüm veriler cihazınızda yerel olarak kalır. Kullanıcı verilerini toplamaz veya saklamaz.
+Dreamio, benzersiz ve güzel AI sanatı oluştururken bilgilerinizi gizli tutmanız için mükemmel bir ortağınızdır. Şimdi yaratmaya başlayın!

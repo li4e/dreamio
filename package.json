@@ -11,7 +11,8 @@
     "android": "npm run android -w apps/mobile",
     "prebuild:mobile": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "deploy:web": "firebase deploy --only hosting",
-    "beta:ios": "dotenv -e .env -- npm run prebuild:mobile && bundle exec fastlane beta"
+    "beta:ios": "dotenv -e .env -- npm run prebuild:mobile && bundle exec fastlane beta",
+    "translate": "dotenv -e .env -- npx ts-node ./scripts/translation/index.ts"
   },
   "engines": {
     "node": "22.x"
@@ -20,6 +21,7 @@
     "@types/jest": "^29.5.12",
     "dotenv-cli": "^8.0.0",
     "jest": "^29.2.1",
+    "openai": "^4.79.1",
     "typescript": "^5.3.3"
   }
 }

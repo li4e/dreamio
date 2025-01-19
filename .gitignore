@@ -11,5 +11,6 @@ fastlane/build
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/README.md
+fastlane/.translation
 
 .env

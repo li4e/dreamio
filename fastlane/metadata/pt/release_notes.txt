@@ -1,0 +1,1 @@
+A performance foi aprimorada e pequenos bugs foram corrigidos.

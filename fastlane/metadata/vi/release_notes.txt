@@ -1,0 +1,1 @@
+Đã cải thiện hiệu suất và sửa một số lỗi nhỏ.

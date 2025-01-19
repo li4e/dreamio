@@ -1,0 +1,13 @@
+Generatore di arte AI - Dreamio
+
+Libera la tua creatività con Dreamio, il generatore di arte alimentato da AI gratuito per eccellenza. Basta inserire un suggerimento, selezionare lo stile desiderato e guardare Dreamio creare opere d'arte straordinarie basate sulla tua immaginazione. Grazie alla potenza della Pollination API gratuita, Dreamio ti consente di produrre immagini di alta qualità senza sforzo.
+
+Caratteristiche principali:
+
+Gratuito e Facile da Usare: Dreamio è completamente gratuito e senza costi nascosti.
+Stili Multipli: Scegli tra una varietà di stili artistici per adattarsi alla tua visione.
+Scrivi i Tuoi Suggerimenti: Personalizza la generazione artistica con i tuoi suggerimenti per un risultato veramente personalizzato.
+Cronologia: Salva le tue creazioni preferite nella cronologia per un facile accesso.
+Scarica e Condividi: Scarica la tua opera d'arte, condividila con gli amici o copia il suggerimento per riutilizzarlo in seguito.
+Privacy Prima di Tutto: Tutti i dati rimangono localmente sul tuo dispositivo. Non raccogliamo né memorizziamo alcun dato dell'utente.
+Dreamio è il tuo compagno perfetto per generare arte AI unica e bella, mantenendo le tue informazioni private. Inizia a creare ora!
