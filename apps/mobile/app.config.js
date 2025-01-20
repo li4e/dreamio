@@ -19,6 +19,7 @@ module.exports = {
       infoPlist: {
         CFBundleDisplayName: "AI Art Gen",
         CFBundleAllowMixedLocalizations: true,
+        CADisableMinimumFrameDurationOnPhone: true,
         LSApplicationQueriesSchemes: [
           "fb",
           "instagram",
