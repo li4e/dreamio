@@ -54,5 +54,6 @@
   "screens.history.empty.button": "作成する",
   "screens.history.end.title": "これまでのすべてです。",
   "screens.history.end.description": "しかし、常にさらなる創造性の余地があります。新しいものを作る準備はできていますか？",
-  "screens.history.end.button": "作成する"
+  "screens.history.end.button": "作成する",
+  "promptExample": "夕日の中にある未来的な都市が、鮮やかなオレンジ色と金色に包まれています。炎のような赤い髪を持つ若い女性が屋上に立ち、光り輝く複雑な模様の入った伝統的な着物を着ています。都市のスカイラインにはきらめく高層ビルが立ち並び、空には飛行する乗り物が光の軌跡を描いています。夕日の温かな光が、穏やかでありながら活気ある雰囲気を醸し出しています。"
 }

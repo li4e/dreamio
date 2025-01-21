@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Opprett",
   "screens.history.end.title": "Det er alt så langt",
   "screens.history.end.description": "Men det er alltid plass for mer kreativitet. Klar til å skape noe nytt?",
-  "screens.history.end.button": "Opprett"
+  "screens.history.end.button": "Opprett",
+  "promptExample": "En futuristisk by ved solnedgang, badet i livlige oransje- og gulltoner. En ung kvinne med ildrødt hår står på et tak, iført en tradisjonell kimono med lysende, intrikate mønstre. Byens skyline er fylt med glitrende skyskrapere, mens flygende kjøretøy etterlater lysstriper på himmelen. Det varme lyset fra solnedgangen skaper en fredelig, men energisk atmosfære."
 }

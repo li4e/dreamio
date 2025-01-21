@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Vytvoriť",
   "screens.history.end.title": "To je zatiaľ všetko.",
   "screens.history.end.description": "Ale vždy je priestor pre viac kreativity. Ste pripravení vytvoriť niečo nové?",
-  "screens.history.end.button": "Vytvoriť"
+  "screens.history.end.button": "Vytvoriť",
+  "promptExample": "Futuristické mesto pri západe slnka, ponorené do žiarivých oranžových a zlatých odtieňov. Mladá žena s ohnivými červenými vlasmi stojí na streche, oblečená v tradičnom kimonu s žiariacimi, zložitými vzormi. M mestskom horizonte sa týčia lesklé mrakodrapy, zatiaľ čo lietajúce vozidlá zanechávajú v oblaku svetelné stopy. Teplé svetlo západu slnka vytvára pokojnou, no zároveň energickú atmosféru."
 }

@@ -2449,5 +2449,48 @@
       "vi",
       "zh-Hans"
     ]
+  },
+  "promptExample": {
+    "original": "A futuristic city at sunset, bathed in vibrant orange and gold. A young woman with fiery red hair stands on a rooftop, wearing a traditional kimono with glowing, intricate patterns. The city’s skyline is filled with shimmering skyscrapers, while flying vehicles leave light trails in the sky. The warm glow of the sunset creates a peaceful yet energetic atmosphere.",
+    "translations": [
+      "ar-SA",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl-NL",
+      "no",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
   }
 }

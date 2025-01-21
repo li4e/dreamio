@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Erstellen",
   "screens.history.end.title": "Das ist bisher alles.",
   "screens.history.end.description": "Aber es gibt immer Platz für mehr Kreativität. Bereit, etwas Neues zu schaffen?",
-  "screens.history.end.button": "Erstellen"
+  "screens.history.end.button": "Erstellen",
+  "promptExample": "Eine futuristische Stadt bei Sonnenuntergang, getaucht in lebendige Orange- und Goldtöne. Eine junge Frau mit feurig rotem Haar steht auf einem Dach und trägt einen traditionellen Kimono mit leuchtenden, kunstvollen Mustern. Die Skyline der Stadt ist von schimmernden Wolkenkratzern geprägt, während fliegende Fahrzeuge Lichtspuren am Himmel hinterlassen. Das warme Licht des Sonnenuntergangs schafft eine friedliche, jedoch energetische Atmosphäre."
 }

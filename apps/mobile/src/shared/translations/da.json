@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Opret",
   "screens.history.end.title": "Det er alt indtil videre.",
   "screens.history.end.description": "Men der er altid plads til mere kreativitet. Klar til at lave noget nyt?",
-  "screens.history.end.button": "Opret"
+  "screens.history.end.button": "Opret",
+  "promptExample": "En fremadskuende by ved solnedgang, badet i livlige orange og guldnuancer. En ung kvinde med ildrødt hår står på en tagterrasse iført en traditionel kimono med lysende, intrikate mønstre. Byens skyline er fyldt med skimrende skyskrabere, mens flyvende køretøjer efterlader lysstriber på himlen. Det varme skær fra solnedgangen skaber en fredfyldt, men energisk atmosfære."
 }

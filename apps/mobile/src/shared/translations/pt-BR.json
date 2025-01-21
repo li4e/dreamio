@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Criar",
   "screens.history.end.title": "Isso é tudo por enquanto.",
   "screens.history.end.description": "Mas sempre há espaço para mais criatividade. Pronto para criar algo novo?",
-  "screens.history.end.button": "Criar"
+  "screens.history.end.button": "Criar",
+  "promptExample": "Uma cidade futurista ao pôr do sol, banhada em tons vibrantes de laranja e ouro. Uma jovem com cabelos vermelhos ardentes está em um telhado, vestindo um kimono tradicional com padrões intrincados que brilham. O horizonte da cidade é repleto de arranha-céus cintilantes, enquanto veículos voadores deixam trilhas de luz no céu. O brilho quente do pôr do sol cria uma atmosfera pacífica, mas ao mesmo tempo energética."
 }

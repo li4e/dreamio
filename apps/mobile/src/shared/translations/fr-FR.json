@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Créer",
   "screens.history.end.title": "C'est tout pour l'instant.",
   "screens.history.end.description": "Mais il y a toujours de la place pour plus de créativité. Prêt à créer quelque chose de nouveau ?",
-  "screens.history.end.button": "Créer"
+  "screens.history.end.button": "Créer",
+  "promptExample": "Une ville futuriste au coucher du soleil, baignée dans des teintes vibrantes d'orange et d'or. Une jeune femme aux cheveux rouge flamboyant se tient sur un toit, revêtue d'un kimono traditionnel orné de motifs lumineux et complexes. La ligne d'horizon de la ville est remplie de gratte-ciels scintillants, tandis que des véhicules volants laissent des traînées de lumière dans le ciel. La chaleur du coucher de soleil crée une atmosphère à la fois paisible et énergique."
 }

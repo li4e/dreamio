@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Skapa",
   "screens.history.end.title": "Det är allt hittills",
   "screens.history.end.description": "Men det finns alltid utrymme för mer kreativitet. Redo att skapa något nytt?",
-  "screens.history.end.button": "Skapa"
+  "screens.history.end.button": "Skapa",
+  "promptExample": "En futuristisk stad vid solnedgången, badad i vibrerande orange och guld. En ung kvinna med eldigt röd hår står på ett tak, iklädd en traditionell kimono med lysande, intrikata mönster. Stadens silhuett fylls av glittrande skyskrapor, medan flygande fordon lämnar ljusspår på himlen. Det varma glödet från solnedgången skapar en fredlig men energisk atmosfär."
 }

@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Створити",
   "screens.history.end.title": "Це все на цей момент.",
   "screens.history.end.description": "Але завжди є місце для більшої креативності. Готові створити щось нове?",
-  "screens.history.end.button": "Створити"
+  "screens.history.end.button": "Створити",
+  "promptExample": "A futuristic city at sunset, illuminated in vibrant orange and gold hues. A young woman with striking red hair stands on a rooftop, dressed in a traditional kimono adorned with glowing, intricate patterns. The city’s skyline is populated with dazzling skyscrapers, while flying vehicles streak through the sky, leaving luminous trails behind. The warm glow of the sunset fosters a serene yet dynamic atmosphere."
 }

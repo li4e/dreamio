@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Stvori",
   "screens.history.end.title": "To je sve do sada.",
   "screens.history.end.description": "Ali uvijek ima prostora za više kreativnosti. Spreman/na za stvaranje nečega novog?",
-  "screens.history.end.button": "Kreiraj"
+  "screens.history.end.button": "Kreiraj",
+  "promptExample": "Futuristički grad pri zalasku sunca, obasjan živahnom narančastom i zlatnom bojom. Mlada žena s vatreno crvenom kosom stoji na krovu zgrade, odjevena u tradicionalni kimono s sjajnim, složenim uzorcima. gradski horizont ispunjavaju blistavi neboderski, dok leteća vozila ostavljaju svjetlosne tragove na nebu. Topli sjaj zalaska sunca stvara mirnu, ali energičnu atmosferu."
 }

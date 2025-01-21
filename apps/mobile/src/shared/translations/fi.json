@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Luo",
   "screens.history.end.title": "Siinä on kaikki tähän asti.",
   "screens.history.end.description": "Mutta aina on tilaa lisää luovuudelle. Oletko valmis luomaan jotain uutta?",
-  "screens.history.end.button": "Luo"
+  "screens.history.end.button": "Luo",
+  "promptExample": "Futuristinen kaupunki auringonlaskussa, kylpien elävässä oranssissa ja kullassa. Nuori nainen, jolla on tulenpunaiset hiukset, seisoo katolla, pukeutuneena perinteiseen kimonoonsa, jossa on hehkuvia, monimutkaisia kuvioita. Kaupungin horisonttia täyttävät kimaltelevat pilvenpiirtäjät, samalla kun lentävät ajoneuvot jättävät valojälkiä taivaalle. Auringonlaskun lämmin hohde luo rauhallisen mutta energisen tunnelman."
 }

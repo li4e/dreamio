@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Cipta",
   "screens.history.end.title": "Itu sahaja setakat ini",
   "screens.history.end.description": "Tetapi sentiasa ada ruang untuk lebih banyak kreativiti. Sedia untuk mencipta sesuatu yang baru?",
-  "screens.history.end.button": "Buat"
+  "screens.history.end.button": "Buat",
+  "promptExample": "Sebuah kota futuristik pada waktu senja, disinari warna jingga dan emas yang cerah. Seorang wanita muda dengan rambut merah menyala berdiri di atas bumbung, mengenakan kimono tradisional dengan corak yang bercahaya dan rumit. Garis langit kota dipenuhi dengan pencakar langit yang berkilau, sementara kenderaan terbang meninggalkan jejak cahaya di langit. Cahaya hangat dari senja menciptakan suasana yang tenang tetapi penuh tenaga."
 }

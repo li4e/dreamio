@@ -54,5 +54,6 @@
   "screens.history.empty.button": "Crear",
   "screens.history.end.title": "Això és tot fins ara.",
   "screens.history.end.description": "Però sempre hi ha espai per a més creativitat. Estàs preparat per crear alguna cosa nova?",
-  "screens.history.end.button": "Crea"
+  "screens.history.end.button": "Crea",
+  "promptExample": "Una ciutat futurista al capvespre, banyada en un vibrants tocs d'orange i or. Una jove amb cabell vermell brillant està en un terrat, vestida amb un kimono tradicional amb patrons intricats i lluminosos. L'horitzó de la ciutat està ple de gratacels que brillen, mentre vehicles voladors deixen rastres de llum pel cel. El càlid ressorgiment de la posta de sol crea una atmosfera pacífica però energètica."
 }
