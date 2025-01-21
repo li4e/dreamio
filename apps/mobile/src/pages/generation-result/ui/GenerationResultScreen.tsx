@@ -26,7 +26,7 @@ import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
-import { CachedImage } from 'shared/ui/CachedImage'
+import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
@@ -222,8 +222,9 @@ function useOnCopy(generation: GenerationEntity) {
 
 async function shareImage(url: string) {
   try {
+    const cache = new ImageCache(url)
     await Share.open({
-      url,
+      url: cache.cachedPath || url,
     })
   } catch (error) {
     console.error('Error sharing image:', error)
@@ -232,8 +233,9 @@ async function shareImage(url: string) {
 
 async function saveImage(url: string) {
   try {
+    const cache = new ImageCache(url)
     await Share.open({
-      url,
+      url: cache.cachedPath || url,
       type: 'image/jpeg',
       saveToFiles: true,
     })

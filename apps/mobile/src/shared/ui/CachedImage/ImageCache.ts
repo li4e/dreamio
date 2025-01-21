@@ -21,8 +21,8 @@ export class ImageCache {
    * @returns {Promise<string>} - The local path to the cached image.
    */
   async download(): Promise<string> {
-    if (caches.has(this.url)) {
-      return this.localFilePath
+    if (this.cachedPath) {
+      return this.cachedPath
     }
 
     const fileInfo = await FileSystem.getInfoAsync(this.localFilePath)
