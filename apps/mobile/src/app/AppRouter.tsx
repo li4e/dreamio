@@ -62,6 +62,7 @@ const HomeTabs = () => {
               <MaterialCommunityIcons name="history" color={color} size={26} />
             ),
             tabBarLabel: t('components.tabBar.history'),
+            tabBarButtonTestID: 'TAB_BUTTON_HISTORY',
           }}
         />
 
@@ -77,6 +78,7 @@ const HomeTabs = () => {
               />
             ),
             tabBarLabel: t('components.tabBar.generation'),
+            tabBarButtonTestID: 'TAB_BUTTON_GENERATION',
           }}
         />
         <Tab.Screen
@@ -87,6 +89,7 @@ const HomeTabs = () => {
               <MaterialCommunityIcons name="tune" color={color} size={26} />
             ),
             tabBarLabel: t('components.tabBar.settings'),
+            tabBarButtonTestID: 'TAB_BUTTON_SETTINGS',
           }}
         />
       </Tab.Navigator>

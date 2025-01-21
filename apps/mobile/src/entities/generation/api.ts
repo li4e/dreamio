@@ -34,7 +34,8 @@ export class Api {
       throw new Error('Generation not found')
     }
 
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true`
+    const seed = Math.trunc(Math.random() * 1000)
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true&seed=${seed}`
     const cache = new ImageCache(imageUrl)
 
     try {

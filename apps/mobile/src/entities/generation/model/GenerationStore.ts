@@ -1,11 +1,17 @@
 import { observable, makeAutoObservable, set, remove, get, values } from 'mobx'
 import { GenerationEntity } from './GenerationEntity'
+import { launchArguments } from 'shared/lib/launchArguments'
+import { screenshotsData } from './screenshotsData'
 
 export class GenerationStore {
   readonly items = observable.map<number, GenerationEntity>({})
 
   constructor() {
     makeAutoObservable(this)
+
+    if (launchArguments.screenshotsMode) {
+      this.setItems(screenshotsData)
+    }
   }
 
   setItem(item: GenerationEntity) {

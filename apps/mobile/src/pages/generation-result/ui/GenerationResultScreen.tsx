@@ -3,7 +3,7 @@ import * as Clipboard from 'expo-clipboard'
 import { useState } from 'react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { View, Image, ScrollView, Platform } from 'react-native'
+import { View, ScrollView, Platform } from 'react-native'
 import {
   Appbar,
   Chip,
@@ -26,6 +26,7 @@ import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
+import { CachedImage } from 'shared/ui/CachedImage'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
@@ -52,7 +53,7 @@ export function GenerationResultScreen(
               paddingBottom: insets.bottom + 70,
             }}
           >
-            <Image
+            <CachedImage
               source={{ uri: generation.images[0] }}
               className="w-full aspect-square"
             />
