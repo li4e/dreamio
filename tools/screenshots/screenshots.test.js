@@ -1,11 +1,69 @@
 const { execSync } = require('child_process')
-const locales = ['ru', 'en-US']
+
+const locales = [
+  'ar-SA',
+  'ca',
+  'cs',
+  'da',
+  'de-DE',
+  'el',
+  'en-US',
+  'en-AU',
+  'en-CA',
+  'en-GB',
+  'es-ES',
+  'es-MX',
+  'fi',
+  'fr-CA',
+  'fr-FR',
+  'he',
+  'hi',
+  'hr',
+  'hu',
+  'id',
+  'it',
+  'ja',
+  'ko',
+  'ms',
+  'nl-NL',
+  'no',
+  'pl',
+  'pt-BR',
+  'pt-PT',
+  'ro',
+  'ru',
+  'sk',
+  'sv',
+  'th',
+  'tr',
+  'uk',
+  'vi',
+  'zh-Hans',
+  'zh-Hant',
+]
 
 const screenshotsDir = '../../fastlane/screenshots'
 
+/**
+ * Extracts the text between parentheses in a given string and replaces spaces with underscores.
+ *
+ * @param input - The input string containing text within parentheses.
+ * @returns The formatted text or null if no parentheses are found.
+ */
+function formatDeviceName(input) {
+  const match = input.match(/\(([^)]+)\)/)
+  if (!match) {
+    throw new Error('Device name is invalid')
+  }
+  return match[1].replace(/ /g, '_')
+}
+
 async function takeScreenshot(name, lang) {
   const path = await device.takeScreenshot(name)
-  await execSync(`cp ${path} ${screenshotsDir}/${lang}/${name}.png`)
+  const deviceName = formatDeviceName(device.name)
+  await execSync(
+    `cp ${path} ${screenshotsDir}/${lang}/${deviceName}_${name}.png`
+  )
 }
 
 describe('Taking screenshots', () => {

@@ -20,6 +20,7 @@ module.exports = {
         CFBundleDisplayName: 'AI Art Gen',
         CFBundleAllowMixedLocalizations: true,
         CADisableMinimumFrameDurationOnPhone: true,
+        UIUserInterfaceStyle: 'Light',
         LSApplicationQueriesSchemes: [
           'fb',
           'instagram',

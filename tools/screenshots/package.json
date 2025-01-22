@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "screenshots.test.js",
   "scripts": {
+    "build": "detox build --configuration ios.release",
     "start": "detox test --configuration ios.release"
   },
   "devDependencies": {

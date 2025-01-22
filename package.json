@@ -12,10 +12,11 @@
     "ios": "npm run ios -w apps/mobile",
     "android": "npm run android -w apps/mobile",
     "prebuild": "dotenv -e .env -- npm run prebuild -w apps/mobile",
-    "prebuild:screenshots": "npm run prebuild && detox build --configuration ios.release",
+    "prebuild:screenshots": "npm run prebuild && npm run build -w tools/screenshots",
     "deploy:web": "firebase deploy --only hosting",
-    "deploy:ios": "dotenv -e .env -- npm run prebuild:mobile && bundle exec fastlane beta",
+    "deploy:ios": "dotenv -e .env -- npm run prebuild && bundle exec fastlane beta",
     "deploy:meta": "dotenv -e .env -- bundle exec fastlane update_meta",
+    "deploy:screenshots": "dotenv -e .env -- bundle exec fastlane update_screenshots",
     "translate:meta": "dotenv -e .env -- npx esrun ./scripts/translation/meta.ts",
     "translate:app": "dotenv -e .env -- npx esrun ./scripts/translation/app.ts",
     "screenshots": "npm run start -w tools/screenshots"

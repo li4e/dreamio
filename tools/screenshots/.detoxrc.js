@@ -21,7 +21,7 @@ module.exports = {
     'ios.release': {
       type: 'ios.app',
       build:
-        'xcodebuild -workspace ../../apps/mobile/ios/dreamio.xcworkspace -scheme dreamio -configuration Release -sdk iphonesimulator -arch x86_64 -derivedDataPath apps/mobile/ios/build',
+        'xcodebuild -workspace ../../apps/mobile/ios/dreamio.xcworkspace -scheme dreamio -configuration Release -sdk iphonesimulator -arch x86_64 -derivedDataPath ../../apps/mobile/ios/build',
       binaryPath:
         '../../apps/mobile/ios/build/Build/Products/Release-iphonesimulator/dreamio.app',
     },
@@ -36,7 +36,7 @@ module.exports = {
     simulator: {
       type: 'ios.simulator',
       device: {
-        type: 'iPhone 16 Pro Max',
+        type: 'iPhone 14 Plus',
       },
     },
     // emulator: {
