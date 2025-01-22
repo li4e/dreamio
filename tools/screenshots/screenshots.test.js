@@ -44,7 +44,7 @@ const locales = [
 
 const RTL_locales = ['ar-SA', 'he']
 
-const screenshotsDir = '../fastlane/screenshots'
+const screenshotsDir = '../mobile-deploy/fastlane/screenshots'
 
 /**
  * Extracts the text between parentheses in a given string and replaces spaces with underscores.

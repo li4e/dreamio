@@ -1,5 +1,5 @@
 {
-  "name": "fastlane",
+  "name": "mobile-deploy",
   "version": "1.0.0",
   "scripts": {
     "deploy:ios": "bundle exec fastlane beta",
