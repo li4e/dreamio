@@ -1,0 +1,17 @@
+{
+  "name": "translator",
+  "description": "A command-line tool for translating app dictionary or store metadata. The 'translate' script accepts 'app' or 'meta' as arguments.",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "translate": "esrun ./index.ts"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.33",
+    "esrun": "^3.2.26",
+    "flat": "^6.0.1",
+    "openai": "^4.79.4",
+    "typescript": "*",
+    "yargs": "^17.7.2"
+  }
+}
