@@ -1,3 +1,5 @@
-— Kuvan välimuisti Korjattu: Kuvan välimuistiin liittyvä ongelma on ratkaistu, ja kuvat tallennetaan nyt oikein.  
-— Latauspainikkeen Korjaus: Virhe, joka esti latauspainiketta toimimasta, on korjattu.  
-— Kuvan Jakamisen Korjaus: Ongelma, joka vaikutti kuvan jakamispainikkeen toimintaan, on käsitelty.
+— Kuvavälimuisti Korjaus: Kuvavälimuistiin liittyvä ongelma on ratkaistu, ja kuvat tallennetaan nyt oikein.  
+— Latausnappi Korjaus: Virhe, joka estää latauspainikkeen toimimisen, on korjattu.  
+— Kuvan Jakamisen Korjaus: Kuvan jakamisnapin toimimattomuuteen liittyvä ongelma on käsitelty.  
+
+Huomioithan: Edellisten generaatioden historia tyhjennetään tämän päivityksen jälkeen. Tämä on välttämätön toimenpide alkuperäisen ongelman korjaamiseksi, mutta tulevissa päivityksissä generaatiokeskustelusi historia säilytetään ilman lisähäiriöitä.

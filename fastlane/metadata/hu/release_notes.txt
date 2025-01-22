@@ -1,3 +1,5 @@
-— Kép gyorsítótárazási hiba javítása: A kép gyorsítótárazásával kapcsolatos probléma megoldódott, és a képek mostantól megfelelően tárolódnak.  
-— Letöltési gomb hiba javítása: A letöltési gomb működését gátló hiba javítva lett.  
-— Képmegosztási hiba javítása: A képmegosztó gomb működésével kapcsolatos probléma megoldásra került.
+— Kép Cache Hiba Javítása: A képek cache-zelésével kapcsolatos probléma megoldódott, a képek mostantól helyesen tárolódnak.
+— Letöltés Gomb Hiba Javítása: A letöltés gomb működését akadályozó hiba javítva lett.
+— Kép Megosztás Hiba Javítása: A képmegosztó gomb működésével kapcsolatos problémát orvosoltuk.
+
+Kérjük, vegye figyelembe: a korábbi generációinak előzményei törlődnek az új frissítés után. Ez egy szükséges lépés az eredeti probléma megoldásához, de a jövőbeli frissítések során a generációs előzményei torlódások nélkül fognak megmaradni.

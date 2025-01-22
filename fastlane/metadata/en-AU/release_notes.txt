@@ -1,3 +1,5 @@
 — Image Caching Fix: The issue with image caching has been resolved, ensuring images are now stored correctly.  
-— Download Button Fix: The bug affecting the functionality of the download button has been fixed.  
-— Image Sharing Fix: The problem with the image sharing button not functioning has been addressed.
+— Download Button Fix: The bug that was preventing the download button from functioning has been fixed.  
+— Image Sharing Fix: The problem with the image sharing button not working has been addressed.  
+
+Please note: your previous generation history will be cleared following this update. This step is essential to resolve the initial issue; however, your generation history will be retained in future updates without further disruptions.

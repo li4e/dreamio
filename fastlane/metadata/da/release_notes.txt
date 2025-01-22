@@ -1,3 +1,5 @@
-— Fix til billedcache: Problemet med billedcache er blevet løst, og billeder gemmes nu korrekt.  
-— Fix til downloadknap: Fejlen, der forhindrede downloadknappen i at fungere, er blevet rettet.  
-— Fix til billeddeling: Problemet med billeddelingsknappen, som ikke fungerede, er blevet løst.
+— Billede Cache Løsning: Problemet med billede caching er blevet løst, og billeder gemmes nu korrekt.  
+— Download Knap Løsning: Fejlen, der forhindrede download knappen i at fungere, er blevet rettet.  
+— Billede Delings Løsning: Problemet med billede delings knappen, der ikke fungerede, er blevet adresseret.  
+
+Bemærk venligst: historikken for dine tidligere generationer vil blive ryddet efter denne opdatering. Dette er et nødvendigt skridt for at løse det oprindelige problem, men din generationshistorik vil blive bevaret i fremtidige opdateringer uden yderligere forstyrrelser.

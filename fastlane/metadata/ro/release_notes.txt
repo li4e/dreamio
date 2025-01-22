@@ -1,3 +1,5 @@
-— Rezolvarea problemei de cache pentru imagini: Problema legată de cache-ul imaginilor a fost remediată, iar imaginile sunt acum stocate corect.
-— Rezolvarea problemei butonului de descărcare: Bugul care împiedica funcționarea butonului de descărcare a fost corectat.
-— Rezolvarea problemei partajării imaginilor: Problema cu butonul de partajare a imaginilor care nu funcționa a fost abordată.
+— Corectarea cache-ului pentru imagini: Problema cu cache-ul imaginilor a fost rezolvată, iar imaginile sunt acum stocate corect.  
+— Corectarea butonului de descărcare: Bugul care împiedica funcționarea butonului de descărcare a fost remediat.  
+— Corectarea partajării imaginilor: Problema cu butonul de partajare a imaginilor a fost rezolvată.  
+
+Vă rugăm să rețineți: istoricul generațiilor dvs. anterioare va fi șters după această actualizare. Acesta este un pas necesar pentru a remedia problema inițială, dar istoricul dvs. de generații va fi păstrat în actualizările viitoare fără întreruperi suplimentare.

@@ -1,3 +1,5 @@
-— Bildebufring Løsning: Problemet med bildebufring er nå løst, og bilder lagres riktig.  
-— Last Ned Knappløsning: Feilen som hindret last ned-knappen fra å fungere er nå rettet.  
-— Bildedeling Løsning: Problemet med at bildedeling-knappen ikke fungerte er nå løst.
+— Løsning for bildecaching: Problemet med bildecaching er nå løst, og bilder lagres nå korrekt.  
+— Løsning for nedlastingsknappen: Feilen som hindret nedlastingsknappen fra å fungere, er rettet.  
+— Løsning for bildedeling: Problemet med at knappen for bildedeling ikke fungerte, er nå adressert.  
+
+Vennligst merk: Historikken til dine tidligere generasjoner vil bli slettet etter denne oppdateringen. Dette er et nødvendig skritt for å fikse det opprinnelige problemet, men historikken din vil bli bevart i fremtidige oppdateringer uten ytterligere forstyrrelser.

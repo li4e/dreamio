@@ -1,3 +1,5 @@
-— Correction du cache d'images : Le problème de mise en cache des images a été résolu et les images sont désormais enregistrées correctement.  
-— Correction du bouton de téléchargement : Le bogue empêchant le bouton de téléchargement de fonctionner a été corrigé.  
-— Correction du partage d'images : Le problème lié au bouton de partage d'images qui ne fonctionnait pas a été traité.
+— Correction de la mise en cache des images : Le problème de mise en cache des images a été résolu, et les images sont maintenant stockées correctement.  
+— Correction du bouton de téléchargement : Le bogue qui empêchait le bouton de téléchargement de fonctionner a été corrigé.  
+— Correction du partage d'images : Le problème avec le bouton de partage d'images qui ne fonctionnait pas a été traité.  
+
+Veuillez noter : l'historique de vos précédentes générations sera effacé après cette mise à jour. Cela est nécessaire pour corriger le problème initial, mais votre historique de génération sera préservé dans les futures mises à jour sans autres interruptions.

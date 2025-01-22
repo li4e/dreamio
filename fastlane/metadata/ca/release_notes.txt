@@ -1,3 +1,5 @@
-— Solució de la memòria cau d'imatges: S'ha resolt el problema amb la memòria cau d'imatges i ara les imatges s'emmagatzemen correctament.  
-— Solució del botó de descàrrega: S'ha solucionat el bug que impedia que el botó de descàrrega funcionés.  
-— Solució de la compartició d'imatges: S'ha abordat el problema amb el botó de compartició d'imatges que no funcionava.
+— Solució de la memòria cau d’imatges: S'ha resolt el problema amb la memòria cau d’imatges, i ara les imatges es guarden correctament.  
+— Solució del botó de descàrrega: S'ha solucionat el problema que impedia el funcionament del botó de descàrrega.  
+— Solució per compartir imatges: S'ha solucionat el problema amb el botó de compartir imatges que no funcionava.
+
+Tingueu en compte: la història de les vostres generacions anteriors es voldrà esborrar després d’aquesta actualització. Aquest és un pas necessari per resoldre el problema original, però la vostra història de generacions es conservarà en futures actualitzacions sense més interrupcions.

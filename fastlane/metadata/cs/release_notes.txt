@@ -1,3 +1,5 @@
-— Oprava mezipaměti obrázků: Byla vyřešena otázka mezipaměti obrázků a obrázky jsou nyní ukládány správně.  
-— Oprava tlačítka pro stažení: Byla opravena chyba, která bránila funkčnosti tlačítka pro stažení.  
-— Oprava sdílení obrázků: Byla vyřešena otázka nefunkčnosti tlačítka pro sdílení obrázků.
+— Oprava ukládání obrázků: Problém s ukládáním obrázků byl vyřešen a obrázky se nyní ukládají správně.  
+— Oprava tlačítka pro stažení: Chyba bránící fungování tlačítka pro stažení byla opravena.  
+— Oprava sdílení obrázků: Problém s tlačítkem pro sdílení obrázků byl vyřešen.  
+
+Upozornění: Historie vašich předchozích generací bude po této aktualizaci smazána. Toto je nezbytný krok k vyřešení původního problému, ale vaše historie generací bude v budoucích aktualizacích uchována bez dalších problémů.

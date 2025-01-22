@@ -1,3 +1,5 @@
-— Fehlerbehebung beim Bild-Cache: Das Problem mit dem Bild-Cache wurde behoben, und Bilder werden jetzt korrekt gespeichert.  
-— Fehlerbehebung der Download-Schaltfläche: Der Fehler, der die Funktionsfähigkeit der Download-Schaltfläche verhinderte, wurde behoben.  
-— Fehlerbehebung beim Teilen von Bildern: Das Problem mit der nicht funktionierenden Schaltfläche zum Teilen von Bildern wurde behoben.
+— Fehlerbehebung bei der Bild-Caching: Das Problem mit dem Bild-Caching wurde behoben, und Bilder werden nun korrekt gespeichert.  
+— Fehlerbehebung bei der Download-Schaltfläche: Der Fehler, der die Funktionalität der Download-Schaltfläche beeinträchtigte, wurde behoben.  
+— Fehlerbehebung bei der Bildfreigabe: Das Problem mit der nicht funktionierenden Bildfreigabeschaltfläche wurde angegangen.  
+
+Bitte beachten Sie: Der Verlauf Ihrer vorherigen Generationen wird nach diesem Update gelöscht. Dies ist ein notwendiger Schritt, um das ursprüngliche Problem zu beheben, jedoch wird Ihr Generationsverlauf in zukünftigen Updates ohne weitere Störungen erhalten bleiben.

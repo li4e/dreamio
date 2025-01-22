@@ -1,3 +1,5 @@
-— Pembetulan Cache Gambar: Isu dengan cache gambar telah diselesaikan, dan gambar kini disimpan dengan betul.  
-— Pembetulan Butang Muat Turun: Pepijat yang menghalang butang muat turun daripada berfungsi telah diperbaiki.  
-— Pembetulan Kongsi Gambar: Isu dengan butang kongsi gambar yang tidak berfungsi telah ditangani.
+— Pembaikan Cache Gambar: Isu dengan cache gambar telah diselesaikan, dan gambar kini disimpan dengan betul.  
+— Pembaikan Butang Muat Turun: Pepijat yang menghalang butang muat turun daripada berfungsi telah diperbaiki.  
+— Pembaikan Perkongsian Gambar: Isu dengan butang perkongsian gambar yang tidak berfungsi telah ditangani.  
+
+Sila ambil perhatian: sejarah generasi anda yang terdahulu akan dipadam selepas kemas kini ini. Ini adalah langkah yang diperlukan untuk menyelesaikan isu asal, tetapi sejarah generasi anda akan dikekalkan dalam kemas kini akan datang tanpa sebarang gangguan lanjut.

@@ -1,3 +1,5 @@
-— Görüntü Ön Bellekleme Düzeltmesi: Görüntü ön bellekleme ile ilgili sorun giderildi ve görüntüler artık doğru bir şekilde saklanıyor.
-— İndirme Butonu Düzeltmesi: İndirme butonunun çalışmamasına neden olan hata düzeltildi.
-— Görüntü Paylaşma Düzeltmesi: Görüntü paylaşma butonunun çalışmamasıyla ilgili sorun çözüldü.
+— Görüntü Ön Bellek Düzeltmesi: Görüntü ön bellekleme ile ilgili sorun çözülmüştür ve görseller artık doğru bir şekilde saklanmaktadır.
+— İndirme Düğmesi Düzeltmesi: İndirme düğmesinin çalışmamasına neden olan hata düzeltilmiştir.
+— Görüntü Paylaşma Düzeltmesi: Görüntü paylaşma düğmesinin çalışmamasıyla ilgili sorun giderilmiştir.
+
+Lütfen dikkat edin: Bu güncellemeden sonra önceki nesil verileriniz silinecektir. Bu, orijinal sorunu çözmek için gerekli bir adımdır, ancak gelecek güncellemelerde nesil geçmişiniz kesintisiz bir şekilde korunacaktır.

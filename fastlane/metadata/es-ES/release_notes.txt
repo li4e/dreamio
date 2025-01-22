@@ -1,3 +1,5 @@
-— Corrección de caché de imágenes: Se ha resuelto el problema con el almacenamiento en caché de imágenes, y ahora las imágenes se guardan correctamente.  
-— Corrección del botón de descarga: Se ha solucionado el error que impedía el funcionamiento del botón de descarga.  
-— Corrección del botón de compartir imagen: Se ha abordado el problema con el botón de compartir imagen que no funcionaba.
+— Solución de Caché de Imágenes: Se ha resuelto el problema con el caché de imágenes, y las imágenes ahora se almacenan correctamente.  
+— Solución del Botón de Descarga: Se ha corregido el error que impedía el funcionamiento del botón de descarga.  
+— Solución para Compartir Imágenes: Se ha abordado el problema del botón de compartir imágenes que no funcionaba.
+
+Tenga en cuenta: el historial de sus generaciones anteriores se borrará después de esta actualización. Este es un paso necesario para solucionar el problema original, pero su historial de generaciones se mantendrá en futuras actualizaciones sin más interrupciones.

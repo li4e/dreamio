@@ -1,3 +1,5 @@
-— Ispravka predmemoriranja slika: Problem s predmemoriranjem slika je riješen, a slike se sada ispravno pohranjuju.  
-— Ispravka gumba za preuzimanje: Greška koja je onemogućavala rad gumba za preuzimanje je ispravljena.  
-— Ispravka dijeljenja slika: Problem s nefunkcionalnošću gumba za dijeljenje slika je riješen.
+— Ispravka keširanja slika: Problem s keširanjem slika je riješen, a slike se sada pravilno pohranjuju.  
+— Ispravka gumba za preuzimanje: Greška koja je sprječavala rad gumba za preuzimanje je otklonjena.  
+— Ispravka dijeljenja slika: Problem s nefunkcionalnim gumbom za dijeljenje slika je riješen.  
+
+Napomena: Povijest vaših prethodnih generacija bit će izbrisana nakon ove nadogradnje. Ovaj korak je neophodan za rješavanje originalnog problema, ali vaša povijest generacija bit će sačuvana u budućim nadogradnjama bez daljnjih prekida.

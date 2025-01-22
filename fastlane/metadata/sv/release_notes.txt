@@ -1,3 +1,5 @@
-— Fix av bildcaching: Problemet med bildcaching har åtgärdats, och bilder lagras nu korrekt.  
-— Åtgärd av nedladdningsknapp: Felet som hindrade nedladdningsknappen från att fungera har åtgärdats.  
-— Fix av bilddelningsfunktion: Problemet med att knappen för bilddelning inte fungerade har åtgärdats.
+— Lösning för bildcachning: Problemet med bildcachning har åtgärdats, och bilder lagras nu korrekt.  
+— Lösning för nedladdningsknappen: Felet som hindrade nedladdningsknappen från att fungera har åtgärdats.  
+— Lösning för bilddelning: Problemet med att knappen för bilddelning inte fungerade har åtgärdats.  
+
+Observera: Historiken för dina tidigare generationer kommer att rensas efter denna uppdatering. Detta är ett nödvändigt steg för att åtgärda det ursprungliga problemet, men din generationshistorik kommer att bevaras i framtida uppdateringar utan ytterligare avbrott.
