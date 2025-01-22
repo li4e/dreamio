@@ -42,6 +42,8 @@ const locales = [
   'zh-Hant',
 ]
 
+const RTL_locales = ['ar-SA', 'he']
+
 const screenshotsDir = '../fastlane/screenshots'
 
 /**
@@ -116,8 +118,19 @@ describe('Taking screenshots', () => {
       if (i === 0) {
         await new Promise((resolve) => setTimeout(() => resolve(), 5000))
       }
+
       await takeScreenshot('2', lang)
-      await element(by.id('HISTORY_LIST')).tap({ x: 5, y: 5 })
+
+      const historyList = element(by.id('HISTORY_LIST'))
+
+      const elementAttributes = await historyList.getAttributes()
+      console.log({ boundWIdth: elementAttributes.elementBounds.width })
+
+      await historyList.tap(
+        RTL_locales.includes(lang)
+          ? { x: elementAttributes.elementBounds.width - 5, y: 5 }
+          : { x: 5, y: 5 }
+      )
       await takeScreenshot('3', lang)
     })
   }
