@@ -1,3 +1,3 @@
-— Millora del rendiment: Hem optimitzat l'aplicació per a un funcionament més ràpid i fluït.  
-— Correcció de errors: S'han resolt problemes menors per oferir una experiència més fiable.  
-— Suport lingüístic global: L'aplicació ara admet la majoria d'idiomes del món, fent-la accessible a un públic més ampli.
+— Solució de la memòria cau d'imatges: S'ha resolt el problema amb la memòria cau d'imatges i ara les imatges s'emmagatzemen correctament.  
+— Solució del botó de descàrrega: S'ha solucionat el bug que impedia que el botó de descàrrega funcionés.  
+— Solució de la compartició d'imatges: S'ha abordat el problema amb el botó de compartició d'imatges que no funcionava.

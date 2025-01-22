@@ -1,3 +1,3 @@
-— Покращена продуктивність: Ми оптимізували додаток для швидшої та плавнішої роботи.  
-— Виправлення помилок: Незначні проблеми були усунуті для надійнішого досвіду.  
-— Глобальна підтримка мов: Тепер додаток підтримує більшість світових мов, що робить його доступнішим для широкої аудиторії.
+— Image Caching Fix: The issue with image caching has been resolved, ensuring images are now stored correctly.  
+— Download Button Fix: The bug that was preventing the download button from functioning has been rectified.  
+— Image Sharing Fix: The problem with the image sharing button not operating has been addressed.

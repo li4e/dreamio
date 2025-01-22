@@ -1,3 +1,3 @@
-— Verbeterde prestaties: We hebben de app geoptimaliseerd voor snellere en soepelere werking.  
-— Foutoplossingen: Kleine problemen zijn verholpen voor een betrouwbaardere ervaring.  
-— Ondersteuning voor wereldwijde talen: De app ondersteunt nu de meeste talen ter wereld, waardoor deze toegankelijker is voor een breder publiek.
+— Oplossing voor afbeeldingscaching: Het probleem met afbeeldingscaching is verholpen en afbeeldingen worden nu correct opgeslagen.  
+— Oplossing voor de downloadknop: De bug waardoor de downloadknop niet werkte, is opgelost.  
+— Oplossing voor het delen van afbeeldingen: Het probleem met de knop voor het delen van afbeeldingen is aangepakt.

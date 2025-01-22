@@ -1,3 +1,3 @@
-— Rendimiento Mejorado: Hemos optimizado la aplicación para un funcionamiento más rápido y fluido.  
-— Corrección de Errores: Se han resuelto problemas menores para ofrecer una experiencia más confiable.  
-— Soporte de Idiomas Global: La aplicación ahora es compatible con la mayoría de los idiomas del mundo, lo que la hace accesible a un público más amplio.
+— Corrección de caché de imágenes: Se ha resuelto el problema con el almacenamiento en caché de imágenes, y ahora las imágenes se guardan correctamente.  
+— Corrección del botón de descarga: Se ha solucionado el error que impedía el funcionamiento del botón de descarga.  
+— Corrección del botón de compartir imagen: Se ha abordado el problema con el botón de compartir imagen que no funcionaba.

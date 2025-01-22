@@ -1,3 +1,3 @@
-— Prestasi Diperbaiki: Kami telah mengoptimumkan aplikasi untuk operasi yang lebih cepat dan lancer.  
-— Pembetulan Pepijat: Isu kecil telah diselesaikan untuk pengalaman yang lebih boleh dipercayai.  
-— Sokongan Bahasa Global: Aplikasi kini menyokong kebanyakan bahasa di dunia, menjadikannya boleh diakses oleh lebih ramai pengguna.
+— Pembetulan Cache Gambar: Isu dengan cache gambar telah diselesaikan, dan gambar kini disimpan dengan betul.  
+— Pembetulan Butang Muat Turun: Pepijat yang menghalang butang muat turun daripada berfungsi telah diperbaiki.  
+— Pembetulan Kongsi Gambar: Isu dengan butang kongsi gambar yang tidak berfungsi telah ditangani.

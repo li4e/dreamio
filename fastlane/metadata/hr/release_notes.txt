@@ -1,3 +1,3 @@
-— Poboljšane Performanse: Optimizirali smo aplikaciju za brži i nesmetan rad.
-— Ispravke Grešaka: Manji problemi su riješeni za pouzdanije iskustvo.
-— Globalna Podrška za Jezike: Aplikacija sada podržava većinu svjetskih jezika, što je čini dostupnijom široj publici.
+— Ispravka predmemoriranja slika: Problem s predmemoriranjem slika je riješen, a slike se sada ispravno pohranjuju.  
+— Ispravka gumba za preuzimanje: Greška koja je onemogućavala rad gumba za preuzimanje je ispravljena.  
+— Ispravka dijeljenja slika: Problem s nefunkcionalnošću gumba za dijeljenje slika je riješen.

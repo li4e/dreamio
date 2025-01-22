@@ -1,3 +1,3 @@
-— Ulepszona wydajność: Optymalizowaliśmy aplikację, aby działała szybciej i płynniej.  
-— Poprawki błędów: Rozwiązano drobne problemy, aby zapewnić bardziej niezawodne doświadczenie.  
-— Wsparcie dla języków globalnych: Aplikacja obsługuje teraz większość języków świata, co czyni ją dostępną dla szerszej publiczności.
+— Naprawa pamięci podręcznej obrazów: Problem z pamięcią podręczną obrazów został rozwiązany, a obrazy są teraz przechowywane poprawnie.  
+— Naprawa przycisku pobierania: Błąd uniemożliwiający działanie przycisku pobierania został naprawiony.  
+— Naprawa udostępniania obrazów: Problem z przyciskiem udostępniania obrazów został rozwiązany.

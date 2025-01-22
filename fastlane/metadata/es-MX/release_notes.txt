@@ -1,2 +1,3 @@
-— Rendimiento Mejorado: Hemos optimizado la aplicación para un funcionamiento más rápido y fluido.  
-— Corrección de Errores: Se han resuelto problemas menores para ofrecer una experiencia más confiable.
+— Solución de Caché de Imágenes: Se ha resuelto el problema con el caché de imágenes, y ahora las imágenes se almacenan correctamente.  
+— Solución del Botón de Descarga: Se ha corregido el error que impedía que el botón de descarga funcionara.  
+— Solución para Compartir Imágenes: Se ha abordado el problema con el botón de compartir imágenes que no estaba funcionando.

@@ -1,3 +1,3 @@
-— Vylepšený výkon: Optimalizovali sme aplikáciu pre rýchlejší a plynulejší chod.  
-— Opravy chýb: Menšie problémy boli vyriešené pre spoľahlivejší zážitok.  
-— Podpora globálnych jazykov: Aplikácia teraz podporuje väčšinu svetových jazykov, čo ju robí prístupnejšou pre širšie publikum.
+— Oprava cache obrázkov: Problém s cache obrázkov bol vyriešený a obrázky sa teraz ukladajú správne.
+— Oprava tlačidla na stiahnutie: Chyba, ktorá bránila funkčnosti tlačidla na stiahnutie, bola opravená.
+— Oprava zdieľania obrázkov: Problém s nefunkčným tlačidlom na zdieľanie obrázkov bol vyriešený.

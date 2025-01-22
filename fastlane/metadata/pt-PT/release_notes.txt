@@ -1,3 +1,3 @@
-— Desempenho Aprimorado: Otimizámos a aplicação para uma operação mais rápida e fluida.  
-— Correções de Bugs: Questões menores foram resolvidas para uma experiência mais fiável.  
-— Suporte a Várias Línguas: A aplicação agora suporta a maioria das línguas do mundo, tornando-a acessível a um público mais amplo.
+— Correção de Cache de Imagens: O problema com o cache de imagens foi resolvido, e as imagens agora são armazenadas corretamente.  
+— Correção do Botão de Download: O erro que impedia o funcionamento do botão de download foi corrigido.  
+— Correção do Compartilhamento de Imagens: A questão com o botão de compartilhamento de imagens que não estava a funcionar foi tratada.

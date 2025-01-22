@@ -1,3 +1,3 @@
-— Prestazioni Ottimizzate: Abbiamo ottimizzato l'app per un funzionamento più veloce e fluido.  
-— Risoluzione di Bug: Sono stati risolti problemi minori per un'esperienza più affidabile.  
-— Supporto Linguistico Globale: L'app ora supporta la maggior parte delle lingue del mondo, rendendola accessibile a un pubblico più ampio.
+— Correzione della cache delle immagini: È stato risolto il problema relativo alla cache delle immagini e ora le immagini vengono salvate correttamente.
+— Correzione del pulsante di download: È stato corretto il bug che impediva il funzionamento del pulsante di download.
+— Correzione della condivisione delle immagini: È stato affrontato il problema con il pulsante di condivisione delle immagini che non funzionava.

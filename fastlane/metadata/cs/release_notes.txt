@@ -1,3 +1,3 @@
-— Vylepšený výkon: Optimalizovali jsme aplikaci pro rychlejší a plynulejší provoz.  
-— Opravy chyb: Byly vyřešeny menší problémy pro spolehlivější zkušenost.  
-— Podpora globálních jazyků: Aplikace nyní podporuje většinu světových jazyků, což ji činí dostupnější pro širší publikum.
+— Oprava mezipaměti obrázků: Byla vyřešena otázka mezipaměti obrázků a obrázky jsou nyní ukládány správně.  
+— Oprava tlačítka pro stažení: Byla opravena chyba, která bránila funkčnosti tlačítka pro stažení.  
+— Oprava sdílení obrázků: Byla vyřešena otázka nefunkčnosti tlačítka pro sdílení obrázků.

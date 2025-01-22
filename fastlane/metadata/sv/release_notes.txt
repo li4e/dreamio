@@ -1,3 +1,3 @@
-— Förbättrad Prestanda: Vi har optimerat appen för snabbare och smidigare drift.  
-— Buggfixar: Mindre problem har åtgärdats för en mer pålitlig upplevelse.  
-— Global Språkstöd: Appen stödjer nu de flesta världsspråk, vilket gör den tillgänglig för en bredare publik.
+— Fix av bildcaching: Problemet med bildcaching har åtgärdats, och bilder lagras nu korrekt.  
+— Åtgärd av nedladdningsknapp: Felet som hindrade nedladdningsknappen från att fungera har åtgärdats.  
+— Fix av bilddelningsfunktion: Problemet med att knappen för bilddelning inte fungerade har åtgärdats.

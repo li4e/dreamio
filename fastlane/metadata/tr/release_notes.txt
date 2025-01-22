@@ -1,3 +1,3 @@
-— Geliştirilmiş Performans: Uygulama, daha hızlı ve akıcı bir kullanım için optimize edildi.  
-— Hata Düzeltmeleri: Daha güvenilir bir deneyim sunmak için küçük sorunlar çözüldü.  
-— Küresel Dil Desteği: Uygulama artık dünyanın çoğu dilini destekliyor, bu da daha geniş bir kitleye erişim sağlıyor.
+— Görüntü Ön Bellekleme Düzeltmesi: Görüntü ön bellekleme ile ilgili sorun giderildi ve görüntüler artık doğru bir şekilde saklanıyor.
+— İndirme Butonu Düzeltmesi: İndirme butonunun çalışmamasına neden olan hata düzeltildi.
+— Görüntü Paylaşma Düzeltmesi: Görüntü paylaşma butonunun çalışmamasıyla ilgili sorun çözüldü.

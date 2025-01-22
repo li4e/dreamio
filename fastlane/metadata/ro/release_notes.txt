@@ -1,3 +1,3 @@
-— Performanță Îmbunătățită: Am optimizat aplicația pentru o operare mai rapidă și mai fluidă.  
-— Repararea Erorilor: Problemele minore au fost rezolvate pentru o experiență mai fiabilă.  
-— Suport Lingvistic Global: Aplicația sprijină acum majoritatea limbilor din lume, făcând-o accesibilă unui public mai larg.
+— Rezolvarea problemei de cache pentru imagini: Problema legată de cache-ul imaginilor a fost remediată, iar imaginile sunt acum stocate corect.
+— Rezolvarea problemei butonului de descărcare: Bugul care împiedica funcționarea butonului de descărcare a fost corectat.
+— Rezolvarea problemei partajării imaginilor: Problema cu butonul de partajare a imaginilor care nu funcționa a fost abordată.

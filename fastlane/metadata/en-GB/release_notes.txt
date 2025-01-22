@@ -1,3 +1,3 @@
-— Enhanced Performance: We've optimised the app for faster and smoother operation.  
-— Bug Fixes: Minor issues have been resolved for a more reliable experience.  
-— Global Language Support: The app now supports a majority of world languages, making it accessible to a broader audience.
+— Image Caching Fix: The problem with image caching has been resolved, ensuring that images are now stored correctly.  
+— Download Button Fix: The bug that was preventing the download button from functioning has been rectified.  
+— Image Sharing Fix: The issue with the image sharing button not working has been fixed.

@@ -1,3 +1,3 @@
-— Performance Améliorée : Nous avons optimisé l'application pour un fonctionnement plus rapide et fluide.  
-— Corrections de Bugs : Des problèmes mineurs ont été résolus pour une expérience plus fiable.  
-— Prise en Charge des Langues Globales : L'application prend désormais en charge la plupart des langues du monde, la rendant accessible à un public plus large.
+— Correction du cache d'images : Le problème de mise en cache des images a été résolu et les images sont désormais enregistrées correctement.  
+— Correction du bouton de téléchargement : Le bogue empêchant le bouton de téléchargement de fonctionner a été corrigé.  
+— Correction du partage d'images : Le problème lié au bouton de partage d'images qui ne fonctionnait pas a été traité.

@@ -1,3 +1,3 @@
-— Hiệu suất Nâng cao: Chúng tôi đã tối ưu hóa ứng dụng để hoạt động nhanh hơn và mượt mà hơn.  
-— Sửa lỗi: Các vấn đề nhỏ đã được khắc phục để mang lại trải nghiệm đáng tin cậy hơn.  
-— Hỗ trợ Ngôn ngữ toàn cầu: Ứng dụng hiện hỗ trợ hầu hết các ngôn ngữ trên thế giới, giúp tiếp cận đối tượng rộng hơn.
+— Sửa lỗi bộ nhớ cache hình ảnh: Vấn đề với bộ nhớ cache hình ảnh đã được khắc phục, và hình ảnh giờ đây được lưu trữ đúng cách.  
+— Sửa lỗi nút tải xuống: Lỗi ngăn không cho nút tải xuống hoạt động đã được sửa.  
+— Sửa lỗi chia sẻ hình ảnh: Vấn đề với nút chia sẻ hình ảnh không hoạt động đã được giải quyết.
