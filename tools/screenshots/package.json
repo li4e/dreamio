@@ -1,0 +1,12 @@
+{
+  "name": "screenshots",
+  "version": "1.0.0",
+  "main": "screenshots.test.js",
+  "scripts": {
+    "start": "detox test --configuration ios.release"
+  },
+  "devDependencies": {
+    "detox": "^20.32.0",
+    "jest": "*"
+  }
+}
