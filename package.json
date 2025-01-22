@@ -14,9 +14,9 @@
     "prebuild": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "prebuild:screenshots": "npm run prebuild && npm run build -w tools/screenshots",
     "deploy:web": "firebase deploy --only hosting",
-    "deploy:ios": "dotenv -e .env -- npm run prebuild && bundle exec fastlane beta",
-    "deploy:meta": "dotenv -e .env -- bundle exec fastlane update_meta",
-    "deploy:screenshots": "dotenv -e .env -- bundle exec fastlane update_screenshots",
+    "deploy:ios": "dotenv -e .env -- npm run prebuild && npm run deploy:ios -w tools/fastlane",
+    "deploy:meta": "dotenv -e .env -- npm run deploy:meta -w tools/fastlane",
+    "deploy:screenshots": "dotenv -e .env -- npm run deploy:screenshots -w tools/fastlane",
     "screenshots": "npm run start -w tools/screenshots",
     "translate": "dotenv -e .env -- npm run translate -w tools/translator"
   },

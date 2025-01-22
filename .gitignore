@@ -1,17 +1,7 @@
 node_modules
 
-apps/mobile/ios
-apps/mobile/android
-
 .firebase/
 
-.DS_Store
-
-fastlane/build
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/README.md
-fastlane/.translation
-fastlane/screenshots
+**/.DS_Store
 
 .env

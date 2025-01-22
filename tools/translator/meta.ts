@@ -218,6 +218,6 @@ async function translateMetadata(
 
 export async function translateStoreMeta() {
   for (const locale of locales) {
-    await translateMetadata(locale, '../../fastlane/metadata')
+    await translateMetadata(locale, '../fastlane/metadata')
   }
 }

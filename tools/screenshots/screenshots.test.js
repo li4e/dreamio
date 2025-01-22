@@ -42,7 +42,7 @@ const locales = [
   'zh-Hant',
 ]
 
-const screenshotsDir = '../../fastlane/screenshots'
+const screenshotsDir = '../fastlane/screenshots'
 
 /**
  * Extracts the text between parentheses in a given string and replaces spaces with underscores.
