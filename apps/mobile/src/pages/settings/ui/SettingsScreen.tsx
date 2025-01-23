@@ -1,26 +1,64 @@
-import { useNavigation } from "@react-navigation/native";
-import * as MailComposer from "expo-mail-composer";
-import LottieView from "lottie-react-native";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Linking, ScrollView, View } from "react-native";
-import { Divider, List, useTheme } from "react-native-paper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { useGenerationDataService } from "entities/generation";
-import { APP_NAME, SUPPORT_EMAIL, URLS } from "shared/constants";
-import { useDialog } from "shared/ui/Dialog";
-import { SnackBarVariant, useSnackbar } from "shared/ui/Snackbar";
-import { Button } from "shared/ui/styled";
-import { styled } from "nativewind";
+import { useNavigation } from '@react-navigation/native'
+import * as MailComposer from 'expo-mail-composer'
+import LottieView from 'lottie-react-native'
+import React, { useCallback, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import {
+  Linking,
+  ScrollView,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native'
+import { Divider, List, useTheme, Text } from 'react-native-paper'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useGenerationDataService } from 'entities/generation'
+import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
+import { useDialog } from 'shared/ui/Dialog'
+import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
+import { Button } from 'shared/ui/styled'
+import { styled } from 'nativewind'
+import { useDI } from 'shared/di'
+import { useStoreData } from 'shared/store'
 
 export function SettingsScreen() {
-  const { t } = useTranslation();
-  const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
-  const clearAllData = useClearAllData();
-  const contactUs = useContactUs();
-  const { navigate } = useNavigation();
+  const { t } = useTranslation()
+  const insets = useSafeAreaInsets()
+  const { colors } = useTheme()
+  const clearAllData = useClearAllData()
+  const contactUs = useContactUs()
+  const { navigate } = useNavigation()
+  const { showSnackbar } = useSnackbar()
+
+  const pressedCount = useRef(0)
+  const { store } = useDI()
+  const onSecretPress = useCallback(() => {
+    pressedCount.current++
+    if (pressedCount.current > 10) {
+      pressedCount.current = 0
+      store.settings.setCensorship(!store.settings.censorship)
+
+      showSnackbar(
+        {
+          title: t(
+            store.settings.censorship
+              ? 'screens.settings.godMode.inactive.title'
+              : 'screens.settings.godMode.active.title'
+          ),
+          description: t(
+            store.settings.censorship
+              ? 'screens.settings.godMode.inactive.description'
+              : 'screens.settings.godMode.active.description'
+          ),
+        },
+        { hideDelay: 5000 }
+      )
+    }
+  }, [pressedCount, showSnackbar, t])
+  const censorship = useStoreData(
+    () => store.settings.censorship,
+    [store.settings]
+  )
 
   return (
     <View className="flex-1">
@@ -35,11 +73,17 @@ export function SettingsScreen() {
       >
         <View className="flex-grow">
           <View className="self-center">
-            <LottieView
-              source={require("./premium_1.json")}
-              style={{ width: 150, height: 150 }}
-              autoPlay={true}
-            />
+            <TouchableWithoutFeedback onPress={onSecretPress}>
+              <LottieView
+                source={
+                  censorship
+                    ? require('./premium_1.json')
+                    : require('./godmode.json')
+                }
+                style={{ width: 150, height: 150 }}
+                autoPlay={true}
+              />
+            </TouchableWithoutFeedback>
           </View>
           <View className="flex-grow justify-center">
             {/* <List.Section>
@@ -64,32 +108,32 @@ export function SettingsScreen() {
               style={{ backgroundColor: colors.inverseOnSurface }}
             >
               <List.Section>
-                <SubHeader>{t("screens.settings.about.title")}</SubHeader>
+                <SubHeader>{t('screens.settings.about.title')}</SubHeader>
                 <List.Item
                   onPress={() => {
-                    navigate("webview", {
-                      title: t("screens.settings.about.privacy"),
+                    navigate('webview', {
+                      title: t('screens.settings.about.privacy'),
                       url: URLS.PRIVACY,
-                    });
+                    })
                   }}
-                  title={t("screens.settings.about.privacy")}
+                  title={t('screens.settings.about.privacy')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
                 <Divider />
                 <List.Item
                   onPress={() => {
-                    navigate("webview", {
-                      title: t("screens.settings.about.terms"),
+                    navigate('webview', {
+                      title: t('screens.settings.about.terms'),
                       url: URLS.TERMS,
-                    });
+                    })
                   }}
-                  title={t("screens.settings.about.terms")}
+                  title={t('screens.settings.about.terms')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
                 <Divider />
                 <List.Item
                   onPress={contactUs}
-                  title={t("screens.settings.about.contact")}
+                  title={t('screens.settings.about.contact')}
                   right={({ color }) => <RightIcon color={color} />}
                 />
               </List.Section>
@@ -101,81 +145,81 @@ export function SettingsScreen() {
             className="my-5 self-center"
             onPress={clearAllData}
           >
-            {t("screens.settings.clear.button")}
+            {t('screens.settings.clear.button')}
           </Button>
         </View>
       </ScrollView>
     </View>
-  );
+  )
 }
 
-const SubHeader = styled(List.Subheader, "text-base font-semibold ");
+const SubHeader = styled(List.Subheader, 'text-base font-semibold ')
 const RightIcon = (props: { color: string }) => (
   <MaterialCommunityIcons color={props.color} name="arrow-right" size={20} />
-);
+)
 
 function useClearAllData() {
-  const genDataService = useGenerationDataService();
-  const { showSnackbar } = useSnackbar();
-  const { showDialog } = useDialog();
-  const { t } = useTranslation();
-  const { colors } = useTheme();
+  const genDataService = useGenerationDataService()
+  const { showSnackbar } = useSnackbar()
+  const { showDialog } = useDialog()
+  const { t } = useTranslation()
+  const { colors } = useTheme()
 
   return () => {
     showDialog({
-      title: t("screens.settings.clear.dialog.title"),
-      content: t("screens.settings.clear.dialog.description"),
+      title: t('screens.settings.clear.dialog.title'),
+      content: t('screens.settings.clear.dialog.description'),
       renderActions(dismissDialog) {
         return (
           <>
             <Button
               textColor={colors.error}
               onPress={async () => {
-                await genDataService.clear();
-                dismissDialog();
+                await genDataService.clear()
+                dismissDialog()
                 showSnackbar({
-                  description: t("screens.settings.clear.deleted"),
-                });
+                  description: t('screens.settings.clear.deleted'),
+                })
               }}
             >
-              {t("screens.settings.clear.dialog.confirm")}
+              {t('screens.settings.clear.dialog.confirm')}
             </Button>
             <Button onPress={dismissDialog}>
-              {t("screens.settings.clear.dialog.cancel")}
+              {t('screens.settings.clear.dialog.cancel')}
             </Button>
           </>
-        );
+        )
       },
-    });
-  };
+    })
+  }
 }
 
 function useContactUs() {
-  const { showSnackbar } = useSnackbar();
-  const { t } = useTranslation();
+  const { showSnackbar } = useSnackbar()
+  const { t } = useTranslation()
 
   return async () => {
     try {
-      const isComposeAvailable = await MailComposer.isAvailableAsync();
+      const isComposeAvailable = await MailComposer.isAvailableAsync()
 
       if (isComposeAvailable) {
         await MailComposer.composeAsync({
           recipients: [SUPPORT_EMAIL],
           subject: `Help me with the ${APP_NAME} app`,
-        });
+        })
       } else {
-        await Linking.openURL(`mailto:${SUPPORT_EMAIL}`);
+        await Linking.openURL(`mailto:${SUPPORT_EMAIL}`)
       }
     } catch {
       showSnackbar(
         {
-          title: t("screens.settings.contactUsError.title"),
-          description: t("screens.settings.contactUsError.description", {
+          title: t('screens.settings.contactUsError.title'),
+          description: t('screens.settings.contactUsError.description', {
             address: SUPPORT_EMAIL,
           }),
         },
         { autoHide: false, variant: SnackBarVariant.ERROR }
-      );
+      )
     }
-  };
+  }
 }

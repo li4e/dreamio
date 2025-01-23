@@ -1,4 +1,5 @@
 import { translator } from 'shared/api'
+import { SettingsStore } from 'shared/store/SettingsStore'
 import { ImageCache } from 'shared/ui/CachedImage'
 
 export enum GenerationStatusDTO {
@@ -34,8 +35,10 @@ export class Api {
       throw new Error('Generation not found')
     }
 
+    const withCensorship = new SettingsStore().censorship
+
     const seed = Math.trunc(Math.random() * 1000000000000)
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true&seed=${seed}`
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=${withCensorship}&seed=${seed}`
     const cache = new ImageCache(imageUrl)
 
     try {

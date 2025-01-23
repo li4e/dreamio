@@ -64,6 +64,16 @@
       "contactUsError": {
         "title": "Unable to Open Email App",
         "description": "Our email is: {{address}}"
+      },
+      "godMode": {
+        "active": {
+          "title": "Censorship has been deactivated",
+          "description": "With great power comes great responsibility"
+        },
+        "inactive": {
+          "title": "Censorship has been activated",
+          "description": "It seems you are not ready for such power"
+        }
       }
     },
     "generationResult": {

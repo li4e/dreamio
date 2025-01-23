@@ -1,8 +1,10 @@
-import { resources, defaultNS } from "../app/lib/i18next";
+import { resources, defaultNS } from 'shared/translations'
 
-declare module "i18next" {
+const dict = resources['en-US']
+
+declare module 'i18next' {
   interface CustomTypeOptions {
-    defaultNS: typeof defaultNS;
-    resources: typeof resources.en;
+    defaultNS: typeof defaultNS
+    resources: typeof dict
   }
 }
