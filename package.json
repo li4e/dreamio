@@ -14,7 +14,7 @@
     "prebuild": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "prebuild:screenshots": "npm run prebuild && npm run build -w tools/screenshots",
     "deploy:web": "firebase deploy --only hosting",
-    "deploy:ios": "dotenv -e .env -- npm run deploy:ios -w tools/mobile-deploy",
+    "deploy:ios": "npm run prebuild && dotenv -e .env -- npm run deploy:ios -w tools/mobile-deploy",
     "deploy:meta": "dotenv -e .env -- npm run deploy:meta -w tools/mobile-deploy",
     "deploy:screenshots": "dotenv -e .env -- npm run deploy:screenshots -w tools/mobile-deploy",
     "screenshots": "npm run start -w tools/screenshots",
