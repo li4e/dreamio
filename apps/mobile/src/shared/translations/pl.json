@@ -55,5 +55,9 @@
   "screens.history.end.title": "To wszystko jak na razie",
   "screens.history.end.description": "Ale zawsze jest miejsce na więcej kreatywności. Gotowy, aby stworzyć coś nowego?",
   "screens.history.end.button": "Stwórz",
-  "promptExample": "Futurystyczne miasto o zachodzie słońca, świecące w odcieniach pomarańczu i złota. Kobieta z czerwonymi włosami stoi na dachu w świecącym kimonie. Lśniące wieżowce i latające pojazdy wzbogacają ten dynamiczny pejzaż."
+  "promptExample": "Futurystyczne miasto o zachodzie słońca, świecące w odcieniach pomarańczu i złota. Kobieta z czerwonymi włosami stoi na dachu w świecącym kimonie. Lśniące wieżowce i latające pojazdy wzbogacają ten dynamiczny pejzaż.",
+  "screens.settings.godMode.active.title": "Cenzura została dezaktywowana.",
+  "screens.settings.godMode.active.description": "Z wielką mocą wiąże się wielka odpowiedzialność.",
+  "screens.settings.godMode.inactive.title": "Cenzura została aktywowana",
+  "screens.settings.godMode.inactive.description": "Wydaje się, że nie jesteś gotowy na taką moc."
 }

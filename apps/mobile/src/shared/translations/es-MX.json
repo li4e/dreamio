@@ -55,5 +55,9 @@
   "screens.history.end.title": "Eso es todo hasta ahora.",
   "screens.history.end.description": "Pero siempre hay espacio para más creatividad. ¿Listo para crear algo nuevo?",
   "screens.history.end.button": "Crear",
-  "promptExample": "Una ciudad futurista al atardecer, resplandeciendo en tonos de naranja y dorado. Una mujer con cabello rojo se encuentra en la azotea de un edificio, vestida con un kimono luminoso. Rascacielos brillantes y vehículos voladores contribuyen a la escena vibrante."
+  "promptExample": "Una ciudad futurista al atardecer, resplandeciendo en tonos de naranja y dorado. Una mujer con cabello rojo se encuentra en la azotea de un edificio, vestida con un kimono luminoso. Rascacielos brillantes y vehículos voladores contribuyen a la escena vibrante.",
+  "screens.settings.godMode.active.title": "La censura ha sido desactivada.",
+  "screens.settings.godMode.active.description": "Con gran poder viene una gran responsabilidad.",
+  "screens.settings.godMode.inactive.title": "La censura ha sido activada.",
+  "screens.settings.godMode.inactive.description": "Parece que no estás listo para tal poder."
 }

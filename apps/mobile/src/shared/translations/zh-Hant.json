@@ -55,5 +55,9 @@
   "screens.history.end.title": "這就是目前為止的所有內容",
   "screens.history.end.description": "但總是有空間讓創造力更多發揮。準備好來創造一些新東西了嗎？",
   "screens.history.end.button": "創建",
-  "promptExample": "一座未來城市在日落時分，泛著橘色和金色的光輝。一位紅髮女子身穿發光的和服，站在屋頂上。閃閃發光的摩天大樓和飛行載具為這個生動的場景增添了色彩。"
+  "promptExample": "一座未來城市在日落時分，泛著橘色和金色的光輝。一位紅髮女子身穿發光的和服，站在屋頂上。閃閃發光的摩天大樓和飛行載具為這個生動的場景增添了色彩。",
+  "screens.settings.godMode.active.title": "審查已被停用",
+  "screens.settings.godMode.active.description": "能力越大，責任越大。",
+  "screens.settings.godMode.inactive.title": "已啟用審查制度",
+  "screens.settings.godMode.inactive.description": "看來你還沒有準備好承擔這樣的力量。"
 }

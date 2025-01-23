@@ -1,5 +1,1 @@
-— Oprava ukládání obrázků: Problém s ukládáním obrázků byl vyřešen a obrázky se nyní ukládají správně.  
-— Oprava tlačítka pro stažení: Chyba bránící fungování tlačítka pro stažení byla opravena.  
-— Oprava sdílení obrázků: Problém s tlačítkem pro sdílení obrázků byl vyřešen.  
-
-Upozornění: Historie vašich předchozích generací bude po této aktualizaci smazána. Toto je nezbytný krok k vyřešení původního problému, ale vaše historie generací bude v budoucích aktualizacích uchována bez dalších problémů.
+— Vylepšení tlačítka "Překvap mě": Tlačítko "Překvap mě" je nyní plně funkční. Každým kliknutím se vygeneruje nový jedinečný nápad, který je automaticky přeložen do jazyka vašeho zařízení pro plynulý zážitek.

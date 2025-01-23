@@ -1,5 +1,1 @@
-— Naprawa pamięci podręcznej obrazów: Problem z pamięcią podręczną obrazów został rozwiązany, a obrazy są teraz przechowywane prawidłowo.  
-— Naprawa przycisku pobierania: Błąd uniemożliwiający działanie przycisku pobierania został naprawiony.  
-— Naprawa udostępniania obrazów: Problem z niedziałającym przyciskiem udostępniania obrazów został rozwiązany.  
-
-Proszę pamiętać: historia Twoich wcześniejszych generacji zostanie usunięta po tej aktualizacji. To konieczny krok, aby naprawić pierwotny problem, ale historia generacji będzie zachowana w przyszłych aktualizacjach bez dalszych zakłóceń.
+— Ulepszony przycisk "Zaskocz mnie": Przycisk "Zaskocz mnie" jest teraz w pełni funkcjonalny. Każde kliknięcie generuje nowy, unikalny komunikat, który jest automatycznie tłumaczony na język Twojego urządzenia, zapewniając płynne doświadczenie.

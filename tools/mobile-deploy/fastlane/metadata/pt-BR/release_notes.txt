@@ -1,5 +1,1 @@
-— Correção de Cache de Imagens: O problema com o cache de imagens foi resolvido, e as imagens agora são armazenadas corretamente.  
-— Correção do Botão de Download: O erro que impedia o funcionamento do botão de download foi corrigido.  
-— Correção do Compartilhamento de Imagens: O problema com o botão de compartilhamento de imagens que não estava funcionando foi solucionado.
-
-Observe: o histórico de suas gerações anteriores será limpo após esta atualização. Este é um passo necessário para corrigir o problema original, mas seu histórico de gerações será preservado em atualizações futuras sem mais interrupções.
+— Melhoria no Botão "Me Surpreenda": O botão "Me Surpreenda" agora está totalmente funcional. Cada clique gera um novo prompt exclusivo, que é automaticamente traduzido para o idioma do seu dispositivo, garantindo uma experiência sem interrupções.

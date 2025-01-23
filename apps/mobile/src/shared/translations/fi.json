@@ -55,5 +55,9 @@
   "screens.history.end.title": "Siinä on kaikki tähän asti.",
   "screens.history.end.description": "Mutta aina on tilaa lisää luovuudelle. Oletko valmis luomaan jotain uutta?",
   "screens.history.end.button": "Luo",
-  "promptExample": "Futuristinen kaupunki auringonlaskussa, hehkuen oranssina ja kultaisena. Nainen, jolla on punaiset hiukset, seisoo kattotasanteella hohtavassa kimonossa. Hohtavat pilvenpiirtäjät ja lentävät ajoneuvot lisäävät eläväiseen maisemaan säihkettä."
+  "promptExample": "Futuristinen kaupunki auringonlaskussa, hehkuen oranssina ja kultaisena. Nainen, jolla on punaiset hiukset, seisoo kattotasanteella hohtavassa kimonossa. Hohtavat pilvenpiirtäjät ja lentävät ajoneuvot lisäävät eläväiseen maisemaan säihkettä.",
+  "screens.settings.godMode.active.title": "Sensuuri on poistettu käytöstä.",
+  "screens.settings.godMode.active.description": "Suuresta voimasta seuraa suuri vastuu.",
+  "screens.settings.godMode.inactive.title": "Sensuuri on aktivoitu.",
+  "screens.settings.godMode.inactive.description": "Vaikuttaa siltä, että et ole valmis tällaiseen voimaan."
 }

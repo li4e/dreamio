@@ -55,5 +55,9 @@
   "screens.history.end.title": "To je prozatím vše.",
   "screens.history.end.description": "Ale vždy je místo pro více kreativity. Jste připraveni vytvořit něco nového?",
   "screens.history.end.button": "Vytvořit",
-  "promptExample": "Futuristické město při západu slunce, zářící oranžově a zlatě. Žena s červenými vlasy stojí na střeše v zářícím kimonu. Třpytivé mrakodrapy a létající vozidla přispívají k živé scenérii."
+  "promptExample": "Futuristické město při západu slunce, zářící oranžově a zlatě. Žena s červenými vlasy stojí na střeše v zářícím kimonu. Třpytivé mrakodrapy a létající vozidla přispívají k živé scenérii.",
+  "screens.settings.godMode.active.title": "Cenzura byla deaktivována",
+  "screens.settings.godMode.active.description": "S velkou mocí přichází velká zodpovědnost.",
+  "screens.settings.godMode.inactive.title": "Cenzura byla aktivována.",
+  "screens.settings.godMode.inactive.description": "Zdá se, že na takovou moc nejste připraveni."
 }

@@ -1,5 +1,1 @@
-— Pembaikan Cache Gambar: Isu dengan cache gambar telah diselesaikan, dan gambar kini disimpan dengan betul.  
-— Pembaikan Butang Muat Turun: Pepijat yang menghalang butang muat turun daripada berfungsi telah diperbaiki.  
-— Pembaikan Perkongsian Gambar: Isu dengan butang perkongsian gambar yang tidak berfungsi telah ditangani.  
-
-Sila ambil perhatian: sejarah generasi anda yang terdahulu akan dipadam selepas kemas kini ini. Ini adalah langkah yang diperlukan untuk menyelesaikan isu asal, tetapi sejarah generasi anda akan dikekalkan dalam kemas kini akan datang tanpa sebarang gangguan lanjut.
+— Peningkatan Butang "Buat Saya Terkejut": Butang "Buat Saya Terkejut" kini berfungsi sepenuhnya. Setiap klik menghasilkan prompt unik yang baru, yang secara automatik diterjemahkan ke dalam bahasa peranti anda bagi memberikan pengalaman yang lancar.

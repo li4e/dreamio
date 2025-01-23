@@ -1,5 +1,1 @@
-— Kuvavälimuisti Korjaus: Kuvavälimuistiin liittyvä ongelma on ratkaistu, ja kuvat tallennetaan nyt oikein.  
-— Latausnappi Korjaus: Virhe, joka estää latauspainikkeen toimimisen, on korjattu.  
-— Kuvan Jakamisen Korjaus: Kuvan jakamisnapin toimimattomuuteen liittyvä ongelma on käsitelty.  
-
-Huomioithan: Edellisten generaatioden historia tyhjennetään tämän päivityksen jälkeen. Tämä on välttämätön toimenpide alkuperäisen ongelman korjaamiseksi, mutta tulevissa päivityksissä generaatiokeskustelusi historia säilytetään ilman lisähäiriöitä.
+— "Yllätä minut" -painikkeen parannus: "Yllätä minut" -painike on nyt täysin toiminnallinen. Jokaisella napsautuksella syntyy uusi ainutlaatuinen pyyntö, joka käännetään automaattisesti laitteen kielelle sujuvan käyttökokemuksen takaamiseksi.

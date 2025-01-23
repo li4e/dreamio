@@ -55,5 +55,9 @@
   "screens.history.end.title": "Det er alt så langt",
   "screens.history.end.description": "Men det er alltid plass for mer kreativitet. Klar til å skape noe nytt?",
   "screens.history.end.button": "Opprett",
-  "promptExample": "En futuristisk by ved solnedgang, glødende i oransje og gull. En kvinne med rødt hår står på et tak i en strålende kimono. Glitrende skyskrapere og flyvende kjøretøy bidrar til den levende scenen."
+  "promptExample": "En futuristisk by ved solnedgang, glødende i oransje og gull. En kvinne med rødt hår står på et tak i en strålende kimono. Glitrende skyskrapere og flyvende kjøretøy bidrar til den levende scenen.",
+  "screens.settings.godMode.active.title": "Sensur har blitt deaktivert",
+  "screens.settings.godMode.active.description": "Med stor makt følger stort ansvar",
+  "screens.settings.godMode.inactive.title": "Sensur har blitt aktivert",
+  "screens.settings.godMode.inactive.description": "Det ser ut til at du ikke er klar for slik makt."
 }

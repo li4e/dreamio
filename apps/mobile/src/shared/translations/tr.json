@@ -55,5 +55,9 @@
   "screens.history.end.title": "Bu Şimdilik Her Şey",
   "screens.history.end.description": "Ama her zaman daha fazla yaratıcılık için yer vardır. Yeni bir şey yapmaya hazır mısın?",
   "screens.history.end.button": "Oluştur",
-  "promptExample": "Gelecek zamanın şehir manzarası, turuncu ve altın renginde bir gün batımında parlıyor. Kırmızı saçlı bir kadın, parlayan bir kimono ile bir çatıda duruyor. Işıldayan gökdelenler ve uçan araçlar, canlı manzaraya katkıda bulunuyor."
+  "promptExample": "Gelecek zamanın şehir manzarası, turuncu ve altın renginde bir gün batımında parlıyor. Kırmızı saçlı bir kadın, parlayan bir kimono ile bir çatıda duruyor. Işıldayan gökdelenler ve uçan araçlar, canlı manzaraya katkıda bulunuyor.",
+  "screens.settings.godMode.active.title": "Sansür devre dışı bırakıldı.",
+  "screens.settings.godMode.active.description": "Büyük güçle birlikte büyük sorumluluk gelir.",
+  "screens.settings.godMode.inactive.title": "Sansür etkinleştirildi",
+  "screens.settings.godMode.inactive.description": "Görünüşe göre bu tür bir güce hazır değilsiniz."
 }

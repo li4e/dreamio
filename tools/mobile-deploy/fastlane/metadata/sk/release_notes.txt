@@ -1,5 +1,1 @@
-— Oprava cache obrázkov: Problém s cache obrázkov bol vyriešený a obrázky sa teraz ukladajú správne.  
-— Oprava tlačidla na sťahovanie: Chyba, ktorá bránila fungovaniu tlačidla na sťahovanie, bola opravená.  
-— Oprava zdieľania obrázkov: Problém so zdieľaním obrázkov bol odstránený.
-
-Upozorňujeme: história vašich predchádzajúcich generácií bude po tejto aktualizácii vymazaná. Toto je nevyhnutný krok na opravu pôvodného problému, ale vaša história generácií bude zachovaná v budúcich aktualizáciách bez ďalších prerušením.
+— Vylepšenie tlačidla "Prekvapenie": Tlačidlo "Prekvapenie" je teraz plne funkčné. Každé kliknutie vygeneruje nový jedinečný podnet, ktorý je automaticky preložený do jazyka vášho zariadenia pre plynulý zážitok.

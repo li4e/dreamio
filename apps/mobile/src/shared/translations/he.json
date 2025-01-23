@@ -55,5 +55,9 @@
   "screens.history.end.title": "זה הכל עד כה",
   "screens.history.end.description": "אבל תמיד יש מקום ליותר יצירתיות. מוכן ליצור משהו חדש?",
   "screens.history.end.button": "צור",
-  "promptExample": "עיר Futuristic בשקיעה, זורחת בצבעי כתום וזהב. אישה עם שיער אדום עומדת על גג בבגד קימונו זוהר. גורדי שחקים מבריקים וכלי רכב מעופפים מוסיפים למראה החיוני."
+  "promptExample": "עיר Futuristic בשקיעה, זורחת בצבעי כתום וזהב. אישה עם שיער אדום עומדת על גג בבגד קימונו זוהר. גורדי שחקים מבריקים וכלי רכב מעופפים מוסיפים למראה החיוני.",
+  "screens.settings.godMode.active.title": "הצנזורה כובה",
+  "screens.settings.godMode.active.description": "עם כוח גדול מגיעה אחריות גדולה",
+  "screens.settings.godMode.inactive.title": "צנזורה הושקה",
+  "screens.settings.godMode.inactive.description": "נראה שאתה לא מוכן לכוח כזה"
 }

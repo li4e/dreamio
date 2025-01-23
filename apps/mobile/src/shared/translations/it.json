@@ -55,5 +55,9 @@
   "screens.history.end.title": "Questo è tutto finora",
   "screens.history.end.description": "Ma c'è sempre spazio per più creatività. Pronto a creare qualcosa di nuovo?",
   "screens.history.end.button": "Crea",
-  "promptExample": "Una città futuristica al tramonto, che brilla di arancione e oro. Una donna con capelli rossi si trova su un tetto indossando un kimono luminoso. Grattacieli scintillanti e veicoli volanti arricchiscono la scena vibrante."
+  "promptExample": "Una città futuristica al tramonto, che brilla di arancione e oro. Una donna con capelli rossi si trova su un tetto indossando un kimono luminoso. Grattacieli scintillanti e veicoli volanti arricchiscono la scena vibrante.",
+  "screens.settings.godMode.active.title": "La censura è stata disattivata.",
+  "screens.settings.godMode.active.description": "Con grande potere derivano grandi responsabilità.",
+  "screens.settings.godMode.inactive.title": "La censura è stata attivata",
+  "screens.settings.godMode.inactive.description": "Sembra che tu non sia pronto per un tale potere."
 }

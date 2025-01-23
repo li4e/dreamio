@@ -1,5 +1,1 @@
-— Oplossing voor afbeeldingscaching: Het probleem met afbeeldingscaching is verholpen en afbeeldingen worden nu correct opgeslagen.  
-— Oplossing voor downloadknop: De bug die verhinderde dat de downloadknop werkte, is verholpen.  
-— Oplossing voor het delen van afbeeldingen: Het probleem met de knop voor het delen van afbeeldingen is aangepakt.  
-
-Let op: de geschiedenis van uw eerdere generaties wordt na deze update gewist. Dit is een noodzakelijke stap om het oorspronkelijke probleem op te lossen, maar uw generatiegeschiedenis zal in toekomstige updates behouden blijven zonder verdere onderbrekingen.
+— Verbetering van de "Verras Me" Knop: De "Verras Me" knop is nu volledig operationeel. Elke klik genereert een nieuwe unieke prompt, die automatisch wordt vertaald naar de taal van uw apparaat voor een naadloze ervaring.

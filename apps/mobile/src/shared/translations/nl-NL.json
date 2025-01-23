@@ -55,5 +55,9 @@
   "screens.history.end.title": "Dat is alles tot nu toe.",
   "screens.history.end.description": "Maar er is altijd ruimte voor meer creativiteit. Klaar om iets nieuws te maken?",
   "screens.history.end.button": "Aanmaken",
-  "promptExample": "Een futuristische stad bij zonsondergang, glanzend in oranje en goud. Een vrouw met rood haar staat op een dak in een glinsterende kimono. Blinkende wolkenkrabbers en vliegende voertuigen dragen bij aan de levendige scène."
+  "promptExample": "Een futuristische stad bij zonsondergang, glanzend in oranje en goud. Een vrouw met rood haar staat op een dak in een glinsterende kimono. Blinkende wolkenkrabbers en vliegende voertuigen dragen bij aan de levendige scène.",
+  "screens.settings.godMode.active.title": "Censuur is gedeactiveerd",
+  "screens.settings.godMode.active.description": "Met grote macht komt grote verantwoordelijkheid.",
+  "screens.settings.godMode.inactive.title": "Censuur is geactiveerd",
+  "screens.settings.godMode.inactive.description": "Het lijkt erop dat je nog niet klaar bent voor zo'n macht."
 }

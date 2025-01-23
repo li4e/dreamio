@@ -55,5 +55,9 @@
   "screens.history.end.title": "Das ist bisher alles.",
   "screens.history.end.description": "Aber es gibt immer Platz für mehr Kreativität. Bereit, etwas Neues zu schaffen?",
   "screens.history.end.button": "Erstellen",
-  "promptExample": "Eine futuristische Stadt bei Sonnenuntergang, leuchtend in Orange und Gold. Eine Frau mit roten Haaren steht auf einem Dach in einem leuchtenden Kimono. Funkelnde Wolkenkratzer und fliegende Fahrzeuge bereichern die lebendige Szenerie."
+  "promptExample": "Eine futuristische Stadt bei Sonnenuntergang, leuchtend in Orange und Gold. Eine Frau mit roten Haaren steht auf einem Dach in einem leuchtenden Kimono. Funkelnde Wolkenkratzer und fliegende Fahrzeuge bereichern die lebendige Szenerie.",
+  "screens.settings.godMode.active.title": "Die Zensur wurde deaktiviert.",
+  "screens.settings.godMode.active.description": "Mit großer Macht kommt große Verantwortung",
+  "screens.settings.godMode.inactive.title": "Zensur wurde aktiviert",
+  "screens.settings.godMode.inactive.description": "Es scheint, dass Sie nicht bereit sind für eine solche Macht."
 }

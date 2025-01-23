@@ -1,5 +1,1 @@
-— Kép Cache Hiba Javítása: A képek cache-zelésével kapcsolatos probléma megoldódott, a képek mostantól helyesen tárolódnak.
-— Letöltés Gomb Hiba Javítása: A letöltés gomb működését akadályozó hiba javítva lett.
-— Kép Megosztás Hiba Javítása: A képmegosztó gomb működésével kapcsolatos problémát orvosoltuk.
-
-Kérjük, vegye figyelembe: a korábbi generációinak előzményei törlődnek az új frissítés után. Ez egy szükséges lépés az eredeti probléma megoldásához, de a jövőbeli frissítések során a generációs előzményei torlódások nélkül fognak megmaradni.
+— "Lepj Meg" Gomb Fejlesztés: A "Lepj Meg" gomb most már teljes mértékben működik. Minden egyes kattintás új, egyedi javaslatot generál, amely automatikusan lefordításra kerül az eszközöd nyelvére a zökkenőmentes élmény érdekében.

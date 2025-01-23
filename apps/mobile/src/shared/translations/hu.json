@@ -55,5 +55,9 @@
   "screens.history.end.title": "Ez eddig minden.",
   "screens.history.end.description": "De mindig van hely a több kreativitás számára. Készen állsz valami újat alkotni?",
   "screens.history.end.button": "Készítsd el",
-  "promptExample": "Egy futurisztikus város naplementében, narancs és arany színekben ragyogva. Egy vörös hajú nő áll egy tetőn, fénylő kimonóban. Csillogó felhőkarcolók és repülő járművek gazdagítják a vibráló látványt."
+  "promptExample": "Egy futurisztikus város naplementében, narancs és arany színekben ragyogva. Egy vörös hajú nő áll egy tetőn, fénylő kimonóban. Csillogó felhőkarcolók és repülő járművek gazdagítják a vibráló látványt.",
+  "screens.settings.godMode.active.title": "A cenzúra deaktíválva lett.",
+  "screens.settings.godMode.active.description": "A nagy hatalommal nagy felelősség is jár.",
+  "screens.settings.godMode.inactive.title": "A cenzúra aktiválva lett.",
+  "screens.settings.godMode.inactive.description": "Úgy tűnik, még nem vagy készen egy ilyen hatalomra."
 }

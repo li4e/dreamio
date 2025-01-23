@@ -1,5 +1,1 @@
-— Sửa Lỗi Bộ Nhớ Ảnh: Vấn đề với bộ nhớ ảnh đã được khắc phục, và ảnh bây giờ được lưu trữ đúng cách.  
-— Sửa Lỗi Nút Tải Xuống: Lỗi ngăn cản nút tải xuống hoạt động đã được khắc phục.  
-— Sửa Lỗi Chia Sẻ Ảnh: Vấn đề với nút chia sẻ ảnh không hoạt động đã được giải quyết.  
-
-Xin lưu ý: Lịch sử tạo trước đây của bạn sẽ bị xóa sau bản cập nhật này. Đây là bước cần thiết để khắc phục vấn đề ban đầu, nhưng lịch sử tạo của bạn sẽ được bảo vệ trong các bản cập nhật sau mà không gặp phải gián đoạn thêm.
+— Nâng cấp nút "Gợi Ý Bất Ngờ": Nút "Gợi Ý Bất Ngờ" hiện đã hoàn toàn hoạt động. Mỗi lần nhấn sẽ tạo ra một gợi ý độc đáo mới, và gợi ý đó sẽ tự động được dịch sang ngôn ngữ của thiết bị bạn để mang lại trải nghiệm liền mạch.

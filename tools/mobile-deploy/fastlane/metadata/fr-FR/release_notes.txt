@@ -1,5 +1,1 @@
-— Correction du cache d'images : Le problème de cache d'images a été résolu, et les images sont désormais stockées correctement.
-— Correction du bouton de téléchargement : Le bug empêchant le fonctionnement du bouton de téléchargement a été corrigé.
-— Correction du partage d'images : Le problème lié au bouton de partage d'images ne fonctionnant pas a été traité.
-
-Veuillez noter : l'historique de vos précédentes générations sera effacé après cette mise à jour. Cette étape est nécessaire pour corriger le problème initial, mais votre historique de génération sera préservé lors des futures mises à jour sans autres interruptions.
+— Amélioration du bouton "Surprenez-moi" : Le bouton "Surprenez-moi" est désormais entièrement opérationnel. Chaque clic génère une nouvelle invitation unique, qui est automatiquement traduite dans la langue de votre appareil pour une expérience fluide.

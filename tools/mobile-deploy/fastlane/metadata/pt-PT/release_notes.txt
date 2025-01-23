@@ -1,5 +1,1 @@
-— Correção de Cache de Imagem: O problema com o cache de imagem foi resolvido, e as imagens agora são armazenadas corretamente.  
-— Correção do Botão de Download: O erro que impedia o funcionamento do botão de download foi corrigido.  
-— Correção do Botão de Partilha de Imagem: A questão com o botão de partilha de imagem que não funcionava foi resolvida.  
-
-Nota: o histórico das suas gerações anteriores será limpo após esta atualização. Este é um passo necessário para corrigir o problema original, mas o seu histórico de gerações será preservado em futuras atualizações sem mais interrupções.
+— Melhoria do Botão "Surpreenda-me": O botão "Surpreenda-me" está agora totalmente funcional. Cada clique gera um novo prompt único, que é automaticamente traduzido para o idioma do seu dispositivo, proporcionando uma experiência fluida.

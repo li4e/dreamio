@@ -55,5 +55,9 @@
   "screens.history.end.title": "That's Everything So Far",
   "screens.history.end.description": "But there’s always room for more creativity. Ready to create something new?",
   "screens.history.end.button": "Create",
-  "promptExample": "A futuristic city at sunset, radiating in shades of orange and gold. A woman with red hair stands on a rooftop in a luminous kimono. Gleaming skyscrapers and airborne vehicles enhance the vibrant atmosphere."
+  "promptExample": "A futuristic city at sunset, radiating in shades of orange and gold. A woman with red hair stands on a rooftop in a luminous kimono. Gleaming skyscrapers and airborne vehicles enhance the vibrant atmosphere.",
+  "screens.settings.godMode.active.title": "Censorship has been turned off",
+  "screens.settings.godMode.active.description": "With great power comes great responsibility.",
+  "screens.settings.godMode.inactive.title": "Censorship has been enabled.",
+  "screens.settings.godMode.inactive.description": "It appears you are not prepared for such power."
 }

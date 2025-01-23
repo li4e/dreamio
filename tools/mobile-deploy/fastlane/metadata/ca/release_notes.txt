@@ -1,5 +1,1 @@
-— Solució de la memòria cau d’imatges: S'ha resolt el problema amb la memòria cau d’imatges, i ara les imatges es guarden correctament.  
-— Solució del botó de descàrrega: S'ha solucionat el problema que impedia el funcionament del botó de descàrrega.  
-— Solució per compartir imatges: S'ha solucionat el problema amb el botó de compartir imatges que no funcionava.
-
-Tingueu en compte: la història de les vostres generacions anteriors es voldrà esborrar després d’aquesta actualització. Aquest és un pas necessari per resoldre el problema original, però la vostra història de generacions es conservarà en futures actualitzacions sense més interrupcions.
+— Millora del Botó "Sorprèn-me": El botó "Sorprèn-me" ara és totalment funcional. Cada clic genera un nou indicatiu únic, que es tradueix automàticament a l'idioma del teu dispositiu per oferir-te una experiència sense interrupcions.

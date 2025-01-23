@@ -55,5 +55,9 @@
   "screens.history.end.title": "To je sve do sada.",
   "screens.history.end.description": "Ali uvijek ima prostora za više kreativnosti. Spreman/na za stvaranje nečega novog?",
   "screens.history.end.button": "Kreiraj",
-  "promptExample": "Futuristički grad pri zalasku sunca, obasjan narančastom i zlatnom bojom. Žena crvene kose stoji na krovnoj terasi u sjajnom kimonu. Sjajni neboderi i leteća vozila doprinose živopisnoj slici."
+  "promptExample": "Futuristički grad pri zalasku sunca, obasjan narančastom i zlatnom bojom. Žena crvene kose stoji na krovnoj terasi u sjajnom kimonu. Sjajni neboderi i leteća vozila doprinose živopisnoj slici.",
+  "screens.settings.godMode.active.title": "Cenzura je deaktivirana.",
+  "screens.settings.godMode.active.description": "S velikom moći dolazi velika odgovornost.",
+  "screens.settings.godMode.inactive.title": "Cenzura je aktivirana",
+  "screens.settings.godMode.inactive.description": "Čini se da niste spremni za takvu moć."
 }

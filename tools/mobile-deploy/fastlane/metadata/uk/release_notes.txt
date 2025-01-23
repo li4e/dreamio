@@ -1,5 +1,1 @@
-— Image Caching Fix: The problem with image caching has been rectified, ensuring images are now stored correctly.
-— Download Button Fix: The bug that was hindering the download button functionality has been resolved.
-— Image Sharing Fix: The issue with the image sharing button not operating has been addressed.
-
-Please note: your previous generations' history will be cleared following this update. This is a necessary measure to resolve the original issue, but your generation history will be retained in future updates without further interruptions.
+— Покращення кнопки "Сюрприз": Кнопка "Сюрприз" тепер повністю функціональна. Кожен натиск генерує новий унікальний запит, який автоматично перекладається на мову вашого пристрою для безперешкодного користування.

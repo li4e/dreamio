@@ -55,5 +55,9 @@
   "screens.history.end.title": "到目前为止就是这些。",
   "screens.history.end.description": "但总是有更多创造的空间。准备好创造一些新东西了吗？",
   "screens.history.end.button": "创建",
-  "promptExample": "一个未来城市的日落，闪耀着橙色和金色的光辉。一位红发女性穿着发光的和服，站在屋顶上。闪烁的摩天大楼和飞行器为这个生动的场景增添了色彩。"
+  "promptExample": "一个未来城市的日落，闪耀着橙色和金色的光辉。一位红发女性穿着发光的和服，站在屋顶上。闪烁的摩天大楼和飞行器为这个生动的场景增添了色彩。",
+  "screens.settings.godMode.active.title": "审查已被关闭",
+  "screens.settings.godMode.active.description": "拥有强大的力量就伴随着巨大的责任。",
+  "screens.settings.godMode.inactive.title": "审查已被激活",
+  "screens.settings.godMode.inactive.description": "看起来你还没有准备好掌握这样的力量。"
 }

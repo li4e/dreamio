@@ -1,5 +1,1 @@
-— Perbaikan Cache Gambar: Masalah dengan caching gambar telah diperbaiki, dan gambar sekarang disimpan dengan benar.  
-— Perbaikan Tombol Unduh: Bug yang mencegah tombol unduh berfungsi telah diperbaiki.  
-— Perbaikan Berbagi Gambar: Masalah dengan tombol berbagi gambar yang tidak berfungsi telah ditangani.  
-
-Harap dicatat: riwayat generasi Anda sebelumnya akan dihapus setelah pembaruan ini. Ini adalah langkah yang diperlukan untuk memperbaiki masalah awal, tetapi riwayat generasi Anda akan tetap terjaga dalam pembaruan mendatang tanpa gangguan lebih lanjut.
+— Peningkatan Tombol "Buat Terkejut": Tombol "Buat Terkejut" kini sepenuhnya berfungsi. Setiap kali ditekan, akan dihasilkan sebuah permintaan unik baru, yang otomatis diterjemahkan ke dalam bahasa perangkat Anda untuk pengalaman yang lebih lancar.

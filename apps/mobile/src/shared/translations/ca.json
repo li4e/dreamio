@@ -55,5 +55,9 @@
   "screens.history.end.title": "Això és tot fins ara.",
   "screens.history.end.description": "Però sempre hi ha espai per a més creativitat. Estàs preparat per crear alguna cosa nova?",
   "screens.history.end.button": "Crea",
-  "promptExample": "Una ciutat futurista al capvespre, il·luminada en taronja i daurat. Una dona amb cabell vermell es troba en un terrat portant un quimono radiant. Els gratacels brillants i els vehicles voladors aporten al vibrant escenari."
+  "promptExample": "Una ciutat futurista al capvespre, il·luminada en taronja i daurat. Una dona amb cabell vermell es troba en un terrat portant un quimono radiant. Els gratacels brillants i els vehicles voladors aporten al vibrant escenari.",
+  "screens.settings.godMode.active.title": "La censura ha estat desactivada.",
+  "screens.settings.godMode.active.description": "Amb gran poder ve una gran responsabilitat.",
+  "screens.settings.godMode.inactive.title": "La censura s'ha activat.",
+  "screens.settings.godMode.inactive.description": "Sembla que no estàs preparat per a tant de poder."
 }

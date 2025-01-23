@@ -55,5 +55,9 @@
   "screens.history.end.title": "Det er alt indtil videre.",
   "screens.history.end.description": "Men der er altid plads til mere kreativitet. Klar til at lave noget nyt?",
   "screens.history.end.button": "Opret",
-  "promptExample": "En futuristisk by ved solnedgang, som stråler i orange og guld. En kvinde med rødt hår står på en tagterrasse iført en lysende kimono. Glitrende skyskrabere og flyvende køretøjer bidrager til den livlige scene."
+  "promptExample": "En futuristisk by ved solnedgang, som stråler i orange og guld. En kvinde med rødt hår står på en tagterrasse iført en lysende kimono. Glitrende skyskrabere og flyvende køretøjer bidrager til den livlige scene.",
+  "screens.settings.godMode.active.title": "Censurering er blevet deaktiveret",
+  "screens.settings.godMode.active.description": "Med stor magt følger stort ansvar",
+  "screens.settings.godMode.inactive.title": "Censur er blevet aktiveret",
+  "screens.settings.godMode.inactive.description": "Det ser ud til, at du ikke er klar til så stor magt."
 }

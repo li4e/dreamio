@@ -55,5 +55,9 @@
   "screens.history.end.title": "Itu sahaja setakat ini",
   "screens.history.end.description": "Tetapi sentiasa ada ruang untuk lebih banyak kreativiti. Sedia untuk mencipta sesuatu yang baru?",
   "screens.history.end.button": "Buat",
-  "promptExample": "Sebuah bandar futuristik pada waktu matahari terbenam, bersinar dalam warna oren dan emas. Seorang wanita berambut merah berdiri di atas bumbung dengan kimono yang bercahaya. Pencakar langit yang berkilau dan kenderaan terbang menambah suasana yang meriah."
+  "promptExample": "Sebuah bandar futuristik pada waktu matahari terbenam, bersinar dalam warna oren dan emas. Seorang wanita berambut merah berdiri di atas bumbung dengan kimono yang bercahaya. Pencakar langit yang berkilau dan kenderaan terbang menambah suasana yang meriah.",
+  "screens.settings.godMode.active.title": "Penyensoran telah dinyahaktifkan.",
+  "screens.settings.godMode.active.description": "Dengan kuasa yang besar datang tanggungjawab yang besar.",
+  "screens.settings.godMode.inactive.title": "Penapisan telah diaktifkan",
+  "screens.settings.godMode.inactive.description": "Nampaknya anda tidak bersedia untuk kuasa sebegitu."
 }

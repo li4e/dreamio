@@ -55,5 +55,9 @@
   "screens.history.end.title": "C'est tout pour l'instant.",
   "screens.history.end.description": "Mais il y a toujours de la place pour plus de créativité. Prêt à créer quelque chose de nouveau ?",
   "screens.history.end.button": "Créer",
-  "promptExample": "Une ville futuriste au coucher du soleil, rayonnante de nuances orange et dorées. Une femme aux cheveux roux se tient sur un toit dans un kimono lumineux. Des gratte-ciels scintillants et des véhicules volants enrichissent cette scène vibrante."
+  "promptExample": "Une ville futuriste au coucher du soleil, rayonnante de nuances orange et dorées. Une femme aux cheveux roux se tient sur un toit dans un kimono lumineux. Des gratte-ciels scintillants et des véhicules volants enrichissent cette scène vibrante.",
+  "screens.settings.godMode.active.title": "La censure a été désactivée.",
+  "screens.settings.godMode.active.description": "Avec un grand pouvoir vient une grande responsabilité.",
+  "screens.settings.godMode.inactive.title": "La censure a été activée.",
+  "screens.settings.godMode.inactive.description": "Il semble que vous ne soyez pas prêt pour un tel pouvoir."
 }

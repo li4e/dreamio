@@ -1,5 +1,1 @@
-— Løsning for bildecaching: Problemet med bildecaching er nå løst, og bilder lagres nå korrekt.  
-— Løsning for nedlastingsknappen: Feilen som hindret nedlastingsknappen fra å fungere, er rettet.  
-— Løsning for bildedeling: Problemet med at knappen for bildedeling ikke fungerte, er nå adressert.  
-
-Vennligst merk: Historikken til dine tidligere generasjoner vil bli slettet etter denne oppdateringen. Dette er et nødvendig skritt for å fikse det opprinnelige problemet, men historikken din vil bli bevart i fremtidige oppdateringer uten ytterligere forstyrrelser.
+— Forbedring av "Overrask Meg"-knappen: "Overrask Meg"-knappen er nå fullt funksjonell. Hver gang du klikker, genereres et nytt unikt forslag, som automatisk oversettes til språket på enheten din for en sømløs opplevelse.

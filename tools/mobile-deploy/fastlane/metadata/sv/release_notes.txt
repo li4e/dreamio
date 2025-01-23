@@ -1,5 +1,1 @@
-— Lösning för bildcachning: Problemet med bildcachning har åtgärdats, och bilder lagras nu korrekt.  
-— Lösning för nedladdningsknappen: Felet som hindrade nedladdningsknappen från att fungera har åtgärdats.  
-— Lösning för bilddelning: Problemet med att knappen för bilddelning inte fungerade har åtgärdats.  
-
-Observera: Historiken för dina tidigare generationer kommer att rensas efter denna uppdatering. Detta är ett nödvändigt steg för att åtgärda det ursprungliga problemet, men din generationshistorik kommer att bevaras i framtida uppdateringar utan ytterligare avbrott.
+— Förbättring av "Överraska mig"-knappen: "Överraska mig"-knappen är nu helt funktionell. Varje klick genererar en ny unik uppmaning som automatiskt översätts till ditt enhets språk för en smidig upplevelse.

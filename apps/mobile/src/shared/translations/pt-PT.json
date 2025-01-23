@@ -55,5 +55,9 @@
   "screens.history.end.description": "Mas há sempre espaço para mais criatividade. Pronto para criar algo novo?",
   "screens.history.end.button": "Criar",
   "components.tabBar.history": "História",
-  "promptExample": "Uma cidade futurista ao pôr do sol, brilhando em laranja e dourado. Uma mulher com cabelo vermelho está em uma cobertura vestindo um quimono iluminado. Arranha-céus cintilantes e veículos aéreos acrescentam à cena vibrante."
+  "promptExample": "Uma cidade futurista ao pôr do sol, brilhando em laranja e dourado. Uma mulher com cabelo vermelho está em uma cobertura vestindo um quimono iluminado. Arranha-céus cintilantes e veículos aéreos acrescentam à cena vibrante.",
+  "screens.settings.godMode.active.title": "A censura foi desativada.",
+  "screens.settings.godMode.active.description": "Com grande poder vem grande responsabilidade.",
+  "screens.settings.godMode.inactive.title": "A censura foi ativada.",
+  "screens.settings.godMode.inactive.description": "Parece que ainda não está preparado para tal poder."
 }

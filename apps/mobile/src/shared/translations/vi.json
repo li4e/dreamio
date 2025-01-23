@@ -55,5 +55,9 @@
   "screens.history.end.title": "Đó là tất cả cho đến nay.",
   "screens.history.end.description": "Nhưng luôn có chỗ cho sự sáng tạo hơn nữa. Bạn đã sẵn sàng để tạo ra điều gì đó mới mẻ chưa?",
   "screens.history.end.button": "Tạo mới",
-  "promptExample": "Một thành phố tương lai vào lúc hoàng hôn, tỏa sáng trong sắc cam và vàng. Một người phụ nữ với mái tóc đỏ đứng trên một mái nhà trong bộ kimono phát sáng. Những tòa nhà chọc trời lấp lánh và các phương tiện bay làm tăng thêm sự sống động của cảnh vật."
+  "promptExample": "Một thành phố tương lai vào lúc hoàng hôn, tỏa sáng trong sắc cam và vàng. Một người phụ nữ với mái tóc đỏ đứng trên một mái nhà trong bộ kimono phát sáng. Những tòa nhà chọc trời lấp lánh và các phương tiện bay làm tăng thêm sự sống động của cảnh vật.",
+  "screens.settings.godMode.active.title": "Kiểm duyệt đã được tắt.",
+  "screens.settings.godMode.active.description": "Với quyền lực lớn đi kèm với trách nhiệm lớn.",
+  "screens.settings.godMode.inactive.title": "Kiểm duyệt đã được kích hoạt.",
+  "screens.settings.godMode.inactive.description": "Có vẻ như bạn chưa sẵn sàng cho sức mạnh như vậy."
 }

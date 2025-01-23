@@ -55,5 +55,9 @@
   "screens.history.end.title": "これまでのすべてです。",
   "screens.history.end.description": "しかし、常にさらなる創造性の余地があります。新しいものを作る準備はできていますか？",
   "screens.history.end.button": "作成する",
-  "promptExample": "夕暮れの未来都市がオレンジとゴールドに輝いています。赤い髪の女性が光る着物を着て屋上に立っています。きらめく高層ビルや空飛ぶ車両が、この活気に満ちた光景を一層引き立てています。"
+  "promptExample": "夕暮れの未来都市がオレンジとゴールドに輝いています。赤い髪の女性が光る着物を着て屋上に立っています。きらめく高層ビルや空飛ぶ車両が、この活気に満ちた光景を一層引き立てています。",
+  "screens.settings.godMode.active.title": "検閲が無効になりました。",
+  "screens.settings.godMode.active.description": "大きな力には大きな責任が伴う",
+  "screens.settings.godMode.inactive.title": "検閲が有効になりました",
+  "screens.settings.godMode.inactive.description": "あなたはそのような力にまだ準備ができていないようです。"
 }

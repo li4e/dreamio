@@ -1,5 +1,1 @@
-— Risoluzione del problema di caching delle immagini: L'errore relativo al caching delle immagini è stato risolto e le immagini ora vengono memorizzate correttamente.
-— Risoluzione del problema del pulsante di download: È stato corretto il bug che impediva il funzionamento del pulsante di download.
-— Risoluzione del problema di condivisione delle immagini: È stato affrontato il problema con il pulsante di condivisione delle immagini che non funzionava.
-
-Si prega di notare: la cronologia delle vostre generazioni precedenti verrà cancellata dopo questo aggiornamento. Questo è un passaggio necessario per risolvere il problema originale, ma la vostra cronologia delle generazioni sarà preservata negli aggiornamenti futuri senza ulteriori interruzioni.
+— Miglioramento del Pulsante "Sorpresa": Il pulsante "Sorpresa" è ora completamente funzionale. Ogni clic genera un nuovo prompt unico, che viene automaticamente tradotto nella lingua del tuo dispositivo per un'esperienza senza interruzioni.

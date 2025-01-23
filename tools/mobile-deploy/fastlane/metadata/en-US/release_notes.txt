@@ -1,5 +1,1 @@
-— Image Caching Fix: The issue with image caching has been resolved, and images are now stored correctly.
-— Download Button Fix: The bug preventing the download button from working has been fixed.
-— Image Sharing Fix: The issue with the image sharing button not functioning has been addressed.
-
-Please note: the history of your previous generations will be cleared after this update. This is a necessary step to fix the original issue, but your generation history will be preserved in future updates without further disruptions.
+— "Surprise Me" Button Enhancement: The "Surprise Me" button is now fully functional. Each click generates a new unique prompt, which is automatically translated into your device's language for a seamless experience.
