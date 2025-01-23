@@ -1,4 +1,4 @@
-import { translate } from '@vitalets/google-translate-api'
+import { translator } from 'shared/api'
 import { ImageCache } from 'shared/ui/CachedImage'
 
 export enum GenerationStatusDTO {
@@ -34,7 +34,7 @@ export class Api {
       throw new Error('Generation not found')
     }
 
-    const seed = Math.trunc(Math.random() * 1000)
+    const seed = Math.trunc(Math.random() * 1000000000000)
     const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=true&seed=${seed}`
     const cache = new ImageCache(imageUrl)
 
@@ -62,10 +62,7 @@ export class Api {
     let prompt = data.prompt
 
     try {
-      const { text: translatedPrompt } = await translate(data.prompt, {
-        to: 'en',
-      })
-      prompt = translatedPrompt
+      prompt = await translator.translate(data.prompt, 'en')
     } catch (err) {
       console.error('Error during tranlsating prompt', err)
     }

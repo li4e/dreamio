@@ -22,6 +22,7 @@ import {
 } from '../model/useCurrentGeneration'
 import { StateModal, StateModalVariant } from './StateModal'
 import { StylesList } from './StylesList'
+import { api } from 'shared/api'
 
 export function GenerationStartScreen() {
   const { t } = useTranslation()
@@ -203,8 +204,11 @@ function RandomButton(props: RandomButtonProps) {
   const onPress = async () => {
     setPending(true)
     try {
-      const prompt =
+      let prompt =
         'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere'
+      try {
+        prompt = await api.generatePrompt()
+      } catch {}
       onCreated(prompt)
     } catch {
       showSnackbar(
