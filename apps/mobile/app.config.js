@@ -14,7 +14,7 @@ module.exports = {
     },
     ios: {
       appleTeamId: process.env.APPLE_TEAM_ID || '',
-      buildNumber: process.env.IOS_BUILD_NUMBER || '1',
+      buildNumber: process.env.APP_BUILD_NUMBER || '1',
       supportsTablet: false,
       infoPlist: {
         CFBundleDisplayName: 'AI Art Gen',

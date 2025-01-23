@@ -1,6 +1,7 @@
 {
   "name": "mobile",
-  "version": "0.0.1",
+  "version": "1.0.5",
+  "buildNumber": "2",
   "main": "./src/main.tsx",
   "scripts": {
     "start": "expo start -d",
