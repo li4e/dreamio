@@ -89,10 +89,13 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
         {snackbars.map((snackbar, index) => {
           const rightAction = snackbar.options?.rightAction
 
+          const isError = snackbar.options?.variant === SnackBarVariant.ERROR
+          const textColor = isError ? colors.onError : colors.inverseOnSurface
+
           let rightContent = (
             <IconButton
               icon="close"
-              iconColor="white"
+              iconColor={textColor}
               size={20}
               onPress={() => dismissSnackBar(snackbar.id)}
             />
@@ -102,7 +105,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
             rightContent = (
               <Button
                 mode="text"
-                textColor={colors.tertiaryContainer}
+                textColor={textColor}
                 onPress={() => {
                   dismissSnackBar(snackbar.id)
                   rightAction.handler()
@@ -123,10 +126,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
                 'absolute left-0 right-0 bottom-0 rounded-md h-[50] mx-5 flex-row items-center justify-between'
               }
               style={{
-                backgroundColor:
-                  snackbar.options?.variant === SnackBarVariant.ERROR
-                    ? colors.error
-                    : colors.onTertiaryContainer,
+                backgroundColor: isError ? colors.error : colors.inverseSurface,
                 marginBottom:
                   Math.max(insets.bottom, 16) + 80 + 12 + index * (50 + 10),
               }}
@@ -136,7 +136,8 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
                   <Text
                     numberOfLines={1}
                     variant="titleSmall"
-                    className="text-white font-bold"
+                    className="font-bold"
+                    style={{ color: textColor }}
                   >
                     {snackbar.message.title}
                   </Text>
@@ -144,7 +145,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
                 <Text
                   numberOfLines={1}
                   variant="bodyMedium"
-                  className="text-white"
+                  style={{ color: textColor }}
                 >
                   {snackbar.message.description}
                 </Text>

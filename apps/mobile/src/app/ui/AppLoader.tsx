@@ -6,7 +6,7 @@ export function AppLoader(props: { onAnimationFinish: () => void }) {
   const { onAnimationFinish } = props
   return (
     <Animated.View
-      className="flex-1 bg-white items-center justify-center"
+      className="flex-1 items-center justify-center"
       exiting={FadeOut.duration(200)}
     >
       <LottieView

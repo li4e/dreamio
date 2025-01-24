@@ -86,15 +86,19 @@ function StyleCard(props: StyleCardProps) {
           className="absolute left-0 bottom-0 right-0"
           style={{
             backgroundColor: selected
-              ? colors.primaryContainer
-              : 'rgba(0,0,0,.7)',
+              ? colors.inverseSurface
+              : colors.primaryContainer,
           }}
         >
           <Text
             numberOfLines={1}
             className={'text-center py-1 px-2'}
             variant="labelMedium"
-            style={{ color: selected ? colors.onBackground : colors.onPrimary }}
+            style={{
+              color: selected
+                ? colors.inverseOnSurface
+                : colors.onPrimaryContainer,
+            }}
           >
             {item.name}
           </Text>
