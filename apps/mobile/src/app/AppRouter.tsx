@@ -40,11 +40,11 @@ export function AppRouter() {
 
 const HomeTabs = () => {
   const { t } = useTranslation()
-  const { navigationTheme } = useThemes()
+  const { paperTheme } = useThemes()
 
   return (
     <Tab.Navigator
-      theme={navigationTheme}
+      theme={paperTheme}
       initialRouteName="generation"
       sceneAnimationEnabled={true}
     >

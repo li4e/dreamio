@@ -1,5 +1,4 @@
 import {
-  NavigationContainer,
   DefaultTheme as RNLightTheme,
   DarkTheme as RNDarkTheme,
 } from '@react-navigation/native'
