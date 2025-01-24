@@ -5,22 +5,16 @@ module.exports = {
     version: process.env.APP_VERSION || '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
-    userInterfaceStyle: 'light',
+    userInterfaceStyle: 'automatic',
     newArchEnabled: true,
-    backgroundColor: '#ffffff',
-    splash: {
-      resizeMode: 'cover',
-      backgroundColor: '#ffffff',
-    },
     ios: {
       appleTeamId: process.env.APPLE_TEAM_ID || '',
       buildNumber: process.env.APP_BUILD_NUMBER || '1',
       supportsTablet: false,
       infoPlist: {
-        CFBundleDisplayName: 'AI Art Gen',
+        CFBundleDisplayName: 'Dreamio',
         CFBundleAllowMixedLocalizations: true,
         CADisableMinimumFrameDurationOnPhone: true,
-        UIUserInterfaceStyle: 'Light',
         LSApplicationQueriesSchemes: [
           'fb',
           'instagram',
@@ -35,9 +29,6 @@ module.exports = {
     },
     android: {
       backgroundColor: '#ffffff',
-      splash: {
-        image: './assets/icon.png',
-      },
       versionCode: '1',
       adaptiveIcon: {
         foregroundImage: './assets/icon.png',
@@ -61,6 +52,15 @@ module.exports = {
             'com.twitter.android',
             'com.zhiliaoapp.musically',
           ],
+        },
+      ],
+      [
+        'expo-splash-screen',
+        {
+          backgroundColor: '#ffffff',
+          dark: {
+            backgroundColor: '#1c1b1f',
+          },
         },
       ],
     ],
