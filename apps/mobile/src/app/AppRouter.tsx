@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
@@ -12,32 +13,41 @@ import { GenerationStartScreen } from 'pages/generation-start'
 import { HistoryScreen } from 'pages/history'
 import { SettingsScreen } from 'pages/settings'
 import { WebViewScreen } from 'pages/WebView'
+import { useThemes } from './ui/useThemes'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 const Tab = createMaterialBottomTabNavigator<HomeTabsNavigatorParamList>()
 
 export function AppRouter() {
+  const { navigationTheme } = useThemes()
   return (
-    <RootStack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <RootStack.Screen name={'home_tabs'} component={HomeTabs} />
-      <RootStack.Screen
-        name={'generation_result'}
-        component={GenerationResultScreen}
-      />
-      <RootStack.Screen name={'webview'} component={WebViewScreen} />
-    </RootStack.Navigator>
+    <NavigationContainer theme={navigationTheme}>
+      <RootStack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <RootStack.Screen name={'home_tabs'} component={HomeTabs} />
+        <RootStack.Screen
+          name={'generation_result'}
+          component={GenerationResultScreen}
+        />
+        <RootStack.Screen name={'webview'} component={WebViewScreen} />
+      </RootStack.Navigator>
+    </NavigationContainer>
   )
 }
 
 const HomeTabs = () => {
   const { t } = useTranslation()
+  const { navigationTheme } = useThemes()
 
   return (
-    <Tab.Navigator initialRouteName="generation" sceneAnimationEnabled={true}>
+    <Tab.Navigator
+      theme={navigationTheme}
+      initialRouteName="generation"
+      sceneAnimationEnabled={true}
+    >
       <Tab.Screen
         name="history"
         component={HistoryScreen}
