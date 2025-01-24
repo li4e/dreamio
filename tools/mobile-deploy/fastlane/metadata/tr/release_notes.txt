@@ -1,1 +1,1 @@
-— "Sürpriz Yap" Butonunun Geliştirilmesi: "Sürpriz Yap" butonu artık tamamen işlevsel. Her tıklama, cihazınızdaki dile otomatik olarak çevrilen yeni bir benzersiz talep oluşturur, böylece kesintisiz bir deneyim sunar.
+— Karanlık Tema desteği eklendi. Uygulama artık sistem temasına otomatik olarak uyum sağlar.

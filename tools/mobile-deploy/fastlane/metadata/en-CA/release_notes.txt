@@ -1,1 +1,1 @@
-— "Surprise Me" Button Enhancement: The "Surprise Me" button is now fully operational. Each click produces a new unique prompt, which is automatically translated into your device's language for a smooth experience.
+— Added support for Dark Theme. The app now automatically adjusts to the system theme settings.

@@ -58,6 +58,6 @@
   "promptExample": "Футуристический город на закате, сияющий оранжевым и золотым. Женщина с рыжими волосами стоит на крыше в сверкающем кимоно. Блестящие небоскрёбы и летающие транспортные средства дополняют яркую картину.",
   "screens.settings.godMode.active.title": "Цензура была отключена",
   "screens.settings.godMode.active.description": "С великой силой приходит великая ответственность.",
-  "screens.settings.godMode.inactive.title": "Цензура была активирована.",
+  "screens.settings.godMode.inactive.title": "Цензура была включена",
   "screens.settings.godMode.inactive.description": "Кажется, вы не готовы к такой силе."
 }

@@ -1,1 +1,1 @@
-— Miglioramento del Pulsante "Sorpresa": Il pulsante "Sorpresa" è ora completamente funzionale. Ogni clic genera un nuovo prompt unico, che viene automaticamente tradotto nella lingua del tuo dispositivo per un'esperienza senza interruzioni.
+— Aggiunto supporto per il Tema Scuro. L'app ora si adatta automaticamente al tema del sistema.

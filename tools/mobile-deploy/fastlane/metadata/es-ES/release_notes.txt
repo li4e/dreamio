@@ -1,1 +1,1 @@
-— Mejora del botón "Sorpréndeme": El botón "Sorpréndeme" ya está completamente funcional. Cada clic genera un nuevo aviso único, que se traduce automáticamente al idioma de tu dispositivo para una experiencia fluida.
+— Se ha añadido soporte para el modo oscuro. La aplicación ahora se adapta automáticamente al tema del sistema.

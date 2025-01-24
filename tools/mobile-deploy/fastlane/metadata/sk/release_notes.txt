@@ -1,1 +1,1 @@
-— Vylepšenie tlačidla "Prekvapenie": Tlačidlo "Prekvapenie" je teraz plne funkčné. Každé kliknutie vygeneruje nový jedinečný podnet, ktorý je automaticky preložený do jazyka vášho zariadenia pre plynulý zážitok.
+— Pridaná podpora pre tmavú tému. Aplikácia sa teraz automaticky prispôsobuje systémovej téme.

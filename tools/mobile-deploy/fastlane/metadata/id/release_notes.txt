@@ -1,1 +1,1 @@
-— Peningkatan Tombol "Buat Terkejut": Tombol "Buat Terkejut" kini sepenuhnya berfungsi. Setiap kali ditekan, akan dihasilkan sebuah permintaan unik baru, yang otomatis diterjemahkan ke dalam bahasa perangkat Anda untuk pengalaman yang lebih lancar.
+— Menambahkan dukungan untuk Tema Gelap. Aplikasi sekarang secara otomatis menyesuaikan dengan tema sistem.

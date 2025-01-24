@@ -1,1 +1,1 @@
-— Forbedring av "Overrask Meg"-knappen: "Overrask Meg"-knappen er nå fullt funksjonell. Hver gang du klikker, genereres et nytt unikt forslag, som automatisk oversettes til språket på enheten din for en sømløs opplevelse.
+— La til støtte for mørk tema. Appen tilpasser seg automatisk til systemtemaet.

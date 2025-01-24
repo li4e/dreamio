@@ -1,1 +1,1 @@
-— Forbedring af "Overrask Mig" Knappen: "Overrask Mig" knappen er nu fuldt funktionsdygtig. Hver klik genererer et nyt unikt forslag, som automatisk oversættes til dit enheds sprog for en problemfri oplevelse.
+— Tilføjet støtte til Mørkt Tema. Appen tilpasser sig nu automatisk til systemtemaet.

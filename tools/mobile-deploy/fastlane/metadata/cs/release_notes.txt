@@ -1,1 +1,1 @@
-— Vylepšení tlačítka "Překvap mě": Tlačítko "Překvap mě" je nyní plně funkční. Každým kliknutím se vygeneruje nový jedinečný nápad, který je automaticky přeložen do jazyka vašeho zařízení pro plynulý zážitek.
+— Přidána podpora pro tmavé téma. Aplikace se nyní automaticky přizpůsobuje systémovému tématu.

@@ -1,1 +1,1 @@
-— Melhoria no Botão "Me Surpreenda": O botão "Me Surpreenda" agora está totalmente funcional. Cada clique gera um novo prompt exclusivo, que é automaticamente traduzido para o idioma do seu dispositivo, garantindo uma experiência sem interrupções.
+— Adicionada suporte ao Tema Escuro. O aplicativo agora se adapta automaticamente ao tema do sistema.

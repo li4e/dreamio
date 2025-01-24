@@ -1,1 +1,1 @@
-— Verbetering van de "Verras Me" Knop: De "Verras Me" knop is nu volledig operationeel. Elke klik genereert een nieuwe unieke prompt, die automatisch wordt vertaald naar de taal van uw apparaat voor een naadloze ervaring.
+— Ondersteuning voor de Donkere Thema toegevoegd. De app past zich nu automatisch aan het systeemthema aan.

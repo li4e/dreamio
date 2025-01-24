@@ -1,1 +1,1 @@
-— Millora del Botó "Sorprèn-me": El botó "Sorprèn-me" ara és totalment funcional. Cada clic genera un nou indicatiu únic, que es tradueix automàticament a l'idioma del teu dispositiu per oferir-te una experiència sense interrupcions.
+— S'ha afegit suport per al Tema Fosc. L'aplicació ara s'adapta automàticament al tema del sistema.

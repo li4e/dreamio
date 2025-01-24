@@ -1,1 +1,1 @@
-— Îmbunătățirea butonului „Surprinde-mă”: Butonul „Surprinde-mă” este acum complet funcțional. Fiecare clic generează un nou prompt unic, care este tradus automat în limba dispozitivului tău pentru o experiență fluidă.
+— Suport adăugat pentru Tema Întunecată. Aplicația se adaptează acum automat la tema sistemului.

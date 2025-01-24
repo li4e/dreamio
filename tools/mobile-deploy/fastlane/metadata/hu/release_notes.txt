@@ -1,1 +1,1 @@
-— "Lepj Meg" Gomb Fejlesztés: A "Lepj Meg" gomb most már teljes mértékben működik. Minden egyes kattintás új, egyedi javaslatot generál, amely automatikusan lefordításra kerül az eszközöd nyelvére a zökkenőmentes élmény érdekében.
+— Támogatás került hozzáadásra a Sötét Témához. Az alkalmazás mostantól automatikusan alkalmazkodik a rendszer témájához.

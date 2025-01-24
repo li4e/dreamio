@@ -1,1 +1,1 @@
-— Nâng cấp nút "Gợi Ý Bất Ngờ": Nút "Gợi Ý Bất Ngờ" hiện đã hoàn toàn hoạt động. Mỗi lần nhấn sẽ tạo ra một gợi ý độc đáo mới, và gợi ý đó sẽ tự động được dịch sang ngôn ngữ của thiết bị bạn để mang lại trải nghiệm liền mạch.
+— Thêm hỗ trợ cho Chế độ Tối. Ứng dụng giờ đây tự động điều chỉnh theo chủ đề hệ thống.

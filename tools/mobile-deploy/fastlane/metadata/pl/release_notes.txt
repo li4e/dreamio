@@ -1,1 +1,1 @@
-— Ulepszony przycisk "Zaskocz mnie": Przycisk "Zaskocz mnie" jest teraz w pełni funkcjonalny. Każde kliknięcie generuje nowy, unikalny komunikat, który jest automatycznie tłumaczony na język Twojego urządzenia, zapewniając płynne doświadczenie.
+— Dodano wsparcie dla trybu ciemnego. Aplikacja teraz automatycznie dostosowuje się do systemowego motywu.

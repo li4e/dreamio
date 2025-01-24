@@ -1,1 +1,1 @@
-— Peningkatan Butang "Buat Saya Terkejut": Butang "Buat Saya Terkejut" kini berfungsi sepenuhnya. Setiap klik menghasilkan prompt unik yang baru, yang secara automatik diterjemahkan ke dalam bahasa peranti anda bagi memberikan pengalaman yang lancar.
+— Menambah sokongan untuk Tema Gelap. Aplikasi kini menyesuaikan dengan tema sistem secara automatik.

@@ -1,1 +1,1 @@
-— Förbättring av "Överraska mig"-knappen: "Överraska mig"-knappen är nu helt funktionell. Varje klick genererar en ny unik uppmaning som automatiskt översätts till ditt enhets språk för en smidig upplevelse.
+— Lagt till stöd för Mörkt Tema. Appen anpassar sig nu automatiskt till systemtemat.

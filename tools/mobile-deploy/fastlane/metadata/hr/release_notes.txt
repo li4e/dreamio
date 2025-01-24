@@ -1,1 +1,1 @@
-— Unapređenje gumba "Iznenadi me": Gumb "Iznenadi me" je sada potpuno funkcionalan. Svakim klikom generira se nova jedinstvena poruka koja se automatski prevodi na jezik vašeg uređaja, čime se osigurava besprijekorno iskustvo.
+— Dodana podrška za tamnu temu. Aplikacija se sada automatski prilagođava sistemskoj temi.

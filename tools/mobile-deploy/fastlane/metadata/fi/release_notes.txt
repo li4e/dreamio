@@ -1,1 +1,1 @@
-— "Yllätä minut" -painikkeen parannus: "Yllätä minut" -painike on nyt täysin toiminnallinen. Jokaisella napsautuksella syntyy uusi ainutlaatuinen pyyntö, joka käännetään automaattisesti laitteen kielelle sujuvan käyttökokemuksen takaamiseksi.
+— Lisätty tuki tummalle teemalle. Sovellus mukautuu nyt automaattisesti järjestelmän teemaan.

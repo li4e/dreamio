@@ -1,1 +1,1 @@
-— Amélioration du bouton « Surprenez-moi » : Le bouton « Surprenez-moi » est désormais entièrement fonctionnel. Chaque clic génère un nouvel invite unique, qui est automatiquement traduit dans la langue de votre appareil pour une expérience fluide.
+— Ajout de la prise en charge du mode sombre. L'application s'adapte désormais automatiquement au thème du système.
