@@ -28,11 +28,10 @@ module.exports = {
       },
     },
     android: {
-      backgroundColor: '#ffffff',
-      versionCode: '1',
+      versionCode: process.env.APP_BUILD_NUMBER || '1',
       adaptiveIcon: {
-        foregroundImage: './assets/icon.png',
-        backgroundColor: '#ffffff',
+        foregroundImage: './assets/splash_logo.png',
+        backgroundColor: '#000000',
       },
       package: 'me.ilsur.dreamio',
     },
@@ -40,6 +39,17 @@ module.exports = {
       favicon: './assets/icon.png',
     },
     plugins: [
+      [
+        'expo-splash-screen',
+        {
+          image: './assets/splash_logo.png',
+          backgroundColor: '#fffbfe',
+          dark: {
+            backgroundColor: '#1c1b1f',
+          },
+          imageWidth: 60,
+        },
+      ],
       '@config-plugins/detox',
       'expo-localization',
       [
@@ -52,17 +62,6 @@ module.exports = {
             'com.twitter.android',
             'com.zhiliaoapp.musically',
           ],
-        },
-      ],
-      [
-        'expo-splash-screen',
-        {
-          image: './assets/splash_icon.png',
-          backgroundColor: '#ffffff',
-          dark: {
-            backgroundColor: '#1c1b1f',
-          },
-          imageWidth: 300,
         },
       ],
     ],

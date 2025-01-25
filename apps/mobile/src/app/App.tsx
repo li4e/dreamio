@@ -5,9 +5,10 @@ import * as SystemUI from 'expo-system-ui'
 import * as SplashScreen from 'expo-splash-screen'
 
 SystemUI.setBackgroundColorAsync('transparent')
+SplashScreen.preventAutoHideAsync()
 SplashScreen.setOptions({
-  duration: 0,
-  fade: false,
+  duration: 300,
+  fade: true,
 })
 
 export function App() {
