@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "patch-package",
     "start": "npm run start -w apps/mobile",
-    "ios": "npm run ios -w apps/mobile",
+    "ios": "dotenv -e .env -- npm run ios -w apps/mobile",
     "android": "npm run android -w apps/mobile",
     "prebuild": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "prebuild:screenshots": "npm run prebuild && npm run build -w tools/screenshots",
