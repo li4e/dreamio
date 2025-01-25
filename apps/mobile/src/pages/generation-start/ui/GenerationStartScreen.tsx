@@ -160,7 +160,7 @@ export function GenerationStartScreen() {
             />
           </View>
         </ScrollView>
-        <View className="absolute bottom-5 self-center bg-slate-50 rounded-full">
+        <View className="absolute bottom-5 self-center">
           <Button
             icon="creation"
             mode="contained"
