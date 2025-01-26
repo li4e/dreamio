@@ -29,11 +29,12 @@ module.exports = {
     },
     android: {
       versionCode: process.env.APP_BUILD_NUMBER || '1',
+      icon: './assets/icon.png',
       adaptiveIcon: {
-        foregroundImage: './assets/splash_logo.png',
-        backgroundColor: '#000000',
+        foregroundImage: './assets/icon_foreground.png',
+        backgroundColor: '#6650a4',
       },
-      package: 'me.ilsur.dreamio',
+      package: process.env.ANDROID_APP_IDENTIFIER || 'com.dreamio',
     },
     web: {
       favicon: './assets/icon.png',
@@ -42,12 +43,9 @@ module.exports = {
       [
         'expo-splash-screen',
         {
-          image: './assets/splash_logo.png',
-          backgroundColor: '#fffbfe',
-          dark: {
-            backgroundColor: '#1c1b1f',
-          },
-          imageWidth: 60,
+          image: './assets/icon_foreground.png',
+          backgroundColor: '#6650a4',
+          imageWidth: 150,
         },
       ],
       '@config-plugins/detox',
