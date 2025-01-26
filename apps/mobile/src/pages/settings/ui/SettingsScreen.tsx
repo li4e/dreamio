@@ -5,6 +5,7 @@ import React, { useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   Linking,
+  Platform,
   ScrollView,
   TouchableWithoutFeedback,
   View,
@@ -201,14 +202,17 @@ function useContactUs() {
   return async () => {
     try {
       const isComposeAvailable = await MailComposer.isAvailableAsync()
+      const subject = `Help me with the ${APP_NAME} app`
 
-      if (isComposeAvailable) {
+      if (isComposeAvailable && Platform.OS === 'ios') {
         await MailComposer.composeAsync({
           recipients: [SUPPORT_EMAIL],
           subject: `Help me with the ${APP_NAME} app`,
         })
       } else {
-        await Linking.openURL(`mailto:${SUPPORT_EMAIL}`)
+        await Linking.openURL(
+          `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}`
+        )
       }
     } catch {
       showSnackbar(
