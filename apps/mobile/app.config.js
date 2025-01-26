@@ -47,9 +47,6 @@ module.exports = {
           image: './assets/icon_foreground.png',
           backgroundColor: '#6650a4',
           imageWidth: 150,
-          dark: {
-            backgroundColor: '#d0bcff',
-          },
         },
       ],
       '@config-plugins/detox',
