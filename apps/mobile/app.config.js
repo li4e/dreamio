@@ -11,6 +11,7 @@ module.exports = {
       appleTeamId: process.env.APPLE_TEAM_ID || '',
       buildNumber: process.env.APP_BUILD_NUMBER || '1',
       supportsTablet: false,
+      icon: './assets/icon_ios.png',
       infoPlist: {
         CFBundleDisplayName: 'Dreamio',
         CFBundleAllowMixedLocalizations: true,
@@ -46,6 +47,9 @@ module.exports = {
           image: './assets/icon_foreground.png',
           backgroundColor: '#6650a4',
           imageWidth: 150,
+          dark: {
+            backgroundColor: '#d0bcff',
+          },
         },
       ],
       '@config-plugins/detox',
