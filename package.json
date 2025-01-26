@@ -19,6 +19,7 @@
     "deploy:ios": "npm run prebuild && dotenv -e .env -- npm run deploy:ios -w tools/mobile-deploy",
     "deploy:meta": "dotenv -e .env -- npm run deploy:meta -w tools/mobile-deploy",
     "deploy:screenshots": "dotenv -e .env -- npm run deploy:screenshots -w tools/mobile-deploy",
+    "apk": "npm run prebuild && dotenv -e .env -- npm run apk -w tools/mobile-deploy",
     "screenshots": "npm run start -w tools/screenshots",
     "translate": "dotenv -e .env -- npm run translate -w tools/translator"
   },

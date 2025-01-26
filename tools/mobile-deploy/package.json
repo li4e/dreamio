@@ -4,6 +4,7 @@
   "scripts": {
     "deploy:ios": "bundle exec fastlane beta",
     "deploy:meta": "bundle exec fastlane update_meta",
-    "deploy:screenshots": "bundle exec fastlane update_screenshots"
+    "deploy:screenshots": "bundle exec fastlane update_screenshots",
+    "apk": "bundle exec fastlane android build_apk"
   }
 }

@@ -58,3 +58,26 @@ platform :ios do
     )
   end
 end
+
+platform :android do
+  lane :build_apk do
+    gradle(
+      task: "assemble",
+      build_type: "Release",
+      project_dir: "../../apps/mobile/android",
+      properties: {
+        "android.injected.signing.store.file" => ENV["ANDROID_KEYSTORE_PATH"],
+        "android.injected.signing.store.password" => ENV["ANDROID_KEYSTORE_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["ANDROID_KEYSTORE_ALIAS"],
+        "android.injected.signing.key.password" => ENV["ANDROID_KEYSTORE_PASSWORD"]
+      }
+    )
+
+    apk_path = "../../../apps/mobile/android/app/build/outputs/apk/release/app-release.apk"
+    destination_path = "../../../#{ENV["APP_NAME"]}.v.#{ENV["APP_VERSION"]}.b.#{ENV["APP_BUILD_NUMBER"]}.apk"
+    FileUtils.mkdir_p(File.dirname(destination_path)) # Создать директорию, если ее нет
+    FileUtils.cp(apk_path, destination_path)
+
+    UI.success("APK has been built successfully and saved to #{destination_path}")
+  end
+end
