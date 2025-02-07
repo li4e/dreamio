@@ -7,10 +7,11 @@ import { ScrollView } from 'shared/ui/styled'
 interface StylesListProps {
   value: string | null
   onSelect(item: string | null): void
+  disabled: boolean
 }
 
 export function StylesList(props: StylesListProps) {
-  const { onSelect, value } = props
+  const { onSelect, value, disabled } = props
   const { t } = useTranslation()
 
   const handleChange = (style: string | null) =>
@@ -23,7 +24,7 @@ export function StylesList(props: StylesListProps) {
           {t('screens.generation.styleLabel')}
         </Text>
         {value && (
-          <Chip compact onClose={() => handleChange(null)}>
+          <Chip disabled={disabled} compact onClose={() => handleChange(null)}>
             {value}
           </Chip>
         )}
@@ -41,6 +42,7 @@ export function StylesList(props: StylesListProps) {
           <View key={colIndex}>
             {artStylesCol.map((artStyle, rowIndex) => (
               <StyleCard
+                disabled={disabled}
                 item={artStyle}
                 key={artStyle.name}
                 selected={value === artStyle.name}
@@ -58,10 +60,11 @@ interface StyleCardProps {
   item: ArtStyle
   selected: boolean
   onPress(): void
+  disabled: boolean
 }
 
 function StyleCard(props: StyleCardProps) {
-  const { item, selected, onPress, ...rest } = props
+  const { item, selected, disabled, onPress, ...rest } = props
   const { colors } = useTheme()
 
   return (
@@ -69,6 +72,7 @@ function StyleCard(props: StyleCardProps) {
       key={item.name}
       className="m-[1]"
       onPress={onPress}
+      disabled={disabled}
       {...rest}
     >
       <View

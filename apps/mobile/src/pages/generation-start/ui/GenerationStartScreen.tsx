@@ -111,12 +111,14 @@ export function GenerationStartScreen() {
                         {t('screens.generation.inputLabel')}
                       </Text>
                       <RandomButton
+                        disabled={isDisabled}
                         onCreated={(prompt: string) => onChange(prompt)}
                       />
                     </View>
 
                     <View>
                       <TextInput
+                        disabled={isDisabled}
                         multiline
                         mode="flat"
                         className="min-h-[120] pr-5"
@@ -128,6 +130,7 @@ export function GenerationStartScreen() {
                       />
                       {value?.length > 0 && (
                         <IconButton
+                          disabled={isDisabled}
                           className="absolute top-0 right-0"
                           onPress={() => setValue('prompt', '')}
                           icon={'close'}
@@ -153,6 +156,7 @@ export function GenerationStartScreen() {
               name="style"
               render={({ field: { value } }) => (
                 <StylesList
+                  disabled={isDisabled}
                   value={value}
                   onSelect={(style: string | null) => setValue('style', style)}
                 />
@@ -193,10 +197,11 @@ function mapCurGenStatusToModalState(
 
 interface RandomButtonProps {
   onCreated(prompt: string): void
+  disabled: boolean
 }
 
 function RandomButton(props: RandomButtonProps) {
-  const { onCreated } = props
+  const { onCreated, disabled } = props
   const [pending, setPending] = useState(false)
   const { t } = useTranslation()
   const { showSnackbar } = useSnackbar()
@@ -231,7 +236,7 @@ function RandomButton(props: RandomButtonProps) {
       contentStyle="flex-row-reverse px-2"
       onPress={onPress}
       loading={pending}
-      disabled={pending}
+      disabled={pending || disabled}
     >
       {t('screens.generation.surpriseButton')}
     </Button>
