@@ -1,15 +1,15 @@
-import { makeAutoObservable } from "mobx";
-import { useLocalObservable } from "mobx-react-lite";
-import { useCallback } from "react";
+import { makeAutoObservable, toJS } from 'mobx'
+import { useLocalObservable } from 'mobx-react-lite'
+import { useCallback, useEffect } from 'react'
 import {
   CreateGenerationRequest,
+  GenerationDataService,
   GenerationEntity,
   GenerationEntityStatus,
-  GenerationStore,
   useGenerationDataService,
-} from "entities/generation";
-import { useGenerationStore } from "entities/generation";
-import { useStoreData } from "shared/store";
+} from 'entities/generation'
+import { useStoreData } from 'shared/store'
+import { mkkvStorage } from 'shared/lib/mmkv'
 
 export enum Status {
   NO_GENERATION,
@@ -18,100 +18,154 @@ export enum Status {
   ERROR,
 }
 
-class CurrentGenerationStore {
-  genId: number | null = null;
-  private _hasError = false;
-  private _isPending = false;
+class CurrentGeneration {
+  private _hasError = false
+  private _isPending = false
+  private _generation: GenerationEntity | null = null
 
-  constructor(private readonly generationStore: GenerationStore) {
-    makeAutoObservable(this, {}, { autoBind: true });
+  get genId() {
+    return this._generation?.id ?? null
   }
 
-  setGenId(genId: number) {
-    this.genId = genId;
+  constructor(private readonly generationDataService: GenerationDataService) {
+    this.restore()
+    makeAutoObservable(this, {}, { autoBind: true })
+  }
+
+  setGeneration(generation: GenerationEntity | null) {
+    this._generation = generation
+    const shouldNotBeSaved =
+      generation?.status === GenerationEntityStatus.SUCCESS
+    this.persist(shouldNotBeSaved)
   }
 
   clear() {
-    this.genId = null;
-    this._hasError = false;
-    this._isPending = false;
+    this._generation = null
+    this._hasError = false
+    this._isPending = false
   }
 
   setError(error: boolean) {
-    this._hasError = error;
+    this._hasError = error
   }
 
   setPending(isPending: boolean) {
-    this._isPending = isPending;
+    this._isPending = isPending
   }
 
   get status(): Status {
     if (this._hasError) {
-      return Status.ERROR;
+      return Status.ERROR
     } else if (this.currentGeneration) {
       const mapEntityStatusToStore: Record<GenerationEntityStatus, Status> = {
         [GenerationEntityStatus.ERROR]: Status.ERROR,
         [GenerationEntityStatus.IN_PROGRESS]: Status.IN_PROGRESS,
         [GenerationEntityStatus.SUCCESS]: Status.SUCCESS,
-      };
+      }
 
-      return mapEntityStatusToStore[this.currentGeneration.status];
+      return mapEntityStatusToStore[this.currentGeneration.status]
     }
 
-    return Status.NO_GENERATION;
+    return Status.NO_GENERATION
   }
 
   get currentGeneration(): GenerationEntity | null {
-    if (this.genId) {
-      return this.generationStore.getItem(this.genId);
-    }
-    return null;
+    return this._generation
   }
 
   get isPending(): boolean {
-    return this._isPending || this.status === Status.IN_PROGRESS;
+    return this._isPending || this.status === Status.IN_PROGRESS
+  }
+
+  private readonly persistingKey = 'current_generation'
+
+  private persist(clear: boolean) {
+    if (clear) {
+      mkkvStorage.delete(this.persistingKey)
+      return
+    }
+
+    if (this.currentGeneration) {
+      mkkvStorage.set(
+        this.persistingKey,
+        JSON.stringify(toJS(this.currentGeneration))
+      )
+    } else {
+      mkkvStorage.delete(this.persistingKey)
+    }
+  }
+
+  private restore() {
+    const generationString = mkkvStorage.getString(this.persistingKey)
+    if (generationString) {
+      this._generation = JSON.parse(generationString)
+    }
+  }
+
+  private async createGeneration(data: CreateGenerationRequest) {
+    let generation = await this.generationDataService.createGeneration(data)
+    this.setGeneration(generation)
+    return generation
+  }
+
+  private async fetchGenerationResult(id: number) {
+    const generation = await this.generationDataService.getGeneration(id)
+    this.setGeneration(generation)
+  }
+
+  async submit(data: CreateGenerationRequest) {
+    try {
+      this.setPending(true)
+      this.setError(false)
+      const generation = await this.createGeneration(data)
+      await this.fetchGenerationResult(generation.id)
+    } catch (error) {
+      this.setError(true)
+    } finally {
+      this.setPending(false)
+    }
+  }
+
+  async fetchResultIfNeeded() {
+    if (this.genId && this.isPending) {
+      try {
+        await this.fetchGenerationResult(this.genId)
+      } catch {
+        this.setError(true)
+      } finally {
+        this.setPending(false)
+      }
+    }
   }
 }
 
 export function useCurrentGeneration() {
-  const genStore = useGenerationStore();
-  const genDataService = useGenerationDataService();
+  const genDataService = useGenerationDataService()
   const curGenStore = useLocalObservable(
-    () => new CurrentGenerationStore(genStore)
-  );
+    () => new CurrentGeneration(genDataService)
+  )
 
   const state = useStoreData(
     () => ({
+      result: curGenStore.currentGeneration,
       status: curGenStore.status,
       isPending: curGenStore.isPending,
     }),
     [curGenStore]
-  );
+  )
+
+  useEffect(() => {
+    curGenStore.fetchResultIfNeeded()
+  }, [curGenStore])
 
   const submit = useCallback(
-    async (
-      data: CreateGenerationRequest,
-      onGenerated: (generation: GenerationEntity) => void
-    ) => {
-      try {
-        curGenStore.setPending(true);
-        let generation = await genDataService.createGeneration(data);
-        curGenStore.setGenId(generation.id);
-        generation = await genDataService.getGeneration(generation.id);
-        onGenerated(generation);
-      } catch (error) {
-        console.log(error);
-        curGenStore.setError(true);
-      } finally {
-        curGenStore.setPending(false);
-      }
-    },
+    (data: CreateGenerationRequest) => curGenStore.submit(data),
     [curGenStore, genDataService]
-  );
+  )
 
   return {
     state,
     submit,
     clear: curGenStore.clear,
-  };
+  }
 }

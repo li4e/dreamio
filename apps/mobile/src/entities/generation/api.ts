@@ -1,4 +1,5 @@
 import { translator } from 'shared/api'
+import { mkkvStorage } from 'shared/lib/mmkv'
 import { SettingsStore } from 'shared/store/SettingsStore'
 import { ImageCache } from 'shared/ui/CachedImage'
 
@@ -24,8 +25,20 @@ export interface StartGenerationBodyDTO {
   style?: string
 }
 
+interface PersistingData {
+  generationsData: [number, GenerationDTO][]
+}
+
 export class Api {
   private readonly data = new Map<number, GenerationDTO>()
+
+  constructor() {
+    const persisted = this.restore()
+    if (persisted?.generationsData) {
+      this.data = new Map(persisted.generationsData)
+    }
+  }
+
   getGeneration = async (
     id: number
   ): Promise<{ generation: GenerationDTO }> => {
@@ -52,6 +65,7 @@ export class Api {
       throw err
     } finally {
       this.data.delete(id)
+      this.persist()
     }
 
     return {
@@ -84,11 +98,29 @@ export class Api {
     }
 
     this.data.set(newGeneration.id, newGeneration)
+    this.persist()
 
     return {
       generation: newGeneration,
     }
   }
+
+  private persist() {
+    const persistingData: PersistingData = {
+      generationsData: Array.from(this.data),
+    }
+    mkkvStorage.set(this.persistingKey, JSON.stringify(persistingData))
+  }
+
+  private restore(): null | Partial<PersistingData> {
+    const persistingData = mkkvStorage.getString(this.persistingKey)
+    if (persistingData) {
+      return JSON.parse(persistingData)
+    }
+    return null
+  }
+
+  private readonly persistingKey = 'api'
 }
 
 export const api = new Api()

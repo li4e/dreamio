@@ -27,7 +27,7 @@ export function StateModal(props: StateModalProps) {
       visible={variant !== null}
       dismissableBackButton={dismissable}
       dismissable={dismissable}
-      contentContainerStyle="bg-white rounded-2xl p-5 pb-8 items-center justify-end mx-[50] min-h-[300]"
+      contentContainerStyle="rounded-2xl p-5 pb-8 items-center justify-end mx-[50] min-h-[300]"
     >
       {variant && (
         <StateModalContent
@@ -79,12 +79,31 @@ function StateModalContent(props: StateModalContentProps) {
       {dismissable && (
         <IconButton
           icon="close"
-          iconColor={colors.backdrop}
+          iconColor={colors.onBackground}
           size={20}
           className="absolute right-0 top-0"
           onPress={onDismiss}
         />
       )}
+    </>
+  )
+}
+
+export function StateContent(props: Pick<StateModalContentProps, 'variant'>) {
+  const { variant } = props
+  const { title, description, animation } = useStateContent(variant)
+
+  return (
+    <>
+      <View className="justify-center">
+        <LottieView {...animation} />
+      </View>
+      <Text variant="titleMedium" className="mb-1 text-center">
+        {title}
+      </Text>
+      <Text variant="bodySmall" className="text-center max-w-[240]">
+        {description}
+      </Text>
     </>
   )
 }
