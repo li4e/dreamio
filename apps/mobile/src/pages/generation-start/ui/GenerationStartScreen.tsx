@@ -116,8 +116,10 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   const onSaveImage = useOnSaveImage()
 
-  const showStartButton =
-    curGen.state.result?.status !== GenerationEntityStatus.IN_PROGRESS
+  const showStartButton = !(
+    curGen.state.isPending &&
+    curGen.state.result?.status === GenerationEntityStatus.IN_PROGRESS
+  )
 
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
