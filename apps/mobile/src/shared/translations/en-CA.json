@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Censorship has been turned off",
   "screens.settings.godMode.active.description": "With great power comes great responsibility.",
   "screens.settings.godMode.inactive.title": "Censorship has been enabled.",
-  "screens.settings.godMode.inactive.description": "It appears you are not prepared for such power."
+  "screens.settings.godMode.inactive.description": "It appears you are not prepared for such power.",
+  "components.snackBar.saveImageError.title": "Save failed.",
+  "components.snackBar.saveImageError.description": "Allow Library access to save",
+  "components.snackBar.saveImageError.button": "Settings",
+  "screens.generationResult.reworkButton": "Please provide the text you would like to have translated from en-US to en-CA."
 }

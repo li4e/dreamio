@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "La censura ha sido desactivada.",
   "screens.settings.godMode.active.description": "Con un gran poder viene una gran responsabilidad.",
   "screens.settings.godMode.inactive.title": "Se ha activado la censura.",
-  "screens.settings.godMode.inactive.description": "Parece que no estás listo para tal poder."
+  "screens.settings.godMode.inactive.description": "Parece que no estás listo para tal poder.",
+  "components.snackBar.saveImageError.title": "Error al guardar",
+  "components.snackBar.saveImageError.description": "Permitir acceso a la Biblioteca para guardar",
+  "components.snackBar.saveImageError.button": "Configuración",
+  "screens.generationResult.reworkButton": "Reformulación"
 }

@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Cenzura a fost dezactivată",
   "screens.settings.godMode.active.description": "Cu o mare putere vine o mare responsabilitate.",
   "screens.settings.godMode.inactive.title": "Cenzura a fost activată.",
-  "screens.settings.godMode.inactive.description": "Se pare că nu ești pregătit pentru o astfel de putere."
+  "screens.settings.godMode.inactive.description": "Se pare că nu ești pregătit pentru o astfel de putere.",
+  "components.snackBar.saveImageError.title": "Salvarea a eșuat",
+  "components.snackBar.saveImageError.description": "Permite accesul la Bibliotecă pentru a salva",
+  "components.snackBar.saveImageError.button": "Setări",
+  "screens.generationResult.reworkButton": "Restructurare"
 }

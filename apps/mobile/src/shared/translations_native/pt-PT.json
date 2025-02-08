@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Gostaria de receber notificações para se manter atualizado sobre novas publicações, curtidas, comentários e quando as suas criações estiverem prontas?"
+  "NSUserNotificationsUsageDescription": "Gostaria de receber notificações para se manter atualizado sobre novas publicações, curtidas, comentários e quando as suas criações estiverem prontas?",
+  "NSPhotoLibraryAddUsageDescription": "Permita que o aplicativo salve fotos na sua galeria."
 }

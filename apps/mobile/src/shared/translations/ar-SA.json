@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "تم إلغاء تنشيط الرقابة",
   "screens.settings.godMode.active.description": "مع القوة العظمى تأتي المسؤولية العظيمة",
   "screens.settings.godMode.inactive.title": "تم تفعيل الرقابة",
-  "screens.settings.godMode.inactive.description": "يبدو أنك لست مستعدًا لمثل هذه القوة."
+  "screens.settings.godMode.inactive.description": "يبدو أنك لست مستعدًا لمثل هذه القوة.",
+  "components.snackBar.saveImageError.title": "فشل الحفظ",
+  "components.snackBar.saveImageError.description": "السماح بالوصول إلى المكتبة للحفظ",
+  "components.snackBar.saveImageError.button": "الإعدادات",
+  "screens.generationResult.reworkButton": "إعادة صياغة"
 }

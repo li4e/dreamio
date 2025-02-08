@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "您想接收通知，以便隨時了解新帖、喜歡、評論，以及您的創作何時準備完成嗎？"
+  "NSUserNotificationsUsageDescription": "您想接收通知，以便隨時了解新帖、喜歡、評論，以及您的創作何時準備完成嗎？",
+  "NSPhotoLibraryAddUsageDescription": "允許應用程式將照片保存到您的相冊。"
 }

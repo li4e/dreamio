@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Censurering er blevet deaktiveret",
   "screens.settings.godMode.active.description": "Med stor magt følger stort ansvar",
   "screens.settings.godMode.inactive.title": "Censur er blevet aktiveret",
-  "screens.settings.godMode.inactive.description": "Det ser ud til, at du ikke er klar til så stor magt."
+  "screens.settings.godMode.inactive.description": "Det ser ud til, at du ikke er klar til så stor magt.",
+  "components.snackBar.saveImageError.title": "Gem mislykkedes",
+  "components.snackBar.saveImageError.description": "Tillad Bibliotekadgang for at gemme",
+  "components.snackBar.saveImageError.button": "Indstillinger",
+  "screens.generationResult.reworkButton": "Omarbejd"
 }

@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Sansür devre dışı bırakıldı.",
   "screens.settings.godMode.active.description": "Büyük güçle birlikte büyük sorumluluk gelir.",
   "screens.settings.godMode.inactive.title": "Sansür etkinleştirildi",
-  "screens.settings.godMode.inactive.description": "Görünüşe göre bu tür bir güce hazır değilsiniz."
+  "screens.settings.godMode.inactive.description": "Görünüşe göre bu tür bir güce hazır değilsiniz.",
+  "components.snackBar.saveImageError.title": "Kaydetme başarısız oldu",
+  "components.snackBar.saveImageError.description": "Kütüphane erişimine kaydetme izni verin.",
+  "components.snackBar.saveImageError.button": "Ayarlar",
+  "screens.generationResult.reworkButton": "Yeniden düzenle"
 }

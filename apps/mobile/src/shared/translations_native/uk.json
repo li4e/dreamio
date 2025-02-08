@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Чи хочете ви отримувати сповіщення, щоб бути в курсі нових дописів, вподобань, коментарів та коли ваші твори будуть готові?"
+  "NSUserNotificationsUsageDescription": "Чи хочете ви отримувати сповіщення, щоб бути в курсі нових дописів, вподобань, коментарів та коли ваші твори будуть готові?",
+  "NSPhotoLibraryAddUsageDescription": "Allow the app to save photos to your gallery."
 }

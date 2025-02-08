@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "La censure a été désactivée.",
   "screens.settings.godMode.active.description": "Avec un grand pouvoir vient une grande responsabilité.",
   "screens.settings.godMode.inactive.title": "La censure a été activée.",
-  "screens.settings.godMode.inactive.description": "Il semble que vous ne soyez pas prêt pour un tel pouvoir."
+  "screens.settings.godMode.inactive.description": "Il semble que vous ne soyez pas prêt pour un tel pouvoir.",
+  "components.snackBar.saveImageError.title": "Échec de l'enregistrement",
+  "components.snackBar.saveImageError.description": "Autoriser l'accès à la bibliothèque pour sauvegarder",
+  "components.snackBar.saveImageError.button": "Paramètres",
+  "screens.generationResult.reworkButton": "Refonte"
 }

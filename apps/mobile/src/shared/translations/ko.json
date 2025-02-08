@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "검열이 비활성화되었습니다.",
   "screens.settings.godMode.active.description": "큰 힘에는 큰 책임이 따른다.",
   "screens.settings.godMode.inactive.title": "검열이 활성화되었습니다.",
-  "screens.settings.godMode.inactive.description": "당신은 이러한 힘을 받을 준비가 되어 있지 않은 것 같습니다."
+  "screens.settings.godMode.inactive.description": "당신은 이러한 힘을 받을 준비가 되어 있지 않은 것 같습니다.",
+  "components.snackBar.saveImageError.title": "저장에 실패했습니다",
+  "components.snackBar.saveImageError.description": "라이브러리 접근을 허용하여 저장하기",
+  "components.snackBar.saveImageError.button": "설정",
+  "screens.generationResult.reworkButton": "재작업"
 }

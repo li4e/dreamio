@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Cenzura je deaktivirana.",
   "screens.settings.godMode.active.description": "S velikom moći dolazi velika odgovornost.",
   "screens.settings.godMode.inactive.title": "Cenzura je aktivirana",
-  "screens.settings.godMode.inactive.description": "Čini se da niste spremni za takvu moć."
+  "screens.settings.godMode.inactive.description": "Čini se da niste spremni za takvu moć.",
+  "components.snackBar.saveImageError.title": "Spremanje nije uspjelo",
+  "components.snackBar.saveImageError.description": "Dozvolite pristup biblioteci za spremanje",
+  "components.snackBar.saveImageError.button": "Postavke",
+  "screens.generationResult.reworkButton": "Preuredi"
 }

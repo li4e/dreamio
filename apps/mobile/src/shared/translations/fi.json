@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Sensuuri on poistettu käytöstä.",
   "screens.settings.godMode.active.description": "Suuresta voimasta seuraa suuri vastuu.",
   "screens.settings.godMode.inactive.title": "Sensuuri on aktivoitu.",
-  "screens.settings.godMode.inactive.description": "Vaikuttaa siltä, että et ole valmis tällaiseen voimaan."
+  "screens.settings.godMode.inactive.description": "Vaikuttaa siltä, että et ole valmis tällaiseen voimaan.",
+  "components.snackBar.saveImageError.title": "Tallennus epäonnistui",
+  "components.snackBar.saveImageError.description": "Salli Kirjaston pääsy tallentamiseen",
+  "components.snackBar.saveImageError.button": "Asetukset",
+  "screens.generationResult.reworkButton": "Uudelleentyöstää"
 }

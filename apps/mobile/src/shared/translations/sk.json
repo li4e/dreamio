@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Cenzúra bola deaktívna.",
   "screens.settings.godMode.active.description": "S veľkou mocou prichádza veľká zodpovednosť.",
   "screens.settings.godMode.inactive.title": "Cenzúra bola aktivovaná",
-  "screens.settings.godMode.inactive.description": "Zdá sa, že nie ste pripravení na takú moc."
+  "screens.settings.godMode.inactive.description": "Zdá sa, že nie ste pripravení na takú moc.",
+  "components.snackBar.saveImageError.title": "Uloženie zlyhalo",
+  "components.snackBar.saveImageError.description": "Povoliť prístup k knižnici na uloženie",
+  "components.snackBar.saveImageError.button": "Nastavenia",
+  "screens.generationResult.reworkButton": "Prepracovať"
 }

@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Kiểm duyệt đã được tắt.",
   "screens.settings.godMode.active.description": "Với quyền lực lớn đi kèm với trách nhiệm lớn.",
   "screens.settings.godMode.inactive.title": "Kiểm duyệt đã được kích hoạt.",
-  "screens.settings.godMode.inactive.description": "Có vẻ như bạn chưa sẵn sàng cho sức mạnh như vậy."
+  "screens.settings.godMode.inactive.description": "Có vẻ như bạn chưa sẵn sàng cho sức mạnh như vậy.",
+  "components.snackBar.saveImageError.title": "Lưu không thành công",
+  "components.snackBar.saveImageError.description": "Cho phép truy cập Thư viện để lưu lại.",
+  "components.snackBar.saveImageError.button": "Cài đặt",
+  "screens.generationResult.reworkButton": "Làm lại"
 }

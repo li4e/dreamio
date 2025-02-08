@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Cenzura została dezaktywowana.",
   "screens.settings.godMode.active.description": "Z wielką mocą wiąże się wielka odpowiedzialność.",
   "screens.settings.godMode.inactive.title": "Cenzura została aktywowana",
-  "screens.settings.godMode.inactive.description": "Wydaje się, że nie jesteś gotowy na taką moc."
+  "screens.settings.godMode.inactive.description": "Wydaje się, że nie jesteś gotowy na taką moc.",
+  "components.snackBar.saveImageError.title": "Zapisywanie nie powiodło się",
+  "components.snackBar.saveImageError.description": "Zezwól na dostęp do biblioteki, aby zapisać",
+  "components.snackBar.saveImageError.button": "Ustawienia",
+  "screens.generationResult.reworkButton": "Przeróbka"
 }

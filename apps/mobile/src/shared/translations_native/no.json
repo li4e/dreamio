@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Vil du motta varsler for å holde deg oppdatert på nye innlegg, virkeliker, kommentarer og når dine kreasjoner er klare?"
+  "NSUserNotificationsUsageDescription": "Vil du motta varsler for å holde deg oppdatert på nye innlegg, virkeliker, kommentarer og når dine kreasjoner er klare?",
+  "NSPhotoLibraryAddUsageDescription": "Tillat appen å lagre bilder i galleriet ditt."
 }

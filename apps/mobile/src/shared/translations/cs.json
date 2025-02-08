@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Cenzura byla deaktivována",
   "screens.settings.godMode.active.description": "S velkou mocí přichází velká zodpovědnost.",
   "screens.settings.godMode.inactive.title": "Cenzura byla aktivována.",
-  "screens.settings.godMode.inactive.description": "Zdá se, že na takovou moc nejste připraveni."
+  "screens.settings.godMode.inactive.description": "Zdá se, že na takovou moc nejste připraveni.",
+  "components.snackBar.saveImageError.title": "Uložení se nezdařilo",
+  "components.snackBar.saveImageError.description": "Povolte přístup k knihovně pro uložení",
+  "components.snackBar.saveImageError.button": "Nastavení",
+  "screens.generationResult.reworkButton": "Předělat"
 }

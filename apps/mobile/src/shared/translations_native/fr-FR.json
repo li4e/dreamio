@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Souhaitez-vous recevoir des notifications pour rester informé des nouveaux posts, des likes, des commentaires, et lorsque vos créations sont prêtes ?"
+  "NSUserNotificationsUsageDescription": "Souhaitez-vous recevoir des notifications pour rester informé des nouveaux posts, des likes, des commentaires, et lorsque vos créations sont prêtes ?",
+  "NSPhotoLibraryAddUsageDescription": "Autorisez l'application à enregistrer des photos dans votre galerie."
 }

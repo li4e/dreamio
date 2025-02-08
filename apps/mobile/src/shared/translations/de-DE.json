@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Die Zensur wurde deaktiviert.",
   "screens.settings.godMode.active.description": "Mit großer Macht kommt große Verantwortung",
   "screens.settings.godMode.inactive.title": "Zensur wurde aktiviert",
-  "screens.settings.godMode.inactive.description": "Es scheint, dass Sie nicht bereit sind für eine solche Macht."
+  "screens.settings.godMode.inactive.description": "Es scheint, dass Sie nicht bereit sind für eine solche Macht.",
+  "components.snackBar.saveImageError.title": "Speichern fehlgeschlagen",
+  "components.snackBar.saveImageError.description": "Erlauben Sie den Zugriff auf die Bibliothek, um zu speichern.",
+  "components.snackBar.saveImageError.button": "Einstellungen",
+  "screens.generationResult.reworkButton": "Umarbeiten"
 }

@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Sensor telah dinonaktifkan.",
   "screens.settings.godMode.active.description": "Dengan kekuatan besar datang tanggung jawab besar.",
   "screens.settings.godMode.inactive.title": "Sensor telah diaktifkan",
-  "screens.settings.godMode.inactive.description": "Sepertinya Anda belum siap untuk kekuatan seperti itu"
+  "screens.settings.godMode.inactive.description": "Sepertinya Anda belum siap untuk kekuatan seperti itu",
+  "components.snackBar.saveImageError.title": "Penyimpanan gagal",
+  "components.snackBar.saveImageError.description": "Izinkan akses Perpustakaan untuk menyimpan",
+  "components.snackBar.saveImageError.button": "Pengaturan",
+  "screens.generationResult.reworkButton": "Rework"
 }

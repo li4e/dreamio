@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "検閲が無効になりました。",
   "screens.settings.godMode.active.description": "大きな力には大きな責任が伴う",
   "screens.settings.godMode.inactive.title": "検閲が有効になりました",
-  "screens.settings.godMode.inactive.description": "あなたはそのような力にまだ準備ができていないようです。"
+  "screens.settings.godMode.inactive.description": "あなたはそのような力にまだ準備ができていないようです。",
+  "components.snackBar.saveImageError.title": "保存に失敗しました",
+  "components.snackBar.saveImageError.description": "ライブラリへのアクセスを許可して保存します。",
+  "components.snackBar.saveImageError.button": "設定",
+  "screens.generationResult.reworkButton": "再作業"
 }

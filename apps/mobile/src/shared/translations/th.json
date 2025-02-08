@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "ได้ทำการปิดการเซนเซอร์แล้ว",
   "screens.settings.godMode.active.description": "ด้วยอำนาจอันยิ่งใหญ่ มาพร้อมกับความรับผิดชอบที่ยิ่งใหญ่",
   "screens.settings.godMode.inactive.title": "การเซ็นเซอร์ได้ถูกเปิดใช้งานแล้ว",
-  "screens.settings.godMode.inactive.description": "ดูเหมือนว่าคุณยังไม่พร้อมสำหรับพลังเช่นนั้น"
+  "screens.settings.godMode.inactive.description": "ดูเหมือนว่าคุณยังไม่พร้อมสำหรับพลังเช่นนั้น",
+  "components.snackBar.saveImageError.title": "การบันทึกล้มเหลว",
+  "components.snackBar.saveImageError.description": "อนุญาตให้เข้าถึงห้องสมุดเพื่อบันทึก",
+  "components.snackBar.saveImageError.button": "การตั้งค่า",
+  "screens.generationResult.reworkButton": "การปรับปรุง"
 }

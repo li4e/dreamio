@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Penyensoran telah dinyahaktifkan.",
   "screens.settings.godMode.active.description": "Dengan kuasa yang besar datang tanggungjawab yang besar.",
   "screens.settings.godMode.inactive.title": "Penapisan telah diaktifkan",
-  "screens.settings.godMode.inactive.description": "Nampaknya anda tidak bersedia untuk kuasa sebegitu."
+  "screens.settings.godMode.inactive.description": "Nampaknya anda tidak bersedia untuk kuasa sebegitu.",
+  "components.snackBar.saveImageError.title": "Simpan gagal",
+  "components.snackBar.saveImageError.description": "Benarkan akses Perpustakaan untuk menyimpan",
+  "components.snackBar.saveImageError.button": "Tetapan",
+  "screens.generationResult.reworkButton": "Kerja semula"
 }

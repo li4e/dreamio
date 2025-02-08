@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Želite li primati obavijesti kako biste bili u toku s novim objavama, lajkovima, komentarima i kada su vaša djela spremna?"
+  "NSUserNotificationsUsageDescription": "Želite li primati obavijesti kako biste bili u toku s novim objavama, lajkovima, komentarima i kada su vaša djela spremna?",
+  "NSPhotoLibraryAddUsageDescription": "Dopustite aplikaciji da sprema fotografije u vašu galeriju."
 }

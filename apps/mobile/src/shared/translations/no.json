@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Sensur har blitt deaktivert",
   "screens.settings.godMode.active.description": "Med stor makt følger stort ansvar",
   "screens.settings.godMode.inactive.title": "Sensur har blitt aktivert",
-  "screens.settings.godMode.inactive.description": "Det ser ut til at du ikke er klar for slik makt."
+  "screens.settings.godMode.inactive.description": "Det ser ut til at du ikke er klar for slik makt.",
+  "components.snackBar.saveImageError.title": "Lagring mislyktes",
+  "components.snackBar.saveImageError.description": "Tillat tilgang til biblioteket for å lagre",
+  "components.snackBar.saveImageError.button": "Innstillinger",
+  "screens.generationResult.reworkButton": "Revidere"
 }

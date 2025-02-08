@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "सेंसरशिप निष्क्रिय कर दी गई है।",
   "screens.settings.godMode.active.description": "बड़ी शक्ति के साथ बड़ी जिम्मेदारी आती है।",
   "screens.settings.godMode.inactive.title": "सेंसरशिप सक्षम की गई है",
-  "screens.settings.godMode.inactive.description": "ऐसा लगता है कि आप इतनी शक्ति के लिए तैयार नहीं हैं।"
+  "screens.settings.godMode.inactive.description": "ऐसा लगता है कि आप इतनी शक्ति के लिए तैयार नहीं हैं।",
+  "components.snackBar.saveImageError.title": "सहेजना विफल हुआ",
+  "components.snackBar.saveImageError.description": "लाइब्रेरी की पहुँच को सहेजने की अनुमति दें",
+  "components.snackBar.saveImageError.button": "सेटिंग्स",
+  "screens.generationResult.reworkButton": "पुनः कार्य करना"
 }

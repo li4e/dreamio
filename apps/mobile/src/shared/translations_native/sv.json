@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Vill du ta emot meddelanden för att hålla dig uppdaterad om nya inlägg, gillanden, kommentarer och när dina skapelser är färdiga?"
+  "NSUserNotificationsUsageDescription": "Vill du ta emot meddelanden för att hålla dig uppdaterad om nya inlägg, gillanden, kommentarer och när dina skapelser är färdiga?",
+  "NSPhotoLibraryAddUsageDescription": "Tillåt appen att spara foton i ditt galleri."
 }

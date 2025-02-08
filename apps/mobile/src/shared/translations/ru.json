@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Цензура была отключена",
   "screens.settings.godMode.active.description": "С великой силой приходит великая ответственность.",
   "screens.settings.godMode.inactive.title": "Цензура была включена",
-  "screens.settings.godMode.inactive.description": "Кажется, вы не готовы к такой силе."
+  "screens.settings.godMode.inactive.description": "Кажется, вы не готовы к такой силе.",
+  "components.snackBar.saveImageError.title": "Сохранение не удалось",
+  "components.snackBar.saveImageError.description": "Разрешить доступ к Библиотеке для сохранения",
+  "components.snackBar.saveImageError.button": "Настройки",
+  "screens.generationResult.reworkButton": "Переработка"
 }

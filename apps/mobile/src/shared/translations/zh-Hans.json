@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "审查已被关闭",
   "screens.settings.godMode.active.description": "拥有强大的力量就伴随着巨大的责任。",
   "screens.settings.godMode.inactive.title": "审查已被激活",
-  "screens.settings.godMode.inactive.description": "看起来你还没有准备好掌握这样的力量。"
+  "screens.settings.godMode.inactive.description": "看起来你还没有准备好掌握这样的力量。",
+  "components.snackBar.saveImageError.title": "保存失败",
+  "components.snackBar.saveImageError.description": "允许库访问以进行保存",
+  "components.snackBar.saveImageError.button": "设置",
+  "screens.generationResult.reworkButton": "重做"
 }

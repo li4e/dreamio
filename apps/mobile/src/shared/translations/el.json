@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Η λογοκρισία έχει απενεργοποιηθεί.",
   "screens.settings.godMode.active.description": "Με μεγάλη δύναμη έρχεται μεγάλη ευθύνη.",
   "screens.settings.godMode.inactive.title": "Η λογοκρισία έχει ενεργοποιηθεί.",
-  "screens.settings.godMode.inactive.description": "Φαίνεται ότι δεν είστε έτοιμοι για τόση δύναμη."
+  "screens.settings.godMode.inactive.description": "Φαίνεται ότι δεν είστε έτοιμοι για τόση δύναμη.",
+  "components.snackBar.saveImageError.title": "Αποτυχία αποθήκευσης",
+  "components.snackBar.saveImageError.description": "Επιτρέψτε την πρόσβαση στη Βιβλιοθήκη για αποθήκευση",
+  "components.snackBar.saveImageError.button": "Ρυθμίσεις",
+  "screens.generationResult.reworkButton": "Αναδόμηση"
 }

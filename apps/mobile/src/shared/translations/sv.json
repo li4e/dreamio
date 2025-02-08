@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Censur har inaktiverats",
   "screens.settings.godMode.active.description": "Med stor makt kommer stort ansvar.",
   "screens.settings.godMode.inactive.title": "Censur har aktiverats",
-  "screens.settings.godMode.inactive.description": "Det verkar som om du inte är redo för en sådan makt."
+  "screens.settings.godMode.inactive.description": "Det verkar som om du inte är redo för en sådan makt.",
+  "components.snackBar.saveImageError.title": "Sparande misslyckades",
+  "components.snackBar.saveImageError.description": "Tillåt åtkomst till biblioteket för att spara",
+  "components.snackBar.saveImageError.button": "Inställningar",
+  "screens.generationResult.reworkButton": "Omarbeta"
 }

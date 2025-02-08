@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "Цензура була деактивована",
   "screens.settings.godMode.active.description": "З великою силою приходить велика відповідальність.",
   "screens.settings.godMode.inactive.title": "Цензура була активована.",
-  "screens.settings.godMode.inactive.description": "Здається, ви ще не готові до такої сили."
+  "screens.settings.godMode.inactive.description": "Здається, ви ще не готові до такої сили.",
+  "components.snackBar.saveImageError.title": "Збереження не вдалося",
+  "components.snackBar.saveImageError.description": "Allow Library access to save",
+  "components.snackBar.saveImageError.button": "Налаштування",
+  "screens.generationResult.reworkButton": "перепрацювати"
 }

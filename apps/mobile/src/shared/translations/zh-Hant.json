@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "審查已被停用",
   "screens.settings.godMode.active.description": "能力越大，責任越大。",
   "screens.settings.godMode.inactive.title": "已啟用審查制度",
-  "screens.settings.godMode.inactive.description": "看來你還沒有準備好承擔這樣的力量。"
+  "screens.settings.godMode.inactive.description": "看來你還沒有準備好承擔這樣的力量。",
+  "components.snackBar.saveImageError.title": "儲存失敗",
+  "components.snackBar.saveImageError.description": "允許訪問庫以保存",
+  "components.snackBar.saveImageError.button": "設定",
+  "screens.generationResult.reworkButton": "重做"
 }

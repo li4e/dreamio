@@ -59,5 +59,9 @@
   "screens.settings.godMode.active.title": "A cenzúra deaktíválva lett.",
   "screens.settings.godMode.active.description": "A nagy hatalommal nagy felelősség is jár.",
   "screens.settings.godMode.inactive.title": "A cenzúra aktiválva lett.",
-  "screens.settings.godMode.inactive.description": "Úgy tűnik, még nem vagy készen egy ilyen hatalomra."
+  "screens.settings.godMode.inactive.description": "Úgy tűnik, még nem vagy készen egy ilyen hatalomra.",
+  "components.snackBar.saveImageError.title": "Mentés nem sikerült",
+  "components.snackBar.saveImageError.description": "Engedélyezze a Könyvtár hozzáférést a mentéshez",
+  "components.snackBar.saveImageError.button": "Beállítások",
+  "screens.generationResult.reworkButton": "Átdolgozás"
 }

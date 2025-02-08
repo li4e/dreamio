@@ -1,3 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Voldríeu rebre notificacions per mantenir-vos al dia sobre nous publicacions, m'agrada, comentaris i quan les vostres creacions estiguin llestes?"
+  "NSUserNotificationsUsageDescription": "Voldríeu rebre notificacions per mantenir-vos al dia sobre nous publicacions, m'agrada, comentaris i quan les vostres creacions estiguin llestes?",
+  "NSPhotoLibraryAddUsageDescription": "Permet que l'aplicació desi fotos a la teva galeria."
 }
