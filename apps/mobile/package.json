@@ -55,7 +55,8 @@
     "typeorm": "^0.3.20",
     "yup": "^1.6.1",
     "expo-splash-screen": "~0.29.21",
-    "expo-media-library": "~17.0.5"
+    "expo-media-library": "~17.0.5",
+    "expo-haptics": "~14.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

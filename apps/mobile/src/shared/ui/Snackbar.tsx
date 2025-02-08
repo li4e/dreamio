@@ -13,6 +13,7 @@ import Animated, {
   LinearTransition,
 } from 'react-native-reanimated'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import * as Haptics from 'expo-haptics'
 
 interface SnackBarMessage {
   title?: string
@@ -71,6 +72,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
       const id = new Date().getTime()
       setSnackbars((prev) => [...prev, { id, message, options }])
       const { autoHide = true, hideDelay = 3000 } = options || {}
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 
       if (autoHide) {
         setTimeout(() => {

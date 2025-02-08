@@ -36,6 +36,7 @@ import Animated, {
   SlideOutRight,
   SlideOutLeft,
 } from 'react-native-reanimated'
+import * as Haptics from 'expo-haptics'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -63,10 +64,16 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   const curGen = useCurrentGeneration()
   const resultImage = curGen.state.result?.images[0] ?? null
+  const prevResultImage = useRef<string | null>(resultImage)
 
   useEffect(() => {
+    if (resultImage && prevResultImage.current !== resultImage) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    }
+
+    prevResultImage.current = resultImage
     scrollView.current?.scrollTo({ y: 0, animated: true })
-  }, [resultImage, scrollView])
+  }, [resultImage, scrollView, prevResultImage])
 
   const { control, handleSubmit, setValue } = useForm({
     resolver: yupResolver(generationSchema),
@@ -307,6 +314,7 @@ function RandomButton(props: RandomButtonProps) {
       try {
         prompt = await api.generatePrompt()
       } catch {}
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
       onCreated(prompt)
     } catch {
       showSnackbar(
