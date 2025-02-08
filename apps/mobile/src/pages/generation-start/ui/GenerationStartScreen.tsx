@@ -37,6 +37,7 @@ import Animated, {
   SlideOutLeft,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
+import { GenerationEntityStatus } from 'entities/generation'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -114,6 +115,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
 
   const onSaveImage = useOnSaveImage()
+
+  const showStartButton =
+    curGen.state.result?.status !== GenerationEntityStatus.IN_PROGRESS
 
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
@@ -264,19 +268,21 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </View>
           </Animated.View>
         </ScrollView>
-        <View className="absolute bottom-5 self-center">
-          <Button
-            icon="creation"
-            mode="contained"
-            className="rounded-full"
-            contentStyle="px-4 py-2"
-            onPress={handleSubmit(handleStartPress)}
-            disabled={isStartButtonDisabled}
-            loading={curGen.state.isPending}
-          >
-            {t('screens.generation.startButton')}
-          </Button>
-        </View>
+        {showStartButton && (
+          <View className="absolute bottom-5 self-center">
+            <Button
+              icon="creation"
+              mode="contained"
+              className="rounded-full"
+              contentStyle="px-4 py-2"
+              onPress={handleSubmit(handleStartPress)}
+              disabled={isStartButtonDisabled}
+              loading={curGen.state.isPending}
+            >
+              {t('screens.generation.startButton')}
+            </Button>
+          </View>
+        )}
         {/* <StateModal variant={modalState} onDismiss={curGen.clear} /> */}
       </View>
     </KeyboardAvoidingView>
