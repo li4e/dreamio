@@ -1,5 +1,6 @@
 import md5 from 'md5'
 import * as FileSystem from 'expo-file-system'
+import Share from 'react-native-share'
 
 const caches = new Set<string>()
 
@@ -76,5 +77,31 @@ export class ImageCache {
     } catch (error) {
       console.error('Error clearing image cache:', error)
     }
+  }
+}
+
+export async function shareImage(url: string) {
+  try {
+    const cache = new ImageCache(url)
+    await Share.open({
+      url: cache.cachedPath || url,
+    })
+  } catch (error) {
+    console.error('Error sharing image:', error)
+    // TODO: throw an error and handle at the place of usage and show snackbar
+  }
+}
+
+export async function saveImage(url: string) {
+  try {
+    const cache = new ImageCache(url)
+    await Share.open({
+      url: cache.cachedPath || url,
+      type: 'image/jpeg',
+      saveToFiles: true,
+    })
+  } catch (error) {
+    console.error('Error saving image:', error)
+    // TODO: throw an error and handle at the place of usage and show snackbar
   }
 }

@@ -1,2 +1,2 @@
 export { CachedImage } from './CachedImage'
-export { ImageCache } from './ImageCache'
+export { ImageCache, shareImage, saveImage } from './ImageCache'

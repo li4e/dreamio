@@ -15,7 +15,6 @@ import {
 } from 'react-native-paper'
 import { ActivityIndicator } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import Share from 'react-native-share'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {
   GenerationEntity,
@@ -26,7 +25,7 @@ import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
-import { CachedImage, ImageCache } from 'shared/ui/CachedImage'
+import { CachedImage, shareImage, saveImage } from 'shared/ui/CachedImage'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
@@ -217,29 +216,5 @@ function useOnCopy(generation: GenerationEntity) {
   return async () => {
     await Clipboard.setStringAsync(generation.prompt)
     showSnackbar({ description: t('screens.generationResult.promtCopied') }, {})
-  }
-}
-
-async function shareImage(url: string) {
-  try {
-    const cache = new ImageCache(url)
-    await Share.open({
-      url: cache.cachedPath || url,
-    })
-  } catch (error) {
-    console.error('Error sharing image:', error)
-  }
-}
-
-async function saveImage(url: string) {
-  try {
-    const cache = new ImageCache(url)
-    await Share.open({
-      url: cache.cachedPath || url,
-      type: 'image/jpeg',
-      saveToFiles: true,
-    })
-  } catch (error) {
-    console.error('Error saving image:', error)
   }
 }
