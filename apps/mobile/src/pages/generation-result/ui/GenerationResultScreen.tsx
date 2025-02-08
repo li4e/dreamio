@@ -25,7 +25,7 @@ import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
-import { CachedImage, shareImage, saveImage } from 'shared/ui/CachedImage'
+import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
@@ -39,6 +39,7 @@ export function GenerationResultScreen(
   const insets = useSafeAreaInsets()
   const onDelete = useGenDelete(generation)
   const onCopy = useOnCopy(generation)
+  const onSaveImage = useOnSaveImage()
 
   return (
     <View className="flex-1">
@@ -107,7 +108,7 @@ export function GenerationResultScreen(
             <Button
               mode="contained"
               icon="download"
-              onPress={() => saveImage(generation.images[0])}
+              onPress={() => onSaveImage(generation.images[0])}
             >
               {t('screens.generationResult.saveButton')}
             </Button>

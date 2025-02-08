@@ -12,6 +12,11 @@
       "generalError": {
         "title": "Ooops! ",
         "description": "Something went wrong, try again later"
+      },
+      "saveImageError": {
+        "title": "Save failed",
+        "description": "Allow Library access to save",
+        "button": "Settings"
       }
     }
   },

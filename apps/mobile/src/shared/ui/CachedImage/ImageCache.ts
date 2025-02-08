@@ -1,6 +1,7 @@
 import md5 from 'md5'
 import * as FileSystem from 'expo-file-system'
 import Share from 'react-native-share'
+import * as MediaLibrary from 'expo-media-library'
 
 const caches = new Set<string>()
 
@@ -92,16 +93,24 @@ export async function shareImage(url: string) {
   }
 }
 
-export async function saveImage(url: string) {
+export async function saveImage(url: string): Promise<boolean | null> {
   try {
     const cache = new ImageCache(url)
-    await Share.open({
-      url: cache.cachedPath || url,
-      type: 'image/jpeg',
-      saveToFiles: true,
-    })
+    let permissions = await MediaLibrary.getPermissionsAsync(true)
+
+    if (!permissions.granted && permissions.canAskAgain) {
+      permissions = await MediaLibrary.requestPermissionsAsync(true)
+    }
+
+    if (permissions.granted) {
+      await MediaLibrary.saveToLibraryAsync(cache.cachedPath || url)
+      return true
+    } else {
+      return null
+    }
   } catch (error) {
     console.error('Error saving image:', error)
+    return false
     // TODO: throw an error and handle at the place of usage and show snackbar
   }
 }

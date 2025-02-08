@@ -26,7 +26,7 @@ import {
 import { StateModalVariant, StateContent } from './StateModal'
 import { StylesList } from './StylesList'
 import { api } from 'shared/api'
-import { CachedImage, saveImage, shareImage } from 'shared/ui/CachedImage'
+import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import Animated, {
   FadeIn,
   FadeOut,
@@ -106,6 +106,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     [curGen]
   )
 
+  const onSaveImage = useOnSaveImage()
+
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
       <View className="flex-1" testID="GENERATION_SCREEN">
@@ -141,7 +143,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             >
               <Appbar.Action
                 icon="download"
-                onPress={() => saveImage(resultImage)}
+                onPress={() => onSaveImage(resultImage)}
               />
             </Animated.View>
           )}

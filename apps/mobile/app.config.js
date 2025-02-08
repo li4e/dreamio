@@ -51,6 +51,7 @@ module.exports = {
       ],
       '@config-plugins/detox',
       'expo-localization',
+      'expo-media-library',
       [
         'react-native-share',
         {
