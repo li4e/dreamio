@@ -13,10 +13,20 @@
         "title": "Ooops! ",
         "description": "Something went wrong, try again later"
       },
-      "saveImageError": {
-        "title": "Save failed",
-        "description": "Allow Library access to save",
-        "button": "Settings"
+      "saveImage": {
+        "error": {
+          "title": "Error Saving Image",
+          "description": "Failed to save image"
+        },
+        "noAccess": {
+          "title": "Permission Required",
+          "description": "Grant access to save images",
+          "button": "Settings"
+        },
+        "success": {
+          "title": "Image Saved",
+          "description": "Saved to your gallery"
+        }
       }
     }
   },
