@@ -163,9 +163,15 @@ export function useCurrentGeneration() {
     [curGenStore, genDataService]
   )
 
+  const setGeneration = useCallback(
+    (generation: GenerationEntity) => curGenStore.setGeneration(generation),
+    [curGenStore, genDataService]
+  )
+
   return {
     state,
     submit,
     clear: curGenStore.clear,
+    setGeneration,
   }
 }

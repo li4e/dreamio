@@ -15,7 +15,6 @@ import {
   IconButton,
   Text,
   TextInput,
-  useTheme,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -38,7 +37,8 @@ import Animated, {
   SlideOutLeft,
 } from 'react-native-reanimated'
 
-export function GenerationStartScreen() {
+export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
+  const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
   const scrollView = useRef<SV>()
 
@@ -81,7 +81,15 @@ export function GenerationStartScreen() {
       setValue('prompt', curGen.state.result.prompt)
       setValue('style', curGen.state.result.style)
     }
-  }, [curGen, setValue])
+  }, [])
+
+  useEffect(() => {
+    if (generationFromNavigation) {
+      curGen.setGeneration(generationFromNavigation)
+      setValue('prompt', generationFromNavigation.prompt)
+      setValue('style', generationFromNavigation.style)
+    }
+  }, [generationFromNavigation])
 
   const { submitCount, isValid } = useFormState({ control })
   const isInputDisabled = curGen.state.isPending

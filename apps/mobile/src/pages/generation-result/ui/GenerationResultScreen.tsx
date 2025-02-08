@@ -42,7 +42,11 @@ export function GenerationResultScreen(
 
   return (
     <View className="flex-1">
-      <Header onCopyPress={onCopy} onDeletePress={onDelete} />
+      <Header
+        onCopyPress={onCopy}
+        onDeletePress={onDelete}
+        generation={generation}
+      />
       {generation && generation.status === GenerationEntityStatus.SUCCESS ? (
         <>
           <ScrollView
@@ -119,17 +123,19 @@ export function GenerationResultScreen(
 }
 
 interface HeaderProps {
+  generation: GenerationEntity
   onCopyPress(): void
   onDeletePress(): void
 }
 
 function Header(props: HeaderProps) {
-  const { onCopyPress, onDeletePress } = props
+  const { onCopyPress, onDeletePress, generation } = props
   const { goBack } = useNavigation()
   const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
+  const onRework = useOnRework(generation)
 
   return (
     <Appbar.Header className="bg-transparent">
@@ -141,6 +147,14 @@ function Header(props: HeaderProps) {
         onDismiss={closeMenu}
         anchor={<Appbar.Action icon={MORE_ICON} onPress={() => openMenu()} />}
       >
+        <Menu.Item
+          leadingIcon="brush"
+          onPress={() => {
+            closeMenu()
+            onRework()
+          }}
+          title={t('screens.generationResult.reworkButton')}
+        />
         <Menu.Item
           leadingIcon="content-copy"
           onPress={() => {
@@ -216,5 +230,18 @@ function useOnCopy(generation: GenerationEntity) {
   return async () => {
     await Clipboard.setStringAsync(generation.prompt)
     showSnackbar({ description: t('screens.generationResult.promtCopied') }, {})
+  }
+}
+
+function useOnRework(generation: GenerationEntity) {
+  const { navigate } = useNavigation()
+
+  return async () => {
+    navigate('home_tabs', {
+      screen: 'generation',
+      params: {
+        generation,
+      },
+    })
   }
 }

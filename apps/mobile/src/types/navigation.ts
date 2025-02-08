@@ -1,23 +1,25 @@
-import { NavigatorScreenParams } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { GenerationEntity } from "entities/generation";
+import { NavigatorScreenParams } from '@react-navigation/native'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { GenerationEntity } from 'entities/generation'
 
 export type HomeTabsNavigatorParamList = {
-  history: undefined;
-  generation: undefined;
-  settings: undefined;
-};
+  history: undefined
+  generation?: {
+    generation: GenerationEntity
+  }
+  settings: undefined
+}
 
 export type RootStackParamList = {
-  home_tabs: NavigatorScreenParams<HomeTabsNavigatorParamList>;
+  home_tabs: NavigatorScreenParams<HomeTabsNavigatorParamList>
   generation_result: {
-    generation: GenerationEntity;
-  };
+    generation: GenerationEntity
+  }
   webview: {
-    title: string;
-    url: string;
-  };
-};
+    title: string
+    url: string
+  }
+}
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -27,5 +29,8 @@ declare global {
   }
 
   type RootScreenProps<T extends keyof RootStackParamList> =
-    NativeStackScreenProps<RootStackParamList, T>;
+    NativeStackScreenProps<RootStackParamList, T>
+
+  type TabsScreenProps<T extends keyof HomeTabsNavigatorParamList> =
+    NativeStackScreenProps<HomeTabsNavigatorParamList, T>
 }
