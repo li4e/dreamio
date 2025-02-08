@@ -1,1 +1,2 @@
-— Unterstützung für den Dunkelmodus hinzugefügt. Die App passt sich nun automatisch dem Systemthema an.
+— Verbesserte Benutzeroberfläche und Benutzererfahrung des Startbildschirms zur Generierung: Ergebnisse erscheinen jetzt auf demselben Bildschirm mit der Möglichkeit, den Prompt zu bearbeiten und neu zu generieren.  
+— Verbesserte Bildspeicherung: Bilder werden jetzt direkt in der Galerie statt in den Gerätedateien gespeichert.

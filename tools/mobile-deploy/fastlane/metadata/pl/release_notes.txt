@@ -1,1 +1,2 @@
-— Dodano wsparcie dla trybu ciemnego. Aplikacja teraz automatycznie dostosowuje się do systemowego motywu.
+— Ulepszony interfejs użytkownika i doświadczenie użytkownika na ekranie rozpoczęcia generacji: wyniki są teraz wyświetlane na tym samym ekranie z możliwością edytowania podpowiedzi i regeneracji.
+— Zwiększona funkcjonalność zapisywania obrazów: obrazy są teraz zapisywane bezpośrednio w galerii, zamiast w plikach urządzenia.

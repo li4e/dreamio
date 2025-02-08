@@ -1,1 +1,2 @@
-— S'ha afegit suport per al Tema Fosc. L'aplicació ara s'adapta automàticament al tema del sistema.
+— Millora de la interfície d'usuari i l'experiència d'usuari a la pantalla d'inici de generació: els resultats ara apareixen a la mateixa pantalla amb l'opció d'editar el prompt i regenerar.
+— Augment de la capacitat de desar imatges: les imatges ara es desen directament a la galeria en comptes dels fitxers del dispositiu.

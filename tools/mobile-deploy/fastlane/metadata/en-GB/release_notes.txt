@@ -1,1 +1,2 @@
-— Added support for Dark Theme. The app now automatically adapts to the system theme.
+— Improved UI/UX of the generation start screen: results now appear on the same screen with the option to edit the prompt and regenerate.  
+— Enhanced image saving: images are now saved directly to the gallery rather than to device files.

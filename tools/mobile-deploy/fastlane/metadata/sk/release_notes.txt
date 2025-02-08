@@ -1,1 +1,2 @@
-— Pridaná podpora pre tmavú tému. Aplikácia sa teraz automaticky prispôsobuje systémovej téme.
+— Vylepšené používateľské rozhranie a používateľská skúsenosť na obrazovke pre spustenie generácie: výsledky sa teraz zobrazujú na tej istej obrazovke s možnosťou upraviť výzvu a regenerovať.
+— Zlepšené ukladanie obrázkov: obrázky sa teraz ukladajú priamo do galérie namiesto súborov zariadenia.

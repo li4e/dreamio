@@ -1,1 +1,2 @@
-— Karanlık Tema desteği eklendi. Uygulama artık sistem temasına otomatik olarak uyum sağlar.
+— Üretim başlatma ekranının UI/UX'ı geliştirildi: sonuçlar artık aynı ekranda görünmekte ve istemi düzenleme ile yeniden oluşturma seçeneği sunulmaktadır.  
+— Görsel kaydetme işlemi geliştirildi: görseller artık cihaz dosyaları yerine doğrudan galeriye kaydedilmektedir.

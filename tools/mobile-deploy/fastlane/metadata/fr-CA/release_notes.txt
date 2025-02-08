@@ -1,1 +1,2 @@
-— Ajout de la prise en charge du mode sombre. L'application s'adapte désormais automatiquement au thème du système.
+— Amélioration de l'interface utilisateur et de l'expérience utilisateur de l'écran de démarrage de génération : les résultats apparaissent désormais sur le même écran avec la possibilité de modifier l'invite et de régénérer.
+— Amélioration de la sauvegarde d'images : les images sont maintenant enregistrées directement dans la galerie plutôt que dans les fichiers du périphérique.

@@ -1,1 +1,2 @@
-— Adicionada suporte ao Tema Escuro. O aplicativo agora se adapta automaticamente ao tema do sistema.
+— Melhorias na interface e experiência do usuário da tela inicial de geração: os resultados agora aparecem na mesma tela, com a opção de editar o prompt e regenerar.
+— Aprimoramento no salvamento de imagens: as imagens agora são salvas diretamente na galeria, em vez de nos arquivos do dispositivo.

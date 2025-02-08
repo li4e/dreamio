@@ -1,1 +1,2 @@
-— Se agregó soporte para el Modo Oscuro. La aplicación ahora se adapta automáticamente al tema del sistema.
+— Mejora en la interfaz de usuario y experiencia de usuario de la pantalla de inicio de generación: los resultados ahora aparecen en la misma pantalla con la opción de editar el aviso y regenerar.  
+— Mejora en el guardado de imágenes: las imágenes ahora se guardan directamente en la galería en lugar de en los archivos del dispositivo.

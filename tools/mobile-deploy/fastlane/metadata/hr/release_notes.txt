@@ -1,1 +1,2 @@
-— Dodana podrška za tamnu temu. Aplikacija se sada automatski prilagođava sistemskoj temi.
+— Poboljšani UI/UX zaslona za početak generacije: rezultati se sada prikazuju na istom ekranu uz mogućnost uređivanja upita i regeneracije.
+— Unaprijeđeno spremanje slika: slike se sada izravno spremaju u galeriju umjesto u datoteke uređaja.

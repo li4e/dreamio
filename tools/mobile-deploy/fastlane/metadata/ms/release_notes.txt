@@ -1,1 +1,2 @@
-— Menambah sokongan untuk Tema Gelap. Aplikasi kini menyesuaikan dengan tema sistem secara automatik.
+— Antara muka pengguna (UI) dan pengalaman pengguna (UX) pada skrin permulaan penghasilan telah dipertingkatkan: keputusan kini dipaparkan pada skrin yang sama dengan pilihan untuk mengedit arahan dan menghasilkan semula.
+— Penyimpanan imej yang dipertingkatkan: imej kini disimpan terus ke galeri dan bukannya fail peranti.

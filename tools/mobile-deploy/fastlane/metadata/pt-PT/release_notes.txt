@@ -1,1 +1,2 @@
-— Adicionada suporte para o Tema Escuro. A aplicação agora adapta-se automaticamente ao tema do sistema.
+— Melhorias na interface e experiência do utilizador do ecrã inicial da geração: agora, os resultados aparecem no mesmo ecrã com a opção de editar o pedido e regenerar.
+— Salvamento de imagens aprimorado: as imagens agora são salvas diretamente na galeria em vez de serem armazenadas nos ficheiros do dispositivo.

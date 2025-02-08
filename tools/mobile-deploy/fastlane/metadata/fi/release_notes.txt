@@ -1,1 +1,2 @@
-— Lisätty tuki tummalle teemalle. Sovellus mukautuu nyt automaattisesti järjestelmän teemaan.
+— Parannettu käyttöliittymä/käyttäjäkokemus sukupolven aloitusnäytöllä: tulokset näkyvät nyt samalla näytöllä, ja voit muokata kehotetta ja palauttaa sen.  
+— Tehostettu kuvien tallennus: kuvat tallennetaan nyt suoraan galleriaasi sen sijaan, että ne tallennettaisiin laitteen tiedostoihin.

@@ -1,1 +1,2 @@
-— La til støtte for mørk tema. Appen tilpasser seg automatisk til systemtemaet.
+— Forbedret UI/UX på oppstartsskjermen for generering: resultater vises nå på samme skjerm med mulighet for å redigere prompten og regenerere.
+— Forbedret bildelagring: bilder lagres nå direkte i galleriet i stedet for enhetsfiler.

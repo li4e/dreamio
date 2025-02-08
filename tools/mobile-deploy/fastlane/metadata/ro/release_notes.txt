@@ -1,1 +1,2 @@
-— Suport adăugat pentru Tema Întunecată. Aplicația se adaptează acum automat la tema sistemului.
+— Îmbunătățirea interfeței utilizatorului și a experienței utilizatorului pe ecranul de început al generării: rezultatele apar acum pe aceeași pagină, având opțiunea de a edita promptul și de a regenera.  
+— Îmbunătățirea salvării imaginilor: imaginile sunt acum salvate direct în galerie, în loc de fișierele dispozitivului.

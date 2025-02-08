@@ -1,1 +1,2 @@
-— Lagt till stöd för Mörkt Tema. Appen anpassar sig nu automatiskt till systemtemat.
+— Förbättrad UI/UX på startskärmen för generation: resultat visas nu på samma skärm med möjlighet att redigera prompten och regenerera.
+— Förbättrad bildsparing: bilder sparas nu direkt i galleriet istället för i enhetsfiler.
