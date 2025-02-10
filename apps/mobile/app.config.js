@@ -45,8 +45,11 @@ module.exports = {
         'expo-splash-screen',
         {
           image: './assets/icon_foreground.png',
-          backgroundColor: '#6650a4',
-          imageWidth: 150,
+          backgroundColor: '#fffbfe',
+          imageWidth: 80,
+          dark: {
+            backgroundColor: '#1c1b1f',
+          },
         },
       ],
       '@config-plugins/detox',
