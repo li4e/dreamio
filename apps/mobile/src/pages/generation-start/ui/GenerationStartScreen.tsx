@@ -177,8 +177,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 {resultImage ? (
                   <Animated.View
                     key="image_result"
-                    entering={FadeIn.duration(500)}
-                    exiting={FadeOut.duration(200)}
                     className="absolute top-0 left-0 right-0 bottom-0"
                   >
                     <CachedImage

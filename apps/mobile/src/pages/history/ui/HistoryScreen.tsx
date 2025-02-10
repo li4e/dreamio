@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { FlatList, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import {
   ActivityIndicator,
   Appbar,
@@ -16,6 +16,7 @@ import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
 import { toJS } from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
+import Animated from 'react-native-reanimated'
 
 export function HistoryScreen() {
   const insets = useSafeAreaInsets()
@@ -33,7 +34,7 @@ export function HistoryScreen() {
           <ActivityIndicator />
         </View>
       ) : (
-        <FlatList<GenerationEntity>
+        <Animated.FlatList<GenerationEntity>
           testID="HISTORY_LIST"
           className="flex-1"
           contentContainerStyle={[
@@ -44,14 +45,19 @@ export function HistoryScreen() {
           ]}
           data={history}
           renderItem={renderItem}
+          keyExtractor={keyExtractor}
           ListEmptyComponent={<EmpyState />}
           ListFooterComponent={!isEmpty ? <ListFooter /> : null}
           ListFooterComponentStyle={styles.listFooter}
-          numColumns={2}
+          numColumns={3}
         />
       )}
     </View>
   )
+}
+
+function keyExtractor(item: GenerationEntity) {
+  return String(item.id)
 }
 
 const styles = StyleSheet.create({
@@ -70,31 +76,15 @@ function renderItem({
   item: GenerationEntity
   index: number
 }) {
-  return (
-    <HistoryItem
-      firstRow={index <= 1}
-      generation={item}
-      even={index % 2 === 0}
-    />
-  )
+  return <HistoryItem generation={item} />
 }
 
-function HistoryItem(props: {
-  generation: GenerationEntity
-  even: boolean
-  firstRow: boolean
-}) {
-  const { generation, even, firstRow } = props
+function HistoryItem(props: { generation: GenerationEntity }) {
+  const { generation } = props
   const { navigate } = useNavigation()
 
   return (
-    <View
-      className={twMerge(
-        'w-1/2 aspect-square py-[2]',
-        even ? 'pr-[2]' : 'pl-[2]',
-        firstRow && 'pt-0'
-      )}
-    >
+    <View className={twMerge('w-1/3 aspect-square py-[1] px-[1]')}>
       <TouchableRipple
         onPress={() =>
           navigate('generation_result', { generation: toJS(generation) })
