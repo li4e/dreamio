@@ -18,9 +18,7 @@ export function DiProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (dbReady) {
-      requestAnimationFrame(() => {
-        SplashScreen.hide()
-      })
+      SplashScreen.hide()
     }
   }, [dbReady])
 
