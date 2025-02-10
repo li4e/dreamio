@@ -57,7 +57,7 @@ async function translateText(
   const prompt = `You are a translation assistant specialized in application localization. Translate the following text from ${sourceLang} to ${destLang}, preserving the meaning and ensuring clarity. Do not translate or modify placeholder variables enclosed in curly braces (e.g., {{variableName}}). Maintain professional tone and accuracy in the translation.`
 
   const params: OpenAI.Chat.ChatCompletionCreateParams = {
-    model: 'gpt-4o-mini',
+    model: 'o3-mini',
     messages: [
       {
         role: 'system',
