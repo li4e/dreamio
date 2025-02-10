@@ -235,9 +235,10 @@ function useOnCopy(generation: GenerationEntity) {
 }
 
 function useOnRework(generation: GenerationEntity) {
-  const { navigate } = useNavigation()
+  const { navigate, goBack } = useNavigation()
 
   return async () => {
+    goBack()
     navigate('home_tabs', {
       screen: 'generation',
       params: {
