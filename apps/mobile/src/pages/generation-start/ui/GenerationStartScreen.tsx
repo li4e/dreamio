@@ -121,6 +121,10 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     curGen.state.result?.status === GenerationEntityStatus.IN_PROGRESS
   )
 
+  const clear = useCallback(() => {
+    setValue('prompt', '', { shouldValidate: true })
+  }, [])
+
   return (
     <KeyboardAvoidingView behavior="padding" className="flex-1">
       <View className="flex-1" testID="GENERATION_SCREEN">
@@ -236,7 +240,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                           <IconButton
                             disabled={isInputDisabled}
                             className="absolute top-0 right-0"
-                            onPress={() => setValue('prompt', '')}
+                            onPress={clear}
                             icon={'close'}
                             size={20}
                           />
