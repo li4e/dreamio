@@ -221,6 +221,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
                       <View>
                         <TextInput
+                          scrollEnabled={false}
                           disabled={isInputDisabled}
                           multiline
                           mode="flat"
