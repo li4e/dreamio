@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "能力越大，責任越大。",
   "screens.settings.godMode.inactive.title": "已啟用審查制度",
   "screens.settings.godMode.inactive.description": "看來你還沒有準備好承擔這樣的力量。",
-  "components.snackBar.saveImageError.title": "儲存失敗",
-  "components.snackBar.saveImageError.description": "允許訪問庫以保存",
-  "components.snackBar.saveImageError.button": "設定",
-  "screens.generationResult.reworkButton": "重做"
+  "screens.generationResult.reworkButton": "重做",
+  "components.snackBar.saveImage.error.title": "儲存圖像時出錯",
+  "components.snackBar.saveImage.error.description": "無法儲存圖片",
+  "components.snackBar.saveImage.noAccess.title": "需要權限",
+  "components.snackBar.saveImage.noAccess.description": "授予保存圖片的權限",
+  "components.snackBar.saveImage.noAccess.button": "設置",
+  "components.snackBar.saveImage.success.title": "圖像已儲存",
+  "components.snackBar.saveImage.success.description": "已儲存到您的相簿"
 }

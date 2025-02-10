@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "S velkou mocí přichází velká zodpovědnost.",
   "screens.settings.godMode.inactive.title": "Cenzura byla aktivována.",
   "screens.settings.godMode.inactive.description": "Zdá se, že na takovou moc nejste připraveni.",
-  "components.snackBar.saveImageError.title": "Uložení se nezdařilo",
-  "components.snackBar.saveImageError.description": "Povolte přístup k knihovně pro uložení",
-  "components.snackBar.saveImageError.button": "Nastavení",
-  "screens.generationResult.reworkButton": "Předělat"
+  "screens.generationResult.reworkButton": "Předělat",
+  "components.snackBar.saveImage.error.title": "Chyba při ukládání obrázku",
+  "components.snackBar.saveImage.error.description": "Nepodařilo se uložit obrázek",
+  "components.snackBar.saveImage.noAccess.title": "Požadováno oprávnění",
+  "components.snackBar.saveImage.noAccess.description": "Povolit přístup k ukládání obrázků",
+  "components.snackBar.saveImage.noAccess.button": "Nastavení",
+  "components.snackBar.saveImage.success.title": "Obrázek uložen",
+  "components.snackBar.saveImage.success.description": "Uloženo do vaší galerie"
 }

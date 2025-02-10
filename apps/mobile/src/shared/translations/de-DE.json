@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Mit großer Macht kommt große Verantwortung",
   "screens.settings.godMode.inactive.title": "Zensur wurde aktiviert",
   "screens.settings.godMode.inactive.description": "Es scheint, dass Sie nicht bereit sind für eine solche Macht.",
-  "components.snackBar.saveImageError.title": "Speichern fehlgeschlagen",
-  "components.snackBar.saveImageError.description": "Erlauben Sie den Zugriff auf die Bibliothek, um zu speichern.",
-  "components.snackBar.saveImageError.button": "Einstellungen",
-  "screens.generationResult.reworkButton": "Umarbeiten"
+  "screens.generationResult.reworkButton": "Umarbeiten",
+  "components.snackBar.saveImage.error.title": "Fehler beim Speichern des Bildes",
+  "components.snackBar.saveImage.error.description": "Bild konnte nicht gespeichert werden.",
+  "components.snackBar.saveImage.noAccess.title": "Berechtigung Erforderlich",
+  "components.snackBar.saveImage.noAccess.description": "Zugriff gewähren, um Bilder zu speichern",
+  "components.snackBar.saveImage.noAccess.button": "Einstellungen",
+  "components.snackBar.saveImage.success.title": "Bild gespeichert",
+  "components.snackBar.saveImage.success.description": "In Ihrer Galerie gespeichert"
 }

@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "拥有强大的力量就伴随着巨大的责任。",
   "screens.settings.godMode.inactive.title": "审查已被激活",
   "screens.settings.godMode.inactive.description": "看起来你还没有准备好掌握这样的力量。",
-  "components.snackBar.saveImageError.title": "保存失败",
-  "components.snackBar.saveImageError.description": "允许库访问以进行保存",
-  "components.snackBar.saveImageError.button": "设置",
-  "screens.generationResult.reworkButton": "重做"
+  "screens.generationResult.reworkButton": "重做",
+  "components.snackBar.saveImage.error.title": "保存图像时出错",
+  "components.snackBar.saveImage.error.description": "保存图像失败",
+  "components.snackBar.saveImage.noAccess.title": "需要权限",
+  "components.snackBar.saveImage.noAccess.description": "授权保存图像的访问权限",
+  "components.snackBar.saveImage.noAccess.button": "设置",
+  "components.snackBar.saveImage.success.title": "图像已保存",
+  "components.snackBar.saveImage.success.description": "已保存到您的图库"
 }

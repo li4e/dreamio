@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Med stor makt følger stort ansvar",
   "screens.settings.godMode.inactive.title": "Sensur har blitt aktivert",
   "screens.settings.godMode.inactive.description": "Det ser ut til at du ikke er klar for slik makt.",
-  "components.snackBar.saveImageError.title": "Lagring mislyktes",
-  "components.snackBar.saveImageError.description": "Tillat tilgang til biblioteket for å lagre",
-  "components.snackBar.saveImageError.button": "Innstillinger",
-  "screens.generationResult.reworkButton": "Revidere"
+  "screens.generationResult.reworkButton": "Revidere",
+  "components.snackBar.saveImage.error.title": "Feil ved lagring av bilde",
+  "components.snackBar.saveImage.error.description": "Kunne ikke lagre bilde",
+  "components.snackBar.saveImage.noAccess.title": "Tillatelse kreves",
+  "components.snackBar.saveImage.noAccess.description": "Gi tilgang til å lagre bilder",
+  "components.snackBar.saveImage.noAccess.button": "Innstillinger",
+  "components.snackBar.saveImage.success.title": "Bilde Lagret",
+  "components.snackBar.saveImage.success.description": "Lagt til i galleriet ditt"
 }

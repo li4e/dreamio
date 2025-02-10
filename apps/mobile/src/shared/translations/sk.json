@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "S veľkou mocou prichádza veľká zodpovednosť.",
   "screens.settings.godMode.inactive.title": "Cenzúra bola aktivovaná",
   "screens.settings.godMode.inactive.description": "Zdá sa, že nie ste pripravení na takú moc.",
-  "components.snackBar.saveImageError.title": "Uloženie zlyhalo",
-  "components.snackBar.saveImageError.description": "Povoliť prístup k knižnici na uloženie",
-  "components.snackBar.saveImageError.button": "Nastavenia",
-  "screens.generationResult.reworkButton": "Prepracovať"
+  "screens.generationResult.reworkButton": "Prepracovať",
+  "components.snackBar.saveImage.error.title": "Chyba pri ukladaní obrázka",
+  "components.snackBar.saveImage.error.description": "Ukladanie obrázka zlyhalo",
+  "components.snackBar.saveImage.noAccess.title": "Vyžaduje sa povolenie",
+  "components.snackBar.saveImage.noAccess.description": "Povoľte prístup na ukladanie obrázkov",
+  "components.snackBar.saveImage.noAccess.button": "Nastavenia",
+  "components.snackBar.saveImage.success.title": "Obrázok uložený",
+  "components.snackBar.saveImage.success.description": "Uložené do vašej galérie"
 }

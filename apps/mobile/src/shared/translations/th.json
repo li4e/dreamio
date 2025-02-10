@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "ด้วยอำนาจอันยิ่งใหญ่ มาพร้อมกับความรับผิดชอบที่ยิ่งใหญ่",
   "screens.settings.godMode.inactive.title": "การเซ็นเซอร์ได้ถูกเปิดใช้งานแล้ว",
   "screens.settings.godMode.inactive.description": "ดูเหมือนว่าคุณยังไม่พร้อมสำหรับพลังเช่นนั้น",
-  "components.snackBar.saveImageError.title": "การบันทึกล้มเหลว",
-  "components.snackBar.saveImageError.description": "อนุญาตให้เข้าถึงห้องสมุดเพื่อบันทึก",
-  "components.snackBar.saveImageError.button": "การตั้งค่า",
-  "screens.generationResult.reworkButton": "การปรับปรุง"
+  "screens.generationResult.reworkButton": "การปรับปรุง",
+  "components.snackBar.saveImage.error.title": "เกิดข้อผิดพลาดในการบันทึกภาพ",
+  "components.snackBar.saveImage.error.description": "ไม่สามารถบันทึกรูปภาพได้",
+  "components.snackBar.saveImage.noAccess.title": "ต้องการการอนุญาต",
+  "components.snackBar.saveImage.noAccess.description": "ให้สิทธิ์เข้าถึงเพื่อบันทึกรูปภาพ",
+  "components.snackBar.saveImage.noAccess.button": "การตั้งค่า",
+  "components.snackBar.saveImage.success.title": "บันทึกภาพเรียบร้อยแล้ว",
+  "components.snackBar.saveImage.success.description": "บันทึกในแกลเลอรีของคุณ"
 }

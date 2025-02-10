@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "עם כוח גדול מגיעה אחריות גדולה",
   "screens.settings.godMode.inactive.title": "צנזורה הושקה",
   "screens.settings.godMode.inactive.description": "נראה שאתה לא מוכן לכוח כזה",
-  "components.snackBar.saveImageError.title": "שמור נכשל",
-  "components.snackBar.saveImageError.description": "אפשר גישה לספרייה לשמירה",
-  "components.snackBar.saveImageError.button": "הגדרות",
-  "screens.generationResult.reworkButton": "עבודה מחדש"
+  "screens.generationResult.reworkButton": "עבודה מחדש",
+  "components.snackBar.saveImage.error.title": "שגיאה בשמירת התמונה",
+  "components.snackBar.saveImage.error.description": "שגיאה בשמירת התמונה",
+  "components.snackBar.saveImage.noAccess.title": "דרוש אישור",
+  "components.snackBar.saveImage.noAccess.description": "הענק גישה לשמירת תמונות",
+  "components.snackBar.saveImage.noAccess.button": "הגדרות",
+  "components.snackBar.saveImage.success.title": "תמונה נשמרה",
+  "components.snackBar.saveImage.success.description": "נשמר בגלריה שלך"
 }

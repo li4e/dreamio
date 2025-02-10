@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Z wielką mocą wiąże się wielka odpowiedzialność.",
   "screens.settings.godMode.inactive.title": "Cenzura została aktywowana",
   "screens.settings.godMode.inactive.description": "Wydaje się, że nie jesteś gotowy na taką moc.",
-  "components.snackBar.saveImageError.title": "Zapisywanie nie powiodło się",
-  "components.snackBar.saveImageError.description": "Zezwól na dostęp do biblioteki, aby zapisać",
-  "components.snackBar.saveImageError.button": "Ustawienia",
-  "screens.generationResult.reworkButton": "Przeróbka"
+  "screens.generationResult.reworkButton": "Przeróbka",
+  "components.snackBar.saveImage.error.title": "Błąd podczas zapisywania obrazu",
+  "components.snackBar.saveImage.error.description": "Nie udało się zapisać obrazu",
+  "components.snackBar.saveImage.noAccess.title": "Wymagana zgoda",
+  "components.snackBar.saveImage.noAccess.description": "Zezwól na zapisanie obrazów",
+  "components.snackBar.saveImage.noAccess.button": "Ustawienia",
+  "components.snackBar.saveImage.success.title": "Obraz zapisany",
+  "components.snackBar.saveImage.success.description": "Zapisano do twojej galerii"
 }

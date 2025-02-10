@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "مع القوة العظمى تأتي المسؤولية العظيمة",
   "screens.settings.godMode.inactive.title": "تم تفعيل الرقابة",
   "screens.settings.godMode.inactive.description": "يبدو أنك لست مستعدًا لمثل هذه القوة.",
-  "components.snackBar.saveImageError.title": "فشل الحفظ",
-  "components.snackBar.saveImageError.description": "السماح بالوصول إلى المكتبة للحفظ",
-  "components.snackBar.saveImageError.button": "الإعدادات",
-  "screens.generationResult.reworkButton": "إعادة صياغة"
+  "screens.generationResult.reworkButton": "إعادة صياغة",
+  "components.snackBar.saveImage.error.title": "خطأ في حفظ الصورة",
+  "components.snackBar.saveImage.error.description": "فشل في حفظ الصورة",
+  "components.snackBar.saveImage.noAccess.title": "إذن مطلوب",
+  "components.snackBar.saveImage.noAccess.description": "منح الوصول لحفظ الصور",
+  "components.snackBar.saveImage.noAccess.button": "الإعدادات",
+  "components.snackBar.saveImage.success.title": "تم حفظ الصورة",
+  "components.snackBar.saveImage.success.description": "تم حفظه في مكتبتك"
 }

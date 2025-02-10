@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Με μεγάλη δύναμη έρχεται μεγάλη ευθύνη.",
   "screens.settings.godMode.inactive.title": "Η λογοκρισία έχει ενεργοποιηθεί.",
   "screens.settings.godMode.inactive.description": "Φαίνεται ότι δεν είστε έτοιμοι για τόση δύναμη.",
-  "components.snackBar.saveImageError.title": "Αποτυχία αποθήκευσης",
-  "components.snackBar.saveImageError.description": "Επιτρέψτε την πρόσβαση στη Βιβλιοθήκη για αποθήκευση",
-  "components.snackBar.saveImageError.button": "Ρυθμίσεις",
-  "screens.generationResult.reworkButton": "Αναδόμηση"
+  "screens.generationResult.reworkButton": "Αναδόμηση",
+  "components.snackBar.saveImage.error.title": "Σφάλμα κατά την αποθήκευση της εικόνας",
+  "components.snackBar.saveImage.error.description": "Αποτυχία αποθήκευσης εικόνας",
+  "components.snackBar.saveImage.noAccess.title": "Απαιτείται άδεια",
+  "components.snackBar.saveImage.noAccess.description": "Παρέχετε πρόσβαση για την αποθήκευση εικόνων",
+  "components.snackBar.saveImage.noAccess.button": "Ρυθμίσεις",
+  "components.snackBar.saveImage.success.title": "Εικόνα Αποθηκεύτηκε",
+  "components.snackBar.saveImage.success.description": "Αποθηκεύθηκε στη γκαλερί σας"
 }

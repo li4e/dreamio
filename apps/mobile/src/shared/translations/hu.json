@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "A nagy hatalommal nagy felelősség is jár.",
   "screens.settings.godMode.inactive.title": "A cenzúra aktiválva lett.",
   "screens.settings.godMode.inactive.description": "Úgy tűnik, még nem vagy készen egy ilyen hatalomra.",
-  "components.snackBar.saveImageError.title": "Mentés nem sikerült",
-  "components.snackBar.saveImageError.description": "Engedélyezze a Könyvtár hozzáférést a mentéshez",
-  "components.snackBar.saveImageError.button": "Beállítások",
-  "screens.generationResult.reworkButton": "Átdolgozás"
+  "screens.generationResult.reworkButton": "Átdolgozás",
+  "components.snackBar.saveImage.error.title": "Kép mentési hiba",
+  "components.snackBar.saveImage.error.description": "A kép mentése sikertelen.",
+  "components.snackBar.saveImage.noAccess.title": "Engedély szükséges",
+  "components.snackBar.saveImage.noAccess.description": "Engedélyezze a képek mentését",
+  "components.snackBar.saveImage.noAccess.button": "Beállítások",
+  "components.snackBar.saveImage.success.title": "Kép elmentve",
+  "components.snackBar.saveImage.success.description": "Elmentve a galériádban"
 }

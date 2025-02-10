@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Con gran poder viene una gran responsabilidad.",
   "screens.settings.godMode.inactive.title": "La censura ha sido activada.",
   "screens.settings.godMode.inactive.description": "Parece que no estás listo para tal poder.",
-  "components.snackBar.saveImageError.title": "Guardado fallido",
-  "components.snackBar.saveImageError.description": "Permitir acceso a la biblioteca para guardar",
-  "components.snackBar.saveImageError.button": "Configuraciones",
-  "screens.generationResult.reworkButton": "revisar"
+  "screens.generationResult.reworkButton": "revisar",
+  "components.snackBar.saveImage.error.title": "Error al guardar la imagen",
+  "components.snackBar.saveImage.error.description": "Error al guardar la imagen",
+  "components.snackBar.saveImage.noAccess.title": "Permiso Requerido",
+  "components.snackBar.saveImage.noAccess.description": "Conceder acceso para guardar imágenes",
+  "components.snackBar.saveImage.noAccess.button": "Configuraciones",
+  "components.snackBar.saveImage.success.title": "Imagen guardada",
+  "components.snackBar.saveImage.success.description": "Guardado en tu galería"
 }

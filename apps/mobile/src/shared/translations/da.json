@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Med stor magt følger stort ansvar",
   "screens.settings.godMode.inactive.title": "Censur er blevet aktiveret",
   "screens.settings.godMode.inactive.description": "Det ser ud til, at du ikke er klar til så stor magt.",
-  "components.snackBar.saveImageError.title": "Gem mislykkedes",
-  "components.snackBar.saveImageError.description": "Tillad Bibliotekadgang for at gemme",
-  "components.snackBar.saveImageError.button": "Indstillinger",
-  "screens.generationResult.reworkButton": "Omarbejd"
+  "screens.generationResult.reworkButton": "Omarbejd",
+  "components.snackBar.saveImage.error.title": "Fejl ved lagring af billede",
+  "components.snackBar.saveImage.error.description": "Kunne ikke gemme billede",
+  "components.snackBar.saveImage.noAccess.title": "Tilladelse krævet",
+  "components.snackBar.saveImage.noAccess.description": "Giv adgang til at gemme billeder",
+  "components.snackBar.saveImage.noAccess.button": "Indstillinger",
+  "components.snackBar.saveImage.success.title": "Billede gemt",
+  "components.snackBar.saveImage.success.description": "Gemmes til din gallerie"
 }

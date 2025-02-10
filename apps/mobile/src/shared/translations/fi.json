@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Suuresta voimasta seuraa suuri vastuu.",
   "screens.settings.godMode.inactive.title": "Sensuuri on aktivoitu.",
   "screens.settings.godMode.inactive.description": "Vaikuttaa siltä, että et ole valmis tällaiseen voimaan.",
-  "components.snackBar.saveImageError.title": "Tallennus epäonnistui",
-  "components.snackBar.saveImageError.description": "Salli Kirjaston pääsy tallentamiseen",
-  "components.snackBar.saveImageError.button": "Asetukset",
-  "screens.generationResult.reworkButton": "Uudelleentyöstää"
+  "screens.generationResult.reworkButton": "Uudelleentyöstää",
+  "components.snackBar.saveImage.error.title": "Virhe kuvan tallentamisessa",
+  "components.snackBar.saveImage.error.description": "Kuvan tallentaminen epäonnistui",
+  "components.snackBar.saveImage.noAccess.title": "Tarvitaan lupa",
+  "components.snackBar.saveImage.noAccess.description": "Myönnä pääsy kuvien tallentamiseen",
+  "components.snackBar.saveImage.noAccess.button": "Asetukset",
+  "components.snackBar.saveImage.success.title": "Kuva Tallennettu",
+  "components.snackBar.saveImage.success.description": "Tallennettu galleriaanasi"
 }

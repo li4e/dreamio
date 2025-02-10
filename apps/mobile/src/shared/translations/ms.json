@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Dengan kuasa yang besar datang tanggungjawab yang besar.",
   "screens.settings.godMode.inactive.title": "Penapisan telah diaktifkan",
   "screens.settings.godMode.inactive.description": "Nampaknya anda tidak bersedia untuk kuasa sebegitu.",
-  "components.snackBar.saveImageError.title": "Simpan gagal",
-  "components.snackBar.saveImageError.description": "Benarkan akses Perpustakaan untuk menyimpan",
-  "components.snackBar.saveImageError.button": "Tetapan",
-  "screens.generationResult.reworkButton": "Kerja semula"
+  "screens.generationResult.reworkButton": "Kerja semula",
+  "components.snackBar.saveImage.error.title": "Ralat Menyimpan Imej",
+  "components.snackBar.saveImage.error.description": "Gagal menyimpan imej",
+  "components.snackBar.saveImage.noAccess.title": "Keizinan Diperlukan",
+  "components.snackBar.saveImage.noAccess.description": "Berikan akses untuk menyimpan imej",
+  "components.snackBar.saveImage.noAccess.button": "Tetapan",
+  "components.snackBar.saveImage.success.title": "Imej Disimpan",
+  "components.snackBar.saveImage.success.description": "Disimpan ke galeri anda"
 }

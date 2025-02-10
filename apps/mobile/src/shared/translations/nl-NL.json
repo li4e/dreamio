@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Met grote macht komt grote verantwoordelijkheid.",
   "screens.settings.godMode.inactive.title": "Censuur is geactiveerd",
   "screens.settings.godMode.inactive.description": "Het lijkt erop dat je nog niet klaar bent voor zo'n macht.",
-  "components.snackBar.saveImageError.title": "Opslaan is mislukt",
-  "components.snackBar.saveImageError.description": "Sta Bibliotheektoegang toe om op te slaan.",
-  "components.snackBar.saveImageError.button": "Instellingen",
-  "screens.generationResult.reworkButton": "Herwerken"
+  "screens.generationResult.reworkButton": "Herwerken",
+  "components.snackBar.saveImage.error.title": "Fout bij het opslaan van afbeelding",
+  "components.snackBar.saveImage.error.description": "Opslaan van afbeelding is mislukt",
+  "components.snackBar.saveImage.noAccess.title": "Toestemming Vereist",
+  "components.snackBar.saveImage.noAccess.description": "Toegang verlenen om afbeeldingen op te slaan",
+  "components.snackBar.saveImage.noAccess.button": "Instellingen",
+  "components.snackBar.saveImage.success.title": "Afbeelding Opgeslagen",
+  "components.snackBar.saveImage.success.description": "Opgeslagen in je galerij"
 }

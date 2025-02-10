@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Với quyền lực lớn đi kèm với trách nhiệm lớn.",
   "screens.settings.godMode.inactive.title": "Kiểm duyệt đã được kích hoạt.",
   "screens.settings.godMode.inactive.description": "Có vẻ như bạn chưa sẵn sàng cho sức mạnh như vậy.",
-  "components.snackBar.saveImageError.title": "Lưu không thành công",
-  "components.snackBar.saveImageError.description": "Cho phép truy cập Thư viện để lưu lại.",
-  "components.snackBar.saveImageError.button": "Cài đặt",
-  "screens.generationResult.reworkButton": "Làm lại"
+  "screens.generationResult.reworkButton": "Làm lại",
+  "components.snackBar.saveImage.error.title": "Lỗi lưu hình ảnh",
+  "components.snackBar.saveImage.error.description": "Lưu hình ảnh không thành công",
+  "components.snackBar.saveImage.noAccess.title": "Cần quyền truy cập",
+  "components.snackBar.saveImage.noAccess.description": "Cấp quyền truy cập để lưu hình ảnh",
+  "components.snackBar.saveImage.noAccess.button": "Cài đặt",
+  "components.snackBar.saveImage.success.title": "Hình ảnh đã được lưu lại",
+  "components.snackBar.saveImage.success.description": "Đã lưu vào thư viện hình ảnh của bạn"
 }

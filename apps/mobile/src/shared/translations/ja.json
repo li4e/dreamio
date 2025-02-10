@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "大きな力には大きな責任が伴う",
   "screens.settings.godMode.inactive.title": "検閲が有効になりました",
   "screens.settings.godMode.inactive.description": "あなたはそのような力にまだ準備ができていないようです。",
-  "components.snackBar.saveImageError.title": "保存に失敗しました",
-  "components.snackBar.saveImageError.description": "ライブラリへのアクセスを許可して保存します。",
-  "components.snackBar.saveImageError.button": "設定",
-  "screens.generationResult.reworkButton": "再作業"
+  "screens.generationResult.reworkButton": "再作業",
+  "components.snackBar.saveImage.error.title": "画像の保存中にエラーが発生しました",
+  "components.snackBar.saveImage.error.description": "画像の保存に失敗しました",
+  "components.snackBar.saveImage.noAccess.title": "権限が必要です",
+  "components.snackBar.saveImage.noAccess.description": "画像を保存するためのアクセスを許可する",
+  "components.snackBar.saveImage.noAccess.button": "設定",
+  "components.snackBar.saveImage.success.title": "画像が保存されました",
+  "components.snackBar.saveImage.success.description": "ギャラリーに保存されました"
 }

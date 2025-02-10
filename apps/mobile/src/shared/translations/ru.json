@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "С великой силой приходит великая ответственность.",
   "screens.settings.godMode.inactive.title": "Цензура была включена",
   "screens.settings.godMode.inactive.description": "Кажется, вы не готовы к такой силе.",
-  "components.snackBar.saveImageError.title": "Сохранение не удалось",
-  "components.snackBar.saveImageError.description": "Разрешить доступ к Библиотеке для сохранения",
-  "components.snackBar.saveImageError.button": "Настройки",
-  "screens.generationResult.reworkButton": "Переработка"
+  "screens.generationResult.reworkButton": "Переработка",
+  "components.snackBar.saveImage.error.title": "Ошибка сохранения изображения",
+  "components.snackBar.saveImage.error.description": "Не удалось сохранить изображение",
+  "components.snackBar.saveImage.noAccess.title": "Требуются разрешения",
+  "components.snackBar.saveImage.noAccess.description": "Предоставьте доступ для сохранения изображений",
+  "components.snackBar.saveImage.noAccess.button": "Настройки",
+  "components.snackBar.saveImage.success.title": "Изображение сохранено",
+  "components.snackBar.saveImage.success.description": "Сохранено в вашей галерее"
 }

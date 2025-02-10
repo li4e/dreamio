@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "З великою силою приходить велика відповідальність.",
   "screens.settings.godMode.inactive.title": "Цензура була активована.",
   "screens.settings.godMode.inactive.description": "Здається, ви ще не готові до такої сили.",
-  "components.snackBar.saveImageError.title": "Збереження не вдалося",
-  "components.snackBar.saveImageError.description": "Allow Library access to save",
-  "components.snackBar.saveImageError.button": "Налаштування",
-  "screens.generationResult.reworkButton": "перепрацювати"
+  "screens.generationResult.reworkButton": "перепрацювати",
+  "components.snackBar.saveImage.error.title": "Помилка збереження зображення",
+  "components.snackBar.saveImage.error.description": "Не вдалося зберегти зображення",
+  "components.snackBar.saveImage.noAccess.title": "Дозвіл потрібен",
+  "components.snackBar.saveImage.noAccess.description": "Надайте доступ для збереження зображень",
+  "components.snackBar.saveImage.noAccess.button": "Налаштування",
+  "components.snackBar.saveImage.success.title": "Зображення збережено",
+  "components.snackBar.saveImage.success.description": "Saved to your gallery"
 }

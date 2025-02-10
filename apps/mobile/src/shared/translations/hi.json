@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "बड़ी शक्ति के साथ बड़ी जिम्मेदारी आती है।",
   "screens.settings.godMode.inactive.title": "सेंसरशिप सक्षम की गई है",
   "screens.settings.godMode.inactive.description": "ऐसा लगता है कि आप इतनी शक्ति के लिए तैयार नहीं हैं।",
-  "components.snackBar.saveImageError.title": "सहेजना विफल हुआ",
-  "components.snackBar.saveImageError.description": "लाइब्रेरी की पहुँच को सहेजने की अनुमति दें",
-  "components.snackBar.saveImageError.button": "सेटिंग्स",
-  "screens.generationResult.reworkButton": "पुनः कार्य करना"
+  "screens.generationResult.reworkButton": "पुनः कार्य करना",
+  "components.snackBar.saveImage.error.title": "छवि सहेजने में त्रुटि",
+  "components.snackBar.saveImage.error.description": "छवि को सहेजने में विफल रहे",
+  "components.snackBar.saveImage.noAccess.title": "अनुमति आवश्यक है",
+  "components.snackBar.saveImage.noAccess.description": "इमेज़ को सहेजने के लिए एक्सेस दें",
+  "components.snackBar.saveImage.noAccess.button": "सेटिंग्स",
+  "components.snackBar.saveImage.success.title": "छवि सहेजी गई",
+  "components.snackBar.saveImage.success.description": "आपकी गैलरी में सहेज लिया गया"
 }

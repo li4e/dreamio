@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Büyük güçle birlikte büyük sorumluluk gelir.",
   "screens.settings.godMode.inactive.title": "Sansür etkinleştirildi",
   "screens.settings.godMode.inactive.description": "Görünüşe göre bu tür bir güce hazır değilsiniz.",
-  "components.snackBar.saveImageError.title": "Kaydetme başarısız oldu",
-  "components.snackBar.saveImageError.description": "Kütüphane erişimine kaydetme izni verin.",
-  "components.snackBar.saveImageError.button": "Ayarlar",
-  "screens.generationResult.reworkButton": "Yeniden düzenle"
+  "screens.generationResult.reworkButton": "Yeniden düzenle",
+  "components.snackBar.saveImage.error.title": "Görüntü Kaydedilirken Hata",
+  "components.snackBar.saveImage.error.description": "Resim kaydedilemedi.",
+  "components.snackBar.saveImage.noAccess.title": "İzin Gerekiyor",
+  "components.snackBar.saveImage.noAccess.description": "Görüntüleri kaydetmek için erişim izni verin",
+  "components.snackBar.saveImage.noAccess.button": "Ayarlar",
+  "components.snackBar.saveImage.success.title": "Görüntü Kaydedildi",
+  "components.snackBar.saveImage.success.description": "Galeriye kaydedildi"
 }

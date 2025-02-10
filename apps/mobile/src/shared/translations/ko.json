@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "큰 힘에는 큰 책임이 따른다.",
   "screens.settings.godMode.inactive.title": "검열이 활성화되었습니다.",
   "screens.settings.godMode.inactive.description": "당신은 이러한 힘을 받을 준비가 되어 있지 않은 것 같습니다.",
-  "components.snackBar.saveImageError.title": "저장에 실패했습니다",
-  "components.snackBar.saveImageError.description": "라이브러리 접근을 허용하여 저장하기",
-  "components.snackBar.saveImageError.button": "설정",
-  "screens.generationResult.reworkButton": "재작업"
+  "screens.generationResult.reworkButton": "재작업",
+  "components.snackBar.saveImage.error.title": "이미지 저장 오류",
+  "components.snackBar.saveImage.error.description": "이미지 저장에 실패했습니다.",
+  "components.snackBar.saveImage.noAccess.title": "권한 필요",
+  "components.snackBar.saveImage.noAccess.description": "이미지를 저장할 수 있는 권한 부여",
+  "components.snackBar.saveImage.noAccess.button": "설정",
+  "components.snackBar.saveImage.success.title": "이미지 저장됨",
+  "components.snackBar.saveImage.success.description": "갤러리에 저장됨"
 }

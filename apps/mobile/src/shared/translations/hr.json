@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "S velikom moći dolazi velika odgovornost.",
   "screens.settings.godMode.inactive.title": "Cenzura je aktivirana",
   "screens.settings.godMode.inactive.description": "Čini se da niste spremni za takvu moć.",
-  "components.snackBar.saveImageError.title": "Spremanje nije uspjelo",
-  "components.snackBar.saveImageError.description": "Dozvolite pristup biblioteci za spremanje",
-  "components.snackBar.saveImageError.button": "Postavke",
-  "screens.generationResult.reworkButton": "Preuredi"
+  "screens.generationResult.reworkButton": "Preuredi",
+  "components.snackBar.saveImage.error.title": "Greška pri spremanju slike",
+  "components.snackBar.saveImage.error.description": "Neuspjelo spremanje slike",
+  "components.snackBar.saveImage.noAccess.title": "Potrebna dozvola",
+  "components.snackBar.saveImage.noAccess.description": "Dajte pristup za spremanje slika",
+  "components.snackBar.saveImage.noAccess.button": "Postavke",
+  "components.snackBar.saveImage.success.title": "Slika spremljena",
+  "components.snackBar.saveImage.success.description": "Spašeno u vašu galeriju"
 }

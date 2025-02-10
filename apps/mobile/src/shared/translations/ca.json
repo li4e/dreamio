@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Amb gran poder ve una gran responsabilitat.",
   "screens.settings.godMode.inactive.title": "La censura s'ha activat.",
   "screens.settings.godMode.inactive.description": "Sembla que no estàs preparat per a tant de poder.",
-  "components.snackBar.saveImageError.title": "El desament s'ha fallat",
-  "components.snackBar.saveImageError.description": "Permetre l'accés a la biblioteca per desar",
-  "components.snackBar.saveImageError.button": "Configuració",
-  "screens.generationResult.reworkButton": "Reformulari"
+  "screens.generationResult.reworkButton": "Reformulari",
+  "components.snackBar.saveImage.error.title": "Error en guardar la imatge",
+  "components.snackBar.saveImage.error.description": "No s'ha pogut desar la imatge",
+  "components.snackBar.saveImage.noAccess.title": "Permís requerit",
+  "components.snackBar.saveImage.noAccess.description": "Atorgar accés per desar imatges",
+  "components.snackBar.saveImage.noAccess.button": "Configuració",
+  "components.snackBar.saveImage.success.title": "Imatge desada",
+  "components.snackBar.saveImage.success.description": "Desat a la teva galeria"
 }

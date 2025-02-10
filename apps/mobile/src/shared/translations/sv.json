@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Med stor makt kommer stort ansvar.",
   "screens.settings.godMode.inactive.title": "Censur har aktiverats",
   "screens.settings.godMode.inactive.description": "Det verkar som om du inte är redo för en sådan makt.",
-  "components.snackBar.saveImageError.title": "Sparande misslyckades",
-  "components.snackBar.saveImageError.description": "Tillåt åtkomst till biblioteket för att spara",
-  "components.snackBar.saveImageError.button": "Inställningar",
-  "screens.generationResult.reworkButton": "Omarbeta"
+  "screens.generationResult.reworkButton": "Omarbeta",
+  "components.snackBar.saveImage.error.title": "Fel vid sparande av bild",
+  "components.snackBar.saveImage.error.description": "Misslyckades med att spara bild",
+  "components.snackBar.saveImage.noAccess.title": "Behörighet Krävs",
+  "components.snackBar.saveImage.noAccess.description": "Ge åtkomst för att spara bilder",
+  "components.snackBar.saveImage.noAccess.button": "Inställningar",
+  "components.snackBar.saveImage.success.title": "Bild Sparad",
+  "components.snackBar.saveImage.success.description": "Sparad i ditt galleri"
 }

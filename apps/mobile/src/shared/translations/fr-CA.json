@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "Avec un grand pouvoir vient une grande responsabilité.",
   "screens.settings.godMode.inactive.title": "La censure a été activée.",
   "screens.settings.godMode.inactive.description": "Il semble que vous ne soyez pas prêt pour un tel pouvoir.",
-  "components.snackBar.saveImageError.title": "Échec de l'enregistrement",
-  "components.snackBar.saveImageError.description": "Autoriser l'accès à la bibliothèque pour sauvegarder",
-  "components.snackBar.saveImageError.button": "Paramètres",
-  "screens.generationResult.reworkButton": "Refonte"
+  "screens.generationResult.reworkButton": "Refonte",
+  "components.snackBar.saveImage.error.title": "Erreur lors de l'enregistrement de l'image",
+  "components.snackBar.saveImage.error.description": "Échec de l'enregistrement de l'image",
+  "components.snackBar.saveImage.noAccess.title": "Permission requise",
+  "components.snackBar.saveImage.noAccess.description": "Accorder l'accès pour enregistrer des images",
+  "components.snackBar.saveImage.noAccess.button": "Paramètres",
+  "components.snackBar.saveImage.success.title": "Image enregistrée",
+  "components.snackBar.saveImage.success.description": "Enregistré dans votre galerie"
 }

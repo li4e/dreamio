@@ -60,8 +60,12 @@
   "screens.settings.godMode.active.description": "With great power comes great responsibility.",
   "screens.settings.godMode.inactive.title": "Censorship has been enabled.",
   "screens.settings.godMode.inactive.description": "It appears you are not prepared for such power.",
-  "components.snackBar.saveImageError.title": "Save unsuccessful",
-  "components.snackBar.saveImageError.description": "Allow Library access to save",
-  "components.snackBar.saveImageError.button": "Settings",
-  "screens.generationResult.reworkButton": "Sure! Please provide the text you would like me to translate from en-US to en-GB."
+  "screens.generationResult.reworkButton": "Sure! Please provide the text you would like me to translate from en-US to en-GB.",
+  "components.snackBar.saveImage.error.title": "Error Saving Image",
+  "components.snackBar.saveImage.error.description": "Failed to save image.",
+  "components.snackBar.saveImage.noAccess.title": "Permission Required",
+  "components.snackBar.saveImage.noAccess.description": "Grant access to save images.",
+  "components.snackBar.saveImage.noAccess.button": "Settings",
+  "components.snackBar.saveImage.success.title": "Image Saved",
+  "components.snackBar.saveImage.success.description": "Saved to your gallery."
 }
