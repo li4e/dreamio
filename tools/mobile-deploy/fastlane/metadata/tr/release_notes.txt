@@ -1,2 +1,2 @@
-— Üretim başlatma ekranının UI/UX'ı geliştirildi: sonuçlar artık aynı ekranda görünmekte ve istemi düzenleme ile yeniden oluşturma seçeneği sunulmaktadır.  
-— Görsel kaydetme işlemi geliştirildi: görseller artık cihaz dosyaları yerine doğrudan galeriye kaydedilmektedir.
+— Çeşitli görsel iyileştirmeler ve küçük hata düzeltmeleri.  
+— Daha akıcı bir deneyim için performans iyileştirmeleri.

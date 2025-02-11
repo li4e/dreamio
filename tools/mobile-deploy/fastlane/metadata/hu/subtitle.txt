@@ -1,1 +1,1 @@
-Szövegből képgenerátor
+Szövegből képgenerálás

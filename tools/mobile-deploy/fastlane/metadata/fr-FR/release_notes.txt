@@ -1,2 +1,2 @@
-— Amélioration de l'interface utilisateur et de l'expérience utilisateur de l'écran de démarrage de génération : les résultats apparaissent désormais sur le même écran avec l'option de modifier l'invite et de régénérer.  
-— Amélioration de l'enregistrement d'images : les images sont désormais enregistrées directement dans la galerie plutôt que dans les fichiers de l'appareil.
+— Diverses améliorations visuelles et corrections de bugs mineurs.  
+— Optimisations des performances pour une expérience plus fluide.

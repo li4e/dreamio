@@ -36,14 +36,14 @@
       "sv",
       "th",
       "tr",
-      "uk",
       "vi",
       "zh-Hans",
-      "zh-Hant"
+      "zh-Hant",
+      "uk"
     ]
   },
   "name.txt": {
-    "original": "d025b4a27207ab4c1f52b67d6ff5731e6145bda228518fbd6c5d3505e39004ca",
+    "original": "9ad54b261beedc16590e9bbef3840d42f9e63f89ad5b87f8ff2fc287b8cc586b",
     "translations": [
       "ar-SA",
       "ca",
@@ -86,7 +86,7 @@
     ]
   },
   "release_notes.txt": {
-    "original": "97509e57705dc0cfaad9e39e34bc2344351c0873a6cd145fe72f9d0b67fc5f4d",
+    "original": "bd8c3f901ec65923a4323d5cb3ead9dabeb1c175c297e72e22808a20ccc72313",
     "translations": [
       "ar-SA",
       "ca",
@@ -129,7 +129,50 @@
     ]
   },
   "subtitle.txt": {
-    "original": "a040538bb59c44ceeb5a465e95b5b7c12d41e68c79cb3bbc7ecb4b16bf05efe7",
+    "original": "d810b1dd5d381518a2b813a351eac74c5df6d4e491ba215ec0e49d7f3db420cf",
+    "translations": [
+      "ar-SA",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl-NL",
+      "no",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "th",
+      "tr",
+      "vi",
+      "zh-Hans",
+      "zh-Hant",
+      "uk"
+    ]
+  },
+  "keywords.txt": {
+    "original": "abe3889475202eedadbb922c731daa4d6fb04f5259c0ebb395d57191bb6b928b",
     "translations": [
       "ar-SA",
       "ca",

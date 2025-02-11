@@ -1,2 +1,2 @@
-— A generálás kezdőképernyő UI/UX-jának fejlesztése: az eredmények mostantól azonos képernyőn jelennek meg, lehetőséggel a felkérés szerkesztésére és újragenerálásra.
-— Képmentés fejlesztése: a képek mostantól közvetlenül a galériába kerülnek mentésre a készülék fájljai helyett.
+— Különféle vizuális fejlesztések és kisebb hibajavítások.  
+— Teljesítményfejlesztések a gördülékenyebb élményért.

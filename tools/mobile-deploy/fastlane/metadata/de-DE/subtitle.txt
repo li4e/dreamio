@@ -1,1 +1,1 @@
-Text-zu-Bild-Generator
+KI-Bildgenerator aus Text

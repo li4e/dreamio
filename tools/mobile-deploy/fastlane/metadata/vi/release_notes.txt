@@ -1,2 +1,2 @@
-— Cải thiện giao diện người dùng và trải nghiệm người dùng của màn hình bắt đầu tạo: kết quả giờ đây hiển thị trên cùng một màn hình với tùy chọn chỉnh sửa nhắc nhở và tạo lại.
-— Nâng cao chức năng lưu ảnh: ảnh giờ đây được lưu trực tiếp vào thư viện thay vì vào các tệp của thiết bị.
+— Các cải tiến giao diện và sửa lỗi nhỏ.  
+— Cải thiện hiệu năng cho trải nghiệm mượt mà hơn.

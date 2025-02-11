@@ -1,2 +1,2 @@
-— Îmbunătățirea interfeței utilizatorului și a experienței utilizatorului pe ecranul de început al generării: rezultatele apar acum pe aceeași pagină, având opțiunea de a edita promptul și de a regenera.  
-— Îmbunătățirea salvării imaginilor: imaginile sunt acum salvate direct în galerie, în loc de fișierele dispozitivului.
+— Diverse îmbunătățiri vizuale și corectarea unor erori minore.  
+— Optimizări de performanță pentru o experiență mai fluidă.

@@ -1,2 +1,2 @@
-— Peningkatan Antarmuka Pengguna/Pengalaman Pengguna pada layar awal generasi: hasil kini muncul di layar yang sama dengan opsi untuk mengedit prompt dan menggenerasikan ulang.
-— Peningkatan penyimpanan gambar: gambar kini disimpan langsung ke galeri alih-alih ke file perangkat.
+— Berbagai peningkatan visual dan perbaikan bug kecil.  
+— Peningkatan kinerja untuk pengalaman yang lebih lancar.

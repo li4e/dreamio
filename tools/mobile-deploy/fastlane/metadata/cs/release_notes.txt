@@ -1,2 +1,2 @@
-— Vylepšené uživatelské rozhraní/uživatelská zkušenost na úvodní obrazovce generace: výsledky se nyní zobrazují na stejné obrazovce s možností upravit prompt a regenerovat.
-— Zlepšené ukládání obrázků: obrázky se nyní ukládají přímo do galerie namísto do souborů zařízení.
+— Různá vizuální vylepšení a drobné opravy chyb.  
+— Optimalizace výkonu pro plynulejší zážitek.

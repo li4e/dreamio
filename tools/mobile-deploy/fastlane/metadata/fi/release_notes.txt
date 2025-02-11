@@ -1,2 +1,2 @@
-— Parannettu käyttöliittymä/käyttäjäkokemus sukupolven aloitusnäytöllä: tulokset näkyvät nyt samalla näytöllä, ja voit muokata kehotetta ja palauttaa sen.  
-— Tehostettu kuvien tallennus: kuvat tallennetaan nyt suoraan galleriaasi sen sijaan, että ne tallennettaisiin laitteen tiedostoihin.
+— Useita visuaalisia parannuksia ja pieniä bugikorjauksia.  
+— Suorituskykyä parannetaan sujuvampaa käyttökokemusta varten.

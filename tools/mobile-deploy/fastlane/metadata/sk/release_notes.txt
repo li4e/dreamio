@@ -1,2 +1,2 @@
-— Vylepšené používateľské rozhranie a používateľská skúsenosť na obrazovke pre spustenie generácie: výsledky sa teraz zobrazujú na tej istej obrazovke s možnosťou upraviť výzvu a regenerovať.
-— Zlepšené ukladanie obrázkov: obrázky sa teraz ukladajú priamo do galérie namiesto súborov zariadenia.
+— Rôzne vizuálne vylepšenia a drobné opravy chýb.  
+— Vylepšenie výkonu pre plynulejší zážitok.

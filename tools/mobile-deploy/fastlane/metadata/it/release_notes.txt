@@ -1,2 +1,2 @@
-— Interfaccia utente e esperienza utente migliorate della schermata di avvio della generazione: i risultati ora appaiono sulla stessa schermata con l'opzione di modificare il prompt e rigenerare.
-— Salvataggio delle immagini potenziato: le immagini vengono ora salvate direttamente nella galleria anziché nei file del dispositivo.
+— Numerosi miglioramenti visivi e correzioni di bug minori.  
+— Ottimizzazione delle prestazioni per un'esperienza più fluida.

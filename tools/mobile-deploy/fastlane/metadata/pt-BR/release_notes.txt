@@ -1,2 +1,2 @@
-— Melhorias na interface e experiência do usuário da tela inicial de geração: os resultados agora aparecem na mesma tela, com a opção de editar o prompt e regenerar.
-— Aprimoramento no salvamento de imagens: as imagens agora são salvas diretamente na galeria, em vez de nos arquivos do dispositivo.
+— Várias melhorias visuais e correções de bugs menores.  
+— Aperfeiçoamentos de desempenho para uma experiência mais fluida.

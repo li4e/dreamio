@@ -7,6 +7,7 @@ import { SUPPORTED_LANGUAGES as locales } from './constants'
 const filesToTranslate = [
   'description.txt',
   'subtitle.txt',
+  'keywords.txt',
   'name.txt',
   'release_notes.txt',
 ]
@@ -56,7 +57,9 @@ async function translateTextWithLengthLimit(
   let prompt: string
 
   if (['name.txt', 'subtitle.txt'].includes(fileName)) {
-    prompt = `You are a translation assistant specialized in App Store metadata. Translate the following text from ${sourceLang} to ${destLang}, keeping the tone professional and ensuring it aligns with App Store guidelines. The translation should not exceed 30 characters in total, including spaces. Make sure the translation is concise, clear, and reflects the original meaning.`
+    prompt = `You are a translation assistant specialized in App Store metadata. Translate the following text from ${sourceLang} to ${destLang}, ensuring a professional tone that aligns with App Store guidelines. The translation must be clear, concise, and free of any special symbols or unexpected characters. It should not exceed 30 characters, including spaces. If the text contains the brand name "Dreamio" and does not fit within the limit, prioritize removing "Dreamio" while preserving clarity and meaning.`
+  } else if (['keywords.txt'].includes(fileName)) {
+    prompt = `You are a translation assistant specialized in App Store metadata. Translate the following keywords from ${sourceLang} to ${destLang}, keeping the tone professional and ensuring it aligns with App Store guidelines. The translation should not exceed 100 characters in total, including spaces. If the text includes the brand name "Dreamio" and does not fit within the limit, prioritize removing "Dreamio" first while maintaining clarity and meaning. Ensure the translation remains concise and accurate.`
   } else {
     // Default prompt for all other files
     prompt = `You are a translation assistant specialized in App Store metadata. Translate the following text from ${sourceLang} to ${destLang}, keeping the tone professional and ensuring it aligns with App Store guidelines. Maintain clarity and accuracy.`

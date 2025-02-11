@@ -1,2 +1,2 @@
-— Verbeterde UI/UX van het startscherm voor generatie: resultaten verschijnen nu op hetzelfde scherm met de optie om de prompt te bewerken en opnieuw te genereren.  
-— Verbeterde afbeelding opslaan: afbeeldingen worden nu rechtstreeks in de galerij opgeslagen in plaats van in de bestanden van het apparaat.
+— Diverse visuele verbeteringen en kleine bugfixes.  
+— Prestatieverbeteringen voor een soepelere ervaring.

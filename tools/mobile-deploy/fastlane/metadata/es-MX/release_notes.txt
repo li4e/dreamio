@@ -1,2 +1,2 @@
-— Mejora en la interfaz de usuario y experiencia de usuario de la pantalla de inicio de generación: los resultados ahora aparecen en la misma pantalla con la opción de editar el aviso y regenerar.  
-— Mejora en el guardado de imágenes: las imágenes ahora se guardan directamente en la galería en lugar de en los archivos del dispositivo.
+— Varias mejoras visuales y correcciones de errores menores.  
+— Mejoras en el rendimiento para una experiencia más fluida.

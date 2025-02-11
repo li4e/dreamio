@@ -1,2 +1,2 @@
-— Poboljšani UI/UX zaslona za početak generacije: rezultati se sada prikazuju na istom ekranu uz mogućnost uređivanja upita i regeneracije.
-— Unaprijeđeno spremanje slika: slike se sada izravno spremaju u galeriju umjesto u datoteke uređaja.
+— Različita vizualna poboljšanja i manje ispravke grešaka.  
+— Poboljšanja performansi za glađe iskustvo.

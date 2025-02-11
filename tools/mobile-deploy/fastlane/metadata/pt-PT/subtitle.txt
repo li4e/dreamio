@@ -1,1 +1,1 @@
-Gerador de imagens por texto
+Gerador IA: texto -> imagem

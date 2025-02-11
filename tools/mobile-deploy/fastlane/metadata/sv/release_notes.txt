@@ -1,2 +1,2 @@
-— Förbättrad UI/UX på startskärmen för generation: resultat visas nu på samma skärm med möjlighet att redigera prompten och regenerera.
-— Förbättrad bildsparing: bilder sparas nu direkt i galleriet istället för i enhetsfiler.
+— Olika visuella förbättringar och små buggfixar.
+— Prestandaförbättringar för en smidigare upplevelse.
