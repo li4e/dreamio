@@ -2,9 +2,11 @@
   "name": "mobile-deploy",
   "version": "1.0.0",
   "scripts": {
-    "deploy:ios": "bundle exec fastlane beta",
+    "deploy:ios": "bundle exec fastlane ios beta",
+    "deploy:android": "bundle exec fastlane android beta",
     "deploy:meta": "bundle exec fastlane update_meta",
     "deploy:screenshots": "bundle exec fastlane update_screenshots",
-    "apk": "bundle exec fastlane android build_apk"
+    "apk": "bundle exec fastlane android build_apk",
+    "aab": "bundle exec fastlane android build_aab"
   }
 }

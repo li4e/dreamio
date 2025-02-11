@@ -9,5 +9,8 @@ app_identifier(ENV["IOS_APP_IDENTIFIER"]) # The bundle identifier of your app
 itc_team_id(ENV["APPLE_ITC_TEAM_ID"]) # App Store Connect Team ID
 team_id(ENV["APPLE_TEAM_ID"]) # Developer Portal Team ID
 
+json_key_file(ENV["ANDROID_SUPPLY_KEY"])
+package_name(ENV["ANDROID_APP_IDENTIFIER"])
+
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
