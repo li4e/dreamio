@@ -30,9 +30,9 @@ module.exports = {
     },
     android: {
       versionCode: process.env.APP_BUILD_NUMBER || '1',
-      icon: './assets/icon.png',
+      icon: './assets/icon_foreground_android.png',
       adaptiveIcon: {
-        foregroundImage: './assets/icon_foreground.png',
+        foregroundImage: './assets/icon_foreground_android.png',
         backgroundColor: '#6650a4',
       },
       package: process.env.ANDROID_APP_IDENTIFIER || 'com.dreamio',
@@ -49,6 +49,7 @@ module.exports = {
           imageWidth: 80,
           dark: {
             backgroundColor: '#1c1b1f',
+            image: './assets/icon_foreground.png',
           },
         },
       ],
