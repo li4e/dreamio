@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   View,
   ScrollView as SV,
+  Platform,
 } from 'react-native'
 import {
   Appbar,
@@ -126,7 +127,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   }, [])
 
   return (
-    <KeyboardAvoidingView behavior="padding" className="flex-1">
+    <KeyboardAvoidingView
+      behavior="padding"
+      className="flex-1"
+      enabled={Platform.OS === 'ios'}
+    >
       <View className="flex-1" testID="GENERATION_SCREEN">
         <Appbar.Header>
           {resultImage && (
