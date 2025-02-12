@@ -46,7 +46,7 @@ const HomeTabs = () => {
     <Tab.Navigator
       theme={paperTheme}
       initialRouteName="generation"
-      sceneAnimationEnabled={true}
+      sceneAnimationEnabled={false}
     >
       <Tab.Screen
         name="history"
