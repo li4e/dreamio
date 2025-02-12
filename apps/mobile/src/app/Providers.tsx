@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -10,9 +10,14 @@ import { DiProvider } from './di'
 import { i18next } from './lib/i18next'
 import { useThemes } from './ui/useThemes'
 import { StatusBar } from 'expo-status-bar'
+import * as SystemUI from 'expo-system-ui'
 
 export function Providers({ children }: PropsWithChildren) {
   const { paperTheme } = useThemes()
+
+  useEffect(() => {
+    SystemUI.setBackgroundColorAsync(paperTheme.colors.background)
+  }, [paperTheme])
 
   return (
     <View className="flex-1">
