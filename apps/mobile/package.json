@@ -10,8 +10,7 @@
     "android:release": "expo run:android --variant release",
     "ios:release": "expo run:ios --configuration Release",
     "web": "expo start --web",
-    "clean": "rm -rf ios android .expo",
-    "prebuild": "expo prebuild"
+    "prebuild": "expo prebuild --clean"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
