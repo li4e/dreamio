@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
   View,
+  Image,
 } from 'react-native'
 import { Divider, List, useTheme, Text } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -75,15 +76,18 @@ export function SettingsScreen() {
         <View className="flex-grow">
           <View className="self-center">
             <TouchableWithoutFeedback onPress={onSecretPress}>
-              <LottieView
-                source={
-                  censorship
-                    ? require('./premium_1.json')
-                    : require('./godmode.json')
-                }
-                style={{ width: 150, height: 150 }}
-                autoPlay={true}
-              />
+              {censorship ? (
+                <Image
+                  className="w-[100] h-[100] my-[25]"
+                  source={require('../../../../assets/icon_foreground.png')}
+                />
+              ) : (
+                <LottieView
+                  source={require('./godmode.json')}
+                  style={{ width: 150, height: 150 }}
+                  autoPlay={true}
+                />
+              )}
             </TouchableWithoutFeedback>
           </View>
           <View className="flex-grow justify-center">
