@@ -22,6 +22,7 @@ import { Button } from 'shared/ui/styled'
 import { styled } from 'nativewind'
 import { useDI } from 'shared/di'
 import { useStoreData } from 'shared/store'
+import * as Application from 'expo-application'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
@@ -206,12 +207,12 @@ function useContactUs() {
   return async () => {
     try {
       const isComposeAvailable = await MailComposer.isAvailableAsync()
-      const subject = `Help me with the ${APP_NAME} app`
+      const subject = `Help me with the ${Application.applicationName} app v.${Application.nativeApplicationVersion} b.${Application.nativeBuildVersion}`
 
       if (isComposeAvailable && Platform.OS === 'ios') {
         await MailComposer.composeAsync({
           recipients: [SUPPORT_EMAIL],
-          subject: `Help me with the ${APP_NAME} app`,
+          subject,
         })
       } else {
         await Linking.openURL(
