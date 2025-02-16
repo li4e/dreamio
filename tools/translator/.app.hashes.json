@@ -1419,14 +1419,8 @@
     ]
   },
   "screens.settings.contactUsError.title": {
-    "original": "Unable to Open Email App",
+    "original": "Email App Not Found",
     "translations": [
-      "pt-PT",
-      "pt-BR",
-      "ru",
-      "uk",
-      "zh-Hans",
-      "zh-Hant",
       "ar-SA",
       "ca",
       "cs",
@@ -1453,23 +1447,23 @@
       "nl-NL",
       "no",
       "pl",
+      "pt-BR",
+      "pt-PT",
       "ro",
+      "ru",
       "sk",
       "sv",
       "th",
       "tr",
-      "vi"
+      "uk",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
     ]
   },
   "screens.settings.contactUsError.description": {
-    "original": "Our email is: {{address}}",
+    "original": "{{address}}",
     "translations": [
-      "pt-PT",
-      "pt-BR",
-      "ru",
-      "uk",
-      "zh-Hans",
-      "zh-Hant",
       "ar-SA",
       "ca",
       "cs",
@@ -1496,12 +1490,18 @@
       "nl-NL",
       "no",
       "pl",
+      "pt-BR",
+      "pt-PT",
       "ro",
+      "ru",
       "sk",
       "sv",
       "th",
       "tr",
-      "vi"
+      "uk",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
     ]
   },
   "screens.generationResult.title": {

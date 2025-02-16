@@ -77,8 +77,8 @@
         }
       },
       "contactUsError": {
-        "title": "Unable to Open Email App",
-        "description": "Our email is: {{address}}"
+        "title": "Email App Not Found",
+        "description": "{{address}}"
       },
       "godMode": {
         "active": {
