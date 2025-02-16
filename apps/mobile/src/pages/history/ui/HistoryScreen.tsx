@@ -17,12 +17,26 @@ import EmptyAnimation from './assets/austroman.json'
 import { toJS } from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
 import Animated from 'react-native-reanimated'
+import { useCallback } from 'react'
+
+function getNumColumns(totalLength: number) {
+  return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
+}
 
 export function HistoryScreen() {
   const insets = useSafeAreaInsets()
   const { history, isPending } = useHistory()
   const isEmpty = history.length === 0
   const { t } = useTranslation()
+  const numColumns = getNumColumns(history.length)
+  const renderItem = useCallback(
+    ({ item, index }: { item: GenerationEntity; index: number }) => {
+      return (
+        <HistoryItem generation={item} numColumns={numColumns} index={index} />
+      )
+    },
+    [numColumns]
+  )
 
   return (
     <View className="flex-1">
@@ -43,13 +57,14 @@ export function HistoryScreen() {
               paddingBottom: insets.bottom,
             },
           ]}
+          key={`history_list_col_${numColumns}`}
           data={history}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListEmptyComponent={<EmpyState />}
           ListFooterComponent={!isEmpty ? <ListFooter /> : null}
           ListFooterComponentStyle={styles.listFooter}
-          numColumns={3}
+          numColumns={numColumns}
         />
       )}
     </View>
@@ -69,22 +84,25 @@ const styles = StyleSheet.create({
   },
 })
 
-function renderItem({
-  item,
-  index,
-}: {
-  item: GenerationEntity
+function HistoryItem(props: {
+  generation: GenerationEntity
+  numColumns: number
   index: number
 }) {
-  return <HistoryItem generation={item} />
-}
-
-function HistoryItem(props: { generation: GenerationEntity }) {
-  const { generation } = props
+  const { generation, numColumns, index } = props
   const { navigate } = useNavigation()
 
   return (
-    <View className={twMerge('w-1/3 aspect-square py-[1] px-[1]')}>
+    <View
+      className={twMerge(
+        'aspect-square pt-[1]',
+        numColumns === 1 && 'w-full',
+        numColumns === 2 && 'w-1/2',
+        numColumns === 2 && index % 2 && 'pl-[1]',
+        numColumns === 3 && 'w-1/3 pr-[1]',
+        numColumns === 3 && index % 3 === 2 && 'pr-0'
+      )}
+    >
       <TouchableRipple
         onPress={() =>
           navigate('generation_result', { generation: toJS(generation) })
