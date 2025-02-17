@@ -58,7 +58,8 @@
     "yup": "^1.6.1",
     "expo-application": "~6.0.2",
     "@shopify/flash-list": "1.7.3",
-    "expo-image": "~2.0.5"
+    "expo-image": "~2.0.5",
+    "franc": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
