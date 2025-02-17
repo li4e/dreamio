@@ -1,8 +1,34 @@
 import { useCallback } from 'react'
-import { saveImage } from './ImageCache'
 import { useTranslation } from 'react-i18next'
-import { Linking } from 'react-native'
+import { Linking, Platform } from 'react-native'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
+import * as MediaLibrary from 'expo-media-library'
+import * as FileSystem from 'expo-file-system'
+import { Image } from 'expo-image'
+import md5 from 'md5'
+
+export async function saveImage(url: string): Promise<boolean | null> {
+  try {
+    let permissions = await MediaLibrary.getPermissionsAsync(true)
+
+    if (!permissions.granted && permissions.canAskAgain) {
+      permissions = await MediaLibrary.requestPermissionsAsync(true)
+    }
+
+    if (permissions.granted) {
+      const cachedPath = await getFileTempCachePath(url)
+      await MediaLibrary.saveToLibraryAsync(cachedPath)
+      await FileSystem.deleteAsync(cachedPath)
+      return true
+    } else {
+      return null
+    }
+  } catch (error) {
+    console.error('Error saving image:', error)
+    return false
+    // TODO: throw an error and handle at the place of usage and show snackbar
+  }
+}
 
 export function useOnSaveImage() {
   const { showSnackbar } = useSnackbar()
@@ -32,10 +58,38 @@ export function useOnSaveImage() {
         description: t('components.snackBar.saveImage.success.description'),
       })
     } else {
-      showSnackbar({
-        title: t('components.snackBar.saveImage.error.title'),
-        description: t('components.snackBar.saveImage.error.title'),
-      })
+      showSnackbar(
+        {
+          title: t('components.snackBar.saveImage.error.title'),
+          description: t('components.snackBar.saveImage.error.description'),
+        },
+        { variant: SnackBarVariant.ERROR }
+      )
     }
   }, [])
+}
+
+export async function getFileTempCachePath(url: string) {
+  let cachedPath = await Image.getCachePathAsync(url)
+
+  if (!cachedPath) {
+    await Image.prefetch(url, 'disk')
+    cachedPath = await Image.getCachePathAsync(url)
+  }
+
+  if (!cachedPath) {
+    throw new Error('cachePath is null')
+  }
+
+  if (Platform.OS === 'android' && !cachedPath.startsWith('file://')) {
+    cachedPath = `file://${cachedPath}`
+  }
+
+  const fileInfo = await FileSystem.getInfoAsync(cachedPath)
+  console.log(fileInfo)
+  console.log(FileSystem.cacheDirectory)
+
+  const savePath = `${FileSystem.cacheDirectory}/${md5(url)}.jpg`
+  await FileSystem.copyAsync({ from: cachedPath, to: savePath })
+  return savePath
 }

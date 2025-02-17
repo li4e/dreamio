@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, useWindowDimensions } from 'react-native'
 import {
   ActivityIndicator,
   Appbar,
@@ -10,33 +10,26 @@ import {
   TouchableRipple,
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { twMerge } from 'tailwind-merge'
 import { GenerationEntity } from 'entities/generation'
 import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
 import { toJS } from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
-import Animated from 'react-native-reanimated'
-import { useCallback } from 'react'
+import { FlashList } from '@shopify/flash-list'
 
 function getNumColumns(totalLength: number) {
-  return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
+  // return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
+  return 2
 }
 
 export function HistoryScreen() {
-  const insets = useSafeAreaInsets()
-  const { history, isPending } = useHistory()
+  const { width } = useWindowDimensions()
+  const { history, isPending, fetchMore, fetchedAll } = useHistory()
   const isEmpty = history.length === 0
   const { t } = useTranslation()
   const numColumns = getNumColumns(history.length)
-  const renderItem = useCallback(
-    ({ item, index }: { item: GenerationEntity; index: number }) => {
-      return (
-        <HistoryItem generation={item} numColumns={numColumns} index={index} />
-      )
-    },
-    [numColumns]
-  )
+  const itemSize = width / numColumns
+  const listTotalSize = Math.ceil(history.length / numColumns) * itemSize + 300
 
   return (
     <View className="flex-1">
@@ -47,24 +40,36 @@ export function HistoryScreen() {
         <View className="flex-1 items-center justify-center">
           <ActivityIndicator />
         </View>
+      ) : isEmpty ? (
+        <EmpyState />
       ) : (
-        <Animated.FlatList<GenerationEntity>
+        <FlashList<GenerationEntity>
           testID="HISTORY_LIST"
           className="flex-1"
-          contentContainerStyle={[
-            styles.contentContainer,
-            {
-              paddingBottom: insets.bottom,
-            },
-          ]}
+          estimatedItemSize={itemSize}
+          estimatedListSize={{
+            height: listTotalSize,
+            width,
+          }}
           key={`history_list_col_${numColumns}`}
           data={history}
-          renderItem={renderItem}
+          renderItem={({ item, index }) => (
+            <HistoryItem generation={item} index={index} />
+          )}
           keyExtractor={keyExtractor}
-          ListEmptyComponent={<EmpyState />}
-          ListFooterComponent={!isEmpty ? <ListFooter /> : null}
+          ListFooterComponent={
+            isEmpty ? null : fetchedAll ? (
+              <ListFooterFetched />
+            ) : isPending ? (
+              <ListFooterLoader />
+            ) : (
+              <ListFooter />
+            )
+          }
           ListFooterComponentStyle={styles.listFooter}
           numColumns={numColumns}
+          onEndReached={!fetchedAll ? fetchMore : undefined}
+          onEndReachedThreshold={0.1}
         />
       )}
     </View>
@@ -84,25 +89,13 @@ const styles = StyleSheet.create({
   },
 })
 
-function HistoryItem(props: {
-  generation: GenerationEntity
-  numColumns: number
-  index: number
-}) {
-  const { generation, numColumns, index } = props
+function HistoryItem(props: { generation: GenerationEntity; index: number }) {
+  const { generation, index } = props
   const { navigate } = useNavigation()
+  const url = generation.images[0]
 
   return (
-    <View
-      className={twMerge(
-        'aspect-square pt-[1]',
-        numColumns === 1 && 'w-full',
-        numColumns === 2 && 'w-1/2',
-        numColumns === 2 && index % 2 && 'pl-[1]',
-        numColumns === 3 && 'w-1/3 pr-[1]',
-        numColumns === 3 && index % 3 === 2 && 'pr-0'
-      )}
-    >
+    <View className={'w-full aspect-square p-[0.5]'}>
       <TouchableRipple
         onPress={() =>
           navigate('generation_result', { generation: toJS(generation) })
@@ -110,8 +103,10 @@ function HistoryItem(props: {
         className="flex-1"
       >
         <CachedImage
+          transition={300}
+          recyclingKey={url}
           className="flex-1"
-          source={{ uri: generation.images[0] }}
+          source={url}
         />
       </TouchableRipple>
     </View>
@@ -147,12 +142,16 @@ function EmpyState() {
   )
 }
 
-function ListFooter() {
+function ListFooterFetched() {
   const { t } = useTranslation()
   const { navigate } = useNavigation()
+  const insets = useSafeAreaInsets()
 
   return (
-    <View className="flex-grow items-center justify-center py-10">
+    <View
+      className="flex-grow items-center justify-center min-h-[300] py-10"
+      style={{ marginBottom: insets.bottom }}
+    >
       <Text variant="titleLarge" className="mb-2 mt-4">
         {t('screens.history.end.title')}
       </Text>
@@ -168,5 +167,26 @@ function ListFooter() {
         {t('screens.history.end.button')}
       </Button>
     </View>
+  )
+}
+
+function ListFooterLoader() {
+  const insets = useSafeAreaInsets()
+
+  return (
+    <View className="min-h-[300] py-10 items-center justify-center">
+      <ActivityIndicator />
+    </View>
+  )
+}
+
+function ListFooter() {
+  const insets = useSafeAreaInsets()
+
+  return (
+    <View
+      className="min-h-[300] py-10"
+      style={{ marginBottom: insets.bottom }}
+    />
   )
 }

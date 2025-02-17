@@ -3,6 +3,7 @@ import { DiContext } from 'shared/di'
 import * as SplashScreen from 'expo-splash-screen'
 import { appDataSource } from './db'
 import { Store } from './store'
+import { ImageCacheDeprecated } from 'shared/ui/CachedImage'
 
 export function DiProvider({ children }: PropsWithChildren) {
   const [dbReady, setDbReady] = useState(false)
@@ -24,14 +25,14 @@ export function DiProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (!di.db.isInitialized) {
-      di.db
-        .initialize()
-        .then(() => {
-          setDbReady(true)
-        })
-        .catch((error) => {
+      Promise.all([
+        di.db.initialize().catch((error) => {
           console.log('DB initialization error', error)
-        })
+        }),
+        ImageCacheDeprecated.clearAllCache(),
+      ]).then(() => {
+        setDbReady(true)
+      })
     }
   }, [di.db])
 

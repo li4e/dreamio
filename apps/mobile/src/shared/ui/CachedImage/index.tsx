@@ -1,3 +1,4 @@
-export { CachedImage } from './CachedImage'
-export { ImageCache, shareImage, saveImage } from './ImageCache'
-export { useOnSaveImage } from './useOnSaveImage'
+export { Image as CachedImage } from 'expo-image'
+export { ImageCacheDeprecated } from './ImageCacheDeprecated'
+export { useOnSaveImage, saveImage } from './useOnSaveImage'
+export { shareImage } from './shareImage'

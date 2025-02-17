@@ -1,4 +1,3 @@
-import { ImageCache } from 'shared/ui/CachedImage'
 import { api } from '../api'
 import { GenerationRepository } from './db/GenerationRepository'
 import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
@@ -7,6 +6,7 @@ import {
   mapCreateGenerationRequestToDto,
   mapGenerationDtoToEntity,
 } from './mapper'
+import { Image } from 'expo-image'
 
 export class GenerationDataService {
   constructor(
@@ -43,32 +43,51 @@ export class GenerationDataService {
   }
 
   async clear() {
-    const imagesDeletions = []
-
-    for (const gen of this.store.list) {
-      for (const image of gen.images) {
-        imagesDeletions.push(ImageCache.clearCache(image))
-      }
-    }
-
-    await Promise.all([this.db.clear(), imagesDeletions])
-
+    await this.db.clear()
     this.store.clear()
   }
 
-  async restoreAll() {
-    const entities = await this.db.find()
+  /**
+   * Fetches the next batch of entities from the database, ordered by creation date in descending order.
+   * Updates the store with the retrieved entities.
+   *
+   * @returns {Promise<boolean>} - Returns `true` if there are potentially more records to fetch,
+   * meaning the last batch contains exactly 20 entities. Otherwise, returns `false`.
+   */
+  async fetchData(size: number = 15): Promise<boolean> {
+    const entities = await this.db.find({
+      order: { createdAt: 'DESC' },
+      take: size,
+      skip: this.store.list.length,
+    })
+
+    await Promise.all(
+      entities
+        .map((item) =>
+          item.images.map(
+            (image) =>
+              new Promise(async (resolve) => {
+                try {
+                  let cachedPath = await Image.getCachePathAsync(image)
+                  if (!cachedPath) {
+                    await Image.prefetch(image, 'disk')
+                  }
+                } finally {
+                  resolve(true)
+                }
+              })
+          )
+        )
+        .flat()
+    )
+
     this.store.setItems(entities)
+    return entities.length === size
   }
 
   private async removeItem(generation: GenerationEntity) {
     this.store.removeItem(generation.id)
-    const dbDeletion = this.db.remove([{ ...generation }])
-    const imageDeletions = generation.images.map((file) =>
-      ImageCache.clearCache(file)
-    )
-
-    await Promise.all([dbDeletion, imageDeletions])
+    await this.db.remove([{ ...generation }])
   }
 
   private async setItem(generation: GenerationEntity) {

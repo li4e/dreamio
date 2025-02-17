@@ -58,7 +58,7 @@ export function GenerationResultScreen(
             }}
           >
             <CachedImage
-              source={{ uri: generation.images[0] }}
+              source={generation.images[0]}
               className="w-full aspect-square"
             />
             <View className="flex-grow">

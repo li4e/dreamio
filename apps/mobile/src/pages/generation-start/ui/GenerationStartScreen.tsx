@@ -185,8 +185,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     className="absolute top-0 left-0 right-0 bottom-0"
                   >
                     <CachedImage
-                      source={{ uri: resultImage }}
+                      source={resultImage}
                       className="flex-1"
+                      transition={300}
                     />
                   </Animated.View>
                 ) : modalState ? (

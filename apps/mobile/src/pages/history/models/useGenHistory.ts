@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   GenerationEntity,
   GenerationEntityStatus,
@@ -10,9 +10,12 @@ import { useStoreData } from 'shared/store'
 export function useHistory(): {
   history: GenerationEntity[]
   isPending: boolean
+  fetchMore: () => Promise<void>
+  fetchedAll: boolean
 } {
   const [isPending, setPending] = useState(false)
   const genDataService = useGenerationDataService()
+  const [fetchedAll, setFetchedAll] = useState(false)
   const genStore = useGenerationStore()
   const history = useStoreData(() => {
     return genStore.list
@@ -23,10 +26,25 @@ export function useHistory(): {
 
   useEffect(() => {
     setPending(true)
-    genDataService.restoreAll().finally(() => {
-      setPending(false)
-    })
+    genDataService
+      .fetchData()
+      .finally(() => {
+        setPending(false)
+      })
+      .then((hasMore) => {
+        setFetchedAll(!hasMore)
+      })
   }, [genDataService, setPending])
 
-  return { history, isPending }
+  const fetchMore = useCallback(async () => {
+    setPending(true)
+    try {
+      const hasMore = await genDataService.fetchData()
+      setFetchedAll(!hasMore)
+    } finally {
+      setPending(false)
+    }
+  }, [genDataService])
+
+  return { history, isPending, fetchMore, fetchedAll }
 }

@@ -1,7 +1,7 @@
+import { Image } from 'expo-image'
 import { translator } from 'shared/api'
 import { mkkvStorage } from 'shared/lib/mmkv'
 import { SettingsStore } from 'shared/store/SettingsStore'
-import { ImageCache } from 'shared/ui/CachedImage'
 
 export enum GenerationStatusDTO {
   Processing = 'processing',
@@ -52,10 +52,9 @@ export class Api {
 
     const seed = Math.trunc(Math.random() * 1000000000000)
     const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=${withCensorship}&seed=${seed}`
-    const cache = new ImageCache(imageUrl)
 
     try {
-      await cache.download()
+      await Image.prefetch(imageUrl)
 
       generation.status = GenerationStatusDTO.Completed
       generation.updatedAt = new Date().toString()
