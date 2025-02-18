@@ -227,7 +227,12 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                         </Text>
                         <RandomButton
                           disabled={isInputDisabled}
-                          onCreated={(prompt: string) => onChange(prompt)}
+                          onCreated={(prompt: string) => {
+                            Haptics.impactAsync(
+                              Haptics.ImpactFeedbackStyle.Light
+                            )
+                            onChange(prompt)
+                          }}
                         />
                       </View>
 
