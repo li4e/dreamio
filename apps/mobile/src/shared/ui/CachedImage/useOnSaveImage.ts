@@ -85,11 +85,8 @@ export async function getFileTempCachePath(url: string) {
     cachedPath = `file://${cachedPath}`
   }
 
-  const fileInfo = await FileSystem.getInfoAsync(cachedPath)
-  console.log(fileInfo)
-  console.log(FileSystem.cacheDirectory)
+  const savePath = `${FileSystem.cacheDirectory}${md5(url)}.jpg`
 
-  const savePath = `${FileSystem.cacheDirectory}/${md5(url)}.jpg`
   await FileSystem.copyAsync({ from: cachedPath, to: savePath })
   return savePath
 }
