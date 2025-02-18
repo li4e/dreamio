@@ -1,6 +1,10 @@
 import { api } from '../api'
 import { GenerationRepository } from './db/GenerationRepository'
-import { CreateGenerationRequest, GenerationEntity } from './GenerationEntity'
+import {
+  CreateGenerationRequest,
+  GenerationEntity,
+  GenerationEntityStatus,
+} from './GenerationEntity'
 import { GenerationStore } from './GenerationStore'
 import {
   mapCreateGenerationRequestToDto,
@@ -17,7 +21,9 @@ export class GenerationDataService {
   getGeneration(id: number): Promise<GenerationEntity> {
     return api.getGeneration(id).then(async (res) => {
       const generation = mapGenerationDtoToEntity(res.generation)
-      await this.setItem(generation)
+      if (generation.status === GenerationEntityStatus.SUCCESS) {
+        await this.setItem(generation)
+      }
       return generation
     })
   }
@@ -29,7 +35,6 @@ export class GenerationDataService {
         const { generation } = res
 
         const entity = mapGenerationDtoToEntity(generation)
-        await this.setItem(entity)
         return entity
       })
   }
