@@ -1,4 +1,3 @@
-import { translate } from '@vitalets/google-translate-api'
 import axios from 'axios'
 import i18n from 'i18next'
 import md5 from 'md5'
@@ -6,11 +5,11 @@ import { franc } from 'franc'
 
 class Api {
   async generatePrompt() {
-    const userLangIsEn = Translator.isEnLang(i18n.language)
-
-    const prompt = `Generate a unique and imaginative image prompt featuring diverse topics, various epochs, distinct landscapes, seasons, dynamic lighting, rich moods, and deep lore elements, inspired by the culture and themes of the ${i18n.language} language. Keep it within 200 characters.`
-
+    const userLang = i18n.language
     const seed = Math.trunc(Math.random() * 1000000000000)
+
+    const prompt = `Generate an image prompt featuring topics, epochs, landscapes, seasons, dynamic lighting, moods, lore elements, characters, and actions inspired by the culture and themes of "${i18n.language}" speakers. Keep it concise within 200 characters.`
+
     const generatedPrompt = await axios
       .get(
         `https://text.pollinations.ai/${encodeURIComponent(prompt)}?seed=${seed}`
@@ -72,3 +71,16 @@ class Translator {
 
 export const translator = new Translator()
 export const api = new Api()
+
+async function translate(
+  value: string,
+  options: { to: string }
+): Promise<{ text: string }> {
+  const prompt = `Translate the following text into "${options.to}" language without any additional explanation or introductory text: "${value}"`
+
+  const translatedText = await axios
+    .get(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`)
+    .then((res) => res.data)
+
+  return { text: translatedText }
+}
