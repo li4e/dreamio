@@ -1,2 +1,5 @@
-— Çeşitli görsel iyileştirmeler ve küçük hata düzeltmeleri.  
-— Daha akıcı bir deneyim için performans iyileştirmeleri.
+— İngilizce dışındaki dillerdeki üretim sonuçlarını iyileştirmek için yeni bir prompt çeviri servisi entegre edildi.  
+— "Geçmiş" ekranı optimize edildi: Üretimler artık aynı anda tümüyle değil, kademeli olarak yükleniyor; bu da performansı artırıyor.  
+— Daha akıcı bir deneyim için resim önbelleklemesi geliştirildi.  
+— Paylaşım işlevi geliştirildi: Paylaşılan resimler, daha iyi bir kullanıcı deneyimi için prompt metnini de içeriyor.  
+— Çeşitli küçük hata düzeltmeleri ve iyileştirmeler.

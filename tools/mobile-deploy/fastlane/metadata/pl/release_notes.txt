@@ -1,2 +1,5 @@
-— Różnorodne ulepszenia wizualne oraz drobne poprawki błędów.  
-— Ulepszenia wydajności dla płynniejszego działania.
+— Zintegrowano nową usługę tłumaczenia promptów, aby poprawić wyniki generowania dla języków innych niż angielski.  
+— Optymalizowano ekran „Historia”: generacje są teraz ładowane stopniowo, zamiast jednocześnie, co zwiększa wydajność.  
+— Ulepszono pamięć podręczną obrazów, zapewniając płynniejsze działanie aplikacji.  
+— Udoskonalono funkcję udostępniania: udostępniane obrazy zawierają teraz tekst promptu, co podnosi komfort użytkowników.  
+— Wprowadzono drobne poprawki błędów i szereg udoskonaleń.

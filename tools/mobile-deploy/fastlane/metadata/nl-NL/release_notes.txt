@@ -1,2 +1,5 @@
-— Diverse visuele verbeteringen en kleine bugfixes.  
-— Prestatieverbeteringen voor een soepelere ervaring.
+— Geïntegreerde een nieuwe promptvertalingdienst om de generatie-resultaten voor niet-Engelse talen te verbeteren.  
+— Geoptimaliseerd het “Geschiedenis”-scherm: generaties worden nu progressief geladen in plaats van in één keer, wat de prestaties verbetert.  
+— Verbeterde beeldcaching voor een soepelere ervaring.  
+— Verbeterde deelfunctionaliteit: gedeelde afbeeldingen bevatten nu de prompttekst voor een betere gebruikerservaring.  
+— Diverse kleine bugfixes en verbeteringen.

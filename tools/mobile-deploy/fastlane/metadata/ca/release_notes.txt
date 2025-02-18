@@ -1,2 +1,5 @@
-— Diverses millores visuals i correccions de petits errors.  
-— Millores en el rendiment per a una experiència més fluïda.
+— Hem integrat un nou servei de traducció de prompts per millorar els resultats de generació en idiomes no anglesos.  
+— Hem optimitzat la pantalla d’Historial: les generacions ara es carreguen de forma progressiva en lloc de tot d’un cop, millorant el rendiment.  
+— Hem millorat la memòria cau d’imatges per oferir una experiència més fluïda.  
+— Hem reforçat la funcionalitat de compartir: les imatges compartides ara inclouen el text del prompt per millorar l’experiència de l’usuari.  
+— Diverses correccions de petits errors i altres millores.

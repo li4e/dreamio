@@ -1,2 +1,5 @@
-— Diverses améliorations visuelles et corrections de bugs mineurs.  
-— Optimisations des performances pour une expérience plus fluide.
+— Intégration d’un nouveau service de traduction de prompts pour améliorer les résultats de génération pour les langues non anglophones.  
+— Optimisation de l’écran « Historique » : les générations se chargent désormais progressivement au lieu d’un chargement global, améliorant ainsi les performances.  
+— Amélioration de la mise en cache des images pour une expérience plus fluide.  
+— Fonctionnalité de partage optimisée : les images partagées incluent désormais le texte du prompt pour une meilleure expérience utilisateur.  
+— Corrections de divers bugs mineurs et améliorations.

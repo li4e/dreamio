@@ -1,2 +1,5 @@
-— Različita vizualna poboljšanja i manje ispravke grešaka.  
-— Poboljšanja performansi za glađe iskustvo.
+— Integrirana nova usluga prijevoda prompta za poboljšanje rezultata generacije za jezike koji nisu engleski.
+— Optimiziran ekran „Povijest“: generacije se sada učitavaju postupno umjesto odjednom, čime se poboljšavaju performanse.
+— Poboljšano keširanje slika za ujednačeno iskustvo.
+— Unaprijeđena funkcionalnost dijeljenja: podijeljene slike sada uključuju tekst prompta radi poboljšanog korisničkog iskustva.
+— Razne manje ispravke grešaka i poboljšanja.

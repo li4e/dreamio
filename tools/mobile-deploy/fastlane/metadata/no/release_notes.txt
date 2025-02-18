@@ -1,2 +1,5 @@
-— Flere visuelle forbedringer og mindre feilrettinger.  
-— Ytelsesforbedringer for en smidigere opplevelse.
+— Integrert en ny tjeneste for oversettelse av prompt for å forbedre genereringsresultatene for ikke-engelskspråklige språk.  
+— Optimalisert "Historikk"-skjermen: generasjoner lastes nå progressivt i stedet for alt på en gang, noe som forbedrer ytelsen.  
+— Forbedret caching av bilder for en jevnere opplevelse.  
+— Forbedret delingsfunksjonaliteten: delte bilder inkluderer nå prompttekst for en bedre brukeropplevelse.  
+— Diverse mindre feilrettinger og forbedringer.

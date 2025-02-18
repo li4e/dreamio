@@ -1,2 +1,5 @@
-— Varias mejoras visuales y correcciones de errores menores.  
-— Mejoras en el rendimiento para una experiencia más fluida.
+— Se ha integrado un nuevo servicio de traducción de indicaciones para mejorar los resultados de generación en idiomas distintos del inglés.
+— Se ha optimizado la pantalla de “Historial”: las generaciones ahora se cargan progresivamente en lugar de hacerlo todas a la vez, mejorando el rendimiento.
+— Se ha mejorado la caché de imágenes para ofrecer una experiencia más fluida.
+— Se ha potenciado la funcionalidad de compartir: las imágenes compartidas ahora incluyen el texto de la indicación para brindar una mejor experiencia de usuario.
+— Se han implementado diversas correcciones menores de errores y mejoras.

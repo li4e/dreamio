@@ -1,2 +1,5 @@
-— Rôzne vizuálne vylepšenia a drobné opravy chýb.  
-— Vylepšenie výkonu pre plynulejší zážitok.
+— Integrovaná nová služba pre preklad promptov na zlepšenie výsledkov generácie pre jazyky iné než angličtina.  
+— Optimalizovaná obrazovka „História“: generácie sa načítavajú postupne namiesto všetkých naraz, čím sa zvyšuje výkon.  
+— Vylepšené ukladanie obrázkov do vyrovnávacej pamäte pre plynulejší zážitok.  
+— Vylepšené zdieľanie: zdieľané obrázky teraz obsahujú aj text promptu pre lepší používateľský zážitok.  
+— Rôzne drobné opravy chýb a vylepšenia.
