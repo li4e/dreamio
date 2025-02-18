@@ -134,14 +134,18 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     >
       <View className="flex-1" testID="GENERATION_SCREEN">
         <Appbar.Header>
-          {resultImage && (
+          {curGen.state.result && resultImage && (
             <Animated.View
               entering={SlideInLeft.duration(500)}
               exiting={SlideOutLeft.duration(200)}
             >
               <Appbar.Action
                 icon="share-variant"
-                onPress={() => shareImage(resultImage)}
+                onPress={() => {
+                  if (curGen.state.result) {
+                    shareImage(resultImage, curGen.state.result?.prompt)
+                  }
+                }}
               />
             </Animated.View>
           )}

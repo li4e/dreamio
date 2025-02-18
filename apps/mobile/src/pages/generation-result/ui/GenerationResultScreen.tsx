@@ -101,7 +101,9 @@ export function GenerationResultScreen(
             <Button
               mode="contained-tonal"
               icon="share-variant"
-              onPress={() => shareImage(generation.images[0])}
+              onPress={() =>
+                shareImage(generation.images[0], generation.prompt)
+              }
             >
               {t('screens.generationResult.shareButton')}
             </Button>
