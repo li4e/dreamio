@@ -87,21 +87,26 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   useEffect(() => {
     if (curGen.state.isPending && curGen.state.result) {
-      setValue('prompt', curGen.state.result.prompt)
-      setValue('style', curGen.state.result.style)
+      setValue('prompt', curGen.state.result.prompt, { shouldValidate: true })
+      setValue('style', curGen.state.result.style, { shouldValidate: true })
     }
   }, [])
 
   useEffect(() => {
     if (generationFromNavigation) {
       curGen.setGeneration(generationFromNavigation)
-      setValue('prompt', generationFromNavigation.prompt)
-      setValue('style', generationFromNavigation.style)
+      setValue('prompt', generationFromNavigation.prompt, {
+        shouldValidate: true,
+      })
+      setValue('style', generationFromNavigation.style, {
+        shouldValidate: true,
+      })
     }
   }, [generationFromNavigation])
 
   const { submitCount, isValid } = useFormState({ control })
   const isInputDisabled = curGen.state.isPending
+  console.log({ isPending: curGen.state.isPending, submitCount, isValid })
   const isStartButtonDisabled =
     curGen.state.isPending || (submitCount > 0 && !isValid)
 
@@ -280,7 +285,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     disabled={isInputDisabled}
                     value={value}
                     onSelect={(style: string | null) =>
-                      setValue('style', style)
+                      setValue('style', style, { shouldValidate: true })
                     }
                   />
                 )}
