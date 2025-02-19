@@ -15,7 +15,6 @@ export class ImageCacheDeprecated {
       const dirInfo = await FileSystem.getInfoAsync(cacheDir)
 
       if (!dirInfo.exists) {
-        console.log('Cache directory does not exist')
         return
       }
 
@@ -27,7 +26,6 @@ export class ImageCacheDeprecated {
 
       // Finally, delete the cache directory itself
       await FileSystem.deleteAsync(cacheDir)
-      console.log('Cache cleared successfully')
     } catch (error) {
       console.error('Error clearing image cache:', error)
     }

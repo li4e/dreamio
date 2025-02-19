@@ -103,7 +103,7 @@ function HistoryItem(props: { generation: GenerationEntity; index: number }) {
         className="flex-1"
       >
         <CachedImage
-          transition={300}
+          transition={200}
           recyclingKey={url}
           className="flex-1"
           source={url}

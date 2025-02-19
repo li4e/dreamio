@@ -17,11 +17,17 @@ export interface GenerationDTO {
   createdAt: string
   updatedAt: string
   status: GenerationStatusDTO
+  enhance: boolean
+  width: number
+  height: number
   images: null | string[]
 }
 
 export interface StartGenerationBodyDTO {
   prompt: string
+  enhance: boolean
+  width: number
+  height: number
   style?: string
 }
 
@@ -51,7 +57,7 @@ export class Api {
     const withCensorship = new SettingsStore().censorship
 
     const seed = Math.trunc(Math.random() * 1000000000000)
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=true&safe=${withCensorship}&seed=${seed}`
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=${generation.enhance}&safe=${withCensorship}&seed=${seed}&width=${generation.width}&height=${generation.height}`
 
     try {
       await Image.prefetch(imageUrl)
@@ -86,6 +92,9 @@ export class Api {
     const newGeneration = {
       id: Date.now(),
       prompt: data.prompt,
+      enhance: data.enhance,
+      width: data.width,
+      height: data.height,
       promptFull: data.style
         ? `"${prompt}" in the "${data.style}" style.`
         : prompt,

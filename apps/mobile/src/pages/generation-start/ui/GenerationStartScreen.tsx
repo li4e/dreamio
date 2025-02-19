@@ -59,6 +59,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             )
             .required(t('screens.generation.promptValidationErrors.required')),
           style: yup.string().max(100).nullable().default(null),
+          enhance: yup.boolean().default(false).required(),
+          width: yup.number().default(1280).required(),
+          height: yup.number().default(1280).required(),
         })
         .required(),
     [t]
@@ -106,14 +109,19 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   const { submitCount, isValid } = useFormState({ control })
   const isInputDisabled = curGen.state.isPending
-  console.log({ isPending: curGen.state.isPending, submitCount, isValid })
   const isStartButtonDisabled =
     curGen.state.isPending || (submitCount > 0 && !isValid)
 
   const modalState = mapCurGenStatusToModalState(curGen.state.status)
 
   const handleStartPress = useCallback(
-    (form: { prompt: string; style: string | null }) => {
+    (form: {
+      prompt: string
+      style: string | null
+      enhance: boolean
+      width: number
+      height: number
+    }) => {
       Keyboard.dismiss()
       curGen.submit(form)
     },

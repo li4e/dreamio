@@ -12,9 +12,15 @@ export interface GenerationEntity {
   createdAt: number // timestamp in nanoseconds
   updatedAt: number // timestamp in nanoseconds
   images: Array<string>
+  enhance: boolean
+  width: number
+  height: number
 }
 
 export interface CreateGenerationRequest {
   prompt: string
   style: string | null
+  enhance: boolean
+  width: number
+  height: number
 }
