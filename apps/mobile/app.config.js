@@ -53,6 +53,19 @@ module.exports = {
           },
         },
       ],
+      [
+        'react-native-share',
+        {
+          ios: ['fb', 'instagram', 'twitter', 'tiktoksharesdk'],
+          android: [
+            'com.facebook.katana',
+            'com.instagram.android',
+            'com.twitter.android',
+            'com.zhiliaoapp.musically',
+          ],
+          enableBase64ShareAndroid: true,
+        },
+      ],
       '@config-plugins/detox',
       'expo-localization',
       'expo-media-library',

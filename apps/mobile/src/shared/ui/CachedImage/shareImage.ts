@@ -1,4 +1,4 @@
-import { Share } from 'react-native'
+import Share from 'react-native-share'
 import { getFileTempCachePath } from './useOnSaveImage'
 import * as FileSystem from 'expo-file-system'
 
@@ -8,9 +8,11 @@ export async function shareImage(url: string, prompt: string) {
   try {
     localPath = await getFileTempCachePath(url)
 
-    await Share.share({
+    await Share.open({
       message: prompt,
       url: localPath,
+      failOnCancel: false,
+      isNewTask: true,
     })
   } catch (error) {
     console.error('Error sharing image:', error)
