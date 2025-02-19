@@ -32,11 +32,10 @@
   },
   "screens": {
     "generation": {
-      "title": "Start Creating",
+      "title": "New Image",
       "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
       "styleLabel": "Choose Your Style:",
-      "surpriseButton": "Inspire",
       "startButton": "Start Magic",
       "promptValidationErrors": {
         "minLength": "The prompt must be at least {{min}} characters long",
@@ -51,6 +50,14 @@
       "modalGeneration": {
         "title": "Magic in Progress",
         "description": "This usually takes about 15 seconds..."
+      },
+      "enhance": {
+        "title": "Enhancer",
+        "dialog": {
+          "title": "Enhancer Mode",
+          "description": "When enabled, your prompt will be refined and expanded using AI to add more details, improving the quality and accuracy of the generated image. This helps create more vivid, detailed, and realistic results.",
+          "button": "OK"
+        }
       }
     },
     "settings": {
@@ -110,7 +117,7 @@
       }
     },
     "history": {
-      "title": "Art Works",
+      "title": "Generated Images",
       "empty": {
         "title": "Nothing Here Yet...",
         "description": "You haven't created any artwork yet. Start generating to see it appear here.",

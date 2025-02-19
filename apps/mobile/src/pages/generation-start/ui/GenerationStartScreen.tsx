@@ -9,6 +9,7 @@ import {
   View,
   ScrollView as SV,
   Platform,
+  TouchableOpacity,
 } from 'react-native'
 import {
   Appbar,
@@ -16,6 +17,10 @@ import {
   IconButton,
   Text,
   TextInput,
+  Switch,
+  useTheme,
+  Portal,
+  Dialog,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -38,7 +43,8 @@ import Animated, {
   SlideOutLeft,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
-import { GenerationEntityStatus } from 'entities/generation'
+import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
+import { twMerge } from 'tailwind-merge'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -59,7 +65,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             )
             .required(t('screens.generation.promptValidationErrors.required')),
           style: yup.string().max(100).nullable().default(null),
-          enhance: yup.boolean().default(false).required(),
+          enhance: yup.boolean().default(true).required(),
           width: yup.number().default(1280).required(),
           height: yup.number().default(1280).required(),
         })
@@ -85,25 +91,33 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     defaultValues: {
       prompt: '',
       style: null,
+      enhance: true,
+      width: 1280,
+      height: 1280,
     },
   })
 
+  const updateForm = useCallback(
+    (generation: GenerationEntity) => {
+      setValue('prompt', generation.prompt ?? '', { shouldValidate: true })
+      setValue('style', generation.style ?? null, { shouldValidate: true })
+      setValue('enhance', generation.enhance ?? true, { shouldValidate: true })
+      setValue('width', generation.width ?? 1280, { shouldValidate: true })
+      setValue('height', generation.height ?? 1280, { shouldValidate: true })
+    },
+    [setValue]
+  )
+
   useEffect(() => {
     if (curGen.state.isPending && curGen.state.result) {
-      setValue('prompt', curGen.state.result.prompt, { shouldValidate: true })
-      setValue('style', curGen.state.result.style, { shouldValidate: true })
+      updateForm(curGen.state.result)
     }
   }, [])
 
   useEffect(() => {
     if (generationFromNavigation) {
       curGen.setGeneration(generationFromNavigation)
-      setValue('prompt', generationFromNavigation.prompt, {
-        shouldValidate: true,
-      })
-      setValue('style', generationFromNavigation.style, {
-        shouldValidate: true,
-      })
+      updateForm(generationFromNavigation)
     }
   }, [generationFromNavigation])
 
@@ -222,6 +236,27 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           )}
           <Animated.View layout={LinearTransition.duration(300)}>
             <View className="justify-center pt-4">
+              <View className="flex-row justify-between items-center mb-3">
+                <Text variant="titleMedium">
+                  {t('screens.generation.inputLabel')}
+                </Text>
+                <Controller
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <View className="flex-row justify-between items-center">
+                      <EnhanceTitle />
+                      <Switch
+                        value={value}
+                        onValueChange={(newValue) => {
+                          onChange(newValue)
+                        }}
+                      />
+                    </View>
+                  )}
+                  name="enhance"
+                />
+              </View>
+
               <Controller
                 control={control}
                 render={({
@@ -234,28 +269,13 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
                   return (
                     <>
-                      <View className="flex-row justify-between items-center mb-3">
-                        <Text variant="titleMedium">
-                          {t('screens.generation.inputLabel')}
-                        </Text>
-                        <RandomButton
-                          disabled={isInputDisabled}
-                          onCreated={(prompt: string) => {
-                            Haptics.impactAsync(
-                              Haptics.ImpactFeedbackStyle.Light
-                            )
-                            onChange(prompt)
-                          }}
-                        />
-                      </View>
-
                       <View>
                         <TextInput
                           scrollEnabled={false}
                           disabled={isInputDisabled}
                           multiline
                           mode="flat"
-                          className="min-h-[120] pr-5"
+                          className="min-h-[120] pr-10"
                           placeholder={t('screens.generation.inputPlaceholder')}
                           onBlur={onBlur}
                           onChangeText={onChange}
@@ -271,6 +291,16 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                             size={20}
                           />
                         )}
+
+                        <RandomButton
+                          disabled={isInputDisabled}
+                          onCreated={(prompt: string) => {
+                            Haptics.impactAsync(
+                              Haptics.ImpactFeedbackStyle.Light
+                            )
+                            setValue('prompt', prompt, { shouldValidate: true })
+                          }}
+                        />
                       </View>
 
                       <View className="h-8">
@@ -344,6 +374,7 @@ function RandomButton(props: RandomButtonProps) {
   const [pending, setPending] = useState(false)
   const { t } = useTranslation()
   const { showSnackbar } = useSnackbar()
+  const { colors } = useTheme()
 
   const onPress = async () => {
     setPending(true)
@@ -369,16 +400,56 @@ function RandomButton(props: RandomButtonProps) {
   }
 
   return (
-    <Button
-      compact
+    <IconButton
+      className="absolute right-2 bottom-2"
       mode="outlined"
       icon="dice-multiple"
-      contentStyle="flex-row-reverse px-2"
+      size={20}
+      iconColor={colors.primary}
       onPress={onPress}
       loading={pending}
       disabled={pending || disabled}
-    >
-      {t('screens.generation.surpriseButton')}
-    </Button>
+    />
+  )
+}
+
+function EnhanceTitle() {
+  const { t } = useTranslation()
+  const [visible, setVisible] = useState(false)
+  const hideDialog = () => setVisible(false)
+
+  return (
+    <>
+      <TouchableOpacity
+        className="flex-row items-center"
+        onPress={() => setVisible(true)}
+      >
+        <IconButton className="-mx-[6]" icon="alert-circle-outline" size={16} />
+
+        <Text
+          variant="labelMedium"
+          className={twMerge(Platform.OS === 'ios' && 'mr-3')}
+        >
+          {t('screens.generation.enhance.title')}
+        </Text>
+      </TouchableOpacity>
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>
+            {t('screens.generation.enhance.dialog.title')}
+          </Dialog.Title>
+          <Dialog.Content>
+            <Text variant="bodyLarge">
+              {t('screens.generation.enhance.dialog.description')}
+            </Text>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog}>
+              {t('screens.generation.enhance.dialog.button')}
+            </Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    </>
   )
 }
