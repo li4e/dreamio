@@ -20,7 +20,6 @@ import {
   Switch,
   useTheme,
   Portal,
-  Dialog,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -45,6 +44,7 @@ import Animated, {
 import * as Haptics from 'expo-haptics'
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
 import { twMerge } from 'tailwind-merge'
+import { useDialog } from 'shared/ui/Dialog'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -415,15 +415,22 @@ function RandomButton(props: RandomButtonProps) {
 
 function EnhanceTitle() {
   const { t } = useTranslation()
-  const [visible, setVisible] = useState(false)
-  const hideDialog = () => setVisible(false)
+  const { showDialog } = useDialog()
+  const handlePress = () => {
+    showDialog({
+      title: t('screens.generation.enhance.dialog.title'),
+      content: t('screens.generation.enhance.dialog.description'),
+      renderActions: (dismiss) => (
+        <Button onPress={dismiss}>
+          {t('screens.generation.enhance.dialog.button')}
+        </Button>
+      ),
+    })
+  }
 
   return (
     <>
-      <TouchableOpacity
-        className="flex-row items-center"
-        onPress={() => setVisible(true)}
-      >
+      <TouchableOpacity className="flex-row items-center" onPress={handlePress}>
         <IconButton className="-mx-[6]" icon="alert-circle-outline" size={16} />
 
         <Text
@@ -433,23 +440,6 @@ function EnhanceTitle() {
           {t('screens.generation.enhance.title')}
         </Text>
       </TouchableOpacity>
-      <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog}>
-          <Dialog.Title>
-            {t('screens.generation.enhance.dialog.title')}
-          </Dialog.Title>
-          <Dialog.Content>
-            <Text variant="bodyLarge">
-              {t('screens.generation.enhance.dialog.description')}
-            </Text>
-          </Dialog.Content>
-          <Dialog.Actions>
-            <Button onPress={hideDialog}>
-              {t('screens.generation.enhance.dialog.button')}
-            </Button>
-          </Dialog.Actions>
-        </Dialog>
-      </Portal>
     </>
   )
 }

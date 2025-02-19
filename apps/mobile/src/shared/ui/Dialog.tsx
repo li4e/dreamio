@@ -45,7 +45,7 @@ export function DialogProvider({ children }: PropsWithChildren) {
           {dialog?.title && <Dialog.Title>{dialog.title}</Dialog.Title>}
           {dialog?.content && (
             <Dialog.Content>
-              <Text>{dialog.content}</Text>
+              <Text variant="bodyLarge">{dialog.content}</Text>
             </Dialog.Content>
           )}
           {dialog?.renderActions && (
