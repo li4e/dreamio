@@ -1,1 +1,1 @@
-— Opravena funkce sdílení
+— Vylepšili jsme výsledek při stisknutí tlačítka „Překvapte mě“.

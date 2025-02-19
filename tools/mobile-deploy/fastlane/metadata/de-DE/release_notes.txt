@@ -1,1 +1,1 @@
-— Fehler in der Freigabefunktion behoben
+— Verbesserte Ergebnisse beim Drücken des „Überrasch mich“-Buttons.

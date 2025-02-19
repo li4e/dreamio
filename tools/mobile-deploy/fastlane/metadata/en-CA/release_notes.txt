@@ -1,1 +1,1 @@
-— Fixed sharing functionality
+— Improved the outcome when tapping the "Surprise Me" button.

@@ -1,1 +1,1 @@
-— Naprawiono funkcję udostępniania
+Ulepszono efekt działania przycisku „Zaskocz mnie”.

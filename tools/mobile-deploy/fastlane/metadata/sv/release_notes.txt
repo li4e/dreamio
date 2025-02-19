@@ -1,1 +1,1 @@
-— Åtgärdad delningsfunktionalitet
+— Förbättrat resultat när du trycker på knappen "Överraska mig".

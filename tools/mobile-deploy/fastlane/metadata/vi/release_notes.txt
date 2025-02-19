@@ -1,1 +1,1 @@
-— Đã sửa lỗi chức năng chia sẻ
+— Đã cải thiện kết quả khi nhấn nút "Surprise Me".

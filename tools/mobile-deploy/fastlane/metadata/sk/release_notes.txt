@@ -1,1 +1,1 @@
-Opravená funkcia zdieľania
+— Vylepšený výsledok pri stlačení tlačidla „Surprise Me“.

@@ -1,1 +1,1 @@
-— Javítottuk a megosztási funkciót
+Javítottuk a „Meglepj!” gomb megnyomásakor elért eredményt.

@@ -1,1 +1,1 @@
-— Funcionalidad de compartir corregida
+— Se ha mejorado el resultado al pulsar el botón "Sorpréndeme".

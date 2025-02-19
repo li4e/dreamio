@@ -1,1 +1,1 @@
-— Fikset delingsfunksjonalitet
+— Forbedret resultatet ved å trykke på "Overrask meg"-knappen.

@@ -1,1 +1,1 @@
-— Paylaşım işlevselliği düzeltildi
+— "Surprise Me" düğmesine basıldığında ortaya çıkan sonuçları iyileştirdik.

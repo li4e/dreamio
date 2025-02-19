@@ -1,1 +1,1 @@
-— Risolta la funzionalità di condivisione
+Migliorato il risultato ottenuto premendo il pulsante "Surprise Me".

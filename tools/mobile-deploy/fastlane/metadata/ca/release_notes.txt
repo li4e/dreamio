@@ -1,1 +1,1 @@
-— Arreglada la funcionalitat de compartir
+— Millorat el resultat en prémer el botó “Surprise Me”.

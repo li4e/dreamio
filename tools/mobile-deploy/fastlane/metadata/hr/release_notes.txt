@@ -1,1 +1,1 @@
-— Ispravljena funkcionalnost dijeljenja
+— Poboljšan rezultat prilikom pritiska gumba „Iznenadi me“.

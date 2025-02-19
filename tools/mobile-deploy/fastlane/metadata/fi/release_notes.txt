@@ -1,1 +1,1 @@
-— Korjattu jakamisominaisuus
+Parannettu lopputulosta painettaessa "Ylläty minulle" -painiketta.
