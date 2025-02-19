@@ -1,1 +1,3 @@
-— Forbedret resultatet ved å trykke på "Overrask meg"-knappen.
+— Lagt til valg for sideforhold  
+— Lagt til en forsterkerveksler (tidligere alltid aktivert som standard)  
+— Fikset problem som forårsaket en tom skjerm etter generering av bilde

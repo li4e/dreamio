@@ -1,1 +1,3 @@
-Improved the outcome when tapping the "Surprise Me" button.
+— Added selection for aspect ratios  
+— Added an enhancer switcher (previously always enabled by default)  
+— Fixed issue causing a blank screen after generating an image

@@ -1,1 +1,3 @@
-— Verbeterde resultaten bij het indrukken van de knop "Surprise Me".
+— Selectie voor beeldverhoudingen toegevoegd  
+— Schakelaar voor versterker toegevoegd (voorheen altijd standaard ingeschakeld)  
+— Probleem opgelost dat een leeg scherm veroorzaakte na het genereren van een afbeelding

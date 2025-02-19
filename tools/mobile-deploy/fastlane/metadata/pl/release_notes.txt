@@ -1,1 +1,3 @@
-Ulepszono efekt działania przycisku „Zaskocz mnie”.
+— Dodano opcję wyboru proporcji
+— Dodano przełącznik dla funkcji ulepszania (wcześniej zawsze domyślnie włączona)
+— Naprawiono problem powodujący pojawienie się pustego ekranu po wygenerowaniu obrazu

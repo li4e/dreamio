@@ -1,1 +1,3 @@
-Parannettu lopputulosta painettaessa "Ylläty minulle" -painiketta.
+— Lisätty valinta kuvasuhteille  
+— Lisätty parannuskytkin (aiemmin aina oletuksena käytössä)  
+— Korjattu ongelma, joka aiheutti tyhjän ruudun kuvan luomisen jälkeen

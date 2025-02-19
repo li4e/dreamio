@@ -1,1 +1,3 @@
-Javítottuk a „Meglepj!” gomb megnyomásakor elért eredményt.
+— Arányválasztás hozzáadva  
+— Fejlesztőkapcsoló hozzáadva (korábban alapértelmezés szerint mindig engedélyezve volt)  
+— Javítva a probléma, amely üres képernyőt okozott kép generálása után

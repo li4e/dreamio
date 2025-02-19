@@ -1,1 +1,3 @@
-— Đã cải thiện kết quả khi nhấn nút "Surprise Me".
+- Đã thêm tùy chọn tỷ lệ khung hình  
+- Đã thêm công tắc bật/tắt tăng cường (trước đây mặc định luôn bật)  
+- Đã khắc phục sự cố gây ra màn hình trống sau khi tạo hình ảnh

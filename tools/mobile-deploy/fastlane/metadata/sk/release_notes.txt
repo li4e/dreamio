@@ -1,1 +1,3 @@
-— Vylepšený výsledok pri stlačení tlačidla „Surprise Me“.
+— Pridaný výber pre pomery strán  
+— Pridaný prepínač pre zosilňovač (predtým bol vždy predvolene zapnutý)  
+— Opravený problém spôsobujúci prázdnu obrazovku po vygenerovaní obrázka

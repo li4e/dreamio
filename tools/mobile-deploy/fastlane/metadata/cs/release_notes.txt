@@ -1,1 +1,3 @@
-— Vylepšili jsme výsledek při stisknutí tlačítka „Překvapte mě“.
+— Přidána možnost výběru poměru stran
+— Přidán přepínač pro vylepšovač (dříve vždy povolen ve výchozím nastavení)
+— Opraven problém způsobující prázdnou obrazovku po generování obrázku

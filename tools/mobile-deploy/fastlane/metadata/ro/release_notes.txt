@@ -1,1 +1,3 @@
-— Am îmbunătățit rezultatul la apăsarea butonului „Surprise Me”.
+— S-a adăugat selecția pentru rapoartele de aspect
+— S-a adăugat un comutator pentru îmbunătățiri (anterior era mereu activat implicit)
+— S-a remediat problema care cauza afișarea unui ecran gol după generarea imaginii

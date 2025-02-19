@@ -1,1 +1,3 @@
-— Poboljšan rezultat prilikom pritiska gumba „Iznenadi me“.
+— Dodana opcija za odabir omjera stranica  
+— Dodan prekidač za poboljšanje (ranije uvijek bio omogućen prema zadanim postavkama)  
+— Ispravljen problem koji je uzrokovao prazan zaslon nakon generiranja slike

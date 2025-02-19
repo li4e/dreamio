@@ -1,1 +1,3 @@
-Migliorato il risultato ottenuto premendo il pulsante "Surprise Me".
+— Aggiunta la selezione per i rapporti di aspetto  
+— Aggiunto un selettore per l'ottimizzatore (in precedenza sempre abilitato di default)  
+— Risolto problema che causava uno schermo vuoto dopo la generazione dell'immagine

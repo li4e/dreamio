@@ -1,1 +1,3 @@
-— "Surprise Me" düğmesine basıldığında ortaya çıkan sonuçları iyileştirdik.
+- En-boy oranları seçeneği eklendi
+- Geliştirici değiştirici eklendi (önceden varsayılan olarak her zaman etkinleştirilmişti)
+- Görüntü oluşturduktan sonra boş ekran sorununu giderildi

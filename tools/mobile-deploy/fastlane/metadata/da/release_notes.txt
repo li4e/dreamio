@@ -1,1 +1,3 @@
-— Forbedret resultat, når du trykker på "Overrask mig"-knappen.
+— Tilføjet valg for billedformater
+— Tilføjet en forstærker-skifter (tidligere altid aktiveret som standard)
+— Rettet problem, der forårsagede en blank skærm efter billedgenerering

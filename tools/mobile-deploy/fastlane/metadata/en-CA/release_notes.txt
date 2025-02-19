@@ -1,1 +1,3 @@
-— Improved the outcome when tapping the "Surprise Me" button.
+- Ajout de la sélection des rapports d'aspect
+- Ajout d'un sélecteur d'améliorateur (précédemment toujours activé par défaut)
+- Correction d'un problème causant un écran blanc après la génération d'image

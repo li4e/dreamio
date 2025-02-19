@@ -1,1 +1,3 @@
-— Mejoró el resultado al presionar el botón "Sorpréndeme".
+— Se agregó la selección de relaciones de aspecto  
+— Se añadió un conmutador de mejorador (anteriormente siempre estaba habilitado por defecto)  
+— Se corrigió un problema que causaba una pantalla en blanco después de generar una imagen

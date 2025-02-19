@@ -1,1 +1,3 @@
-Melhorámos o resultado ao pressionar o botão "Surpreenda-me".
+— Adicionada seleção para proporções de aspeto  
+— Adicionado um alternador de melhoramento (anteriormente sempre ativado por padrão)  
+— Resolvido problema que causava um ecrã em branco após gerar imagem

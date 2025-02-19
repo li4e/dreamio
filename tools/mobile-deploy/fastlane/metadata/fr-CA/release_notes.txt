@@ -1,1 +1,3 @@
-— Amélioration du résultat lors de l'appui sur le bouton « Surprends-moi ».
+— Ajout de la sélection des rapports d'aspect  
+— Ajout d'un sélecteur d'améliorateurs (auparavant toujours activé par défaut)  
+— Correction d'un problème causant un écran vide après la génération de l'image

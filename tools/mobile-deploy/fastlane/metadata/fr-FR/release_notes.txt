@@ -1,1 +1,3 @@
-— Amélioration du résultat lors de l'appui sur le bouton « Surprenez-moi ».
+— Ajout de la sélection des formats d'image  
+— Ajout d'un commutateur d'amélioration (auparavant toujours activé par défaut)  
+— Correction d'un problème provoquant un écran vide après la génération d'image
