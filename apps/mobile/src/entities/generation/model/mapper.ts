@@ -24,6 +24,9 @@ export function mapGenerationDtoToEntity(
     status: statusMapping[generation.status],
     createdAt: convertDateToTimestamp(generation.createdAt),
     updatedAt: convertDateToTimestamp(generation.updatedAt),
+    enhance: generation.enhance,
+    width: generation.width,
+    height: generation.height,
     images: generation.images
       ? mapImages(generation.images).map((image) => image.url)
       : [],
@@ -36,6 +39,9 @@ export function mapCreateGenerationRequestToDto(
   return {
     prompt: request.prompt,
     style: request.style ?? undefined,
+    width: request.width,
+    height: request.height,
+    enhance: request.enhance,
   }
 }
 

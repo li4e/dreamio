@@ -19,7 +19,7 @@ import {
   TextInput,
   Switch,
   useTheme,
-  Portal,
+  SegmentedButtons,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -45,6 +45,10 @@ import * as Haptics from 'expo-haptics'
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
 import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
+import {
+  AspectRatio,
+  getAspectRatioFromSize,
+} from 'shared/ui/AspectedRatioView'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -66,8 +70,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             .required(t('screens.generation.promptValidationErrors.required')),
           style: yup.string().max(100).nullable().default(null),
           enhance: yup.boolean().default(true).required(),
-          width: yup.number().default(1280).required(),
-          height: yup.number().default(1280).required(),
+          aspectRatio: yup.string().default('1').required(),
         })
         .required(),
     [t]
@@ -92,8 +95,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       prompt: '',
       style: null,
       enhance: true,
-      width: 1280,
-      height: 1280,
+      aspectRatio: '1',
     },
   })
 
@@ -102,8 +104,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       setValue('prompt', generation.prompt ?? '', { shouldValidate: true })
       setValue('style', generation.style ?? null, { shouldValidate: true })
       setValue('enhance', generation.enhance ?? true, { shouldValidate: true })
-      setValue('width', generation.width ?? 1280, { shouldValidate: true })
-      setValue('height', generation.height ?? 1280, { shouldValidate: true })
+      setValue('aspectRatio', getAspectRatioFromSize(generation), {
+        shouldValidate: true,
+      })
     },
     [setValue]
   )
@@ -133,11 +136,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       prompt: string
       style: string | null
       enhance: boolean
-      width: number
-      height: number
+      aspectRatio: string
     }) => {
+      const { aspectRatio, ...rest } = form
       Keyboard.dismiss()
-      curGen.submit(form)
+      curGen.submit({ ...rest, ...getSizeFromAspectRatio(aspectRatio) })
     },
     [curGen]
   )
@@ -219,6 +222,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                       source={resultImage}
                       className="flex-1"
                       transition={300}
+                      contentFit="contain"
+                      contentPosition="center"
                     />
                   </Animated.View>
                 ) : modalState ? (
@@ -234,8 +239,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               </View>
             </View>
           )}
-          <Animated.View layout={LinearTransition.duration(300)}>
-            <View className="justify-center pt-4">
+          <Animated.View
+            layout={LinearTransition.duration(300)}
+            className="flex-grow justify-between pt-4"
+          >
+            <View className="justify-center mb-5">
               <View className="flex-row justify-between items-center mb-3">
                 <Text variant="titleMedium">
                   {t('screens.generation.inputLabel')}
@@ -245,12 +253,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   render={({ field: { onChange, value } }) => (
                     <View className="flex-row justify-between items-center">
                       <EnhanceTitle />
-                      <Switch
-                        value={value}
-                        onValueChange={(newValue) => {
-                          onChange(newValue)
-                        }}
-                      />
+                      <Switch value={value} onValueChange={onChange} />
                     </View>
                   )}
                   name="enhance"
@@ -314,7 +317,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 name="prompt"
               />
             </View>
-            <View className="-mx-5 flex-grow justify-center">
+            <View className="-mx-5 justify-center mb-5">
               <Controller
                 control={control}
                 name="style"
@@ -327,6 +330,30 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     }
                   />
                 )}
+              />
+            </View>
+            <View>
+              <Controller
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <SegmentedButtons
+                    value={value}
+                    onValueChange={onChange}
+                    buttons={[
+                      {
+                        value: AspectRatio.square,
+                        label: '1:1',
+                      },
+                      {
+                        value: AspectRatio.widescreen,
+                        label: '16:9',
+                      },
+                      { value: AspectRatio.classic, label: '4:3' },
+                      { value: AspectRatio.vertical, label: '9:16' },
+                    ]}
+                  />
+                )}
+                name="aspectRatio"
               />
             </View>
           </Animated.View>
@@ -442,4 +469,22 @@ function EnhanceTitle() {
       </TouchableOpacity>
     </>
   )
+}
+
+function getSizeFromAspectRatio(
+  ratio: string,
+  maxSize: number = 1280
+): { width: number; height: number } {
+  switch (ratio) {
+    case AspectRatio.square:
+      return { width: maxSize, height: maxSize }
+    case AspectRatio.widescreen:
+      return { width: maxSize, height: Math.round((maxSize * 9) / 16) } // 16:9
+    case AspectRatio.classic:
+      return { width: maxSize, height: Math.round((maxSize * 3) / 4) } // 4:3
+    case AspectRatio.vertical:
+      return { width: Math.round((maxSize * 9) / 16), height: maxSize } // 9:16
+    default:
+      return { width: maxSize, height: maxSize } // Default fallback
+  }
 }

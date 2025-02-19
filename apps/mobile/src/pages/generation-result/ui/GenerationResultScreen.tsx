@@ -26,6 +26,8 @@ import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
+import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
+import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
 
@@ -57,10 +59,9 @@ export function GenerationResultScreen(
               paddingBottom: insets.bottom + 70,
             }}
           >
-            <CachedImage
-              source={generation.images[0]}
-              className="w-full aspect-square"
-            />
+            <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
+              <CachedImage source={generation.images[0]} className="flex-1" />
+            </AspectedRatioView>
             <View className="flex-grow">
               <View className="flex-row items-center justify-between p-5">
                 <View className="flex-row items-center">
