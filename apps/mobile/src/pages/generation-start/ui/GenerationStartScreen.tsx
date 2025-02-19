@@ -46,6 +46,7 @@ import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
 import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
 import {
+  AspectedRatioView,
   AspectRatio,
   getAspectRatioFromSize,
 } from 'shared/ui/AspectedRatioView'
@@ -156,6 +157,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     setValue('prompt', '', { shouldValidate: true })
   }, [])
 
+  const { colors } = useTheme()
+
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -212,7 +215,13 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
         >
           {curGen.state.result && (
             <View className="-mx-5">
-              <View className="w-full aspect-square">
+              <AspectedRatioView
+                ratio={
+                  resultImage && curGen.state.result
+                    ? getAspectRatioFromSize(curGen.state.result)
+                    : AspectRatio.square
+                }
+              >
                 {resultImage ? (
                   <Animated.View
                     key="image_result"
@@ -224,6 +233,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                       transition={300}
                       contentFit="contain"
                       contentPosition="center"
+                      style={{ backgroundColor: colors.backdrop }}
                     />
                   </Animated.View>
                 ) : modalState ? (
@@ -236,7 +246,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     <StateContent variant={modalState} />
                   </Animated.View>
                 ) : null}
-              </View>
+              </AspectedRatioView>
             </View>
           )}
           <Animated.View
@@ -253,7 +263,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   render={({ field: { onChange, value } }) => (
                     <View className="flex-row justify-between items-center">
                       <EnhanceTitle />
-                      <Switch value={value} onValueChange={onChange} />
+                      <Switch
+                        value={value}
+                        onValueChange={onChange}
+                        disabled={isInputDisabled}
+                      />
                     </View>
                   )}
                   name="enhance"
@@ -335,6 +349,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             <View>
               <Controller
                 control={control}
+                disabled={isInputDisabled}
                 render={({ field: { onChange, value } }) => (
                   <SegmentedButtons
                     value={value}
@@ -348,6 +363,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                         value: AspectRatio.widescreen,
                         label: '16:9',
                       },
+                      { value: AspectRatio.portrait, label: '3:4' },
                       { value: AspectRatio.classic, label: '4:3' },
                       { value: AspectRatio.vertical, label: '9:16' },
                     ]}
@@ -482,6 +498,8 @@ function getSizeFromAspectRatio(
       return { width: maxSize, height: Math.round((maxSize * 9) / 16) } // 16:9
     case AspectRatio.classic:
       return { width: maxSize, height: Math.round((maxSize * 3) / 4) } // 4:3
+    case AspectRatio.portrait:
+      return { width: maxSize, height: Math.round((maxSize * 4) / 3) } // 3:4
     case AspectRatio.vertical:
       return { width: Math.round((maxSize * 9) / 16), height: maxSize } // 9:16
     default:

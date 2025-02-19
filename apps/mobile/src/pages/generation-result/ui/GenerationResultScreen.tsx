@@ -60,7 +60,13 @@ export function GenerationResultScreen(
             }}
           >
             <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
-              <CachedImage source={generation.images[0]} className="flex-1" />
+              <CachedImage
+                source={generation.images[0]}
+                className="flex-1"
+                contentFit="contain"
+                contentPosition="center"
+                style={{ backgroundColor: colors.backdrop }}
+              />
             </AspectedRatioView>
             <View className="flex-grow">
               <View className="flex-row items-center justify-between p-5">
