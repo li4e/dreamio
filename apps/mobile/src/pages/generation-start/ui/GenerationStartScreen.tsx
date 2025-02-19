@@ -364,7 +364,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                         label: '16:9',
                       },
                       { value: AspectRatio.portrait, label: '3:4' },
-                      { value: AspectRatio.classic, label: '4:3' },
+                      // { value: AspectRatio.classic, label: '4:3' },
                       { value: AspectRatio.vertical, label: '9:16' },
                     ]}
                   />
