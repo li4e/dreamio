@@ -1,5 +1,1 @@
-— Mengintegrasikan layanan terjemahan prompt baru untuk meningkatkan hasil generasi pada bahasa non-Inggris.  
-— Mengoptimalkan layar "Riwayat": generasi kini dimuat secara bertahap, bukan sekaligus, sehingga meningkatkan kinerja.  
-— Meningkatkan caching gambar untuk pengalaman yang lebih lancar.  
-— Meningkatkan fungsionalitas berbagi: gambar yang dibagikan kini menyertakan teks prompt demi pengalaman pengguna yang lebih baik.  
-— Berbagai perbaikan bug kecil dan peningkatan.
+— Fungsi berbagi telah diperbaiki

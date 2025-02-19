@@ -1,5 +1,1 @@
-— Neuer Prompt-Übersetzungsdienst integriert, um die Generierungsergebnisse für nicht-englische Sprachen zu verbessern.  
-— Optimierter „Verlauf“-Bildschirm: Generierungen werden nun schrittweise geladen statt auf einmal, was die Leistung erhöht.  
-— Verbesserte Bildzwischenspeicherung für ein reibungsloseres Erlebnis.  
-— Optimierte Freigabefunktion: Geteilte Bilder enthalten jetzt den Prompt-Text für eine bessere Benutzererfahrung.  
-— Verschiedene kleinere Fehlerbehebungen und Verbesserungen.
+— Fehler in der Freigabefunktion behoben

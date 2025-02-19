@@ -1,5 +1,1 @@
-— Integrámos um novo serviço de tradução de prompts para melhorar os resultados de geração em idiomas que não sejam o inglês.  
-— Otimizámos o ecrã "Histórico": as gerações carregam-se de forma progressiva, em vez de serem carregadas todas de uma vez, melhorando assim o desempenho.  
-— Aperfeiçoámos a memória cache de imagens para oferecer uma experiência mais fluida.  
-— Reforçámos a funcionalidade de partilha: as imagens partilhadas incluem agora o texto do prompt, proporcionando uma melhor experiência de utilizador.  
-— Correções de pequenos erros e diversas melhorias.
+— Funcionalidade de partilha corrigida

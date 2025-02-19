@@ -1,5 +1,1 @@
-— Telah mengintegrasikan perkhidmatan penterjemahan prompt baru untuk meningkatkan hasil penjanaan bagi bahasa bukan Inggeris.  
-— Mengoptimumkan skrin "History": penjanaan kini dimuatkan secara berperingkat daripada sekaligus, meningkatkan prestasi.  
-— Membaiki pengekalan imej untuk pengalaman yang lebih lancar.  
-— Mempertingkat fungsi perkongsian: imej yang dikongsi kini menyertakan teks prompt untuk pengalaman pengguna yang lebih baik.  
-— Pelbagai pembaikan pepijat kecil dan peningkatan.
+— Diperbaiki fungsi perkongsian

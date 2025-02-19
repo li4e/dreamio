@@ -1,5 +1,1 @@
-— Intégré un nouveau service de traduction d'invites pour améliorer les résultats de génération dans les langues non anglophones.  
-— Optimisé l'écran « Historique » : les générations se chargent désormais de manière progressive au lieu de tout charger simultanément, améliorant ainsi les performances.  
-— Amélioration de la mise en cache des images pour une expérience plus fluide.  
-— Renforcée la fonctionnalité de partage : les images partagées incluent maintenant le texte de l'invite pour une expérience utilisateur optimisée.  
-— Divers correctifs mineurs et améliorations.
+— Correction de la fonctionnalité de partage

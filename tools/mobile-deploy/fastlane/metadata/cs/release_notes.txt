@@ -1,5 +1,1 @@
-— Integrovali jsme novou službu pro překlad promptů, která zlepšuje výsledky generování v neanglických jazycích.  
-— Optimalizovali jsme obrazovku „Historie“: výsledky generování se nyní načítají postupně místo najednou, což zvyšuje výkon.  
-— Zlepšili jsme ukládání obrázků do mezipaměti pro plynulejší zážitek.  
-— Vylepšili jsme funkci sdílení: sdílené obrázky nyní obsahují text promptu pro lepší uživatelský komfort.  
-— Řada menších oprav chyb a vylepšení.
+— Opravena funkce sdílení

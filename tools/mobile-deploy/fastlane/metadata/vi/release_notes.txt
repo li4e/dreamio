@@ -1,5 +1,1 @@
-— Đã tích hợp dịch vụ dịch lời nhắc mới nhằm cải thiện kết quả tạo nội dung cho các ngôn ngữ không phải tiếng Anh.  
-— Đã tối ưu hóa màn hình "Lịch sử": các kết quả tạo nội dung giờ tải dần thay vì tải cùng lúc, giúp tăng hiệu suất.  
-— Cải thiện bộ nhớ đệm hình ảnh để mang lại trải nghiệm mượt mà hơn.  
-— Nâng cao chức năng chia sẻ: hình ảnh được chia sẻ giờ đây bao gồm cả văn bản lời nhắc, cải thiện trải nghiệm người dùng.  
-— Khắc phục một số lỗi nhỏ và thực hiện nhiều cải tiến khác.
+— Đã sửa lỗi chức năng chia sẻ

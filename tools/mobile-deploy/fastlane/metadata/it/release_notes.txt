@@ -1,5 +1,1 @@
-— Integrato un nuovo servizio di traduzione dei prompt per migliorare i risultati delle generazioni nelle lingue non inglesi.  
-— Ottimizzata la schermata "Cronologia": le generazioni ora vengono caricate progressivamente anziché tutte in una volta, migliorando le prestazioni.  
-— Migliorata la cache delle immagini per un'esperienza più fluida.  
-— Potenziata la funzionalità di condivisione: le immagini condivise ora includono il testo del prompt per un'esperienza utente migliore.  
-— Varie correzioni di bug minori e altri miglioramenti.
+— Risolta la funzionalità di condivisione

@@ -1,5 +1,1 @@
-— Integreret en ny promptoversættelsestjeneste for at forbedre genereringsresultaterne for ikke-engelske sprog.  
-— Optimeret "Historik"-skærmen: Genereringer indlæses nu løbende i stedet for alt på én gang, hvilket forbedrer ydeevnen.  
-— Forbedret billedcache for en glattere oplevelse.  
-— Forbedret delefunktionalitet: Delte billeder inkluderer nu promptteksten for en bedre brugeroplevelse.  
-— Diverse mindre fejlrettelser og forbedringer.
+— Rettet delingsfunktionalitet

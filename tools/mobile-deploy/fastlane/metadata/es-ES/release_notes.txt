@@ -1,5 +1,1 @@
-— Se ha integrado un nuevo servicio de traducción de indicaciones para mejorar los resultados de generación en idiomas distintos al inglés.  
-— Se ha optimizado la pantalla de "Historial": las generaciones ahora se cargan de forma progresiva en lugar de hacerlo todas a la vez, lo que mejora el rendimiento.  
-— Se ha mejorado la caché de imágenes para ofrecer una experiencia más fluida.  
-— Se ha potenciado la funcionalidad de compartir: las imágenes compartidas ahora incluyen el texto de la indicación para brindar una mejor experiencia al usuario.  
-— Se han corregido varios errores menores y se han implementado mejoras.
+— Funcionalidad de compartir corregida

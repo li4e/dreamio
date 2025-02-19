@@ -1,5 +1,1 @@
-— Am integrat un nou serviciu de traducere a prompturilor pentru a îmbunătăți rezultatele generațiilor în limbile non-engleze.  
-— Am optimizat ecranul "Istoric": generațiile se încarcă acum progresiv, în loc de toate deodată, sporind performanța.  
-— Am îmbunătățit stocarea în cache a imaginilor pentru o experiență mai fluidă.  
-— Am optimizat funcționalitatea de partajare: imaginile partajate includ acum și textul promptului pentru o experiență de utilizare îmbunătățită.  
-— Diverse corecții minore de erori și alte îmbunătățiri.
+— Funcționalitatea de partajare a fost remediată

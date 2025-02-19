@@ -1,5 +1,1 @@
-— Integroitu uusi kehotetekstien käännöspalvelu, joka parantaa generointituloksia muilla kielillä.  
-— Optimoitu "Historia"-näkymä: generoinnit latautuvat nyt progressiivisesti kerralla sijaan, mikä parantaa suorituskykyä.  
-— Parannettu kuvien välimuistitus sujuvampaa käyttökokemusta varten.  
-— Kehitetty jako-ominaisuutta siten, että jaettavat kuvat sisältävät nyt myös kehotetekstin, mikä parantaa käyttäjäkokemusta.  
-— Useita pieniä bugikorjauksia ja yleisiä parannuksia.
+— Korjattu jakamisominaisuus

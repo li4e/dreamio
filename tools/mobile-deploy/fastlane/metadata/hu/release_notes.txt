@@ -1,5 +1,1 @@
-— Integráltuk az új prompt fordítási szolgáltatást, amely javítja a generálási eredményeket nem angol nyelvű tartalmak esetén.  
-— Optimalizáltuk az „Előzmények” képernyőt: a generálások most fokozatosan töltődnek be, nem egyszerre, ezáltal javítva a teljesítményt.  
-— Fejlesztettük a kép gyorsítótárazását a gördülékenyebb élmény érdekében.  
-— Továbbfejlesztettük a megosztási funkciót: a megosztott képek mostantól tartalmazzák a prompt szövegét is a jobb felhasználói élmény érdekében.  
-— Kisebb hibajavítások és általános fejlesztések.
+— Javítottuk a megosztási funkciót

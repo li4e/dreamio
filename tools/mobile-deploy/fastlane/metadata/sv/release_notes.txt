@@ -1,5 +1,1 @@
-— Integrerat en ny översättningstjänst för promptar för att förbättra genereringsresultaten för icke-engelska språk.  
-— Optimerat skärmen "Historik": genereringar laddas nu stegvis istället för all på en gång, vilket förbättrar prestandan.  
-— Förbättrad bildcache för en smidigare upplevelse.  
-— Förbättrad delningsfunktion: delade bilder inkluderar nu prompttexten för en bättre användarupplevelse.  
-— Flera mindre buggfixar och förbättringar.
+— Åtgärdad delningsfunktionalitet

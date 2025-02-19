@@ -1,5 +1,1 @@
-— Integrated a new prompt translation service to improve generation results for non-English languages.  
-— Optimised the "History" screen: generations now load progressively instead of all at once, enhancing performance.  
-— Improved image caching for a smoother experience.  
-— Enhanced sharing functionality: shared images now include the prompt text for a better user experience.  
-— Various minor bug fixes and improvements.
+— Fixed sharing functionality
