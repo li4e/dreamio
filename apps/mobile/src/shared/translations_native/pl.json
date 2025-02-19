@@ -1,4 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "Czy chciałbyś otrzymywać powiadomienia, aby być na bieżąco z nowymi postami, polubieniami, komentarzami i kiedy twoje dzieła są gotowe?",
-  "NSPhotoLibraryAddUsageDescription": "Zezwól aplikacji na zapisanie zdjęć w Twojej galerii."
+  "NSUserNotificationsUsageDescription": "Czy chcesz otrzymywać powiadomienia, aby być na bieżąco z nowymi postami, polubieniami, komentarzami oraz gdy Twoje dzieła będą gotowe?",
+  "NSPhotoLibraryAddUsageDescription": "Zezwól aplikacji na zapisywanie zdjęć do Twojej galerii."
 }

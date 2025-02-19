@@ -1,4 +1,4 @@
 {
-  "NSUserNotificationsUsageDescription": "هل ترغب في تلقي إشعارات للبقاء على اطلاع بالمشاركات الجديدة، والإعجابات، والتعليقات، وعندما تكون إبداعاتك جاهزة؟",
-  "NSPhotoLibraryAddUsageDescription": "اسمح للتطبيق بحفظ الصور في المعرض الخاص بك."
+  "NSUserNotificationsUsageDescription": "هل ترغب في تلقي إشعارات للبقاء على اطلاع على المشاركات الجديدة، والإعجابات، والتعليقات، وعندما تكون إبداعاتك جاهزة؟",
+  "NSPhotoLibraryAddUsageDescription": "السماح للتطبيق بحفظ الصور في معرض الصور الخاص بك."
 }
