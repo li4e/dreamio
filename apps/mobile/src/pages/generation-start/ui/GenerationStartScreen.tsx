@@ -70,7 +70,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             .required(t('screens.generation.promptValidationErrors.required')),
           style: yup.string().max(100).nullable().default(null),
           enhance: yup.boolean().default(true).required(),
-          aspectRatio: yup.string().default('1').required(),
+          aspectRatio: yup.string().default(AspectRatio.square).required(),
         })
         .required(),
     [t]
@@ -95,7 +95,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       prompt: '',
       style: null,
       enhance: true,
-      aspectRatio: '1',
+      aspectRatio: AspectRatio.square,
     },
   })
 
