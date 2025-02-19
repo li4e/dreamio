@@ -60,7 +60,10 @@ export class Api {
     const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=${generation.enhance}&safe=${withCensorship}&seed=${seed}&width=${generation.width}&height=${generation.height}`
 
     try {
-      await Image.prefetch(imageUrl)
+      const prefetched = await Image.prefetch(imageUrl)
+      if (!prefetched) {
+        throw new Error('Error happened during image prefetching')
+      }
 
       generation.status = GenerationStatusDTO.Completed
       generation.updatedAt = new Date().toString()
