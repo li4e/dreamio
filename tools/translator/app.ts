@@ -52,12 +52,13 @@ async function saveHashes(
 async function translateText(
   text: string,
   destLang: string,
-  sourceLang: string
+  sourceLang: string,
+  translationKey: string
 ) {
-  const prompt = `You are a translation assistant specialized in application localization. Translate the following text from ${sourceLang} to ${destLang}, preserving the meaning and ensuring clarity. Do not translate or modify placeholder variables enclosed in curly braces (e.g., {{variableName}}). Maintain professional tone and accuracy in the translation.`
+  const prompt = `You are a translation assistant specialized in application localization. Translate the following text from ${sourceLang} to ${destLang}, preserving the meaning and ensuring clarity. The translation should fit the context defined by the following key: "${translationKey}". Do not translate or modify placeholder variables enclosed in curly braces (e.g., {{variableName}}). Maintain a professional tone and ensure accuracy in the translation.`
 
   const params: OpenAI.Chat.ChatCompletionCreateParams = {
-    model: 'o3-mini',
+    model: 'gpt-4o',
     messages: [
       {
         role: 'system',
@@ -132,7 +133,12 @@ async function translateAppByLocale(
         const content = value
         console.log(`Translating key: ${destLang} - ${key}`)
 
-        const translation = await translateText(content, destLang, sourceLang)
+        const translation = await translateText(
+          content,
+          destLang,
+          sourceLang,
+          key
+        )
         const currentTranslationFile = await loadTranslation(outputFile)
         currentTranslationFile[key] = translation
         await saveTranslation(outputFile, currentTranslationFile)

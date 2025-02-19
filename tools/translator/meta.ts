@@ -66,7 +66,7 @@ async function translateTextWithLengthLimit(
   }
 
   const params: OpenAI.Chat.ChatCompletionCreateParams = {
-    model: 'o3-mini',
+    model: 'gpt-4o',
     messages: [
       {
         role: 'system',
