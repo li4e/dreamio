@@ -8,7 +8,7 @@ class Api {
     const userLang = i18n.language
     const seed = Math.trunc(Math.random() * 1000000000000)
 
-    const prompt = `Generate an image prompt featuring topics, epochs, landscapes, seasons, dynamic lighting, moods, lore elements, characters, and actions inspired by the culture and themes of "${i18n.language}" speakers. Keep it concise within 200 characters.`
+    const prompt = `Generate an image prompt featuring topics, epochs, landscapes, seasons, dynamic lighting, moods, lore elements, characters, and actions inspired by the culture and themes of "${i18n.language}" language code speakers, without mentioning it. Keep it concise within 200 characters.`
 
     const generatedPrompt = await axios
       .get(
