@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { View, StyleSheet, useWindowDimensions } from 'react-native'
+import { View, StyleSheet, useWindowDimensions, Platform } from 'react-native'
 import {
   ActivityIndicator,
   Button,
@@ -74,10 +74,8 @@ export function HistoryScreen() {
         />
       )}
       <BlurView
-        blurReductionFactor={10}
-        intensity={50}
+        intensity={Platform.OS === 'ios' ? 50 : 100}
         tint={dark ? 'dark' : 'light'}
-        experimentalBlurMethod="dimezisBlurView"
         style={{ height: top }}
         className="absolute left-0 top-0 right-0"
       />
