@@ -100,7 +100,7 @@ export function GenerationResultScreen(
                   </View>
                 </View>
                 <View
-                  className="py-5 px-5 rounded-sm pr-10"
+                  className="py-5 px-5 rounded-lg pr-10 min-h-[100]"
                   style={{ backgroundColor: colors.inverseOnSurface }}
                 >
                   <Text>{generation.prompt}</Text>
