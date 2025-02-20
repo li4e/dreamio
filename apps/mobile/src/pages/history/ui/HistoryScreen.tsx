@@ -73,12 +73,14 @@ export function HistoryScreen() {
           onEndReachedThreshold={0.1}
         />
       )}
-      <BlurView
-        intensity={Platform.OS === 'ios' ? 50 : 100}
-        tint={dark ? 'dark' : 'light'}
-        style={{ height: top }}
-        className="absolute left-0 top-0 right-0"
-      />
+      {history.length > 2 && (
+        <BlurView
+          intensity={Platform.OS === 'ios' ? 50 : 100}
+          tint={dark ? 'dark' : 'light'}
+          style={{ height: top }}
+          className="absolute left-0 top-0 right-0"
+        />
+      )}
     </View>
   )
 }
