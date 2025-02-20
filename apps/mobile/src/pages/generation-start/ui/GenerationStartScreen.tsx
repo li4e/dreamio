@@ -254,7 +254,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             className="flex-grow justify-between pt-4"
           >
             <View className="justify-center mb-5">
-              <View className="flex-row justify-between items-center mb-3">
+              <View className="flex-row justify-between items-center mb-1">
                 <Text variant="titleMedium">
                   {t('screens.generation.inputLabel')}
                 </Text>
