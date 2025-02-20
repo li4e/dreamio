@@ -1,6 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
 import * as Clipboard from 'expo-clipboard'
-import { useState } from 'react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { View, ScrollView, Platform } from 'react-native'
@@ -8,7 +7,6 @@ import {
   Appbar,
   Chip,
   Divider,
-  Menu,
   Text,
   TextInput,
   useTheme,
@@ -41,7 +39,7 @@ export function GenerationResultScreen(
   const insets = useSafeAreaInsets()
   const onDelete = useGenDelete(generation)
   const onCopy = useOnCopy(generation)
-  const onSaveImage = useOnSaveImage()
+  const onRework = useOnRework(generation)
 
   return (
     <View className="flex-1">
@@ -88,10 +86,27 @@ export function GenerationResultScreen(
               </View>
               <Divider className="w-full mb-5" />
               <View className="px-5">
-                <Text variant="titleMedium" className="mb-3">
-                  {t('screens.generationResult.promptLabel')}
-                </Text>
+                <View className="flex-row items-center justify-between mb-1">
+                  <Text variant="titleMedium" className="mb-3">
+                    {t('screens.generationResult.promptLabel')}
+                  </Text>
+                  <View className="flex-row items-center">
+                    <Text variant="labelMedium" className="mr-2">
+                      {t('screens.generationResult.enhancer')}
+                    </Text>
+                    <MaterialCommunityIcons
+                      size={20}
+                      name={
+                        generation.enhance
+                          ? 'checkbox-marked-circle'
+                          : 'checkbox-blank-circle-outline'
+                      }
+                      color={colors.primary}
+                    />
+                  </View>
+                </View>
                 <TextInput
+                  scrollEnabled={false}
                   editable={false}
                   mode="flat"
                   multiline
@@ -105,21 +120,17 @@ export function GenerationResultScreen(
             className="absolute left-0 bottom-0 right-0 flex-row justify-between px-5"
             style={{ paddingBottom: insets.bottom + 16 }}
           >
+            <Button mode="contained-tonal" icon="brush" onPress={onRework}>
+              {t('screens.generationResult.reworkButton')}
+            </Button>
             <Button
-              mode="contained-tonal"
+              mode="contained"
               icon="share-variant"
               onPress={() =>
                 shareImage(generation.images[0], generation.prompt)
               }
             >
               {t('screens.generationResult.shareButton')}
-            </Button>
-            <Button
-              mode="contained"
-              icon="download"
-              onPress={() => onSaveImage(generation.images[0])}
-            >
-              {t('screens.generationResult.saveButton')}
             </Button>
           </View>
         </>
@@ -141,48 +152,18 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
   const { onCopyPress, onDeletePress, generation } = props
   const { goBack } = useNavigation()
-  const { t } = useTranslation()
-  const [visible, setVisible] = useState(false)
-  const openMenu = () => setVisible(true)
-  const closeMenu = () => setVisible(false)
-  const onRework = useOnRework(generation)
+  const onSaveImage = useOnSaveImage()
 
   return (
     <Appbar.Header className="bg-transparent">
       <Appbar.BackAction onPress={goBack} />
-      <Appbar.Content title={t('screens.generationResult.title')} />
-      <Menu
-        anchorPosition="bottom"
-        visible={visible}
-        onDismiss={closeMenu}
-        anchor={<Appbar.Action icon={MORE_ICON} onPress={() => openMenu()} />}
-      >
-        <Menu.Item
-          leadingIcon="brush"
-          onPress={() => {
-            closeMenu()
-            onRework()
-          }}
-          title={t('screens.generationResult.reworkButton')}
-        />
-        <Menu.Item
-          leadingIcon="content-copy"
-          onPress={() => {
-            closeMenu()
-            onCopyPress()
-          }}
-          title={t('screens.generationResult.copyButton')}
-        />
-        <Divider />
-        <Menu.Item
-          leadingIcon="trash-can-outline"
-          onPress={() => {
-            closeMenu()
-            onDeletePress()
-          }}
-          title={t('screens.generationResult.deleteButton')}
-        />
-      </Menu>
+      <Appbar.Content title="" />
+      <Appbar.Action icon="content-copy" onPress={onCopyPress} />
+      <Appbar.Action
+        icon="download"
+        onPress={() => onSaveImage(generation.images[0])}
+      />
+      <Appbar.Action icon="trash-can-outline" onPress={onDeletePress} />
     </Appbar.Header>
   )
 }
