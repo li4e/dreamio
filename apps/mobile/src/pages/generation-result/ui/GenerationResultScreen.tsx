@@ -2,13 +2,13 @@ import { useNavigation } from '@react-navigation/native'
 import * as Clipboard from 'expo-clipboard'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { View, ScrollView, Platform } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import {
   Appbar,
   Chip,
   Divider,
+  IconButton,
   Text,
-  TextInput,
   useTheme,
 } from 'react-native-paper'
 import { ActivityIndicator } from 'react-native-paper'
@@ -27,8 +27,6 @@ import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
 import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
 
-const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical'
-
 export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
@@ -43,11 +41,7 @@ export function GenerationResultScreen(
 
   return (
     <View className="flex-1">
-      <Header
-        onCopyPress={onCopy}
-        onDeletePress={onDelete}
-        generation={generation}
-      />
+      <Header onDeletePress={onDelete} generation={generation} />
       {generation && generation.status === GenerationEntityStatus.SUCCESS ? (
         <>
           <ScrollView
@@ -105,14 +99,18 @@ export function GenerationResultScreen(
                     />
                   </View>
                 </View>
-                <TextInput
-                  scrollEnabled={false}
-                  editable={false}
-                  mode="flat"
-                  multiline
-                  className="min-h-[120]"
-                  value={generation.prompt}
-                />
+                <View
+                  className="py-5 px-5 rounded-sm pr-10"
+                  style={{ backgroundColor: colors.inverseOnSurface }}
+                >
+                  <Text>{generation.prompt}</Text>
+                  <IconButton
+                    className="absolute right-0 bottom-0"
+                    icon="content-copy"
+                    size={18}
+                    onPress={onCopy}
+                  />
+                </View>
               </View>
             </View>
           </ScrollView>
@@ -145,12 +143,11 @@ export function GenerationResultScreen(
 
 interface HeaderProps {
   generation: GenerationEntity
-  onCopyPress(): void
   onDeletePress(): void
 }
 
 function Header(props: HeaderProps) {
-  const { onCopyPress, onDeletePress, generation } = props
+  const { onDeletePress, generation } = props
   const { goBack } = useNavigation()
   const onSaveImage = useOnSaveImage()
 
@@ -158,7 +155,6 @@ function Header(props: HeaderProps) {
     <Appbar.Header className="bg-transparent">
       <Appbar.BackAction onPress={goBack} />
       <Appbar.Content title="" />
-      <Appbar.Action icon="content-copy" onPress={onCopyPress} />
       <Appbar.Action
         icon="download"
         onPress={() => onSaveImage(generation.images[0])}
