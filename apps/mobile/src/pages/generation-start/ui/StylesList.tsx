@@ -1,8 +1,21 @@
 import { useTranslation } from 'react-i18next'
-import { View, Image, ImageSourcePropType } from 'react-native'
-import { TouchableRipple, Text, Chip, useTheme } from 'react-native-paper'
+import {
+  View,
+  Image,
+  ImageSourcePropType,
+  TouchableOpacity,
+} from 'react-native'
+import {
+  TouchableRipple,
+  Text,
+  Chip,
+  useTheme,
+  IconButton,
+  Button,
+} from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
+import { useDialog } from 'shared/ui/Dialog'
 
 interface StylesListProps {
   value: string | null
@@ -14,19 +27,48 @@ export function StylesList(props: StylesListProps) {
   const { onSelect, value, disabled } = props
   const { t } = useTranslation()
 
+  const { showDialog } = useDialog()
+
   const handleChange = (style: string | null) =>
     onSelect(style === value ? null : style)
 
+  const handleTitlePress = () => {
+    showDialog({
+      title: t('screens.generation.styleDialog.title'),
+      content: t('screens.generation.styleDialog.text'),
+      renderActions(dismiss) {
+        return (
+          <Button onPress={dismiss}>
+            {t('screens.generation.styleDialog.button')}
+          </Button>
+        )
+      },
+    })
+  }
+
   return (
     <View>
-      <View className="flex-row items-end justify-between min-h-[35] mb-3 px-5">
-        <Text variant="titleMedium" className="mr-3">
-          {t('screens.generation.styleLabel')}
-        </Text>
+      <View className="flex-row items-center justify-between min-h-[35] mb-0 px-5">
+        <TouchableOpacity
+          onPress={handleTitlePress}
+          className="flex-row items-center"
+        >
+          <Text variant="titleMedium" className="mr-3">
+            {t('screens.generation.styleLabel')}
+          </Text>
+          <IconButton
+            className="-ml-[12]"
+            icon="alert-circle-outline"
+            size={16}
+          />
+        </TouchableOpacity>
+
         {value && (
-          <Chip disabled={disabled} compact onClose={() => handleChange(null)}>
-            {value}
-          </Chip>
+          <View>
+            <Chip disabled={disabled} onClose={() => handleChange(null)}>
+              {value}
+            </Chip>
+          </View>
         )}
       </View>
 
