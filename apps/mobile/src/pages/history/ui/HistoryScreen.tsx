@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next'
 import { View, StyleSheet, useWindowDimensions } from 'react-native'
 import {
   ActivityIndicator,
-  Appbar,
   Button,
   Text,
   TouchableRipple,
+  useTheme,
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { GenerationEntity } from 'entities/generation'
@@ -16,6 +16,7 @@ import EmptyAnimation from './assets/austroman.json'
 import { toJS } from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
 import { FlashList } from '@shopify/flash-list'
+import { BlurView } from 'expo-blur'
 
 function getNumColumns(totalLength: number) {
   // return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
@@ -26,16 +27,15 @@ export function HistoryScreen() {
   const { width } = useWindowDimensions()
   const { history, isPending, fetchMore, fetchedAll } = useHistory()
   const isEmpty = history.length === 0
-  const { t } = useTranslation()
   const numColumns = getNumColumns(history.length)
   const itemSize = width / numColumns
-  const listTotalSize = Math.ceil(history.length / numColumns) * itemSize + 300
+  const { top } = useSafeAreaInsets()
+  const listTotalSize =
+    Math.ceil(history.length / numColumns) * itemSize + 300 + top
+  const { dark } = useTheme()
 
   return (
     <View className="flex-1">
-      <Appbar.Header>
-        <Appbar.Content title={t('screens.history.title')} />
-      </Appbar.Header>
       {isEmpty && isPending ? (
         <View className="flex-1 items-center justify-center">
           <ActivityIndicator />
@@ -57,6 +57,7 @@ export function HistoryScreen() {
             <HistoryItem generation={item} index={index} />
           )}
           keyExtractor={keyExtractor}
+          ListHeaderComponent={<View style={{ height: top }} />}
           ListFooterComponent={
             isEmpty ? null : fetchedAll ? (
               <ListFooterFetched />
@@ -72,6 +73,14 @@ export function HistoryScreen() {
           onEndReachedThreshold={0.1}
         />
       )}
+      <BlurView
+        blurReductionFactor={10}
+        intensity={50}
+        tint={dark ? 'dark' : 'light'}
+        experimentalBlurMethod="dimezisBlurView"
+        style={{ height: top }}
+        className="absolute left-0 top-0 right-0"
+      />
     </View>
   )
 }
