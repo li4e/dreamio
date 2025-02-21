@@ -29,6 +29,7 @@ module.exports = {
       },
     },
     android: {
+      softwareKeyboardLayoutMode: 'pan',
       versionCode: process.env.APP_BUILD_NUMBER || '1',
       icon: './assets/icon_foreground_android.png',
       adaptiveIcon: {

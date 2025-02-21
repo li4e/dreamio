@@ -47,6 +47,7 @@ const HomeTabs = () => {
       theme={paperTheme}
       initialRouteName="generation"
       sceneAnimationEnabled={false}
+      keyboardHidesNavigationBar={false}
     >
       <Tab.Screen
         name="history"
