@@ -11,6 +11,7 @@ import { i18next } from './lib/i18next'
 import { useThemes } from './ui/useThemes'
 import { StatusBar } from 'expo-status-bar'
 import * as SystemUI from 'expo-system-ui'
+import { KeyboardProvider } from 'react-native-keyboard-controller'
 
 export function Providers({ children }: PropsWithChildren) {
   const { paperTheme } = useThemes()
@@ -22,19 +23,21 @@ export function Providers({ children }: PropsWithChildren) {
   return (
     <View className="flex-1">
       <StatusBar />
-      <SafeAreaProvider>
-        <GestureHandlerRootView>
-          <PaperProvider theme={paperTheme}>
-            <SnackbarProvider>
-              <DialogProvider>
-                <DiProvider>
-                  <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
-                </DiProvider>
-              </DialogProvider>
-            </SnackbarProvider>
-          </PaperProvider>
-        </GestureHandlerRootView>
-      </SafeAreaProvider>
+      <KeyboardProvider>
+        <SafeAreaProvider>
+          <GestureHandlerRootView>
+            <PaperProvider theme={paperTheme}>
+              <SnackbarProvider>
+                <DialogProvider>
+                  <DiProvider>
+                    <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
+                  </DiProvider>
+                </DialogProvider>
+              </SnackbarProvider>
+            </PaperProvider>
+          </GestureHandlerRootView>
+        </SafeAreaProvider>
+      </KeyboardProvider>
     </View>
   )
 }
