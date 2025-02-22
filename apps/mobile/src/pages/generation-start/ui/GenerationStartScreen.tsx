@@ -338,11 +338,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   />
                 </Animated.View>
 
-                <Animated.View
-                  className="-mx-5"
-                  entering={FadeIn}
-                  exiting={FadeOut}
-                >
+                <Animated.View className="-mx-5">
                   <Animated.View>
                     <Divider />
                   </Animated.View>
@@ -537,33 +533,42 @@ function AspectRatioSelector(props: {
 }) {
   const { value, onChange } = props
   const [expanded, setExpanded] = React.useState(false)
+  const { t } = useTranslation()
   const list = [
     {
-      title: '1:1 - Square',
+      title: t('screens.generation.aspectRatio.square'),
+      right: '1:1',
       value: AspectRatio.square,
     },
     {
-      title: '9:16 - Vertical',
+      title: t('screens.generation.aspectRatio.vertical'),
+      right: '9:16',
       value: AspectRatio.vertical,
     },
     {
-      title: '4:3 - Portrait',
+      title: t('screens.generation.aspectRatio.portrait'),
+      right: '4:3',
       value: AspectRatio.portrait,
     },
     {
-      title: '3:4 - Classic',
+      title: t('screens.generation.aspectRatio.classic'),
+      right: '3:4',
       value: AspectRatio.classic,
     },
     {
-      title: '16:9 - Widescreen',
+      title: t('screens.generation.aspectRatio.widescreen'),
+      right: '16:9',
       value: AspectRatio.widescreen,
     },
   ]
 
+  const { colors } = useTheme()
+
   return (
     <>
       <List.Item
-        title="Aspect Ratio"
+        left={(props) => <List.Icon {...props} icon="aspect-ratio" />}
+        title={t('screens.generation.aspectRatio.title')}
         onPress={() => setExpanded(!expanded)}
         right={() => (
           <View className="flex-row self-center items-center">
@@ -574,23 +579,43 @@ function AspectRatioSelector(props: {
           </View>
         )}
       />
+      {expanded && <Divider />}
 
-      <TransitionedView duration={250}>
-        {expanded && (
-          <Animated.View entering={FadeIn.duration(200).delay(50)}>
-            {list.map((item) => (
-              <List.Item
-                key={item.value}
-                title={item.title}
-                onPress={() => {
-                  setExpanded(false)
-                  onChange(item.value)
-                }}
-              />
-            ))}
-          </Animated.View>
-        )}
-      </TransitionedView>
+      <Animated.View className="overflow-hidden">
+        <TransitionedView duration={250}>
+          {expanded && (
+            <Animated.View>
+              {list.map((item, index, all) => (
+                <Animated.View className="pl-10" key={item.value}>
+                  <List.Item
+                    style={{
+                      backgroundColor:
+                        item.value === value
+                          ? colors.inverseOnSurface
+                          : undefined,
+                    }}
+                    title={item.title}
+                    right={() => (
+                      <Chip
+                        mode={item.value === value ? 'flat' : 'outlined'}
+                        compact={item.value !== value}
+                      >
+                        {item.right}
+                      </Chip>
+                      // <Text variant="titleMedium">{item.right}</Text>
+                    )}
+                    onPress={() => {
+                      setExpanded(false)
+                      onChange(item.value)
+                    }}
+                  />
+                  {index !== all.length - 1 && <Divider />}
+                </Animated.View>
+              ))}
+            </Animated.View>
+          )}
+        </TransitionedView>
+      </Animated.View>
     </>
   )
 }
