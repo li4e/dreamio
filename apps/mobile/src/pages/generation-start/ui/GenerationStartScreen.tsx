@@ -575,9 +575,9 @@ function AspectRatioSelector(props: {
         )}
       />
 
-      <TransitionedView duration={300}>
+      <TransitionedView duration={250}>
         {expanded && (
-          <Animated.View entering={FadeIn.duration(250).delay(50)}>
+          <Animated.View entering={FadeIn.duration(200).delay(50)}>
             {list.map((item) => (
               <List.Item
                 key={item.value}
