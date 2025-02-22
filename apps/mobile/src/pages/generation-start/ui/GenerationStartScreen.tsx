@@ -52,6 +52,7 @@ import {
 import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { KeyboardAvoidingView } from 'shared/ui/KeyboardAvoidingView'
+import { TransitionedView } from 'shared/ui/TransitionedView'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -561,34 +562,35 @@ function AspectRatioSelector(props: {
 
   return (
     <>
-      <List.Accordion
+      <List.Item
         title="Aspect Ratio"
-        left={(props) => <List.Icon {...props} icon="aspect-ratio" />}
-        expanded={expanded}
         onPress={() => setExpanded(!expanded)}
-        right={({ isExpanded }) => (
+        right={() => (
           <View className="flex-row self-center items-center">
             <Chip className="mr-5" compact>
               {value}
             </Chip>
-            <Icon
-              source={isExpanded ? 'chevron-up' : 'chevron-down'}
-              size={20}
-            />
+            <Icon source={expanded ? 'chevron-up' : 'chevron-down'} size={20} />
           </View>
         )}
-      >
-        {list.map((item) => (
-          <List.Item
-            key={item.value}
-            title={item.title}
-            onPress={() => {
-              setExpanded(false)
-              onChange(item.value)
-            }}
-          />
-        ))}
-      </List.Accordion>
+      />
+
+      <TransitionedView duration={300}>
+        {expanded && (
+          <Animated.View entering={FadeIn.duration(250).delay(50)}>
+            {list.map((item) => (
+              <List.Item
+                key={item.value}
+                title={item.title}
+                onPress={() => {
+                  setExpanded(false)
+                  onChange(item.value)
+                }}
+              />
+            ))}
+          </Animated.View>
+        )}
+      </TransitionedView>
     </>
   )
 }
