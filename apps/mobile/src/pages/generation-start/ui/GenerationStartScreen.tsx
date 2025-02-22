@@ -1,29 +1,30 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React, { useEffect, useRef } from 'react'
+import React, { PropsWithChildren, useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller, useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import {
   Keyboard,
-  KeyboardAvoidingView,
   View,
-  ScrollView as SV,
   Platform,
   TouchableOpacity,
+  ViewStyle,
 } from 'react-native'
 import {
   Appbar,
   HelperText,
   IconButton,
-  Text,
   TextInput,
   Switch,
   useTheme,
-  SegmentedButtons,
+  List,
+  Divider,
+  Chip,
+  Icon,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
-import { ScrollView, Button } from 'shared/ui/styled'
+import { Button } from 'shared/ui/styled'
 import {
   useCurrentGeneration,
   Status as CurGenStatus,
@@ -33,28 +34,29 @@ import { StylesList } from './StylesList'
 import { api } from 'shared/api'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import Animated, {
-  FadeIn,
-  FadeOut,
-  LinearTransition,
   SlideInLeft,
   SlideInRight,
   SlideOutRight,
   SlideOutLeft,
+  FadeIn,
+  FadeOut,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
-import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
 import {
   AspectedRatioView,
   AspectRatio,
   getAspectRatioFromSize,
 } from 'shared/ui/AspectedRatioView'
+import { BlurView } from 'expo-blur'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { KeyboardAvoidingView } from 'shared/ui/KeyboardAvoidingView'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
-  const scrollView = useRef<SV>()
+  const scrollView = useRef<Animated.ScrollView>(null)
 
   const generationSchema = useMemo(
     () =>
@@ -157,60 +159,40 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     setValue('prompt', '', { shouldValidate: true })
   }, [])
 
-  const { colors } = useTheme()
+  const { colors, dark } = useTheme()
+  const insets = useSafeAreaInsets()
+
+  const { showDialog } = useDialog()
+  const handleEnhanceInfoPress = () => {
+    showDialog({
+      title: t('screens.generation.enhance.dialog.title'),
+      content: t('screens.generation.enhance.dialog.description'),
+      renderActions: (dismiss) => (
+        <Button onPress={dismiss}>
+          {t('screens.generation.enhance.dialog.button')}
+        </Button>
+      ),
+    })
+  }
+
+  const [settingsVisible, setSettingsVisible] = useState(false)
 
   return (
-    <KeyboardAvoidingView
-      behavior="padding"
-      className="flex-1"
-      enabled={Platform.OS === 'ios'}
-    >
-      <View className="flex-1" testID="GENERATION_SCREEN">
-        <Appbar.Header>
-          {curGen.state.result && resultImage && (
-            <Animated.View
-              entering={SlideInLeft.duration(500)}
-              exiting={SlideOutLeft.duration(200)}
-            >
-              <Appbar.Action
-                icon="share-variant"
-                onPress={() => {
-                  if (curGen.state.result) {
-                    shareImage(resultImage, curGen.state.result?.prompt)
-                  }
-                }}
-              />
-            </Animated.View>
-          )}
-
-          <Appbar.Content
-            title={
-              !isInputDisabled
-                ? t(
-                    resultImage
-                      ? 'screens.generationResult.title'
-                      : 'screens.generation.title'
-                  )
-                : null
-            }
-          />
-
-          {resultImage && (
-            <Animated.View
-              entering={SlideInRight.duration(500)}
-              exiting={SlideOutRight.duration(200)}
-            >
-              <Appbar.Action
-                icon="download"
-                onPress={() => onSaveImage(resultImage)}
-              />
-            </Animated.View>
-          )}
-        </Appbar.Header>
-        <ScrollView
+    <KeyboardAvoidingView withBottomBar>
+      <Animated.View className="flex-1" testID="GENERATION_SCREEN">
+        <Animated.ScrollView
           ref={scrollView}
           className="flex-1"
-          contentContainerStyle="px-5 pb-[95] flex-grow"
+          scrollIndicatorInsets={{
+            top: insets.top + 64,
+          }}
+          automaticallyAdjustsScrollIndicatorInsets={false}
+          contentContainerStyle={{
+            paddingHorizontal: 20,
+            paddingTop: insets.top + 64,
+            paddingBottom: 95,
+            flexGrow: 1,
+          }}
           keyboardShouldPersistTaps="handled"
         >
           {curGen.state.result && (
@@ -238,8 +220,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   </Animated.View>
                 ) : modalState ? (
                   <Animated.View
-                    entering={FadeIn.duration(200)}
-                    exiting={FadeOut.duration(200)}
                     key="generation_process"
                     className="flex-1 items-center justify-center"
                   >
@@ -249,31 +229,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               </AspectedRatioView>
             </View>
           )}
-          <Animated.View
-            layout={LinearTransition.duration(300)}
-            className="flex-grow justify-between pt-4"
-          >
-            <View className="justify-center mb-5">
-              <View className="flex-row justify-between items-center mb-1">
-                <Text variant="titleMedium">
-                  {t('screens.generation.inputLabel')}
-                </Text>
-                <Controller
-                  control={control}
-                  render={({ field: { onChange, value } }) => (
-                    <View className="flex-row justify-between items-center">
-                      <EnhanceTitle />
-                      <Switch
-                        value={value}
-                        onValueChange={onChange}
-                        disabled={isInputDisabled}
-                      />
-                    </View>
-                  )}
-                  name="enhance"
-                />
-              </View>
 
+          <Animated.View className="flex-grow justify-center">
+            <Animated.View className="justify-center flex-grow">
               <Controller
                 control={control}
                 render={({
@@ -285,18 +243,21 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     formState.submitCount > 0 && fieldState.invalid
 
                   return (
-                    <>
-                      <View>
+                    <Animated.View>
+                      <Animated.View>
                         <TextInput
+                          autoFocus
                           scrollEnabled={false}
                           disabled={isInputDisabled}
                           multiline
                           mode="flat"
-                          className="min-h-[120] pr-10"
+                          className="min-h-[120] pr-10 rounded-lg"
+                          underlineStyle={{ height: 0 }}
                           placeholder={t('screens.generation.inputPlaceholder')}
                           onBlur={onBlur}
                           onChangeText={onChange}
                           value={value}
+                          outlineStyle={{ borderWidth: 0 }}
                           error={hasError}
                         />
                         {value?.length > 0 && (
@@ -305,77 +266,138 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                             className="absolute top-0 right-0"
                             onPress={clear}
                             icon={'close'}
-                            size={20}
+                            size={24}
                           />
                         )}
-
                         <RandomButton
+                          className="absolute right-2 bottom-2"
                           disabled={isInputDisabled}
                           onCreated={(prompt: string) => {
                             Haptics.impactAsync(
                               Haptics.ImpactFeedbackStyle.Light
                             )
-                            setValue('prompt', prompt, { shouldValidate: true })
+                            setValue('prompt', prompt, {
+                              shouldValidate: true,
+                            })
                           }}
                         />
-                      </View>
-
-                      <View className="h-8">
+                      </Animated.View>
+                      <Animated.View className="h-8 bg-red">
                         <HelperText type="error" visible={hasError}>
                           {fieldState.error?.message}
                         </HelperText>
-                      </View>
-                    </>
+                      </Animated.View>
+                    </Animated.View>
                   )
                 }}
                 name="prompt"
               />
-            </View>
-            <View className="-mx-5 justify-center mb-5">
-              <Controller
-                control={control}
-                name="style"
-                render={({ field: { value } }) => (
-                  <StylesList
-                    disabled={isInputDisabled}
-                    value={value}
-                    onSelect={(style: string | null) =>
-                      setValue('style', style, { shouldValidate: true })
-                    }
+
+              <AdvancedSettings
+                visible={settingsVisible}
+                onChange={setSettingsVisible}
+              >
+                <Animated.View className="-mx-5 pt-5">
+                  <Controller
+                    control={control}
+                    render={({ field: { onChange, value } }) => (
+                      <List.Item
+                        title={t('screens.generation.enhance.title')}
+                        onPress={() => onChange(!value)}
+                        onLongPress={handleEnhanceInfoPress}
+                        description={t(
+                          'screens.generation.enhance.description'
+                        )}
+                        left={(props) => (
+                          <List.Icon {...props} icon="auto-fix" />
+                        )}
+                        right={() => (
+                          <Switch
+                            value={value}
+                            onValueChange={onChange}
+                            disabled={isInputDisabled}
+                            className="self-center"
+                          />
+                        )}
+                      />
+                    )}
+                    name="enhance"
                   />
-                )}
-              />
-            </View>
-            <View>
-              <Controller
-                control={control}
-                disabled={isInputDisabled}
-                render={({ field: { onChange, value } }) => (
-                  <SegmentedButtons
-                    value={value}
-                    onValueChange={onChange}
-                    buttons={[
-                      {
-                        value: AspectRatio.square,
-                        label: '1:1',
-                      },
-                      {
-                        value: AspectRatio.widescreen,
-                        label: '16:9',
-                      },
-                      { value: AspectRatio.portrait, label: '3:4' },
-                      // { value: AspectRatio.classic, label: '4:3' },
-                      { value: AspectRatio.vertical, label: '9:16' },
-                    ]}
+
+                  <Divider />
+                </Animated.View>
+
+                <Animated.View className="-mx-5">
+                  <Controller
+                    control={control}
+                    render={({ field: { onChange, value } }) => (
+                      <AspectRatioSelector value={value} onChange={onChange} />
+                    )}
+                    name="aspectRatio"
                   />
-                )}
-                name="aspectRatio"
-              />
-            </View>
+                </Animated.View>
+
+                <Animated.View
+                  className="-mx-5"
+                  entering={FadeIn}
+                  exiting={FadeOut}
+                >
+                  <Animated.View>
+                    <Divider />
+                  </Animated.View>
+                  <Controller
+                    control={control}
+                    name="style"
+                    render={({ field: { value } }) => (
+                      <StylesList
+                        disabled={isInputDisabled}
+                        value={value}
+                        onSelect={(style: string | null) =>
+                          setValue('style', style, { shouldValidate: true })
+                        }
+                        oneLineMode={true}
+                      />
+                    )}
+                  />
+                </Animated.View>
+              </AdvancedSettings>
+            </Animated.View>
           </Animated.View>
-        </ScrollView>
+        </Animated.ScrollView>
+        <BlurView
+          intensity={Platform.OS === 'ios' ? 50 : 100}
+          tint={dark ? 'dark' : 'light'}
+          className="absolute top-0 right-0 left-0"
+          style={{ minHeight: insets.top }}
+        >
+          <Appbar.Header mode="center-aligned" className="bg-transparent">
+            {curGen.state.result && resultImage && (
+              <Animated.View entering={SlideInLeft} exiting={SlideOutLeft}>
+                <Appbar.Action
+                  icon="share-variant"
+                  onPress={() => {
+                    if (curGen.state.result) {
+                      shareImage(resultImage, curGen.state.result?.prompt)
+                    }
+                  }}
+                />
+              </Animated.View>
+            )}
+
+            <Appbar.Content title="Begin Art" />
+
+            {resultImage && (
+              <Animated.View entering={SlideInRight} exiting={SlideOutRight}>
+                <Appbar.Action
+                  icon="download"
+                  onPress={() => onSaveImage(resultImage)}
+                />
+              </Animated.View>
+            )}
+          </Appbar.Header>
+        </BlurView>
         {showStartButton && (
-          <View className="absolute bottom-5 self-center">
+          <Animated.View className="absolute bottom-5 self-center">
             <Button
               icon="creation"
               mode="contained"
@@ -387,10 +409,10 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             >
               {t('screens.generation.startButton')}
             </Button>
-          </View>
+          </Animated.View>
         )}
         {/* <StateModal variant={modalState} onDismiss={curGen.clear} /> */}
-      </View>
+      </Animated.View>
     </KeyboardAvoidingView>
   )
 }
@@ -410,10 +432,12 @@ function mapCurGenStatusToModalState(
 interface RandomButtonProps {
   onCreated(prompt: string): void
   disabled: boolean
+  style?: ViewStyle
+  className?: string
 }
 
 function RandomButton(props: RandomButtonProps) {
-  const { onCreated, disabled } = props
+  const { onCreated, disabled, ...rest } = props
   const [pending, setPending] = useState(false)
   const { t } = useTranslation()
   const { showSnackbar } = useSnackbar()
@@ -444,7 +468,6 @@ function RandomButton(props: RandomButtonProps) {
 
   return (
     <IconButton
-      className="absolute right-2 bottom-2"
       mode="outlined"
       icon="dice-multiple"
       size={20}
@@ -452,38 +475,8 @@ function RandomButton(props: RandomButtonProps) {
       onPress={onPress}
       loading={pending}
       disabled={pending || disabled}
+      {...rest}
     />
-  )
-}
-
-function EnhanceTitle() {
-  const { t } = useTranslation()
-  const { showDialog } = useDialog()
-  const handlePress = () => {
-    showDialog({
-      title: t('screens.generation.enhance.dialog.title'),
-      content: t('screens.generation.enhance.dialog.description'),
-      renderActions: (dismiss) => (
-        <Button onPress={dismiss}>
-          {t('screens.generation.enhance.dialog.button')}
-        </Button>
-      ),
-    })
-  }
-
-  return (
-    <>
-      <TouchableOpacity className="flex-row items-center" onPress={handlePress}>
-        <IconButton className="-mx-[6]" icon="alert-circle-outline" size={16} />
-
-        <Text
-          variant="labelMedium"
-          className={twMerge(Platform.OS === 'ios' && 'mr-3')}
-        >
-          {t('screens.generation.enhance.title')}
-        </Text>
-      </TouchableOpacity>
-    </>
   )
 }
 
@@ -505,4 +498,97 @@ function getSizeFromAspectRatio(
     default:
       return { width: maxSize, height: maxSize } // Default fallback
   }
+}
+
+interface AdvancedSettingsProps extends PropsWithChildren {
+  visible: boolean
+  onChange: (value: boolean) => void
+}
+
+function AdvancedSettings(props: AdvancedSettingsProps) {
+  const { children, visible, onChange } = props
+  const { t } = useTranslation()
+  return (
+    <Animated.View>
+      <TouchableOpacity
+        className="flex-row items-center justify-center"
+        onPress={() => onChange(!visible)}
+      >
+        <Button
+          mode="text"
+          icon={visible ? 'chevron-double-up' : 'chevron-double-down'}
+        >
+          {t('screens.generation.advancedSettings')}
+        </Button>
+      </TouchableOpacity>
+      {visible && (
+        <Animated.View entering={FadeIn.duration(250)}>
+          {children}
+        </Animated.View>
+      )}
+    </Animated.View>
+  )
+}
+
+function AspectRatioSelector(props: {
+  value: string
+  onChange: (value: string) => void
+}) {
+  const { value, onChange } = props
+  const [expanded, setExpanded] = React.useState(false)
+  const list = [
+    {
+      title: '1:1 - Square',
+      value: AspectRatio.square,
+    },
+    {
+      title: '9:16 - Vertical',
+      value: AspectRatio.vertical,
+    },
+    {
+      title: '4:3 - Portrait',
+      value: AspectRatio.portrait,
+    },
+    {
+      title: '3:4 - Classic',
+      value: AspectRatio.classic,
+    },
+    {
+      title: '16:9 - Widescreen',
+      value: AspectRatio.widescreen,
+    },
+  ]
+
+  return (
+    <>
+      <List.Accordion
+        title="Aspect Ratio"
+        left={(props) => <List.Icon {...props} icon="aspect-ratio" />}
+        expanded={expanded}
+        onPress={() => setExpanded(!expanded)}
+        right={({ isExpanded }) => (
+          <View className="flex-row self-center items-center">
+            <Chip className="mr-5" compact>
+              {value}
+            </Chip>
+            <Icon
+              source={isExpanded ? 'chevron-up' : 'chevron-down'}
+              size={20}
+            />
+          </View>
+        )}
+      >
+        {list.map((item) => (
+          <List.Item
+            key={item.value}
+            title={item.title}
+            onPress={() => {
+              setExpanded(false)
+              onChange(item.value)
+            }}
+          />
+        ))}
+      </List.Accordion>
+    </>
+  )
 }

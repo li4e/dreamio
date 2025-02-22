@@ -1,17 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import {
-  View,
-  Image,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from 'react-native'
+import { View, Image, ImageSourcePropType } from 'react-native'
 import {
   TouchableRipple,
   Text,
   Chip,
   useTheme,
-  IconButton,
   Button,
+  List,
 } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { ScrollView } from 'shared/ui/styled'
@@ -21,10 +16,11 @@ interface StylesListProps {
   value: string | null
   onSelect(item: string | null): void
   disabled: boolean
+  oneLineMode: boolean
 }
 
 export function StylesList(props: StylesListProps) {
-  const { onSelect, value, disabled } = props
+  const { onSelect, value, disabled, oneLineMode } = props
   const { t } = useTranslation()
 
   const { showDialog } = useDialog()
@@ -48,29 +44,24 @@ export function StylesList(props: StylesListProps) {
 
   return (
     <View>
-      <View className="flex-row items-center justify-between min-h-[35] mb-0 px-5">
-        <TouchableOpacity
-          onPress={handleTitlePress}
-          className="flex-row items-center"
-        >
-          <Text variant="titleMedium" className="mr-3">
-            {t('screens.generation.styleLabel')}
-          </Text>
-          <IconButton
-            className="-ml-[12]"
-            icon="alert-circle-outline"
-            size={16}
-          />
-        </TouchableOpacity>
-
-        {value && (
-          <View>
-            <Chip disabled={disabled} onClose={() => handleChange(null)}>
-              {value}
-            </Chip>
-          </View>
-        )}
-      </View>
+      <List.Item
+        title={t('screens.generation.styleLabel')}
+        onLongPress={handleTitlePress}
+        onPress={() => {
+          handleChange(null)
+        }}
+        description={t('screens.generation.styleDescription')}
+        left={(props) => <List.Icon {...props} icon="palette" />}
+        right={() =>
+          value && (
+            <View className="self-center pl-3">
+              <Chip disabled={disabled} compact>
+                {value}
+              </Chip>
+            </View>
+          )
+        }
+      />
 
       <ScrollView
         contentInsetAdjustmentBehavior="never"
@@ -80,19 +71,31 @@ export function StylesList(props: StylesListProps) {
         showsHorizontalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        {artStyles.map((artStylesCol, colIndex) => (
-          <View key={colIndex}>
-            {artStylesCol.map((artStyle, rowIndex) => (
-              <StyleCard
-                disabled={disabled}
-                item={artStyle}
-                key={artStyle.name}
-                selected={value === artStyle.name}
-                onPress={() => handleChange(artStyle.name)}
-              />
+        {oneLineMode
+          ? artStylesFlat.map((artStyle, colIndex) => (
+              <View key={colIndex}>
+                <StyleCard
+                  disabled={disabled}
+                  item={artStyle}
+                  key={artStyle.name}
+                  selected={value === artStyle.name}
+                  onPress={() => handleChange(artStyle.name)}
+                />
+              </View>
+            ))
+          : artStyles.map((artStylesCol, colIndex) => (
+              <View key={colIndex}>
+                {artStylesCol.map((artStyle) => (
+                  <StyleCard
+                    disabled={disabled}
+                    item={artStyle}
+                    key={artStyle.name}
+                    selected={value === artStyle.name}
+                    onPress={() => handleChange(artStyle.name)}
+                  />
+                ))}
+              </View>
             ))}
-          </View>
-        ))}
       </ScrollView>
     </View>
   )
@@ -198,3 +201,5 @@ const artStyles: ArtStyle[][] = [
     { name: 'Watercolor', imageSource: require('./assets/watercolor.jpeg') },
   ],
 ] as const
+
+const artStylesFlat = artStyles.flat()

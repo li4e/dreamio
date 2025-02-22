@@ -32,19 +32,19 @@
   },
   "screens": {
     "generation": {
-      "title": "New Image",
-      "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
-      "styleLabel": "Choose Your Style:",
+      "styleLabel": "Choose Style",
+      "styleDescription": "Long press for details",
       "startButton": "Start Magic",
       "styleDialog": {
-        "title": "Choose a Style or Use Your Own",
+        "title": "Choose a Style",
         "text": "Select from a list of popular styles to quickly add them to your prompt. These styles are simply text additions that influence the image generation. If your desired style isn’t listed, you can manually type it in your prompt, e.g., \"in the style of Van Gogh.\"",
         "button": "OK"
       },
+      "advancedSettings": "Advanced Settings",
       "promptValidationErrors": {
-        "minLength": "The prompt must be at least {{min}} characters long",
-        "maxLength": "The prompt must be shorter than {{max}} characters",
+        "minLength": "The text must be at least {{min}} characters long",
+        "maxLength": "The text must be shorter than {{max}} characters",
         "required": "Prompt is required"
       },
       "modalError": {
@@ -58,9 +58,10 @@
       },
       "enhance": {
         "title": "Enhancer",
+        "description": "Long press for detauls",
         "dialog": {
           "title": "Enhancer Mode",
-          "description": "When enabled, your prompt will be refined and expanded using AI to add more details, improving the quality and accuracy of the generated image. This helps create more vivid, detailed, and realistic results.",
+          "description": "When enabled, your prompt will be refined and expanded using AI to add more details, improving the quality and accuracy of the generated image.",
           "button": "OK"
         }
       }
