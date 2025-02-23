@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { PaperProvider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -23,7 +23,7 @@ export function Providers({ children }: PropsWithChildren) {
   return (
     <View className="flex-1">
       <StatusBar />
-      <KeyboardProvider>
+      <KeyboardProvider enabled={Platform.OS === 'ios'}>
         <SafeAreaProvider>
           <GestureHandlerRootView>
             <PaperProvider theme={paperTheme}>

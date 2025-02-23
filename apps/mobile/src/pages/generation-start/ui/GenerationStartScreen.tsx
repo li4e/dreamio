@@ -5,7 +5,6 @@ import { useForm, Controller, useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import {
   Keyboard,
-  KeyboardAvoidingView,
   View,
   ScrollView as SV,
   Platform,
@@ -50,6 +49,7 @@ import {
   AspectRatio,
   getAspectRatioFromSize,
 } from 'shared/ui/AspectedRatioView'
+import { KeyboardAvoidingView } from 'shared/ui/KeyboardAvoidingView'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -160,11 +160,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { colors } = useTheme()
 
   return (
-    <KeyboardAvoidingView
-      behavior="padding"
-      className="flex-1"
-      enabled={Platform.OS === 'ios'}
-    >
+    <KeyboardAvoidingView withBottomBar>
       <View className="flex-1" testID="GENERATION_SCREEN">
         <Appbar.Header>
           {curGen.state.result && resultImage && (
@@ -183,17 +179,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </Animated.View>
           )}
 
-          <Appbar.Content
-            title={
-              !isInputDisabled
-                ? t(
-                    resultImage
-                      ? 'screens.generationResult.title'
-                      : 'screens.generation.title'
-                  )
-                : null
-            }
-          />
+          <Appbar.Content title={null} />
 
           {resultImage && (
             <Animated.View

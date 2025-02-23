@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { View, KeyboardAvoidingView as KV } from 'react-native'
+import { Platform, KeyboardAvoidingView as KV, View } from 'react-native'
 import { useKeyboardHandler } from 'react-native-keyboard-controller'
 import Animated, {
   useAnimatedStyle,
@@ -22,40 +22,43 @@ const useKeyboardHeight = () => {
   return { height }
 }
 
-export function FakeView(props: { withTabBar?: boolean }) {
-  const { withTabBar } = props
-
-  const { bottom } = useSafeAreaInsets()
-  const { height } = useKeyboardHeight()
-
-  const style = useAnimatedStyle(() => {
-    return {
-      height: Math.abs(height.value) - (withTabBar ? bottom + 80 : 0),
-    }
-  }, [withTabBar, bottom])
-
-  return <Animated.View style={style} />
-}
-
 interface KeyboardAvoidingViewProps extends PropsWithChildren {
   withBottomBar?: boolean
 }
 
-export function KeyboardAvoidingView(props: KeyboardAvoidingViewProps) {
+function KeyboardAvoidingViewAnimated(props: KeyboardAvoidingViewProps) {
   const { children, withBottomBar } = props
+  const { bottom } = useSafeAreaInsets()
+  const { height } = useKeyboardHeight()
+
+  const style = useAnimatedStyle(() => {
+    let paddingBottom = height.value
+    paddingBottom = Math.max(height.value - (withBottomBar ? bottom + 80 : 0))
+
+    return {
+      flex: 1,
+      paddingBottom,
+    }
+  }, [withBottomBar, bottom])
+
   return (
-    <View className="flex-1">
-      {children}
-      <FakeView withTabBar={withBottomBar} />
-    </View>
+    <Animated.View style={style}>
+      <View className="flex-1">{children}</View>
+    </Animated.View>
   )
 }
 
-// export function KeyboardAvoidingView(props: KeyboardAvoidingViewProps) {
-//   const { children } = props
-//   return (
-//     <KV className="flex-1" behavior="padding">
-//       {children}
-//     </KV>
-//   )
-// }
+function KeyboardAvoidingViewFallback(props: KeyboardAvoidingViewProps) {
+  const { children } = props
+
+  return (
+    <KV className="flex-1" behavior="padding">
+      {children}
+    </KV>
+  )
+}
+
+export const KeyboardAvoidingView =
+  Platform.OS === 'ios'
+    ? KeyboardAvoidingViewAnimated
+    : KeyboardAvoidingViewFallback
