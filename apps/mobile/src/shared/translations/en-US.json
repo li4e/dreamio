@@ -58,10 +58,28 @@
       },
       "enhance": {
         "title": "Enhancer",
+        "description": "Long press for details",
         "dialog": {
           "title": "Enhancer Mode",
-          "description": "When enabled, your prompt will be refined and expanded using AI to add more details, improving the quality and accuracy of the generated image. This helps create more vivid, detailed, and realistic results.",
+          "description": "When enabled, your prompt will be refined and expanded using AI to add more details, improving the quality and accuracy of the generated image.",
           "button": "OK"
+        }
+      },
+      "aspectRatio": {
+        "title": "Aspect Ratio",
+        "square": "Square",
+        "vertical": "Vertical",
+        "portrait": "Portrait",
+        "classic": "Old TV",
+        "widescreen": "Widescreen"
+      },
+      "settings": {
+        "enhancer": {
+          "on": "On",
+          "off": "Off"
+        },
+        "style": {
+          "none": "None"
         }
       }
     },
