@@ -53,6 +53,7 @@ import {
 } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
 import { CustomDialog } from 'shared/ui/CustomDialog'
+import { FormControl } from '../model/FormControl'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -60,7 +61,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const scrollView = useRef<SV>()
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
-  const { generation, isPending, hasError, status, resultImage } = useStoreData(
+  const { generation, isPending, status, resultImage } = useStoreData(
     () => uiStateStore.state,
     [uiStateStore]
   )
@@ -253,7 +254,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 </Text> */}
                 </View>
 
-                <SelectedSettings control={control} className="px-5" />
+                <SelectedSettings
+                  control={control}
+                  className="px-5"
+                  disabled={isInputDisabled}
+                />
 
                 <Controller
                   control={control}
@@ -331,9 +336,12 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   )}
                 />
               </View>
-              <EnhanceSetting control={control} />
+              <EnhanceSetting control={control} disabled={isInputDisabled} />
               <Divider className="mx-5" />
-              <AspectRatioSetting control={control} />
+              <AspectRatioSetting
+                control={control}
+                disabled={isInputDisabled}
+              />
             </Animated.View>
           </ScrollView>
           {showStartButton && (
@@ -438,18 +446,8 @@ function RandomButton(props: RandomButtonProps) {
   )
 }
 
-type FormControl = Control<
-  {
-    enhance: NonNullable<boolean | undefined>
-    aspectRatio: NonNullable<AspectRatio | undefined>
-    style: string | null
-    prompt: string
-  },
-  any
->
-
-function EnhanceSetting(props: { control: FormControl }) {
-  const { control } = props
+function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
+  const { control, disabled } = props
   const { t } = useTranslation()
   const { showDialog } = useDialog()
 
@@ -468,8 +466,9 @@ function EnhanceSetting(props: { control: FormControl }) {
   return (
     <Controller
       control={control}
-      render={({ field: { onChange, value, disabled } }) => (
+      render={({ field: { onChange, value } }) => (
         <List.Item
+          disabled={disabled}
           title={t('screens.generation.enhance.title')}
           onPress={() => onChange(!value)}
           onLongPress={handleEnhanceInfoPress}
@@ -490,8 +489,11 @@ function EnhanceSetting(props: { control: FormControl }) {
   )
 }
 
-function AspectRatioSetting(props: { control: FormControl }) {
-  const { control } = props
+function AspectRatioSetting(props: {
+  control: FormControl
+  disabled: boolean
+}) {
+  const { control, disabled } = props
   const { t } = useTranslation()
   const { showAspectModal } = useUIActions()
 
@@ -509,7 +511,7 @@ function AspectRatioSetting(props: { control: FormControl }) {
   return (
     <Controller
       control={control}
-      render={({ field: { value, disabled } }) => (
+      render={({ field: { value } }) => (
         <List.Item
           onPress={showAspectModal}
           disabled={disabled}
@@ -621,8 +623,10 @@ function AspectRatioSelectorDialog(props: { control: FormControl }) {
   )
 }
 
-function SelectedSettings(props: { control: FormControl } & ViewProps) {
-  const { control, ...rest } = props
+function SelectedSettings(
+  props: { control: FormControl; disabled: boolean } & ViewProps
+) {
+  const { control, disabled, ...rest } = props
   const { t } = useTranslation()
   const { colors } = useTheme()
   const { showAspectModal } = useUIActions()
@@ -643,6 +647,7 @@ function SelectedSettings(props: { control: FormControl } & ViewProps) {
         control={control}
         render={({ field: { value } }) => (
           <Chip
+            disabled={disabled}
             onPress={showAspectModal}
             style={activeStyles}
             mode="flat"
@@ -659,6 +664,7 @@ function SelectedSettings(props: { control: FormControl } & ViewProps) {
         control={control}
         render={({ field: { onChange, value } }) => (
           <Chip
+            disabled={disabled}
             mode="flat"
             icon="auto-fix"
             className="mr-2"
@@ -679,6 +685,7 @@ function SelectedSettings(props: { control: FormControl } & ViewProps) {
         control={control}
         render={({ field: { onChange, value } }) => (
           <Chip
+            disabled={disabled}
             style={!value ? inactiveStyles : activeStyles}
             icon="palette"
             onClose={value ? () => onChange(null) : undefined}

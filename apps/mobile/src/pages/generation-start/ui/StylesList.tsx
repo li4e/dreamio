@@ -1,5 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { View, Image, ImageSourcePropType } from 'react-native'
+import {
+  View,
+  Image,
+  ImageSourcePropType,
+  FlatList,
+  ListRenderItem,
+  ListRenderItemInfo,
+} from 'react-native'
 import {
   TouchableRipple,
   Text,
@@ -9,11 +16,6 @@ import {
 } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
-import {
-  FlashList,
-  ListRenderItem,
-  ListRenderItemInfo,
-} from '@shopify/flash-list'
 import { useCallback, useEffect } from 'react'
 import { useLocalObservable } from 'mobx-react-lite'
 import { useStoreData } from 'shared/store'
@@ -31,11 +33,20 @@ class StylesListStore {
   }
 
   private _selected: null | string = null
+  private _isDisabled = false
+
   set selected(value: null | string) {
     this._selected = value
   }
   get selected() {
     return this._selected
+  }
+
+  set disabled(value: boolean) {
+    this._isDisabled = value
+  }
+  get disabled() {
+    return this._isDisabled
   }
 }
 
@@ -54,7 +65,8 @@ export function StylesList(props: StylesListProps) {
 
   useEffect(() => {
     stylesListStore.selected = value
-  }, [value])
+    stylesListStore.disabled = disabled
+  }, [stylesListStore, value, disabled])
 
   const handleTitlePress = () => {
     showDialog({
@@ -99,14 +111,15 @@ export function StylesList(props: StylesListProps) {
         right={(props) => <List.Icon icon="alert-circle-outline" {...props} />}
       />
 
-      <FlashList
+      <FlatList
+        scrollEnabled={!disabled}
         horizontal
         data={artStyles}
         renderItem={renderItem}
         keyboardShouldPersistTaps="always"
         showsHorizontalScrollIndicator={false}
-        estimatedItemSize={120}
-        estimatedListSize={{ width: 120 * artStyles.length, height: 240 }}
+        // estimatedItemSize={120}
+        // estimatedListSize={{ width: 120 * artStyles.length, height: 240 }}
       />
     </View>
   )
@@ -131,7 +144,11 @@ function StyleCard(props: StyleCardProps) {
     <TouchableRipple
       key={item.name}
       className="m-[1]"
-      onPress={() => onChange(isSelected ? null : item.name)}
+      onPress={() => {
+        if (!store.disabled) {
+          onChange(isSelected ? null : item.name)
+        }
+      }}
       disabled={disabled}
       {...rest}
     >
