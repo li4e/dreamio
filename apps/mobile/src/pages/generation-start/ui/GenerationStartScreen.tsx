@@ -66,8 +66,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
   const isInputDisabled = isPending
 
-  console.log({ isPending, hasError, status })
-
   const modalState = mapCurGenStatusToModalState(status)
   const showStartButton = !(
     isPending && generation?.status === GenerationEntityStatus.IN_PROGRESS

@@ -43,7 +43,6 @@ class CreateGenerationService {
         this.uiStateStore.hasError = false
         await this.fetchGenerationResult(this.uiStateStore.generation.id)
       } catch (err) {
-        console.log(err)
         this.uiStateStore.hasError = true
       } finally {
         this.uiStateStore.isPending = false

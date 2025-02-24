@@ -80,7 +80,7 @@ export function StylesList(props: StylesListProps) {
               item={artStyle}
               key={artStyle.name}
               store={stylesListStore}
-              onPress={() => handleChange(artStyle.name)}
+              onChange={handleChange}
             />
           ))}
         </View>
@@ -115,14 +115,14 @@ export function StylesList(props: StylesListProps) {
 interface StyleCardProps {
   item: ArtStyle
   store: StylesListStore
-  onPress(): void
+  onChange: (value: string | null) => void
   disabled: boolean
 }
 
 function StyleCard(props: StyleCardProps) {
-  const { item, store, disabled, onPress, ...rest } = props
+  const { item, store, disabled, onChange, ...rest } = props
   const { colors } = useTheme()
-  const selected = useStoreData(
+  const isSelected = useStoreData(
     () => store.selected === item.name,
     [store, item.name]
   )
@@ -131,14 +131,14 @@ function StyleCard(props: StyleCardProps) {
     <TouchableRipple
       key={item.name}
       className="m-[1]"
-      onPress={onPress}
+      onPress={() => onChange(isSelected ? null : item.name)}
       disabled={disabled}
       {...rest}
     >
       <View
         className={twMerge(
           'w-[120] opacity-80',
-          selected && 'bg-gray-200 opacity-100'
+          isSelected && 'bg-gray-200 opacity-100'
         )}
       >
         <Image
@@ -149,7 +149,7 @@ function StyleCard(props: StyleCardProps) {
         <View
           className="absolute left-0 bottom-0 right-0"
           style={{
-            backgroundColor: selected
+            backgroundColor: isSelected
               ? colors.inverseSurface
               : colors.primaryContainer,
           }}
@@ -159,7 +159,7 @@ function StyleCard(props: StyleCardProps) {
             className={'text-center py-1 px-2'}
             variant="labelMedium"
             style={{
-              color: selected
+              color: isSelected
                 ? colors.inverseOnSurface
                 : colors.onPrimaryContainer,
             }}
