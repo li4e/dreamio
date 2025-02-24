@@ -23,7 +23,7 @@ export function Providers({ children }: PropsWithChildren) {
   return (
     <View className="flex-1">
       <StatusBar />
-      <KeyboardProvider enabled={Platform.OS === 'ios'}>
+      <KeyboardProvider enabled={true}>
         <SafeAreaProvider>
           <GestureHandlerRootView>
             <PaperProvider theme={paperTheme}>

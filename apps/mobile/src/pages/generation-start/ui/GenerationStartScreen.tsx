@@ -54,6 +54,7 @@ import {
   useUIStateStore,
 } from './UIStateStore'
 import { useStoreData } from 'shared/store'
+import { CustomDialog } from 'shared/ui/CustomDialog'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -594,7 +595,7 @@ function AspectRatioSelectorDialog(props: { control: FormControl }) {
   }
 
   return (
-    <Dialog visible={isVisible} onDismiss={hideAspectModal} dismissable>
+    <CustomDialog visible={isVisible} onDismiss={hideAspectModal} dismissable>
       <Dialog.Title className="text-center">
         {t('screens.generation.aspectRatio.title')}
       </Dialog.Title>
@@ -605,7 +606,7 @@ function AspectRatioSelectorDialog(props: { control: FormControl }) {
           renderItem={renderItem}
         />
       </Dialog.ScrollArea>
-    </Dialog>
+    </CustomDialog>
   )
 }
 
