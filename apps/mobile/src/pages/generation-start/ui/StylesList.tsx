@@ -1,26 +1,42 @@
 import { useTranslation } from 'react-i18next'
-import {
-  View,
-  Image,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from 'react-native'
+import { View, Image, ImageSourcePropType } from 'react-native'
 import {
   TouchableRipple,
   Text,
-  Chip,
   useTheme,
-  IconButton,
   Button,
+  List,
 } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
-import { ScrollView } from 'shared/ui/styled'
 import { useDialog } from 'shared/ui/Dialog'
+import {
+  FlashList,
+  ListRenderItem,
+  ListRenderItemInfo,
+} from '@shopify/flash-list'
+import { useCallback, useEffect } from 'react'
+import { useLocalObservable } from 'mobx-react-lite'
+import { useStoreData } from 'shared/store'
+import { makeAutoObservable } from 'mobx'
 
 interface StylesListProps {
   value: string | null
   onSelect(item: string | null): void
   disabled: boolean
+}
+
+class StylesListStore {
+  constructor() {
+    makeAutoObservable(this)
+  }
+
+  private _selected: null | string = null
+  set selected(value: null | string) {
+    this._selected = value
+  }
+  get selected() {
+    return this._selected
+  }
 }
 
 export function StylesList(props: StylesListProps) {
@@ -29,8 +45,16 @@ export function StylesList(props: StylesListProps) {
 
   const { showDialog } = useDialog()
 
-  const handleChange = (style: string | null) =>
-    onSelect(style === value ? null : style)
+  const handleChange = useCallback(
+    (style: string | null) => onSelect(style),
+    []
+  )
+
+  const stylesListStore = useLocalObservable(() => new StylesListStore())
+
+  useEffect(() => {
+    stylesListStore.selected = value
+  }, [value])
 
   const handleTitlePress = () => {
     showDialog({
@@ -46,68 +70,62 @@ export function StylesList(props: StylesListProps) {
     })
   }
 
+  const renderItem: ListRenderItem<ArtStyle[]> = useCallback(
+    ({ item }: ListRenderItemInfo<ArtStyle[]>) => {
+      return (
+        <View>
+          {item.map((artStyle) => (
+            <StyleCard
+              disabled={disabled}
+              item={artStyle}
+              key={artStyle.name}
+              store={stylesListStore}
+              onPress={() => handleChange(artStyle.name)}
+            />
+          ))}
+        </View>
+      )
+    },
+    [handleChange, stylesListStore]
+  )
+
   return (
     <View>
-      <View className="flex-row items-center justify-between min-h-[35] mb-0 px-5">
-        <TouchableOpacity
-          onPress={handleTitlePress}
-          className="flex-row items-center"
-        >
-          <Text variant="titleMedium" className="mr-3">
-            {t('screens.generation.styleLabel')}
-          </Text>
-          <IconButton
-            className="-ml-[12]"
-            icon="alert-circle-outline"
-            size={16}
-          />
-        </TouchableOpacity>
+      <List.Item
+        onPress={handleTitlePress}
+        left={(props) => <List.Icon icon="palette" {...props} />}
+        title={t('screens.generation.styleLabel')}
+        description={value || t('screens.generation.settings.style.none')}
+        right={(props) => <List.Icon icon="alert-circle-outline" {...props} />}
+      />
 
-        {value && (
-          <View>
-            <Chip disabled={disabled} onClose={() => handleChange(null)}>
-              {value}
-            </Chip>
-          </View>
-        )}
-      </View>
-
-      <ScrollView
-        contentInsetAdjustmentBehavior="never"
+      <FlashList
         horizontal
-        className="max-h-[315]"
-        contentContainerStyle="px-[1]"
+        data={artStyles}
+        renderItem={renderItem}
+        keyboardShouldPersistTaps="always"
         showsHorizontalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
-      >
-        {artStyles.map((artStylesCol, colIndex) => (
-          <View key={colIndex}>
-            {artStylesCol.map((artStyle, rowIndex) => (
-              <StyleCard
-                disabled={disabled}
-                item={artStyle}
-                key={artStyle.name}
-                selected={value === artStyle.name}
-                onPress={() => handleChange(artStyle.name)}
-              />
-            ))}
-          </View>
-        ))}
-      </ScrollView>
+        estimatedItemSize={120}
+        estimatedListSize={{ width: 120 * artStyles.length, height: 240 }}
+      />
     </View>
   )
 }
 
 interface StyleCardProps {
   item: ArtStyle
-  selected: boolean
+  store: StylesListStore
   onPress(): void
   disabled: boolean
 }
 
 function StyleCard(props: StyleCardProps) {
-  const { item, selected, disabled, onPress, ...rest } = props
+  const { item, store, disabled, onPress, ...rest } = props
   const { colors } = useTheme()
+  const selected = useStoreData(
+    () => store.selected === item.name,
+    [store, item.name]
+  )
 
   return (
     <TouchableRipple

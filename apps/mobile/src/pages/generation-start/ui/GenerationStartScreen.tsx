@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller, useFormState, Control } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Keyboard, View, ScrollView as SV } from 'react-native'
+import { Keyboard, View, ScrollView as SV, ViewProps } from 'react-native'
 import {
   Appbar,
   HelperText,
@@ -207,11 +207,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           <ScrollView
             ref={scrollView}
             className="flex-1"
-            contentContainerStyle="px-5 pb-[95] flex-grow"
+            contentContainerStyle="pb-[95] flex-grow"
             keyboardShouldPersistTaps="handled"
           >
             {curGen.state.result && (
-              <View className="-mx-5">
+              <View>
                 <AspectedRatioView
                   ratio={
                     resultImage && curGen.state.result
@@ -257,7 +257,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 </Text> */}
                 </View>
 
-                <SelectedSettings control={control} />
+                <SelectedSettings control={control} className="px-5" />
 
                 <Controller
                   control={control}
@@ -271,7 +271,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
                     return (
                       <>
-                        <View>
+                        <View className="mx-5">
                           <View>
                             <TextInput
                               scrollEnabled={false}
@@ -322,23 +322,21 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   name="prompt"
                 />
               </View>
-              <View className="-mx-5 justify-center mb-5">
+              <View className="justify-center mb-5">
                 <Controller
                   control={control}
                   name="style"
-                  render={({ field: { value } }) => (
+                  render={({ field: { value, onChange } }) => (
                     <StylesList
-                      disabled={isInputDisabled}
                       value={value}
-                      onSelect={(style: string | null) =>
-                        setValue('style', style, { shouldValidate: true })
-                      }
+                      disabled={isInputDisabled}
+                      onSelect={onChange}
                     />
                   )}
                 />
               </View>
               <EnhanceSetting control={control} />
-              <Divider />
+              <Divider className="mx-5" />
               <AspectRatioSetting control={control} />
             </Animated.View>
           </ScrollView>
@@ -414,7 +412,7 @@ function RandomButton(props: RandomButtonProps) {
 
   return (
     <IconButton
-      className="absolute right-2 bottom-2"
+      className="absolute right-0 bottom-0"
       icon="dice-multiple"
       size={20}
       iconColor={colors.primary}
@@ -457,7 +455,6 @@ function EnhanceSetting(props: { control: FormControl }) {
       control={control}
       render={({ field: { onChange, value, disabled } }) => (
         <List.Item
-          className="px-5 -mx-5"
           title={t('screens.generation.enhance.title')}
           onPress={() => onChange(!value)}
           onLongPress={handleEnhanceInfoPress}
@@ -499,7 +496,6 @@ function AspectRatioSetting(props: { control: FormControl }) {
       control={control}
       render={({ field: { value, disabled } }) => (
         <List.Item
-          className="px-5 -mx-5"
           onPress={showAspectModal}
           disabled={disabled}
           title={t('screens.generation.aspectRatio.title')}
@@ -610,8 +606,8 @@ function AspectRatioSelectorDialog(props: { control: FormControl }) {
   )
 }
 
-function SelectedSettings(props: { control: FormControl }) {
-  const { control } = props
+function SelectedSettings(props: { control: FormControl } & ViewProps) {
+  const { control, ...rest } = props
   const { t } = useTranslation()
   const { colors } = useTheme()
   const { showAspectModal } = useUIActions()
@@ -627,7 +623,7 @@ function SelectedSettings(props: { control: FormControl }) {
   }, [colors])
 
   return (
-    <View className="flex-row mb-2">
+    <View className="flex-row mb-2" {...rest}>
       <Controller
         control={control}
         render={({ field: { value } }) => (
