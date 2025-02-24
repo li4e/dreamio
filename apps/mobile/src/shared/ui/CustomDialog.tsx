@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { Platform } from 'react-native'
 
 import { useKeyboardHandler } from 'react-native-keyboard-controller'
 import { Dialog, DialogProps, Portal } from 'react-native-paper'
@@ -14,11 +13,8 @@ export function CustomDialog(props: DialogProps) {
     {
       onStart: (event) => {
         'worklet'
-        if (Platform.OS === 'android') {
-          const newBototm = Math.max(event.height / 2, 0)
-
-          runOnJS(setBottom)(newBototm)
-        }
+        const newBototm = Math.max(event.height / 2, 0)
+        runOnJS(setBottom)(newBototm)
       },
     },
     []
