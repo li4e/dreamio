@@ -19,10 +19,7 @@ import {
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { ScrollView, Button } from 'shared/ui/styled'
-import {
-  useCurrentGeneration,
-  Status as CurGenStatus,
-} from '../model/useCurrentGeneration'
+import { useCreateGenService } from '../model/CreateGenerationService'
 import { StateModalVariant, StateContent } from './StateModal'
 import { StylesList } from './StylesList'
 import { api } from 'shared/api'
@@ -52,7 +49,8 @@ import {
   UIStateStoreContext,
   useUIActions,
   useUIStateStore,
-} from './UIStateStore'
+  Status as CurGenStatus,
+} from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
 import { CustomDialog } from 'shared/ui/CustomDialog'
 
@@ -61,6 +59,19 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { t } = useTranslation()
   const scrollView = useRef<SV>()
   const [uiStateStore] = useState(new UIStateStore())
+  const createGenService = useCreateGenService(uiStateStore)
+  const { generation, isPending, hasError, status, resultImage } = useStoreData(
+    () => uiStateStore.state,
+    [uiStateStore]
+  )
+  const isInputDisabled = isPending
+
+  console.log({ isPending, hasError, status })
+
+  const modalState = mapCurGenStatusToModalState(status)
+  const showStartButton = !(
+    isPending && generation?.status === GenerationEntityStatus.IN_PROGRESS
+  )
 
   const generationSchema = useMemo(
     () =>
@@ -87,19 +98,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     [t]
   )
 
-  const curGen = useCurrentGeneration()
-  const resultImage = curGen.state.result?.images[0] ?? null
-  const prevResultImage = useRef<string | null>(resultImage)
-
-  useEffect(() => {
-    if (resultImage && prevResultImage.current !== resultImage) {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    }
-
-    prevResultImage.current = resultImage
-    scrollView.current?.scrollTo({ y: 0, animated: true })
-  }, [resultImage, scrollView, prevResultImage])
-
   const { control, handleSubmit, setValue } = useForm({
     resolver: yupResolver(generationSchema),
     defaultValues: {
@@ -109,6 +107,17 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       aspectRatio: AspectRatio.square,
     },
   })
+
+  useEffect(() => {
+    createGenService.fetchResultIfNeeded()
+  }, [createGenService])
+
+  useEffect(() => {
+    if (generation) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+      scrollView.current?.scrollTo({ y: 0, animated: true })
+    }
+  }, [generation, scrollView])
 
   const updateForm = useCallback(
     (generation: GenerationEntity) => {
@@ -123,24 +132,17 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
 
   useEffect(() => {
-    if (curGen.state.isPending && curGen.state.result) {
-      updateForm(curGen.state.result)
+    if (uiStateStore.isPending && uiStateStore.generation) {
+      updateForm(uiStateStore.generation)
     }
-  }, [])
+  }, [uiStateStore])
 
   useEffect(() => {
-    if (generationFromNavigation) {
-      curGen.setGeneration(generationFromNavigation)
+    if (!uiStateStore.isPending && generationFromNavigation) {
+      uiStateStore.generation = generationFromNavigation
       updateForm(generationFromNavigation)
     }
-  }, [generationFromNavigation])
-
-  const { submitCount, isValid } = useFormState({ control })
-  const isInputDisabled = curGen.state.isPending
-  const isStartButtonDisabled =
-    curGen.state.isPending || (submitCount > 0 && !isValid)
-
-  const modalState = mapCurGenStatusToModalState(curGen.state.status)
+  }, [uiStateStore, generationFromNavigation])
 
   const handleStartPress = useCallback(
     (form: {
@@ -151,17 +153,15 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     }) => {
       const { aspectRatio, ...rest } = form
       Keyboard.dismiss()
-      curGen.submit({ ...rest, ...getSizeFromAspectRatio(aspectRatio) })
+      createGenService.submit({
+        ...rest,
+        ...getSizeFromAspectRatio(aspectRatio),
+      })
     },
-    [curGen]
+    [createGenService]
   )
 
   const onSaveImage = useOnSaveImage()
-
-  const showStartButton = !(
-    curGen.state.isPending &&
-    curGen.state.result?.status === GenerationEntityStatus.IN_PROGRESS
-  )
 
   const clear = useCallback(() => {
     setValue('prompt', '', { shouldValidate: true })
@@ -174,7 +174,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       <KeyboardAvoidingView withBottomBar>
         <View className="flex-1" testID="GENERATION_SCREEN">
           <Appbar.Header>
-            {curGen.state.result && resultImage && (
+            {generation && resultImage && (
               <Animated.View
                 entering={SlideInLeft.duration(500)}
                 exiting={SlideOutLeft.duration(200)}
@@ -182,9 +182,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 <Appbar.Action
                   icon="share-variant"
                   onPress={() => {
-                    if (curGen.state.result) {
-                      shareImage(resultImage, curGen.state.result?.prompt)
-                    }
+                    shareImage(resultImage, generation.prompt)
                   }}
                 />
               </Animated.View>
@@ -210,12 +208,12 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             contentContainerStyle="pb-[95] flex-grow"
             keyboardShouldPersistTaps="handled"
           >
-            {curGen.state.result && (
+            {generation && (
               <View>
                 <AspectedRatioView
                   ratio={
-                    resultImage && curGen.state.result
-                      ? getAspectRatioFromSize(curGen.state.result)
+                    resultImage && generation
+                      ? getAspectRatioFromSize(generation)
                       : AspectRatio.square
                   }
                 >
@@ -266,7 +264,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     fieldState,
                     formState,
                   }) => {
-                    const hasError =
+                    const hasInputError =
                       formState.submitCount > 0 && fieldState.invalid
 
                     return (
@@ -285,7 +283,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                               onBlur={onBlur}
                               onChangeText={onChange}
                               value={value}
-                              error={hasError}
+                              error={hasInputError}
                             />
                             {value?.length > 0 && (
                               <IconButton
@@ -312,7 +310,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                         </View>
 
                         <View className="h-8">
-                          <HelperText type="error" visible={hasError}>
+                          <HelperText type="error" visible={hasInputError}>
                             {fieldState.error?.message}
                           </HelperText>
                         </View>
@@ -341,25 +339,44 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </Animated.View>
           </ScrollView>
           {showStartButton && (
-            <View className="absolute bottom-5 self-center">
-              <Button
-                icon="creation"
-                mode="contained"
-                className="rounded-full"
-                contentStyle="px-4 py-2"
-                onPress={handleSubmit(handleStartPress)}
-                disabled={isStartButtonDisabled}
-                loading={curGen.state.isPending}
-              >
-                {t('screens.generation.startButton')}
-              </Button>
-            </View>
+            <StartButton
+              control={control}
+              isPending={isPending}
+              onPress={handleSubmit(handleStartPress)}
+            />
           )}
           {/* <StateModal variant={modalState} onDismiss={curGen.clear} /> */}
         </View>
         <AspectRatioSelectorDialog control={control} />
       </KeyboardAvoidingView>
     </UIStateStoreContext.Provider>
+  )
+}
+
+function StartButton(props: {
+  control: FormControl
+  isPending: boolean
+  onPress: () => void
+}) {
+  const { isPending, onPress, control } = props
+  const { submitCount, isValid } = useFormState({ control })
+  const disabled = isPending || (submitCount > 0 && !isValid)
+  const { t } = useTranslation()
+
+  return (
+    <View className="absolute bottom-5 self-center">
+      <Button
+        icon="creation"
+        mode="contained"
+        className="rounded-full"
+        contentStyle="px-4 py-2"
+        onPress={onPress}
+        disabled={disabled}
+        loading={isPending}
+      >
+        {t('screens.generation.startButton')}
+      </Button>
+    </View>
   )
 }
 
