@@ -312,7 +312,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                           />
                         </View>
 
-                        <View className="h-8">
+                        <View className="h-8 px-5">
                           <HelperText type="error" visible={hasInputError}>
                             {fieldState.error?.message}
                           </HelperText>
