@@ -24,11 +24,9 @@ export class UIStateStore {
           : null,
     }
   }
-
   private persistData() {
     mkkvStorage.set(this._persistingKey, JSON.stringify(this._persistingData))
   }
-
   private restore() {
     const generationString = mkkvStorage.getString(this._persistingKey)
     if (generationString) {
@@ -42,6 +40,7 @@ export class UIStateStore {
   private _aspectRatioModalOpened = false
   private _isFormDisabled = false
   private _isPending = false
+  private _isPendingPromptGen = false
   private _hasError = false
   private _generation: GenerationEntity | null = null
 
@@ -69,6 +68,13 @@ export class UIStateStore {
   }
   get isPending() {
     return this._isPending
+  }
+
+  set isPendingPromptGen(value: boolean) {
+    this._isPendingPromptGen = value
+  }
+  get isPendingPromptGen() {
+    return this._isPendingPromptGen
   }
 
   set hasError(value: boolean) {
@@ -113,6 +119,7 @@ export class UIStateStore {
       generation: this.generation,
       resultImage: this.resultImage,
       isPending: this.isPending,
+      isPendingPromptGen: this.isPendingPromptGen,
       hasError: this.hasError,
     }
   }
@@ -120,7 +127,7 @@ export class UIStateStore {
 
 export const UIStateStoreContext = createContext<UIStateStore | null>(null)
 
-export function useUIStateStore() {
+function useUIStateStore() {
   const uiStateStore = useContext(UIStateStoreContext)
   if (!uiStateStore) {
     throw new Error('uiStateStore is null')

@@ -1,7 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { PropsWithChildren, useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
-import { useForm, Controller, useFormState, useWatch } from 'react-hook-form'
+import {
+  useForm,
+  Controller,
+  useFormState,
+  useWatch,
+  useController,
+} from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View, ViewProps } from 'react-native'
 import {
@@ -55,7 +61,6 @@ import {
   UIStateStore,
   UIStateStoreContext,
   useUIActions,
-  useUIStateStore,
   Status as CurGenStatus,
 } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
@@ -70,11 +75,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const scrollView = useRef<Animated.ScrollView | null>(null)
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
-  const { generation, isPending, status, resultImage } = useStoreData(
-    () => uiStateStore.state,
-    [uiStateStore]
-  )
-  const isInputDisabled = isPending
+  const { generation, isPending, isPendingPromptGen, status, resultImage } =
+    useStoreData(() => uiStateStore.state, [uiStateStore])
 
   const modalState = mapCurGenStatusToModalState(status)
   const showStartButton = !(
@@ -234,7 +236,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     <SelectedSettings
                       control={control}
                       className="px-5 self-end"
-                      disabled={isInputDisabled}
+                      disabled={isPending}
                     />
                     <ResetButton
                       control={control}
@@ -260,7 +262,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                           <View>
                             <TextInput
                               scrollEnabled={false}
-                              disabled={isInputDisabled}
+                              disabled={isPending}
                               multiline
                               mode="flat"
                               className="min-h-[120] pr-10"
@@ -274,7 +276,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                             />
                             {value?.length > 0 && (
                               <IconButton
-                                disabled={isInputDisabled}
+                                disabled={isPending}
                                 className="absolute top-0 right-0"
                                 onPress={clear}
                                 icon={'close'}
@@ -284,15 +286,10 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                           </View>
 
                           <RandomButton
-                            disabled={isInputDisabled}
-                            onCreated={(prompt: string) => {
-                              Haptics.impactAsync(
-                                Haptics.ImpactFeedbackStyle.Light
-                              )
-                              setValue('prompt', prompt, {
-                                shouldValidate: true,
-                              })
-                            }}
+                            disabled={isPending}
+                            control={control}
+                            uiStateStore={uiStateStore}
+                            isPending={isPendingPromptGen}
                           />
                         </View>
 
@@ -309,7 +306,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               </View>
               <AdvancedSettings
                 expandable={generation !== null}
-                disabled={isInputDisabled}
+                disabled={isPending}
               >
                 <View className="justify-center mb-5">
                   <Controller
@@ -318,18 +315,15 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     render={({ field: { value, onChange } }) => (
                       <StylesList
                         value={value}
-                        disabled={isInputDisabled}
+                        disabled={isPending}
                         onSelect={onChange}
                       />
                     )}
                   />
                 </View>
-                <EnhanceSetting control={control} disabled={isInputDisabled} />
+                <EnhanceSetting control={control} disabled={isPending} />
                 <Divider className="mx-5" />
-                <AspectRatioSetting
-                  control={control}
-                  disabled={isInputDisabled}
-                />
+                <AspectRatioSetting control={control} disabled={isPending} />
               </AdvancedSettings>
             </Animated.View>
           </Animated.ScrollView>
@@ -337,11 +331,15 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             <StartButton
               control={control}
               isPending={isPending}
+              disabled={isPendingPromptGen}
               onPress={handleSubmit(handleStartPress)}
             />
           )}
         </View>
-        <AspectRatioSelectorDialog control={control} />
+        <AspectRatioSelectorDialog
+          control={control}
+          uiStateStore={uiStateStore}
+        />
       </KeyboardAvoidingView>
     </UIStateStoreContext.Provider>
   )
@@ -350,11 +348,12 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 function StartButton(props: {
   control: FormControl
   isPending: boolean
+  disabled: boolean
   onPress: () => void
 }) {
-  const { isPending, onPress, control } = props
+  const { isPending, onPress, control, disabled } = props
   const { submitCount, isValid } = useFormState({ control })
-  const disabled = isPending || (submitCount > 0 && !isValid)
+  const isDisabled = isPending || (submitCount > 0 && !isValid)
   const { t } = useTranslation()
 
   return (
@@ -365,7 +364,7 @@ function StartButton(props: {
         className="rounded-full"
         contentStyle="px-4 py-2"
         onPress={onPress}
-        disabled={disabled}
+        disabled={isDisabled || disabled}
         loading={isPending}
       >
         {t('screens.generation.startButton')}
@@ -387,27 +386,26 @@ function mapCurGenStatusToModalState(
 }
 
 interface RandomButtonProps {
-  onCreated(prompt: string): void
   disabled: boolean
+  uiStateStore: UIStateStore
+  control: FormControl
+  isPending: boolean
 }
 
 function RandomButton(props: RandomButtonProps) {
-  const { onCreated, disabled } = props
-  const [pending, setPending] = useState(false)
+  const { disabled, control, uiStateStore, isPending } = props
+  const pending = isPending
   const { t } = useTranslation()
   const { showSnackbar } = useSnackbar()
   const { colors } = useTheme()
+  const { field } = useController({ control, name: 'prompt' })
 
   const onPress = async () => {
-    setPending(true)
+    uiStateStore.isPendingPromptGen = true
     try {
-      let prompt =
-        'Sunset over snow-capped mountains, a calm lake reflecting the sky, and a cozy cabin with glowing windows in a meadow of colorful wildflowers. Warm, peaceful atmosphere'
-      try {
-        prompt = await api.generatePrompt()
-      } catch {}
+      const prompt = await api.generatePrompt()
+      field.onChange(prompt)
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-      onCreated(prompt)
     } catch {
       showSnackbar(
         {
@@ -417,7 +415,7 @@ function RandomButton(props: RandomButtonProps) {
         { variant: SnackBarVariant.ERROR }
       )
     } finally {
-      setPending(false)
+      uiStateStore.isPendingPromptGen = false
     }
   }
 
@@ -518,10 +516,12 @@ function AspectRatioSetting(props: {
   )
 }
 
-function AspectRatioSelectorDialog(props: { control: FormControl }) {
-  const { control } = props
+function AspectRatioSelectorDialog(props: {
+  control: FormControl
+  uiStateStore: UIStateStore
+}) {
+  const { control, uiStateStore } = props
   const { t } = useTranslation()
-  const uiStateStore = useUIStateStore()
   const isVisible = useStoreData(
     () => uiStateStore.aspectRatioModalOpened,
     [uiStateStore]
@@ -717,6 +717,10 @@ function AdvancedSettings(props: AdvancedSettingsProps) {
   const [visible, setVisible] = useState(false)
   const { children } = props
   const { t } = useTranslation()
+
+  useEffect(() => {
+    setVisible(false)
+  }, [disabled])
 
   useEffect(() => {
     if (expandable) {
