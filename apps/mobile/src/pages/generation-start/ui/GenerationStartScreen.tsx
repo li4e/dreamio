@@ -68,6 +68,7 @@ import { CustomDialog } from 'shared/ui/CustomDialog'
 import { FormControl } from '../model/FormControl'
 import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { StyleSelectorDialog } from './StyleSelectorDialog'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -239,6 +240,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                       control={control}
                       className="px-5 self-end"
                       disabled={isPending}
+                      uiStateStore={uiStateStore}
                     />
                     <ResetButton
                       control={control}
@@ -343,6 +345,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           control={control}
           uiStateStore={uiStateStore}
         />
+        <StyleSelectorDialog control={control} uiStateStore={uiStateStore} />
       </KeyboardAvoidingView>
     </UIStateStoreContext.Provider>
   )
@@ -615,9 +618,13 @@ function AspectRatioSelectorDialog(props: {
 }
 
 function SelectedSettings(
-  props: { control: FormControl; disabled: boolean } & ViewProps
+  props: {
+    control: FormControl
+    disabled: boolean
+    uiStateStore: UIStateStore
+  } & ViewProps
 ) {
-  const { control, disabled, ...rest } = props
+  const { control, disabled, uiStateStore, ...rest } = props
   const { t } = useTranslation()
   const { colors } = useTheme()
   const { showAspectModal } = useUIActions()
@@ -677,6 +684,9 @@ function SelectedSettings(
         render={({ field: { onChange, value } }) => (
           <Chip
             disabled={disabled}
+            onPress={() => {
+              uiStateStore.styleSelectorModalOpened = true
+            }}
             style={!value ? inactiveStyles : activeStyles}
             icon="palette"
             onClose={value ? () => onChange(null) : undefined}

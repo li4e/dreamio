@@ -1,26 +1,48 @@
 import { useMemo, useState } from 'react'
 
-import { useKeyboardHandler } from 'react-native-keyboard-controller'
+import {
+  useKeyboardHandler,
+  useWindowDimensions,
+} from 'react-native-keyboard-controller'
 import { Dialog, DialogProps, Portal } from 'react-native-paper'
 import { runOnJS } from 'react-native-reanimated'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export function CustomDialog(props: DialogProps) {
-  const { children, style = false, ...rest } = props
+  const { children, style, ...rest } = props
 
-  const [bottom, setBottom] = useState(0)
+  const [keyboardHeight, setKeyboardHeight] = useState(0)
+  const { height } = useWindowDimensions()
 
   useKeyboardHandler(
     {
       onStart: (event) => {
         'worklet'
-        const newBototm = Math.max(event.height / 2, 0)
-        runOnJS(setBottom)(newBototm)
+        runOnJS(setKeyboardHeight)(Math.max(event.height, 0))
       },
     },
     []
   )
 
-  const dialogStyles = useMemo(() => [style, { bottom }], [bottom, style])
+  const insets = useSafeAreaInsets()
+
+  const dialogStyles = useMemo(() => {
+    const bottom =
+      keyboardHeight > 0 ? keyboardHeight / 2 - insets.bottom / 2 : 80 / 2
+
+    return [
+      style,
+      {
+        bottom: bottom,
+        maxHeight:
+          height -
+          keyboardHeight -
+          insets.top -
+          insets.bottom -
+          (keyboardHeight > 0 ? 0 : 80),
+      },
+    ]
+  }, [keyboardHeight, style, height, insets])
 
   return (
     <Portal>

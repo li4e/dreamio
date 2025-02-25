@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import {
   View,
-  Image,
-  ImageSourcePropType,
   FlatList,
   ListRenderItem,
   ListRenderItemInfo,
@@ -21,6 +19,7 @@ import { useCallback, useEffect } from 'react'
 import { useLocalObservable } from 'mobx-react-lite'
 import { useStoreData } from 'shared/store'
 import { makeAutoObservable } from 'mobx'
+import { Image, ImageSource } from 'expo-image'
 
 interface StylesListProps {
   value: string | null
@@ -28,7 +27,7 @@ interface StylesListProps {
   disabled: boolean
 }
 
-class StylesListStore {
+export class StylesListStore {
   constructor() {
     makeAutoObservable(this)
   }
@@ -135,10 +134,11 @@ interface StyleCardProps {
   store: StylesListStore
   onChange: (value: string | null) => void
   disabled: boolean
+  flex?: boolean
 }
 
-function StyleCard(props: StyleCardProps) {
-  const { item, store, disabled, onChange, ...rest } = props
+export function StyleCard(props: StyleCardProps) {
+  const { item, store, disabled, onChange, flex = false, ...rest } = props
   const { colors } = useTheme()
   const isSelected = useStoreData(
     () => store.selected === item.name,
@@ -159,14 +159,16 @@ function StyleCard(props: StyleCardProps) {
     >
       <View
         className={twMerge(
-          'w-[120] opacity-80',
+          flex ? 'w-full h-full' : 'w-[120] h-[120]',
+          'opacity-80',
           isSelected && 'bg-gray-200 opacity-100'
         )}
       >
         <Image
           source={item.imageSource}
-          resizeMode="cover"
-          className="w-full h-[120]"
+          contentFit="cover"
+          contentPosition="center"
+          className="absolute top-0 right-0 bottom-0 left-0"
         />
         <View
           className="absolute left-0 bottom-0 right-0"
@@ -194,9 +196,9 @@ function StyleCard(props: StyleCardProps) {
   )
 }
 
-interface ArtStyle {
+export interface ArtStyle {
   name: string
-  imageSource: ImageSourcePropType
+  imageSource: ImageSource
 }
 
 const artStyles: ArtStyle[][] = [
@@ -238,3 +240,5 @@ const artStyles: ArtStyle[][] = [
     { name: 'Watercolor', imageSource: require('./assets/watercolor.jpeg') },
   ],
 ] as const
+
+export const flatArtStyles = artStyles.flat()

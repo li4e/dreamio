@@ -74,6 +74,11 @@
         "classic": "Old TV",
         "widescreen": "Widescreen"
       },
+      "styleSelectorDialog": {
+        "title": "Choose Style",
+        "deselect": "No Style",
+        "close": "Close"
+      },
       "settings": {
         "enhancer": {
           "on": "On",

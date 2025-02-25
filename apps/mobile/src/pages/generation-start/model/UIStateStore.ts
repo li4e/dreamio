@@ -38,6 +38,7 @@ export class UIStateStore {
   }
 
   private _aspectRatioModalOpened = false
+  private _styleSelectorModalOpened = false
   private _isFormDisabled = false
   private _isPending = false
   private _isPendingPromptGen = false
@@ -54,6 +55,13 @@ export class UIStateStore {
   }
   get aspectRatioModalOpened() {
     return this._aspectRatioModalOpened
+  }
+
+  set styleSelectorModalOpened(value: boolean) {
+    this._styleSelectorModalOpened = value
+  }
+  get styleSelectorModalOpened() {
+    return this._styleSelectorModalOpened
   }
 
   set isFormDisabled(value: boolean) {
