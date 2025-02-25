@@ -534,24 +534,24 @@ function AspectRatioSelectorDialog(props: {
   const items = useMemo(
     () => [
       {
-        value: AspectRatio.square,
-        title: t('screens.generation.aspectRatio.square'),
-      },
-      {
-        value: AspectRatio.widescreen,
-        title: t('screens.generation.aspectRatio.widescreen'),
+        value: AspectRatio.classic,
+        title: t('screens.generation.aspectRatio.classic'),
       },
       {
         value: AspectRatio.portrait,
         title: t('screens.generation.aspectRatio.portrait'),
       },
       {
-        value: AspectRatio.classic,
-        title: t('screens.generation.aspectRatio.classic'),
+        value: AspectRatio.square,
+        title: t('screens.generation.aspectRatio.square'),
       },
       {
         value: AspectRatio.vertical,
         title: t('screens.generation.aspectRatio.vertical'),
+      },
+      {
+        value: AspectRatio.widescreen,
+        title: t('screens.generation.aspectRatio.widescreen'),
       },
     ],
     [t]
