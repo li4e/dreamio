@@ -1,8 +1,8 @@
-import { styled } from "nativewind";
-import { ScrollView as RNScrollView } from "react-native";
+import { styled } from 'nativewind'
+import Animated from 'react-native-reanimated'
 
-export const ScrollView = styled(RNScrollView, {
+export const ScrollView = styled(Animated.ScrollView, {
   props: {
     contentContainerStyle: true,
   },
-});
+})

@@ -1,9 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React, { useEffect, useRef } from 'react'
+import React, { PropsWithChildren, useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
-import { useForm, Controller, useFormState, Control } from 'react-hook-form'
+import { useForm, Controller, useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Keyboard, View, ScrollView as SV, ViewProps } from 'react-native'
+import { Keyboard, View, ViewProps } from 'react-native'
 import {
   Appbar,
   HelperText,
@@ -15,10 +15,11 @@ import {
   Divider,
   List,
   Dialog,
+  Text,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
-import { ScrollView, Button } from 'shared/ui/styled'
+import { Button } from 'shared/ui/styled'
 import { useCreateGenService } from '../model/CreateGenerationService'
 import { StateModalVariant, StateContent } from './StateModal'
 import { StylesList } from './StylesList'
@@ -26,12 +27,18 @@ import { api } from 'shared/api'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import Animated, {
   FadeIn,
-  FadeOut,
-  LinearTransition,
   SlideInLeft,
   SlideInRight,
   SlideOutRight,
   SlideOutLeft,
+  useAnimatedScrollHandler,
+  useSharedValue,
+  SharedValue,
+  useAnimatedStyle,
+  interpolate,
+  Extrapolation,
+  useDerivedValue,
+  clamp,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
@@ -54,11 +61,13 @@ import {
 import { useStoreData } from 'shared/store'
 import { CustomDialog } from 'shared/ui/CustomDialog'
 import { FormControl } from '../model/FormControl'
+import { BlurView } from 'expo-blur'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
-  const scrollView = useRef<SV>()
+  const scrollView = useRef<Animated.ScrollView | null>(null)
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
   const { generation, isPending, status, resultImage } = useStoreData(
@@ -160,105 +169,73 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     [createGenService]
   )
 
-  const onSaveImage = useOnSaveImage()
-
   const clear = useCallback(() => {
     setValue('prompt', '', { shouldValidate: true })
   }, [])
 
   const { colors } = useTheme()
 
+  const scrollY = useSharedValue(0)
+  const scrollHandler = useAnimatedScrollHandler(
+    {
+      onScroll: (e) => {
+        'worklet'
+        scrollY.value = e.contentOffset.y
+      },
+    },
+    []
+  )
+
   return (
     <UIStateStoreContext.Provider value={uiStateStore}>
       <KeyboardAvoidingView withBottomBar>
         <View className="flex-1" testID="GENERATION_SCREEN">
-          <Appbar.Header>
-            {generation && resultImage && (
-              <Animated.View
-                entering={SlideInLeft.duration(500)}
-                exiting={SlideOutLeft.duration(200)}
-              >
-                <Appbar.Action
-                  icon="share-variant"
-                  onPress={() => {
-                    shareImage(resultImage, generation.prompt)
-                  }}
-                />
-              </Animated.View>
-            )}
-
-            <Appbar.Content title={null} />
-
-            {resultImage && (
-              <Animated.View
-                entering={SlideInRight.duration(500)}
-                exiting={SlideOutRight.duration(200)}
-              >
-                <Appbar.Action
-                  icon="download"
-                  onPress={() => onSaveImage(resultImage)}
-                />
-              </Animated.View>
-            )}
-          </Appbar.Header>
-          <ScrollView
+          <Animated.ScrollView
+            onScroll={scrollHandler}
             ref={scrollView}
             className="flex-1"
-            contentContainerStyle="pb-[95] flex-grow"
+            contentContainerStyle={{
+              paddingTop: 0,
+              paddingBottom: 95,
+              flexGrow: 1,
+            }}
             keyboardShouldPersistTaps="handled"
+            stickyHeaderIndices={[0]}
           >
-            {generation && (
-              <View>
-                <AspectedRatioView
-                  ratio={
-                    resultImage && generation
-                      ? getAspectRatioFromSize(generation)
-                      : AspectRatio.square
-                  }
-                >
-                  {resultImage ? (
-                    <Animated.View
-                      key="image_result"
-                      className="absolute top-0 left-0 right-0 bottom-0"
-                    >
-                      <CachedImage
-                        source={resultImage}
-                        className="flex-1"
-                        transition={300}
-                        contentFit="contain"
-                        contentPosition="center"
-                        style={{ backgroundColor: colors.backdrop }}
-                      />
-                    </Animated.View>
-                  ) : modalState ? (
-                    <Animated.View
-                      entering={FadeIn.duration(200)}
-                      exiting={FadeOut.duration(200)}
-                      key="generation_process"
-                      className="flex-1 items-center justify-center"
-                    >
-                      <StateContent variant={modalState} />
-                    </Animated.View>
-                  ) : null}
-                </AspectedRatioView>
-              </View>
-            )}
-            <Animated.View
-              layout={LinearTransition.duration(300)}
-              className="flex-grow justify-center pt-4"
-            >
-              <View className="justify-center">
-                <View className="flex-row justify-between items-center mb-1 flex-wrap">
-                  {/* <Text variant="titleMedium">
-                  {t('screens.generation.inputLabel')}
-                </Text> */}
-                </View>
+            <Header generation={generation} scrollY={scrollY} />
 
-                <SelectedSettings
-                  control={control}
-                  className="px-5"
-                  disabled={isInputDisabled}
+            {modalState ? (
+              <Animated.View
+                entering={FadeIn.duration(300)}
+                key="generation_process"
+                className="items-center justify-center py-10"
+              >
+                <StateContent variant={modalState} />
+              </Animated.View>
+            ) : (
+              generation &&
+              resultImage && (
+                <ResultImage
+                  scrollY={scrollY}
+                  image={resultImage}
+                  generation={generation}
                 />
+              )
+            )}
+            <Animated.View className="flex-grow justify-center">
+              <View className="justify-center">
+                {resultImage && (
+                  <Text variant="titleLarge" className="m-5 text-center">
+                    {t('screens.generation.titleMore')}
+                  </Text>
+                )}
+                {generation && (
+                  <SelectedSettings
+                    control={control}
+                    className="px-5"
+                    disabled={isInputDisabled}
+                  />
+                )}
 
                 <Controller
                   control={control}
@@ -323,27 +300,32 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   name="prompt"
                 />
               </View>
-              <View className="justify-center mb-5">
-                <Controller
-                  control={control}
-                  name="style"
-                  render={({ field: { value, onChange } }) => (
-                    <StylesList
-                      value={value}
-                      disabled={isInputDisabled}
-                      onSelect={onChange}
-                    />
-                  )}
-                />
-              </View>
-              <EnhanceSetting control={control} disabled={isInputDisabled} />
-              <Divider className="mx-5" />
-              <AspectRatioSetting
-                control={control}
+              <AdvancedSettings
+                expandable={generation !== null}
                 disabled={isInputDisabled}
-              />
+              >
+                <View className="justify-center mb-5">
+                  <Controller
+                    control={control}
+                    name="style"
+                    render={({ field: { value, onChange } }) => (
+                      <StylesList
+                        value={value}
+                        disabled={isInputDisabled}
+                        onSelect={onChange}
+                      />
+                    )}
+                  />
+                </View>
+                <EnhanceSetting control={control} disabled={isInputDisabled} />
+                <Divider className="mx-5" />
+                <AspectRatioSetting
+                  control={control}
+                  disabled={isInputDisabled}
+                />
+              </AdvancedSettings>
             </Animated.View>
-          </ScrollView>
+          </Animated.ScrollView>
           {showStartButton && (
             <StartButton
               control={control}
@@ -351,7 +333,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               onPress={handleSubmit(handleStartPress)}
             />
           )}
-          {/* <StateModal variant={modalState} onDismiss={curGen.clear} /> */}
         </View>
         <AspectRatioSelectorDialog control={control} />
       </KeyboardAvoidingView>
@@ -717,4 +698,205 @@ function getSizeFromAspectRatio(
     default:
       return { width: maxSize, height: maxSize } // Default fallback
   }
+}
+
+interface AdvancedSettingsProps extends PropsWithChildren {
+  expandable: boolean
+  disabled: boolean
+}
+
+function AdvancedSettings(props: AdvancedSettingsProps) {
+  const { expandable, disabled } = props
+  const [visible, setVisible] = useState(false)
+  const { children } = props
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    if (expandable) {
+      setVisible(false)
+    } else {
+      setVisible(true)
+    }
+  }, [expandable])
+
+  return (
+    <Animated.View>
+      {expandable && (
+        <Button
+          className="self-center"
+          onPress={() => setVisible(!visible)}
+          disabled={disabled}
+          mode="text"
+          icon={visible ? 'chevron-double-up' : 'chevron-double-down'}
+        >
+          {t('screens.generation.allSettings')}
+        </Button>
+      )}
+
+      {visible && children}
+    </Animated.View>
+  )
+}
+
+function Header(props: {
+  generation: GenerationEntity | null
+  scrollY: SharedValue<number>
+}) {
+  const { generation, scrollY } = props
+  const resultImage = generation?.images[0]
+  const onSaveImage = useOnSaveImage()
+  const { t } = useTranslation()
+
+  const hasGeneration = useSharedValue(Boolean(generation))
+  const hasImage = useSharedValue(Boolean(resultImage))
+
+  useEffect(() => {
+    hasGeneration.value = Boolean(generation)
+    hasImage.value = Boolean(resultImage)
+  }, [generation, resultImage])
+
+  const headerVisible = useDerivedValue(
+    () =>
+      hasGeneration.value && !hasImage.value
+        ? 0
+        : interpolate(scrollY.value, [0, 64], [1, 0], Extrapolation.CLAMP),
+    [scrollY, hasGeneration]
+  )
+
+  const { top } = useSafeAreaInsets()
+
+  const headerStyle = useAnimatedStyle(
+    () => ({
+      transform: [
+        {
+          translateY:
+            interpolate(
+              scrollY.value,
+              [-3000, 0],
+              [-3000, 0],
+              Extrapolation.CLAMP
+            ) +
+            interpolate(
+              headerVisible.value,
+              [0, 1],
+              [-64, 0],
+              Extrapolation.CLAMP
+            ),
+        },
+      ],
+    }),
+    [scrollY, headerVisible, top, hasImage]
+  )
+
+  const headerContentStyle = useAnimatedStyle(
+    () => ({
+      opacity: interpolate(
+        headerVisible.value,
+        [0.5, 1],
+        [0, 1],
+        Extrapolation.CLAMP
+      ),
+    }),
+    []
+  )
+
+  const { dark } = useTheme()
+
+  return (
+    <Animated.View style={headerStyle}>
+      <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
+        <Animated.View style={headerContentStyle}>
+          <Appbar.Header className="bg-transparent" mode="center-aligned">
+            {generation && resultImage && (
+              <Animated.View
+                entering={SlideInLeft.duration(500)}
+                exiting={SlideOutLeft.duration(200)}
+              >
+                <Appbar.Action
+                  icon="share-variant"
+                  onPress={() => {
+                    shareImage(resultImage, generation.prompt)
+                  }}
+                />
+              </Animated.View>
+            )}
+
+            <Appbar.Content
+              title={!generation && t('screens.generation.title')}
+            />
+
+            {resultImage && (
+              <Animated.View
+                entering={SlideInRight.duration(500)}
+                exiting={SlideOutRight.duration(200)}
+              >
+                <Appbar.Action
+                  icon="download"
+                  onPress={() => onSaveImage(resultImage)}
+                />
+              </Animated.View>
+            )}
+          </Appbar.Header>
+        </Animated.View>
+      </BlurView>
+    </Animated.View>
+  )
+}
+
+function ResultImage(
+  props: {
+    image: string
+    generation: GenerationEntity
+    scrollY: SharedValue<number>
+  } & ViewProps
+) {
+  const { image, generation, scrollY } = props
+  const { colors } = useTheme()
+  const { top } = useSafeAreaInsets()
+
+  const negativeScrollY = useDerivedValue(
+    () =>
+      interpolate(
+        scrollY.value,
+        [-100000, 0],
+        [100000, 0],
+        Extrapolation.CLAMP
+      ),
+    []
+  )
+
+  const wrapperStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateY: -negativeScrollY.value,
+        },
+      ],
+    }
+  }, [negativeScrollY, top])
+
+  const contentStyle = useAnimatedStyle(() => {
+    return {
+      bottom: -negativeScrollY.value,
+    }
+  }, [negativeScrollY, top])
+
+  return (
+    <Animated.View style={wrapperStyle}>
+      <AspectedRatioView ratio={getAspectRatioFromSize(generation)} />
+      <Animated.View
+        className="absolute top-0 right-0 left-0"
+        style={contentStyle}
+      >
+        <CachedImage
+          source={image}
+          className="flex-1"
+          transition={300}
+          contentFit="cover"
+          contentPosition="bottom center"
+          style={{ backgroundColor: colors.backdrop }}
+        />
+      </Animated.View>
+    </Animated.View>
+  )
 }
