@@ -188,6 +188,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     []
   )
 
+  const { top } = useSafeAreaInsets()
+  const topInset = top + 64
+
   return (
     <UIStateStoreContext.Provider value={uiStateStore}>
       <KeyboardAvoidingView withBottomBar>
@@ -196,16 +199,15 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             onScroll={scrollHandler}
             ref={scrollView}
             className="flex-1"
+            scrollIndicatorInsets={{ top: topInset }}
+            automaticallyAdjustsScrollIndicatorInsets={false}
             contentContainerStyle={{
-              paddingTop: 0,
+              paddingTop: topInset,
               paddingBottom: 95,
               flexGrow: 1,
             }}
             keyboardShouldPersistTaps="handled"
-            stickyHeaderIndices={[0]}
           >
-            <Header generation={generation} scrollY={scrollY} />
-
             {modalState ? (
               <Animated.View
                 entering={FadeIn.duration(300)}
@@ -327,6 +329,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               </AdvancedSettings>
             </Animated.View>
           </Animated.ScrollView>
+          <Header generation={generation} scrollY={scrollY} />
           {showStartButton && (
             <StartButton
               control={control}
@@ -757,6 +760,8 @@ function Header(props: {
   const resultImage = generation?.images[0]
   const onSaveImage = useOnSaveImage()
   const { t } = useTranslation()
+  const { top } = useSafeAreaInsets()
+  const { dark } = useTheme()
 
   const hasGeneration = useSharedValue(Boolean(generation))
   const hasImage = useSharedValue(Boolean(resultImage))
@@ -774,30 +779,22 @@ function Header(props: {
     [scrollY, hasGeneration]
   )
 
-  const { top } = useSafeAreaInsets()
-
-  const headerStyle = useAnimatedStyle(
-    () => ({
+  const headerStyle = useAnimatedStyle(() => {
+    const height = top + 64
+    return {
+      top: -height,
       transform: [
         {
-          translateY:
-            interpolate(
-              scrollY.value,
-              [-3000, 0],
-              [-3000, 0],
-              Extrapolation.CLAMP
-            ) +
-            interpolate(
-              headerVisible.value,
-              [0, 1],
-              [-64, 0],
-              Extrapolation.CLAMP
-            ),
+          translateY: interpolate(
+            headerVisible.value,
+            [0, 1],
+            [height - 64, height],
+            Extrapolation.CLAMP
+          ),
         },
       ],
-    }),
-    [scrollY, headerVisible, top, hasImage]
-  )
+    }
+  }, [scrollY, headerVisible, top, hasImage])
 
   const headerContentStyle = useAnimatedStyle(
     () => ({
@@ -811,10 +808,8 @@ function Header(props: {
     []
   )
 
-  const { dark } = useTheme()
-
   return (
-    <Animated.View style={headerStyle}>
+    <Animated.View style={headerStyle} className="absolute right-0 left-0">
       <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
         <Animated.View style={headerContentStyle}>
           <Appbar.Header className="bg-transparent" mode="center-aligned">
