@@ -13,6 +13,7 @@ import {
   useTheme,
   Button,
   List,
+  Icon,
 } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
@@ -108,7 +109,11 @@ export function StylesList(props: StylesListProps) {
         left={(props) => <List.Icon icon="palette" {...props} />}
         title={t('screens.generation.styleLabel')}
         description={value || t('screens.generation.settings.style.none')}
-        right={(props) => <List.Icon icon="alert-circle-outline" {...props} />}
+        right={(props) => (
+          <View className="self-center" {...props}>
+            <Icon source="alert-circle-outline" size={20} />
+          </View>
+        )}
       />
 
       <FlatList

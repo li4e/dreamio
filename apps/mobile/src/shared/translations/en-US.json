@@ -33,7 +33,7 @@
   "screens": {
     "generation": {
       "title": "New Image",
-      "titleMore": "Create More",
+      "titleMore": "Start a New Creation",
       "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
       "styleLabel": "Choose Your Style",

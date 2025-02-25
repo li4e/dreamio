@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { PropsWithChildren, useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
-import { useForm, Controller, useFormState } from 'react-hook-form'
+import { useForm, Controller, useFormState, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View, ViewProps } from 'react-native'
 import {
@@ -223,18 +223,25 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               )
             )}
             <Animated.View className="flex-grow justify-center">
-              <View className="justify-center">
+              <View className="justify-center pt-10">
                 {resultImage && (
-                  <Text variant="titleLarge" className="m-5 text-center">
+                  <Text variant="titleLarge" className="mx-5 mb-5 text-center">
                     {t('screens.generation.titleMore')}
                   </Text>
                 )}
                 {generation && (
-                  <SelectedSettings
-                    control={control}
-                    className="px-5"
-                    disabled={isInputDisabled}
-                  />
+                  <View className="flex-row justify-between pr-4 mb-2">
+                    <SelectedSettings
+                      control={control}
+                      className="px-5 self-end"
+                      disabled={isInputDisabled}
+                    />
+                    <ResetButton
+                      control={control}
+                      generation={generation}
+                      updateForm={updateForm}
+                    />
+                  </View>
                 )}
 
                 <Controller
@@ -623,7 +630,7 @@ function SelectedSettings(
   }, [colors])
 
   return (
-    <View className="flex-row mb-2" {...rest}>
+    <View className="flex-row" {...rest}>
       <Controller
         control={control}
         render={({ field: { value } }) => (
@@ -633,7 +640,7 @@ function SelectedSettings(
             style={activeStyles}
             mode="flat"
             icon="aspect-ratio"
-            className="mr-2"
+            className="mr-1"
           >
             {value}
           </Chip>
@@ -648,7 +655,7 @@ function SelectedSettings(
             disabled={disabled}
             mode="flat"
             icon="auto-fix"
-            className="mr-2"
+            className="mr-1"
             style={!value ? inactiveStyles : activeStyles}
             onPress={() => onChange(!value)}
           >
@@ -850,53 +857,54 @@ function ResultImage(
     scrollY: SharedValue<number>
   } & ViewProps
 ) {
-  const { image, generation, scrollY } = props
+  const { image, generation } = props
   const { colors } = useTheme()
-  const { top } = useSafeAreaInsets()
-
-  const negativeScrollY = useDerivedValue(
-    () =>
-      interpolate(
-        scrollY.value,
-        [-100000, 0],
-        [100000, 0],
-        Extrapolation.CLAMP
-      ),
-    []
+  const imageStyles = useMemo(
+    () => ({
+      backgroundColor: colors.backdrop,
+    }),
+    [colors]
   )
 
-  const wrapperStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateY: -negativeScrollY.value,
-        },
-      ],
-    }
-  }, [negativeScrollY, top])
+  return (
+    <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
+      <CachedImage
+        source={image}
+        className="flex-1"
+        transition={300}
+        contentFit="contain"
+        contentPosition="center"
+        style={imageStyles}
+      />
+    </AspectedRatioView>
+  )
+}
 
-  const contentStyle = useAnimatedStyle(() => {
-    return {
-      bottom: -negativeScrollY.value,
-    }
-  }, [negativeScrollY, top])
+function ResetButton(props: {
+  generation: GenerationEntity
+  control: FormControl
+  updateForm(generation: GenerationEntity): void
+}) {
+  const { control, generation, updateForm } = props
+  const { aspectRatio, style, enhance, prompt } = useWatch({ control })
+
+  const isAnyChanged =
+    generation.enhance !== enhance ||
+    generation.prompt !== prompt ||
+    generation.style !== style ||
+    getAspectRatioFromSize(generation) !== aspectRatio
+
+  const handlePress = useCallback(() => {
+    updateForm(generation)
+  }, [generation])
 
   return (
-    <Animated.View style={wrapperStyle}>
-      <AspectedRatioView ratio={getAspectRatioFromSize(generation)} />
-      <Animated.View
-        className="absolute top-0 right-0 left-0"
-        style={contentStyle}
-      >
-        <CachedImage
-          source={image}
-          className="flex-1"
-          transition={300}
-          contentFit="cover"
-          contentPosition="bottom center"
-          style={{ backgroundColor: colors.backdrop }}
-        />
-      </Animated.View>
-    </Animated.View>
+    <IconButton
+      icon="backup-restore"
+      size={20}
+      className="m-0 self-start"
+      disabled={!isAnyChanged}
+      onPress={handlePress}
+    />
   )
 }
