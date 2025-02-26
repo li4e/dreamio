@@ -11,7 +11,7 @@ export class GetGenerationError extends Error {
   }
 
   isPromptUnsafe(): boolean {
-    return this.status === 500
+    return [500, 502].includes(this.status)
   }
 
   isServiceUnavailable(): boolean {
@@ -65,7 +65,6 @@ export class Api {
     const timeout = 60 * 1000
     await axios
       .head(imageUrl, {
-        validateStatus: () => true,
         timeout,
       })
       .then((res) => res.status)
@@ -105,6 +104,11 @@ export class Api {
     try {
       prompt = await translator.translate(data.prompt, 'en')
     } catch (err) {
+      if (axios.isAxiosError(err) && new SettingsStore().censorship) {
+        if (err.status === 500) {
+          throw new GetGenerationError(500)
+        }
+      }
       console.error('Error during tranlsating prompt', err)
     }
 
