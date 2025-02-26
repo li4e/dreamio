@@ -58,7 +58,7 @@ async function translateText(
   const prompt = `You are a translation assistant specialized in application localization. Translate the following text from ${sourceLang} to ${destLang}, preserving the meaning and ensuring clarity. The translation should fit the context defined by the following key: "${translationKey}". Do not translate or modify placeholder variables enclosed in curly braces (e.g., {{variableName}}). Maintain a professional tone and ensure accuracy in the translation.`
 
   const params: OpenAI.Chat.ChatCompletionCreateParams = {
-    model: 'gpt-4o',
+    model: 'gpt-4o-mini',
     messages: [
       {
         role: 'system',
@@ -110,7 +110,6 @@ async function translateAppByLocale(
         if (existingHashes) {
           // If the value has changed, reset the list of translated locales
           if (existingHashes.original !== value) {
-            console.log(existingHashes.original, value)
             console.log(`Value has changed, resetting translations for ${key}`)
             existingHashes.original = value
             existingHashes.translations = []
