@@ -61,19 +61,28 @@ export class Api {
       throw new Error('There is no an image in the passed GenerationDTO')
     }
 
-    const status = await axios
+    const startTime = Date.now()
+    const timeout = 40 * 1000
+    await axios
       .head(imageUrl, {
         validateStatus: () => true,
+        timeout,
       })
       .then((res) => res.status)
-      .catch((err) => {
-        console.log(err)
-        throw err
+      .catch((error) => {
+        if (axios.isAxiosError(error)) {
+          if (error.status && error.status >= 500) {
+            throw new GetGenerationError(error.status)
+          } else if (
+            error.code &&
+            ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code) &&
+            Date.now() - startTime >= timeout
+          ) {
+            throw new GetGenerationError(501)
+          }
+        }
+        throw error
       })
-
-    if (status >= 500) {
-      throw new GetGenerationError(status)
-    }
 
     const prefetched = await Image.prefetch(imageUrl)
     if (!prefetched) {

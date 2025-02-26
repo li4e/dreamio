@@ -38,7 +38,15 @@ class CreateGenerationService {
 
       await this.fetchGenerationResult(generation)
     } catch (error) {
-      this.uiStateStore.error = StateGenerationError.General
+      if (error instanceof GetGenerationError) {
+        this.uiStateStore.error = error.isPromptUnsafe()
+          ? StateGenerationError.PromptUnsafe
+          : error.isServiceUnavailable()
+            ? StateGenerationError.ServiceUnavailable
+            : StateGenerationError.General
+      } else {
+        this.uiStateStore.error = StateGenerationError.General
+      }
     } finally {
       this.uiStateStore.isPending = false
     }
