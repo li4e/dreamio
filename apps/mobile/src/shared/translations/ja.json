@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "プロンプトは{{max}}文字未満である必要があります。",
   "screens.generation.promptValidationErrors.required": "プロンプトが必要です",
   "screens.generation.modalError.title": "おっと！",
-  "screens.generation.modalError.description": "魔法のプロセス中に何か問題が発生しました。もう一度お試しください。",
+  "screens.generation.modalError.description": "何かがうまくいきませんでした。インターネット接続を確認し、再試行してください。",
   "screens.generation.modalError.button": "続行する",
   "screens.generation.modalGeneration.title": "進行中のマジック",
   "screens.generation.modalGeneration.description": "通常、これは約15秒かかります…",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "オフ",
   "screens.generation.settings.style.none": "なし",
   "screens.generation.allSettings": "すべての設定",
-  "screens.generationResult.enhancer": "エンハンサー"
+  "screens.generationResult.enhancer": "エンハンサー",
+  "screens.generation.errorUnsafePrompt.title": "コンテンツが許可されていません",
+  "screens.generation.errorUnsafePrompt.description": "申し訳ありませんが、あなたのプロンプトはコンテンツガイドラインに違反しています。内容を修正して再度お試しください。",
+  "screens.generation.errorServiceUnavailable.title": "サービスは一時的に利用できません",
+  "screens.generation.errorServiceUnavailable.description": "現在、私たちの無料サービスは高いトラフィックを受けています。数分待ってから、もう一度お試しください。"
 }

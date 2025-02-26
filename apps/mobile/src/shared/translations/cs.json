@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Výzva musí být kratší než {{max}} znaků.",
   "screens.generation.promptValidationErrors.required": "Text výzvy je povinný.",
   "screens.generation.modalError.title": "Jejda!",
-  "screens.generation.modalError.description": "Během magického procesu došlo k chybě. Prosím, zkuste to znovu.",
+  "screens.generation.modalError.description": "Něco se pokazilo. Zkontrolujte prosím své internetové připojení a zkuste to znovu.",
   "screens.generation.modalError.button": "Pokračovat",
   "screens.generation.modalGeneration.title": "Probíhá kouzlo",
   "screens.generation.modalGeneration.description": "Obvykle to trvá asi 15 sekund...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Vypnuto",
   "screens.generation.settings.style.none": "Žádný",
   "screens.generation.allSettings": "Všechny nastavení",
-  "screens.generationResult.enhancer": "Zesilovač"
+  "screens.generationResult.enhancer": "Zesilovač",
+  "screens.generation.errorUnsafePrompt.title": "Obsah není povolen",
+  "screens.generation.errorUnsafePrompt.description": "Váš dotaz porušuje zásady obsahu. Prosím, upravte ho a zkuste to znovu.",
+  "screens.generation.errorServiceUnavailable.title": "Služba je dočasně nedostupná",
+  "screens.generation.errorServiceUnavailable.description": "Naše bezplatná služba momentálně zažívá vysokou návštěvnost. Prosím, vyčkejte několik minut a zkuste to znovu."
 }

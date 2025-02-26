@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Potrebno je da upit bude kraći od {{max}} znakova.",
   "screens.generation.promptValidationErrors.required": "Unos je obavezan",
   "screens.generation.modalError.title": "Ups!",
-  "screens.generation.modalError.description": "Nešto je pošlo po krivu tijekom čarobnog procesa. Molimo pokušajte ponovno.",
+  "screens.generation.modalError.description": "Nešto je pošlo po zlu. Molimo vas provjerite svoju internetsku vezu i pokušajte ponovno.",
   "screens.generation.modalError.button": "Nastavi",
   "screens.generation.modalGeneration.title": "Čarolija u tijeku",
   "screens.generation.modalGeneration.description": "Ovo obično traje oko 15 sekundi...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Isključeno",
   "screens.generation.settings.style.none": "Nema",
   "screens.generation.allSettings": "Sve postavke",
-  "screens.generationResult.enhancer": "Pojačivač"
+  "screens.generationResult.enhancer": "Pojačivač",
+  "screens.generation.errorUnsafePrompt.title": "Zabranjen sadržaj",
+  "screens.generation.errorUnsafePrompt.description": "Vaš unos krši pravila sadržaja. Molimo da ga prilagodite i pokušate ponovo.",
+  "screens.generation.errorServiceUnavailable.title": "Usluga je privremeno nedostupna",
+  "screens.generation.errorServiceUnavailable.description": "Naša besplatna usluga trenutno doživljava visoku posjećenost. Molimo vas da pričekate nekoliko minuta i pokušate ponovo."
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "A kérés nem lehet hosszabb, mint {{max}} karakter.",
   "screens.generation.promptValidationErrors.required": "A prompt megadása kötelező",
   "screens.generation.modalError.title": "Hoppá!",
-  "screens.generation.modalError.description": "Valami hiba történt a varázslat során. Kérlek, próbáld újra.",
+  "screens.generation.modalError.description": "Valami hiba történt. Kérjük, ellenőrizze az internetkapcsolatát, és próbálja újra.",
   "screens.generation.modalError.button": "Folytatás",
   "screens.generation.modalGeneration.title": "Varázslat folyamatban",
   "screens.generation.modalGeneration.description": "Ez általában körülbelül 15 másodpercet vesz igénybe...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Kiibálva",
   "screens.generation.settings.style.none": "Semmi",
   "screens.generation.allSettings": "Összes beállítás",
-  "screens.generationResult.enhancer": "Fokozó"
+  "screens.generationResult.enhancer": "Fokozó",
+  "screens.generation.errorUnsafePrompt.title": "A tartalom nem engedélyezett",
+  "screens.generation.errorUnsafePrompt.description": "A kérése megsérti a tartalmi irányelveket. Kérjük, módosítsa azt, és próbálja újra.",
+  "screens.generation.errorServiceUnavailable.title": "A szolgáltatás átmenetileg nem elérhető",
+  "screens.generation.errorServiceUnavailable.description": "Ingyenes szolgáltatásunk jelenleg nagy forgalommal bír. Kérjük, várjon néhány percet, majd próbálja újra."
 }

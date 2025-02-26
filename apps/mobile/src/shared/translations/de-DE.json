@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Die Eingabeaufforderung muss kürzer als {{max}} Zeichen sein.",
   "screens.generation.promptValidationErrors.required": "Eingabeaufforderung ist erforderlich",
   "screens.generation.modalError.title": "Hoppla!",
-  "screens.generation.modalError.description": "Während des magischen Prozesses ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+  "screens.generation.modalError.description": "Etwas ist schiefgegangen. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
   "screens.generation.modalError.button": "Fortfahren",
   "screens.generation.modalGeneration.title": "Magie in Arbeit",
   "screens.generation.modalGeneration.description": "Dies dauert normalerweise etwa 15 Sekunden...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Aus",
   "screens.generation.settings.style.none": "Keine",
   "screens.generation.allSettings": "Alle Einstellungen",
-  "screens.generationResult.enhancer": "Enhancer"
+  "screens.generationResult.enhancer": "Enhancer",
+  "screens.generation.errorUnsafePrompt.title": "Inhalt nicht erlaubt",
+  "screens.generation.errorUnsafePrompt.description": "Ihr Hinweis verstößt gegen die Inhaltsrichtlinien. Bitte passen Sie ihn an und versuchen Sie es erneut.",
+  "screens.generation.errorServiceUnavailable.title": "Dienst vorübergehend nicht verfügbar",
+  "screens.generation.errorServiceUnavailable.description": "Unser kostenloser Dienst hat momentan hohe Auslastung. Bitte warten Sie einige Minuten und versuchen Sie es erneut."
 }

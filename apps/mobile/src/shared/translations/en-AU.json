@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "The prompt must be shorter than {{max}} characters",
   "screens.generation.promptValidationErrors.required": "Prompt is required",
   "screens.generation.modalError.title": "Whoops!",
-  "screens.generation.modalError.description": "Something went wrong during the magic process. Please try again.",
+  "screens.generation.modalError.description": "Something went wrong. Please check your internet connection and try again.",
   "screens.generation.modalError.button": "Continue",
   "screens.generation.modalGeneration.title": "Magic in Progress",
   "screens.generation.modalGeneration.description": "This typically takes about 15 seconds...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Disabled",
   "screens.generation.settings.style.none": "None",
   "screens.generation.allSettings": "All Settings",
-  "screens.generationResult.enhancer": "Enhancer"
+  "screens.generationResult.enhancer": "Enhancer",
+  "screens.generation.errorUnsafePrompt.title": "Content Not Allowed",
+  "screens.generation.errorUnsafePrompt.description": "Your prompt breaches content guidelines. Please modify it and try again.",
+  "screens.generation.errorServiceUnavailable.title": "Service Temporarily Unavailable",
+  "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high demand. Please wait a few minutes and try again."
 }

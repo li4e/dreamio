@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Permintaan harus lebih pendek dari {{max}} karakter",
   "screens.generation.promptValidationErrors.required": "Prompt diperlukan",
   "screens.generation.modalError.title": "Ups!",
-  "screens.generation.modalError.description": "Terjadi kesalahan selama proses ajaib. Silakan coba lagi.",
+  "screens.generation.modalError.description": "Terjadi kesalahan. Silakan periksa koneksi internet Anda dan coba lagi.",
   "screens.generation.modalError.button": "Lanjutkan",
   "screens.generation.modalGeneration.title": "Sihir Sedang Berlangsung",
   "screens.generation.modalGeneration.description": "Ini biasanya memakan waktu sekitar 15 detik...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Matikan",
   "screens.generation.settings.style.none": "Tidak ada",
   "screens.generation.allSettings": "Semua Pengaturan",
-  "screens.generationResult.enhancer": "Peningkat"
+  "screens.generationResult.enhancer": "Peningkat",
+  "screens.generation.errorUnsafePrompt.title": "Konten Tidak Diizinkan",
+  "screens.generation.errorUnsafePrompt.description": "Permintaan Anda melanggar pedoman konten. Silakan sesuaikan dan coba lagi.",
+  "screens.generation.errorServiceUnavailable.title": "Layanan Sedang Tidak Tersedia Sementara",
+  "screens.generation.errorServiceUnavailable.description": "Layanan gratis kami saat ini mengalami lalu lintas yang tinggi. Harap tunggu beberapa menit dan coba lagi."
 }

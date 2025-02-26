@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Uppmaningen måste vara kortare än {{max}} tecken",
   "screens.generation.promptValidationErrors.required": "Frågeformuläret är obligatoriskt",
   "screens.generation.modalError.title": "Oj då!",
-  "screens.generation.modalError.description": "Något gick fel under magiprocessen. Försök igen.",
+  "screens.generation.modalError.description": "Något gick fel. Vänligen kontrollera din internetanslutning och försök igen.",
   "screens.generation.modalError.button": "Fortsätt",
   "screens.generation.modalGeneration.title": "Magin pågår",
   "screens.generation.modalGeneration.description": "Detta tar vanligtvis cirka 15 sekunder...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Av",
   "screens.generation.settings.style.none": "Ingen",
   "screens.generation.allSettings": "Alla inställningar",
-  "screens.generationResult.enhancer": "Förbättrare"
+  "screens.generationResult.enhancer": "Förbättrare",
+  "screens.generation.errorUnsafePrompt.title": "Innehåll Inte Tillåtet",
+  "screens.generation.errorUnsafePrompt.description": "Din uppmaning bryter mot innehållspolicy. Vänligen justera den och försök igen.",
+  "screens.generation.errorServiceUnavailable.title": "Tjänsten är tillfälligt inte tillgänglig",
+  "screens.generation.errorServiceUnavailable.description": "Vår gratis tjänst upplever hög trafik för tillfället. Vänligen vänta några minuter och försök igen."
 }

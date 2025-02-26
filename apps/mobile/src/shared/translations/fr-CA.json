@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "L'invite doit contenir moins de {{max}} caractères.",
   "screens.generation.promptValidationErrors.required": "L'invite est obligatoire",
   "screens.generation.modalError.title": "Oups!",
-  "screens.generation.modalError.description": "Une erreur s'est produite lors du processus magique. Veuillez réessayer.",
+  "screens.generation.modalError.description": "Quelque chose a mal tourné. Veuillez vérifier votre connexion Internet et réessayer.",
   "screens.generation.modalError.button": "Continuer",
   "screens.generation.modalGeneration.title": "Magie en cours",
   "screens.generation.modalGeneration.description": "Cela prend généralement environ 15 secondes...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Désactivé",
   "screens.generation.settings.style.none": "Aucun",
   "screens.generation.allSettings": "Tous les paramètres",
-  "screens.generationResult.enhancer": "Améliorateur"
+  "screens.generationResult.enhancer": "Améliorateur",
+  "screens.generation.errorUnsafePrompt.title": "Contenu Non Autorisé",
+  "screens.generation.errorUnsafePrompt.description": "Votre demande enfreint les directives de contenu. Veuillez l'ajuster et réessayer.",
+  "screens.generation.errorServiceUnavailable.title": "Service temporairement indisponible",
+  "screens.generation.errorServiceUnavailable.description": "Notre service gratuit connaît actuellement un volume de trafic élevé. Veuillez patienter quelques minutes et réessayer."
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Текст запиту повинен містити менше ніж {{max}} символів.",
   "screens.generation.promptValidationErrors.required": "Запит є обов'язковим",
   "screens.generation.modalError.title": "Ой!",
-  "screens.generation.modalError.description": "Щось пішло не так під час магічного процесу. Будь ласка, спробуйте ще раз.",
+  "screens.generation.modalError.description": "Щось пішло не так. Будь ласка, перевірте ваше інтернет з'єднання та спробуйте ще раз.",
   "screens.generation.modalError.button": "Продовжити",
   "screens.generation.modalGeneration.title": "Магія триває",
   "screens.generation.modalGeneration.description": "Це зазвичай займає близько 15 секунд...",
@@ -85,5 +85,8 @@
   "screens.generation.settings.enhancer.off": "Вимкнено",
   "screens.generation.settings.style.none": "Ні",
   "screens.generation.allSettings": "Усі налаштування",
-  "screens.generationResult.enhancer": "Покращувач"
+  "screens.generationResult.enhancer": "Покращувач",
+  "screens.generation.errorUnsafePrompt.title": "Контент не дозволено",
+  "screens.generation.errorServiceUnavailable.title": "Служба тимчасово недоступна",
+  "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again."
 }

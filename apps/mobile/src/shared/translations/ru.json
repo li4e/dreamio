@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Подсказка должна быть короче {{max}} символов",
   "screens.generation.promptValidationErrors.required": "Запрос обязателен",
   "screens.generation.modalError.title": "Упс!",
-  "screens.generation.modalError.description": "Что-то пошло не так во время волшебного процесса. Пожалуйста, попробуйте еще раз.",
+  "screens.generation.modalError.description": "Что-то пошло не так. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
   "screens.generation.modalError.button": "Продолжить",
   "screens.generation.modalGeneration.title": "Магия в процессе",
   "screens.generation.modalGeneration.description": "Это обычно занимает около 15 секунд...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Выключено",
   "screens.generation.settings.style.none": "Нет",
   "screens.generation.allSettings": "Все настройки",
-  "screens.generationResult.enhancer": "Улучшитель"
+  "screens.generationResult.enhancer": "Улучшитель",
+  "screens.generation.errorUnsafePrompt.title": "Содержимое не допускается",
+  "screens.generation.errorUnsafePrompt.description": "Ваш запрос нарушает правила содержания. Пожалуйста, измените его и попробуйте снова.",
+  "screens.generation.errorServiceUnavailable.title": "Сервис временно недоступен",
+  "screens.generation.errorServiceUnavailable.description": "Наш бесплатный сервис в настоящее время испытывает высокий трафик. Пожалуйста, подождите несколько минут и попробуйте снова."
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "El missatge ha de tenir menys de {{max}} caràcters.",
   "screens.generation.promptValidationErrors.required": "Se requereix el missatge",
   "screens.generation.modalError.title": "Vaja!",
-  "screens.generation.modalError.description": "Alguna cosa ha anat malament durant el procés màgic. Si us plau, torna-ho a intentar.",
+  "screens.generation.modalError.description": "Alguna cosa ha anat malament. Si us plau, verifica la teva connexió a internet i torna a provar-ho.",
   "screens.generation.modalError.button": "Continua",
   "screens.generation.modalGeneration.title": "Màgia en Progrés",
   "screens.generation.modalGeneration.description": "Això sol durar uns 15 segons...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Apagat",
   "screens.generation.settings.style.none": "Cap",
   "screens.generation.allSettings": "Totes les configuracions",
-  "screens.generationResult.enhancer": "Millora"
+  "screens.generationResult.enhancer": "Millora",
+  "screens.generation.errorUnsafePrompt.title": "Contingut no permès",
+  "screens.generation.errorUnsafePrompt.description": "El vostre missatge infringeix les directrius de contingut. Si us plau, ajusteu-lo i torneu-ho a provar.",
+  "screens.generation.errorServiceUnavailable.title": "Servei temporalment no disponible",
+  "screens.generation.errorServiceUnavailable.description": "El nostre servei gratuït està experimentant un alt trànsit en aquest moment. Si us plau, espereu uns minuts i torneu a intentar-ho."
 }

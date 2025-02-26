@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "L'invite doit contenir moins de {{max}} caractères.",
   "screens.generation.promptValidationErrors.required": "Vous devez entrer une invite",
   "screens.generation.modalError.title": "Oups!",
-  "screens.generation.modalError.description": "Un problème est survenu lors du processus magique. Veuillez réessayer.",
+  "screens.generation.modalError.description": "Something went wrong. Please verify your internet connection and try again.",
   "screens.generation.modalError.button": "Continuer",
   "screens.generation.modalGeneration.title": "Magie en cours",
   "screens.generation.modalGeneration.description": "Cela prend généralement environ 15 secondes...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Disabled",
   "screens.generation.settings.style.none": "None",
   "screens.generation.allSettings": "All Settings",
-  "screens.generationResult.enhancer": "Enhancer"
+  "screens.generationResult.enhancer": "Enhancer",
+  "screens.generation.errorUnsafePrompt.title": "Content Not Permitted",
+  "screens.generation.errorUnsafePrompt.description": "Your prompt contravenes content guidelines. Please modify it and attempt again.",
+  "screens.generation.errorServiceUnavailable.title": "Service Temporarily Unavailable",
+  "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again."
 }

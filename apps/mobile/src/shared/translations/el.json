@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Η προτροπή πρέπει να είναι μικρότερη από {{max}} χαρακτήρες.",
   "screens.generation.promptValidationErrors.required": "Το πεδίο είναι υποχρεωτικό",
   "screens.generation.modalError.title": "Ωχ!",
-  "screens.generation.modalError.description": "Κάτι πήγε στραβά κατά τη διάρκεια της μαγικής διαδικασίας. Παρακαλούμε προσπαθήστε ξανά.",
+  "screens.generation.modalError.description": "Κάτι πήγε στραβά. Παρακαλώ ελέγξτε τη σύνδεση σας στο διαδίκτυο και δοκιμάστε ξανά.",
   "screens.generation.modalError.button": "Συνέχεια",
   "screens.generation.modalGeneration.title": "Μαγεία σε Εξέλιξη",
   "screens.generation.modalGeneration.description": "Αυτό συνήθως διαρκεί περίπου 15 δευτερόλεπτα...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Απενεργοποιημένο",
   "screens.generation.settings.style.none": "Κανένα",
   "screens.generation.allSettings": "Όλες οι Ρυθμίσεις",
-  "screens.generationResult.enhancer": "Ενισχυτής"
+  "screens.generationResult.enhancer": "Ενισχυτής",
+  "screens.generation.errorUnsafePrompt.title": "Περιεχόμενο Μη Εγκεκριμένο",
+  "screens.generation.errorUnsafePrompt.description": "Η προτροπή σας παραβιάζει τις κατευθυντήριες γραμμές περιεχομένου. Παρακαλώ προσαρμόστε την και δοκιμάστε ξανά.",
+  "screens.generation.errorServiceUnavailable.title": "Η Υπηρεσία Δεν Είναι Διαθέσιμη Για Λίγο",
+  "screens.generation.errorServiceUnavailable.description": "Η δωρεάν υπηρεσία μας αντιμετωπίζει υψηλή κίνηση αυτή τη στιγμή. Παρακαλώ περιμένετε μερικά λεπτά και δοκιμάστε ξανά."
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Kehotteen tulee olla alle {{max}} merkkiä pitkä.",
   "screens.generation.promptValidationErrors.required": "Kehote on pakollinen",
   "screens.generation.modalError.title": "Hups!",
-  "screens.generation.modalError.description": "Jotain meni pieleen loitsuprosessin aikana. Yritä uudelleen.",
+  "screens.generation.modalError.description": "Jossain meni vikaan. Tarkista internet-yhteytesi ja yritä uudelleen.",
   "screens.generation.modalError.button": "Jatka",
   "screens.generation.modalGeneration.title": "Taikuus käynnissä",
   "screens.generation.modalGeneration.description": "Tämä kestää yleensä noin 15 sekuntia...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Pois päältä",
   "screens.generation.settings.style.none": "Ei mitään",
   "screens.generation.allSettings": "Kaikki asetukset",
-  "screens.generationResult.enhancer": "Parantaja"
+  "screens.generationResult.enhancer": "Parantaja",
+  "screens.generation.errorUnsafePrompt.title": "Sisältöä ei sallita",
+  "screens.generation.errorUnsafePrompt.description": "Pyyntösi rikkoo sisältöohjeita. Säädä sitä ja yritä uudelleen.",
+  "screens.generation.errorServiceUnavailable.title": "Palvelu tilapäisesti pois käytöstä",
+  "screens.generation.errorServiceUnavailable.description": "Ilmainen palvelumme kohtaa tällä hetkellä suurta liikennettä. Ole hyvä ja odota muutama minuutti ja yritä sitten uudelleen."
 }

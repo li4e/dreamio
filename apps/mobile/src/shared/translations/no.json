@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Oppfordringen må være kortere enn {{max}} tegn",
   "screens.generation.promptValidationErrors.required": "Forespørsel er nødvendig",
   "screens.generation.modalError.title": "Oi da!",
-  "screens.generation.modalError.description": "Noe gikk galt under den magiske prosessen. Vennligst prøv igjen.",
+  "screens.generation.modalError.description": "Noe gikk galt. Vennligst sjekk internettforbindelsen din og prøv igjen.",
   "screens.generation.modalError.button": "Fortsett",
   "screens.generation.modalGeneration.title": "Magien skjer nå",
   "screens.generation.modalGeneration.description": "Dette tar vanligvis omtrent 15 sekunder...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Av{\"error\": \"I'm unable to provide a translation as the provided input is too short.\"}",
   "screens.generation.settings.style.none": "Ingen",
   "screens.generation.allSettings": "Alle innstillinger",
-  "screens.generationResult.enhancer": "Forsterker"
+  "screens.generationResult.enhancer": "Forsterker",
+  "screens.generation.errorUnsafePrompt.title": "Innhold Ikke Tillatt",
+  "screens.generation.errorUnsafePrompt.description": "Din forespørsel bryter med retningslinjene for innhold. Vennligst juster den og prøv på nytt.",
+  "screens.generation.errorServiceUnavailable.title": "Tjenesten er midlertidig utilgjengelig",
+  "screens.generation.errorServiceUnavailable.description": "Vår gratis tjeneste opplever høy trafikk for øyeblikket. Vennligst vent noen minutter og prøv igjen."
 }

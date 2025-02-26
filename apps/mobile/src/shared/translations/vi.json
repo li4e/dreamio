@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Lời nhắc phải ngắn hơn {{max}} ký tự",
   "screens.generation.promptValidationErrors.required": "Prompt là bắt buộc",
   "screens.generation.modalError.title": "Rất tiếc!",
-  "screens.generation.modalError.description": "Đã xảy ra sự cố trong quá trình thực hiện. Vui lòng thử lại.",
+  "screens.generation.modalError.description": "Đã xảy ra sự cố. Vui lòng kiểm tra kết nối internet của bạn và thử lại.",
   "screens.generation.modalError.button": "Tiếp tục",
   "screens.generation.modalGeneration.title": "Đang Tạo Phép Thuật",
   "screens.generation.modalGeneration.description": "Điều này thường mất khoảng 15 giây...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Tắt",
   "screens.generation.settings.style.none": "Không có",
   "screens.generation.allSettings": "Tất cả cài đặt",
-  "screens.generationResult.enhancer": "Cải thiện"
+  "screens.generationResult.enhancer": "Cải thiện",
+  "screens.generation.errorUnsafePrompt.title": "Nội dung không được phép",
+  "screens.generation.errorUnsafePrompt.description": "Yêu cầu của bạn vi phạm hướng dẫn nội dung. Vui lòng điều chỉnh và thử lại.",
+  "screens.generation.errorServiceUnavailable.title": "Dịch vụ tạm thời không khả dụng",
+  "screens.generation.errorServiceUnavailable.description": "Dịch vụ miễn phí của chúng tôi đang gặp phải lưu lượng truy cập cao trong thời điểm hiện tại. Vui lòng chờ vài phút và thử lại."
 }

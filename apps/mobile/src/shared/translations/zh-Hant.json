@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "提示必須少於 {{max}} 個字元。",
   "screens.generation.promptValidationErrors.required": "提示是必需的",
   "screens.generation.modalError.title": "糟糕！",
-  "screens.generation.modalError.description": "魔法過程中出現問題。請重試。",
+  "screens.generation.modalError.description": "發生了一些錯誤。請檢查您的網絡連接並再試一次。",
   "screens.generation.modalError.button": "繼續",
   "screens.generation.modalGeneration.title": "魔法進行中",
   "screens.generation.modalGeneration.description": "這通常需要大約 15 秒…",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "關閉",
   "screens.generation.settings.style.none": "無",
   "screens.generation.allSettings": "所有設定",
-  "screens.generationResult.enhancer": "增強器"
+  "screens.generationResult.enhancer": "增強器",
+  "screens.generation.errorUnsafePrompt.title": "內容不允許",
+  "screens.generation.errorUnsafePrompt.description": "您的提示違反了內容指導方針。請進行調整後再試一次。",
+  "screens.generation.errorServiceUnavailable.title": "服務暫時無法使用",
+  "screens.generation.errorServiceUnavailable.description": "我們的免費服務目前正面臨高流量的情況。請耐心等候幾分鐘後再試一次。"
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "İstek {{max}} karakterden kısa olmalıdır.",
   "screens.generation.promptValidationErrors.required": "Uyarı gereklidir",
   "screens.generation.modalError.title": "Hata!",
-  "screens.generation.modalError.description": "Sihirli işlem sırasında bir şeyler ters gitti. Lütfen tekrar deneyin.",
+  "screens.generation.modalError.description": "Bir şeyler yolunda gitmedi. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
   "screens.generation.modalError.button": "Devam Et",
   "screens.generation.modalGeneration.title": "Sihir Devam Ediyor",
   "screens.generation.modalGeneration.description": "Bu genellikle yaklaşık 15 saniye sürer...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Kapalı",
   "screens.generation.settings.style.none": "Hiçbiri",
   "screens.generation.allSettings": "Tüm Ayarlar",
-  "screens.generationResult.enhancer": "Geliştirici"
+  "screens.generationResult.enhancer": "Geliştirici",
+  "screens.generation.errorUnsafePrompt.title": "İçerik İzin Verilmiyor",
+  "screens.generation.errorUnsafePrompt.description": "İsteğiniz içerik kurallarını ihlal etmektedir. Lütfen bunu düzeltin ve tekrar deneyin.",
+  "screens.generation.errorServiceUnavailable.title": "Hizmet Geçici Olarak Kullanılamıyor",
+  "screens.generation.errorServiceUnavailable.description": "Ücretsiz hizmetimiz şu anda yoğun bir trafikle karşılaşıyor. Lütfen birkaç dakika bekleyin ve tekrar deneyin."
 }

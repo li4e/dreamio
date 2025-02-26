@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "ข้อความจะต้องสั้นกว่า {{max}} อักขระ",
   "screens.generation.promptValidationErrors.required": "จำเป็นต้องมีคำพร้อมท์",
   "screens.generation.modalError.title": "อุ๊ปส์!",
-  "screens.generation.modalError.description": "เกิดข้อผิดพลาดระหว่างกระบวนการที่ใช้เวทมนตร์ กรุณาลองอีกครั้ง",
+  "screens.generation.modalError.description": "เกิดข้อผิดพลาดบางประการ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณและลองอีกครั้ง",
   "screens.generation.modalError.button": "ดำเนินการต่อ",
   "screens.generation.modalGeneration.title": "กำลังสร้างเวทมนตร์",
   "screens.generation.modalGeneration.description": "กระบวนการนี้โดยปกติจะใช้เวลาประมาณ 15 วินาที...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "ปิด",
   "screens.generation.settings.style.none": "ไม่มี",
   "screens.generation.allSettings": "การตั้งค่าทั้งหมด",
-  "screens.generationResult.enhancer": "ผู้ปรับปรุง"
+  "screens.generationResult.enhancer": "ผู้ปรับปรุง",
+  "screens.generation.errorUnsafePrompt.title": "เนื้อหาที่ไม่อนุญาต",
+  "screens.generation.errorUnsafePrompt.description": "ข้อความของคุณฝ่าฝืนแนวทางเนื้อหา โปรดปรับแต่งและลองอีกครั้ง",
+  "screens.generation.errorServiceUnavailable.title": "บริการไม่พร้อมใช้งานชั่วคราว",
+  "screens.generation.errorServiceUnavailable.description": "บริการฟรีของเรากำลังประสบกับการเข้าชมที่สูงในขณะนี้ กรุณารอสักครู่และลองอีกครั้งในภายหลัง"
 }

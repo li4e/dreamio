@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Promoten skal være kortere end {{max}} tegn.",
   "screens.generation.promptValidationErrors.required": "Prompt er påkrævet",
   "screens.generation.modalError.title": "Ups!",
-  "screens.generation.modalError.description": "Noget gik galt under magiprocessen. Prøv venligst igen.",
+  "screens.generation.modalError.description": "Noget gik galt. Tjek venligst din internetforbindelse, og prøv igen.",
   "screens.generation.modalError.button": "Fortsæt",
   "screens.generation.modalGeneration.title": "Trylleriet er i gang",
   "screens.generation.modalGeneration.description": "Dette tager normalt omkring 15 sekunder...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Slukket",
   "screens.generation.settings.style.none": "Ingen",
   "screens.generation.allSettings": "Alle indstillinger",
-  "screens.generationResult.enhancer": "Forstærker"
+  "screens.generationResult.enhancer": "Forstærker",
+  "screens.generation.errorUnsafePrompt.title": "Indhold ikke tilladt",
+  "screens.generation.errorUnsafePrompt.description": "Din anmodning overtræder indholdspolitikkerne. Juster venligst og prøv igen.",
+  "screens.generation.errorServiceUnavailable.title": "Tjenesten er midlertidigt utilgængelig",
+  "screens.generation.errorServiceUnavailable.description": "Vores gratis tjeneste oplever i øjeblikket høj trafik. Vent venligst et par minutter og prøv igen."
 }

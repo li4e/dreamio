@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "De prompt moet korter zijn dan {{max}} tekens.",
   "screens.generation.promptValidationErrors.required": "Prompt is verplicht",
   "screens.generation.modalError.title": "Oeps!",
-  "screens.generation.modalError.description": "Er is iets misgegaan tijdens het magische proces. Probeer het alstublieft opnieuw.",
+  "screens.generation.modalError.description": "Er is iets misgegaan. Controleer uw internetverbinding en probeer het opnieuw.",
   "screens.generation.modalError.button": "Doorgaan",
   "screens.generation.modalGeneration.title": "Magie in uitvoering",
   "screens.generation.modalGeneration.description": "Dit duurt meestal ongeveer 15 seconden...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Uit",
   "screens.generation.settings.style.none": "Geen",
   "screens.generation.allSettings": "Alle instellingen",
-  "screens.generationResult.enhancer": "Verbeterder"
+  "screens.generationResult.enhancer": "Verbeterder",
+  "screens.generation.errorUnsafePrompt.title": "Inhoud Niet Toegestaan",
+  "screens.generation.errorUnsafePrompt.description": "Uw prompt voldoet niet aan de inhoudsrichtlijnen. Pas deze aan en probeer het opnieuw.",
+  "screens.generation.errorServiceUnavailable.title": "Dienst tijdelijk niet beschikbaar",
+  "screens.generation.errorServiceUnavailable.description": "Onze gratis service ervaart op dit moment hoge drukte. Gelieve een paar minuten te wachten en het nogmaals te proberen."
 }

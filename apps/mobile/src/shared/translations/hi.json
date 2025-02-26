@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "प्रॉम्प्ट {{max}} वर्णों से छोटा होना चाहिए।",
   "screens.generation.promptValidationErrors.required": "प्रॉम्प्ट आवश्यक है।",
   "screens.generation.modalError.title": "उफ़!",
-  "screens.generation.modalError.description": "जादू प्रक्रिया के दौरान कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+  "screens.generation.modalError.description": "कुछ गलत हो गया। कृपया अपनी इंटरनेट कनेक्शन की जांच करें और फिर से प्रयास करें।",
   "screens.generation.modalError.button": "जारी रखें",
   "screens.generation.modalGeneration.title": "जादू जारी है",
   "screens.generation.modalGeneration.description": "यह आमतौर पर लगभग 15 सेकंड लेता है...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "बंद",
   "screens.generation.settings.style.none": "कोई नहीं",
   "screens.generation.allSettings": "सभी सेटिंग्स",
-  "screens.generationResult.enhancer": "सुधारक"
+  "screens.generationResult.enhancer": "सुधारक",
+  "screens.generation.errorUnsafePrompt.title": "सामग्री की अनुमति नहीं है",
+  "screens.generation.errorUnsafePrompt.description": "आपका प्रॉम्प्ट सामग्री के दिशा-निर्देशों का उल्लंघन करता है। कृपया इसे समायोजित करें और पुनः प्रयास करें।",
+  "screens.generation.errorServiceUnavailable.title": "सेवा अस्थाई रूप से अनुपलब्ध है",
+  "screens.generation.errorServiceUnavailable.description": "हमारी मुफ्त सेवा वर्तमान में उच्च ट्रैफ़िक का सामना कर रही है। कृपया कुछ मिनट प्रतीक्षा करें और पुनः प्रयास करें।"
 }

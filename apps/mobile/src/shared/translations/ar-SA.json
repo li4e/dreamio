@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "يجب أن يكون النص أقصر من {{max}} حرفًا.",
   "screens.generation.promptValidationErrors.required": "مطلوب إدخال الموجه",
   "screens.generation.modalError.title": "عذرًا!",
-  "screens.generation.modalError.description": "حدث خطأ أثناء عملية السحر. يرجى المحاولة مرة أخرى.",
+  "screens.generation.modalError.description": "حدث خطأ ما. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
   "screens.generation.modalError.button": "استمرار",
   "screens.generation.modalGeneration.title": "السحر قيد التنفيذ",
   "screens.generation.modalGeneration.description": "عادةً ما يستغرق ذلك حوالي 15 ثانية...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "إيقاف تشغيل",
   "screens.generation.settings.style.none": "لا شيء",
   "screens.generation.allSettings": "جميع الإعدادات",
-  "screens.generationResult.enhancer": "معزز"
+  "screens.generationResult.enhancer": "معزز",
+  "screens.generation.errorUnsafePrompt.title": "المحتوى غير مسموح به",
+  "screens.generation.errorUnsafePrompt.description": "يبدو أن المحتوى الذي أدخلته يتعارض مع إرشادات المحتوى. يرجى تعديله والمحاولة مرة أخرى.",
+  "screens.generation.errorServiceUnavailable.title": "الخدمة غير متاحة مؤقتًا",
+  "screens.generation.errorServiceUnavailable.description": "خدمتنا المجانية تعاني من ضغط عالي في الوقت الحالي. يرجى الانتظار بضع دقائق ثم أعد المحاولة."
 }

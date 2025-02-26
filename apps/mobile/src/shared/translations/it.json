@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Il prompt deve essere più corto di {{max}} caratteri",
   "screens.generation.promptValidationErrors.required": "Il prompt è obbligatorio",
   "screens.generation.modalError.title": "Ops!",
-  "screens.generation.modalError.description": "Qualcosa è andato storto durante il processo magico. Riprova.",
+  "screens.generation.modalError.description": "Si è verificato un errore. Controlla la tua connessione a Internet e riprova.",
   "screens.generation.modalError.button": "Continua",
   "screens.generation.modalGeneration.title": "Magia in corso",
   "screens.generation.modalGeneration.description": "Di solito richiede circa 15 secondi...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Spento",
   "screens.generation.settings.style.none": "Nessuno",
   "screens.generation.allSettings": "Tutte le impostazioni",
-  "screens.generationResult.enhancer": "Miglioratore"
+  "screens.generationResult.enhancer": "Miglioratore",
+  "screens.generation.errorUnsafePrompt.title": "Contenuto non consentito",
+  "screens.generation.errorUnsafePrompt.description": "Il tuo prompt viola le linee guida sui contenuti. Ti preghiamo di adeguarlo e riprovare.",
+  "screens.generation.errorServiceUnavailable.title": "Servizio temporaneamente non disponibile",
+  "screens.generation.errorServiceUnavailable.description": "Il nostro servizio gratuito sta vivendo un alto volume di traffico al momento. Ti preghiamo di attendere qualche minuto e riprovare."
 }

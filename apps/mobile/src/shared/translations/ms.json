@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Prompt mesti lebih pendek daripada {{max}} aksara.",
   "screens.generation.promptValidationErrors.required": "Prompt diperlukan",
   "screens.generation.modalError.title": "Oops!",
-  "screens.generation.modalError.description": "Terjadi ralat semasa proses ajaib. Sila cuba lagi.",
+  "screens.generation.modalError.description": "Ada sesuatu yang tidak kena. Sila semak sambungan internet anda dan cuba lagi.",
   "screens.generation.modalError.button": "Teruskan",
   "screens.generation.modalGeneration.title": "Sihir Sedang Berjalan",
   "screens.generation.modalGeneration.description": "Ini biasanya mengambil masa kira-kira 15 saat...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Dimatikan",
   "screens.generation.settings.style.none": "Tiada",
   "screens.generation.allSettings": "Semua Tetapan",
-  "screens.generationResult.enhancer": "Penambah"
+  "screens.generationResult.enhancer": "Penambah",
+  "screens.generation.errorUnsafePrompt.title": "Kandungan Tidak Dibenarkan",
+  "screens.generation.errorUnsafePrompt.description": "Permintaan anda melanggar garis panduan kandungan. Sila ubah suai dan cuba lagi.",
+  "screens.generation.errorServiceUnavailable.title": "Perkhidmatan Tidak Tersedia Buat Sementara Waktu",
+  "screens.generation.errorServiceUnavailable.description": "Perkhidmatan percuma kami sedang mengalami trafik yang tinggi pada masa ini. Sila tunggu sebentar dan cuba lagi."
 }

@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "ההנחיה חייבת להיות קצרה מ-{{max}} תווים",
   "screens.generation.promptValidationErrors.required": "נדרשת הנחיה",
   "screens.generation.modalError.title": "אופס!",
-  "screens.generation.modalError.description": "משהו השתבש בתהליך המאגי. נסה שוב בבקשה.",
+  "screens.generation.modalError.description": "התרחשה שגיאה. אנא בדוק את חיבור האינטרנט שלך ונסה שוב.",
   "screens.generation.modalError.button": "המשך",
   "screens.generation.modalGeneration.title": "קסם בתהליך",
   "screens.generation.modalGeneration.description": "זה בדרך כלל לוקח כ-15 שניות...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "כבוי",
   "screens.generation.settings.style.none": "אין",
   "screens.generation.allSettings": "כל ההגדרות",
-  "screens.generationResult.enhancer": "מגדיל"
+  "screens.generationResult.enhancer": "מגדיל",
+  "screens.generation.errorUnsafePrompt.title": "תוכן לא מורשה",
+  "screens.generation.errorUnsafePrompt.description": "ההנחיה שלך מפרה את ההנחיות לתוכן. אנא התאם אותה וניסי שוב.",
+  "screens.generation.errorServiceUnavailable.title": "שירות אינו זמין זמנית",
+  "screens.generation.errorServiceUnavailable.description": "השירות החינמי שלנו חווה כרגע עומס תנועה גבוה. אנא המתן כמה דקות ונסה שוב."
 }

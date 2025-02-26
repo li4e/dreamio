@@ -14,7 +14,7 @@
   "screens.generation.promptValidationErrors.maxLength": "Promptul trebuie să fie mai scurt de {{max}} caractere.",
   "screens.generation.promptValidationErrors.required": "Introducerea este necesară",
   "screens.generation.modalError.title": "Ups!",
-  "screens.generation.modalError.description": "Ceva nu a mers bine în timpul procesului magic. Vă rugăm să încercați din nou.",
+  "screens.generation.modalError.description": "Ceva a mers prost. Vă rugăm să verificați conexiunea la internet și să reîncercați.",
   "screens.generation.modalError.button": "Continuă",
   "screens.generation.modalGeneration.title": "Magie în curs de desfășurare",
   "screens.generation.modalGeneration.description": "Aceasta durează de obicei aproximativ 15 secunde...",
@@ -85,5 +85,9 @@
   "screens.generation.settings.enhancer.off": "Dezactivat",
   "screens.generation.settings.style.none": "Niciunul",
   "screens.generation.allSettings": "Toate setările",
-  "screens.generationResult.enhancer": "Îmbunătățitor"
+  "screens.generationResult.enhancer": "Îmbunătățitor",
+  "screens.generation.errorUnsafePrompt.title": "Conținut nepermis",
+  "screens.generation.errorUnsafePrompt.description": "Promptul dvs. încalcă liniile directoare de conținut. Vă rugăm să-l ajustați și să încercați din nou.",
+  "screens.generation.errorServiceUnavailable.title": "Serviciu temporar indisponibil",
+  "screens.generation.errorServiceUnavailable.description": "Serviciul nostru gratuit se confruntă în prezent cu un trafic ridicat. Vă rugăm să așteptați câteva minute și să încercați din nou."
 }
