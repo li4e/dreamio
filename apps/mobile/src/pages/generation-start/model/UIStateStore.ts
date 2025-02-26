@@ -15,28 +15,6 @@ interface PersistingData {
 }
 
 export class UIStateStore {
-  private readonly _persistingKey = 'ui_state_store'
-  private get _persistingData(): PersistingData {
-    return {
-      generation:
-        this.generation?.status === GenerationEntityStatus.IN_PROGRESS
-          ? this.generation
-          : null,
-    }
-  }
-  private persistData() {
-    mkkvStorage.set(this._persistingKey, JSON.stringify(this._persistingData))
-  }
-  private restore() {
-    const generationString = mkkvStorage.getString(this._persistingKey)
-    if (generationString) {
-      const data = JSON.parse(generationString) as Partial<PersistingData>
-      if (data.generation) {
-        this._generation = data.generation
-      }
-    }
-  }
-
   private _aspectRatioModalOpened = false
   private _styleSelectorModalOpened = false
   private _isFormDisabled = false
@@ -132,6 +110,28 @@ export class UIStateStore {
       isPending: this.isPending,
       isPendingPromptGen: this.isPendingPromptGen,
       hasError: this.hasError,
+    }
+  }
+
+  private readonly _persistingKey = 'ui_state_store'
+  private get _persistingData(): PersistingData {
+    return {
+      generation:
+        this.generation?.status !== GenerationEntityStatus.SUCCESS
+          ? this.generation
+          : null,
+    }
+  }
+  private persistData() {
+    mkkvStorage.set(this._persistingKey, JSON.stringify(this._persistingData))
+  }
+  private restore() {
+    const generationString = mkkvStorage.getString(this._persistingKey)
+    if (generationString) {
+      const data = JSON.parse(generationString) as Partial<PersistingData>
+      if (data.generation) {
+        this._generation = data.generation
+      }
     }
   }
 }
