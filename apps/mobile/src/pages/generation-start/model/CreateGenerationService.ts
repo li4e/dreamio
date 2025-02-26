@@ -3,9 +3,10 @@ import {
   CreateGenerationRequest,
   GenerationDataService,
   GenerationEntity,
+  GetGenerationError,
   useGenerationDataService,
 } from 'entities/generation'
-import { UIStateStore } from './UIStateStore'
+import { StateGenerationError, UIStateStore } from './UIStateStore'
 import { isEqualGeneration } from 'entities/generation/model/GenerationEntity'
 
 class CreateGenerationService {
@@ -28,7 +29,7 @@ class CreateGenerationService {
   async submit(data: CreateGenerationRequest) {
     try {
       this.uiStateStore.isPending = true
-      this.uiStateStore.hasError = false
+      this.uiStateStore.error = null
       const existedGen = this.uiStateStore.generation
       const generation =
         existedGen && isEqualGeneration(data, existedGen)
@@ -37,7 +38,7 @@ class CreateGenerationService {
 
       await this.fetchGenerationResult(generation)
     } catch (error) {
-      this.uiStateStore.hasError = true
+      this.uiStateStore.error = StateGenerationError.General
     } finally {
       this.uiStateStore.isPending = false
     }
@@ -47,10 +48,18 @@ class CreateGenerationService {
     if (this.uiStateStore.generation) {
       try {
         this.uiStateStore.isPending = true
-        this.uiStateStore.hasError = false
+        this.uiStateStore.error = null
         await this.fetchGenerationResult(this.uiStateStore.generation)
-      } catch (err) {
-        this.uiStateStore.hasError = true
+      } catch (error) {
+        if (error instanceof GetGenerationError) {
+          this.uiStateStore.error = error.isPromptUnsafe()
+            ? StateGenerationError.PromptUnsafe
+            : error.isServiceUnavailable()
+              ? StateGenerationError.ServiceUnavailable
+              : StateGenerationError.General
+        } else {
+          this.uiStateStore.error = StateGenerationError.General
+        }
       } finally {
         this.uiStateStore.isPending = false
       }

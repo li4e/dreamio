@@ -9,6 +9,8 @@ import { Button, Modal } from 'shared/ui/styled'
 export enum StateModalVariant {
   Generation = 'generation',
   Error = 'error',
+  ErrorUsafePrompt = 'error_prompt',
+  ErrorServiceUnavailable = 'error_service_unavailable',
 }
 
 interface StateModalProps {
@@ -138,6 +140,30 @@ function useStateContent(variant: StateModalVariant): StateContent {
       [StateModalVariant.Error]: {
         title: t('screens.generation.modalError.title'),
         description: t('screens.generation.modalError.description'),
+        button: t('screens.generation.modalError.button'),
+        animation: {
+          source: require('./animations/error.json'),
+          style: { width: 90, height: 90 },
+          autoPlay: true,
+          loop: false,
+        },
+      },
+      [StateModalVariant.ErrorServiceUnavailable]: {
+        title: t('screens.generation.errorServiceUnavailable.title'),
+        description: t(
+          'screens.generation.errorServiceUnavailable.description'
+        ),
+        button: t('screens.generation.modalError.button'),
+        animation: {
+          source: require('./animations/error.json'),
+          style: { width: 90, height: 90 },
+          autoPlay: true,
+          loop: false,
+        },
+      },
+      [StateModalVariant.ErrorUsafePrompt]: {
+        title: t('screens.generation.errorUnsafePrompt.title'),
+        description: t('screens.generation.errorUnsafePrompt.description'),
         button: t('screens.generation.modalError.button'),
         animation: {
           source: require('./animations/error.json'),

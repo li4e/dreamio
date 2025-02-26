@@ -1,7 +1,23 @@
+import axios from 'axios'
 import { Image } from 'expo-image'
 import { translator } from 'shared/api'
 import { mkkvStorage } from 'shared/lib/mmkv'
 import { SettingsStore } from 'shared/store/SettingsStore'
+
+export class GetGenerationError extends Error {
+  constructor(public readonly status: number) {
+    super('GetGenerationError')
+    this.status = status
+  }
+
+  isPromptUnsafe(): boolean {
+    return this.status === 500
+  }
+
+  isServiceUnavailable(): boolean {
+    return this.status > 500
+  }
+}
 
 export enum GenerationStatusDTO {
   Processing = 'processing',
@@ -43,6 +59,20 @@ export class Api {
 
     if (!imageUrl) {
       throw new Error('There is no an image in the passed GenerationDTO')
+    }
+
+    const status = await axios
+      .head(imageUrl, {
+        validateStatus: () => true,
+      })
+      .then((res) => res.status)
+      .catch((err) => {
+        console.log(err)
+        throw err
+      })
+
+    if (status >= 500) {
+      throw new GetGenerationError(status)
     }
 
     const prefetched = await Image.prefetch(imageUrl)

@@ -14,13 +14,19 @@ interface PersistingData {
   generation: GenerationEntity | null
 }
 
+export enum StateGenerationError {
+  PromptUnsafe = 1,
+  ServiceUnavailable = 2,
+  General = 3,
+}
+
 export class UIStateStore {
   private _aspectRatioModalOpened = false
   private _styleSelectorModalOpened = false
   private _isFormDisabled = false
   private _isPending = false
   private _isPendingPromptGen = false
-  private _hasError = false
+  private _error: StateGenerationError | null = null
   private _generation: GenerationEntity | null = null
 
   constructor() {
@@ -63,13 +69,19 @@ export class UIStateStore {
     return this._isPendingPromptGen
   }
 
-  set hasError(value: boolean) {
-    this._hasError = value
-  }
   get hasError() {
     return (
-      this._hasError || this.generation?.status === GenerationEntityStatus.ERROR
+      this._error !== null ||
+      this.generation?.status === GenerationEntityStatus.ERROR
     )
+  }
+
+  get error() {
+    return this._error
+  }
+
+  set error(value: StateGenerationError | null) {
+    this._error = value
   }
 
   set generation(value: GenerationEntity | null) {
@@ -110,6 +122,7 @@ export class UIStateStore {
       isPending: this.isPending,
       isPendingPromptGen: this.isPendingPromptGen,
       hasError: this.hasError,
+      error: this.error,
     }
   }
 

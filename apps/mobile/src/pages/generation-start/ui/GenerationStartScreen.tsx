@@ -60,6 +60,7 @@ import {
   UIStateStore,
   useUIActions,
   Status as CurGenStatus,
+  StateGenerationError,
 } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
 import { FormControl } from '../model/FormControl'
@@ -77,10 +78,16 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const scrollView = useRef<Animated.ScrollView | null>(null)
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
-  const { generation, isPending, isPendingPromptGen, status, resultImage } =
-    useStoreData(() => uiStateStore.state, [uiStateStore])
+  const {
+    generation,
+    isPending,
+    isPendingPromptGen,
+    status,
+    resultImage,
+    error,
+  } = useStoreData(() => uiStateStore.state, [uiStateStore])
 
-  const modalState = mapCurGenStatusToModalState(status)
+  const modalState = mapCurGenStatusToModalState(status, error)
   const showStartButton = !(
     isPending && generation?.status === GenerationEntityStatus.IN_PROGRESS
   )
@@ -380,11 +387,17 @@ function StartButton(props: {
 }
 
 function mapCurGenStatusToModalState(
-  status: CurGenStatus
+  status: CurGenStatus,
+  error: StateGenerationError | null
 ): StateModalVariant | null {
   if ([CurGenStatus.IN_PROGRESS].includes(status)) {
     return StateModalVariant.Generation
   } else if ([CurGenStatus.ERROR].includes(status)) {
+    if (error === StateGenerationError.ServiceUnavailable) {
+      return StateModalVariant.ErrorServiceUnavailable
+    } else if (error === StateGenerationError.PromptUnsafe) {
+      return StateModalVariant.ErrorUsafePrompt
+    }
     return StateModalVariant.Error
   }
 

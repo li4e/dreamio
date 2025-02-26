@@ -50,8 +50,16 @@
       },
       "modalError": {
         "title": "Oops!",
-        "description": "Something went wrong during the magic process. Please try again.",
+        "description": "Something went wrong. Please check your internet connection and try again.",
         "button": "Continue"
+      },
+      "errorUnsafePrompt": {
+        "title": "Content Not Allowed",
+        "description": "Your prompt violates content guidelines. Please adjust it and try again."
+      },
+      "errorServiceUnavailable": {
+        "title": "Service Temporarily Unavailable",
+        "description": "Our free service is experiencing high traffic at the moment. Please wait a few minutes and try again."
       },
       "modalGeneration": {
         "title": "Magic in Progress",
