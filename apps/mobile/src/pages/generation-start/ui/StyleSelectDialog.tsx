@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { FormControl } from '../model/FormControl'
-import { UIStateStore } from '../model/UIStateStore'
+import { UIStateStore, useUIActions } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
 import { useCallback, useEffect } from 'react'
 import { useController } from 'react-hook-form'
@@ -20,7 +20,7 @@ import {
 } from './StylesList'
 import { useLocalObservable } from 'mobx-react-lite'
 
-export function StyleSelectorDialog(props: {
+export function StyleSelectDialog(props: {
   control: FormControl
   uiStateStore: UIStateStore
 }) {
@@ -32,6 +32,7 @@ export function StyleSelectorDialog(props: {
     [uiStateStore]
   )
   const stylesListStore = useLocalObservable(() => new StylesListStore())
+  const { hideStylesDialog } = useUIActions(uiStateStore)
 
   useEffect(() => {
     stylesListStore.selected = field.value
@@ -40,9 +41,9 @@ export function StyleSelectorDialog(props: {
   const handleChange = useCallback(
     (value: string | null) => {
       field.onChange(value)
-      uiStateStore.styleSelectorModalOpened = false
+      hideStylesDialog()
     },
-    [uiStateStore]
+    [hideStylesDialog]
   )
 
   const renderItem: ListRenderItem<ArtStyle> = useCallback(
@@ -62,19 +63,15 @@ export function StyleSelectorDialog(props: {
     [field, stylesListStore, handleChange]
   )
 
-  const hideModal = () => {
-    uiStateStore.styleSelectorModalOpened = false
-  }
-
   const deselect = () => {
     field.onChange(null)
-    hideModal()
+    hideStylesDialog()
   }
 
   const { colors } = useTheme()
 
   return (
-    <CustomDialog visible={isVisible} onDismiss={hideModal} dismissable>
+    <CustomDialog visible={isVisible} onDismiss={hideStylesDialog} dismissable>
       <Dialog.Title className="text-center">
         {t('screens.generation.styleSelectorDialog.title')}
       </Dialog.Title>
@@ -90,7 +87,7 @@ export function StyleSelectorDialog(props: {
         <Button mode="text" textColor={colors.error} onPress={deselect}>
           {t('screens.generation.styleSelectorDialog.deselect')}
         </Button>
-        <Button onPress={hideModal}>
+        <Button onPress={hideStylesDialog}>
           {t('screens.generation.styleSelectorDialog.close')}
         </Button>
       </Dialog.Actions>

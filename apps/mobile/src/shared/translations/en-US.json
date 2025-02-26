@@ -72,7 +72,8 @@
         "vertical": "Vertical",
         "portrait": "Portrait",
         "classic": "Old TV",
-        "widescreen": "Widescreen"
+        "widescreen": "Widescreen",
+        "close": "Close"
       },
       "styleSelectorDialog": {
         "title": "Choose Style",

@@ -1,6 +1,6 @@
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
 import { makeAutoObservable } from 'mobx'
-import { createContext, useContext, useMemo } from 'react'
+import { useMemo } from 'react'
 import { mkkvStorage } from 'shared/lib/mmkv'
 
 export enum Status {
@@ -133,25 +133,20 @@ export class UIStateStore {
   }
 }
 
-export const UIStateStoreContext = createContext<UIStateStore | null>(null)
-
-function useUIStateStore() {
-  const uiStateStore = useContext(UIStateStoreContext)
-  if (!uiStateStore) {
-    throw new Error('uiStateStore is null')
-  }
-  return uiStateStore
-}
-
-export function useUIActions() {
-  const uiStateStore = useUIStateStore()
+export function useUIActions(uiStateStore: UIStateStore) {
   return useMemo(
     () => ({
-      showAspectModal() {
+      showAspectDialog() {
         uiStateStore.aspectRatioModalOpened = true
       },
-      hideAspectModal() {
+      hideAspectDialog() {
         uiStateStore.aspectRatioModalOpened = false
+      },
+      showStylesDialog() {
+        uiStateStore.styleSelectorModalOpened = true
+      },
+      hideStylesDialog() {
+        uiStateStore.styleSelectorModalOpened = false
       },
     }),
     [uiStateStore]

@@ -20,7 +20,6 @@ import {
   Chip,
   Divider,
   List,
-  Dialog,
   Text,
 } from 'react-native-paper'
 import * as yup from 'yup'
@@ -59,16 +58,15 @@ import { KeyboardAvoidingView } from 'shared/ui/KeyboardAvoidingView'
 import { FlatList } from 'react-native-gesture-handler'
 import {
   UIStateStore,
-  UIStateStoreContext,
   useUIActions,
   Status as CurGenStatus,
 } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
-import { CustomDialog } from 'shared/ui/CustomDialog'
 import { FormControl } from '../model/FormControl'
 import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { StyleSelectorDialog } from './StyleSelectorDialog'
+import { StyleSelectDialog } from './StyleSelectDialog'
+import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -193,161 +191,160 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const topInset = top + 64
 
   return (
-    <UIStateStoreContext.Provider value={uiStateStore}>
-      <KeyboardAvoidingView withBottomBar>
-        <View className="flex-1" testID="GENERATION_SCREEN">
-          <Animated.ScrollView
-            onScroll={scrollHandler}
-            ref={scrollView}
-            className="flex-1"
-            scrollIndicatorInsets={{ top: topInset }}
-            automaticallyAdjustsScrollIndicatorInsets={false}
-            contentContainerStyle={{
-              paddingTop: topInset,
-              paddingBottom: 95,
-              flexGrow: 1,
-            }}
-            keyboardShouldPersistTaps="handled"
-          >
-            {modalState ? (
-              <Animated.View
-                entering={FadeIn.duration(300)}
-                key="generation_process"
-                className="items-center justify-center py-10"
-              >
-                <StateContent variant={modalState} />
-              </Animated.View>
-            ) : (
-              generation &&
-              resultImage && (
-                <ResultImage
-                  scrollY={scrollY}
-                  image={resultImage}
-                  generation={generation}
-                />
-              )
-            )}
-            <Animated.View className="flex-grow justify-center">
-              <View className="justify-center pt-10">
-                {resultImage && (
-                  <Text variant="titleLarge" className="mx-5 mb-5 text-center">
-                    {t('screens.generation.titleMore')}
-                  </Text>
-                )}
-                {generation && (
-                  <View className="flex-row justify-between pr-4 mb-2">
-                    <SelectedSettings
-                      control={control}
-                      className="px-5 self-end"
-                      disabled={isPending}
-                      uiStateStore={uiStateStore}
-                    />
-                    <ResetButton
-                      control={control}
-                      generation={generation}
-                      updateForm={updateForm}
-                    />
-                  </View>
-                )}
-
-                <Controller
-                  control={control}
-                  render={({
-                    field: { onChange, onBlur, value },
-                    fieldState,
-                    formState,
-                  }) => {
-                    const hasInputError =
-                      formState.submitCount > 0 && fieldState.invalid
-
-                    return (
-                      <>
-                        <View className="mx-5">
-                          <View>
-                            <TextInput
-                              scrollEnabled={false}
-                              disabled={isPending}
-                              multiline
-                              mode="flat"
-                              className="min-h-[120] pr-10"
-                              placeholder={t(
-                                'screens.generation.inputPlaceholder'
-                              )}
-                              onBlur={onBlur}
-                              onChangeText={onChange}
-                              value={value}
-                              error={hasInputError}
-                            />
-                            {value?.length > 0 && (
-                              <IconButton
-                                disabled={isPending}
-                                className="absolute top-0 right-0"
-                                onPress={clear}
-                                icon={'close'}
-                                size={20}
-                              />
-                            )}
-                          </View>
-
-                          <RandomButton
-                            disabled={isPending}
-                            control={control}
-                            uiStateStore={uiStateStore}
-                            isPending={isPendingPromptGen}
-                          />
-                        </View>
-
-                        <View className="h-8 px-5">
-                          <HelperText type="error" visible={hasInputError}>
-                            {fieldState.error?.message}
-                          </HelperText>
-                        </View>
-                      </>
-                    )
-                  }}
-                  name="prompt"
-                />
-              </View>
-              <AdvancedSettings
-                expandable={generation !== null}
-                disabled={isPending}
-              >
-                <View className="justify-center mb-5">
-                  <Controller
+    <KeyboardAvoidingView withBottomBar>
+      <View className="flex-1" testID="GENERATION_SCREEN">
+        <Animated.ScrollView
+          onScroll={scrollHandler}
+          ref={scrollView}
+          className="flex-1"
+          scrollIndicatorInsets={{ top: topInset }}
+          automaticallyAdjustsScrollIndicatorInsets={false}
+          contentContainerStyle={{
+            paddingTop: topInset,
+            paddingBottom: 95,
+            flexGrow: 1,
+          }}
+          keyboardShouldPersistTaps="handled"
+        >
+          {modalState ? (
+            <Animated.View
+              entering={FadeIn.duration(300)}
+              key="generation_process"
+              className="items-center justify-center py-10"
+            >
+              <StateContent variant={modalState} />
+            </Animated.View>
+          ) : (
+            generation &&
+            resultImage && (
+              <ResultImage
+                scrollY={scrollY}
+                image={resultImage}
+                generation={generation}
+              />
+            )
+          )}
+          <Animated.View className="flex-grow justify-center">
+            <View className="justify-center pt-10">
+              {resultImage && (
+                <Text variant="titleLarge" className="mx-5 mb-5 text-center">
+                  {t('screens.generation.titleMore')}
+                </Text>
+              )}
+              {generation && (
+                <View className="flex-row justify-between pr-4 mb-2">
+                  <SelectedSettings
                     control={control}
-                    name="style"
-                    render={({ field: { value, onChange } }) => (
-                      <StylesList
-                        value={value}
-                        disabled={isPending}
-                        onSelect={onChange}
-                      />
-                    )}
+                    className="px-5 self-end"
+                    disabled={isPending}
+                    uiStateStore={uiStateStore}
+                  />
+                  <ResetButton
+                    control={control}
+                    generation={generation}
+                    updateForm={updateForm}
                   />
                 </View>
-                <EnhanceSetting control={control} disabled={isPending} />
-                <Divider className="mx-5" />
-                <AspectRatioSetting control={control} disabled={isPending} />
-              </AdvancedSettings>
-            </Animated.View>
-          </Animated.ScrollView>
-          <Header generation={generation} scrollY={scrollY} />
-          {showStartButton && (
-            <StartButton
-              control={control}
-              isPending={isPending}
-              disabled={isPendingPromptGen}
-              onPress={handleSubmit(handleStartPress)}
-            />
-          )}
-        </View>
-        <AspectRatioSelectorDialog
-          control={control}
-          uiStateStore={uiStateStore}
-        />
-        <StyleSelectorDialog control={control} uiStateStore={uiStateStore} />
-      </KeyboardAvoidingView>
-    </UIStateStoreContext.Provider>
+              )}
+
+              <Controller
+                control={control}
+                render={({
+                  field: { onChange, onBlur, value },
+                  fieldState,
+                  formState,
+                }) => {
+                  const hasInputError =
+                    formState.submitCount > 0 && fieldState.invalid
+
+                  return (
+                    <>
+                      <View className="mx-5">
+                        <View>
+                          <TextInput
+                            scrollEnabled={false}
+                            disabled={isPending}
+                            multiline
+                            mode="flat"
+                            className="min-h-[120] pr-10"
+                            placeholder={t(
+                              'screens.generation.inputPlaceholder'
+                            )}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                            error={hasInputError}
+                          />
+                          {value?.length > 0 && (
+                            <IconButton
+                              disabled={isPending}
+                              className="absolute top-0 right-0"
+                              onPress={clear}
+                              icon={'close'}
+                              size={20}
+                            />
+                          )}
+                        </View>
+
+                        <RandomButton
+                          disabled={isPending}
+                          control={control}
+                          uiStateStore={uiStateStore}
+                          isPending={isPendingPromptGen}
+                        />
+                      </View>
+
+                      <View className="h-8 px-5">
+                        <HelperText type="error" visible={hasInputError}>
+                          {fieldState.error?.message}
+                        </HelperText>
+                      </View>
+                    </>
+                  )
+                }}
+                name="prompt"
+              />
+            </View>
+            <AdvancedSettings
+              expandable={generation !== null}
+              disabled={isPending}
+            >
+              <View className="justify-center mb-5">
+                <Controller
+                  control={control}
+                  name="style"
+                  render={({ field: { value, onChange } }) => (
+                    <StylesList
+                      value={value}
+                      disabled={isPending}
+                      onSelect={onChange}
+                    />
+                  )}
+                />
+              </View>
+              <EnhanceSetting control={control} disabled={isPending} />
+              <Divider className="mx-5" />
+              <AspectRatioSetting
+                control={control}
+                disabled={isPending}
+                uiStateStore={uiStateStore}
+              />
+            </AdvancedSettings>
+          </Animated.View>
+        </Animated.ScrollView>
+        <Header generation={generation} scrollY={scrollY} />
+        {showStartButton && (
+          <StartButton
+            control={control}
+            isPending={isPending}
+            disabled={isPendingPromptGen}
+            onPress={handleSubmit(handleStartPress)}
+          />
+        )}
+      </View>
+      <AspectRatioSelectDialog control={control} uiStateStore={uiStateStore} />
+      <StyleSelectDialog control={control} uiStateStore={uiStateStore} />
+    </KeyboardAvoidingView>
   )
 }
 
@@ -484,10 +481,11 @@ function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
 function AspectRatioSetting(props: {
   control: FormControl
   disabled: boolean
+  uiStateStore: UIStateStore
 }) {
-  const { control, disabled } = props
+  const { control, disabled, uiStateStore } = props
   const { t } = useTranslation()
-  const { showAspectModal } = useUIActions()
+  const { showAspectDialog } = useUIActions(uiStateStore)
 
   const translates = useMemo(
     () => ({
@@ -505,7 +503,7 @@ function AspectRatioSetting(props: {
       control={control}
       render={({ field: { value } }) => (
         <List.Item
-          onPress={showAspectModal}
+          onPress={showAspectDialog}
           disabled={disabled}
           title={t('screens.generation.aspectRatio.title')}
           description={translates[value]}
@@ -522,101 +520,6 @@ function AspectRatioSetting(props: {
   )
 }
 
-function AspectRatioSelectorDialog(props: {
-  control: FormControl
-  uiStateStore: UIStateStore
-}) {
-  const { control, uiStateStore } = props
-  const { t } = useTranslation()
-  const isVisible = useStoreData(
-    () => uiStateStore.aspectRatioModalOpened,
-    [uiStateStore]
-  )
-  const { hideAspectModal } = useUIActions()
-
-  const items = useMemo(
-    () => [
-      {
-        value: AspectRatio.classic,
-        title: t('screens.generation.aspectRatio.classic'),
-      },
-      {
-        value: AspectRatio.portrait,
-        title: t('screens.generation.aspectRatio.portrait'),
-      },
-      {
-        value: AspectRatio.square,
-        title: t('screens.generation.aspectRatio.square'),
-      },
-      {
-        value: AspectRatio.vertical,
-        title: t('screens.generation.aspectRatio.vertical'),
-      },
-      {
-        value: AspectRatio.widescreen,
-        title: t('screens.generation.aspectRatio.widescreen'),
-      },
-    ],
-    [t]
-  )
-
-  const renderItem = ({
-    item,
-    index,
-  }: {
-    index: number
-    item: { value: AspectRatio; title: string }
-  }) => {
-    return (
-      <Controller
-        control={control}
-        name="aspectRatio"
-        render={({ field: { value, onChange } }) => {
-          const handlePress = () => {
-            onChange(item.value)
-            hideAspectModal()
-          }
-          return (
-            <View>
-              <List.Item
-                className="pl-5"
-                title={item.title}
-                onPress={handlePress}
-                right={() => (
-                  <Button
-                    mode={
-                      item.value === value ? 'contained' : 'contained-tonal'
-                    }
-                    className="self-center"
-                  >
-                    {item.value}
-                  </Button>
-                )}
-              />
-              {index !== items.length - 1 && <Divider />}
-            </View>
-          )
-        }}
-      />
-    )
-  }
-
-  return (
-    <CustomDialog visible={isVisible} onDismiss={hideAspectModal} dismissable>
-      <Dialog.Title className="text-center">
-        {t('screens.generation.aspectRatio.title')}
-      </Dialog.Title>
-      <Dialog.ScrollArea className="px-0">
-        <FlatList
-          keyboardShouldPersistTaps="always"
-          data={items}
-          renderItem={renderItem}
-        />
-      </Dialog.ScrollArea>
-    </CustomDialog>
-  )
-}
-
 function SelectedSettings(
   props: {
     control: FormControl
@@ -627,7 +530,7 @@ function SelectedSettings(
   const { control, disabled, uiStateStore, ...rest } = props
   const { t } = useTranslation()
   const { colors } = useTheme()
-  const { showAspectModal } = useUIActions()
+  const { showAspectDialog, showStylesDialog } = useUIActions(uiStateStore)
 
   const inactiveStyles = useMemo(
     () => ({ backgroundColor: colors.elevation.level2 }),
@@ -646,7 +549,7 @@ function SelectedSettings(
         render={({ field: { value } }) => (
           <Chip
             disabled={disabled}
-            onPress={showAspectModal}
+            onPress={showAspectDialog}
             style={activeStyles}
             mode="flat"
             icon="aspect-ratio"
@@ -684,9 +587,7 @@ function SelectedSettings(
         render={({ field: { onChange, value } }) => (
           <Chip
             disabled={disabled}
-            onPress={() => {
-              uiStateStore.styleSelectorModalOpened = true
-            }}
+            onPress={showStylesDialog}
             style={!value ? inactiveStyles : activeStyles}
             icon="palette"
             onClose={value ? () => onChange(null) : undefined}
