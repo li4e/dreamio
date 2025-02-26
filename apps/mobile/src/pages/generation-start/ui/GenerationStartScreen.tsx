@@ -273,7 +273,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                         <View>
                           <TextInput
                             scrollEnabled={false}
-                            disabled={isPending}
+                            disabled={isPending || isPendingPromptGen}
                             multiline
                             mode="flat"
                             className="min-h-[120] pr-10"
@@ -285,9 +285,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                             value={value}
                             error={hasInputError}
                           />
-                          {value?.length > 0 && (
+                          {value?.length > 0 && !isPending && (
                             <IconButton
-                              disabled={isPending}
+                              disabled={isPendingPromptGen}
                               className="absolute top-0 right-0"
                               onPress={clear}
                               icon={'close'}
