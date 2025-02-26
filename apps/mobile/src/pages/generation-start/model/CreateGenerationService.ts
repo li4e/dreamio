@@ -16,6 +16,7 @@ class CreateGenerationService {
   ) {}
 
   private async createGeneration(data: CreateGenerationRequest) {
+    this.uiStateStore.generation = null
     let generation = await this.generationDataService.createGeneration(data)
     this.uiStateStore.generation = generation
     return generation

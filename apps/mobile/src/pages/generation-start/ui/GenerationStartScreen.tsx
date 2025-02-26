@@ -84,6 +84,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     isPendingPromptGen,
     status,
     resultImage,
+    hasError,
     error,
   } = useStoreData(() => uiStateStore.state, [uiStateStore])
 
@@ -184,8 +185,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     setValue('prompt', '', { shouldValidate: true })
   }, [])
 
-  const { colors } = useTheme()
-
   const scrollY = useSharedValue(0)
   const scrollHandler = useAnimatedScrollHandler(
     {
@@ -241,7 +240,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   {t('screens.generation.titleMore')}
                 </Text>
               )}
-              {generation && (
+              {(generation || hasError || isPending) && (
                 <View className="flex-row justify-between pr-4 mb-2">
                   <SelectedSettings
                     control={control}
@@ -249,14 +248,15 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     disabled={isPending}
                     uiStateStore={uiStateStore}
                   />
-                  <ResetButton
-                    control={control}
-                    generation={generation}
-                    updateForm={updateForm}
-                  />
+                  {generation && (
+                    <ResetButton
+                      control={control}
+                      generation={generation}
+                      updateForm={updateForm}
+                    />
+                  )}
                 </View>
               )}
-
               <Controller
                 control={control}
                 render={({
@@ -316,7 +316,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               />
             </View>
             <AdvancedSettings
-              expandable={generation !== null}
+              expandable={generation !== null || hasError}
               disabled={isPending}
             >
               <View className="justify-center mb-5">
