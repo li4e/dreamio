@@ -33,6 +33,8 @@ interface SnackBarOptions {
     handler(): void
     label: string
   }
+  position?: 'top' | 'bottom'
+  offset?: number
 }
 
 interface SnackbarStateMessage {
@@ -82,81 +84,118 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
     },
     [dismissSnackBar]
   )
-  const { colors } = useTheme()
+
+  const topSnackbars = snackbars.filter((s) => s.options?.position === 'top')
+  const bottomSnackbars = snackbars.filter((s) => s.options?.position !== 'top')
 
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}
       <Portal>
-        {snackbars.map((snackbar, index) => {
-          const rightAction = snackbar.options?.rightAction
-
-          const isError = snackbar.options?.variant === SnackBarVariant.ERROR
-          const textColor = isError ? colors.onError : colors.inverseOnSurface
-
-          let rightContent = (
-            <IconButton
-              icon="close"
-              iconColor={textColor}
-              size={20}
-              onPress={() => dismissSnackBar(snackbar.id)}
-            />
-          )
-
-          if (rightAction !== undefined) {
-            rightContent = (
-              <Button
-                mode="text"
-                textColor={textColor}
-                onPress={() => {
-                  dismissSnackBar(snackbar.id)
-                  rightAction.handler()
-                }}
-              >
-                {rightAction.label}
-              </Button>
-            )
-          }
-
-          return (
-            <Animated.View
-              layout={LinearTransition}
-              entering={FadeIn}
-              exiting={FadeOut}
-              key={snackbar.id}
-              className={
-                'absolute left-0 right-0 bottom-0 rounded-md h-[50] mx-5 flex-row items-center justify-between'
-              }
-              style={{
-                backgroundColor: isError ? colors.error : colors.inverseSurface,
-                marginBottom:
-                  Math.max(insets.bottom, 16) + 80 + 12 + index * (50 + 10),
-              }}
-            >
-              <View className="flex-1 justify-center px-3">
-                {snackbar.message.title && (
-                  <Text
-                    numberOfLines={1}
-                    variant="titleSmall"
-                    className="font-bold"
-                    style={{ color: textColor }}
-                  >
-                    {snackbar.message.title}
-                  </Text>
-                )}
-                <Text
-                  numberOfLines={1}
-                  variant="bodyMedium"
-                  style={{ color: textColor }}
-                >
-                  {snackbar.message.description}
-                </Text>
-              </View>
-              {rightContent}
-            </Animated.View>
-          )
-        })}
+        {renderSnackbars(topSnackbars, 'top', insets.top, dismissSnackBar)}
+        {renderSnackbars(
+          bottomSnackbars,
+          'bottom',
+          insets.bottom,
+          dismissSnackBar
+        )}
       </Portal>
     </SnackbarContext.Provider>
+  )
+}
+
+function renderSnackbars(
+  snackbars: SnackbarStateMessage[],
+  position: 'top' | 'bottom',
+  safeAreaInset: number,
+  onDismiss: (id: number) => void
+) {
+  let accumulatedOffset = safeAreaInset + 20
+
+  return snackbars.map((snackBar) => {
+    const itemOffset = accumulatedOffset + (snackBar.options?.offset ?? 0)
+    accumulatedOffset += (snackBar.options?.offset ?? 0) + 50 + 12
+
+    return (
+      <SnackBar
+        key={snackBar.id}
+        snackBar={snackBar}
+        offset={itemOffset}
+        position={position}
+        onDismiss={onDismiss}
+      />
+    )
+  })
+}
+
+function SnackBar(props: {
+  snackBar: SnackbarStateMessage
+  offset: number
+  position: 'top' | 'bottom'
+  onDismiss: (id: number) => void
+}) {
+  const { snackBar, offset, position, onDismiss } = props
+  const rightAction = snackBar.options?.rightAction
+  const { colors } = useTheme()
+  const isError = snackBar.options?.variant === SnackBarVariant.ERROR
+  const textColor = isError ? colors.onError : colors.inverseOnSurface
+
+  let rightContent = (
+    <IconButton
+      icon="close"
+      iconColor={textColor}
+      size={20}
+      onPress={() => onDismiss(snackBar.id)}
+    />
+  )
+
+  if (rightAction !== undefined) {
+    rightContent = (
+      <Button
+        mode="text"
+        textColor={textColor}
+        onPress={() => {
+          onDismiss(snackBar.id)
+          rightAction.handler()
+        }}
+      >
+        {rightAction.label}
+      </Button>
+    )
+  }
+
+  return (
+    <Animated.View
+      layout={LinearTransition}
+      entering={FadeIn}
+      exiting={FadeOut}
+      key={snackBar.id}
+      className="absolute left-0 right-0 rounded-md h-[50] mx-5 flex-row items-center justify-between"
+      style={{
+        backgroundColor: isError ? colors.error : colors.inverseSurface,
+        [position]: offset,
+      }}
+    >
+      <View className="flex-1 justify-center px-3">
+        {snackBar.message.title && (
+          <Text
+            numberOfLines={1}
+            variant="titleSmall"
+            className="font-bold"
+            style={{ color: textColor }}
+          >
+            {snackBar.message.title}
+          </Text>
+        )}
+        <Text
+          numberOfLines={1}
+          variant="bodyMedium"
+          style={{ color: textColor }}
+        >
+          {snackBar.message.description}
+        </Text>
+      </View>
+      {rightContent}
+    </Animated.View>
   )
 }

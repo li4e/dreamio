@@ -67,6 +67,9 @@ import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
+import { BOTTOM_BAR_HEIGHT } from 'shared/constants'
+
+const bottomOffset = 95
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -201,7 +204,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           automaticallyAdjustsScrollIndicatorInsets={false}
           contentContainerStyle={{
             paddingTop: topInset,
-            paddingBottom: 95,
+            paddingBottom: bottomOffset,
             flexGrow: 1,
           }}
           keyboardShouldPersistTaps="handled"
@@ -415,7 +418,10 @@ function RandomButton(props: RandomButtonProps) {
           title: t('components.snackBar.generalError.title'),
           description: t('components.snackBar.generalError.description'),
         },
-        { variant: SnackBarVariant.ERROR }
+        {
+          variant: SnackBarVariant.ERROR,
+          offset: BOTTOM_BAR_HEIGHT + bottomOffset,
+        }
       )
     } finally {
       uiStateStore.isPendingPromptGen = false

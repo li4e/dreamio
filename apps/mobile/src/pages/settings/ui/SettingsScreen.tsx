@@ -15,7 +15,12 @@ import { Divider, List, useTheme, Text } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
-import { APP_NAME, SUPPORT_EMAIL, URLS } from 'shared/constants'
+import {
+  APP_NAME,
+  BOTTOM_BAR_HEIGHT,
+  SUPPORT_EMAIL,
+  URLS,
+} from 'shared/constants'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
@@ -54,7 +59,7 @@ export function SettingsScreen() {
               : 'screens.settings.godMode.active.description'
           ),
         },
-        { hideDelay: 5000 }
+        { hideDelay: 5000, position: 'top' }
       )
     }
   }, [pressedCount, showSnackbar, t])
@@ -183,9 +188,12 @@ function useClearAllData() {
               onPress={async () => {
                 await genDataService.clear()
                 dismissDialog()
-                showSnackbar({
-                  description: t('screens.settings.clear.deleted'),
-                })
+                showSnackbar(
+                  {
+                    description: t('screens.settings.clear.deleted'),
+                  },
+                  { offset: BOTTOM_BAR_HEIGHT }
+                )
               }}
             >
               {t('screens.settings.clear.dialog.confirm')}
@@ -227,7 +235,11 @@ function useContactUs() {
             address: SUPPORT_EMAIL,
           }),
         },
-        { autoHide: false, variant: SnackBarVariant.ERROR }
+        {
+          autoHide: false,
+          variant: SnackBarVariant.ERROR,
+          offset: BOTTOM_BAR_HEIGHT,
+        }
       )
     }
   }

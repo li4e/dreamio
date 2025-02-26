@@ -27,6 +27,8 @@ import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
 import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
 
+const bottomOffset = 70
+
 export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
@@ -48,7 +50,7 @@ export function GenerationResultScreen(
             className="flex-1"
             contentContainerStyle={{
               flexGrow: 1,
-              paddingBottom: insets.bottom + 70,
+              paddingBottom: insets.bottom + bottomOffset,
             }}
           >
             <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
@@ -193,6 +195,7 @@ function useGenDelete(genertaion: GenerationEntity) {
                         handler: undo,
                         label: t('screens.generationResult.undo'),
                       },
+                      position: 'top',
                     }
                   )
                 })
@@ -216,7 +219,10 @@ function useOnCopy(generation: GenerationEntity) {
 
   return async () => {
     await Clipboard.setStringAsync(generation.prompt)
-    showSnackbar({ description: t('screens.generationResult.promtCopied') }, {})
+    showSnackbar(
+      { description: t('screens.generationResult.promtCopied') },
+      { offset: bottomOffset }
+    )
   }
 }
 

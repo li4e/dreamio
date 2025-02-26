@@ -6,6 +6,7 @@ import * as MediaLibrary from 'expo-media-library'
 import * as FileSystem from 'expo-file-system'
 import { Image } from 'expo-image'
 import md5 from 'md5'
+import { HEADER_HEIGHT } from 'shared/constants'
 
 export async function saveImage(url: string): Promise<boolean | null> {
   try {
@@ -36,6 +37,8 @@ export function useOnSaveImage() {
 
   return useCallback(async (url: string) => {
     const saved = await saveImage(url)
+    const snackOptions = { position: 'top', offset: HEADER_HEIGHT } as const
+
     if (saved === null) {
       showSnackbar(
         {
@@ -43,6 +46,7 @@ export function useOnSaveImage() {
           description: t('components.snackBar.saveImage.noAccess.description'),
         },
         {
+          ...snackOptions,
           variant: SnackBarVariant.ERROR,
           rightAction: {
             handler: () => {
@@ -53,17 +57,25 @@ export function useOnSaveImage() {
         }
       )
     } else if (saved === true) {
-      showSnackbar({
-        title: t('components.snackBar.saveImage.success.title'),
-        description: t('components.snackBar.saveImage.success.description'),
-      })
+      showSnackbar(
+        {
+          title: t('components.snackBar.saveImage.success.title'),
+          description: t('components.snackBar.saveImage.success.description'),
+        },
+        snackOptions
+      )
     } else {
       showSnackbar(
         {
           title: t('components.snackBar.saveImage.error.title'),
           description: t('components.snackBar.saveImage.error.description'),
         },
-        { variant: SnackBarVariant.ERROR }
+        {
+          ...snackOptions,
+          variant: SnackBarVariant.ERROR,
+          position: 'top',
+          offset: HEADER_HEIGHT,
+        }
       )
     }
   }, [])
