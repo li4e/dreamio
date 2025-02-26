@@ -6,6 +6,7 @@ import {
   useGenerationDataService,
 } from 'entities/generation'
 import { UIStateStore } from './UIStateStore'
+import { isEqualGeneration } from 'entities/generation/model/GenerationEntity'
 
 class CreateGenerationService {
   constructor(
@@ -28,7 +29,12 @@ class CreateGenerationService {
     try {
       this.uiStateStore.isPending = true
       this.uiStateStore.hasError = false
-      const generation = await this.createGeneration(data)
+      const existedGen = this.uiStateStore.generation
+      const generation =
+        existedGen && isEqualGeneration(data, existedGen)
+          ? existedGen
+          : await this.createGeneration(data)
+
       await this.fetchGenerationResult(generation)
     } catch (error) {
       this.uiStateStore.hasError = true

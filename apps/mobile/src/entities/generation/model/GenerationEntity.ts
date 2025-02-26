@@ -24,3 +24,17 @@ export interface CreateGenerationRequest {
   width: number
   height: number
 }
+
+export function isEqualGeneration(
+  create: CreateGenerationRequest,
+  generation: GenerationEntity
+) {
+  return (
+    create.prompt === generation.prompt &&
+    create.enhance === generation.enhance &&
+    create.height === generation.height &&
+    create.width === generation.width &&
+    create.style === generation.style &&
+    generation.status !== GenerationEntityStatus.SUCCESS
+  )
+}
