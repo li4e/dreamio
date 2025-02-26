@@ -62,7 +62,7 @@ export class Api {
     }
 
     const startTime = Date.now()
-    const timeout = 40 * 1000
+    const timeout = 60 * 1000
     await axios
       .head(imageUrl, {
         validateStatus: () => true,
