@@ -1,3 +1,3 @@
-— Ditambah pilihan untuk nisbah aspek  
-— Ditambah penukar penambah (sebelum ini sentiasa diaktifkan secara lalai)  
-— Dibaiki isu yang menyebabkan skrin kosong selepas menjana imej
+— Pembetulan Bug: Menyelesaikan isu yang menyebabkan aplikasi terhenti pada Mac dengan Apple Silicon semasa percubaan menaip.
+— Peningkatan UI/UX: Memperbaiki antara muka pengguna dan pengalaman pengguna pada skrin permulaan penjanaan untuk interaksi yang lebih lancar.
+— Peningkatan Umum: Melaksanakan pelbagai pembetulan kecil dan peningkatan untuk meningkatkan prestasi dan kestabilan secara keseluruhan.

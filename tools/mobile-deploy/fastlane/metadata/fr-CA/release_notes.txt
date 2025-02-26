@@ -1,3 +1,3 @@
-— Ajout de la sélection des rapports d'aspect  
-— Ajout d'un sélecteur d'améliorateurs (auparavant toujours activé par défaut)  
-— Correction d'un problème causant un écran vide après la génération de l'image
+— Correction de bogue : Résolution d'un problème entraînant le plantage de l'application sur les Mac avec processeurs Apple Silicon lors des tentatives de saisie.
+— Améliorations de l'interface utilisateur et de l'expérience utilisateur : Amélioration de l'interface et de l'expérience sur l'écran de génération de démarrage pour une interaction plus fluide.
+— Améliorations générales : Mise en œuvre de diverses petites corrections et améliorations pour optimiser la performance et la stabilité globales.

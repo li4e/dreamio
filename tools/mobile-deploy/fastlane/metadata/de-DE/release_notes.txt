@@ -1,3 +1,3 @@
-— Auswahl der Seitenverhältnisse hinzugefügt  
-— Umschalter für den Enhancer hinzugefügt (vorher standardmäßig immer aktiviert)  
-— Problem behoben, das nach der Generierung eines Bildes zu einem leeren Bildschirm führte
+— Fehlerbehebung: Ein Problem wurde behoben, das dazu führte, dass die Anwendung auf Macs mit Apple Silicon während der Eingabeversuche abstürzte.  
+— UI/UX-Verbesserungen: Die Benutzeroberfläche und Benutzererfahrung auf dem Bildschirm zur Startgenerierung wurden verbessert, um eine nahtlosere Interaktion zu gewährleisten.  
+— Allgemeine Verbesserungen: Verschiedene kleine Fehlerbehebungen und Optimierungen wurden implementiert, um die Gesamtleistung und Stabilität zu verbessern.

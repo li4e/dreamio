@@ -1,3 +1,3 @@
-— Dodana opcija za odabir omjera stranica  
-— Dodan prekidač za poboljšanje (ranije uvijek bio omogućen prema zadanim postavkama)  
-— Ispravljen problem koji je uzrokovao prazan zaslon nakon generiranja slike
+— Ispravka greške: Riješen problem koji je uzrokovao pad aplikacije na Mac računalima s Apple Silicon prilikom pokušaja tipkanja.  
+— Poboljšanja UI/UX: Unaprijeđen korisnički sučelje i iskustvo na ekranu za generiranje početka radi besprijekornije interakcije.  
+— Opća poboljšanja: Provedena su različita manja poboljšanja i ispravke radi poboljšanja ukupne izvedbe i stabilnosti.

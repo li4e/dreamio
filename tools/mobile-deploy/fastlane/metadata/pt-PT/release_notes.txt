@@ -1,3 +1,3 @@
-— Adicionada seleção para proporções de aspeto  
-— Adicionado um alternador de melhoramento (anteriormente sempre ativado por padrão)  
-— Resolvido problema que causava um ecrã em branco após gerar imagem
+— Correção de Erros: Resolvido um problema que causava o encerramento da aplicação em Macs com Apple Silicon durante tentativas de digitação.  
+— Melhorias de UI/UX: Melhorada a interface do utilizador e a experiência do utilizador na tela de início da geração para uma interação mais fluida.  
+— Melhorias Gerais: Implementadas várias correções e melhorias pequenas para aumentar o desempenho e a estabilidade geral.

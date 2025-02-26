@@ -1,3 +1,3 @@
-— Arányválasztás hozzáadva  
-— Fejlesztőkapcsoló hozzáadva (korábban alapértelmezés szerint mindig engedélyezve volt)  
-— Javítva a probléma, amely üres képernyőt okozott kép generálása után
+— Hibajavítás: Megoldottunk egy problémát, amely az Apple Silicon chipsettel rendelkező Mac számítógépeken a gépelés közben okozta az alkalmazás összeomlását.  
+— UI/UX fejlesztések: Fejlesztettük a felhasználói felületet és a felhasználói élményt a generálás indító képernyőn, hogy zökkenőmentesebb interakciót biztosítsunk.  
+— Általános fejlesztések: Különböző kisebb javításokat és fejlesztéseket hajtottunk végre a teljesítmény és a stabilitás javítása érdekében.

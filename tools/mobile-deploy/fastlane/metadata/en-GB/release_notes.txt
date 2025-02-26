@@ -1,3 +1,3 @@
-— Added selection for aspect ratios  
-— Introduced an enhancer switcher (previously always enabled by default)  
-— Resolved issue causing a blank screen after generating an image
+— Bug Fix: Addressed a problem that resulted in the application crashing on Macs with Apple Silicon during typing attempts.  
+— UI/UX Enhancements: Enhanced the user interface and user experience on the generation start screen for a smoother interaction.  
+— General Improvements: Introduced several minor fixes and enhancements to boost overall performance and stability.

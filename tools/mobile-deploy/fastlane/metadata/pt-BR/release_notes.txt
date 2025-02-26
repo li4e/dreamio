@@ -1,3 +1,3 @@
-— Adicionada seleção para proporções de aspecto
-— Adicionado alternador de aprimoramento (anteriormente sempre habilitado por padrão)
-— Corrigido problema que causava tela em branco após gerar imagem
+— Correção de Bugs: Resolvido um problema que causava o fechamento inesperado do aplicativo em Macs com Apple Silicon durante tentativas de digitação.  
+— Melhorias de UI/UX: Aprimorada a interface do usuário e a experiência do usuário na tela de início de geração para uma interação mais fluida.  
+— Melhorias Gerais: Implementadas diversas pequenas correções e aprimoramentos para melhorar o desempenho e a estabilidade geral.

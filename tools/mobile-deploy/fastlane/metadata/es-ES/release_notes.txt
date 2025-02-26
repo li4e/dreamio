@@ -1,3 +1,3 @@
-— Se añadió la selección de relaciones de aspecto.
-— Se añadió un conmutador de mejorador (anteriormente habilitado siempre por defecto).
-— Se solucionó el problema que causaba una pantalla en blanco después de generar una imagen.
+— Corrección de errores: Se solucionó un problema que causaba que la aplicación se bloquease en Macs con Apple Silicon durante los intentos de escritura.  
+— Mejoras en UI/UX: Se mejoró la interfaz de usuario y la experiencia de usuario en la pantalla de inicio de generación para una interacción más fluida.  
+— Mejoras generales: Se implementaron diversas correcciones y mejoras menores para optimizar el rendimiento y la estabilidad en general.

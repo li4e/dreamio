@@ -1,3 +1,3 @@
-— S'ha afegit la selecció de proporcions d'aspecte
-— S'ha afegit un commutador de potenciador (abans sempre activat per defecte)
-— S'ha solucionat un problema que causava una pantalla en blanc després de generar la imatge
+— Correcció d'errors: S'ha resolt un problema que causava que l'aplicació es bloquegés en Macs amb Apple Silicon durant els intents de teclejar.  
+— Millores d'UI/UX: S'ha millorat la interfície d'usuari i l'experiència d'usuari de la pantalla d'inici de generació per a una interacció més fluida.  
+— Millores generals: S'han implementat diverses petites correccions i millores per optimitzar el rendiment i la estabilitat generals.

@@ -1,3 +1,3 @@
-— Pridaný výber pre pomery strán  
-— Pridaný prepínač pre zosilňovač (predtým bol vždy predvolene zapnutý)  
-— Opravený problém spôsobujúci prázdnu obrazovku po vygenerovaní obrázka
+— Oprava chýb: Vyriešili sme problém, ktorý spôsoboval pády aplikácie na Macoch s Apple Silicon pri pokusoch o písanie.  
+— Vylepšenia UI/UX: Vylepšili sme používateľské rozhranie a používateľskú skúsenosť na obrazovke začatia generovania pre plynulejšiu interakciu.  
+— Všeobecné vylepšenia: Implementovali sme rôzne drobné opravy a vylepšenia na zlepšenie celkového výkonu a stability.

@@ -1,3 +1,3 @@
-- En-boy oranları seçeneği eklendi
-- Geliştirici değiştirici eklendi (önceden varsayılan olarak her zaman etkinleştirilmişti)
-- Görüntü oluşturduktan sonra boş ekran sorununu giderildi
+— Hata Düzeltmesi: Yazma girişimleri sırasında Apple Silicon'lu Mac'lerde uygulamanın çökmesine neden olan bir sorun çözüldü.  
+— UI/UX Geliştirmeleri: Daha sorunsuz bir etkileşim için başlangıç oluşturma ekranında kullanıcı arayüzü ve deneyimi geliştirildi.  
+— Genel İyileştirmeler: Genel performans ve stabiliteyi artırmak için çeşitli küçük düzeltmeler ve geliştirmeler uygulandı.

@@ -1,3 +1,3 @@
-— Ditambahkan opsi pemilihan rasio aspek
-— Ditambahkan sakelar penguat (sebelumnya selalu diaktifkan secara default)
-— Memperbaiki masalah yang menyebabkan layar kosong setelah menghasilkan gambar
+— Perbaikan Bug: Mengatasi masalah yang menyebabkan aplikasi mengalami crash pada Mac dengan Apple Silicon saat mencoba mengetik.  
+— Peningkatan UI/UX: Meningkatkan antarmuka pengguna dan pengalaman pengguna di layar mulai generasi untuk interaksi yang lebih lancar.  
+— Peningkatan Umum: Melakukan berbagai perbaikan dan peningkatan kecil untuk meningkatkan kinerja dan stabilitas secara keseluruhan.

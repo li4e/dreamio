@@ -1,3 +1,3 @@
-— Lisätty valinta kuvasuhteille  
-— Lisätty parannuskytkin (aiemmin aina oletuksena käytössä)  
-— Korjattu ongelma, joka aiheutti tyhjän ruudun kuvan luomisen jälkeen
+— Virheenkorjaus: Ratkaistu ongelma, joka aiheutti sovelluksen kaatumisen Apple Silicon -prosessorilla varustetuilla Mac-tietokoneilla kirjoitusyritysten aikana.  
+— Käyttöliittymän ja Käyttäjäkokemuksen Parannukset: Parannettu käyttöliittymää ja käyttäjäkokemusta aloitussukupolvisivulla saumattomamman vuorovaikutuksen saavuttamiseksi.  
+— Yleiset Parannukset: Toteutettu erilaisia pieniä korjauksia ja parannuksia yleisen suorituskyvyn ja vakauden parantamiseksi.
