@@ -67,7 +67,7 @@ import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
-import { BOTTOM_BAR_HEIGHT } from 'shared/constants'
+import { BOTTOM_BAR_HEIGHT, HEADER_HEIGHT } from 'shared/constants'
 
 const bottomOffset = 95
 
@@ -190,8 +190,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     []
   )
 
-  const { top } = useSafeAreaInsets()
-  const topInset = top + 64
+  const { top, bottom } = useSafeAreaInsets()
+  const topInset = top + HEADER_HEIGHT
 
   return (
     <KeyboardAvoidingView withBottomBar>
@@ -204,7 +204,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           automaticallyAdjustsScrollIndicatorInsets={false}
           contentContainerStyle={{
             paddingTop: topInset,
-            paddingBottom: bottomOffset,
+            paddingBottom: isPending ? bottom : bottomOffset,
             flexGrow: 1,
           }}
           keyboardShouldPersistTaps="handled"
@@ -335,7 +335,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </AdvancedSettings>
           </Animated.View>
         </Animated.ScrollView>
-        <Header uiStateStore={uiStateStore} scrollY={scrollY} />
         {showStartButton && (
           <StartButton
             control={control}
@@ -345,6 +344,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           />
         )}
       </View>
+      <Header uiStateStore={uiStateStore} scrollY={scrollY} />
       <AspectRatioSelectDialog control={control} uiStateStore={uiStateStore} />
       <StyleSelectDialog control={control} uiStateStore={uiStateStore} />
     </KeyboardAvoidingView>
@@ -704,15 +704,13 @@ function Header(props: {
   )
 
   const headerStyle = useAnimatedStyle(() => {
-    const height = top + 64
     return {
-      top: -height,
       transform: [
         {
           translateY: interpolate(
             headerVisible.value,
             [0, 1],
-            [height - 64, height],
+            [-HEADER_HEIGHT, 0],
             Extrapolation.CLAMP
           ),
         },
@@ -733,7 +731,10 @@ function Header(props: {
   )
 
   return (
-    <Animated.View style={headerStyle} className="absolute right-0 left-0">
+    <Animated.View
+      style={headerStyle}
+      className="absolute right-0 left-0 top-0"
+    >
       <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
         <Animated.View style={headerContentStyle}>
           <Appbar.Header className="bg-transparent" mode="center-aligned">
