@@ -9,6 +9,7 @@ import { GenerationStore } from './GenerationStore'
 import {
   mapCreateGenerationRequestToDto,
   mapGenerationDtoToEntity,
+  mapGenerationEntityToDTO,
 } from './mapper'
 import { Image } from 'expo-image'
 
@@ -18,14 +19,20 @@ export class GenerationDataService {
     private db: GenerationRepository
   ) {}
 
-  getGeneration(id: number): Promise<GenerationEntity> {
-    return api.getGeneration(id).then(async (res) => {
-      const generation = mapGenerationDtoToEntity(res.generation)
-      if (generation.status === GenerationEntityStatus.SUCCESS) {
-        await this.setItem(generation)
-      }
-      return generation
-    })
+  getGeneration(generation: GenerationEntity): Promise<GenerationEntity> {
+    return api
+      .getGeneration(mapGenerationEntityToDTO(generation))
+      .then(async (res) => {
+        const generation = mapGenerationDtoToEntity(res.generation)
+        if (generation.status === GenerationEntityStatus.SUCCESS) {
+          await this.setItem(generation)
+        }
+        return generation
+      })
+      .catch((error) => {
+        console.log(error)
+        throw error
+      })
   }
 
   createGeneration(data: CreateGenerationRequest): Promise<GenerationEntity> {

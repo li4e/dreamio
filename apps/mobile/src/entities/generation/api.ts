@@ -20,7 +20,7 @@ export interface GenerationDTO {
   enhance: boolean
   width: number
   height: number
-  images: null | string[]
+  images: string[]
 }
 
 export interface StartGenerationBodyDTO {
@@ -31,50 +31,27 @@ export interface StartGenerationBodyDTO {
   style?: string
 }
 
-interface PersistingData {
-  generationsData: [number, GenerationDTO][]
-}
-
 export class Api {
-  private readonly data = new Map<number, GenerationDTO>()
-
   constructor() {
-    const persisted = this.restore()
-    if (persisted?.generationsData) {
-      this.data = new Map(persisted.generationsData)
-    }
+    mkkvStorage.delete(this.__deprecated__persistingKey)
   }
 
   getGeneration = async (
-    id: number
+    generation: GenerationDTO
   ): Promise<{ generation: GenerationDTO }> => {
-    const generation = this.data.get(id)
+    const imageUrl = generation.images[0]
 
-    if (!generation) {
-      throw new Error('Generation not found')
+    if (!imageUrl) {
+      throw new Error('There is no an image in the passed GenerationDTO')
     }
 
-    const withCensorship = new SettingsStore().censorship
-
-    const seed = Math.trunc(Math.random() * 1000000000000)
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(generation.promptFull)}?private=true&nologo=true&enhance=${generation.enhance}&safe=${withCensorship}&seed=${seed}&width=${generation.width}&height=${generation.height}`
-
-    try {
-      const prefetched = await Image.prefetch(imageUrl)
-      if (!prefetched) {
-        throw new Error('Error happened during image prefetching')
-      }
-
-      generation.status = GenerationStatusDTO.Completed
-      generation.updatedAt = new Date().toString()
-      generation.images = [imageUrl]
-    } catch (err) {
-      generation.status = GenerationStatusDTO.Error
-      throw err
-    } finally {
-      this.data.delete(id)
-      this.persist()
+    const prefetched = await Image.prefetch(imageUrl)
+    if (!prefetched) {
+      throw new Error('Error happened during image prefetching')
     }
+
+    generation.status = GenerationStatusDTO.Completed
+    generation.updatedAt = new Date().toString()
 
     return {
       generation,
@@ -105,33 +82,20 @@ export class Api {
       status: GenerationStatusDTO.Processing,
       createdAt: new Date().toString(),
       updatedAt: new Date().toString(),
-      images: null,
+      images: [] as string[],
     }
 
-    this.data.set(newGeneration.id, newGeneration)
-    this.persist()
+    const withCensorship = new SettingsStore().censorship
+    const seed = Math.trunc(Math.random() * 1000000000000)
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(newGeneration.promptFull)}?private=true&nologo=true&enhance=${newGeneration.enhance}&safe=${withCensorship}&seed=${seed}&width=${newGeneration.width}&height=${newGeneration.height}`
+    newGeneration.images.push(imageUrl)
 
     return {
       generation: newGeneration,
     }
   }
 
-  private persist() {
-    const persistingData: PersistingData = {
-      generationsData: Array.from(this.data),
-    }
-    mkkvStorage.set(this.persistingKey, JSON.stringify(persistingData))
-  }
-
-  private restore(): null | Partial<PersistingData> {
-    const persistingData = mkkvStorage.getString(this.persistingKey)
-    if (persistingData) {
-      return JSON.parse(persistingData)
-    }
-    return null
-  }
-
-  private readonly persistingKey = 'api'
+  private readonly __deprecated__persistingKey = 'api'
 }
 
 export const api = new Api()

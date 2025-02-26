@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import {
   CreateGenerationRequest,
   GenerationDataService,
+  GenerationEntity,
   useGenerationDataService,
 } from 'entities/generation'
 import { UIStateStore } from './UIStateStore'
@@ -18,8 +19,8 @@ class CreateGenerationService {
     return generation
   }
 
-  private async fetchGenerationResult(id: number) {
-    const generation = await this.generationDataService.getGeneration(id)
+  private async fetchGenerationResult(entity: GenerationEntity) {
+    const generation = await this.generationDataService.getGeneration(entity)
     this.uiStateStore.generation = generation
   }
 
@@ -28,7 +29,7 @@ class CreateGenerationService {
       this.uiStateStore.isPending = true
       this.uiStateStore.hasError = false
       const generation = await this.createGeneration(data)
-      await this.fetchGenerationResult(generation.id)
+      await this.fetchGenerationResult(generation)
     } catch (error) {
       this.uiStateStore.hasError = true
     } finally {
@@ -41,7 +42,7 @@ class CreateGenerationService {
       try {
         this.uiStateStore.isPending = true
         this.uiStateStore.hasError = false
-        await this.fetchGenerationResult(this.uiStateStore.generation.id)
+        await this.fetchGenerationResult(this.uiStateStore.generation)
       } catch (err) {
         this.uiStateStore.hasError = true
       } finally {
