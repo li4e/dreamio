@@ -15,6 +15,9 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import * as Haptics from 'expo-haptics'
 
+const SNACK_BAR_HEIGHT = 50
+const SPACE_BETWEEN_SNACKS = 12
+
 interface SnackBarMessage {
   title?: string
   description: string
@@ -110,11 +113,15 @@ function renderSnackbars(
   safeAreaInset: number,
   onDismiss: (id: number) => void
 ) {
-  let accumulatedOffset = safeAreaInset + 20
+  if (snackbars.length === 0) return null
+
+  const maxOffset = Math.max(0, ...snackbars.map((s) => s.options?.offset ?? 0))
+
+  let accumulatedOffset = safeAreaInset + SPACE_BETWEEN_SNACKS + maxOffset
 
   return snackbars.map((snackBar) => {
-    const itemOffset = accumulatedOffset + (snackBar.options?.offset ?? 0)
-    accumulatedOffset += (snackBar.options?.offset ?? 0) + 50 + 12
+    const itemOffset = accumulatedOffset
+    accumulatedOffset += SNACK_BAR_HEIGHT + SPACE_BETWEEN_SNACKS
 
     return (
       <SnackBar
