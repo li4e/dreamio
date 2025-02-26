@@ -335,7 +335,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </AdvancedSettings>
           </Animated.View>
         </Animated.ScrollView>
-        <Header generation={generation} scrollY={scrollY} />
+        <Header uiStateStore={uiStateStore} scrollY={scrollY} />
         {showStartButton && (
           <StartButton
             control={control}
@@ -670,11 +670,18 @@ function AdvancedSettings(props: AdvancedSettingsProps) {
 }
 
 function Header(props: {
-  generation: GenerationEntity | null
+  uiStateStore: UIStateStore
   scrollY: SharedValue<number>
 }) {
-  const { generation, scrollY } = props
-  const resultImage = generation?.images[0]
+  const { uiStateStore, scrollY } = props
+  const { generation, resultImage } = useStoreData(
+    () => ({
+      generation: uiStateStore.generation,
+      resultImage: uiStateStore.resultImage,
+    }),
+    [uiStateStore]
+  )
+
   const onSaveImage = useOnSaveImage()
   const { t } = useTranslation()
   const { top } = useSafeAreaInsets()

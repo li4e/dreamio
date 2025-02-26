@@ -103,7 +103,10 @@ export class UIStateStore {
   }
 
   get resultImage(): string | null {
-    return this.generation?.images[0] ?? null
+    if (this.generation?.status === GenerationEntityStatus.SUCCESS) {
+      return this.generation?.images[0] ?? null
+    }
+    return null
   }
 
   get status(): Status {
