@@ -549,7 +549,7 @@ function SelectedSettings(
   }, [colors])
 
   return (
-    <View className="flex-row" {...rest}>
+    <View className="flex-row flex-wrap flex-1" {...rest}>
       <Controller
         control={control}
         render={({ field: { value } }) => (
@@ -559,7 +559,7 @@ function SelectedSettings(
             style={activeStyles}
             mode="flat"
             icon="aspect-ratio"
-            className="mr-1"
+            className="mr-1 mb-1"
           >
             {value}
           </Chip>
@@ -574,7 +574,7 @@ function SelectedSettings(
             disabled={disabled}
             mode="flat"
             icon="auto-fix"
-            className="mr-1"
+            className="mr-1 mb-1"
             style={!value ? inactiveStyles : activeStyles}
             onPress={() => onChange(!value)}
           >
@@ -592,6 +592,7 @@ function SelectedSettings(
         control={control}
         render={({ field: { onChange, value } }) => (
           <Chip
+            className="mb-1 mr-1"
             disabled={disabled}
             onPress={showStylesDialog}
             style={!value ? inactiveStyles : activeStyles}
