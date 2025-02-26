@@ -652,7 +652,7 @@ function AdvancedSettings(props: AdvancedSettingsProps) {
 
   return (
     <Animated.View>
-      {expandable && (
+      {expandable && !disabled && (
         <Button
           className="self-center"
           onPress={() => setVisible(!visible)}
