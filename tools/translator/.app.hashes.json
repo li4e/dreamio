@@ -601,49 +601,6 @@
       "zh-Hant"
     ]
   },
-  "screens.generation.inputLabel": {
-    "original": "Your Idea:",
-    "translations": [
-      "ar-SA",
-      "ca",
-      "cs",
-      "da",
-      "de-DE",
-      "el",
-      "en-AU",
-      "en-CA",
-      "en-GB",
-      "es-ES",
-      "es-MX",
-      "fi",
-      "fr-CA",
-      "fr-FR",
-      "he",
-      "hi",
-      "hr",
-      "hu",
-      "id",
-      "it",
-      "ja",
-      "ko",
-      "ms",
-      "nl-NL",
-      "no",
-      "pl",
-      "pt-BR",
-      "pt-PT",
-      "ro",
-      "ru",
-      "sk",
-      "sv",
-      "th",
-      "tr",
-      "uk",
-      "vi",
-      "zh-Hans",
-      "zh-Hant"
-    ]
-  },
   "screens.generation.inputPlaceholder": {
     "original": "What would you like to see? Describe every detail for the best result...",
     "translations": [
@@ -774,7 +731,7 @@
     ]
   },
   "screens.generation.promptValidationErrors.minLength": {
-    "original": "The prompt must be at least {{min}} characters long",
+    "original": "Your prompt is too short. It must be at least {{min}} characters long.",
     "translations": [
       "ar-SA",
       "ca",
@@ -817,7 +774,7 @@
     ]
   },
   "screens.generation.promptValidationErrors.maxLength": {
-    "original": "The prompt must be shorter than {{max}} characters",
+    "original": "Your prompt is too long. Please keep it under {{max}} characters.",
     "translations": [
       "ar-SA",
       "ca",
@@ -860,7 +817,7 @@
     ]
   },
   "screens.generation.promptValidationErrors.required": {
-    "original": "Prompt is required",
+    "original": "Please enter a prompt before continuing.",
     "translations": [
       "ar-SA",
       "ca",
@@ -2966,49 +2923,6 @@
       "zh-Hant"
     ]
   },
-  "screens.generation.titleMore": {
-    "original": "Start a New Creation",
-    "translations": [
-      "ar-SA",
-      "ca",
-      "cs",
-      "da",
-      "de-DE",
-      "el",
-      "en-AU",
-      "en-CA",
-      "en-GB",
-      "es-ES",
-      "es-MX",
-      "fi",
-      "fr-CA",
-      "fr-FR",
-      "he",
-      "hi",
-      "hr",
-      "hu",
-      "id",
-      "it",
-      "ja",
-      "ko",
-      "ms",
-      "nl-NL",
-      "no",
-      "pl",
-      "pt-BR",
-      "pt-PT",
-      "ro",
-      "ru",
-      "sk",
-      "sv",
-      "th",
-      "tr",
-      "uk",
-      "vi",
-      "zh-Hans",
-      "zh-Hant"
-    ]
-  },
   "screens.generation.styleDialog.title": {
     "original": "Choose Your Style",
     "translations": [
@@ -3784,7 +3698,7 @@
     ]
   },
   "screens.generation.errorUnsafePrompt.title": {
-    "original": "Content Not Allowed",
+    "original": "Oops! Something's Not Right",
     "translations": [
       "ar-SA",
       "ca",
@@ -3827,7 +3741,7 @@
     ]
   },
   "screens.generation.errorUnsafePrompt.description": {
-    "original": "Your prompt violates content guidelines. Please adjust it and try again.",
+    "original": "It looks like your prompt contains content that may be inappropriate, harmful, or sensitive. Please adjust your wording and try again!",
     "translations": [
       "ar-SA",
       "ca",
@@ -3863,10 +3777,10 @@
       "sv",
       "th",
       "tr",
+      "uk",
       "vi",
       "zh-Hans",
-      "zh-Hant",
-      "uk"
+      "zh-Hant"
     ]
   },
   "screens.generation.errorServiceUnavailable.title": {
@@ -3914,6 +3828,49 @@
   },
   "screens.generation.errorServiceUnavailable.description": {
     "original": "Our free service is experiencing high traffic at the moment. Please wait a few minutes and try again.",
+    "translations": [
+      "ar-SA",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl-NL",
+      "no",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  },
+  "screens.generation.reStartButton": {
+    "original": "Create More",
     "translations": [
       "ar-SA",
       "ca",

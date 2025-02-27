@@ -36,16 +36,16 @@
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
       "styleLabel": "Choose Your Style",
       "startButton": "Start Magic",
-      "reStartButton": "Create Another",
+      "reStartButton": "Create More",
       "styleDialog": {
         "title": "Choose Your Style",
         "text": "Select from a list of popular styles to quickly add them to your prompt. These styles are simply text additions that influence the image generation. If your desired style isn’t listed, you can manually type it in your prompt, e.g., \"in the style of Van Gogh.\"",
         "button": "OK"
       },
       "promptValidationErrors": {
-        "minLength": "The prompt must be at least {{min}} characters long",
-        "maxLength": "The prompt must be shorter than {{max}} characters",
-        "required": "Prompt is required"
+        "minLength": "Your prompt is too short. It must be at least {{min}} characters long.",
+        "maxLength": "Your prompt is too long. Please keep it under {{max}} characters.",
+        "required": "Please enter a prompt before continuing."
       },
       "modalError": {
         "title": "Oops!",
@@ -53,8 +53,8 @@
         "button": "Continue"
       },
       "errorUnsafePrompt": {
-        "title": "Content Not Allowed",
-        "description": "Your prompt violates content guidelines. Please adjust it and try again."
+        "title": "Oops! Something's Not Right",
+        "description": "It looks like your prompt contains content that may be inappropriate, harmful, or sensitive. Please adjust your wording and try again!"
       },
       "errorServiceUnavailable": {
         "title": "Service Temporarily Unavailable",
