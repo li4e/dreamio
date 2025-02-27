@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Виберіть свій стиль",
   "screens.generation.styleDialog.text": "Виберіть зі списку популярних стилів, щоб швидко додати їх до свого запиту. Ці стилі просто додаються у текст і впливають на генерування зображення. Якщо бажаного стилю немає у списку, ви можете ввести його вручну у свій запит, наприклад, \"в стилі Ван Гога\".",
   "screens.generation.styleDialog.button": "Understood! Please provide the text you would like me to translate.",
-  "screens.generation.enhance.description": "Long press for details",
   "screens.generation.aspectRatio.title": "Співвідношення сторін",
   "screens.generation.aspectRatio.square": "Квадратний",
   "screens.generation.aspectRatio.vertical": "Вертикальний",
@@ -88,5 +87,6 @@
   "screens.generationResult.enhancer": "Покращувач",
   "screens.generation.errorUnsafePrompt.title": "Контент не дозволено",
   "screens.generation.errorServiceUnavailable.title": "Служба тимчасово недоступна",
-  "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again."
+  "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again.",
+  "screens.generation.errorUnsafePrompt.description": "Ваш запит порушує правила вмісту. Будь ласка, відкоригуйте його і спробуйте знову."
 }

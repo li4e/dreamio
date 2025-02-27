@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Tria el teu estil",
   "screens.generation.styleDialog.text": "Seleccione d'una llista d'estils populars per afegir-los ràpidament a la seva sol·licitud. Aquests estils són simplement additions de text que influeixen en la generació d'imatges. Si l'estil desitjat no està a la llista, podeu escriure-ho manualment a la vostra sol·licitud, per exemple, \"en l'estil de Van Gogh.\"",
   "screens.generation.styleDialog.button": "D'acord",
-  "screens.generation.enhance.description": "Pressione llarg per obtenir detalls",
   "screens.generation.aspectRatio.title": "Rati de pantalla",
   "screens.generation.aspectRatio.square": "Quadrat",
   "screens.generation.aspectRatio.vertical": "Vertical",

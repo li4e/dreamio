@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Pilih Gaya Anda",
   "screens.generation.styleDialog.text": "Pilih dari daftar gaya populer untuk dengan cepat menambahkannya ke prompt Anda. Gaya-gaya ini hanyalah tambahan teks yang memengaruhi proses generasi gambar. Jika gaya yang Anda inginkan tidak terdaftar, Anda dapat mengetiknya secara manual dalam prompt Anda, misalnya, \"dalam gaya Van Gogh.\"",
   "screens.generation.styleDialog.button": "Baiklah",
-  "screens.generation.enhance.description": "Tekan lama untuk melihat detail",
   "screens.generation.aspectRatio.title": "Rasio Aspek",
   "screens.generation.aspectRatio.square": "Persegi",
   "screens.generation.aspectRatio.vertical": "Vertikal",

@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Vælg din stil",
   "screens.generation.styleDialog.text": "Vælg fra en liste over populære stilarter for hurtigt at tilføje dem til din prompt. Disse stilarter er blot teksttilføjelser, der påvirker billedgenereringen. Hvis din ønskede stil ikke er på listen, kan du manuelt indtaste den i din prompt, f.eks. \"i stil med Van Gogh.\"",
   "screens.generation.styleDialog.button": "Sure! Please provide the text you would like to have translated.",
-  "screens.generation.enhance.description": "Langt tryk for detaljer",
   "screens.generation.aspectRatio.title": "Billedforhold",
   "screens.generation.aspectRatio.square": "Kvadratisk",
   "screens.generation.aspectRatio.vertical": "Lodret",

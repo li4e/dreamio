@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Vyberte si svůj styl",
   "screens.generation.styleDialog.text": "Vyberte si z seznamu populárních stylů, které můžete rychle přidat k vašemu promptu. Tyto styly jsou pouze textovými dodatky, které ovlivňují generaci obrázků. Pokud váš požadovaný styl není v seznamu, můžete ho ručně zapsat do vašeho promptu, např. \"ve stylu Vincenta van Gogha.\"",
   "screens.generation.styleDialog.button": "To proceed with the translation, please provide the text that you would like to have localized.",
-  "screens.generation.enhance.description": "Dlouhé stisknutí pro detaily",
   "screens.generation.aspectRatio.title": "Poměr stran",
   "screens.generation.aspectRatio.square": "Čtvercový",
   "screens.generation.aspectRatio.vertical": "Vertikální",

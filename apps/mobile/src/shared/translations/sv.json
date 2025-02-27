@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Välj din stil",
   "screens.generation.styleDialog.text": "Välj från en lista med populära stilar för att snabbt lägga till dem i din prompt. Dessa stilar är helt enkelt texttillägg som påverkar bildgenereringen. Om din önskade stil inte finns med, kan du manuellt skriva in den i din prompt, t.ex. \"i stil med Van Gogh.\"",
   "screens.generation.styleDialog.button": "Sure! Please provide the text you would like translated.",
-  "screens.generation.enhance.description": "Långtryck för detaljer",
   "screens.generation.aspectRatio.title": "Bildförhållande",
   "screens.generation.aspectRatio.square": "Kvadratisk",
   "screens.generation.aspectRatio.vertical": "Vertikal",

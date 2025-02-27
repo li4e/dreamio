@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "בחר את הסגנון שלך",
   "screens.generation.styleDialog.text": "בחר מתוך רשימה של סגנונות פופולריים כדי להוסיף אותם במהירות להנחיה שלך. הסגנונות הללו הם פשוט תוספות טקסט שמשפיעות על יצירת התמונה. אם הסגנון הרצוי שלך אינו נכלל ברשימה, תוכל להקליד אותו ידנית בהנחיה שלך, למשל, \"בסגנון של ואן גוך.\"",
   "screens.generation.styleDialog.button": "בבקשה תספק את הטקסט שברצונך לתרגם.",
-  "screens.generation.enhance.description": "לחץ ארוך כדי לקבל פרטים",
   "screens.generation.aspectRatio.title": "יחס גובה-רוחב",
   "screens.generation.aspectRatio.square": "מרובע",
   "screens.generation.aspectRatio.vertical": "אנכי",

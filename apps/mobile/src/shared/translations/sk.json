@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Vyberte si svoj štýl",
   "screens.generation.styleDialog.text": "Vyberte si zo zoznamu populárnych štýlov, aby ste ich rýchlo pridali do svojho príkazu. Tieto štýly sú jednoducho textové dodatky, ktoré ovplyvňujú generovanie obrázkov. Ak váš požadovaný štýl nie je uvedený, môžete ho manuálne zadať do svojho príkazu, napríklad \"v štýle Van Gogha.\"",
   "screens.generation.styleDialog.button": "Alright! If you could provide the text that you'd like me to translate, I'll be happy to help.",
-  "screens.generation.enhance.description": "Dlhé stlačenie pre podrobnosti",
   "screens.generation.aspectRatio.title": "Pomer stránok",
   "screens.generation.aspectRatio.square": "Štvorcový",
   "screens.generation.aspectRatio.vertical": "Vertikálny",

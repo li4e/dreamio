@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "選擇您的風格",
   "screens.generation.styleDialog.text": "從流行風格列表中選擇，以快速將它們添加到您的提示中。這些風格僅是影響圖像生成的文本補充。如果您想要的風格不在列表中，您可以手動在提示中輸入，例如「以梵谷的風格」。",
   "screens.generation.styleDialog.button": "好的",
-  "screens.generation.enhance.description": "長按以查看詳情",
   "screens.generation.aspectRatio.title": "寬高比",
   "screens.generation.aspectRatio.square": "正方形",
   "screens.generation.aspectRatio.vertical": "垂直",

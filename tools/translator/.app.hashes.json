@@ -3138,49 +3138,6 @@
       "zh-Hant"
     ]
   },
-  "screens.generation.enhance.description": {
-    "original": "Long press for details",
-    "translations": [
-      "ar-SA",
-      "ca",
-      "cs",
-      "da",
-      "de-DE",
-      "el",
-      "en-AU",
-      "en-CA",
-      "en-GB",
-      "es-ES",
-      "es-MX",
-      "fi",
-      "fr-CA",
-      "fr-FR",
-      "he",
-      "hi",
-      "hr",
-      "hu",
-      "id",
-      "it",
-      "ja",
-      "ko",
-      "ms",
-      "nl-NL",
-      "no",
-      "pl",
-      "pt-BR",
-      "pt-PT",
-      "ro",
-      "ru",
-      "sk",
-      "sv",
-      "th",
-      "tr",
-      "uk",
-      "vi",
-      "zh-Hans",
-      "zh-Hant"
-    ]
-  },
   "screens.generation.aspectRatio.title": {
     "original": "Aspect Ratio",
     "translations": [
@@ -3908,7 +3865,8 @@
       "tr",
       "vi",
       "zh-Hans",
-      "zh-Hant"
+      "zh-Hant",
+      "uk"
     ]
   },
   "screens.generation.errorServiceUnavailable.title": {

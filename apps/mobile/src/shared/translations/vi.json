@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Chọn Phong Cách Của Bạn",
   "screens.generation.styleDialog.text": "Chọn từ danh sách các phong cách phổ biến để nhanh chóng thêm chúng vào yêu cầu của bạn. Những phong cách này chỉ là các bổ sung văn bản ảnh hưởng đến việc tạo hình ảnh. Nếu phong cách bạn mong muốn không có trong danh sách, bạn có thể nhập tay vào yêu cầu của mình, ví dụ, \"theo phong cách của Van Gogh.\"",
   "screens.generation.styleDialog.button": "Rất tốt",
-  "screens.generation.enhance.description": "Nhấn và giữ để xem chi tiết",
   "screens.generation.aspectRatio.title": "Tỷ lệ khung hình",
   "screens.generation.aspectRatio.square": "Hình vuông",
   "screens.generation.aspectRatio.vertical": "Đứng dọc",

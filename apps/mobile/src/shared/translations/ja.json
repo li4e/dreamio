@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "スタイルを選択してください",
   "screens.generation.styleDialog.text": "人気のスタイルのリストから選択して、迅速にプロンプトに追加します。これらのスタイルは、画像生成に影響を与える単なるテキストの追加です。希望するスタイルがリストにない場合は、手動でプロンプトに入力できます。例えば、「ゴッホのスタイルで」といった具合です。",
   "screens.generation.styleDialog.button": "承知しました",
-  "screens.generation.enhance.description": "詳細を見るには長押ししてください",
   "screens.generation.aspectRatio.title": "アスペクト比",
   "screens.generation.aspectRatio.square": "正方形",
   "screens.generation.aspectRatio.vertical": "縦向き",

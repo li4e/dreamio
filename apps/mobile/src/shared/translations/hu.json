@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Válaszd ki a stílusodat",
   "screens.generation.styleDialog.text": "Válasszon a népszerű stílusok listájából, hogy gyorsan hozzáadhassa őket a kéréséhez. Ezek a stílusok egyszerű szövegkiegészítések, amelyek befolyásolják a képgenerálást. Ha a kívánt stílus nincs a listán, manuálisan is beírhatja a kérésébe, pl. \"Van Gogh stílusában\".",
   "screens.generation.styleDialog.button": "Rendben",
-  "screens.generation.enhance.description": "Hosszú érintés a részletekhez",
   "screens.generation.aspectRatio.title": "Képarány",
   "screens.generation.aspectRatio.square": "Négyzetes",
   "screens.generation.aspectRatio.vertical": "Függőleges",

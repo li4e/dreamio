@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Valitse tyylisi",
   "screens.generation.styleDialog.text": "Valitse suosituista tyyleistä lisätäksesi ne nopeasti syötteeseesi. Nämä tyylit ovat yksinkertaisia tekstilisäyksiä, jotka vaikuttavat kuvageneraation tulokseen. Jos haluamasi tyyli ei ole luettelossa, voit kirjoittaa sen manuaalisesti syötteeseesi, esimerkiksi \"tyyliin Van Gogh.\"",
   "screens.generation.styleDialog.button": "Sure! Please provide the text you would like me to translate.",
-  "screens.generation.enhance.description": "Pitkä painallus näyttää lisätiedot",
   "screens.generation.aspectRatio.title": "Kuvan suhde",
   "screens.generation.aspectRatio.square": "Neliö",
   "screens.generation.aspectRatio.vertical": "Pysty",

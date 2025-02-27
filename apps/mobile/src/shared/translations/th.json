@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "เลือกสไตล์ของคุณ",
   "screens.generation.styleDialog.text": "เลือกจากรายการสไตล์ที่เป็นที่นิยมเพื่อเพิ่มเข้าไปในคำสั่งของคุณอย่างรวดเร็ว สไตล์เหล่านี้เป็นเพียงการเพิ่มข้อความที่มีผลต่อการสร้างภาพ หากสไตล์ที่คุณต้องการไม่มีในรายการ คุณสามารถพิมพ์มันในคำสั่งของคุณได้เอง เช่น \"ในสไตล์ของ Van Gogh\"",
   "screens.generation.styleDialog.button": "โปรดแสดงข้อความที่คุณต้องการให้แปลจากภาษาอังกฤษเป็นภาษาไทยค่ะ",
-  "screens.generation.enhance.description": "กดค้างเพื่อดูรายละเอียด",
   "screens.generation.aspectRatio.title": "อัตราส่วนของภาพ",
   "screens.generation.aspectRatio.square": "สี่เหลี่ยมจัตุรัส",
   "screens.generation.aspectRatio.vertical": "แนวตั้ง",

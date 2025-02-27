@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Wählen Sie Ihren Stil",
   "screens.generation.styleDialog.text": "Wählen Sie aus einer Liste beliebter Stile aus, um sie schnell zu Ihrem Prompt hinzuzufügen. Diese Stile sind lediglich Textzusätze, die die Bildgenerierung beeinflussen. Wenn der gewünschte Stil nicht aufgeführt ist, können Sie ihn manuell in Ihr Prompt eingeben, z. B. \"im Stil von Van Gogh.\"",
   "screens.generation.styleDialog.button": "In Ordnung",
-  "screens.generation.enhance.description": "Lang gedrückt halten für Details",
   "screens.generation.aspectRatio.title": "Seitenverhältnis",
   "screens.generation.aspectRatio.square": "Quadratisch",
   "screens.generation.aspectRatio.vertical": "Vertikal",

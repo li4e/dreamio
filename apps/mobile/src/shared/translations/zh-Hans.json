@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "选择您的样式",
   "screens.generation.styleDialog.text": "从流行样式列表中选择，以便快速将它们添加到您的提示中。这些样式仅是影响图像生成的文本补充。如果您想要的样式不在列表中，您可以手动在提示中输入，例如：“以梵高的风格。”",
   "screens.generation.styleDialog.button": "好的",
-  "screens.generation.enhance.description": "长按以获取更多详情",
   "screens.generation.aspectRatio.title": "纵横比",
   "screens.generation.aspectRatio.square": "正方形",
   "screens.generation.aspectRatio.vertical": "垂直",

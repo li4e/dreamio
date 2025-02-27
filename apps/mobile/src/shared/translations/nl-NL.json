@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Kies je stijl",
   "screens.generation.styleDialog.text": "Selecteer een stijl uit een lijst met populaire stijlen om deze snel aan je prompt toe te voegen. Deze stijlen zijn eenvoudigweg tekstuele toevoegingen die de beeldgeneratie beïnvloeden. Als de gewenste stijl niet in de lijst staat, kun je deze handmatig in je prompt typen, bijvoorbeeld: \"in de stijl van Van Gogh.\"",
   "screens.generation.styleDialog.button": "OK",
-  "screens.generation.enhance.description": "Langzaam indrukken voor details",
   "screens.generation.aspectRatio.title": "Beeldverhouding",
   "screens.generation.aspectRatio.square": "Vierkant",
   "screens.generation.aspectRatio.vertical": "Verticaal",

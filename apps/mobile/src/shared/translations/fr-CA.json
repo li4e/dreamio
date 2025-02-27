@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Choisissez votre style",
   "screens.generation.styleDialog.text": "Sélectionnez parmi une liste de styles populaires pour les ajouter rapidement à votre invite. Ces styles ne sont que des ajouts textuels qui influencent la génération d'images. Si le style que vous souhaitez n'est pas mentionné, vous pouvez le taper manuellement dans votre invite, par exemple, \"dans le style de Van Gogh.\"",
   "screens.generation.styleDialog.button": "D'accord",
-  "screens.generation.enhance.description": "Appuyez longtemps pour plus de détails",
   "screens.generation.aspectRatio.title": "Rapport d'aspect",
   "screens.generation.aspectRatio.square": "Carré",
   "screens.generation.aspectRatio.vertical": "Vertical",

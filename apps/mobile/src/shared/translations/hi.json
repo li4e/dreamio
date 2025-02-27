@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "अपना स्टाइल चुनें",
   "screens.generation.styleDialog.text": "प्रमुख शैलियों की सूची में से चुनें ताकि आप उन्हें तुरंत अपने प्रॉम्प्ट में जोड़ सकें। ये शैलियाँ बस पाठ का जोड़ हैं जो चित्र निर्माण को प्रभावित करती हैं। यदि आपकी इच्छित शैली सूची में नहीं है, तो आप इसे अपने प्रॉम्प्ट में मैन्युअल रूप से लिख सकते हैं, जैसे \"वैन गॉग की शैली में।\"",
   "screens.generation.styleDialog.button": "ठीक है",
-  "screens.generation.enhance.description": "विवरण के लिए लंबे समय तक दबाएं",
   "screens.generation.aspectRatio.title": "आयाम अनुपात",
   "screens.generation.aspectRatio.square": "वर्गाकार",
   "screens.generation.aspectRatio.vertical": "वर्टिकल",

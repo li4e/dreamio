@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "اختر نمطك",
   "screens.generation.styleDialog.text": "اختر من قائمة الأنماط الشائعة لإضافتها بسرعة إلى طلبك. هذه الأنماط هي مجرد إضافات نصية تؤثر على عملية إنشاء الصورة. إذا لم يكن النمط الذي تريده مدرجًا، يمكنك كتابته يدويًا في طلبك، مثل: \"على طريقة فنسنت فان غوخ\".",
   "screens.generation.styleDialog.button": "حسناً",
-  "screens.generation.enhance.description": "اضغط مع الاستمرار للحصول على التفاصيل",
   "screens.generation.aspectRatio.title": "نسبة العرض إلى الارتفاع",
   "screens.generation.aspectRatio.square": "مربع",
   "screens.generation.aspectRatio.vertical": "عمودي",

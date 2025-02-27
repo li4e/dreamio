@@ -107,10 +107,11 @@ export function StylesList(props: StylesListProps) {
         onPress={handleTitlePress}
         left={(props) => <List.Icon icon="palette" {...props} />}
         title={t('screens.generation.styleLabel')}
-        description={value || t('screens.generation.settings.style.none')}
-        right={(props) => (
-          <View className="self-center" {...props}>
-            <Icon source="alert-circle-outline" size={20} />
+        right={() => (
+          <View className="self-center pl-4">
+            <Text variant="labelLarge">
+              {value || t('screens.generation.settings.style.none')}
+            </Text>
           </View>
         )}
       />

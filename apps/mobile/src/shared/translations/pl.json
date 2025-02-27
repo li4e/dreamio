@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Wybierz swój styl",
   "screens.generation.styleDialog.text": "Wybierz z listy popularnych stylów, aby szybko dodać je do swojego polecenia. Te style to po prostu dodatki tekstowe, które wpływają na generowanie obrazu. Jeśli poszukiwany styl nie znajduje się na liście, możesz wpisać go ręcznie w swoim poleceniu, np. \"w stylu Van Gogha\".",
   "screens.generation.styleDialog.button": "Certainly! Please provide the text you would like me to translate.",
-  "screens.generation.enhance.description": "Długie naciśnięcie dla szczegółów",
   "screens.generation.aspectRatio.title": "Proporcje obrazu",
   "screens.generation.aspectRatio.square": "Kwadratowy",
   "screens.generation.aspectRatio.vertical": "Pionowy",

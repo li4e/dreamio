@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Stilini Seç",
   "screens.generation.styleDialog.text": "Popüler stillerden birini seçerek hızlıca isteminize ekleyebilirsiniz. Bu stiller, görüntü üretimini etkileyen metin eklemeleridir. İstediğiniz stil listede yoksa, isteminize manuel olarak yazabilirsiniz; örneğin, \"Van Gogh tarzında.\"",
   "screens.generation.styleDialog.button": "Tamam",
-  "screens.generation.enhance.description": "Detaylar için uzun basın",
   "screens.generation.aspectRatio.title": "Görüntü Oranı",
   "screens.generation.aspectRatio.square": "Kare",
   "screens.generation.aspectRatio.vertical": "Dikey",

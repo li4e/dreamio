@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Select Your Style",
   "screens.generation.styleDialog.text": "Choose from a selection of popular styles to swiftly incorporate them into your prompt. These styles are simply text additions that affect the image generation process. If the style you want isn’t included, you can manually enter it into your prompt, e.g., \"in the style of Van Gogh.\"",
   "screens.generation.styleDialog.button": "Ok",
-  "screens.generation.enhance.description": "Press and hold for details",
   "screens.generation.aspectRatio.title": "Aspect Ratio",
   "screens.generation.aspectRatio.square": "Square",
   "screens.generation.aspectRatio.vertical": "Vertical",

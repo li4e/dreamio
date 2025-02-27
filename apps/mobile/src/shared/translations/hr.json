@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Odaberite svoj stil",
   "screens.generation.styleDialog.text": "Odaberite s popisa popularnih stilova kako biste ih brzo dodali u svoj upit. Ovi stilovi su jednostavno dodaci tekstu koji utječu na generiranje slike. Ako vaš željeni stil nije na popisu, možete ga ručno unijeti u svoj upit, npr., \"u stilu Van Gogha.\"",
   "screens.generation.styleDialog.button": "U redu",
-  "screens.generation.enhance.description": "Dugo pritisnite za detalje",
   "screens.generation.aspectRatio.title": "Omjer stranica",
   "screens.generation.aspectRatio.square": "Kvadratni",
   "screens.generation.aspectRatio.vertical": "Vertikalno",

@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Escolha o Seu Estilo",
   "screens.generation.styleDialog.text": "Selecione a partir de uma lista de estilos populares para os adicionar rapidamente ao seu prompt. Estes estilos são simplesmente adições de texto que influenciam a geração da imagem. Se o estilo que pretende não estiver na lista, pode escrevê-lo manualmente no seu prompt, por exemplo, \"no estilo de Van Gogh.\"",
   "screens.generation.styleDialog.button": "Claro! Como posso ajudá-lo com a tradução?",
-  "screens.generation.enhance.description": "Pressione longamente para mais detalhes",
   "screens.generation.aspectRatio.title": "Relação de Aspecto",
   "screens.generation.aspectRatio.square": "Quadrado",
   "screens.generation.aspectRatio.vertical": "Vertical",

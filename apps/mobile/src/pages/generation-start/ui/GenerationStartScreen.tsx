@@ -478,9 +478,7 @@ function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
         <List.Item
           disabled={disabled}
           title={t('screens.generation.enhance.title')}
-          onPress={() => onChange(!value)}
-          onLongPress={handleEnhanceInfoPress}
-          description={t('screens.generation.enhance.description')}
+          onPress={handleEnhanceInfoPress}
           left={(props) => <List.Icon {...props} icon="auto-fix" />}
           right={() => (
             <Switch
@@ -525,7 +523,6 @@ function AspectRatioSetting(props: {
           onPress={showAspectDialog}
           disabled={disabled}
           title={t('screens.generation.aspectRatio.title')}
-          description={translates[value]}
           left={(props) => <List.Icon {...props} icon="aspect-ratio" />}
           right={() => (
             <Button mode="contained-tonal" className="self-center">

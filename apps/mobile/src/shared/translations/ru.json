@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Выберите свой стиль",
   "screens.generation.styleDialog.text": "Выберите из списка популярных стилей, чтобы быстро добавить их в свой запрос. Эти стили представляют собой простые текстовые добавления, которые влияют на генерацию изображений. Если нужный вам стиль не указан, вы можете ввести его вручную в свой запрос, например, \"в стиле Ван Гога.\"",
   "screens.generation.styleDialog.button": "Хорошо",
-  "screens.generation.enhance.description": "Долгое нажатие для получения деталей",
   "screens.generation.aspectRatio.title": "Соотношение сторон",
   "screens.generation.aspectRatio.square": "Квадратный",
   "screens.generation.aspectRatio.vertical": "Вертикальный",

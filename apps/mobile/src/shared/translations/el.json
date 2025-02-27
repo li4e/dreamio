@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Επιλέξτε το Στυλ σας",
   "screens.generation.styleDialog.text": "Επιλέξτε από μια λίστα δημοφιλών στυλ για να τα προσθέσετε γρήγορα στην προτροπή σας. Αυτά τα στυλ είναι απλώς προσθήκες κειμένου που επηρεάζουν τη δημιουργία εικόνας. Εάν το επιθυμητό στυλ σας δεν είναι στη λίστα, μπορείτε να το πληκτρολογήσετε χειροκίνητα στην προτροπή σας, π.χ., \"στο στυλ του Βαν Γκογκ.\"",
   "screens.generation.styleDialog.button": "Alright! Please provide the text you would like me to translate.",
-  "screens.generation.enhance.description": "Πατήστε παρατεταμένα για λεπτομέρειες",
   "screens.generation.aspectRatio.title": "Αναλογία Διαστάσεων",
   "screens.generation.aspectRatio.square": "Τετράγωνο",
   "screens.generation.aspectRatio.vertical": "Κατακόρυφος",

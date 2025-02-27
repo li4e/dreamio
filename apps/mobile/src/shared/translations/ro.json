@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Alege-ți Stilul",
   "screens.generation.styleDialog.text": "Alege dintr-o listă de stiluri populare pentru a le adăuga rapid la promptul tău. Aceste stiluri sunt pur și simplu adăugiri de text care influențează generarea imaginii. Dacă stilul dorit nu este inclus, poți să-l introduci manual în promptul tău, de exemplu, \"în stilul lui Van Gogh.\"",
   "screens.generation.styleDialog.button": "Bine.",
-  "screens.generation.enhance.description": "Apăsați lung pentru detalii",
   "screens.generation.aspectRatio.title": "Raportul de aspect",
   "screens.generation.aspectRatio.square": "Patrat",
   "screens.generation.aspectRatio.vertical": "Vertical",

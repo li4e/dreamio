@@ -70,7 +70,6 @@
   "screens.generation.styleDialog.title": "Velg din stil",
   "screens.generation.styleDialog.text": "Velg fra en liste med populære stiler for raskt å legge dem til i forespørselen din. Disse stilene er rett og slett teksttillegg som påvirker bildeproduksjonen. Hvis den ønskede stilen ikke er oppført, kan du skrive den inn manuelt i forespørselen din, f.eks. \"i stilen til Van Gogh.\"",
   "screens.generation.styleDialog.button": "Sure! Please provide the text you would like me to translate, and I'll assist you with that.",
-  "screens.generation.enhance.description": "Trykk og hold for detaljer",
   "screens.generation.aspectRatio.title": "Bildeforhold",
   "screens.generation.aspectRatio.square": "Firkantet",
   "screens.generation.aspectRatio.vertical": "Vertikal",
