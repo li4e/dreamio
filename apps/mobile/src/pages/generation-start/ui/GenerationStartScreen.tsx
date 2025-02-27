@@ -692,21 +692,11 @@ function Header(props: {
   const { top } = useSafeAreaInsets()
   const { dark } = useTheme()
 
-  const hasGeneration = useSharedValue(Boolean(generation))
-  const hasImage = useSharedValue(Boolean(resultImage))
-  const showTitle = !generation && !hasError && !isPending
-
-  useEffect(() => {
-    hasGeneration.value = Boolean(generation)
-    hasImage.value = Boolean(resultImage)
-  }, [generation, resultImage])
+  const showTitle = !generation
 
   const headerVisible = useDerivedValue(
-    () =>
-      hasGeneration.value && !hasImage.value
-        ? 0
-        : interpolate(scrollY.value, [0, 64], [1, 0], Extrapolation.CLAMP),
-    [scrollY, hasGeneration]
+    () => interpolate(scrollY.value, [0, 64], [1, 0], Extrapolation.CLAMP),
+    [scrollY]
   )
 
   const headerStyle = useAnimatedStyle(() => {
@@ -722,7 +712,7 @@ function Header(props: {
         },
       ],
     }
-  }, [scrollY, headerVisible, top, hasImage])
+  }, [scrollY, headerVisible, top])
 
   const headerContentStyle = useAnimatedStyle(
     () => ({
@@ -735,6 +725,10 @@ function Header(props: {
     }),
     []
   )
+
+  if (hasError || isPending) {
+    return null
+  }
 
   return (
     <Animated.View
