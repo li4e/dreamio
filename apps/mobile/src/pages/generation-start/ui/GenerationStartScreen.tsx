@@ -20,7 +20,6 @@ import {
   Chip,
   Divider,
   List,
-  Text,
 } from 'react-native-paper'
 import * as yup from 'yup'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
@@ -234,7 +233,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             )
           )}
           <Animated.View className="flex-grow justify-center">
-            <View className="justify-center pt-10">
+            <View className="justify-center pt-6">
               {(generation || hasError || isPending) && (
                 <View className="flex-row justify-between pr-4 mb-2">
                   <SelectedSettings
@@ -311,7 +310,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               />
             </View>
             <AdvancedSettings
-              collapsable={generation === null || hasError || !isPending}
+              collapsable={generation !== null || hasError || isPending}
               disabled={isPending}
             >
               <View className="justify-center mb-5">
@@ -651,10 +650,10 @@ function AdvancedSettings(props: AdvancedSettingsProps) {
   const { t } = useTranslation()
 
   useEffect(() => {
-    if (!collapsable) {
+    if (collapsable || disabled) {
       setVisible(false)
     }
-  }, [collapsable])
+  }, [collapsable, disabled])
 
   return (
     <Animated.View>
