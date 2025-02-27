@@ -8,11 +8,11 @@ class Api {
     const userLang = i18n.language
     const seed = Math.trunc(Math.random() * 1000000000000)
 
-    const prompt = `Generate an image prompt featuring topics, epochs, landscapes, seasons, dynamic lighting, moods, lore elements, characters, and actions inspired by the culture and themes of "${i18n.language}" language code speakers, without mentioning it. Keep it concise within 200 characters.`
+    const prompt = `Generate an image prompt featuring topics, epochs, landscapes, seasons, dynamic lighting, moods, lore elements, characters, and actions inspired by the culture and themes of "${userLang}" language code speakers, without mentioning it. Keep it concise within 200 characters.`
 
     const generatedPrompt = await axios
       .get(
-        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?seed=${seed}`
+        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?seed=${seed}&private=true`
       )
       .then((res) => res.data)
 
@@ -79,7 +79,9 @@ async function translate(
   const prompt = `Translate the following text into "${options.to}" language without any additional explanation or introductory text: "${value}"`
 
   const translatedText = await axios
-    .get(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`)
+    .get(
+      `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true`
+    )
     .then((res) => res.data)
 
   return { text: translatedText }

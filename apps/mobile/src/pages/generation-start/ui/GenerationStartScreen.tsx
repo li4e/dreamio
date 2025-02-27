@@ -88,9 +88,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   } = useStoreData(() => uiStateStore.state, [uiStateStore])
 
   const modalState = mapCurGenStatusToModalState(status, error)
-  const showStartButton = !(
-    isPending && generation?.status === GenerationEntityStatus.IN_PROGRESS
-  )
+  const showStartButton = !isPending
 
   const generationSchema = useMemo(
     () =>
@@ -151,7 +149,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
 
   useEffect(() => {
-    if (uiStateStore.isPending && uiStateStore.generation) {
+    if (uiStateStore.generation) {
       updateForm(uiStateStore.generation)
     }
   }, [uiStateStore])
@@ -242,7 +240,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     disabled={isPending}
                     uiStateStore={uiStateStore}
                   />
-                  {generation && (
+                  {generation && !isPending && (
                     <ResetButton
                       control={control}
                       generation={generation}
@@ -679,11 +677,12 @@ function Header(props: {
   scrollY: SharedValue<number>
 }) {
   const { uiStateStore, scrollY } = props
-  const { generation, resultImage, hasError } = useStoreData(
+  const { generation, resultImage, hasError, isPending } = useStoreData(
     () => ({
       hasError: uiStateStore.hasError,
       generation: uiStateStore.generation,
       resultImage: uiStateStore.resultImage,
+      isPending: uiStateStore.isPending,
     }),
     [uiStateStore]
   )
@@ -695,7 +694,7 @@ function Header(props: {
 
   const hasGeneration = useSharedValue(Boolean(generation))
   const hasImage = useSharedValue(Boolean(resultImage))
-  const showTitle = !generation && !hasError
+  const showTitle = !generation && !hasError && !isPending
 
   useEffect(() => {
     hasGeneration.value = Boolean(generation)

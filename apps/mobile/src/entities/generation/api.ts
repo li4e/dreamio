@@ -4,18 +4,14 @@ import { translator } from 'shared/api'
 import { mkkvStorage } from 'shared/lib/mmkv'
 import { SettingsStore } from 'shared/store/SettingsStore'
 
+export enum GenerationAPIErrorType {
+  PROMPT_UNSAFE = 1,
+  SERVICE_UNAVAILABLE = 2,
+}
+
 export class GetGenerationError extends Error {
-  constructor(public readonly status: number) {
+  constructor(public readonly type: GenerationAPIErrorType) {
     super('GetGenerationError')
-    this.status = status
-  }
-
-  isPromptUnsafe(): boolean {
-    return [500, 502].includes(this.status)
-  }
-
-  isServiceUnavailable(): boolean {
-    return this.status > 500
   }
 }
 
@@ -70,14 +66,15 @@ export class Api {
       .then((res) => res.status)
       .catch((error) => {
         if (axios.isAxiosError(error)) {
-          if (error.status && error.status >= 500) {
-            throw new GetGenerationError(error.status)
-          } else if (
-            error.code &&
-            ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code) &&
-            Date.now() - startTime >= timeout
+          if (
+            (error.status && error.status >= 500) ||
+            (error.code &&
+              ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code) &&
+              Date.now() - startTime >= timeout)
           ) {
-            throw new GetGenerationError(501)
+            throw new GetGenerationError(
+              GenerationAPIErrorType.SERVICE_UNAVAILABLE
+            )
           }
         }
         throw error
@@ -99,18 +96,18 @@ export class Api {
   createGeneration = async (
     data: StartGenerationBodyDTO
   ): Promise<{ generation: GenerationDTO }> => {
-    let prompt = data.prompt
+    const withCensorship = new SettingsStore().censorship
 
-    try {
-      prompt = await translator.translate(data.prompt, 'en')
-    } catch (err) {
-      if (axios.isAxiosError(err) && new SettingsStore().censorship) {
-        if (err.status === 500) {
-          throw new GetGenerationError(500)
-        }
+    if (withCensorship) {
+      const isPromptSafe = await this.isPromptSafe(data.prompt)
+      if (!isPromptSafe) {
+        throw new GetGenerationError(GenerationAPIErrorType.PROMPT_UNSAFE)
       }
-      console.error('Error during tranlsating prompt', err)
     }
+
+    const prompt = await translator
+      .translate(data.prompt, 'en')
+      .catch(() => data.prompt)
 
     const newGeneration = {
       id: Date.now(),
@@ -128,7 +125,6 @@ export class Api {
       images: [] as string[],
     }
 
-    const withCensorship = new SettingsStore().censorship
     const seed = Math.trunc(Math.random() * 1000000000000)
     const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(newGeneration.promptFull)}?private=true&nologo=true&enhance=${newGeneration.enhance}&safe=${withCensorship}&seed=${seed}&width=${newGeneration.width}&height=${newGeneration.height}`
     newGeneration.images.push(imageUrl)
@@ -136,6 +132,21 @@ export class Api {
     return {
       generation: newGeneration,
     }
+  }
+
+  async isPromptSafe(promptToCheck: string): Promise<boolean> {
+    const prompt = `Check if the following prompt is safe: "${promptToCheck}". A safe prompt means it does not contain harmful, offensive, NSFW (Not Safe For Work) content, hate speech, or other inappropriate material. Return a JSON object with the field {safe: boolean}, where 'true' means safe (no harmful content detected) and 'false' means not safe (harmful content detected).`
+    return await axios
+      .get(
+        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`
+      )
+      .then((res) => {
+        const data = res.data
+        if (typeof data.safe !== 'boolean') {
+          throw new Error('AI Response is invalid')
+        }
+        return data.safe
+      })
   }
 
   private readonly __deprecated__persistingKey = 'api'

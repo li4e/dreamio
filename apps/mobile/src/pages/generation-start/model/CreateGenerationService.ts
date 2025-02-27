@@ -6,7 +6,11 @@ import {
   GetGenerationError,
   useGenerationDataService,
 } from 'entities/generation'
-import { StateGenerationError, UIStateStore } from './UIStateStore'
+import {
+  mapGenerationAPIErrorToUIStateStoreError,
+  StateGenerationError,
+  UIStateStore,
+} from './UIStateStore'
 import { isEqualGeneration } from 'entities/generation/model/GenerationEntity'
 
 class CreateGenerationService {
@@ -40,11 +44,9 @@ class CreateGenerationService {
       await this.fetchGenerationResult(generation)
     } catch (error) {
       if (error instanceof GetGenerationError) {
-        this.uiStateStore.error = error.isPromptUnsafe()
-          ? StateGenerationError.PromptUnsafe
-          : error.isServiceUnavailable()
-            ? StateGenerationError.ServiceUnavailable
-            : StateGenerationError.General
+        this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
+          error.type
+        )
       } else {
         this.uiStateStore.error = StateGenerationError.General
       }
@@ -61,11 +63,9 @@ class CreateGenerationService {
         await this.fetchGenerationResult(this.uiStateStore.generation)
       } catch (error) {
         if (error instanceof GetGenerationError) {
-          this.uiStateStore.error = error.isPromptUnsafe()
-            ? StateGenerationError.PromptUnsafe
-            : error.isServiceUnavailable()
-              ? StateGenerationError.ServiceUnavailable
-              : StateGenerationError.General
+          this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
+            error.type
+          )
         } else {
           this.uiStateStore.error = StateGenerationError.General
         }

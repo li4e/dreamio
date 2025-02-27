@@ -1,7 +1,19 @@
 import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
+import { GenerationAPIErrorType } from 'entities/generation/api'
 import { makeAutoObservable } from 'mobx'
 import { useMemo } from 'react'
 import { mkkvStorage } from 'shared/lib/mmkv'
+
+export function mapGenerationAPIErrorToUIStateStoreError(
+  error: GenerationAPIErrorType
+): StateGenerationError {
+  if (error === GenerationAPIErrorType.PROMPT_UNSAFE) {
+    return StateGenerationError.PromptUnsafe
+  } else if (error === GenerationAPIErrorType.SERVICE_UNAVAILABLE) {
+    return StateGenerationError.ServiceUnavailable
+  }
+  return StateGenerationError.General
+}
 
 export enum Status {
   NO_GENERATION,
@@ -82,6 +94,7 @@ export class UIStateStore {
 
   set error(value: StateGenerationError | null) {
     this._error = value
+    this.persistData()
   }
 
   set generation(value: GenerationEntity | null) {
@@ -130,7 +143,8 @@ export class UIStateStore {
   private get _persistingData(): PersistingData {
     return {
       generation:
-        this.generation?.status !== GenerationEntityStatus.SUCCESS
+        this.generation?.status !== GenerationEntityStatus.SUCCESS &&
+        this.error !== StateGenerationError.PromptUnsafe
           ? this.generation
           : null,
     }
