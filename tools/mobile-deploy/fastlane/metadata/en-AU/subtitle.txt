@@ -1,1 +1,1 @@
-AI image generator from text
+Photo Art Creator

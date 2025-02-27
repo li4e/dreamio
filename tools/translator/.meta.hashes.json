@@ -43,7 +43,7 @@
     ]
   },
   "name.txt": {
-    "original": "9ad54b261beedc16590e9bbef3840d42f9e63f89ad5b87f8ff2fc287b8cc586b",
+    "original": "eae817da6cfe0dab189446ec9acca58d127c5a2b0cf903d67d428c363fe1a1ca",
     "translations": [
       "ar-SA",
       "ca",
@@ -129,7 +129,7 @@
     ]
   },
   "subtitle.txt": {
-    "original": "d810b1dd5d381518a2b813a351eac74c5df6d4e491ba215ec0e49d7f3db420cf",
+    "original": "1b72e9468dac80a91996b4bea85bfec6ba6fbcdb33ed5bf71cd38b86fa8f1af9",
     "translations": [
       "ar-SA",
       "ca",
@@ -165,14 +165,14 @@
       "sv",
       "th",
       "tr",
+      "uk",
       "vi",
       "zh-Hans",
-      "zh-Hant",
-      "uk"
+      "zh-Hant"
     ]
   },
   "keywords.txt": {
-    "original": "abe3889475202eedadbb922c731daa4d6fb04f5259c0ebb395d57191bb6b928b",
+    "original": "65ebdeaa4debec4138fbe4a336b4282af0ebdba551d7fbba499d820858b3d0cc",
     "translations": [
       "ar-SA",
       "ca",

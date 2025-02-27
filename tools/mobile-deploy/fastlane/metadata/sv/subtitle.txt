@@ -1,1 +1,1 @@
-AI-bildgenerator från text
+Bildkonstgenerator

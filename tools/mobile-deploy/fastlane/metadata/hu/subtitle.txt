@@ -1,1 +1,1 @@
-Szövegből képgenerálás
+Kép Művészeti Generátor
