@@ -1,1 +1,1 @@
-tekoäly,valokuva,kuva,generaattori,kuvittaja,teksti,avatare,luoja,taide,chatgpt
+tekoäly,valokuva,kuva,generaattori,kuvitus,teksti,avatare,luoja,taide

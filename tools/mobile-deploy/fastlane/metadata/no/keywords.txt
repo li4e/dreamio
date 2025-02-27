@@ -1,1 +1,1 @@
-ai,foto,bilde,generator,illustrator,tekst,avatar,skaper,kunst,chatgpt
+ai,foto,bilde,generator,illustratør,tekst,avater,skaper,kunst

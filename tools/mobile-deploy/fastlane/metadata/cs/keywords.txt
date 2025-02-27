@@ -1,1 +1,1 @@
-ai,foto,obraz,generátor,ilustrátor,text,avatare,tvůrce,umění,chatgpt
+ai,foto,obrázek,generator,ilustrátor,text,avatar,tvůrce,umění

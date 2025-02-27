@@ -1,1 +1,1 @@
-ia,foto,imagem,gerador,ilustrador,texto,avatar,criador,arte,chatsGPT
+ia,foto,imagem,gerador,ilustrador,texto,avatar,criador,arte

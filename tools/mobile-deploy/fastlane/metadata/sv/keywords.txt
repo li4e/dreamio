@@ -1,1 +1,1 @@
-ai,foto,bild,generator,illustratör,text,avatar,skapare,konst,chatgpt
+ai, foto, bild, generator, illustratör, text, avatar, skapare, konst
