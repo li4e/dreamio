@@ -33,11 +33,10 @@
   "screens": {
     "generation": {
       "title": "New Image",
-      "titleMore": "Start a New Creation",
-      "inputLabel": "Your Idea:",
       "inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
       "styleLabel": "Choose Your Style",
       "startButton": "Start Magic",
+      "reStartButton": "Create Another",
       "styleDialog": {
         "title": "Choose Your Style",
         "text": "Select from a list of popular styles to quickly add them to your prompt. These styles are simply text additions that influence the image generation. If your desired style isn’t listed, you can manually type it in your prompt, e.g., \"in the style of Van Gogh.\"",

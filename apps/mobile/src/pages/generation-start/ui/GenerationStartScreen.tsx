@@ -197,7 +197,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
 
   const { top, bottom } = useSafeAreaInsets()
-  const topInset = top + HEADER_HEIGHT
+  const topInset = modalState ? 0 : top + HEADER_HEIGHT
 
   return (
     <KeyboardAvoidingView withBottomBar>
@@ -219,7 +219,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             <Animated.View
               entering={FadeIn.duration(300)}
               key="generation_process"
-              className="items-center justify-center py-10"
+              className="items-center justify-center aspect-square"
             >
               <StateContent variant={modalState} />
             </Animated.View>
@@ -235,11 +235,6 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           )}
           <Animated.View className="flex-grow justify-center">
             <View className="justify-center pt-10">
-              {resultImage && (
-                <Text variant="titleLarge" className="mx-5 mb-5 text-center">
-                  {t('screens.generation.titleMore')}
-                </Text>
-              )}
               {(generation || hasError || isPending) && (
                 <View className="flex-row justify-between pr-4 mb-2">
                   <SelectedSettings
@@ -316,7 +311,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
               />
             </View>
             <AdvancedSettings
-              expandable={generation !== null || hasError}
+              collapsable={generation === null || hasError || !isPending}
               disabled={isPending}
             >
               <View className="justify-center mb-5">
@@ -344,6 +339,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
         </Animated.ScrollView>
         {showStartButton && (
           <StartButton
+            hasGeneration={resultImage !== null}
             control={control}
             isPending={isPending}
             disabled={isPendingPromptGen}
@@ -362,9 +358,10 @@ function StartButton(props: {
   control: FormControl
   isPending: boolean
   disabled: boolean
+  hasGeneration: boolean
   onPress: () => void
 }) {
-  const { isPending, onPress, control, disabled } = props
+  const { isPending, onPress, control, disabled, hasGeneration } = props
   const { submitCount, isValid } = useFormState({ control })
   const isDisabled = isPending || (submitCount > 0 && !isValid)
   const { t } = useTranslation()
@@ -380,7 +377,11 @@ function StartButton(props: {
         disabled={isDisabled || disabled}
         loading={isPending}
       >
-        {t('screens.generation.startButton')}
+        {t(
+          hasGeneration
+            ? 'screens.generation.reStartButton'
+            : 'screens.generation.startButton'
+        )}
       </Button>
     </View>
   )
@@ -639,31 +640,25 @@ function getSizeFromAspectRatio(
 }
 
 interface AdvancedSettingsProps extends PropsWithChildren {
-  expandable: boolean
+  collapsable: boolean
   disabled: boolean
 }
 
 function AdvancedSettings(props: AdvancedSettingsProps) {
-  const { expandable, disabled } = props
-  const [visible, setVisible] = useState(false)
+  const { collapsable, disabled } = props
+  const [visible, setVisible] = useState(true)
   const { children } = props
   const { t } = useTranslation()
 
   useEffect(() => {
-    setVisible(false)
-  }, [disabled])
-
-  useEffect(() => {
-    if (expandable) {
+    if (!collapsable) {
       setVisible(false)
-    } else {
-      setVisible(true)
     }
-  }, [expandable])
+  }, [collapsable])
 
   return (
     <Animated.View>
-      {expandable && !disabled && (
+      {collapsable && !disabled && (
         <Button
           className="self-center"
           onPress={() => setVisible(!visible)}
@@ -685,8 +680,9 @@ function Header(props: {
   scrollY: SharedValue<number>
 }) {
   const { uiStateStore, scrollY } = props
-  const { generation, resultImage } = useStoreData(
+  const { generation, resultImage, hasError } = useStoreData(
     () => ({
+      hasError: uiStateStore.hasError,
       generation: uiStateStore.generation,
       resultImage: uiStateStore.resultImage,
     }),
@@ -700,6 +696,7 @@ function Header(props: {
 
   const hasGeneration = useSharedValue(Boolean(generation))
   const hasImage = useSharedValue(Boolean(resultImage))
+  const showTitle = !generation && !hasError
 
   useEffect(() => {
     hasGeneration.value = Boolean(generation)
@@ -764,7 +761,7 @@ function Header(props: {
             )}
 
             <Appbar.Content
-              title={!generation && t('screens.generation.title')}
+              title={showTitle && t('screens.generation.title')}
             />
 
             {resultImage && (
