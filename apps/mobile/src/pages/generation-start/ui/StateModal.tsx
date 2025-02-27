@@ -103,7 +103,7 @@ export function StateContent(props: Pick<StateModalContentProps, 'variant'>) {
       <Text variant="titleMedium" className="mb-1 text-center">
         {title}
       </Text>
-      <Text variant="bodySmall" className="text-center max-w-[240]">
+      <Text variant="bodySmall" className="text-center max-w-[300]">
         {description}
       </Text>
     </>
