@@ -12,6 +12,9 @@ export const screenshotsData: GenerationEntity[] = [
     createdAt: Date.now() - 60 * 1000 * 4,
     updatedAt: Date.now() - 60 * 1000 * 4,
     images: ['https://dreamio.ilsur.me/screenshots/4.jpg'],
+    enhance: true,
+    width: 1280,
+    height: 1280,
   },
   {
     id: 2,
@@ -21,6 +24,9 @@ export const screenshotsData: GenerationEntity[] = [
     createdAt: Date.now() - 60 * 1000 * 3,
     updatedAt: Date.now() - 60 * 1000 * 3,
     images: ['https://dreamio.ilsur.me/screenshots/3.jpg'],
+    enhance: true,
+    width: 1280,
+    height: 1280,
   },
   {
     id: 3,
@@ -30,6 +36,9 @@ export const screenshotsData: GenerationEntity[] = [
     createdAt: Date.now() - 60 * 1000 * 2,
     updatedAt: Date.now() - 60 * 1000 * 2,
     images: ['https://dreamio.ilsur.me/screenshots/2.jpg'],
+    enhance: true,
+    width: 1280,
+    height: 1280,
   },
   {
     id: 4,
@@ -39,5 +48,8 @@ export const screenshotsData: GenerationEntity[] = [
     createdAt: Date.now() - 60 * 1000,
     updatedAt: Date.now() - 60 * 1000,
     images: ['https://dreamio.ilsur.me/screenshots/1.jpg'],
+    enhance: true,
+    width: 1280,
+    height: 1280,
   },
 ]
