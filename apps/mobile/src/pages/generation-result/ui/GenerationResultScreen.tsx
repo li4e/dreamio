@@ -26,6 +26,7 @@ import { Button } from 'shared/ui/styled'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
 import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
+import { HEADER_HEIGHT } from 'shared/constants'
 
 const bottomOffset = 70
 
@@ -196,6 +197,7 @@ function useGenDelete(genertaion: GenerationEntity) {
                         label: t('screens.generationResult.undo'),
                       },
                       position: 'top',
+                      offset: HEADER_HEIGHT,
                     }
                   )
                 })
