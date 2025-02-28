@@ -58,7 +58,9 @@ function KeyboardAvoidingViewFallback(props: KeyboardAvoidingViewProps) {
   )
 }
 
-export const KeyboardAvoidingView =
-  Platform.OS === 'ios'
-    ? KeyboardAvoidingViewAnimated
-    : KeyboardAvoidingViewFallback
+// export const KeyboardAvoidingView =
+//   Platform.OS === 'ios'
+//     ? KeyboardAvoidingViewAnimated
+//     : KeyboardAvoidingViewFallback
+
+export const KeyboardAvoidingView = KeyboardAvoidingViewAnimated
