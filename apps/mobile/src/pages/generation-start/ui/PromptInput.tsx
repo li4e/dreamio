@@ -94,7 +94,7 @@ export const PromptInput = observer(function PromptInput(
         />
       </View>
 
-      <View className="h-8">
+      <View className="min-h-8">
         <HelperText type="error" visible={hasInputError}>
           {fieldState.error?.message}
         </HelperText>
