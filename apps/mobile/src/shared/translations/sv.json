@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Oj då!",
   "components.snackBar.generalError.description": "Något gick fel, försök igen senare",
   "screens.generation.title": "Ny bild",
-  "screens.generation.inputPlaceholder": "Vad vill du se? Beskriv varje detalj för bästa resultat...",
+  "screens.generation.inputPlaceholder": "Vad vill du skapa? Beskriv varje detalj för bästa resultat...",
   "screens.generation.styleLabel": "Välj din stil",
   "screens.generation.startButton": "Starta magi",
   "screens.generation.promptValidationErrors.minLength": "Din prompt är för kort. Den måste vara minst {{min}} tecken lång.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Det verkar som om din prompt innehåller innehåll som kan vara olämpligt, skadligt eller känsligt. Vänligen justera din formulering och försök igen!",
   "screens.generation.errorServiceUnavailable.title": "Tjänsten är tillfälligt inte tillgänglig",
   "screens.generation.errorServiceUnavailable.description": "Vår gratis tjänst upplever hög trafik för tillfället. Vänligen vänta några minuter och försök igen.",
-  "screens.generation.reStartButton": "Skapa mer"
+  "screens.generation.reStartButton": "Skapa mer",
+  "screens.generation.inputPromptGeneration": "Genererar din uppmaning, vänligen vänta ett ögonblick..."
 }

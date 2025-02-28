@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "ओह!",
   "components.snackBar.generalError.description": "कुछ गलत हो गया, कृपया बाद में पुनः प्रयास करें।",
   "screens.generation.title": "नई छवि",
-  "screens.generation.inputPlaceholder": "आप क्या देखना चाहेंगे? सर्वोत्तम परिणाम के लिए हर विवरण वर्णन करें...",
+  "screens.generation.inputPlaceholder": "आप क्या बनाना चाहते हैं? सबसे अच्छे परिणामों के लिए हर विवरण का वर्णन करें...",
   "screens.generation.styleLabel": "अपना स्टाइल चुनें",
   "screens.generation.startButton": "जादू शुरू करें",
   "screens.generation.promptValidationErrors.minLength": "आपका संकेत बहुत छोटा है। यह कम से कम {{min}} अक्षरों का होना चाहिए।",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "ऐसा लगता है कि आपका प्रॉम्प्ट ऐसा सामग्री शामिल करता है जो अस्वीकार्य, हानिकारक, या संवेदनशील हो सकती है। कृपया अपने शब्दों को समायोजित करें और पुनः प्रयास करें!",
   "screens.generation.errorServiceUnavailable.title": "सेवा अस्थाई रूप से अनुपलब्ध है",
   "screens.generation.errorServiceUnavailable.description": "हमारी मुफ्त सेवा वर्तमान में उच्च ट्रैफ़िक का सामना कर रही है। कृपया कुछ मिनट प्रतीक्षा करें और पुनः प्रयास करें।",
-  "screens.generation.reStartButton": "अधिक बनाएँ"
+  "screens.generation.reStartButton": "अधिक बनाएँ",
+  "screens.generation.inputPromptGeneration": "आपका प्रॉम्प्ट जनरेट किया जा रहा है, कृपया कुछ क्षण प्रतीक्षा करें..."
 }

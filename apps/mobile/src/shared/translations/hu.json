@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Hoppá!",
   "components.snackBar.generalError.description": "Valami hiba történt, próbáld meg később újra.",
   "screens.generation.title": "Új kép",
-  "screens.generation.inputPlaceholder": "Mit szeretne látni? Írja le minden részletet a legjobb eredmény érdekében...",
+  "screens.generation.inputPlaceholder": "Mit szeretnél létrehozni? Írd le minden részletét a legjobb eredmények érdekében...",
   "screens.generation.styleLabel": "Válaszd ki a stílusodat",
   "screens.generation.startButton": "Varázslat indítása",
   "screens.generation.promptValidationErrors.minLength": "A kérdésed túl rövid. Legalább {{min}} karakter hosszúnak kell lennie.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Úgy tűnik, hogy a kérésed olyan tartalmat tartalmaz, amely esetleg helytelen, káros vagy érzékeny. Kérjük, módosítsd a szöveget, és próbálkozz újra!",
   "screens.generation.errorServiceUnavailable.title": "A szolgáltatás átmenetileg nem elérhető",
   "screens.generation.errorServiceUnavailable.description": "Ingyenes szolgáltatásunk jelenleg nagy forgalommal bír. Kérjük, várjon néhány percet, majd próbálja újra.",
-  "screens.generation.reStartButton": "Tovább készít"
+  "screens.generation.reStartButton": "Tovább készít",
+  "screens.generation.inputPromptGeneration": "A kérdésed generálása folyamatban van, kérlek, várj egy pillanatot..."
 }

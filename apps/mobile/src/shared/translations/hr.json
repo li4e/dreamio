@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Nešto je pošlo po zlu, pokušajte ponovno kasnije.",
   "screens.generation.title": "Nova slika",
-  "screens.generation.inputPlaceholder": "Što biste željeli vidjeti? Opišite svaki detalj za najbolji rezultat...",
+  "screens.generation.inputPlaceholder": "Što želite stvoriti? Opišite svaki detalj za najbolje rezultate...",
   "screens.generation.styleLabel": "Odaberite svoj stil",
   "screens.generation.startButton": "Pokreni magiju",
   "screens.generation.promptValidationErrors.minLength": "Vaš unos je prekratak. Mora imati barem {{min}} znakova.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Izgleda da vaš unos sadrži sadržaj koji može biti neprikladan, štetan ili osjetljiv. Molimo vas da prilagodite svoj tekst i pokušate ponovo!",
   "screens.generation.errorServiceUnavailable.title": "Usluga je privremeno nedostupna",
   "screens.generation.errorServiceUnavailable.description": "Naša besplatna usluga trenutno doživljava visoku posjećenost. Molimo vas da pričekate nekoliko minuta i pokušate ponovo.",
-  "screens.generation.reStartButton": "Kreirajte više"
+  "screens.generation.reStartButton": "Kreirajte više",
+  "screens.generation.inputPromptGeneration": "Generiram vašu poruku, molimo vas da pričekate trenutak..."
 }

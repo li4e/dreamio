@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Упс!",
   "components.snackBar.generalError.description": "Что-то пошло не так, попробуйте еще раз позже.",
   "screens.generation.title": "Новое изображение",
-  "screens.generation.inputPlaceholder": "Что вы хотели бы увидеть? Опишите каждую деталь для достижения наилучшего результата…",
+  "screens.generation.inputPlaceholder": "Что вы хотите создать? Опишите все детали для достижения наилучших результатов...",
   "screens.generation.styleLabel": "Выберите свой стиль",
   "screens.generation.startButton": "Начать магию",
   "screens.generation.promptValidationErrors.minLength": "Ваш запрос слишком короткий. Он должен содержать не менее {{min}} символов.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Похоже, что ваш запрос содержит контент, который может быть неподобающим, вредным или чувствительным. Пожалуйста, измените формулировку и попробуйте снова!",
   "screens.generation.errorServiceUnavailable.title": "Сервис временно недоступен",
   "screens.generation.errorServiceUnavailable.description": "Наш бесплатный сервис в настоящее время испытывает высокий трафик. Пожалуйста, подождите несколько минут и попробуйте снова.",
-  "screens.generation.reStartButton": "Создать еще"
+  "screens.generation.reStartButton": "Создать еще",
+  "screens.generation.inputPromptGeneration": "Генерация вашего запроса, пожалуйста, подождите немного..."
 }

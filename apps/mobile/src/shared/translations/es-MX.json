@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "¡Ups!",
   "components.snackBar.generalError.description": "Algo salió mal, inténtalo de nuevo más tarde",
   "screens.generation.title": "Nueva Imagen",
-  "screens.generation.inputPlaceholder": "¿Qué te gustaría ver? Describe cada detalle para obtener el mejor resultado...",
+  "screens.generation.inputPlaceholder": "¿Qué deseas crear? Describe cada detalle para obtener los mejores resultados...",
   "screens.generation.styleLabel": "Elige Tu Estilo",
   "screens.generation.startButton": "Iniciar Magia",
   "screens.generation.promptValidationErrors.minLength": "Tu mensaje es demasiado corto. Debe tener al menos {{min}} caracteres.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Parece que su solicitud contiene contenido que puede ser inapropiado, dañino o sensible. ¡Por favor ajuste su redacción y vuelva a intentarlo!",
   "screens.generation.errorServiceUnavailable.title": "Servicio Temporalmente No Disponible",
   "screens.generation.errorServiceUnavailable.description": "Nuestro servicio gratuito está experimentando un alto tráfico en este momento. Por favor, espere unos minutos y vuelva a intentarlo.",
-  "screens.generation.reStartButton": "Crear más"
+  "screens.generation.reStartButton": "Crear más",
+  "screens.generation.inputPromptGeneration": "Generando su solicitud, por favor espere un momento..."
 }

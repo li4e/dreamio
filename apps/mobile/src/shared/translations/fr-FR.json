@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Oups !",
   "components.snackBar.generalError.description": "Un problème est survenu, veuillez réessayer plus tard",
   "screens.generation.title": "Nouvelle Image",
-  "screens.generation.inputPlaceholder": "Que souhaitez-vous voir ? Décrivez chaque détail pour obtenir le meilleur résultat...",
+  "screens.generation.inputPlaceholder": "Que souhaitez-vous créer ? Décrivez chaque détail pour obtenir les meilleurs résultats...",
   "screens.generation.styleLabel": "Choisissez votre style",
   "screens.generation.startButton": "Démarrer Magic",
   "screens.generation.promptValidationErrors.minLength": "Votre saisie est trop courte. Elle doit contenir au moins {{min}} caractères.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Il semble que votre message contienne du contenu qui pourrait être inapproprié, nuisible ou sensible. Veuillez ajuster votre formulation et réessayer !",
   "screens.generation.errorServiceUnavailable.title": "Service temporairement indisponible",
   "screens.generation.errorServiceUnavailable.description": "Notre service gratuit connaît actuellement un fort trafic. Veuillez patienter quelques minutes et réessayer.",
-  "screens.generation.reStartButton": "Créer plus"
+  "screens.generation.reStartButton": "Créer plus",
+  "screens.generation.inputPromptGeneration": "Génération de votre prompt, veuillez patienter un moment..."
 }

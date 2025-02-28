@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "이런!",
   "components.snackBar.generalError.description": "문제가 발생했습니다. 나중에 다시 시도해 주세요.",
   "screens.generation.title": "새 이미지",
-  "screens.generation.inputPlaceholder": "보고 싶은 것이 무엇인가요? 최상의 결과를 위해 모든 세부 사항을 설명해 주세요...",
+  "screens.generation.inputPlaceholder": "어떤 것을 생성하고 싶으신가요? 최상의 결과를 위해 모든 세부 사항을 설명해 주세요...",
   "screens.generation.styleLabel": "스타일 선택하기",
   "screens.generation.startButton": "매직 시작",
   "screens.generation.promptValidationErrors.minLength": "귀하의 프롬프트가 너무 짧습니다. 최소 {{min}}자 이상이어야 합니다.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "귀하의 프롬프트에는 적절하지 않거나, 해롭거나, 민감한 내용이 포함된 것으로 보입니다. 문구를 조정하신 후 다시 시도해 주시기 바랍니다!",
   "screens.generation.errorServiceUnavailable.title": "서비스를 일시적으로 사용할 수 없습니다.",
   "screens.generation.errorServiceUnavailable.description": "현재 저희 무료 서비스에 높은 트래픽이 발생하고 있습니다. 잠시 후 다시 시도해 주시기 바랍니다.",
-  "screens.generation.reStartButton": "더 만들기"
+  "screens.generation.reStartButton": "더 만들기",
+  "screens.generation.inputPromptGeneration": "프롬프트를 생성하는 중입니다. 잠시만 기다려 주세요..."
 }

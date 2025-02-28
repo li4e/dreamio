@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ωχ!",
   "components.snackBar.generalError.description": "Κάτι πήγε στραβά, δοκιμάστε ξανά αργότερα.",
   "screens.generation.title": "Νέα εικόνα",
-  "screens.generation.inputPlaceholder": "Τι θα θέλατε να δείτε; Περιγράψτε κάθε λεπτομέρεια για το καλύτερο αποτέλεσμα...",
+  "screens.generation.inputPlaceholder": "Τι θέλετε να δημιουργήσετε; Περιγράψτε κάθε λεπτομέρεια για τα καλύτερα αποτελέσματα...",
   "screens.generation.styleLabel": "Επιλέξτε το Στυλ σας",
   "screens.generation.startButton": "Έναρξη Μαγείας",
   "screens.generation.promptValidationErrors.minLength": "Η προτροπή σας είναι πολύ σύντομη. Πρέπει να έχει τουλάχιστον {{min}} χαρακτήρες.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Φαίνεται ότι το αίτημά σας περιλαμβάνει περιεχόμενο που μπορεί να είναι ακατάλληλο, επιβλαβές ή ευαίσθητο. Παρακαλώ προσαρμόστε τη διατύπωση σας και δοκιμάστε ξανά!",
   "screens.generation.errorServiceUnavailable.title": "Η Υπηρεσία Δεν Είναι Διαθέσιμη Για Λίγο",
   "screens.generation.errorServiceUnavailable.description": "Η δωρεάν υπηρεσία μας αντιμετωπίζει υψηλή κίνηση αυτή τη στιγμή. Παρακαλώ περιμένετε μερικά λεπτά και δοκιμάστε ξανά.",
-  "screens.generation.reStartButton": "Δημιουργία Περισσότερων"
+  "screens.generation.reStartButton": "Δημιουργία Περισσότερων",
+  "screens.generation.inputPromptGeneration": "Δημιουργούμε την προτροπή σας, παρακαλούμε περιμένετε λίγο..."
 }

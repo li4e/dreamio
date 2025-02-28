@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Jejda!",
   "components.snackBar.generalError.description": "Něco se pokazilo, zkuste to znovu později.",
   "screens.generation.title": "Nový obrázek",
-  "screens.generation.inputPlaceholder": "Co byste chtěli vidět? Popište každý detail pro dosažení co nejlepšího výsledku...",
+  "screens.generation.inputPlaceholder": "Co chcete vytvořit? Popište každý detail pro nejlepší výsledky...",
   "screens.generation.styleLabel": "Vyberte si svůj styl",
   "screens.generation.startButton": "Spustit kouzlo",
   "screens.generation.promptValidationErrors.minLength": "Váš příkaz je příliš krátký. Musí mít alespoň {{min}} znaků.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Vypadá to, že váš požadavek obsahuje obsah, který může být nevhodný, škodlivý nebo citlivý. Prosím, upravte svůj text a zkuste to znovu!",
   "screens.generation.errorServiceUnavailable.title": "Služba je dočasně nedostupná",
   "screens.generation.errorServiceUnavailable.description": "Naše bezplatná služba momentálně zažívá vysokou návštěvnost. Prosím, vyčkejte několik minut a zkuste to znovu.",
-  "screens.generation.reStartButton": "Vytvořit více"
+  "screens.generation.reStartButton": "Vytvořit více",
+  "screens.generation.inputPromptGeneration": "Generuji váš prompt, prosím, chvíli potvrďte..."
 }

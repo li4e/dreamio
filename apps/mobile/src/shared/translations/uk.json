@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Упс!",
   "components.snackBar.generalError.description": "Щось пішло не так, спробуйте ще раз пізніше.",
   "screens.generation.title": "Нове зображення",
-  "screens.generation.inputPlaceholder": "Що б ви хотіли побачити? Опишіть кожну деталь для найкращого результату...",
+  "screens.generation.inputPlaceholder": "Що ви хочете створити? Опишіть усі деталі для досягнення найкращих результатів...",
   "screens.generation.styleLabel": "Оберіть свій стиль",
   "screens.generation.startButton": "Запустити Magic",
   "screens.generation.promptValidationErrors.minLength": "Ваш запит занадто короткий. Він повинен містити не менше ніж {{min}} символів.",
@@ -87,5 +87,6 @@
   "screens.generation.errorServiceUnavailable.title": "Служба тимчасово недоступна",
   "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again.",
   "screens.generation.errorUnsafePrompt.description": "Здається, ваше запитання містить контент, який може бути недоречним, шкідливим або чутливим. Будь ласка, змініть формулювання та спробуйте знову!",
-  "screens.generation.reStartButton": "Створити більше"
+  "screens.generation.reStartButton": "Створити більше",
+  "screens.generation.inputPromptGeneration": "Генерація вашого запиту, будь ласка, зачекайте хвилинку..."
 }

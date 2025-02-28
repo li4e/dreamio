@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Niečo sa pokazilo, skúste to znova neskôr.",
   "screens.generation.title": "Nový obrázok",
-  "screens.generation.inputPlaceholder": "Čo by ste chceli vidieť? Opíšte každý detail pre čo najlepší výsledok...",
+  "screens.generation.inputPlaceholder": "Čo chcete vytvoriť? Popíšte každý detail pre dosiahnutie najlepších výsledkov...",
   "screens.generation.styleLabel": "Vyberte si svoj štýl",
   "screens.generation.startButton": "Začať kúzlo",
   "screens.generation.promptValidationErrors.minLength": "Váš podnet je príliš krátky. Musí mať najmenej {{min}} znakov.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Zdá sa, že váš text obsahuje obsah, ktorý môže byť nevhodný, škodlivý alebo citlivý. Prosím, upravte formuláciu a skúste to znova!",
   "screens.generation.errorServiceUnavailable.title": "Služba je dočasne nedostupná",
   "screens.generation.errorServiceUnavailable.description": "Naša bezplatná služba momentálne zažíva vysoký prenos. Prosím, počkajte niekoľko minút a skúste to znova.",
-  "screens.generation.reStartButton": "Vytvoriť viac"
+  "screens.generation.reStartButton": "Vytvoriť viac",
+  "screens.generation.inputPromptGeneration": "Generujem váš prompt, prosím, počkajte chvíľu..."
 }

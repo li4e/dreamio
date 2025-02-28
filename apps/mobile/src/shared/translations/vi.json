@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Rất tiếc!",
   "components.snackBar.generalError.description": "Đã xảy ra sự cố, vui lòng thử lại sau",
   "screens.generation.title": "Hình ảnh mới",
-  "screens.generation.inputPlaceholder": "Bạn muốn xem gì? Hãy mô tả chi tiết để có kết quả tốt nhất...",
+  "screens.generation.inputPlaceholder": "Bạn muốn tạo ra điều gì? Hãy mô tả từng chi tiết để có được kết quả tốt nhất...",
   "screens.generation.styleLabel": "Chọn Phong Cách Của Bạn",
   "screens.generation.startButton": "Bắt đầu Phép thuật",
   "screens.generation.promptValidationErrors.minLength": "Yêu cầu của bạn quá ngắn. Nó phải có ít nhất {{min}} ký tự.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Có vẻ như lời nhắc của bạn chứa nội dung có thể không phù hợp, gây hại hoặc nhạy cảm. Vui lòng điều chỉnh cách diễn đạt và thử lại!",
   "screens.generation.errorServiceUnavailable.title": "Dịch vụ tạm thời không khả dụng",
   "screens.generation.errorServiceUnavailable.description": "Dịch vụ miễn phí của chúng tôi đang gặp phải lưu lượng truy cập cao trong thời điểm hiện tại. Vui lòng chờ vài phút và thử lại.",
-  "screens.generation.reStartButton": "Tạo thêm"
+  "screens.generation.reStartButton": "Tạo thêm",
+  "screens.generation.inputPromptGeneration": "Đang tạo prompt của bạn, xin hãy đợi một chút..."
 }

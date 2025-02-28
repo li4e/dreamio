@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "おっと！",
   "components.snackBar.generalError.description": "問題が発生しました。後でもう一度お試しください。",
   "screens.generation.title": "新しい画像",
-  "screens.generation.inputPlaceholder": "何を見たいですか？最高の結果を得るために、すべての詳細を記述してください...",
+  "screens.generation.inputPlaceholder": "何を作成したいですか？最高の結果を得るために、すべての詳細を説明してください...",
   "screens.generation.styleLabel": "スタイルを選択してください",
   "screens.generation.startButton": "マジックを始める",
   "screens.generation.promptValidationErrors.minLength": "入力が短すぎます。少なくとも{{min}}文字以上である必要があります。",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "あなたのプロンプトには、不適切、危険、またはセンシティブな内容が含まれている可能性があります。言い回しを調整して、再度お試しください！",
   "screens.generation.errorServiceUnavailable.title": "サービスは一時的に利用できません",
   "screens.generation.errorServiceUnavailable.description": "現在、私たちの無料サービスは高いトラフィックを受けています。数分待ってから、もう一度お試しください。",
-  "screens.generation.reStartButton": "もっと作成する"
+  "screens.generation.reStartButton": "もっと作成する",
+  "screens.generation.inputPromptGeneration": "プロンプトを生成しています。しばらくお待ちください..."
 }

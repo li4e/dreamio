@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Terjadi kesalahan, coba lagi nanti",
   "screens.generation.title": "Gambar Baru",
-  "screens.generation.inputPlaceholder": "Apa yang ingin Anda lihat? Jelaskan setiap detail untuk mendapatkan hasil terbaik...",
+  "screens.generation.inputPlaceholder": "Apa yang ingin Anda buat? Jelaskan setiap detailnya untuk hasil terbaik...",
   "screens.generation.styleLabel": "Pilih Gaya Anda",
   "screens.generation.startButton": "Mulai Keajaiban",
   "screens.generation.promptValidationErrors.minLength": "Prompt Anda terlalu pendek. Harus terdiri dari setidaknya {{min}} karakter.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Tampaknya prompt Anda mengandung konten yang mungkin tidak pantas, berbahaya, atau sensitif. Silakan sesuaikan kata-kata Anda dan coba lagi!",
   "screens.generation.errorServiceUnavailable.title": "Layanan Sedang Tidak Tersedia Sementara",
   "screens.generation.errorServiceUnavailable.description": "Layanan gratis kami saat ini mengalami lalu lintas yang tinggi. Harap tunggu beberapa menit dan coba lagi.",
-  "screens.generation.reStartButton": "Buat Lebih Banyak"
+  "screens.generation.reStartButton": "Buat Lebih Banyak",
+  "screens.generation.inputPromptGeneration": "Menghasilkan prompt Anda, mohon tunggu sebentar..."
 }

@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Hoppla!",
   "components.snackBar.generalError.description": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
   "screens.generation.title": "Neues Bild",
-  "screens.generation.inputPlaceholder": "Was möchten Sie sehen? Beschreiben Sie jedes Detail für das beste Ergebnis...",
+  "screens.generation.inputPlaceholder": "Was möchten Sie erstellen? Beschreiben Sie jedes Detail für die besten Ergebnisse...",
   "screens.generation.styleLabel": "Wählen Sie Ihren Stil",
   "screens.generation.startButton": "Magie starten",
   "screens.generation.promptValidationErrors.minLength": "Ihr Eingabeaufforderung ist zu kurz. Sie muss mindestens {{min}} Zeichen lang sein.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Es scheint, dass Ihre Eingabe Inhalte enthält, die unangemessen, schädlich oder sensibel sein könnten. Bitte passen Sie Ihre Formulierung an und versuchen Sie es erneut!",
   "screens.generation.errorServiceUnavailable.title": "Dienst vorübergehend nicht verfügbar",
   "screens.generation.errorServiceUnavailable.description": "Unser kostenloser Dienst hat momentan hohe Auslastung. Bitte warten Sie einige Minuten und versuchen Sie es erneut.",
-  "screens.generation.reStartButton": "Mehr erstellen"
+  "screens.generation.reStartButton": "Mehr erstellen",
+  "screens.generation.inputPromptGeneration": "Erzeuge Ihren Prompt, bitte einen Moment warten..."
 }

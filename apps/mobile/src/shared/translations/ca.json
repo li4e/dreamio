@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Hi ha hagut un error. Torna-ho a intentar més tard.",
   "screens.generation.title": "Nova imatge",
-  "screens.generation.inputPlaceholder": "Què t'agradaria veure? Descriu cada detall per obtenir el millor resultat…",
+  "screens.generation.inputPlaceholder": "Què vols crear? Descriu cada detall per obtenir els millors resultats...",
   "screens.generation.styleLabel": "Tria el teu estil",
   "screens.generation.startButton": "Inicia la màgia",
   "screens.generation.promptValidationErrors.minLength": "El teu missatge és massa curt. Ha de tenir almenys {{min}} caràcters.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Sembla que el teu missatge conté contingut que pot ser inapropiat, perjudicial o sensible. Si us plau, ajusta la teva redacció i torna a provar!",
   "screens.generation.errorServiceUnavailable.title": "Servei temporalment no disponible",
   "screens.generation.errorServiceUnavailable.description": "El nostre servei gratuït està experimentant un alt trànsit en aquest moment. Si us plau, espereu uns minuts i torneu a intentar-ho.",
-  "screens.generation.reStartButton": "Crea més"
+  "screens.generation.reStartButton": "Crea més",
+  "screens.generation.inputPromptGeneration": "Generant el teu missatge, si us plau, espera un moment..."
 }

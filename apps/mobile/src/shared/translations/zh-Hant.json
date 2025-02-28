@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "喔噢！",
   "components.snackBar.generalError.description": "發生錯誤，請稍後再試。",
   "screens.generation.title": "新圖像",
-  "screens.generation.inputPlaceholder": "您希望看到什麼？描述每一個細節以獲得最佳效果...",
+  "screens.generation.inputPlaceholder": "您想要創建什麼？請詳細描述每個細節，以獲得最佳結果……",
   "screens.generation.styleLabel": "選擇您的風格",
   "screens.generation.startButton": "開始魔法",
   "screens.generation.promptValidationErrors.minLength": "您的提示太短了。必須至少包含 {{min}} 個字符。",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "看起來您的提示包含了可能不當、有害或敏感的內容。請調整您的用詞並再次嘗試！",
   "screens.generation.errorServiceUnavailable.title": "服務暫時無法使用",
   "screens.generation.errorServiceUnavailable.description": "我們的免費服務目前正面臨高流量的情況。請耐心等候幾分鐘後再試一次。",
-  "screens.generation.reStartButton": "創建更多"
+  "screens.generation.reStartButton": "創建更多",
+  "screens.generation.inputPromptGeneration": "正在生成您的提示，請稍候片刻..."
 }

@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Hata!",
   "components.snackBar.generalError.description": "Bir şeyler ters gitti, lütfen daha sonra tekrar deneyin.",
   "screens.generation.title": "Yeni Görüntü",
-  "screens.generation.inputPlaceholder": "Ne görmek istersiniz? En iyi sonuç için her detayı açıklayın...",
+  "screens.generation.inputPlaceholder": "Ne yaratmak istiyorsunuz? En iyi sonuçlar için her detayı açıklayın...",
   "screens.generation.styleLabel": "Tarzını Seç",
   "screens.generation.startButton": "Sihri Başlat",
   "screens.generation.promptValidationErrors.minLength": "İsteğiniz çok kısa. En az {{min}} karakter uzunluğunda olmalıdır.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Görünüşe göre isteminiz, uygun olmayan, zararlı veya hassas içerik içermektedir. Lütfen ifadelerinizi gözden geçirin ve tekrar deneyin!",
   "screens.generation.errorServiceUnavailable.title": "Hizmet Geçici Olarak Kullanılamıyor",
   "screens.generation.errorServiceUnavailable.description": "Ücretsiz hizmetimiz şu anda yoğun bir trafikle karşılaşıyor. Lütfen birkaç dakika bekleyin ve tekrar deneyin.",
-  "screens.generation.reStartButton": "Daha Fazla Oluştur"
+  "screens.generation.reStartButton": "Daha Fazla Oluştur",
+  "screens.generation.inputPromptGeneration": "İsteğinizi oluşturuyoruz, lütfen bir dakika bekleyin..."
 }

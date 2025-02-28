@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Oeps!",
   "components.snackBar.generalError.description": "Er is iets misgegaan. Probeer het later opnieuw.",
   "screens.generation.title": "Nieuwe Afbeelding",
-  "screens.generation.inputPlaceholder": "Wat wilt u zien? Beschrijf elk detail voor het beste resultaat...",
+  "screens.generation.inputPlaceholder": "Wat wilt u creëren? Beschrijf elk detail voor de beste resultaten...",
   "screens.generation.styleLabel": "Kies uw stijl",
   "screens.generation.startButton": "Start Magie",
   "screens.generation.promptValidationErrors.minLength": "Je prompt is te kort. Het moet minimaal {{min}} tekens lang zijn.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Het lijkt erop dat uw prompt inhoud bevat die ongepast, schadelijk of gevoelig kan zijn. Pas alstublieft uw formulering aan en probeer het opnieuw!",
   "screens.generation.errorServiceUnavailable.title": "Dienst tijdelijk niet beschikbaar",
   "screens.generation.errorServiceUnavailable.description": "Onze gratis service ervaart op dit moment hoge drukte. Gelieve een paar minuten te wachten en het nogmaals te proberen.",
-  "screens.generation.reStartButton": "Maak Meer"
+  "screens.generation.reStartButton": "Maak Meer",
+  "screens.generation.inputPromptGeneration": "Uw prompt wordt gegenereerd, wilt u alstublieft even wachten..."
 }

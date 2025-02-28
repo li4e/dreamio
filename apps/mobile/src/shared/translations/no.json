@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ops!",
   "components.snackBar.generalError.description": "Noe gikk galt, prøv igjen senere.",
   "screens.generation.title": "Nytt bilde",
-  "screens.generation.inputPlaceholder": "Hva vil du se? Beskriv hver detalj for best resultat...",
+  "screens.generation.inputPlaceholder": "Hva ønsker du å lage? Beskriv hver detalj for best mulig resultat...",
   "screens.generation.styleLabel": "Velg din stil",
   "screens.generation.startButton": "Start magi",
   "screens.generation.promptValidationErrors.minLength": "Ditt prompt er for kort. Det må være minst {{min}} tegn langt.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Det ser ut til at forespørselen din inneholder innhold som kan være upassende, skadelig eller sensitivt. Vennligst juster formuleringen din og prøv igjen!",
   "screens.generation.errorServiceUnavailable.title": "Tjenesten er midlertidig utilgjengelig",
   "screens.generation.errorServiceUnavailable.description": "Vår gratis tjeneste opplever høy trafikk for øyeblikket. Vennligst vent noen minutter og prøv igjen.",
-  "screens.generation.reStartButton": "Lag mer"
+  "screens.generation.reStartButton": "Lag mer",
+  "screens.generation.inputPromptGeneration": "Genererer din prompt, vennligst vent et øyeblikk..."
 }

@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "عذراً!",
   "components.snackBar.generalError.description": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا",
   "screens.generation.title": "صورة جديدة",
-  "screens.generation.inputPlaceholder": "ماذا تود أن ترى؟ اذكر كل التفاصيل للحصول على أفضل نتيجة...",
+  "screens.generation.inputPlaceholder": "ماذا تريد أن تخلق؟ صف كل التفاصيل لتحقيق أفضل النتائج...",
   "screens.generation.styleLabel": "اختر أسلوبك",
   "screens.generation.startButton": "ابدأ السحر",
   "screens.generation.promptValidationErrors.minLength": "نص المدخل الخاص بك قصير جدًا. يجب أن يكون بطول لا يقل عن {{min}} حرفًا.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "يبدو أن نصك يحتوي على محتوى قد يكون غير مناسب أو ضار أو حساس. يُرجى تعديل صياغتك والمحاولة مرة أخرى!",
   "screens.generation.errorServiceUnavailable.title": "الخدمة غير متاحة مؤقتًا",
   "screens.generation.errorServiceUnavailable.description": "خدمتنا المجانية تعاني من ضغط عالي في الوقت الحالي. يرجى الانتظار بضع دقائق ثم أعد المحاولة.",
-  "screens.generation.reStartButton": "إنشاء المزيد"
+  "screens.generation.reStartButton": "إنشاء المزيد",
+  "screens.generation.inputPromptGeneration": "جارٍ إنشاء تلميحك، يرجى الانتظار لحظة..."
 }

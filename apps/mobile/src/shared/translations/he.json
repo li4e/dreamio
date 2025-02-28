@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "אופס!",
   "components.snackBar.generalError.description": "משהו השתבש, נסו שוב מאוחר יותר",
   "screens.generation.title": "תמונה חדשה",
-  "screens.generation.inputPlaceholder": "מה היית רוצה לראות? תאר את כל הפרטים לתוצאה הטובה ביותר...",
+  "screens.generation.inputPlaceholder": "מה אתה רוצה ליצור? תאר כל פרט כדי להשיג את התוצאות הטובות ביותר...",
   "screens.generation.styleLabel": "בחר את הסגנון שלך",
   "screens.generation.startButton": "התחל קסם",
   "screens.generation.promptValidationErrors.minLength": "הבקשה שלך קצרה מדי. היא חייבת להיות באורך של לפחות {{min}} תווים.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "נראה שהתוכן שבבקשה שלך עשוי להיות לא מתאים, מזיק או רגיש. אנא שנה את ניסוחך ונסה שוב!",
   "screens.generation.errorServiceUnavailable.title": "שירות אינו זמין זמנית",
   "screens.generation.errorServiceUnavailable.description": "השירות החינמי שלנו חווה כרגע עומס תנועה גבוה. אנא המתן כמה דקות ונסה שוב.",
-  "screens.generation.reStartButton": "צור יותר"
+  "screens.generation.reStartButton": "צור יותר",
+  "screens.generation.inputPromptGeneration": "מייצר את הפנייה שלך, אנא המתן רגע..."
 }

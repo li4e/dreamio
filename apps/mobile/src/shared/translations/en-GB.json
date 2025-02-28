@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Oops!",
   "components.snackBar.generalError.description": "Something went wrong; please try again later.",
   "screens.generation.title": "New Image",
-  "screens.generation.inputPlaceholder": "What would you like to see? Describe every detail for the best result...",
+  "screens.generation.inputPlaceholder": "What would you like to create? Please describe every detail to achieve the best results…",
   "screens.generation.styleLabel": "Choose Your Style",
   "screens.generation.startButton": "Start Magic",
   "screens.generation.promptValidationErrors.minLength": "Your prompt is too short. It must be at least {{min}} characters long.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "It appears that your prompt includes content that may be inappropriate, harmful, or sensitive. Please revise your wording and try again!",
   "screens.generation.errorServiceUnavailable.title": "Service Temporarily Unavailable",
   "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high demand. Please wait a few minutes and try again.",
-  "screens.generation.reStartButton": "Create More"
+  "screens.generation.reStartButton": "Create More",
+  "screens.generation.inputPromptGeneration": "Generating your prompt, please hold on for a moment..."
 }

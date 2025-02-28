@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ooops!",
   "components.snackBar.generalError.description": "Ada masalah yang berlaku, sila cuba lagi nanti",
   "screens.generation.title": "Imej Baharu",
-  "screens.generation.inputPlaceholder": "Apa yang anda ingin lihat? Huraikan setiap perincian untuk hasil terbaik...",
+  "screens.generation.inputPlaceholder": "Apa yang anda ingin cipta? Huraikan setiap butiran untuk hasil yang terbaik...",
   "screens.generation.styleLabel": "Pilih Gaya Anda",
   "screens.generation.startButton": "Mulakan Ajaib",
   "screens.generation.promptValidationErrors.minLength": "Prompt anda terlalu pendek. Ia mesti sekurang-kurangnya {{min}} aksara panjang.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Nampaknya teks anda mengandungi kandungan yang mungkin tidak sesuai, berbahaya, atau sensitif. Sila sesuaikan bahasa anda dan cuba semula!",
   "screens.generation.errorServiceUnavailable.title": "Perkhidmatan Tidak Tersedia Buat Sementara Waktu",
   "screens.generation.errorServiceUnavailable.description": "Perkhidmatan percuma kami sedang mengalami trafik yang tinggi pada masa ini. Sila tunggu sebentar dan cuba lagi.",
-  "screens.generation.reStartButton": "Buat Lebih Banyak"
+  "screens.generation.reStartButton": "Buat Lebih Banyak",
+  "screens.generation.inputPromptGeneration": "Menghasilkan arahan anda, sila tunggu sebentar..."
 }

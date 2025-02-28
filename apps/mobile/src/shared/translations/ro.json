@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Ceva nu a funcționat corect, încearcă din nou mai târziu.",
   "screens.generation.title": "Imagine Nouă",
-  "screens.generation.inputPlaceholder": "Ce ai dori să vezi? Descrie fiecare detaliu pentru cel mai bun rezultat...",
+  "screens.generation.inputPlaceholder": "Ce vrei să creezi? Descrie fiecare detaliu pentru cele mai bune rezultate...",
   "screens.generation.styleLabel": "Alege-ți Stilul",
   "screens.generation.startButton": "Începe Magic",
   "screens.generation.promptValidationErrors.minLength": "Promptul dumneavoastră este prea scurt. Trebuie să aibă cel puțin {{min}} caractere.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Se pare că promptul dumneavoastră conține conținut care poate fi inadecvat, dăunător sau sensibil. Vă rugăm să ajustați formularea și să încercați din nou!",
   "screens.generation.errorServiceUnavailable.title": "Serviciu temporar indisponibil",
   "screens.generation.errorServiceUnavailable.description": "Serviciul nostru gratuit se confruntă în prezent cu un trafic ridicat. Vă rugăm să așteptați câteva minute și să încercați din nou.",
-  "screens.generation.reStartButton": "Creează mai mult"
+  "screens.generation.reStartButton": "Creează mai mult",
+  "screens.generation.inputPromptGeneration": "Generăm solicitarea dumneavoastră, vă rugăm să așteptați un moment..."
 }

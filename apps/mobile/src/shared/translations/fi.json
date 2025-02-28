@@ -6,7 +6,7 @@
   "components.snackBar.generalError.title": "Ups!",
   "components.snackBar.generalError.description": "Jokin meni pieleen, yritä myöhemmin uudelleen.",
   "screens.generation.title": "Uusi kuva",
-  "screens.generation.inputPlaceholder": "Mitä haluaisit nähdä? Kuvaile jokainen yksityiskohta parhaan lopputuloksen saavuttamiseksi...",
+  "screens.generation.inputPlaceholder": "Mitä haluat luoda? Kuvaile jokainen yksityiskohta saadaksesi parhaat tulokset...",
   "screens.generation.styleLabel": "Valitse tyylisi",
   "screens.generation.startButton": "Aloita taika",
   "screens.generation.promptValidationErrors.minLength": "Syötteesi on liian lyhyt. Sen on oltava vähintään {{min}} merkkiä pitkä.",
@@ -87,5 +87,6 @@
   "screens.generation.errorUnsafePrompt.description": "Näyttää siltä, että pyyntösi sisältää sisältöä, joka saattaa olla sopimatonta, vahingollista tai herkkää. Ole hyvä ja säädä sanamuotoasi ja yritä taas!",
   "screens.generation.errorServiceUnavailable.title": "Palvelu tilapäisesti pois käytöstä",
   "screens.generation.errorServiceUnavailable.description": "Ilmainen palvelumme kohtaa tällä hetkellä suurta liikennettä. Ole hyvä ja odota muutama minuutti ja yritä sitten uudelleen.",
-  "screens.generation.reStartButton": "Luo lisää"
+  "screens.generation.reStartButton": "Luo lisää",
+  "screens.generation.inputPromptGeneration": "Luodaan pyyntöäsi, ole hyvä ja odota hetki..."
 }
