@@ -42,10 +42,9 @@ import Animated, {
   interpolate,
   Extrapolation,
   useDerivedValue,
-  clamp,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
-import { GenerationEntity, GenerationEntityStatus } from 'entities/generation'
+import { GenerationEntity } from 'entities/generation'
 
 import { useDialog } from 'shared/ui/Dialog'
 import {
@@ -54,7 +53,6 @@ import {
   getAspectRatioFromSize,
 } from 'shared/ui/AspectedRatioView'
 import { KeyboardAvoidingView } from 'shared/ui/KeyboardAvoidingView'
-import { FlatList } from 'react-native-gesture-handler'
 import {
   UIStateStore,
   useUIActions,
@@ -270,7 +268,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                             mode="flat"
                             className="min-h-[120] pr-10"
                             placeholder={t(
-                              'screens.generation.inputPlaceholder'
+                              isPendingPromptGen
+                                ? 'screens.generation.inputPromptGeneration'
+                                : 'screens.generation.inputPlaceholder'
                             )}
                             onBlur={onBlur}
                             onChangeText={onChange}
@@ -458,6 +458,7 @@ function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
   const { showDialog } = useDialog()
 
   const handleEnhanceInfoPress = () => {
+    Keyboard.dismiss()
     showDialog({
       title: t('screens.generation.enhance.dialog.title'),
       content: t('screens.generation.enhance.dialog.description'),
@@ -481,7 +482,10 @@ function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
           right={() => (
             <Switch
               value={value}
-              onValueChange={onChange}
+              onValueChange={(selectedValue: boolean) => {
+                Keyboard.dismiss()
+                onChange(selectedValue)
+              }}
               disabled={disabled}
               className="self-center"
             />
@@ -502,23 +506,15 @@ function AspectRatioSetting(props: {
   const { t } = useTranslation()
   const { showAspectDialog } = useUIActions(uiStateStore)
 
-  const translates = useMemo(
-    () => ({
-      [AspectRatio.classic]: t('screens.generation.aspectRatio.classic'),
-      [AspectRatio.portrait]: t('screens.generation.aspectRatio.portrait'),
-      [AspectRatio.square]: t('screens.generation.aspectRatio.square'),
-      [AspectRatio.vertical]: t('screens.generation.aspectRatio.vertical'),
-      [AspectRatio.widescreen]: t('screens.generation.aspectRatio.widescreen'),
-    }),
-    [t]
-  )
-
   return (
     <Controller
       control={control}
       render={({ field: { value } }) => (
         <List.Item
-          onPress={showAspectDialog}
+          onPress={() => {
+            Keyboard.dismiss()
+            showAspectDialog()
+          }}
           disabled={disabled}
           title={t('screens.generation.aspectRatio.title')}
           left={(props) => <List.Icon {...props} icon="aspect-ratio" />}
@@ -563,7 +559,10 @@ function SelectedSettings(
         render={({ field: { value } }) => (
           <Chip
             disabled={disabled}
-            onPress={showAspectDialog}
+            onPress={() => {
+              Keyboard.dismiss()
+              showAspectDialog()
+            }}
             style={activeStyles}
             mode="flat"
             icon="aspect-ratio"
@@ -584,7 +583,10 @@ function SelectedSettings(
             icon="auto-fix"
             className="mr-1 mb-1"
             style={!value ? inactiveStyles : activeStyles}
-            onPress={() => onChange(!value)}
+            onPress={() => {
+              Keyboard.dismiss()
+              onChange(!value)
+            }}
           >
             {t(
               value
@@ -605,7 +607,14 @@ function SelectedSettings(
             onPress={showStylesDialog}
             style={!value ? inactiveStyles : activeStyles}
             icon="palette"
-            onClose={value ? () => onChange(null) : undefined}
+            onClose={
+              value
+                ? () => {
+                    Keyboard.dismiss()
+                    onChange(null)
+                  }
+                : undefined
+            }
           >
             {value || t('screens.generation.settings.style.none')}
           </Chip>
@@ -658,7 +667,10 @@ function AdvancedSettings(props: AdvancedSettingsProps) {
       {collapsable && !disabled && (
         <Button
           className="self-center"
-          onPress={() => setVisible(!visible)}
+          onPress={() => {
+            Keyboard.dismiss()
+            setVisible(!visible)
+          }}
           disabled={disabled}
           mode="text"
           icon={visible ? 'chevron-double-up' : 'chevron-double-down'}

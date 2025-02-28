@@ -4,6 +4,7 @@ import {
   FlatList,
   ListRenderItem,
   ListRenderItemInfo,
+  Keyboard,
 } from 'react-native'
 import {
   TouchableRipple,
@@ -11,7 +12,6 @@ import {
   useTheme,
   Button,
   List,
-  Icon,
 } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
 import { useDialog } from 'shared/ui/Dialog'
@@ -56,10 +56,10 @@ export function StylesList(props: StylesListProps) {
 
   const { showDialog } = useDialog()
 
-  const handleChange = useCallback(
-    (style: string | null) => onSelect(style),
-    []
-  )
+  const handleChange = useCallback((style: string | null) => {
+    Keyboard.dismiss()
+    onSelect(style)
+  }, [])
 
   const stylesListStore = useLocalObservable(() => new StylesListStore())
 
@@ -69,6 +69,7 @@ export function StylesList(props: StylesListProps) {
   }, [stylesListStore, value, disabled])
 
   const handleTitlePress = () => {
+    Keyboard.dismiss()
     showDialog({
       title: t('screens.generation.styleDialog.title'),
       content: t('screens.generation.styleDialog.text'),
