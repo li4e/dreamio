@@ -1,3 +1,1 @@
-— Sửa lỗi: Đã khắc phục vấn đề khiến ứng dụng bị treo trên máy Mac sử dụng Apple Silicon trong quá trình nhập liệu.  
-— Cải tiến Giao diện/Trải nghiệm người dùng: Cải thiện giao diện người dùng và trải nghiệm người dùng trên màn hình bắt đầu tạo ra để tương tác trở nên mượt mà hơn.  
-— Cải tiến chung: Đã thực hiện nhiều sửa lỗi nhỏ và cải tiến để nâng cao hiệu suất và ổn định tổng thể.
+— Cải thiện hành vi hiển thị bàn phím: màn hình giờ đây cuộn lên để giữ cho ô nhập văn bản và nút bắt đầu luôn nằm trong tầm nhìn.

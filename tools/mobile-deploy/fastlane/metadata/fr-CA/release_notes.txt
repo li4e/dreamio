@@ -1,3 +1,1 @@
-— Correction de bogue : Résolution d'un problème entraînant le plantage de l'application sur les Mac avec processeurs Apple Silicon lors des tentatives de saisie.
-— Améliorations de l'interface utilisateur et de l'expérience utilisateur : Amélioration de l'interface et de l'expérience sur l'écran de génération de démarrage pour une interaction plus fluide.
-— Améliorations générales : Mise en œuvre de diverses petites corrections et améliorations pour optimiser la performance et la stabilité globales.
+— Amélioration du comportement d'apparence du clavier : l'écran défile désormais pour garder le champ de saisie de texte et le bouton de démarrage visibles.

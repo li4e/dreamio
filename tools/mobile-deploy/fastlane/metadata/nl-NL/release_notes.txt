@@ -1,3 +1,1 @@
-— Bugfix: Een probleem opgelost dat ervoor zorgde dat de applicatie op Macs met Apple Silicon crashte tijdens het typen.  
-— UI/UX Verbeteringen: De gebruikersinterface en gebruikerservaring op het startgeneratiescherm verbeterd voor een soepelere interactie.  
-— Algemene Verbeteringen: Diverse kleine fixes en verbeteringen doorgevoerd om de algehele prestaties en stabiliteit te verbeteren.
+— Verbeterd gedrag van het toetsenbord: het scherm scrolt nu zodat het tekstinvoerveld en de startknop zichtbaar blijven.

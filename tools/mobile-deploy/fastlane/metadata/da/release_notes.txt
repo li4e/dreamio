@@ -1,3 +1,1 @@
-— Fejlrettelse: Løst et problem, der fik appen til at crashe på Macs med Apple Silicon under skrivningsforsøg.  
-— UI/UX-forbedringer: Forbedret brugergrænsefladen og brugeroplevelsen på skærmen til startgenerering for en mere gnidningsfri interaktion.  
-— Generelle forbedringer: Implementeret forskellige små rettelser og forbedringer for at optimere den samlede ydeevne og stabilitet.
+— Forbedret opførsel af tastaturets udseende: skærmen ruller nu for at holde tekstinputtet og startknappen synlige.

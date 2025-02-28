@@ -1,3 +1,1 @@
-— Naprawa błędów: Rozwiązano problem, który powodował awarię aplikacji na komputerach Mac z procesorami Apple Silicon podczas prób wprowadzenia tekstu.  
-— Udoskonalenia UI/UX: Poprawiono interfejs użytkownika oraz doświadczenie użytkownika na ekranie generowania wstępnego, aby zapewnić bardziej płynne interakcje.  
-— Ogólne udoskonalenia: Wprowadzono różne drobne poprawki i usprawnienia w celu poprawy ogólnej wydajności i stabilności.
+— Ulepszono zachowanie wyglądu klawiatury: ekran teraz przewija się, aby zachować widoczność pola tekstowego i przycisku rozpoczęcia.

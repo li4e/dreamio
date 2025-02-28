@@ -1,3 +1,1 @@
-— Bug Fix: Addressed an issue that led to application crashes on Macs with Apple Silicon during typing attempts.  
-— UI/UX Enhancements: Enhanced the user interface and user experience on the start generation screen for a more seamless interaction.  
-— General Improvements: Included various minor fixes and enhancements to boost overall performance and stability.
+— Enhanced keyboard appearance functionality: the screen now scrolls to ensure both the text input field and the start button remain visible.

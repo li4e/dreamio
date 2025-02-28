@@ -1,3 +1,1 @@
-— Correção de Bugs: Resolvido um problema que causava o fechamento inesperado do aplicativo em Macs com Apple Silicon durante tentativas de digitação.  
-— Melhorias de UI/UX: Aprimorada a interface do usuário e a experiência do usuário na tela de início de geração para uma interação mais fluida.  
-— Melhorias Gerais: Implementadas diversas pequenas correções e aprimoramentos para melhorar o desempenho e a estabilidade geral.
+— Melhorado o comportamento de aparência do teclado: a tela agora rola para manter o campo de texto e o botão de iniciar visíveis.

@@ -1,3 +1,1 @@
-— Hata Düzeltmesi: Yazma girişimleri sırasında Apple Silicon'lu Mac'lerde uygulamanın çökmesine neden olan bir sorun çözüldü.  
-— UI/UX Geliştirmeleri: Daha sorunsuz bir etkileşim için başlangıç oluşturma ekranında kullanıcı arayüzü ve deneyimi geliştirildi.  
-— Genel İyileştirmeler: Genel performans ve stabiliteyi artırmak için çeşitli küçük düzeltmeler ve geliştirmeler uygulandı.
+— Klavye görünümü iyileştirildi: Ekran, metin girişi ve başlat düğmesini görünür tutmak için kaydırılıyor.

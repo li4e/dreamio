@@ -1,3 +1,1 @@
-— Fehlerbehebung: Ein Problem wurde behoben, das dazu führte, dass die Anwendung auf Macs mit Apple Silicon während der Eingabeversuche abstürzte.  
-— UI/UX-Verbesserungen: Die Benutzeroberfläche und Benutzererfahrung auf dem Bildschirm zur Startgenerierung wurden verbessert, um eine nahtlosere Interaktion zu gewährleisten.  
-— Allgemeine Verbesserungen: Verschiedene kleine Fehlerbehebungen und Optimierungen wurden implementiert, um die Gesamtleistung und Stabilität zu verbessern.
+— Verbesserte Anzeigeverhalten der Tastatur: Der Bildschirm scrollt jetzt, um das Texteingabefeld und den Startknopf sichtbar zu halten.

@@ -1,3 +1,1 @@
-— Oprava chyb: Vyřešili jsme problém, který způsobil pád aplikace na Macích s Apple Silicon při pokusu o zadání textu.  
-— Vylepšení UI/UX: Zlepšili jsme uživatelské rozhraní a uživatelský zážitek na obrazovce pro generování, aby byla interakce plynulejší.  
-— Obecná vylepšení: Implementovali jsme různé drobné opravy a vylepšení pro zvýšení celkového výkonu a stability.
+— Vylepšené chování zobrazení klávesnice: obrazovka se nyní posouvá, aby byla viditelná vstupní textová pole a tlačítko pro spuštění.

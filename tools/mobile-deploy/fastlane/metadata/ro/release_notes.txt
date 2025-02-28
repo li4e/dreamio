@@ -1,3 +1,1 @@
-— Corectare erori: Am rezolvat o problemă care cauza blocarea aplicației pe Mac-uri cu Apple Silicon în timpul încercărilor de tastare.  
-— Îmbunătățiri UI/UX: Am îmbunătățit interfața utilizatorului și experiența utilizatorului pe ecranul de generare inițială pentru o interacțiune mai fluidă.  
-— Îmbunătățiri generale: Am implementat diverse corecții și îmbunătățiri mici pentru a spori performanța și stabilitatea generală.
+— Comportament îmbunătățit al apariției tastaturii: ecranul se desfășoară acum pentru a menține vizibile câmpul de introducere a textului și butonul de start.

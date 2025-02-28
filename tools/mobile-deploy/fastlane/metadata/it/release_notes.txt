@@ -1,3 +1,1 @@
-— Correzione di bug: Risolto un problema che causava il blocco dell'applicazione su Mac con Apple Silicon durante i tentativi di digitazione.  
-— Miglioramenti UI/UX: Ottimizzata l'interfaccia utente e l'esperienza utente nella schermata di avvio della generazione per un'interazione più fluida.  
-— Miglioramenti generali: Implementate varie piccole correzioni e ottimizzazioni per migliorare le prestazioni e la stabilità complessive.
+— Migliorato il comportamento dell'aspetto della tastiera: ora lo schermo scorre per mantenere visibili il campo di testo e il pulsante di avvio.

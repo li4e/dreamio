@@ -1,3 +1,1 @@
-— Ispravka greške: Riješen problem koji je uzrokovao pad aplikacije na Mac računalima s Apple Silicon prilikom pokušaja tipkanja.  
-— Poboljšanja UI/UX: Unaprijeđen korisnički sučelje i iskustvo na ekranu za generiranje početka radi besprijekornije interakcije.  
-— Opća poboljšanja: Provedena su različita manja poboljšanja i ispravke radi poboljšanja ukupne izvedbe i stabilnosti.
+— Poboljšano ponašanje izgleda tipkovnice: ekran se sada pomiče kako bi tekstualni unos i gumb za početak ostali vidljivi.

@@ -1,3 +1,1 @@
-— Felavhjälp: Åtgärdat ett problem som gjorde att applikationen kraschade på Mac-datorer med Apple Silicon under inmatningsförsök.  
-— UI/UX Förbättringar: Förbättrad användargränssnitt och användarupplevelse på skärmen för att starta generation för en mer sömlös interaktion.  
-— Allmänna Förbättringar: Implementerat olika mindre åtgärder och förbättringar för att öka den övergripande prestandan och stabiliteten.
+— Förbättrad tangentbordsvisningsbeteende: skärmen rullar nu för att hålla textinmatningen och startknappen synliga.

@@ -1,3 +1,1 @@
-— Hibajavítás: Megoldottunk egy problémát, amely az Apple Silicon chipsettel rendelkező Mac számítógépeken a gépelés közben okozta az alkalmazás összeomlását.  
-— UI/UX fejlesztések: Fejlesztettük a felhasználói felületet és a felhasználói élményt a generálás indító képernyőn, hogy zökkenőmentesebb interakciót biztosítsunk.  
-— Általános fejlesztések: Különböző kisebb javításokat és fejlesztéseket hajtottunk végre a teljesítmény és a stabilitás javítása érdekében.
+— Javítottuk a billentyűzet megjelenésének viselkedését: a képernyő mostantól görget, hogy a szövegbeviteli mező és a kezdő gomb mindig látható legyen.
