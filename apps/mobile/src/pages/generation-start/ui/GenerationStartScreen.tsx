@@ -1,20 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { PropsWithChildren, useEffect, useRef } from 'react'
 import { useCallback, useMemo, useState } from 'react'
-import {
-  useForm,
-  Controller,
-  useFormState,
-  useWatch,
-  useController,
-} from 'react-hook-form'
+import { useForm, Controller, useFormState, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View, ViewProps } from 'react-native'
 import {
   Appbar,
-  HelperText,
   IconButton,
-  TextInput,
   Switch,
   useTheme,
   Chip,
@@ -22,12 +14,10 @@ import {
   List,
 } from 'react-native-paper'
 import * as yup from 'yup'
-import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 import { useCreateGenService } from '../model/CreateGenerationService'
 import { StateModalVariant, StateContent } from './StateModal'
 import { StylesList } from './StylesList'
-import { api } from 'shared/api'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import Animated, {
   FadeIn,
@@ -66,6 +56,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
 import { BOTTOM_BAR_HEIGHT, HEADER_HEIGHT } from 'shared/constants'
+import { PrompInput } from './PromptInput'
 
 const bottomOffset = 95
 
@@ -247,64 +238,10 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                   )}
                 </View>
               )}
-              <Controller
+              <PrompInput
                 control={control}
-                render={({
-                  field: { onChange, onBlur, value },
-                  fieldState,
-                  formState,
-                }) => {
-                  const hasInputError =
-                    formState.submitCount > 0 && fieldState.invalid
-
-                  return (
-                    <>
-                      <View className="mx-5">
-                        <View>
-                          <TextInput
-                            scrollEnabled={false}
-                            disabled={isPending || isPendingPromptGen}
-                            multiline
-                            mode="flat"
-                            className="min-h-[120] pr-10"
-                            placeholder={t(
-                              isPendingPromptGen
-                                ? 'screens.generation.inputPromptGeneration'
-                                : 'screens.generation.inputPlaceholder'
-                            )}
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            error={hasInputError}
-                          />
-                          {value?.length > 0 && !isPending && (
-                            <IconButton
-                              disabled={isPendingPromptGen}
-                              className="absolute top-0 right-0"
-                              onPress={clear}
-                              icon={'close'}
-                              size={20}
-                            />
-                          )}
-                        </View>
-
-                        <RandomButton
-                          disabled={isPending}
-                          control={control}
-                          uiStateStore={uiStateStore}
-                          isPending={isPendingPromptGen}
-                        />
-                      </View>
-
-                      <View className="h-8 px-5">
-                        <HelperText type="error" visible={hasInputError}>
-                          {fieldState.error?.message}
-                        </HelperText>
-                      </View>
-                    </>
-                  )
-                }}
-                name="prompt"
+                uiStateStore={uiStateStore}
+                className="mx-5"
               />
             </View>
             <AdvancedSettings
@@ -407,49 +344,6 @@ interface RandomButtonProps {
   uiStateStore: UIStateStore
   control: FormControl
   isPending: boolean
-}
-
-function RandomButton(props: RandomButtonProps) {
-  const { disabled, control, uiStateStore, isPending } = props
-  const pending = isPending
-  const { t } = useTranslation()
-  const { showSnackbar } = useSnackbar()
-  const { colors } = useTheme()
-  const { field } = useController({ control, name: 'prompt' })
-
-  const onPress = async () => {
-    uiStateStore.isPendingPromptGen = true
-    try {
-      const prompt = await api.generatePrompt()
-      field.onChange(prompt)
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-    } catch {
-      showSnackbar(
-        {
-          title: t('components.snackBar.generalError.title'),
-          description: t('components.snackBar.generalError.description'),
-        },
-        {
-          variant: SnackBarVariant.ERROR,
-          offset: BOTTOM_BAR_HEIGHT + bottomOffset,
-        }
-      )
-    } finally {
-      uiStateStore.isPendingPromptGen = false
-    }
-  }
-
-  return (
-    <IconButton
-      className="absolute right-0 bottom-0"
-      icon="dice-multiple"
-      size={20}
-      iconColor={colors.primary}
-      onPress={onPress}
-      loading={pending}
-      disabled={pending || disabled}
-    />
-  )
 }
 
 function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
