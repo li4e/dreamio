@@ -55,8 +55,9 @@ import { BlurView } from 'expo-blur'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
-import { BOTTOM_BAR_HEIGHT, HEADER_HEIGHT } from 'shared/constants'
+import { HEADER_HEIGHT } from 'shared/constants'
 import { PrompInput } from './PromptInput'
+import { twMerge } from 'tailwind-merge'
 
 const bottomOffset = 95
 
@@ -185,6 +186,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { top, bottom } = useSafeAreaInsets()
   const topInset = modalState ? 0 : top + HEADER_HEIGHT
 
+  const showAllSettings = !generation && !isPending && !hasError
+
   return (
     <KeyboardAvoidingView withBottomBar>
       <View className="flex-1" testID="GENERATION_SCREEN">
@@ -221,7 +224,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           )}
           <Animated.View className="flex-grow justify-center">
             <View className="justify-center pt-6">
-              {(generation || hasError || isPending) && (
+              {!showAllSettings && (
                 <View className="flex-row justify-between pr-4 mb-2">
                   <SelectedSettings
                     control={control}
@@ -229,13 +232,12 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                     disabled={isPending}
                     uiStateStore={uiStateStore}
                   />
-                  {generation && !isPending && (
-                    <ResetButton
-                      control={control}
-                      generation={generation}
-                      updateForm={updateForm}
-                    />
-                  )}
+                  <ResetButton
+                    control={control}
+                    generation={generation}
+                    updateForm={updateForm}
+                    hidden={isPending}
+                  />
                 </View>
               )}
               <PrompInput
@@ -244,31 +246,30 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 className="mx-5"
               />
             </View>
-            <AdvancedSettings
-              collapsable={generation !== null || hasError || isPending}
-              disabled={isPending}
-            >
-              <View className="justify-center mb-5">
-                <Controller
+            {showAllSettings && (
+              <>
+                <View className="justify-center mb-5">
+                  <Controller
+                    control={control}
+                    name="style"
+                    render={({ field: { value, onChange } }) => (
+                      <StylesList
+                        value={value}
+                        disabled={isPending}
+                        onSelect={onChange}
+                      />
+                    )}
+                  />
+                </View>
+                <EnhanceSetting control={control} disabled={isPending} />
+                <Divider className="mx-5" />
+                <AspectRatioSetting
                   control={control}
-                  name="style"
-                  render={({ field: { value, onChange } }) => (
-                    <StylesList
-                      value={value}
-                      disabled={isPending}
-                      onSelect={onChange}
-                    />
-                  )}
+                  disabled={isPending}
+                  uiStateStore={uiStateStore}
                 />
-              </View>
-              <EnhanceSetting control={control} disabled={isPending} />
-              <Divider className="mx-5" />
-              <AspectRatioSetting
-                control={control}
-                disabled={isPending}
-                uiStateStore={uiStateStore}
-              />
-            </AdvancedSettings>
+              </>
+            )}
           </Animated.View>
         </Animated.ScrollView>
         {showStartButton && (
@@ -539,45 +540,6 @@ function getSizeFromAspectRatio(
   }
 }
 
-interface AdvancedSettingsProps extends PropsWithChildren {
-  collapsable: boolean
-  disabled: boolean
-}
-
-function AdvancedSettings(props: AdvancedSettingsProps) {
-  const { collapsable, disabled } = props
-  const [visible, setVisible] = useState(true)
-  const { children } = props
-  const { t } = useTranslation()
-
-  useEffect(() => {
-    if (collapsable || disabled) {
-      setVisible(false)
-    }
-  }, [collapsable, disabled])
-
-  return (
-    <Animated.View>
-      {collapsable && !disabled && (
-        <Button
-          className="self-center"
-          onPress={() => {
-            Keyboard.dismiss()
-            setVisible(!visible)
-          }}
-          disabled={disabled}
-          mode="text"
-          icon={visible ? 'chevron-double-up' : 'chevron-double-down'}
-        >
-          {t('screens.generation.allSettings')}
-        </Button>
-      )}
-
-      {visible && children}
-    </Animated.View>
-  )
-}
-
 function Header(props: {
   uiStateStore: UIStateStore
   scrollY: SharedValue<number>
@@ -711,28 +673,32 @@ function ResultImage(
 }
 
 function ResetButton(props: {
-  generation: GenerationEntity
+  generation: GenerationEntity | null
   control: FormControl
   updateForm(generation: GenerationEntity): void
+  hidden: boolean
 }) {
-  const { control, generation, updateForm } = props
+  const { control, generation, hidden, updateForm } = props
   const { aspectRatio, style, enhance, prompt } = useWatch({ control })
 
   const isAnyChanged =
-    generation.enhance !== enhance ||
-    generation.prompt !== prompt ||
-    generation.style !== style ||
-    getAspectRatioFromSize(generation) !== aspectRatio
+    generation &&
+    (generation.enhance !== enhance ||
+      generation.prompt !== prompt ||
+      generation.style !== style ||
+      getAspectRatioFromSize(generation) !== aspectRatio)
 
   const handlePress = useCallback(() => {
-    updateForm(generation)
+    if (generation) {
+      updateForm(generation)
+    }
   }, [generation])
 
   return (
     <IconButton
       icon="backup-restore"
       size={20}
-      className="m-0 self-start"
+      className={twMerge('m-0 self-start', hidden && 'opacity-0')}
       disabled={!isAnyChanged}
       onPress={handlePress}
     />
