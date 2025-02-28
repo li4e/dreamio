@@ -24,7 +24,7 @@ import Animated, {
   useScrollViewOffset,
   useSharedValue,
 } from 'react-native-reanimated'
-import { useReanimatedKeyboardAnimation } from 'react-native-keyboard-controller'
+import { useKeyboardHandler } from 'react-native-keyboard-controller'
 
 interface PromptInputProps extends ViewProps {
   control: FormControl
@@ -161,10 +161,10 @@ function useInputScrollBehaviour(
   onBlur: () => void
   onLayout: (event: LayoutChangeEvent) => void
 } {
-  const { height: keyboardHeight } = useReanimatedKeyboardAnimation()
   const { height: screenHeight } = useWindowDimensions()
   const scrollOffset = useScrollViewOffset(scrollViewRef)
   const isFocused = useSharedValue(false)
+  const keyboardHeight = useSharedValue(0)
 
   const { top } = useSafeAreaInsets()
 
@@ -173,7 +173,7 @@ function useInputScrollBehaviour(
       function run() {
         textInputWrapperRef.current?.measure(
           (x, y, width, height, pageX, pageY) => {
-            const viewHeight = screenHeight - Math.abs(keyboardHeight.value)
+            const viewHeight = screenHeight - keyboardHeight.value
             scrollOffset.value + pageY
             const offset = 32 + 55
             const scrollY = Math.max(
@@ -190,7 +190,7 @@ function useInputScrollBehaviour(
         )
       }
       if (withDelay) {
-        setTimeout(run, 600)
+        setTimeout(run, 300)
       } else {
         run()
       }
@@ -203,6 +203,20 @@ function useInputScrollBehaviour(
       scrollOffset,
       top,
     ]
+  )
+
+  useKeyboardHandler(
+    {
+      onStart: (e) => {
+        'worklet'
+        keyboardHeight.value = e.height
+      },
+      onEnd: (e) => {
+        'worklet'
+        keyboardHeight.value = e.height
+      },
+    },
+    [keyboardHeight]
   )
 
   const onFocus = useCallback(async () => {
