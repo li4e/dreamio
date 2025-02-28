@@ -11,7 +11,10 @@ import {
   StateGenerationError,
   UIStateStore,
 } from './UIStateStore'
-import { isEqualGeneration } from 'entities/generation/model/GenerationEntity'
+import {
+  GenerationEntityStatus,
+  isEqualGeneration,
+} from 'entities/generation/model/GenerationEntity'
 
 class CreateGenerationService {
   constructor(
@@ -56,7 +59,10 @@ class CreateGenerationService {
   }
 
   async fetchResultIfNeeded() {
-    if (this.uiStateStore.generation) {
+    if (
+      this.uiStateStore.generation &&
+      this.uiStateStore.generation.status !== GenerationEntityStatus.SUCCESS
+    ) {
       try {
         this.uiStateStore.isPending = true
         this.uiStateStore.error = null

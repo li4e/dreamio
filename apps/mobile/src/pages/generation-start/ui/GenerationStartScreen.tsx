@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React, { PropsWithChildren, useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 import { useForm, Controller, useFormState, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -32,6 +32,9 @@ import Animated, {
   interpolate,
   Extrapolation,
   useDerivedValue,
+  useAnimatedRef,
+  scrollTo,
+  runOnUI,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
 import { GenerationEntity } from 'entities/generation'
@@ -56,15 +59,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
 import { HEADER_HEIGHT } from 'shared/constants'
-import { PrompInput } from './PromptInput'
+import { PromptInput } from './PromptInput'
 import { twMerge } from 'tailwind-merge'
-
-const bottomOffset = 95
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
-  const scrollView = useRef<Animated.ScrollView | null>(null)
+  const scrollView = useAnimatedRef<Animated.ScrollView>()
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
   const {
@@ -122,7 +123,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   useEffect(() => {
     if (generation) {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-      scrollView.current?.scrollTo({ y: 0, animated: true })
+      runOnUI(() => scrollTo(scrollView, 0, 0, true))()
     }
   }, [generation, scrollView])
 
@@ -183,7 +184,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     []
   )
 
-  const { top, bottom } = useSafeAreaInsets()
+  const { top } = useSafeAreaInsets()
   const topInset = modalState ? 0 : top + HEADER_HEIGHT
 
   const showAllSettings = !generation && !isPending && !hasError
@@ -192,6 +193,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     <KeyboardAvoidingView withBottomBar>
       <View className="flex-1" testID="GENERATION_SCREEN">
         <Animated.ScrollView
+          keyboardShouldPersistTaps="handled"
           onScroll={scrollHandler}
           ref={scrollView}
           className="flex-1"
@@ -199,10 +201,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           automaticallyAdjustsScrollIndicatorInsets={false}
           contentContainerStyle={{
             paddingTop: topInset,
-            paddingBottom: isPending ? bottom : bottomOffset,
+            paddingBottom: 20,
             flexGrow: 1,
           }}
-          keyboardShouldPersistTaps="handled"
         >
           {modalState ? (
             <Animated.View
@@ -219,68 +220,67 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
                 scrollY={scrollY}
                 image={resultImage}
                 generation={generation}
+                className="mb-6"
               />
             )
           )}
-          <Animated.View className="flex-grow justify-center">
-            <View className="justify-center pt-6">
-              {!showAllSettings && (
-                <View className="flex-row justify-between pr-4 mb-2">
-                  <SelectedSettings
-                    control={control}
-                    className="px-5 self-end"
-                    disabled={isPending}
-                    uiStateStore={uiStateStore}
-                  />
-                  <ResetButton
-                    control={control}
-                    generation={generation}
-                    updateForm={updateForm}
-                    hidden={isPending}
-                  />
-                </View>
-              )}
-              <PrompInput
+          {!showAllSettings && (
+            <View className="flex-row justify-between pr-4 mb-2">
+              <SelectedSettings
                 control={control}
+                className="px-5 self-end"
+                disabled={isPending}
                 uiStateStore={uiStateStore}
-                className="mx-5"
+              />
+              <ResetButton
+                control={control}
+                generation={generation}
+                updateForm={updateForm}
+                hidden={isPending}
               />
             </View>
-            {showAllSettings && (
-              <>
-                <View className="justify-center mb-5">
-                  <Controller
-                    control={control}
-                    name="style"
-                    render={({ field: { value, onChange } }) => (
-                      <StylesList
-                        value={value}
-                        disabled={isPending}
-                        onSelect={onChange}
-                      />
-                    )}
-                  />
-                </View>
-                <EnhanceSetting control={control} disabled={isPending} />
-                <Divider className="mx-5" />
-                <AspectRatioSetting
-                  control={control}
-                  disabled={isPending}
-                  uiStateStore={uiStateStore}
-                />
-              </>
-            )}
-          </Animated.View>
-        </Animated.ScrollView>
-        {showStartButton && (
-          <StartButton
-            hasGeneration={resultImage !== null}
+          )}
+          <PromptInput
+            scrollViewRef={scrollView}
             control={control}
-            isPending={isPending}
-            disabled={isPendingPromptGen}
-            onPress={handleSubmit(handleStartPress)}
+            uiStateStore={uiStateStore}
+            className="mx-5"
           />
-        )}
+          {showStartButton && (
+            <StartButton
+              hasGeneration={resultImage !== null}
+              control={control}
+              isPending={isPending}
+              disabled={isPendingPromptGen}
+              onPress={handleSubmit(handleStartPress)}
+              className="mb-4"
+            />
+          )}
+          {showAllSettings && (
+            <>
+              <View className="justify-center mb-5">
+                <Controller
+                  control={control}
+                  name="style"
+                  render={({ field: { value, onChange } }) => (
+                    <StylesList
+                      value={value}
+                      disabled={isPending}
+                      onSelect={onChange}
+                    />
+                  )}
+                />
+              </View>
+              <EnhanceSetting control={control} disabled={isPending} />
+              <Divider className="mx-5" />
+              <AspectRatioSetting
+                control={control}
+                disabled={isPending}
+                uiStateStore={uiStateStore}
+              />
+            </>
+          )}
+        </Animated.ScrollView>
       </View>
       <Header uiStateStore={uiStateStore} scrollY={scrollY} />
       <AspectRatioSelectDialog control={control} uiStateStore={uiStateStore} />
@@ -289,20 +289,23 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   )
 }
 
-function StartButton(props: {
-  control: FormControl
-  isPending: boolean
-  disabled: boolean
-  hasGeneration: boolean
-  onPress: () => void
-}) {
-  const { isPending, onPress, control, disabled, hasGeneration } = props
+function StartButton(
+  props: {
+    control: FormControl
+    isPending: boolean
+    disabled: boolean
+    hasGeneration: boolean
+    onPress: () => void
+  } & ViewProps
+) {
+  const { isPending, onPress, control, disabled, hasGeneration, ...rest } =
+    props
   const { submitCount, isValid } = useFormState({ control })
   const isDisabled = isPending || (submitCount > 0 && !isValid)
   const { t } = useTranslation()
 
   return (
-    <View className="absolute bottom-5 self-center">
+    <View className="items-center" {...rest}>
       <Button
         icon="creation"
         mode="contained"
@@ -649,7 +652,7 @@ function ResultImage(
     scrollY: SharedValue<number>
   } & ViewProps
 ) {
-  const { image, generation } = props
+  const { image, generation, ...rest } = props
   const { colors } = useTheme()
   const imageStyles = useMemo(
     () => ({
@@ -659,7 +662,7 @@ function ResultImage(
   )
 
   return (
-    <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
+    <AspectedRatioView ratio={getAspectRatioFromSize(generation)} {...rest}>
       <CachedImage
         source={image}
         className="flex-1"
