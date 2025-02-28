@@ -80,11 +80,11 @@ async function translate(
 
   const translatedText = await axios
     .get(
-      `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&model=llama`
+      `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true`
     )
     .catch(() =>
       axios.get(
-        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true`
+        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&model=llama`
       )
     )
     .then((res) => res.data)
