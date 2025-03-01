@@ -16,7 +16,7 @@ export interface GenerationSettings extends ViewProps {
   onStylePress?(): void
   onStyleRemovePress?(): void
   onEnhancePress?(): void
-  disabled: boolean
+  disabled?: boolean
 }
 
 export function GenerationSettings(props: GenerationSettings) {
@@ -26,7 +26,7 @@ export function GenerationSettings(props: GenerationSettings) {
     onStylePress,
     onStyleRemovePress,
     onEnhancePress,
-    disabled,
+    disabled = false,
     ...rest
   } = props
   const { t } = useTranslation()

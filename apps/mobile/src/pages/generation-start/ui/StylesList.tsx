@@ -6,20 +6,14 @@ import {
   ListRenderItemInfo,
   Keyboard,
 } from 'react-native'
-import {
-  TouchableRipple,
-  Text,
-  useTheme,
-  Button,
-  List,
-} from 'react-native-paper'
+import { TouchableRipple, Text, useTheme, List } from 'react-native-paper'
 import { twMerge } from 'tailwind-merge'
-import { useDialog } from 'shared/ui/Dialog'
 import { useCallback, useEffect } from 'react'
 import { useLocalObservable } from 'mobx-react-lite'
 import { useStoreData } from 'shared/store'
 import { makeAutoObservable } from 'mobx'
 import { Image, ImageSource } from 'expo-image'
+import { useShowStyleInfoDialog } from 'entities/generation'
 
 interface StylesListProps {
   value: string | null
@@ -54,8 +48,6 @@ export function StylesList(props: StylesListProps) {
   const { onSelect, value, disabled } = props
   const { t } = useTranslation()
 
-  const { showDialog } = useDialog()
-
   const handleChange = useCallback((style: string | null) => {
     Keyboard.dismiss()
     onSelect(style)
@@ -68,19 +60,11 @@ export function StylesList(props: StylesListProps) {
     stylesListStore.disabled = disabled
   }, [stylesListStore, value, disabled])
 
+  const showStyleInfoDialog = useShowStyleInfoDialog()
+
   const handleTitlePress = () => {
     Keyboard.dismiss()
-    showDialog({
-      title: t('screens.generation.styleDialog.title'),
-      content: t('screens.generation.styleDialog.text'),
-      renderActions(dismiss) {
-        return (
-          <Button onPress={dismiss}>
-            {t('screens.generation.styleDialog.button')}
-          </Button>
-        )
-      },
-    })
+    showStyleInfoDialog()
   }
 
   const renderItem: ListRenderItem<ArtStyle[]> = useCallback(

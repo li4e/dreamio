@@ -10,3 +10,8 @@ export { Generation as GenerationORMEntity } from './model/db/Generation'
 export { useGenerationDataService } from './model/hooks/useGenerationDataService'
 export { GenerationDataService } from './model/GenerationDataService'
 export { GetGenerationError } from './api'
+export { GenerationSettings } from './ui/GenerationSettings'
+export {
+  useShowEnhanceInfoDialog,
+  useShowStyleInfoDialog,
+} from './ui/useInfoDialogs'

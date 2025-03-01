@@ -42,9 +42,12 @@ import Animated, {
   runOnUI,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
-import { GenerationEntity, GenerationSettings } from 'entities/generation'
+import {
+  GenerationEntity,
+  GenerationSettings,
+  useShowEnhanceInfoDialog,
+} from 'entities/generation'
 
-import { useDialog } from 'shared/ui/Dialog'
 import {
   AspectedRatioView,
   AspectRatio,
@@ -358,19 +361,11 @@ interface RandomButtonProps {
 function EnhanceSetting(props: { control: FormControl; disabled: boolean }) {
   const { control, disabled } = props
   const { t } = useTranslation()
-  const { showDialog } = useDialog()
+  const showEnhanceDialog = useShowEnhanceInfoDialog()
 
   const handleEnhanceInfoPress = () => {
     Keyboard.dismiss()
-    showDialog({
-      title: t('screens.generation.enhance.dialog.title'),
-      content: t('screens.generation.enhance.dialog.description'),
-      renderActions: (dismiss) => (
-        <Button onPress={dismiss}>
-          {t('screens.generation.enhance.dialog.button')}
-        </Button>
-      ),
-    })
+    showEnhanceDialog()
   }
 
   return (
