@@ -46,6 +46,7 @@ export function GenerationResultScreen(
   return (
     <View className="flex-1">
       <Animated.ScrollView
+        scrollIndicatorInsets={{ top: StickyHeader.height }}
         ref={scrollViewRef}
         className="flex-1"
         contentContainerStyle={{

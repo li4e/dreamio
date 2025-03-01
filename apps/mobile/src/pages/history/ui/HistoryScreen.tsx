@@ -60,6 +60,7 @@ export function HistoryScreen() {
         <EmpyState />
       ) : (
         <FlashList<GenerationEntity>
+          scrollIndicatorInsets={{ top: StickyHeader.height }}
           onScroll={handleScroll}
           testID="HISTORY_LIST"
           className="flex-1"

@@ -119,3 +119,5 @@ StickyHeader.useTopOffset = function () {
   const { top } = useSafeAreaInsets()
   return top + HEADER_HEIGHT
 }
+
+StickyHeader.height = HEADER_HEIGHT
