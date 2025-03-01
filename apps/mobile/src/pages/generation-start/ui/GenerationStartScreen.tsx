@@ -1,7 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React, { useEffect } from 'react'
 import { useCallback, useMemo, useState } from 'react'
-import { useForm, Controller, useFormState, useWatch } from 'react-hook-form'
+import {
+  useForm,
+  Controller,
+  useFormState,
+  useWatch,
+  useController,
+} from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Keyboard, View, ViewProps } from 'react-native'
 import {
@@ -9,7 +15,6 @@ import {
   IconButton,
   Switch,
   useTheme,
-  Chip,
   Divider,
   List,
 } from 'react-native-paper'
@@ -37,7 +42,7 @@ import Animated, {
   runOnUI,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
-import { GenerationEntity } from 'entities/generation'
+import { GenerationEntity, GenerationSettings } from 'entities/generation'
 
 import { useDialog } from 'shared/ui/Dialog'
 import {
@@ -436,90 +441,28 @@ function SelectedSettings(
   } & ViewProps
 ) {
   const { control, disabled, uiStateStore, ...rest } = props
-  const { t } = useTranslation()
-  const { colors } = useTheme()
   const { showAspectDialog, showStylesDialog } = useUIActions(uiStateStore)
+  const { field: styleField } = useController({ control, name: 'style' })
+  const { field: enhanceField } = useController({ control, name: 'enhance' })
+  const { field: aspectField } = useController({ control, name: 'aspectRatio' })
 
-  const inactiveStyles = useMemo(
-    () => ({ backgroundColor: colors.elevation.level2 }),
-    [colors]
-  )
-
-  const activeStyles = useMemo(() => {
-    return undefined
-    // return { backgroundColor: colors.primaryContainer }
-  }, [colors])
+  const data = {
+    style: styleField.value,
+    enhance: enhanceField.value,
+    ...getSizeFromAspectRatio(aspectField.value),
+  }
 
   return (
-    <View className="flex-row flex-wrap flex-1" {...rest}>
-      <Controller
-        control={control}
-        render={({ field: { value } }) => (
-          <Chip
-            disabled={disabled}
-            onPress={() => {
-              Keyboard.dismiss()
-              showAspectDialog()
-            }}
-            style={activeStyles}
-            mode="flat"
-            icon="aspect-ratio"
-            className="mr-1 mb-1"
-          >
-            {value}
-          </Chip>
-        )}
-        name="aspectRatio"
-      />
-
-      <Controller
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Chip
-            disabled={disabled}
-            mode="flat"
-            icon="auto-fix"
-            className="mr-1 mb-1"
-            style={!value ? inactiveStyles : activeStyles}
-            onPress={() => {
-              Keyboard.dismiss()
-              onChange(!value)
-            }}
-          >
-            {t(
-              value
-                ? 'screens.generation.settings.enhancer.on'
-                : 'screens.generation.settings.enhancer.off'
-            )}
-          </Chip>
-        )}
-        name="enhance"
-      />
-
-      <Controller
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Chip
-            className="mb-1 mr-1"
-            disabled={disabled}
-            onPress={showStylesDialog}
-            style={!value ? inactiveStyles : activeStyles}
-            icon="palette"
-            onClose={
-              value
-                ? () => {
-                    Keyboard.dismiss()
-                    onChange(null)
-                  }
-                : undefined
-            }
-          >
-            {value || t('screens.generation.settings.style.none')}
-          </Chip>
-        )}
-        name="style"
-      />
-    </View>
+    <GenerationSettings
+      data={data}
+      disabled={disabled}
+      onAspectPress={showAspectDialog}
+      onEnhancePress={() => enhanceField.onChange(!enhanceField.value)}
+      onStylePress={showStylesDialog}
+      onStyleRemovePress={() => styleField.onChange(null)}
+      className="flex-1"
+      {...rest}
+    />
   )
 }
 
