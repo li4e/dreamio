@@ -42,7 +42,6 @@ export function GenerationResultScreen(
   const scrollY = useScrollViewOffset(scrollViewRef)
   const showEnahceInfoDialog = useShowEnhanceInfoDialog()
   const showStyleInfoDialog = useShowStyleInfoDialog()
-  const image = generation.images[0]
 
   return (
     <View className="flex-1">

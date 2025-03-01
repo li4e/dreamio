@@ -442,7 +442,9 @@ function SelectedSettings(
       onAspectPress={showAspectDialog}
       onEnhancePress={() => enhanceField.onChange(!enhanceField.value)}
       onStylePress={showStylesDialog}
-      onStyleRemovePress={() => styleField.onChange(null)}
+      onStyleRemovePress={
+        styleField.value !== null ? () => styleField.onChange(null) : undefined
+      }
       className="flex-1"
       {...rest}
     />
