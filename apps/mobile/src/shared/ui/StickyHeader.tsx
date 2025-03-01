@@ -19,13 +19,20 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { HEADER_HEIGHT } from 'shared/constants'
 
 export function StickyHeader(
-  props: { scrollY: SharedValue<number> } & ViewProps
+  props: {
+    scrollY: SharedValue<number>
+    hidden?: SharedValue<boolean>
+  } & ViewProps
 ) {
-  const { children, scrollY, style, ...rest } = props
+  const { children, scrollY, hidden, style, ...rest } = props
   const headerTranslateY = useSharedValue(0)
   const headerVisibility = useDerivedValue(
-    () => interpolate(headerTranslateY.value, [0, HEADER_HEIGHT], [1, 0]),
-    [headerTranslateY]
+    () =>
+      hidden?.value
+        ? 0
+        : interpolate(headerTranslateY.value, [0, HEADER_HEIGHT], [1, 0]),
+
+    [headerTranslateY, hidden]
   )
   const toggleTimeout = useRef<ReturnType<typeof setInterval> | null>(null)
 
@@ -81,10 +88,18 @@ export function StickyHeader(
 
   const wrapperStyles = useAnimatedStyle(() => {
     return {
-      transform: [{ translateY: -headerTranslateY.value }],
+      transform: [
+        {
+          translateY: interpolate(
+            headerVisibility.value,
+            [0, 1],
+            [-HEADER_HEIGHT, 0],
+            Extrapolation.CLAMP
+          ),
+        },
+      ],
     }
   }, [headerTranslateY])
-  const { dark } = useTheme()
 
   const headerStyles = useAnimatedStyle(
     () => ({
@@ -97,6 +112,8 @@ export function StickyHeader(
     }),
     [headerVisibility]
   )
+
+  const { dark } = useTheme()
 
   return (
     <Animated.View
@@ -115,7 +132,7 @@ export function StickyHeader(
   )
 }
 
-StickyHeader.useTopOffset = function () {
+StickyHeader.useTopInset = function () {
   const { top } = useSafeAreaInsets()
   return top + HEADER_HEIGHT
 }

@@ -37,9 +37,9 @@ export function HistoryScreen() {
   const isEmpty = history.length === 0
   const numColumns = getNumColumns(history.length)
   const itemSize = width / numColumns
-  const topOffset = StickyHeader.useTopOffset()
+  const topinset = StickyHeader.useTopInset()
   const listTotalSize =
-    Math.ceil(history.length / numColumns) * itemSize + 300 + topOffset
+    Math.ceil(history.length / numColumns) * itemSize + 300 + topinset
   const { t } = useTranslation()
   const scrollY = useSharedValue(0)
 
@@ -75,7 +75,7 @@ export function HistoryScreen() {
             <HistoryItem generation={item} index={index} />
           )}
           keyExtractor={keyExtractor}
-          ListHeaderComponent={<View style={{ height: topOffset }} />}
+          ListHeaderComponent={<View style={{ height: topinset }} />}
           ListFooterComponent={
             isEmpty ? null : fetchedAll ? (
               <ListFooterFetched />

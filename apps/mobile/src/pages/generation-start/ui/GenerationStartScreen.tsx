@@ -31,16 +31,13 @@ import Animated, {
   SlideOutRight,
   SlideOutLeft,
   SharedValue,
-  useAnimatedStyle,
-  interpolate,
-  Extrapolation,
-  useDerivedValue,
   useAnimatedRef,
   scrollTo,
   runOnUI,
   useScrollViewOffset,
   SlideInUp,
   SlideOutUp,
+  useSharedValue,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
 import {
@@ -64,13 +61,11 @@ import {
 } from '../model/UIStateStore'
 import { useStoreData } from 'shared/store'
 import { FormControl } from '../model/FormControl'
-import { BlurView } from 'expo-blur'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { StyleSelectDialog } from './StyleSelectDialog'
 import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
-import { HEADER_HEIGHT } from 'shared/constants'
 import { PromptInput } from './PromptInput'
 import { twMerge } from 'tailwind-merge'
+import { StickyHeader } from 'shared/ui/StickyHeader'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -181,8 +176,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   const scrollY = useScrollViewOffset(scrollViewRef)
 
-  const { top } = useSafeAreaInsets()
-  const topInset = modalState ? 0 : top + HEADER_HEIGHT
+  const baseTopInset = StickyHeader.useTopInset()
+  const topInset = modalState ? 0 : baseTopInset
 
   const showAllSettings = !generation && !isPending && !hasError
 
@@ -488,95 +483,50 @@ function Header(props: {
 
   const onSaveImage = useOnSaveImage()
   const { t } = useTranslation()
-  const { top } = useSafeAreaInsets()
-  const { dark } = useTheme()
 
   const showTitle = !generation
-
-  const headerVisible = useDerivedValue(
-    () => interpolate(scrollY.value, [0, 64], [1, 0], Extrapolation.CLAMP),
-    [scrollY]
-  )
-
-  const headerStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateY: interpolate(
-            headerVisible.value,
-            [0, 1],
-            [-HEADER_HEIGHT, 0],
-            Extrapolation.CLAMP
-          ),
-        },
-      ],
-    }
-  }, [scrollY, headerVisible, top])
-
-  const headerContentStyle = useAnimatedStyle(
-    () => ({
-      opacity: interpolate(
-        headerVisible.value,
-        [0.5, 1],
-        [0, 1],
-        Extrapolation.CLAMP
-      ),
-    }),
-    []
-  )
-
-  if (hasError || isPending) {
-    return null
-  }
+  const shouldBeHidden = useSharedValue(hasError || isPending)
+  useEffect(() => {
+    shouldBeHidden.value = hasError || isPending
+  }, [hasError, isPending, shouldBeHidden])
 
   return (
-    <Animated.View
-      style={headerStyle}
-      className="absolute right-0 left-0 top-0"
-    >
-      <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
-        <Animated.View style={headerContentStyle}>
-          <Appbar.Header className="bg-transparent" mode="center-aligned">
-            {generation && resultImage && (
-              <HeaderGenDeleteButton
-                generation={generation}
-                uiStateStore={uiStateStore}
-              />
-            )}
+    <StickyHeader scrollY={scrollY} hidden={shouldBeHidden}>
+      {generation && resultImage && (
+        <HeaderGenDeleteButton
+          generation={generation}
+          uiStateStore={uiStateStore}
+        />
+      )}
 
-            <Appbar.Content
-              title={showTitle && t('screens.generation.title')}
-            />
+      <Appbar.Content title={showTitle && t('screens.generation.title')} />
 
-            {generation && resultImage && (
-              <Animated.View
-                entering={SlideInUp.duration(500)}
-                exiting={SlideOutUp.duration(200)}
-              >
-                <Appbar.Action
-                  icon="share-variant"
-                  onPress={() => {
-                    shareImage(resultImage, generation.prompt)
-                  }}
-                />
-              </Animated.View>
-            )}
-
-            {resultImage && (
-              <Animated.View
-                entering={SlideInRight.duration(500)}
-                exiting={SlideOutRight.duration(200)}
-              >
-                <Appbar.Action
-                  icon="download"
-                  onPress={() => onSaveImage(resultImage)}
-                />
-              </Animated.View>
-            )}
-          </Appbar.Header>
+      {generation && resultImage && (
+        <Animated.View
+          entering={SlideInUp.duration(500)}
+          exiting={SlideOutUp.duration(200)}
+        >
+          <Appbar.Action
+            icon="share-variant"
+            onPress={() => {
+              shareImage(resultImage, generation.prompt)
+            }}
+          />
         </Animated.View>
-      </BlurView>
-    </Animated.View>
+      )}
+
+      {resultImage && (
+        <Animated.View
+          entering={SlideInRight.duration(500)}
+          exiting={SlideOutRight.duration(200)}
+        >
+          <Appbar.Action
+            icon="download"
+            onPress={() => onSaveImage(resultImage)}
+          />
+        </Animated.View>
+      )}
+    </StickyHeader>
   )
 }
 

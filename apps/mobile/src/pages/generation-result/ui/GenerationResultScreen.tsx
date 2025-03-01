@@ -41,7 +41,7 @@ export function GenerationResultScreen(
   const scrollY = useScrollViewOffset(scrollViewRef)
   const showEnahceInfoDialog = useShowEnhanceInfoDialog()
   const showStyleInfoDialog = useShowStyleInfoDialog()
-  const topOffset = StickyHeader.useTopOffset()
+  const topOffset = StickyHeader.useTopInset()
 
   return (
     <View className="flex-1">
