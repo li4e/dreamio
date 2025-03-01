@@ -59,7 +59,7 @@ export function GenerationResultScreen(
         stickyHeaderIndices={[0]}
       >
         <StickyHeaderWrapper scrollY={scrollY}>
-          <Header onDeletePress={onDelete} generation={generation} />
+          <Header generation={generation} />
         </StickyHeaderWrapper>
         <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
           <CachedImage
@@ -78,13 +78,7 @@ export function GenerationResultScreen(
                 <RelativeTime time={generation.createdAt} />
               </Text>
             </View>
-            <View className="flex-row">
-              <IconButton
-                onPress={() => shareImage(image, generation.prompt)}
-                icon="share-variant"
-              />
-              <IconButton onPress={() => onSaveImage(image)} icon="download" />
-            </View>
+            <IconButton onPress={onDelete} icon="trash-can-outline" />
           </View>
           <View className="px-5">
             <GenerationSettings
@@ -122,14 +116,15 @@ export function GenerationResultScreen(
 
 interface HeaderProps {
   generation: GenerationEntity
-  onDeletePress(): void
 }
 
 function Header(props: HeaderProps) {
-  const { onDeletePress, generation } = props
+  const { generation } = props
   const { goBack } = useNavigation()
 
   const { dark } = useTheme()
+  const onSaveImage = useOnSaveImage()
+  const image = generation.images[0]
 
   return (
     <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
@@ -137,7 +132,11 @@ function Header(props: HeaderProps) {
         <Appbar.BackAction onPress={goBack} />
         <Appbar.Content title="" />
 
-        <Appbar.Action icon="trash-can-outline" onPress={onDeletePress} />
+        <Appbar.Action
+          icon="share-variant"
+          onPress={() => shareImage(image, generation.prompt)}
+        />
+        <Appbar.Action icon="download" onPress={() => onSaveImage(image)} />
       </Appbar.Header>
     </BlurView>
   )
