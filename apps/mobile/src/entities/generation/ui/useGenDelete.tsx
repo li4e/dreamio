@@ -2,20 +2,24 @@ import { useSnackbar } from 'shared/ui/Snackbar'
 import { GenerationEntity } from '../model/GenerationEntity'
 import { useGenerationDataService } from '../model/hooks/useGenerationDataService'
 import { useTranslation } from 'react-i18next'
-import { useNavigation } from '@react-navigation/native'
 import { useDialog } from 'shared/ui/Dialog'
 import { Button, useTheme } from 'react-native-paper'
 import { HEADER_HEIGHT } from 'shared/constants'
+import { useCallback } from 'react'
 
-export function useGenDelete(genertaion: GenerationEntity) {
+export function useGenDelete(
+  genertaion: GenerationEntity,
+  deleteCallback?: () => void,
+  restoreCallback?: () => void
+) {
   const { showSnackbar } = useSnackbar()
   const genDataService = useGenerationDataService()
   const { t } = useTranslation()
-  const { goBack } = useNavigation()
+
   const { showDialog } = useDialog()
   const { colors } = useTheme()
 
-  return async () => {
+  return useCallback(() => {
     showDialog({
       title: t('screens.generationResult.deleteDialog.title'),
       content: t('screens.generationResult.deleteDialog.description'),
@@ -26,20 +30,27 @@ export function useGenDelete(genertaion: GenerationEntity) {
               textColor={colors.error}
               onPress={() =>
                 genDataService.removeGeneration(genertaion).then((undo) => {
-                  goBack()
                   dismissDialog()
 
                   showSnackbar(
                     { description: t('screens.generationResult.deleted') },
                     {
                       rightAction: {
-                        handler: undo,
+                        handler() {
+                          undo()
+                          if (restoreCallback) {
+                            restoreCallback()
+                          }
+                        },
                         label: t('screens.generationResult.undo'),
                       },
                       position: 'top',
                       offset: HEADER_HEIGHT,
                     }
                   )
+                  if (deleteCallback) {
+                    deleteCallback()
+                  }
                 })
               }
             >
@@ -52,5 +63,14 @@ export function useGenDelete(genertaion: GenerationEntity) {
         )
       },
     })
-  }
+  }, [
+    showDialog,
+    colors,
+    genDataService,
+    t,
+    showSnackbar,
+    deleteCallback,
+    restoreCallback,
+    genertaion,
+  ])
 }

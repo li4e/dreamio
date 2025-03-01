@@ -30,8 +30,6 @@ import Animated, {
   SlideInRight,
   SlideOutRight,
   SlideOutLeft,
-  useAnimatedScrollHandler,
-  useSharedValue,
   SharedValue,
   useAnimatedStyle,
   interpolate,
@@ -40,11 +38,15 @@ import Animated, {
   useAnimatedRef,
   scrollTo,
   runOnUI,
+  useScrollViewOffset,
+  SlideInUp,
+  SlideOutUp,
 } from 'react-native-reanimated'
 import * as Haptics from 'expo-haptics'
 import {
   GenerationEntity,
   GenerationSettings,
+  useGenDelete,
   useShowEnhanceInfoDialog,
 } from 'entities/generation'
 
@@ -73,7 +75,7 @@ import { twMerge } from 'tailwind-merge'
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
-  const scrollView = useAnimatedRef<Animated.ScrollView>()
+  const scrollViewRef = useAnimatedRef<Animated.ScrollView>()
   const [uiStateStore] = useState(new UIStateStore())
   const createGenService = useCreateGenService(uiStateStore)
   const {
@@ -131,9 +133,9 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   useEffect(() => {
     if (generation) {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-      runOnUI(() => scrollTo(scrollView, 0, 0, true))()
+      runOnUI(() => scrollTo(scrollViewRef, 0, 0, true))()
     }
-  }, [generation, scrollView])
+  }, [generation, scrollViewRef])
 
   const updateForm = useCallback(
     (generation: GenerationEntity) => {
@@ -177,20 +179,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     [createGenService]
   )
 
-  const clear = useCallback(() => {
-    setValue('prompt', '', { shouldValidate: true })
-  }, [])
-
-  const scrollY = useSharedValue(0)
-  const scrollHandler = useAnimatedScrollHandler(
-    {
-      onScroll: (e) => {
-        'worklet'
-        scrollY.value = e.contentOffset.y
-      },
-    },
-    []
-  )
+  const scrollY = useScrollViewOffset(scrollViewRef)
 
   const { top } = useSafeAreaInsets()
   const topInset = modalState ? 0 : top + HEADER_HEIGHT
@@ -202,8 +191,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
       <View className="flex-1" testID="GENERATION_SCREEN">
         <Animated.ScrollView
           keyboardShouldPersistTaps="handled"
-          onScroll={scrollHandler}
-          ref={scrollView}
+          ref={scrollViewRef}
           className="flex-1"
           scrollIndicatorInsets={{ top: topInset }}
           automaticallyAdjustsScrollIndicatorInsets={false}
@@ -249,7 +237,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             </View>
           )}
           <PromptInput
-            scrollViewRef={scrollView}
+            scrollViewRef={scrollViewRef}
             control={control}
             uiStateStore={uiStateStore}
             className="mx-5"
@@ -548,9 +536,20 @@ function Header(props: {
         <Animated.View style={headerContentStyle}>
           <Appbar.Header className="bg-transparent" mode="center-aligned">
             {generation && resultImage && (
+              <HeaderGenDeleteButton
+                generation={generation}
+                uiStateStore={uiStateStore}
+              />
+            )}
+
+            <Appbar.Content
+              title={showTitle && t('screens.generation.title')}
+            />
+
+            {generation && resultImage && (
               <Animated.View
-                entering={SlideInLeft.duration(500)}
-                exiting={SlideOutLeft.duration(200)}
+                entering={SlideInUp.duration(500)}
+                exiting={SlideOutUp.duration(200)}
               >
                 <Appbar.Action
                   icon="share-variant"
@@ -560,10 +559,6 @@ function Header(props: {
                 />
               </Animated.View>
             )}
-
-            <Appbar.Content
-              title={showTitle && t('screens.generation.title')}
-            />
 
             {resultImage && (
               <Animated.View
@@ -579,6 +574,32 @@ function Header(props: {
           </Appbar.Header>
         </Animated.View>
       </BlurView>
+    </Animated.View>
+  )
+}
+
+function HeaderGenDeleteButton(props: {
+  generation: GenerationEntity
+  uiStateStore: UIStateStore
+}) {
+  const { generation, uiStateStore } = props
+  const handleDelete = useCallback(() => {
+    uiStateStore.generation = null
+  }, [uiStateStore])
+  const handleRestore = useCallback(() => {
+    if (!uiStateStore.generation && !uiStateStore.isPending) {
+      uiStateStore.generation = generation
+    }
+  }, [generation, uiStateStore])
+
+  const onDeletePress = useGenDelete(generation, handleDelete, handleRestore)
+
+  return (
+    <Animated.View
+      entering={SlideInLeft.duration(500)}
+      exiting={SlideOutLeft.duration(200)}
+    >
+      <Appbar.Action icon="trash-can-outline" onPress={onDeletePress} />
     </Animated.View>
   )
 }

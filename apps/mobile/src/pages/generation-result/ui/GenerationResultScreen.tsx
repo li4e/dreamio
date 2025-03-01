@@ -30,11 +30,12 @@ export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
   const { generation } = props.route.params
+  const { goBack } = useNavigation()
 
   const { t } = useTranslation()
   const { colors } = useTheme()
   const insets = useSafeAreaInsets()
-  const onDelete = useGenDelete(generation)
+  const onDelete = useGenDelete(generation, goBack)
   const onCopy = useOnCopy(generation)
   const onRework = useOnRework(generation)
   const scrollViewRef = useAnimatedRef<Animated.ScrollView>()
