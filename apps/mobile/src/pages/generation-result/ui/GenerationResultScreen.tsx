@@ -8,18 +8,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import {
   GenerationEntity,
   GenerationSettings,
-  useGenerationDataService,
+  useGenDelete,
   useShowEnhanceInfoDialog,
   useShowStyleInfoDialog,
 } from 'entities/generation'
-import { useDialog } from 'shared/ui/Dialog'
 import { RelativeTime } from 'shared/ui/RelativeTime'
 import { useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
 import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
-import { HEADER_HEIGHT } from 'shared/constants'
 import { BlurView } from 'expo-blur'
 import Animated, {
   useAnimatedRef,
@@ -28,7 +26,6 @@ import Animated, {
 import { StickyHeaderWrapper } from 'shared/ui/StickyHeaderWrapper'
 
 const bottomOffset = 70
-
 export function GenerationResultScreen(
   props: RootScreenProps<'generation_result'>
 ) {
@@ -44,7 +41,6 @@ export function GenerationResultScreen(
   const scrollY = useScrollViewOffset(scrollViewRef)
   const showEnahceInfoDialog = useShowEnhanceInfoDialog()
   const showStyleInfoDialog = useShowStyleInfoDialog()
-  const onSaveImage = useOnSaveImage()
   const image = generation.images[0]
 
   return (
@@ -140,54 +136,6 @@ function Header(props: HeaderProps) {
       </Appbar.Header>
     </BlurView>
   )
-}
-
-function useGenDelete(genertaion: GenerationEntity) {
-  const { showSnackbar } = useSnackbar()
-  const genDataService = useGenerationDataService()
-  const { t } = useTranslation()
-  const { goBack } = useNavigation()
-  const { showDialog } = useDialog()
-  const { colors } = useTheme()
-
-  return async () => {
-    showDialog({
-      title: t('screens.generationResult.deleteDialog.title'),
-      content: t('screens.generationResult.deleteDialog.description'),
-      renderActions(dismissDialog: () => void) {
-        return (
-          <>
-            <Button
-              textColor={colors.error}
-              onPress={() =>
-                genDataService.removeGeneration(genertaion).then((undo) => {
-                  goBack()
-                  dismissDialog()
-
-                  showSnackbar(
-                    { description: t('screens.generationResult.deleted') },
-                    {
-                      rightAction: {
-                        handler: undo,
-                        label: t('screens.generationResult.undo'),
-                      },
-                      position: 'top',
-                      offset: HEADER_HEIGHT,
-                    }
-                  )
-                })
-              }
-            >
-              {t('screens.generationResult.deleteDialog.confirm')}
-            </Button>
-            <Button onPress={dismissDialog}>
-              {t('screens.generationResult.deleteDialog.cancel')}
-            </Button>
-          </>
-        )
-      },
-    })
-  }
 }
 
 function useOnCopy(generation: GenerationEntity) {

@@ -15,3 +15,4 @@ export {
   useShowEnhanceInfoDialog,
   useShowStyleInfoDialog,
 } from './ui/useInfoDialogs'
+export { useGenDelete } from './ui/useGenDelete'
