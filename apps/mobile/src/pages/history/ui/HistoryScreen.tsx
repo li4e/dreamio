@@ -1,13 +1,19 @@
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useTranslation } from 'react-i18next'
-import { View, StyleSheet, useWindowDimensions, Platform } from 'react-native'
+import {
+  View,
+  StyleSheet,
+  useWindowDimensions,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from 'react-native'
 import {
   ActivityIndicator,
+  Appbar,
   Button,
   Text,
   TouchableRipple,
-  useTheme,
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { GenerationEntity } from 'entities/generation'
@@ -16,7 +22,9 @@ import EmptyAnimation from './assets/austroman.json'
 import { toJS } from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
 import { FlashList } from '@shopify/flash-list'
-import { BlurView } from 'expo-blur'
+import { StickyHeader } from 'shared/ui/StickyHeader'
+import { useSharedValue } from 'react-native-reanimated'
+import { useCallback } from 'react'
 
 function getNumColumns(totalLength: number) {
   // return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
@@ -29,10 +37,18 @@ export function HistoryScreen() {
   const isEmpty = history.length === 0
   const numColumns = getNumColumns(history.length)
   const itemSize = width / numColumns
-  const { top } = useSafeAreaInsets()
+  const topOffset = StickyHeader.useTopOffset()
   const listTotalSize =
-    Math.ceil(history.length / numColumns) * itemSize + 300 + top
-  const { dark } = useTheme()
+    Math.ceil(history.length / numColumns) * itemSize + 300 + topOffset
+  const { t } = useTranslation()
+  const scrollY = useSharedValue(0)
+
+  const handleScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      scrollY.value = event.nativeEvent.contentOffset.y
+    },
+    [scrollY]
+  )
 
   return (
     <View className="flex-1">
@@ -44,6 +60,7 @@ export function HistoryScreen() {
         <EmpyState />
       ) : (
         <FlashList<GenerationEntity>
+          onScroll={handleScroll}
           testID="HISTORY_LIST"
           className="flex-1"
           estimatedItemSize={itemSize}
@@ -57,7 +74,7 @@ export function HistoryScreen() {
             <HistoryItem generation={item} index={index} />
           )}
           keyExtractor={keyExtractor}
-          ListHeaderComponent={<View style={{ height: top }} />}
+          ListHeaderComponent={<View style={{ height: topOffset }} />}
           ListFooterComponent={
             isEmpty ? null : fetchedAll ? (
               <ListFooterFetched />
@@ -73,14 +90,10 @@ export function HistoryScreen() {
           onEndReachedThreshold={0.1}
         />
       )}
-      {history.length > 2 && (
-        <BlurView
-          intensity={100}
-          tint={dark ? 'dark' : 'light'}
-          style={{ height: top }}
-          className="absolute left-0 top-0 right-0"
-        />
-      )}
+
+      <StickyHeader scrollY={scrollY}>
+        <Appbar.Content title={t('screens.history.title')} />
+      </StickyHeader>
     </View>
   )
 }

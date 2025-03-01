@@ -152,6 +152,7 @@
       }
     },
     "history": {
+      "title": "History",
       "empty": {
         "title": "Nothing Here Yet...",
         "description": "You haven't created any artwork yet. Start generating to see it appear here.",

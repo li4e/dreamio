@@ -18,12 +18,11 @@ import { Button } from 'shared/ui/styled'
 import { CachedImage, shareImage, useOnSaveImage } from 'shared/ui/CachedImage'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
 import { AspectedRatioView } from 'shared/ui/AspectedRatioView'
-import { BlurView } from 'expo-blur'
 import Animated, {
   useAnimatedRef,
   useScrollViewOffset,
 } from 'react-native-reanimated'
-import { StickyHeaderWrapper } from 'shared/ui/StickyHeaderWrapper'
+import { StickyHeader } from 'shared/ui/StickyHeader'
 
 const bottomOffset = 70
 export function GenerationResultScreen(
@@ -42,6 +41,7 @@ export function GenerationResultScreen(
   const scrollY = useScrollViewOffset(scrollViewRef)
   const showEnahceInfoDialog = useShowEnhanceInfoDialog()
   const showStyleInfoDialog = useShowStyleInfoDialog()
+  const topOffset = StickyHeader.useTopOffset()
 
   return (
     <View className="flex-1">
@@ -50,13 +50,10 @@ export function GenerationResultScreen(
         className="flex-1"
         contentContainerStyle={{
           flexGrow: 1,
+          paddingTop: topOffset,
           paddingBottom: insets.bottom + bottomOffset,
         }}
-        stickyHeaderIndices={[0]}
       >
-        <StickyHeaderWrapper scrollY={scrollY}>
-          <Header generation={generation} />
-        </StickyHeaderWrapper>
         <AspectedRatioView ratio={getAspectRatioFromSize(generation)}>
           <CachedImage
             source={generation.images[0]}
@@ -98,6 +95,9 @@ export function GenerationResultScreen(
           </View>
         </View>
       </Animated.ScrollView>
+      <StickyHeader scrollY={scrollY}>
+        <Header generation={generation} />
+      </StickyHeader>
       <View
         className="absolute left-0 bottom-0 right-0 flex-row justify-center px-5"
         style={{ paddingBottom: insets.bottom + 16 }}
@@ -118,23 +118,20 @@ function Header(props: HeaderProps) {
   const { generation } = props
   const { goBack } = useNavigation()
 
-  const { dark } = useTheme()
   const onSaveImage = useOnSaveImage()
   const image = generation.images[0]
 
   return (
-    <BlurView intensity={100} tint={dark ? 'dark' : 'light'}>
-      <Appbar.Header className="bg-transparent">
-        <Appbar.BackAction onPress={goBack} />
-        <Appbar.Content title="" />
+    <>
+      <Appbar.BackAction onPress={goBack} />
+      <Appbar.Content title="" />
 
-        <Appbar.Action
-          icon="share-variant"
-          onPress={() => shareImage(image, generation.prompt)}
-        />
-        <Appbar.Action icon="download" onPress={() => onSaveImage(image)} />
-      </Appbar.Header>
-    </BlurView>
+      <Appbar.Action
+        icon="share-variant"
+        onPress={() => shareImage(image, generation.prompt)}
+      />
+      <Appbar.Action icon="download" onPress={() => onSaveImage(image)} />
+    </>
   )
 }
 
