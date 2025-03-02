@@ -1,1 +1,1 @@
-— Javítottuk a billentyűzet megjelenésének viselkedését: a képernyő mostantól görget, hogy a szövegbeviteli mező és a kezdő gomb mindig látható legyen.
+— Finomítottuk a "Generálás eredménye" képernyő dizájnját a jobb konzisztencia érdekében.

@@ -1,1 +1,1 @@
-— Ulepszono zachowanie wyglądu klawiatury: ekran teraz przewija się, aby zachować widoczność pola tekstowego i przycisku rozpoczęcia.
+— Udoskonalono wygląd ekranu "Wynik generacji" w celu zapewnienia lepszej spójności.

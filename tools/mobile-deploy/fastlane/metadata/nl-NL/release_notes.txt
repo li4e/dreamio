@@ -1,1 +1,1 @@
-— Verbeterd gedrag van het toetsenbord: het scherm scrolt nu zodat het tekstinvoerveld en de startknop zichtbaar blijven.
+— Het ontwerp van het scherm "Resultaat van Generatie" verfijnd voor betere consistentie.

@@ -1,1 +1,1 @@
-— Mejora en el comportamiento de la aparición del teclado: la pantalla ahora se desplaza para mantener visible la entrada de texto y el botón de inicio.
+— Se ha refinado el diseño de la pantalla "Resultado de la Generación" para mejorar la consistencia.

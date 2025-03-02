@@ -1,1 +1,1 @@
-— Forbedret oppførsel for tastaturets utseende: skjermen ruller nå for å holde tekstinndata og startknappen synlige.
+— Forbedret designet av "Resultat av Generering"-skjermen for bedre konsistens.

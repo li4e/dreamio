@@ -1,1 +1,1 @@
-— Comportament îmbunătățit al apariției tastaturii: ecranul se desfășoară acum pentru a menține vizibile câmpul de introducere a textului și butonul de start.
+— Am rafinat designul ecranului „Rezultatul Generării” pentru a îmbunătăți consistența.

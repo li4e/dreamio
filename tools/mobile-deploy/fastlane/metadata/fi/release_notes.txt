@@ -1,1 +1,1 @@
-— Parannettu näppäimistön ulkoasun käyttäytymistä: näyttö vierii nyt niin, että tekstikenttä ja aloituspainike pysyvät näkyvissä.
+— Paransimme "Generoinnin Tulokset" -näytön suunnittelua paremman johdonmukaisuuden saavuttamiseksi.

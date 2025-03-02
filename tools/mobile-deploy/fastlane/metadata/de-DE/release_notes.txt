@@ -1,1 +1,1 @@
-— Verbesserte Anzeigeverhalten der Tastatur: Der Bildschirm scrollt jetzt, um das Texteingabefeld und den Startknopf sichtbar zu halten.
+— Das Design des Bildschirms „Ergebnis der Generierung“ wurde verfeinert, um eine bessere Konsistenz zu gewährleisten.

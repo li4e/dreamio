@@ -1,1 +1,1 @@
-— Cải thiện hành vi hiển thị bàn phím: màn hình giờ đây cuộn lên để giữ cho ô nhập văn bản và nút bắt đầu luôn nằm trong tầm nhìn.
+— Cải tiến thiết kế của màn hình "Kết quả Tạo" để đạt được tính nhất quán tốt hơn.

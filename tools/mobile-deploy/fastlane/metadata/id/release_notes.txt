@@ -1,1 +1,1 @@
-— Perilaku tampilan keyboard yang ditingkatkan: layar sekarang akan menggulir untuk menjaga agar input teks dan tombol mulai tetap terlihat.
+— Memperbaiki desain layar "Hasil Generasi" untuk konsistensi yang lebih baik.

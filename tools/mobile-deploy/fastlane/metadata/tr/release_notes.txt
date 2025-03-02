@@ -1,1 +1,1 @@
-— Klavye görünümü iyileştirildi: Ekran, metin girişi ve başlat düğmesini görünür tutmak için kaydırılıyor.
+— "Üretim Sonucu" ekranının tasarımını daha iyi bir tutarlılık sağlamak amacıyla geliştirildi.

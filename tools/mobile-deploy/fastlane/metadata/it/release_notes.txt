@@ -1,1 +1,1 @@
-— Migliorato il comportamento dell'aspetto della tastiera: ora lo schermo scorre per mantenere visibili il campo di testo e il pulsante di avvio.
+— Migliorato il design della schermata "Risultato della Generazione" per una maggiore coerenza.

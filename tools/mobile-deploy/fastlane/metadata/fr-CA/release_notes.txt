@@ -1,1 +1,1 @@
-— Amélioration du comportement d'apparence du clavier : l'écran défile désormais pour garder le champ de saisie de texte et le bouton de démarrage visibles.
+— Affiné le design de l'écran "Résultat de la Génération" pour une meilleure cohérence.

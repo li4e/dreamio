@@ -1,1 +1,1 @@
-— Tingkah laku penampilan papan kekunci yang lebih baik: skrin kini menggulir untuk memastikan input teks dan butang mula tetap tampak.
+— Telah memperhalus reka bentuk skrin "Hasil Penjanaan" untuk konsistensi yang lebih baik.

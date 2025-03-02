@@ -1,1 +1,1 @@
-— Покращено поведінку відображення клавіатури: тепер екран прокручується, щоб зберегти видимими текстове поле вводу та кнопку старту.
+— Refined the design of the "Result of Generation" screen for improved consistency.

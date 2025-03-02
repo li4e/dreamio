@@ -1,1 +1,1 @@
-— Poboljšano ponašanje izgleda tipkovnice: ekran se sada pomiče kako bi tekstualni unos i gumb za početak ostali vidljivi.
+— Pojasnio dizajn ekrana "Rezultat generiranja" radi bolje usklađenosti.

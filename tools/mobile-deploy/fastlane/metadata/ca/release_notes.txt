@@ -1,1 +1,1 @@
-— Millora del comportament de l'aparença del teclat: ara la pantalla desplaça per mantenir visible l'entrada de text i el botó d'inici.
+— S'ha millorat el disseny de l'ecrà de "Resultat de la Generació" per aconseguir una millor coherència.

@@ -1,1 +1,1 @@
-— Vylepšené chování zobrazení klávesnice: obrazovka se nyní posouvá, aby byla viditelná vstupní textová pole a tlačítko pro spuštění.
+— Vylepšili jsme design obrazovky „Výsledek generování“ pro lepší konzistenci.

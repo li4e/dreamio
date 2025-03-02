@@ -1,1 +1,1 @@
-— Comportamento da aparência do teclado melhorado: a tela agora rola para manter visíveis a entrada de texto e o botão de início.
+— Refinado o design da tela "Resultado da Geração" para uma melhor consistência.
