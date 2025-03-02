@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "الخدمة غير متاحة مؤقتًا",
   "screens.generation.errorServiceUnavailable.description": "خدمتنا المجانية تعاني من ضغط عالي في الوقت الحالي. يرجى الانتظار بضع دقائق ثم أعد المحاولة.",
   "screens.generation.reStartButton": "إنشاء المزيد",
-  "screens.generation.inputPromptGeneration": "جارٍ إنشاء تلميحك، يرجى الانتظار لحظة..."
+  "screens.generation.inputPromptGeneration": "جارٍ إنشاء تلميحك، يرجى الانتظار لحظة...",
+  "screens.history.title": "التاريخ"
 }

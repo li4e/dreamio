@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "שירות אינו זמין זמנית",
   "screens.generation.errorServiceUnavailable.description": "השירות החינמי שלנו חווה כרגע עומס תנועה גבוה. אנא המתן כמה דקות ונסה שוב.",
   "screens.generation.reStartButton": "צור יותר",
-  "screens.generation.inputPromptGeneration": "מייצר את הפנייה שלך, אנא המתן רגע..."
+  "screens.generation.inputPromptGeneration": "מייצר את הפנייה שלך, אנא המתן רגע...",
+  "screens.history.title": "היסטוריה"
 }

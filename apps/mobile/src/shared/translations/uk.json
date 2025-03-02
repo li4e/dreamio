@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high traffic. Please wait a few minutes and try again.",
   "screens.generation.errorUnsafePrompt.description": "Здається, ваше запитання містить контент, який може бути недоречним, шкідливим або чутливим. Будь ласка, змініть формулювання та спробуйте знову!",
   "screens.generation.reStartButton": "Створити більше",
-  "screens.generation.inputPromptGeneration": "Генерація вашого запиту, будь ласка, зачекайте хвилинку..."
+  "screens.generation.inputPromptGeneration": "Генерація вашого запиту, будь ласка, зачекайте хвилинку...",
+  "screens.history.title": "Історія"
 }

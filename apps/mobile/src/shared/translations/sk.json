@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Služba je dočasne nedostupná",
   "screens.generation.errorServiceUnavailable.description": "Naša bezplatná služba momentálne zažíva vysoký prenos. Prosím, počkajte niekoľko minút a skúste to znova.",
   "screens.generation.reStartButton": "Vytvoriť viac",
-  "screens.generation.inputPromptGeneration": "Generujem váš prompt, prosím, počkajte chvíľu..."
+  "screens.generation.inputPromptGeneration": "Generujem váš prompt, prosím, počkajte chvíľu...",
+  "screens.history.title": "História"
 }

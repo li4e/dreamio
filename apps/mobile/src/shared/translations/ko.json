@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "서비스를 일시적으로 사용할 수 없습니다.",
   "screens.generation.errorServiceUnavailable.description": "현재 저희 무료 서비스에 높은 트래픽이 발생하고 있습니다. 잠시 후 다시 시도해 주시기 바랍니다.",
   "screens.generation.reStartButton": "더 만들기",
-  "screens.generation.inputPromptGeneration": "프롬프트를 생성하는 중입니다. 잠시만 기다려 주세요..."
+  "screens.generation.inputPromptGeneration": "프롬프트를 생성하는 중입니다. 잠시만 기다려 주세요...",
+  "screens.history.title": "기록"
 }

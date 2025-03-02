@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Služba je dočasně nedostupná",
   "screens.generation.errorServiceUnavailable.description": "Naše bezplatná služba momentálně zažívá vysokou návštěvnost. Prosím, vyčkejte několik minut a zkuste to znovu.",
   "screens.generation.reStartButton": "Vytvořit více",
-  "screens.generation.inputPromptGeneration": "Generuji váš prompt, prosím, chvíli potvrďte..."
+  "screens.generation.inputPromptGeneration": "Generuji váš prompt, prosím, chvíli potvrďte...",
+  "screens.history.title": "Historie"
 }

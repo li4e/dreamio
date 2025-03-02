@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Service Temporarily Unavailable",
   "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high demand. Please wait a few minutes and try again.",
   "screens.generation.reStartButton": "Create More",
-  "screens.generation.inputPromptGeneration": "Generating your prompt, please hold on for a moment..."
+  "screens.generation.inputPromptGeneration": "Generating your prompt, please hold on for a moment...",
+  "screens.history.title": "History"
 }

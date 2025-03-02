@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "A szolgáltatás átmenetileg nem elérhető",
   "screens.generation.errorServiceUnavailable.description": "Ingyenes szolgáltatásunk jelenleg nagy forgalommal bír. Kérjük, várjon néhány percet, majd próbálja újra.",
   "screens.generation.reStartButton": "Tovább készít",
-  "screens.generation.inputPromptGeneration": "A kérdésed generálása folyamatban van, kérlek, várj egy pillanatot..."
+  "screens.generation.inputPromptGeneration": "A kérdésed generálása folyamatban van, kérlek, várj egy pillanatot...",
+  "screens.history.title": "Történelem"
 }

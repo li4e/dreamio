@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Dienst tijdelijk niet beschikbaar",
   "screens.generation.errorServiceUnavailable.description": "Onze gratis service ervaart op dit moment hoge drukte. Gelieve een paar minuten te wachten en het nogmaals te proberen.",
   "screens.generation.reStartButton": "Maak Meer",
-  "screens.generation.inputPromptGeneration": "Uw prompt wordt gegenereerd, wilt u alstublieft even wachten..."
+  "screens.generation.inputPromptGeneration": "Uw prompt wordt gegenereerd, wilt u alstublieft even wachten...",
+  "screens.history.title": "Geschiedenis"
 }

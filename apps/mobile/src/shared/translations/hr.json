@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Usluga je privremeno nedostupna",
   "screens.generation.errorServiceUnavailable.description": "Naša besplatna usluga trenutno doživljava visoku posjećenost. Molimo vas da pričekate nekoliko minuta i pokušate ponovo.",
   "screens.generation.reStartButton": "Kreirajte više",
-  "screens.generation.inputPromptGeneration": "Generiram vašu poruku, molimo vas da pričekate trenutak..."
+  "screens.generation.inputPromptGeneration": "Generiram vašu poruku, molimo vas da pričekate trenutak...",
+  "screens.history.title": "Povijest"
 }

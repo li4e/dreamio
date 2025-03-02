@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Tjänsten är tillfälligt inte tillgänglig",
   "screens.generation.errorServiceUnavailable.description": "Vår gratis tjänst upplever hög trafik för tillfället. Vänligen vänta några minuter och försök igen.",
   "screens.generation.reStartButton": "Skapa mer",
-  "screens.generation.inputPromptGeneration": "Genererar din uppmaning, vänligen vänta ett ögonblick..."
+  "screens.generation.inputPromptGeneration": "Genererar din uppmaning, vänligen vänta ett ögonblick...",
+  "screens.history.title": "Historik"
 }

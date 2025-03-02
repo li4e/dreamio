@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Palvelu tilapäisesti pois käytöstä",
   "screens.generation.errorServiceUnavailable.description": "Ilmainen palvelumme kohtaa tällä hetkellä suurta liikennettä. Ole hyvä ja odota muutama minuutti ja yritä sitten uudelleen.",
   "screens.generation.reStartButton": "Luo lisää",
-  "screens.generation.inputPromptGeneration": "Luodaan pyyntöäsi, ole hyvä ja odota hetki..."
+  "screens.generation.inputPromptGeneration": "Luodaan pyyntöäsi, ole hyvä ja odota hetki...",
+  "screens.history.title": "Historia"
 }

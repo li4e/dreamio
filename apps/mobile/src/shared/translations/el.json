@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Η Υπηρεσία Δεν Είναι Διαθέσιμη Για Λίγο",
   "screens.generation.errorServiceUnavailable.description": "Η δωρεάν υπηρεσία μας αντιμετωπίζει υψηλή κίνηση αυτή τη στιγμή. Παρακαλώ περιμένετε μερικά λεπτά και δοκιμάστε ξανά.",
   "screens.generation.reStartButton": "Δημιουργία Περισσότερων",
-  "screens.generation.inputPromptGeneration": "Δημιουργούμε την προτροπή σας, παρακαλούμε περιμένετε λίγο..."
+  "screens.generation.inputPromptGeneration": "Δημιουργούμε την προτροπή σας, παρακαλούμε περιμένετε λίγο...",
+  "screens.history.title": "Ιστορία"
 }

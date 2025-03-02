@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Servei temporalment no disponible",
   "screens.generation.errorServiceUnavailable.description": "El nostre servei gratuït està experimentant un alt trànsit en aquest moment. Si us plau, espereu uns minuts i torneu a intentar-ho.",
   "screens.generation.reStartButton": "Crea més",
-  "screens.generation.inputPromptGeneration": "Generant el teu missatge, si us plau, espera un moment..."
+  "screens.generation.inputPromptGeneration": "Generant el teu missatge, si us plau, espera un moment...",
+  "screens.history.title": "Historial"
 }

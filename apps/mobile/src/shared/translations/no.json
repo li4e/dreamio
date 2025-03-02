@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Tjenesten er midlertidig utilgjengelig",
   "screens.generation.errorServiceUnavailable.description": "Vår gratis tjeneste opplever høy trafikk for øyeblikket. Vennligst vent noen minutter og prøv igjen.",
   "screens.generation.reStartButton": "Lag mer",
-  "screens.generation.inputPromptGeneration": "Genererer din prompt, vennligst vent et øyeblikk..."
+  "screens.generation.inputPromptGeneration": "Genererer din prompt, vennligst vent et øyeblikk...",
+  "screens.history.title": "Historikk"
 }

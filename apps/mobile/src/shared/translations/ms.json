@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Perkhidmatan Tidak Tersedia Buat Sementara Waktu",
   "screens.generation.errorServiceUnavailable.description": "Perkhidmatan percuma kami sedang mengalami trafik yang tinggi pada masa ini. Sila tunggu sebentar dan cuba lagi.",
   "screens.generation.reStartButton": "Buat Lebih Banyak",
-  "screens.generation.inputPromptGeneration": "Menghasilkan arahan anda, sila tunggu sebentar..."
+  "screens.generation.inputPromptGeneration": "Menghasilkan arahan anda, sila tunggu sebentar...",
+  "screens.history.title": "Sejarah"
 }

@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "サービスは一時的に利用できません",
   "screens.generation.errorServiceUnavailable.description": "現在、私たちの無料サービスは高いトラフィックを受けています。数分待ってから、もう一度お試しください。",
   "screens.generation.reStartButton": "もっと作成する",
-  "screens.generation.inputPromptGeneration": "プロンプトを生成しています。しばらくお待ちください..."
+  "screens.generation.inputPromptGeneration": "プロンプトを生成しています。しばらくお待ちください...",
+  "screens.history.title": "履歴"
 }

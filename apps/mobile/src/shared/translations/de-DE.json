@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Dienst vorübergehend nicht verfügbar",
   "screens.generation.errorServiceUnavailable.description": "Unser kostenloser Dienst hat momentan hohe Auslastung. Bitte warten Sie einige Minuten und versuchen Sie es erneut.",
   "screens.generation.reStartButton": "Mehr erstellen",
-  "screens.generation.inputPromptGeneration": "Erzeuge Ihren Prompt, bitte einen Moment warten..."
+  "screens.generation.inputPromptGeneration": "Erzeuge Ihren Prompt, bitte einen Moment warten...",
+  "screens.history.title": "Verlauf"
 }

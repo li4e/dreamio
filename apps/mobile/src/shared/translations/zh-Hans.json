@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "服务暂时不可用",
   "screens.generation.errorServiceUnavailable.description": "我们的免费服务目前正在经历高流量。请稍等几分钟后再试。",
   "screens.generation.reStartButton": "创建更多",
-  "screens.generation.inputPromptGeneration": "正在生成您的提示，请稍候片刻..."
+  "screens.generation.inputPromptGeneration": "正在生成您的提示，请稍候片刻...",
+  "screens.history.title": "历史"
 }

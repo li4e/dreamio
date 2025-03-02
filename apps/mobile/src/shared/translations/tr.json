@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Hizmet Geçici Olarak Kullanılamıyor",
   "screens.generation.errorServiceUnavailable.description": "Ücretsiz hizmetimiz şu anda yoğun bir trafikle karşılaşıyor. Lütfen birkaç dakika bekleyin ve tekrar deneyin.",
   "screens.generation.reStartButton": "Daha Fazla Oluştur",
-  "screens.generation.inputPromptGeneration": "İsteğinizi oluşturuyoruz, lütfen bir dakika bekleyin..."
+  "screens.generation.inputPromptGeneration": "İsteğinizi oluşturuyoruz, lütfen bir dakika bekleyin...",
+  "screens.history.title": "Geçmiş"
 }

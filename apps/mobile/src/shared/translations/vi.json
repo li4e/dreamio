@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Dịch vụ tạm thời không khả dụng",
   "screens.generation.errorServiceUnavailable.description": "Dịch vụ miễn phí của chúng tôi đang gặp phải lưu lượng truy cập cao trong thời điểm hiện tại. Vui lòng chờ vài phút và thử lại.",
   "screens.generation.reStartButton": "Tạo thêm",
-  "screens.generation.inputPromptGeneration": "Đang tạo prompt của bạn, xin hãy đợi một chút..."
+  "screens.generation.inputPromptGeneration": "Đang tạo prompt của bạn, xin hãy đợi một chút...",
+  "screens.history.title": "Lịch sử"
 }

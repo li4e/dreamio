@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Serviço Temporariamente Indisponível",
   "screens.generation.errorServiceUnavailable.description": "Nosso serviço gratuito está enfrentando um alto volume de tráfego no momento. Por favor, aguarde alguns minutos e tente novamente.",
   "screens.generation.reStartButton": "Criar Mais",
-  "screens.generation.inputPromptGeneration": "Gerando seu prompt, por favor, aguarde um momento..."
+  "screens.generation.inputPromptGeneration": "Gerando seu prompt, por favor, aguarde um momento...",
+  "screens.history.title": "Histórico"
 }

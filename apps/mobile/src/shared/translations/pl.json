@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Usługa tymczasowo niedostępna",
   "screens.generation.errorServiceUnavailable.description": "Nasza bezpłatna usługa doświadcza obecnie dużego ruchu. Proszę poczekać kilka minut i spróbować ponownie.",
   "screens.generation.reStartButton": "Utwórz więcej",
-  "screens.generation.inputPromptGeneration": "Generuję Twój prompt, proszę czekać chwilę..."
+  "screens.generation.inputPromptGeneration": "Generuję Twój prompt, proszę czekać chwilę...",
+  "screens.history.title": "Historia"
 }

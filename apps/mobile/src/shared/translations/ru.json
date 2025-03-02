@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Сервис временно недоступен",
   "screens.generation.errorServiceUnavailable.description": "Наш бесплатный сервис в настоящее время испытывает высокий трафик. Пожалуйста, подождите несколько минут и попробуйте снова.",
   "screens.generation.reStartButton": "Создать еще",
-  "screens.generation.inputPromptGeneration": "Генерация вашего запроса, пожалуйста, подождите немного..."
+  "screens.generation.inputPromptGeneration": "Генерация вашего запроса, пожалуйста, подождите немного...",
+  "screens.history.title": "История"
 }

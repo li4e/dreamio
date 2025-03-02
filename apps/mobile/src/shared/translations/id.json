@@ -88,5 +88,6 @@
   "screens.generation.errorServiceUnavailable.title": "Layanan Sedang Tidak Tersedia Sementara",
   "screens.generation.errorServiceUnavailable.description": "Layanan gratis kami saat ini mengalami lalu lintas yang tinggi. Harap tunggu beberapa menit dan coba lagi.",
   "screens.generation.reStartButton": "Buat Lebih Banyak",
-  "screens.generation.inputPromptGeneration": "Menghasilkan prompt Anda, mohon tunggu sebentar..."
+  "screens.generation.inputPromptGeneration": "Menghasilkan prompt Anda, mohon tunggu sebentar...",
+  "screens.history.title": "Riwayat"
 }
