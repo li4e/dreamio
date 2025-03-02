@@ -1,1 +1,2 @@
-— "Üretim Sonucu" ekranının tasarımını daha iyi bir tutarlılık sağlamak amacıyla geliştirildi.
+— Klavye görünüm davranışı iyileştirildi: ekran, metin girişi ve başlat butonunu görünür tutmak için kaydırılıyor.  
+— "Üretim Sonucu" ekranının tasarımı, daha iyi bir tutarlılık sağlamak için yeniden düzenlendi.

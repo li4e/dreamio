@@ -1,1 +1,2 @@
-— S'ha millorat el disseny de l'ecrà de "Resultat de la Generació" per aconseguir una millor coherència.
+— Millora del comportament d'aparició del teclat: ara la pantalla es desplaça per mantenir visible l'entrada de text i el botó d'inici.  
+— Refinament del disseny de l'escreen "Resultat de la Generació" per a una millor coherència.

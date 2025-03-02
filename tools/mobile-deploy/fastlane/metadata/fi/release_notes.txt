@@ -1,1 +1,2 @@
-— Paransimme "Generoinnin Tulokset" -näytön suunnittelua paremman johdonmukaisuuden saavuttamiseksi.
+— Parannettu näppäimistön ulkoasun käytöstä: näyttö vierittää nyt, jotta tekstisyöttö ja aloituspainike pysyvät näkyvissä.  
+— Hienosäädetty "Luonnin tulos" -näytön designin yhtenäisyyden parantamiseksi.

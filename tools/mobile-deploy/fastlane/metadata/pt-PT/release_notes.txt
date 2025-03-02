@@ -1,1 +1,2 @@
-— Refinado o design da tela "Resultado da Geração" para uma melhor consistência.
+— Comportamento de aparência do teclado melhorado: a tela agora rola para manter a entrada de texto e o botão de início visíveis.  
+— Design da tela "Resultado da Geração" aprimorado para melhor consistência.

@@ -1,1 +1,2 @@
-— Het ontwerp van het scherm "Resultaat van Generatie" verfijnd voor betere consistentie.
+— Verbeterd het gedrag van de toetsenbordweergave: het scherm scrollt nu om de tekstinvoer en de startknop zichtbaar te houden.  
+— Ontworpen de "Resultaat van Generatie" scherm verfijnd voor betere consistentie.

@@ -1,1 +1,2 @@
-— Vylepšili jsme design obrazovky „Výsledek generování“ pro lepší konzistenci.
+— Vylepšeno chování vzhledu klávesnice: obrazovka se nyní posouvá, aby byla textová pole a tlačítko pro spuštění viditelná.  
+— Zlepšena designová konzistence obrazovky „Výsledek generování“.

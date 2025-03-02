@@ -1,1 +1,2 @@
-— Se refinó el diseño de la pantalla "Resultado de Generación" para mejorar la consistencia.
+— Mejora en el comportamiento de la apariencia del teclado: la pantalla ahora se desplaza para mantener visible el campo de texto y el botón de inicio.  
+— Refinamiento del diseño de la pantalla de "Resultado de la Generación" para una mejor consistencia.

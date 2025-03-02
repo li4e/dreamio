@@ -1,1 +1,2 @@
-— Das Design des Bildschirms „Ergebnis der Generierung“ wurde verfeinert, um eine bessere Konsistenz zu gewährleisten.
+— Verbesserte Darstellung des Tastaturverhaltens: Der Bildschirm scrollt jetzt, um die Texteingabe und die Schaltfläche "Start" sichtbar zu halten.  
+— Das Design des Bildschirms "Ergebnis der Generierung" wurde verfeinert, um eine bessere Konsistenz zu gewährleisten.

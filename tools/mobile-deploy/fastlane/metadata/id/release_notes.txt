@@ -1,1 +1,2 @@
+— Meningkatkan perilaku tampilan keyboard: layar kini akan menggulir untuk menjaga agar kolom input teks dan tombol mulai tetap terlihat.  
 — Memperbaiki desain layar "Hasil Generasi" untuk konsistensi yang lebih baik.

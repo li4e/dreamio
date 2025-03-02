@@ -1,1 +1,2 @@
-— Förbättrad design av skärmen "Resultat av generering" för bättre konsekvens.
+— Förbättrad beteende för tangentbordets utseende: skärmen rullar nu för att hålla textinmatningen och startknappen synliga.
+— Förbättrad design av skärmen "Resultat av generationen" för bättre konsistens.

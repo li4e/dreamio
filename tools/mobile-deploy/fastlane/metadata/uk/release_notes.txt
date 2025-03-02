@@ -1,1 +1,2 @@
-— Refined the design of the "Result of Generation" screen for improved consistency.
+— Enhanced keyboard appearance functionality: the screen now scrolls to ensure that the text input and start button remain visible.  
+— Improved the design of the "Result of Generation" screen for better consistency.

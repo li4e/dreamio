@@ -1,1 +1,2 @@
-— Optimalizovali sme dizajn obrazovky "Výsledok generovania" pre lepšiu konzistenciu.
+— Vylepšené správanie klávesnice: teraz sa obrazovka posúva, aby bol viditeľný textový vstup a tlačidlo na spustenie.
+— Prepracovaný dizajn obrazovky „Výsledok generovania“ pre lepšiu konzistenciu.

@@ -1,1 +1,2 @@
-— Pojasnio dizajn ekrana "Rezultat generiranja" radi bolje usklađenosti.
+— Poboljšano ponašanje prikaza tipkovnice: ekran se sada pomiče kako bi tekstualni unos i gumb za početak ostali vidljivi.  
+— Doređena je dizajn "Rezultat generacije" ekrana radi bolje usklađenosti.

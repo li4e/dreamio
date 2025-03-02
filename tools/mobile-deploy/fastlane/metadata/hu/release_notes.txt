@@ -1,1 +1,2 @@
-— Finomítottuk a "Generálás eredménye" képernyő dizájnját a jobb konzisztencia érdekében.
+— Fejlesztettük a billentyűzet megjelenésének viselkedését: a képernyő most görget, hogy a szövegbevitel és a kezdő gomb mindig látható maradjon.  
+— Finomítottuk a „Generálás Eredménye” képernyő dizájnját a jobb konzisztencia érdekében.

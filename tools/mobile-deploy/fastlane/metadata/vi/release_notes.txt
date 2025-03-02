@@ -1,1 +1,2 @@
-— Cải tiến thiết kế của màn hình "Kết quả Tạo" để đạt được tính nhất quán tốt hơn.
+— Cải thiện hành vi hiển thị bàn phím: màn hình giờ đây sẽ cuộn để giữ cho ô nhập liệu và nút bắt đầu luôn được hiển thị.  
+— Tinh chỉnh thiết kế màn hình "Kết quả Tạo Ra" để đảm bảo tính nhất quán tốt hơn.

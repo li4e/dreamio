@@ -1,1 +1,2 @@
-— Am rafinat designul ecranului „Rezultatul Generării” pentru a îmbunătăți consistența.
+— Comportamentul de apariție al tastaturii îmbunătățit: acum ecranul se derulează pentru a menține vizibile zona de introducere a textului și butonul de start.
+— Designul ecranului "Rezultatul Generării" rafinat pentru o mai bună consistență.

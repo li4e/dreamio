@@ -1,1 +1,2 @@
-— Telah memperhalus reka bentuk skrin "Hasil Penjanaan" untuk konsistensi yang lebih baik.
+— Tingkah laku penampilan papan kekunci yang ditingkatkan: skrin kini menatal untuk memastikan input teks dan butang mula sentiasa terlihat.  
+— Reka bentuk skrin "Hasil Penjanaan" yang dipertingkatkan untuk konsistensi yang lebih baik.
