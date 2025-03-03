@@ -70,6 +70,16 @@ module.exports = {
       '@config-plugins/detox',
       'expo-localization',
       'expo-media-library',
+      [
+        'expo-build-properties',
+        {
+          android: {
+            enableProguardInReleaseBuilds: true,
+            extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
+            allowBackup: false,
+          },
+        },
+      ],
     ],
     locales: {
       'ar-SA': './src/shared/translations_native/ar-SA.json',
