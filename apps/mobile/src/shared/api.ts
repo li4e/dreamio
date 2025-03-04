@@ -22,6 +22,13 @@ class Api {
       return generatedPrompt
     }
   }
+
+  reportGeneration(urls: string[], description?: string) {
+    return axios.post(`https://dreamio.ilsur.me/api/v1/claim`, {
+      urls,
+      description,
+    })
+  }
 }
 
 class Translator {

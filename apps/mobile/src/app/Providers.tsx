@@ -12,6 +12,7 @@ import { useThemes } from './ui/useThemes'
 import { StatusBar } from 'expo-status-bar'
 import * as SystemUI from 'expo-system-ui'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
+import { ReportDialogProvider } from 'shared/ui/ReportDialog'
 
 export function Providers({ children }: PropsWithChildren) {
   const { paperTheme } = useThemes()
@@ -30,7 +31,9 @@ export function Providers({ children }: PropsWithChildren) {
               <SnackbarProvider>
                 <DialogProvider>
                   <DiProvider>
-                    <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
+                    <I18nextProvider i18n={i18next}>
+                      <ReportDialogProvider>{children}</ReportDialogProvider>
+                    </I18nextProvider>
                   </DiProvider>
                 </DialogProvider>
               </SnackbarProvider>

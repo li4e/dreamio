@@ -28,6 +28,21 @@
           "description": "Saved to your gallery"
         }
       }
+    },
+    "reportDialog": {
+      "title": "Report an Issue",
+      "description": "Is the generated image inappropriate, disturbing, or unusual? If so, please report it to us, and we will review it. Providing additional details is optional.",
+      "inputPlaceholder": "Describe what seems wrong with the image (optional).",
+      "button": "Submit",
+      "cancel": "Cancel",
+      "error": {
+        "title": "Oops! Something went wrong",
+        "description": "Please try again later."
+      },
+      "success": {
+        "title": "Report Submitted Successfully",
+        "description": "We will analyze the issue."
+      }
     }
   },
   "screens": {

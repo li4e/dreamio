@@ -23,6 +23,7 @@ import Animated, {
   useScrollViewOffset,
 } from 'react-native-reanimated'
 import { StickyHeader } from 'shared/ui/StickyHeader'
+import { useReportDialog } from 'shared/ui/ReportDialog'
 
 const bottomOffset = 70
 export function GenerationResultScreen(
@@ -72,7 +73,7 @@ export function GenerationResultScreen(
                 <RelativeTime time={generation.createdAt} />
               </Text>
             </View>
-            <IconButton onPress={onDelete} icon="trash-can-outline" />
+            <IconButton onPress={onDelete} icon="trash-can" />
           </View>
           <View className="px-5">
             <GenerationSettings
@@ -121,10 +122,17 @@ function Header(props: HeaderProps) {
 
   const onSaveImage = useOnSaveImage()
   const image = generation.images[0]
+  const { openReporDialog } = useReportDialog()
 
   return (
     <>
       <Appbar.BackAction onPress={goBack} />
+      <Appbar.Action
+        icon="message-alert"
+        onPress={() => {
+          openReporDialog(generation.images)
+        }}
+      />
       <Appbar.Content title="" />
 
       <Appbar.Action

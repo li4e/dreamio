@@ -66,6 +66,7 @@ import { AspectRatioSelectDialog } from './AspectRatioSelectDialog'
 import { PromptInput } from './PromptInput'
 import { twMerge } from 'tailwind-merge'
 import { StickyHeader } from 'shared/ui/StickyHeader'
+import { useReportDialog } from 'shared/ui/ReportDialog'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -490,6 +491,8 @@ function Header(props: {
     shouldBeHidden.value = hasError || isPending
   }, [hasError, isPending, shouldBeHidden])
 
+  const { openReporDialog } = useReportDialog()
+
   return (
     <StickyHeader scrollY={scrollY} hidden={shouldBeHidden}>
       {generation && resultImage && (
@@ -497,6 +500,20 @@ function Header(props: {
           generation={generation}
           uiStateStore={uiStateStore}
         />
+      )}
+
+      {generation && resultImage && (
+        <Animated.View
+          entering={SlideInUp.duration(500)}
+          exiting={SlideOutUp.duration(200)}
+        >
+          <Appbar.Action
+            icon="message-alert"
+            onPress={() => {
+              openReporDialog(generation.images)
+            }}
+          />
+        </Animated.View>
       )}
 
       <Appbar.Content title={showTitle && t('screens.generation.title')} />
@@ -551,7 +568,7 @@ function HeaderGenDeleteButton(props: {
       entering={SlideInLeft.duration(500)}
       exiting={SlideOutLeft.duration(200)}
     >
-      <Appbar.Action icon="trash-can-outline" onPress={onDeletePress} />
+      <Appbar.Action icon="trash-can" onPress={onDeletePress} />
     </Animated.View>
   )
 }
