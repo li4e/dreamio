@@ -24,6 +24,7 @@ module.exports = {
         ],
       },
       bundleIdentifier: process.env.IOS_APP_IDENTIFIER || 'com.dreamio',
+      googleServicesFile: './GoogleService-Info.plist',
       config: {
         usesNonExemptEncryption: false,
       },
@@ -37,6 +38,7 @@ module.exports = {
         backgroundColor: '#6650a4',
       },
       package: process.env.ANDROID_APP_IDENTIFIER || 'com.dreamio',
+      googleServicesFile: './google-services.json',
     },
     web: {
       favicon: './assets/icon.png',
@@ -73,6 +75,9 @@ module.exports = {
       [
         'expo-build-properties',
         {
+          ios: {
+            useFrameworks: 'static',
+          },
           android: {
             enableProguardInReleaseBuilds: true,
             extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
@@ -80,6 +85,9 @@ module.exports = {
           },
         },
       ],
+      '@react-native-firebase/app',
+      '@react-native-firebase/auth',
+      '@react-native-firebase/crashlytics',
     ],
     locales: {
       'ar-SA': './src/shared/translations_native/ar-SA.json',

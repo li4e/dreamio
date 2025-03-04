@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "211552879642",
+    "project_id": "dreamio-c6ece",
+    "storage_bucket": "dreamio-c6ece.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211552879642:android:5339e7ac5823d587d4fda3",
+        "android_client_info": {
+          "package_name": "me.ilsur.aidreamio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211552879642-q0uaov99jv60vos80qao2sjrh7eq53ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs3tF4AEtponUxq0MGgmlqMxwVWriOpvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211552879642-q0uaov99jv60vos80qao2sjrh7eq53ip.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "211552879642-4dfjlt52pphphccavgf36ne43krlif3m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.ilsur.dreamio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
