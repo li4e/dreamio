@@ -3,6 +3,7 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import * as express from 'express';
 import * as functions from 'firebase-functions/v2';
 import { AppModule } from './src/app.module';
+import secrets from './src/secrets';
 
 const createNestServer = async (): Promise<express.Express> => {
   const expressApp = express();
@@ -17,9 +18,12 @@ const createNestServer = async (): Promise<express.Express> => {
 
 let server: express.Express | null = null;
 
-export const api = functions.https.onRequest({}, async (request, response) => {
-  if (!server) {
-    server = await createNestServer();
-  }
-  server(request, response);
-});
+export const api = functions.https.onRequest(
+  { secrets },
+  async (request, response) => {
+    if (!server) {
+      server = await createNestServer();
+    }
+    server(request, response);
+  },
+);

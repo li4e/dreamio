@@ -20,7 +20,7 @@
     "@react-native-firebase/crashlytics": "^21.11.0",
     "@react-navigation/native-stack": "^7.2.0",
     "@shopify/flash-list": "1.7.3",
-    "axios": "^1.7.9",
+    "axios": "*",
     "dayjs": "^1.11.13",
     "expo": "~52.0.25",
     "expo-application": "~6.0.2",
