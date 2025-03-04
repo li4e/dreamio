@@ -45,6 +45,19 @@ module.exports = {
     },
     plugins: [
       [
+        'expo-build-properties',
+        {
+          ios: {
+            useFrameworks: 'static',
+          },
+          android: {
+            enableProguardInReleaseBuilds: true,
+            extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
+            allowBackup: false,
+          },
+        },
+      ],
+      [
         'expo-splash-screen',
         {
           image: './assets/icon_foreground.png',
@@ -72,19 +85,7 @@ module.exports = {
       '@config-plugins/detox',
       'expo-localization',
       'expo-media-library',
-      [
-        'expo-build-properties',
-        {
-          ios: {
-            useFrameworks: 'static',
-          },
-          android: {
-            enableProguardInReleaseBuilds: true,
-            extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
-            allowBackup: false,
-          },
-        },
-      ],
+
       '@react-native-firebase/app',
       '@react-native-firebase/auth',
       '@react-native-firebase/crashlytics',
