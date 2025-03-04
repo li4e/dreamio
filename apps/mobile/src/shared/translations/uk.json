@@ -89,5 +89,14 @@
   "screens.generation.errorUnsafePrompt.description": "Здається, ваше запитання містить контент, який може бути недоречним, шкідливим або чутливим. Будь ласка, змініть формулювання та спробуйте знову!",
   "screens.generation.reStartButton": "Створити більше",
   "screens.generation.inputPromptGeneration": "Генерація вашого запиту, будь ласка, зачекайте хвилинку...",
-  "screens.history.title": "Історія"
+  "screens.history.title": "Історія",
+  "components.reportDialog.title": "Повідомити про проблему",
+  "components.reportDialog.description": "Чи є згенероване зображення неналежним, тривожним або незвичайним? Якщо так, будь ласка, повідомте нам, і ми його розглянемо. Надання додаткових деталей є необов'язковим.",
+  "components.reportDialog.inputPlaceholder": "Опишіть, що, на вашу думку, не так з зображенням (необов’язково).",
+  "components.reportDialog.button": "Подати",
+  "components.reportDialog.cancel": "Скасувати",
+  "components.reportDialog.error.title": "Упс! Щось пішло не так",
+  "components.reportDialog.error.description": "Будь ласка, спробуйте знову пізніше.",
+  "components.reportDialog.success.title": "Звіт успішно надіслано",
+  "components.reportDialog.success.description": "Ми проаналізуємо проблему."
 }

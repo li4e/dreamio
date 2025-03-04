@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "現在、私たちの無料サービスは高いトラフィックを受けています。数分待ってから、もう一度お試しください。",
   "screens.generation.reStartButton": "もっと作成する",
   "screens.generation.inputPromptGeneration": "プロンプトを生成しています。しばらくお待ちください...",
-  "screens.history.title": "履歴"
+  "screens.history.title": "履歴",
+  "components.reportDialog.title": "問題を報告する",
+  "components.reportDialog.description": "生成された画像が不適切、気持ち悪い、または異常であると感じた場合は、お知らせください。当社が確認いたします。追加の詳細を提供することは任意です。",
+  "components.reportDialog.inputPlaceholder": "画像に何が間違っているかを説明してください（任意）。",
+  "components.reportDialog.button": "提出する",
+  "components.reportDialog.cancel": "キャンセル",
+  "components.reportDialog.error.title": "おっと！何かがうまくいきませんでした",
+  "components.reportDialog.error.description": "後でもう一度お試しください。",
+  "components.reportDialog.success.title": "レポートが正常に送信されました",
+  "components.reportDialog.success.description": "問題を分析いたします。"
 }

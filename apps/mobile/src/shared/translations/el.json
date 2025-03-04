@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Η δωρεάν υπηρεσία μας αντιμετωπίζει υψηλή κίνηση αυτή τη στιγμή. Παρακαλώ περιμένετε μερικά λεπτά και δοκιμάστε ξανά.",
   "screens.generation.reStartButton": "Δημιουργία Περισσότερων",
   "screens.generation.inputPromptGeneration": "Δημιουργούμε την προτροπή σας, παρακαλούμε περιμένετε λίγο...",
-  "screens.history.title": "Ιστορία"
+  "screens.history.title": "Ιστορία",
+  "components.reportDialog.title": "Αναφέρετε ένα Πρόβλημα",
+  "components.reportDialog.description": "Η παραγόμενη εικόνα είναι ακατάλληλη, ανατρεπτική ή ασυνήθιστη; Αν ναι, παρακαλούμε αναφέρετέ την σε εμάς και θα την εξετάσουμε. Η παροχή επιπλέον λεπτομερειών είναι προαιρετική.",
+  "components.reportDialog.inputPlaceholder": "Περιγράψτε τι φαίνεται λάθος με την εικόνα (προαιρετικό).",
+  "components.reportDialog.button": "Υποβολή",
+  "components.reportDialog.cancel": "Ακύρωση",
+  "components.reportDialog.error.title": "Ουπς! Κάτι πήγε στραβά",
+  "components.reportDialog.error.description": "Παρακαλούμε δοκιμάστε ξανά αργότερα.",
+  "components.reportDialog.success.title": "Η αναφορά υποβλήθηκε επιτυχώς",
+  "components.reportDialog.success.description": "Θα αναλύσουμε το ζήτημα."
 }

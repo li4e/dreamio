@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "현재 저희 무료 서비스에 높은 트래픽이 발생하고 있습니다. 잠시 후 다시 시도해 주시기 바랍니다.",
   "screens.generation.reStartButton": "더 만들기",
   "screens.generation.inputPromptGeneration": "프롬프트를 생성하는 중입니다. 잠시만 기다려 주세요...",
-  "screens.history.title": "기록"
+  "screens.history.title": "기록",
+  "components.reportDialog.title": "문제 보고",
+  "components.reportDialog.description": "생성된 이미지가 부적절하거나, 불안감을 주거나, 비정상적입니까? 그렇다면 저희에게 신고해 주시면 검토하겠습니다. 추가 세부 정보를 제공하는 것은 선택 사항입니다.",
+  "components.reportDialog.inputPlaceholder": "이미지에서 잘못된 부분을 설명해 주세요 (선택 사항).",
+  "components.reportDialog.button": "제출",
+  "components.reportDialog.cancel": "취소",
+  "components.reportDialog.error.title": "앗! 문제가 발생했습니다.",
+  "components.reportDialog.error.description": "나중에 다시 시도해 주세요.",
+  "components.reportDialog.success.title": "보고서가 성공적으로 제출되었습니다",
+  "components.reportDialog.success.description": "문제를 분석하겠습니다."
 }

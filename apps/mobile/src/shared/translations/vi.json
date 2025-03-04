@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Dịch vụ miễn phí của chúng tôi đang gặp phải lưu lượng truy cập cao trong thời điểm hiện tại. Vui lòng chờ vài phút và thử lại.",
   "screens.generation.reStartButton": "Tạo thêm",
   "screens.generation.inputPromptGeneration": "Đang tạo prompt của bạn, xin hãy đợi một chút...",
-  "screens.history.title": "Lịch sử"
+  "screens.history.title": "Lịch sử",
+  "components.reportDialog.title": "Báo cáo sự cố",
+  "components.reportDialog.description": "Hình ảnh được tạo ra có không phù hợp, gây khó chịu hoặc bất thường không? Nếu có, xin vui lòng báo cáo cho chúng tôi, và chúng tôi sẽ xem xét. Cung cấp thêm chi tiết là tùy chọn.",
+  "components.reportDialog.inputPlaceholder": "Mô tả những gì dường như không đúng với hình ảnh (tùy chọn).",
+  "components.reportDialog.button": "Gửi đi",
+  "components.reportDialog.cancel": "Hủy bỏ",
+  "components.reportDialog.error.title": "Ôi không! Có điều gì đó đã xảy ra sai.",
+  "components.reportDialog.error.description": "Vui lòng thử lại sau.",
+  "components.reportDialog.success.title": "Báo cáo đã được gửi thành công",
+  "components.reportDialog.success.description": "Chúng tôi sẽ phân tích vấn đề."
 }

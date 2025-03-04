@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Serviciul nostru gratuit se confruntă în prezent cu un trafic ridicat. Vă rugăm să așteptați câteva minute și să încercați din nou.",
   "screens.generation.reStartButton": "Creează mai mult",
   "screens.generation.inputPromptGeneration": "Generăm solicitarea dumneavoastră, vă rugăm să așteptați un moment...",
-  "screens.history.title": "Istoric"
+  "screens.history.title": "Istoric",
+  "components.reportDialog.title": "Raportează o problemă",
+  "components.reportDialog.description": "Imaginea generată este inadecvată, deranjantă sau neobișnuită? Dacă da, vă rugăm să ne raportați, iar noi o vom analiza. Furnizarea de informații suplimentare este opțională.",
+  "components.reportDialog.inputPlaceholder": "Descrie ce pare a fi în neregulă cu imaginea (opțional).",
+  "components.reportDialog.button": "Trimite",
+  "components.reportDialog.cancel": "Anulează",
+  "components.reportDialog.error.title": "Ups! A apărut o problemă.",
+  "components.reportDialog.error.description": "Te rugăm să încerci din nou mai târziu.",
+  "components.reportDialog.success.title": "Raport trimis cu succes",
+  "components.reportDialog.success.description": "Vom analiza problema."
 }

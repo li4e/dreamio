@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Ücretsiz hizmetimiz şu anda yoğun bir trafikle karşılaşıyor. Lütfen birkaç dakika bekleyin ve tekrar deneyin.",
   "screens.generation.reStartButton": "Daha Fazla Oluştur",
   "screens.generation.inputPromptGeneration": "İsteğinizi oluşturuyoruz, lütfen bir dakika bekleyin...",
-  "screens.history.title": "Geçmiş"
+  "screens.history.title": "Geçmiş",
+  "components.reportDialog.title": "Bir Sorun Bildir",
+  "components.reportDialog.description": "Oluşturulan görüntü uygunsuz, rahatsız edici veya alışılmadık mı? Eğer öyleyse, lütfen bunu bize bildirin, biz de inceleyeceğiz. Ek bilgiler sağlamak isteğe bağlıdır.",
+  "components.reportDialog.inputPlaceholder": "Görüntüde neyin yanlış olduğunu tarif edin (isteğe bağlı).",
+  "components.reportDialog.button": "Gönder",
+  "components.reportDialog.cancel": "İptal",
+  "components.reportDialog.error.title": "Hooops! Bir şeyler ters gitti",
+  "components.reportDialog.error.description": "Lütfen daha sonra tekrar deneyin.",
+  "components.reportDialog.success.title": "Rapor Başarıyla Gönderildi",
+  "components.reportDialog.success.description": "Sorunu analiz edeceğiz."
 }

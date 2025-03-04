@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Naša bezplatná služba momentálne zažíva vysoký prenos. Prosím, počkajte niekoľko minút a skúste to znova.",
   "screens.generation.reStartButton": "Vytvoriť viac",
   "screens.generation.inputPromptGeneration": "Generujem váš prompt, prosím, počkajte chvíľu...",
-  "screens.history.title": "História"
+  "screens.history.title": "História",
+  "components.reportDialog.title": "Nahlásiť problém",
+  "components.reportDialog.description": "Je vygenerovaný obrázok nevhodný, znepokojujúci alebo nezvyčajný? Ak áno, prosím, nahláste nám to a my to preskúmame. Poskytnutie ďalších podrobností je voliteľné.",
+  "components.reportDialog.inputPlaceholder": "Popíšte, čo sa zdá byť na obrázku zlé (voliteľné).",
+  "components.reportDialog.button": "Odoslať",
+  "components.reportDialog.cancel": "Zrušiť",
+  "components.reportDialog.error.title": "Ups! Niečo sa pokazilo.",
+  "components.reportDialog.error.description": "Skúste to prosím neskôr.",
+  "components.reportDialog.success.title": "Správa bola úspešne odoslaná",
+  "components.reportDialog.success.description": "Analyzujeme problém."
 }

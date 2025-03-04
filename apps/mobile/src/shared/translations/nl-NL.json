@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Onze gratis service ervaart op dit moment hoge drukte. Gelieve een paar minuten te wachten en het nogmaals te proberen.",
   "screens.generation.reStartButton": "Maak Meer",
   "screens.generation.inputPromptGeneration": "Uw prompt wordt gegenereerd, wilt u alstublieft even wachten...",
-  "screens.history.title": "Geschiedenis"
+  "screens.history.title": "Geschiedenis",
+  "components.reportDialog.title": "Probleem Rapporteren",
+  "components.reportDialog.description": "Is de gegenereerde afbeelding ongepast, verontrustend of ongebruikelijk? Indien ja, rapporteer dit dan aan ons, en wij zullen het beoordelen. Het verstrekken van aanvullende details is optioneel.",
+  "components.reportDialog.inputPlaceholder": "Beschrijf wat er niet klopt met de afbeelding (optioneel).",
+  "components.reportDialog.button": "Indienen",
+  "components.reportDialog.cancel": "Annuleren",
+  "components.reportDialog.error.title": "Oeps! Er is iets misgegaan.",
+  "components.reportDialog.error.description": "Probeer het later opnieuw.",
+  "components.reportDialog.success.title": "Rapport Succesvol Ingediend",
+  "components.reportDialog.success.description": "We zullen het probleem analyseren."
 }

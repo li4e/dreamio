@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Vår gratis tjeneste opplever høy trafikk for øyeblikket. Vennligst vent noen minutter og prøv igjen.",
   "screens.generation.reStartButton": "Lag mer",
   "screens.generation.inputPromptGeneration": "Genererer din prompt, vennligst vent et øyeblikk...",
-  "screens.history.title": "Historikk"
+  "screens.history.title": "Historikk",
+  "components.reportDialog.title": "Rapporter et problem",
+  "components.reportDialog.description": "Er bildet som er generert upassende, forstyrrende eller uvanlig? I så fall, vennligst rapporter det til oss, så vil vi gjennomgå det. Å gi tilleggsdetaljer er valgfritt.",
+  "components.reportDialog.inputPlaceholder": "Beskriv hva som ser galt ut med bildet (valgfritt).",
+  "components.reportDialog.button": "Send inn",
+  "components.reportDialog.cancel": "Avbryt",
+  "components.reportDialog.error.title": "Oops! Noe gikk galt",
+  "components.reportDialog.error.description": "Vennligst prøv igjen senere.",
+  "components.reportDialog.success.title": "Rapportert sendt inn med suksess",
+  "components.reportDialog.success.description": "Vi vil analysere problemet."
 }

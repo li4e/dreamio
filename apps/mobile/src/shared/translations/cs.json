@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Naše bezplatná služba momentálně zažívá vysokou návštěvnost. Prosím, vyčkejte několik minut a zkuste to znovu.",
   "screens.generation.reStartButton": "Vytvořit více",
   "screens.generation.inputPromptGeneration": "Generuji váš prompt, prosím, chvíli potvrďte...",
-  "screens.history.title": "Historie"
+  "screens.history.title": "Historie",
+  "components.reportDialog.title": "Nahlásit problém",
+  "components.reportDialog.description": "Je vygenerovaný obrázek nevhodný, znepokojující nebo neobvyklý? Pokud ano, prosím, nahlašte nám to a my to zhodnotíme. Poskytování dalších podrobností je volitelné.",
+  "components.reportDialog.inputPlaceholder": "Popište, co se na obrázku zdá být špatně (volitelné).",
+  "components.reportDialog.button": "Odeslat",
+  "components.reportDialog.cancel": "Zrušit",
+  "components.reportDialog.error.title": "Omlouváme se! Něco se pokazilo.",
+  "components.reportDialog.error.description": "Prosím, zkuste to znovu později.",
+  "components.reportDialog.success.title": "Zpráva byla úspěšně odeslána",
+  "components.reportDialog.success.description": "Prozkoumáme problém."
 }

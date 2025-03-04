@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "השירות החינמי שלנו חווה כרגע עומס תנועה גבוה. אנא המתן כמה דקות ונסה שוב.",
   "screens.generation.reStartButton": "צור יותר",
   "screens.generation.inputPromptGeneration": "מייצר את הפנייה שלך, אנא המתן רגע...",
-  "screens.history.title": "היסטוריה"
+  "screens.history.title": "היסטוריה",
+  "components.reportDialog.title": "דווח על בעיה",
+  "components.reportDialog.description": "האם התמונה שנוצרה אינה מתאימה, מטרידה או יוצאת דופן? אם כן, אנא דווח לנו ונבצע בדיקה. מתן פרטים נוספים הוא אופציונלי.",
+  "components.reportDialog.inputPlaceholder": "תאר מה נראה לא בסדר עם התמונה (אופציונלי).",
+  "components.reportDialog.button": "שלח",
+  "components.reportDialog.cancel": "ביטול",
+  "components.reportDialog.error.title": "אוי! משהו השתבש",
+  "components.reportDialog.error.description": "בבקשה נסה שוב מאוחר יותר.",
+  "components.reportDialog.success.title": "דיווח הוגש בהצלחה",
+  "components.reportDialog.success.description": "ננתח את הבעיה."
 }

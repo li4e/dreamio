@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Naša besplatna usluga trenutno doživljava visoku posjećenost. Molimo vas da pričekate nekoliko minuta i pokušate ponovo.",
   "screens.generation.reStartButton": "Kreirajte više",
   "screens.generation.inputPromptGeneration": "Generiram vašu poruku, molimo vas da pričekate trenutak...",
-  "screens.history.title": "Povijest"
+  "screens.history.title": "Povijest",
+  "components.reportDialog.title": "Prijavite problem",
+  "components.reportDialog.description": "Je li generirana slika neprikladna, uznemirujuća ili neobična? Ako jest, molimo vas da nas obavijestite, a mi ćemo je pregledati. Pružanje dodatnih informacija je opcionalno.",
+  "components.reportDialog.inputPlaceholder": "Opišite što se čini pogrešnim s imidžem (neobavezno).",
+  "components.reportDialog.button": "Pošalji",
+  "components.reportDialog.cancel": "Otkaži",
+  "components.reportDialog.error.title": "Oups! Nešto je pošlo po zlu",
+  "components.reportDialog.error.description": "Molimo pokušajte ponovo kasnije.",
+  "components.reportDialog.success.title": "Izvještaj je uspješno podnesen",
+  "components.reportDialog.success.description": "Analizirat ćemo problem."
 }

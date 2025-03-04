@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "บริการฟรีของเรากำลังประสบกับการเข้าชมที่สูงในขณะนี้ กรุณารอสักครู่และลองอีกครั้งในภายหลัง",
   "screens.generation.reStartButton": "สร้างเพิ่มเติม",
   "screens.generation.inputPromptGeneration": "กำลังสร้างโปรมต์ของคุณ กรุณารอสักครู่...",
-  "screens.history.title": "ประวัติ"
+  "screens.history.title": "ประวัติ",
+  "components.reportDialog.title": "รายงานปัญหา",
+  "components.reportDialog.description": "ภาพที่สร้างขึ้นนั้นไม่เหมาะสม น่ารังเกียจ หรือแปลกประหลาดหรือไม่? หากเป็นเช่นนั้น โปรดรายงานให้เราทราบ และเราจะทำการตรวจสอบ ข้อมูลเพิ่มเติมสามารถระบุได้ตามต้องการ",
+  "components.reportDialog.inputPlaceholder": "กรุณาอธิบายสิ่งที่ดูไม่ถูกต้องในภาพ (ถ้าต้องการ)",
+  "components.reportDialog.button": "ส่งข้อมูล",
+  "components.reportDialog.cancel": "ยกเลิก",
+  "components.reportDialog.error.title": "อุ๊ปส์! เกิดข้อผิดพลาดบางอย่าง",
+  "components.reportDialog.error.description": "กรุณาลองอีกครั้งในภายหลัง.",
+  "components.reportDialog.success.title": "รายงานถูกส่งเรียบร้อยแล้ว",
+  "components.reportDialog.success.description": "เราจะวิเคราะห์ปัญหาให้."
 }

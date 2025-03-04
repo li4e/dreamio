@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "我們的免費服務目前正面臨高流量的情況。請耐心等候幾分鐘後再試一次。",
   "screens.generation.reStartButton": "創建更多",
   "screens.generation.inputPromptGeneration": "正在生成您的提示，請稍候片刻...",
-  "screens.history.title": "歷史"
+  "screens.history.title": "歷史",
+  "components.reportDialog.title": "報告問題",
+  "components.reportDialog.description": "生成的圖像是否不當、令人不安或異常？如果是，請向我們報告，我們將進行審核。提供額外細節為選項。",
+  "components.reportDialog.inputPlaceholder": "描述圖片中似乎有什麼問題（可選）。",
+  "components.reportDialog.button": "提交",
+  "components.reportDialog.cancel": "取消",
+  "components.reportDialog.error.title": "哎呀！出現了一些錯誤",
+  "components.reportDialog.error.description": "請稍後再試。",
+  "components.reportDialog.success.title": "報告提交成功",
+  "components.reportDialog.success.description": "我們將分析此問題。"
 }

@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Perkhidmatan percuma kami sedang mengalami trafik yang tinggi pada masa ini. Sila tunggu sebentar dan cuba lagi.",
   "screens.generation.reStartButton": "Buat Lebih Banyak",
   "screens.generation.inputPromptGeneration": "Menghasilkan arahan anda, sila tunggu sebentar...",
-  "screens.history.title": "Sejarah"
+  "screens.history.title": "Sejarah",
+  "components.reportDialog.title": "Laporkan Isu",
+  "components.reportDialog.description": "Adakah imej yang dihasilkan itu tidak sesuai, mengganggu, atau luar biasa? Jika ya, sila laporkan kepada kami, dan kami akan menyemaknya. Memberi butiran tambahan adalah pilihan.",
+  "components.reportDialog.inputPlaceholder": "Huraikan apa yang nampak salah dengan imej tersebut (pilihan).",
+  "components.reportDialog.button": "Hantar",
+  "components.reportDialog.cancel": "Batal",
+  "components.reportDialog.error.title": "Aduh! Sesuatu telah berlaku dengan salah",
+  "components.reportDialog.error.description": "Sila cuba lagi nanti.",
+  "components.reportDialog.success.title": "Laporan Dihantar dengan Jayanya",
+  "components.reportDialog.success.description": "Kami akan menganalisis isu tersebut."
 }

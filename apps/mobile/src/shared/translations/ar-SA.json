@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "خدمتنا المجانية تعاني من ضغط عالي في الوقت الحالي. يرجى الانتظار بضع دقائق ثم أعد المحاولة.",
   "screens.generation.reStartButton": "إنشاء المزيد",
   "screens.generation.inputPromptGeneration": "جارٍ إنشاء تلميحك، يرجى الانتظار لحظة...",
-  "screens.history.title": "التاريخ"
+  "screens.history.title": "التاريخ",
+  "components.reportDialog.title": "إبلاغ عن مشكلة",
+  "components.reportDialog.description": "هل الصورة المُولَّدة غير مناسبة أو مقلقة أو غير عادية؟ إذا كان الأمر كذلك، يرجى إبلاغنا وسنقوم بمراجعتها. تقديم تفاصيل إضافية هو أمر اختياري.",
+  "components.reportDialog.inputPlaceholder": "وصف ما يبدو خاطئًا في الصورة (اختياري).",
+  "components.reportDialog.button": "إرسال",
+  "components.reportDialog.cancel": "إلغاء",
+  "components.reportDialog.error.title": "عذرًا! حدث خطأ ما",
+  "components.reportDialog.error.description": "يرجى المحاولة مرة أخرى لاحقًا.",
+  "components.reportDialog.success.title": "تم تقديم التقرير بنجاح",
+  "components.reportDialog.success.description": "سنحلل المشكلة."
 }

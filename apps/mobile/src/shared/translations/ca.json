@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "El nostre servei gratuït està experimentant un alt trànsit en aquest moment. Si us plau, espereu uns minuts i torneu a intentar-ho.",
   "screens.generation.reStartButton": "Crea més",
   "screens.generation.inputPromptGeneration": "Generant el teu missatge, si us plau, espera un moment...",
-  "screens.history.title": "Historial"
+  "screens.history.title": "Historial",
+  "components.reportDialog.title": "Informar d'un problema",
+  "components.reportDialog.description": "És la imatge generada inapropiada, inquietant o inusual? Si és així, si us plau, informa'ns i la revisarem. Proporcionar detalls addicionals és opcional.",
+  "components.reportDialog.inputPlaceholder": "Descriu què sembla estar malament amb la imatge (opcional).",
+  "components.reportDialog.button": "Enviar",
+  "components.reportDialog.cancel": "Cancel·la",
+  "components.reportDialog.error.title": "Oops! Alguna cosa ha anat malament",
+  "components.reportDialog.error.description": "Si us plau, proveu-ho més tard.",
+  "components.reportDialog.success.title": "Informe enviat amb èxit",
+  "components.reportDialog.success.description": "Analitzarem el problema."
 }

@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Ilmainen palvelumme kohtaa tällä hetkellä suurta liikennettä. Ole hyvä ja odota muutama minuutti ja yritä sitten uudelleen.",
   "screens.generation.reStartButton": "Luo lisää",
   "screens.generation.inputPromptGeneration": "Luodaan pyyntöäsi, ole hyvä ja odota hetki...",
-  "screens.history.title": "Historia"
+  "screens.history.title": "Historia",
+  "components.reportDialog.title": "Ilmoita ongelmasta",
+  "components.reportDialog.description": "Onko luotu kuva epäsopiva, häiritsevä tai outo? Jos näin on, ilmoita siitä meille, niin tarkastamme asian. Lisätietojen antaminen on vapaaehtoista.",
+  "components.reportDialog.inputPlaceholder": "Kuvaile, mikä mielestäsi on pielessä kuvassa (valinnainen).",
+  "components.reportDialog.button": "Lähetä",
+  "components.reportDialog.cancel": "Peruuta",
+  "components.reportDialog.error.title": "Hups! Jotain meni pieleen.",
+  "components.reportDialog.error.description": "Yritä uudelleen myöhemmin.",
+  "components.reportDialog.success.title": "Raportti lähetetty onnistuneesti",
+  "components.reportDialog.success.description": "Tutkimme ongelmaa."
 }

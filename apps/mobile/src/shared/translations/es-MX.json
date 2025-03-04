@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Nuestro servicio gratuito está experimentando un alto tráfico en este momento. Por favor, espere unos minutos y vuelva a intentarlo.",
   "screens.generation.reStartButton": "Crear más",
   "screens.generation.inputPromptGeneration": "Generando su solicitud, por favor espere un momento...",
-  "screens.history.title": "Historial"
+  "screens.history.title": "Historial",
+  "components.reportDialog.title": "Informar un Problema",
+  "components.reportDialog.description": "¿La imagen generada es inapropiada, perturbadora o inusual? Si es así, por favor, repórtala y la revisaremos. Proporcionar detalles adicionales es opcional.",
+  "components.reportDialog.inputPlaceholder": "Describe lo que parece estar mal con la imagen (opcional).",
+  "components.reportDialog.button": "Enviar",
+  "components.reportDialog.cancel": "Cancelar",
+  "components.reportDialog.error.title": "¡Ups! Algo salió mal",
+  "components.reportDialog.error.description": "Por favor, inténtalo de nuevo más tarde.",
+  "components.reportDialog.success.title": "Informe enviado con éxito",
+  "components.reportDialog.success.description": "Analizaremos el problema."
 }

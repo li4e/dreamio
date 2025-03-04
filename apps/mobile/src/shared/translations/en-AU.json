@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Our free service is currently experiencing high demand. Please wait a few minutes and try again.",
   "screens.generation.reStartButton": "Create More",
   "screens.generation.inputPromptGeneration": "Generating your prompt, please hold on for a moment...",
-  "screens.history.title": "History"
+  "screens.history.title": "History",
+  "components.reportDialog.title": "Report an Issue",
+  "components.reportDialog.description": "Is the generated image inappropriate, disturbing, or out of the ordinary? If so, please report it to us for review. Providing additional details is optional.",
+  "components.reportDialog.inputPlaceholder": "Describe what appears to be wrong with the image (optional).",
+  "components.reportDialog.button": "Submit",
+  "components.reportDialog.cancel": "Cancel",
+  "components.reportDialog.error.title": "Oops! Something went awry.",
+  "components.reportDialog.error.description": "Please try again later on.",
+  "components.reportDialog.success.title": "Report Submitted Successfully",
+  "components.reportDialog.success.description": "We will investigate the issue."
 }

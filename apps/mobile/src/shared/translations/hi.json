@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "हमारी मुफ्त सेवा वर्तमान में उच्च ट्रैफ़िक का सामना कर रही है। कृपया कुछ मिनट प्रतीक्षा करें और पुनः प्रयास करें।",
   "screens.generation.reStartButton": "अधिक बनाएँ",
   "screens.generation.inputPromptGeneration": "आपका प्रॉम्प्ट जनरेट किया जा रहा है, कृपया कुछ क्षण प्रतीक्षा करें...",
-  "screens.history.title": "इतिहास"
+  "screens.history.title": "इतिहास",
+  "components.reportDialog.title": "समस्या की रिपोर्ट करें",
+  "components.reportDialog.description": "क्या उत्पन्न की गई छवि अनुपयुक्त, परेशान करने वाली या असामान्य है? यदि हाँ, तो कृपया हमें इसकी रिपोर्ट करें, और हम उसकी समीक्षा करेंगे। अतिरिक्त विवरण प्रदान करना वैकल्पिक है।",
+  "components.reportDialog.inputPlaceholder": "चित्र में जो कुछ गलत लग रहा है, उसका वर्णन करें (ऐच्छिक)।",
+  "components.reportDialog.button": "जमा करें",
+  "components.reportDialog.cancel": "रद्द करें",
+  "components.reportDialog.error.title": "अरे! कुछ गलत हो गया",
+  "components.reportDialog.error.description": "कृपया बाद में फिर से प्रयास करें।",
+  "components.reportDialog.success.title": "रिपोर्ट सफलतापूर्वक प्रस्तुत की गई",
+  "components.reportDialog.success.description": "हम इस समस्या का विश्लेषण करेंगे।"
 }

@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Ingyenes szolgáltatásunk jelenleg nagy forgalommal bír. Kérjük, várjon néhány percet, majd próbálja újra.",
   "screens.generation.reStartButton": "Tovább készít",
   "screens.generation.inputPromptGeneration": "A kérdésed generálása folyamatban van, kérlek, várj egy pillanatot...",
-  "screens.history.title": "Történelem"
+  "screens.history.title": "Történelem",
+  "components.reportDialog.title": "Hiba bejelentése",
+  "components.reportDialog.description": "A generált kép inappropriate, zavaró vagy szokatlan? Ha igen, kérjük, jelezze nekünk, és átnézzük azt. További részletek megadása opcionális.",
+  "components.reportDialog.inputPlaceholder": "Írja le, mi tűnik hibásnak a képen (opcionális).",
+  "components.reportDialog.button": "Benyújtás",
+  "components.reportDialog.cancel": "Mégse",
+  "components.reportDialog.error.title": "Hoppá! Valami hiba történt.",
+  "components.reportDialog.error.description": "Kérjük, próbálja meg később.",
+  "components.reportDialog.success.title": "Jelentés sikeresen benyújtva",
+  "components.reportDialog.success.description": "Meg fogjuk vizsgálni a problémát."
 }

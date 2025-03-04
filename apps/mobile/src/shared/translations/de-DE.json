@@ -89,5 +89,14 @@
   "screens.generation.errorServiceUnavailable.description": "Unser kostenloser Dienst hat momentan hohe Auslastung. Bitte warten Sie einige Minuten und versuchen Sie es erneut.",
   "screens.generation.reStartButton": "Mehr erstellen",
   "screens.generation.inputPromptGeneration": "Erzeuge Ihren Prompt, bitte einen Moment warten...",
-  "screens.history.title": "Verlauf"
+  "screens.history.title": "Verlauf",
+  "components.reportDialog.title": "Problem melden",
+  "components.reportDialog.description": "Ist das erzeugte Bild unangemessen, verstörend oder ungewöhnlich? Wenn ja, melden Sie es bitte uns, und wir werden es überprüfen. Zusätzliche Details anzugeben ist optional.",
+  "components.reportDialog.inputPlaceholder": "Beschreiben Sie, was mit dem Bild nicht stimmt (optional).",
+  "components.reportDialog.button": "Einreichen",
+  "components.reportDialog.cancel": "Abbrechen",
+  "components.reportDialog.error.title": "Hoppla! Da ist etwas schiefgelaufen.",
+  "components.reportDialog.error.description": "Bitte versuchen Sie es später noch einmal.",
+  "components.reportDialog.success.title": "Bericht erfolgreich eingereicht",
+  "components.reportDialog.success.description": "Wir werden das Problem analysieren."
 }
