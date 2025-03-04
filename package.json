@@ -15,6 +15,7 @@
     "android:release": "dotenv -e .env -- npm run android:release -w apps/mobile",
     "prebuild": "dotenv -e .env -- npm run prebuild -w apps/mobile",
     "prebuild:screenshots": "npm run prebuild && npm run build -w tools/screenshots",
+    "deploy:backend": "npm run deploy -w apps/backend",
     "deploy:web": "firebase deploy --only hosting",
     "deploy:ios": "dotenv -e .env -- npm run deploy:ios -w tools/mobile-deploy",
     "deploy:android": "dotenv -e .env -- npm run deploy:android -w tools/mobile-deploy",
