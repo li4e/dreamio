@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "哎呀！出現了一些錯誤",
   "components.reportDialog.error.description": "請稍後再試。",
   "components.reportDialog.success.title": "報告提交成功",
-  "components.reportDialog.success.description": "我們將分析此問題。"
+  "components.reportDialog.success.description": "我們將分析此問題。",
+  "screens.generationResult.deletedMultiple": "已刪除多個世代",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "此操作將永久刪除所有選定的生成影像，且無法恢復。您確定要繼續嗎？"
 }

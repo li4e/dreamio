@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oops! Alguna cosa ha anat malament",
   "components.reportDialog.error.description": "Si us plau, proveu-ho més tard.",
   "components.reportDialog.success.title": "Informe enviat amb èxit",
-  "components.reportDialog.success.description": "Analitzarem el problema."
+  "components.reportDialog.success.description": "Analitzarem el problema.",
+  "screens.generationResult.deletedMultiple": "S'han eliminat les generacions.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Aquesta acció eliminarà permanentment totes les imatges generades seleccionades i no podrà ser desfeita. Esteu segurs que voleu continuar?"
 }

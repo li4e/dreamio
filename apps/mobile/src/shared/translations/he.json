@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "אוי! משהו השתבש",
   "components.reportDialog.error.description": "בבקשה נסה שוב מאוחר יותר.",
   "components.reportDialog.success.title": "דיווח הוגש בהצלחה",
-  "components.reportDialog.success.description": "ננתח את הבעיה."
+  "components.reportDialog.success.description": "ננתח את הבעיה.",
+  "screens.generationResult.deletedMultiple": "הדורות נמחקו",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "פעולה זו תמחוק לצמיתות את כל התמונות המוגדרות שנבחרו ולא ניתן יהיה לשחזרן. האם אתה בטוח שברצונך להמשיך?"
 }

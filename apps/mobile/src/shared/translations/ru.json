@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Упс! Что-то пошло не так.",
   "components.reportDialog.error.description": "Пожалуйста, попробуйте еще раз позже.",
   "components.reportDialog.success.title": "Отчет успешно отправлен",
-  "components.reportDialog.success.description": "Мы проанализируем проблему."
+  "components.reportDialog.success.description": "Мы проанализируем проблему.",
+  "screens.generationResult.deletedMultiple": "Генерации были удалены.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Это действие навсегда удалит все выбранные сгенерированные изображения и его нельзя будет отменить. Вы уверены, что хотите продолжить?"
 }

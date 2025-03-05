@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "อุ๊ปส์! เกิดข้อผิดพลาดบางอย่าง",
   "components.reportDialog.error.description": "กรุณาลองอีกครั้งในภายหลัง.",
   "components.reportDialog.success.title": "รายงานถูกส่งเรียบร้อยแล้ว",
-  "components.reportDialog.success.description": "เราจะวิเคราะห์ปัญหาให้."
+  "components.reportDialog.success.description": "เราจะวิเคราะห์ปัญหาให้.",
+  "screens.generationResult.deletedMultiple": "การสร้างได้ถูกลบออกแล้ว",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "การดำเนินการนี้จะลบภาพที่สร้างขึ้นทั้งหมดที่เลือกอย่างถาวรและไม่สามารถย้อนกลับได้ คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?"
 }

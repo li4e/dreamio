@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oops! Something went awry.",
   "components.reportDialog.error.description": "Please try again later on.",
   "components.reportDialog.success.title": "Report Submitted Successfully",
-  "components.reportDialog.success.description": "We will investigate the issue."
+  "components.reportDialog.success.description": "We will investigate the issue.",
+  "screens.generationResult.deletedMultiple": "Generations have been deleted.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "This action will permanently delete all the selected generated images and cannot be undone. Are you certain you wish to proceed?"
 }

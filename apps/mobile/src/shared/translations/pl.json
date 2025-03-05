@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ups! Coś poszło nie tak",
   "components.reportDialog.error.description": "Proszę spróbować ponownie później.",
   "components.reportDialog.success.title": "Zgłoszenie zostało pomyślnie przesłane",
-  "components.reportDialog.success.description": "Przeanalizujemy problem."
+  "components.reportDialog.success.description": "Przeanalizujemy problem.",
+  "screens.generationResult.deletedMultiple": "Generacje zostały usunięte.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Ta akcja trwale usunie wszystkie wybrane wygenerowane obrazy i nie można jej cofnąć. Czy na pewno chcesz kontynuować?"
 }

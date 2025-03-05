@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ups! A apărut o problemă.",
   "components.reportDialog.error.description": "Te rugăm să încerci din nou mai târziu.",
   "components.reportDialog.success.title": "Raport trimis cu succes",
-  "components.reportDialog.success.description": "Vom analiza problema."
+  "components.reportDialog.success.description": "Vom analiza problema.",
+  "screens.generationResult.deletedMultiple": "Generațiile au fost șterse.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Această acțiune va șterge permanent toate imaginile generate selectate și nu poate fi anulată. Sunteți sigur că doriți să continuați?"
 }

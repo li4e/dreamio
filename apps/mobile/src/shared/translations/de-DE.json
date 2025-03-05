@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Hoppla! Da ist etwas schiefgelaufen.",
   "components.reportDialog.error.description": "Bitte versuchen Sie es später noch einmal.",
   "components.reportDialog.success.title": "Bericht erfolgreich eingereicht",
-  "components.reportDialog.success.description": "Wir werden das Problem analysieren."
+  "components.reportDialog.success.description": "Wir werden das Problem analysieren.",
+  "screens.generationResult.deletedMultiple": "Generationen wurden gelöscht.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Diese Aktion wird alle ausgewählten generierten Bilder dauerhaft löschen und kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?"
 }

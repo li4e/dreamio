@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oeps! Er is iets misgegaan.",
   "components.reportDialog.error.description": "Probeer het later opnieuw.",
   "components.reportDialog.success.title": "Rapport Succesvol Ingediend",
-  "components.reportDialog.success.description": "We zullen het probleem analyseren."
+  "components.reportDialog.success.description": "We zullen het probleem analyseren.",
+  "screens.generationResult.deletedMultiple": "Generaties zijn verwijderd",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Deze actie zal alle geselecteerde gegenereerde afbeeldingen permanent verwijderen en kan niet ongedaan gemaakt worden. Weet u zeker dat u wilt doorgaan?"
 }

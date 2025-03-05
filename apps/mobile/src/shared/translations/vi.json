@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ôi không! Có điều gì đó đã xảy ra sai.",
   "components.reportDialog.error.description": "Vui lòng thử lại sau.",
   "components.reportDialog.success.title": "Báo cáo đã được gửi thành công",
-  "components.reportDialog.success.description": "Chúng tôi sẽ phân tích vấn đề."
+  "components.reportDialog.success.description": "Chúng tôi sẽ phân tích vấn đề.",
+  "screens.generationResult.deletedMultiple": "Các thế hệ đã được xóa.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Hành động này sẽ xóa vĩnh viễn tất cả các hình ảnh được tạo đã chọn và không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục không?"
 }

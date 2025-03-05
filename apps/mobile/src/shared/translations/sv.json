@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oj! Något gick fel",
   "components.reportDialog.error.description": "Vänligen försök igen senare.",
   "components.reportDialog.success.title": "Rapporten har skickats in framgångsrikt",
-  "components.reportDialog.success.description": "Vi kommer att analysera problemet."
+  "components.reportDialog.success.description": "Vi kommer att analysera problemet.",
+  "screens.generationResult.deletedMultiple": "Genereringarna har raderats",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Denna åtgärd kommer permanent att ta bort alla valda genererade bilder och kan inte ångras. Är du säker på att du vill fortsätta?"
 }

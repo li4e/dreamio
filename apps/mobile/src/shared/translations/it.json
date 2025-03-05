@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ops! Qualcosa è andato storto",
   "components.reportDialog.error.description": "Per favore, riprova più tardi.",
   "components.reportDialog.success.title": "Report inviato con successo",
-  "components.reportDialog.success.description": "Analizzeremo il problema."
+  "components.reportDialog.success.description": "Analizzeremo il problema.",
+  "screens.generationResult.deletedMultiple": "Le generazioni sono state eliminate.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Questa azione eliminerà permanentemente tutte le immagini generate selezionate e non potrà essere annullata. Sei sicuro di voler procedere?"
 }

@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Упс! Щось пішло не так",
   "components.reportDialog.error.description": "Будь ласка, спробуйте знову пізніше.",
   "components.reportDialog.success.title": "Звіт успішно надіслано",
-  "components.reportDialog.success.description": "Ми проаналізуємо проблему."
+  "components.reportDialog.success.description": "Ми проаналізуємо проблему.",
+  "screens.generationResult.deletedMultiple": "Генерації були видалені.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Ця дія назавжди видалить усі вибрані згенеровані зображення, і її неможливо буде скасувати. Ви впевнені, що хочете продовжити?"
 }

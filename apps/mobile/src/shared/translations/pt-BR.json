@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ops! Algo deu errado.",
   "components.reportDialog.error.description": "Por favor, tente novamente mais tarde.",
   "components.reportDialog.success.title": "Relatório Enviado Com Sucesso",
-  "components.reportDialog.success.description": "Nós iremos analisar o problema."
+  "components.reportDialog.success.description": "Nós iremos analisar o problema.",
+  "screens.generationResult.deletedMultiple": "As gerações foram excluídas.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Essa ação removerá permanentemente todas as imagens geradas selecionadas e não poderá ser desfeita. Você tem certeza de que deseja prosseguir?"
 }

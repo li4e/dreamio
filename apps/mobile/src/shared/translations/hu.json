@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Hoppá! Valami hiba történt.",
   "components.reportDialog.error.description": "Kérjük, próbálja meg később.",
   "components.reportDialog.success.title": "Jelentés sikeresen benyújtva",
-  "components.reportDialog.success.description": "Meg fogjuk vizsgálni a problémát."
+  "components.reportDialog.success.description": "Meg fogjuk vizsgálni a problémát.",
+  "screens.generationResult.deletedMultiple": "A generációk törlődtek.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Ez a művelet véglegesen törli az összes kiválasztott generált képet, és nem vonható vissza. Biztosan folytatni szeretné?"
 }

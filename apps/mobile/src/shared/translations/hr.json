@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oups! Nešto je pošlo po zlu",
   "components.reportDialog.error.description": "Molimo pokušajte ponovo kasnije.",
   "components.reportDialog.success.title": "Izvještaj je uspješno podnesen",
-  "components.reportDialog.success.description": "Analizirat ćemo problem."
+  "components.reportDialog.success.description": "Analizirat ćemo problem.",
+  "screens.generationResult.deletedMultiple": "Generacije su obrisane",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Ova radnja će trajno izbrisati sve odabrane generirane slike i ne može se poništiti. Jeste li sigurni da želite nastaviti?"
 }

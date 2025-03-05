@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "¡Vaya! Algo salió mal",
   "components.reportDialog.error.description": "Por favor, inténtelo de nuevo más tarde.",
   "components.reportDialog.success.title": "Informe enviado con éxito",
-  "components.reportDialog.success.description": "Analizaremos el problema."
+  "components.reportDialog.success.description": "Analizaremos el problema.",
+  "screens.generationResult.deletedMultiple": "Se han eliminado generaciones.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Esta acción eliminará permanentemente todas las imágenes generadas seleccionadas y no se puede deshacer. ¿Está seguro de que desea continuar?"
 }

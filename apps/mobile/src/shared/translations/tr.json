@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Hooops! Bir şeyler ters gitti",
   "components.reportDialog.error.description": "Lütfen daha sonra tekrar deneyin.",
   "components.reportDialog.success.title": "Rapor Başarıyla Gönderildi",
-  "components.reportDialog.success.description": "Sorunu analiz edeceğiz."
+  "components.reportDialog.success.description": "Sorunu analiz edeceğiz.",
+  "screens.generationResult.deletedMultiple": "Üretimler silindi.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Bu işlem, seçilen tüm oluşturulan görselleri kalıcı olarak silecektir ve geri alınamaz. Devam etmek istediğinizden emin misiniz?"
 }

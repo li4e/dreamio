@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "おっと！何かがうまくいきませんでした",
   "components.reportDialog.error.description": "後でもう一度お試しください。",
   "components.reportDialog.success.title": "レポートが正常に送信されました",
-  "components.reportDialog.success.description": "問題を分析いたします。"
+  "components.reportDialog.success.description": "問題を分析いたします。",
+  "screens.generationResult.deletedMultiple": "世代が削除されました",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "この操作を実行すると、選択したすべての生成画像が完全に削除され、元に戻すことはできません。続行してもよろしいですか？"
 }

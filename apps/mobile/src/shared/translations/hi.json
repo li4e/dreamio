@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "अरे! कुछ गलत हो गया",
   "components.reportDialog.error.description": "कृपया बाद में फिर से प्रयास करें।",
   "components.reportDialog.success.title": "रिपोर्ट सफलतापूर्वक प्रस्तुत की गई",
-  "components.reportDialog.success.description": "हम इस समस्या का विश्लेषण करेंगे।"
+  "components.reportDialog.success.description": "हम इस समस्या का विश्लेषण करेंगे।",
+  "screens.generationResult.deletedMultiple": "पीढ़ियाँ हटा दी गई हैं",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "यह क्रिया सभी चयनित जनित छवियों को स्थायी रूप से मिटा देगा और इसे पूर्ववत नहीं किया जा सकता। क्या आप आगे बढ़ने के लिए सुनिश्चित हैं?"
 }

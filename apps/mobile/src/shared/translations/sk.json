@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ups! Niečo sa pokazilo.",
   "components.reportDialog.error.description": "Skúste to prosím neskôr.",
   "components.reportDialog.success.title": "Správa bola úspešne odoslaná",
-  "components.reportDialog.success.description": "Analyzujeme problém."
+  "components.reportDialog.success.description": "Analyzujeme problém.",
+  "screens.generationResult.deletedMultiple": "Generácie boli vymazané.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Táto akcia natrvalo vymaže všetky vybrané vygenerované obrázky a nemôže byť zrušená. Ste si istí, že chcete pokračovať?"
 }

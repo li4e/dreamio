@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ups! Ada yang tidak beres",
   "components.reportDialog.error.description": "Silakan coba lagi nanti.",
   "components.reportDialog.success.title": "Laporan Berhasil Dikirim",
-  "components.reportDialog.success.description": "Kami akan menganalisis masalah tersebut."
+  "components.reportDialog.success.description": "Kami akan menganalisis masalah tersebut.",
+  "screens.generationResult.deletedMultiple": "Generasi telah dihapus",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Tindakan ini akan menghapus secara permanen semua gambar yang dihasilkan yang dipilih dan tidak dapat dibatalkan. Apa Anda yakin ingin melanjutkan?"
 }

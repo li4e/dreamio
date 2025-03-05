@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Omlouváme se! Něco se pokazilo.",
   "components.reportDialog.error.description": "Prosím, zkuste to znovu později.",
   "components.reportDialog.success.title": "Zpráva byla úspěšně odeslána",
-  "components.reportDialog.success.description": "Prozkoumáme problém."
+  "components.reportDialog.success.description": "Prozkoumáme problém.",
+  "screens.generationResult.deletedMultiple": "Generace byly smazány.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Tato akce trvale odstraní všechny vybrané vygenerované obrázky a nelze ji vrátit zpět. Opravdu chcete pokračovat?"
 }

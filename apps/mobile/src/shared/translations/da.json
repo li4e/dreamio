@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ups! Noget gik galt.",
   "components.reportDialog.error.description": "Ven venligst tilbage senere.",
   "components.reportDialog.success.title": "Rapport sendt med succes",
-  "components.reportDialog.success.description": "Vi vil analysere problemet."
+  "components.reportDialog.success.description": "Vi vil analysere problemet.",
+  "screens.generationResult.deletedMultiple": "Generationer er blevet slettet.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Denne handling vil permanent slette alle de valgte genererede billeder og kan ikke fortrydes. Er du sikker på, at du vil fortsætte?"
 }

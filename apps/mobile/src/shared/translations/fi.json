@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Hups! Jotain meni pieleen.",
   "components.reportDialog.error.description": "Yritä uudelleen myöhemmin.",
   "components.reportDialog.success.title": "Raportti lähetetty onnistuneesti",
-  "components.reportDialog.success.description": "Tutkimme ongelmaa."
+  "components.reportDialog.success.description": "Tutkimme ongelmaa.",
+  "screens.generationResult.deletedMultiple": "Sukupuut ovat poistettu",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Tämä toimi poistaa pysyvästi kaikki valitut luodut kuvat, eikä sitä voi peruuttaa. Oletko varma, että haluat jatkaa?"
 }

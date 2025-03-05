@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "عذرًا! حدث خطأ ما",
   "components.reportDialog.error.description": "يرجى المحاولة مرة أخرى لاحقًا.",
   "components.reportDialog.success.title": "تم تقديم التقرير بنجاح",
-  "components.reportDialog.success.description": "سنحلل المشكلة."
+  "components.reportDialog.success.description": "سنحلل المشكلة.",
+  "screens.generationResult.deletedMultiple": "تم حذف الأجيال",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "سيؤدي هذا الإجراء إلى حذف جميع الصور المولدة المحددة بشكل دائم ولا يمكن التراجع عنه. هل أنت متأكد أنك تريد المتابعة؟"
 }

@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Aduh! Sesuatu telah berlaku dengan salah",
   "components.reportDialog.error.description": "Sila cuba lagi nanti.",
   "components.reportDialog.success.title": "Laporan Dihantar dengan Jayanya",
-  "components.reportDialog.success.description": "Kami akan menganalisis isu tersebut."
+  "components.reportDialog.success.description": "Kami akan menganalisis isu tersebut.",
+  "screens.generationResult.deletedMultiple": "Generasi telah dipadamkan",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Tindakan ini akan memadamkan secara kekal semua imej yang dihasilkan yang dipilih dan tidak boleh diubah semula. Adakah anda pasti ingin meneruskan?"
 }

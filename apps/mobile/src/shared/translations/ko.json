@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "앗! 문제가 발생했습니다.",
   "components.reportDialog.error.description": "나중에 다시 시도해 주세요.",
   "components.reportDialog.success.title": "보고서가 성공적으로 제출되었습니다",
-  "components.reportDialog.success.description": "문제를 분석하겠습니다."
+  "components.reportDialog.success.description": "문제를 분석하겠습니다.",
+  "screens.generationResult.deletedMultiple": "세대가 삭제되었습니다.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "이 작업은 선택한 모든 생성된 이미지를 영구적으로 삭제하며, 복구할 수 없습니다. 계속 진행하시겠습니까?"
 }

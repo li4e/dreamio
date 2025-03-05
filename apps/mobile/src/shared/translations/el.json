@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Ουπς! Κάτι πήγε στραβά",
   "components.reportDialog.error.description": "Παρακαλούμε δοκιμάστε ξανά αργότερα.",
   "components.reportDialog.success.title": "Η αναφορά υποβλήθηκε επιτυχώς",
-  "components.reportDialog.success.description": "Θα αναλύσουμε το ζήτημα."
+  "components.reportDialog.success.description": "Θα αναλύσουμε το ζήτημα.",
+  "screens.generationResult.deletedMultiple": "Οι γενιές έχουν διαγραφεί",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Αυτή η ενέργεια θα διαγράψει οριστικά όλες τις επιλεγμένες παραγόμενες εικόνες και δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να προχωρήσετε;"
 }

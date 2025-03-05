@@ -98,5 +98,7 @@
   "components.reportDialog.error.title": "Oups ! Une erreur est survenue.",
   "components.reportDialog.error.description": "Veuillez réessayer plus tard.",
   "components.reportDialog.success.title": "Rapport soumis avec succès",
-  "components.reportDialog.success.description": "Nous allons analyser le problème."
+  "components.reportDialog.success.description": "Nous allons analyser le problème.",
+  "screens.generationResult.deletedMultiple": "Des générations ont été supprimées.",
+  "screens.generationResult.deleteDialog.descriptionMultiple": "Cette action supprimera définitivement toutes les images générées sélectionnées et ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?"
 }
