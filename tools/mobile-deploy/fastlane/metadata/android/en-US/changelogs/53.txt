@@ -1,1 +1,0 @@
-— Refined the design of the "Result of Generation" screen for better consistency.
