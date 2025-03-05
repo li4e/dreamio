@@ -1,13 +1,12 @@
 Generatore d'Arte AI - Dreamio
 
-Scatena la tua creatività con Dreamio, il generatore d'arte AI gratuito per eccellenza. Basta inserire un prompt, selezionare il tuo stile desiderato e osservare Dreamio creare opere d'arte straordinarie basate sulla tua immaginazione. Grazie alla potenza della gratuita API Pollination, Dreamio ti consente di produrre immagini di alta qualità senza sforzo.
+Libera la tua creatività con Dreamio, il generatore d'arte alimentato da intelligenza artificiale definitivo e gratuito. Basta inserire un prompt, selezionare lo stile desiderato e osservare Dreamio creare opere d'arte straordinarie basate sulla tua immaginazione. Grazie alla potenza dell'API Pollination gratuita, Dreamio ti consente di produrre immagini di alta qualità senza sforzo.
 
 Caratteristiche Principali:
 
-Gratuito e Facile da Usare: Dreamio è completamente gratuito, senza costi nascosti.
-Stili Multipli: Scegli tra una varietà di stili artistici per adattarti alla tua visione.
-Scrivi i Tuoi Prompt: Personalizza la generazione artistica con i tuoi prompt per un risultato davvero unico.
-Storia: Salva le tue creazioni preferite nella tua cronologia per un facile accesso.
+Gratuito e Facile da Usare: Dreamio è completamente gratuito con zero costi nascosti.
+Stili Diversificati: Scegli tra una varietà di stili artistici per esprimere la tua visione.
+Scrivi i Tuoi Prompt: Personalizza la generazione artistica con i tuoi prompt per un risultato veramente personalizzato.
+Cronologia: Salva le tue creazioni preferite nella tua cronologia per un facile accesso.
 Scarica e Condividi: Scarica la tua opera d'arte, condividila con gli amici o copia il prompt per riutilizzarlo in seguito.
-Privacy al Primo Posto: Tutti i dati rimangono locali sul tuo dispositivo. Non raccogliamo né memorizziamo alcun dato dell'utente.
-Dreamio è il tuo compagno ideale per generare opere d'arte AI uniche e bellissime, mantenendo le tue informazioni private. Inizia a creare ora!
+Dreamio è il tuo compagno ideale per generare opere d'arte AI uniche e belle. Inizia a creare ora!

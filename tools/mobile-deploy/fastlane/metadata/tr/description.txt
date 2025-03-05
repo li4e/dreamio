@@ -1,13 +1,12 @@
 AI Sanat Üretici - Dreamio
 
-Yaratıcılığınızı Dreamio ile serbest bırakın, nihai ücretsiz AI destekli sanat üreticisi. Basitçe bir istem girin, istediğiniz tarzı seçin ve Dreamio'nun hayal gücünüze dayalı muhteşem sanat eserleri yaratmasını izleyin. Ücretsiz Pollination API'nin gücü ile Dreamio, yüksek kaliteli görüntüleri zahmetsizce üretmenizi sağlar.
+Yaratıcılığınızı serbest bırakın ve Dreamio ile en iyi ücretsiz AI destekli sanat üreticisini keşfedin. Basitçe bir istem girin, istediğiniz tarzı seçin ve Dreamio'nun hayal gücünüze dayalı muhteşem sanat eserlerini yaratmasını izleyin. Ücretsiz Pollination API teknolojisinin gücüyle Dreamio, yüksek kaliteli görseller üretmenizi zahmetsizce sağlar.
 
 Ana Özellikler:
 
-Ücretsiz ve Kolay Kullanım: Dreamio tamamen ücretsizdir ve gizli ücret yoktur.
-Çeşitli Tarzlar: Görselliğinize uyum sağlamak için çeşitli sanatsal stillerden birini seçin.
-İstemlerinizi Yazın: Kendi istemlerinizi kullanarak sanat üretimini özelleştirin ve gerçekten kişiselleştirilmiş sonuçlar elde edin.
-Geçmiş: Favori yaratımlarınızı kolay erişim için geçmişinize kaydedin.
-İndirin ve Paylaşın: Sanat eserlerinizi indirin, arkadaşlarınızla paylaşın veya tekrar kullanmak üzere istemi kopyalayın.
-Gizlilik Önceliği: Tüm veriler cihazınızda yerel olarak kalır. Hiçbir kullanıcı verisini toplamaz veya saklamıyoruz.
-Dreamio, benzersiz ve güzel AI sanatı üretirken bilgilerinizin gizli kalmasını sağlayan mükemmel bir yardımcıdır. Şimdi yaratmaya başlayın!
+Ücretsiz ve Kullanımı Kolay: Dreamio tamamen ücretsizdir, hiçbir gizli ücret yoktur.
+Çeşitli Tarzlar: Vizyonunuza uyan farklı sanat tarzlarından birini seçin.
+İstemlerinizi Yazın: Gerçekten kişiselleştirilmiş bir sonuç için sanat üretimini kendi istemlerinizle özelleştirin.
+Geçmiş: Favori eserlerinizi geçmişinize kaydedin ve kolayca erişin.
+İndir & Paylaş: Sanat eserlerinizi indirin, arkadaşlarınızla paylaşın veya istemi kopyalayıp daha sonra yeniden kullanın.
+Dreamio, benzersiz ve güzel AI sanat eserleri oluşturmak için mükemmel bir yardımcıdır. Şimdi yaratmaya başlayın!

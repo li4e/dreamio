@@ -1,13 +1,12 @@
 AI Kunstgenerator - Dreamio
 
-Entfalten Sie Ihre Kreativität mit Dreamio, dem ultimativen kostenlosen KI-gestützten Kunstgenerator. Geben Sie einfach einen Textvorschlag ein, wählen Sie Ihren gewünschten Stil aus und sehen Sie zu, wie Dreamio atemberaubende Kunstwerke basierend auf Ihrer Vorstellungskraft erstellt. Mit der Macht der kostenlosen Pollination API ermöglicht es Dreamio, mühelos hochwertige Bilder zu produzieren.
+Entfalten Sie Ihre Kreativität mit Dreamio, dem ultimativen kostenlosen AI-gestützten Kunstgenerator. Geben Sie einfach einen Vorschlag ein, wählen Sie Ihren gewünschten Stil aus und sehen Sie zu, wie Dreamio atemberaubende Kunstwerke basierend auf Ihrer Fantasie erstellt. Mit der Leistung der kostenlosen Pollination API ermöglicht Ihnen Dreamio, mühelos hochwertige Bilder zu produzieren.
 
 Hauptmerkmale:
 
-Kostenlos und Einfach zu Bedienen: Dreamio ist komplett kostenlos und es fallen keine versteckten Gebühren an.
-Vielfältige Stile: Wählen Sie aus einer Vielzahl von künstlerischen Stilen, um Ihre Vision zu verwirklichen.
-Schreiben Sie Ihre Textvorschläge: Passen Sie die Kunstgenerierung mit Ihren eigenen Vorschlägen für ein wirklich personalisiertes Ergebnis an.
-Historie: Speichern Sie Ihre Lieblingskreationen in Ihrer Historie für einen einfachen Zugriff.
-Download & Teilen: Laden Sie Ihre Kunstwerke herunter, teilen Sie sie mit Freunden oder kopieren Sie den Vorschlag zur späteren Wiederverwendung.
-Datenschutz An erster Stelle: Alle Daten verbleiben lokal auf Ihrem Gerät. Wir sammeln oder speichern keine Benutzerdaten.
-Dreamio ist Ihr perfekter Begleiter für die Erstellung einzigartiger und schöner KI-Kunst, während Ihre Informationen privat bleiben. Beginnen Sie jetzt mit dem Erstellen!
+Kostenlos und einfach zu nutzen: Dreamio ist völlig kostenlos, ohne versteckte Gebühren.
+Vielseitige Stile: Wählen Sie aus einer Vielzahl von künstlerischen Stilen, die zu Ihrer Vision passen.
+Erstellen Sie Ihre Vorschläge: Passen Sie die Kunstgenerierung mit Ihren eigenen Vorschlägen an für ein echt individuelles Ergebnis.
+Verlauf: Speichern Sie Ihre Lieblingskreationen in Ihrem Verlauf für den einfachen Zugriff.
+Herunterladen & Teilen: Laden Sie Ihre Kunstwerke herunter, teilen Sie sie mit Freunden oder kopieren Sie den Vorschlag, um ihn später wiederzuverwenden.
+Dreamio ist Ihr perfekter Begleiter zur Erstellung einzigartiger und schöner KI-Kunst. Beginnen Sie jetzt mit der Kreation!

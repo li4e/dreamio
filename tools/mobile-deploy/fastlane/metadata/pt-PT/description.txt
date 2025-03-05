@@ -1,14 +1,12 @@
 Gerador de Arte AI - Dreamio
 
-Desperte a sua criatividade com o Dreamio, o gerador de arte alimentado por IA definitivo e totalmente gratuito. Basta inserir um prompt, selecionar o estilo desejado e ver o Dreamio criar obras de arte deslumbrantes baseadas na sua imaginação. Com o poder da API Pollination gratuita, o Dreamio permite gerar imagens de alta qualidade de forma fácil e rápida.
+Libere sua criatividade com o Dreamio, o gerador de arte alimentado por IA gratuito e definitivo. Basta inserir um prompt, selecionar o seu estilo desejado e assistir enquanto o Dreamio cria obras de arte impressionantes baseadas na sua imaginação. Com o poder da API Pollination gratuita, o Dreamio permite-lhe produzir imagens de alta qualidade sem esforço.
 
-Características Principais:
+Principais Características:
 
-Totalmente Gratuito e Fácil de Usar: O Dreamio é completamente gratuito, sem taxas ocultas.
+Gratuito e Fácil de Usar: O Dreamio é completamente gratuito, sem custos ocultos.
 Múltiplos Estilos: Escolha entre uma variedade de estilos artísticos para se adequar à sua visão.
-Escreva os Seus Prompts: Personalize a geração de arte com os seus próprios prompts para um resultado verdadeiramente único.
-Histórico: Guarde as suas criações favoritas no seu histórico para um acesso fácil.
-Descarregar & Partilhar: Descarregue a sua obra de arte, partilhe-a com amigos ou copie o prompt para reutilizá-lo mais tarde.
-Privacidade em Primeiro Lugar: Todos os dados permanecem locais no seu dispositivo. Não recolhemos ou armazenamos quaisquer dados de utilizador.
-
-O Dreamio é o seu companheiro perfeito para gerar arte única e bonita com IA, enquanto mantém a sua informação privada. Comece a criar agora!
+Escreva os Seus Prompts: Personalize a geração de arte com os seus próprios prompts para um resultado verdadeiramente personalizado.
+Histórico: Guarde as suas criações favoritas no seu histórico para fácil acesso.
+Baixar & Partilhar: Baixe a sua obra de arte, partilhe-a com os amigos ou copie o prompt para reutilizá-lo mais tarde.
+O Dreamio é o seu companheiro perfeito para gerar arte AI única e bela. Comece a criar agora!

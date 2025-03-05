@@ -1,6 +1,6 @@
 {
   "description.txt": {
-    "original": "274f8cf041d48e226de07a7d3dfa68d52b2142df09d52d5adde1fbe77ff777f9",
+    "original": "843caa9984988d3ffe51a52063b1cca138c019153cea0950140a490a0b850730",
     "translations": [
       "ar-SA",
       "ca",
@@ -36,10 +36,10 @@
       "sv",
       "th",
       "tr",
+      "uk",
       "vi",
       "zh-Hans",
-      "zh-Hant",
-      "uk"
+      "zh-Hant"
     ]
   },
   "name.txt": {

@@ -1,13 +1,12 @@
-AI Generacija Umjetnosti - Dreamio
+AI Generator Umjetnosti - Dreamio
 
-Oslobodite svoju kreativnost s Dreamiom, vrhunskim besplatnim generatorom umjetnosti uz podršku umjetne inteligencije. Jednostavno unesite promt, odaberite željeni stil i promatrajte kako Dreamio stvara zadivljujuća umjetnička djela prema vašoj mašti. S moći besplatnog Pollination API-a, Dreamio vam omogućuje bez napora stvaranje slika visoke kvalitete.
+Oslobodite svoju kreativnost s Dreamiom, ultimativnim besplatnim generatorom umjetnosti temeljenim na AI-u. Jednostavno unesite upit, odaberite željeni stil i gledajte kako Dreamio stvara zapanjujuće umjetničke radove temeljene na vašoj mašti. Uz snagu besplatnog Pollination API-ja, Dreamio vam omogućuje proizvodnju visokokvalitetnih slika bez napora.
 
-Ključne značajke:
+Ključne Značajke:
 
-Besplatno i jednostavno za korištenje: Dreamio je potpuno besplatan za korištenje bez skrivenih troškova.
-Više stilova: Odaberite između raznih umjetničkih stilova kako biste uskladili svoju viziju.
-Pisanje vaših promta: Prilagodite generiranje umjetnosti svojim vlastitim promtima za potpuno personaliziran rezultat.
+Besplatno i Jednostavno za Korištenje: Dreamio je potpuno besplatan za korištenje bez skrivenih troškova.
+Više Stilova: Birajte između raznih umjetničkih stilova kako biste odgovarali svojoj viziji.
+Pisanje Vaših Upita: Prilagodite generiranje umjetnosti vlastitim upitima za doista personaliziran rezultat.
 Povijest: Spremite svoje omiljene kreacije u povijest za lakši pristup.
-Preuzimanje i dijeljenje: Preuzmite svoje umjetničko djelo, podijelite ga s prijateljima ili kopirajte promt za ponovnu upotrebu kasnije.
-Privatnost na prvom mjestu: Svi podaci ostaju lokalno na vašem uređaju. Ne prikupljamo niti pohranjujemo bilo kakve korisničke podatke.
-Dreamio je vaš savršen suputnik za generiranje jedinstvene i prekrasne umjetnosti uz pomoć AI-a, dok vaši podaci ostaju privatni. Počnite stvarati sada!
+Preuzimanje i Dijeljenje: Preuzmite svoje umjetničko djelo, podijelite ga s prijateljima ili kopirajte upit kako biste ga ponovo koristili kasnije.
+Dreamio je vaš savršeni suputnik za generiranje jedinstvene i lijepe AI umjetnosti. Počnite stvarati sada!

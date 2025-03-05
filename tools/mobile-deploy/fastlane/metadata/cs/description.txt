@@ -1,13 +1,12 @@
 AI Generátor Umění - Dreamio
 
-Uvolněte svou kreativitu s Dreamio, ultimátním bezplatným generátorem umění poháněným umělou inteligencí. Jednoduše zadejte prompt, vyberte si požadovaný styl a sledujte, jak Dreamio vytváří ohromující umělecká díla na základě vaší fantazie. Díky síle bezplatného Pollination API vám Dreamio umožňuje snadno produkovat vysoce kvalitní obrázky.
+Uvolněte svou kreativitu s Dreamio, nejlepším zdarma generátorem umění poháněným umělou inteligencí. Jednoduše zadejte výzvu, vyberte si požadovaný styl a sledujte, jak Dreamio vytváří ohromující umělecká díla na základě vaší představivosti. Díky síle bezplatného API Pollination vám Dreamio umožňuje bez námahy vytvářet vysoce kvalitní obrázky.
 
 Hlavní funkce:
 
-Bezpłatné a snadné použití: Dreamio je zcela zdarma s žádnými skrytými poplatky.
-Více stylů: Vyberte si z různých uměleckých stylů, které odpovídají vaší vizi.
-Přizpůsobte své prompty: Přizpůsobte generování umění svými vlastními prompty pro skutečně personalizovaný výsledek.
+Zdarma a snadno použitelné: Dreamio je zcela zdarma bez skrytých poplatků.
+Více stylů: Vyberte si z různých uměleckých stylů, které odpovídají vašemu pojetí.
+Pište své výzvy: Přizpůsobte generování umění svými vlastními výzvami pro skutečně personalizovaný výsledek.
 Historie: Uložte si své oblíbené výtvory do historie pro snadný přístup.
-Stáhnout a sdílet: Stáhněte si své umělecké dílo, sdílejte ho s přáteli nebo zkopírujte prompt pro pozdější použití.
-Ochrana soukromí na prvním místě: Všechna data zůstávají lokálně na vašem zařízení. Neshromažďujeme ani neukládáme žádná uživatelská data.
-Dreamio je vaším ideálním společníkem pro generování unikátního a krásného umění pomocí AI, přičemž vaše informace zůstávají soukromé. Začněte tvořit ještě dnes!
+Stáhnout a sdílet: Stáhněte si své umělecké dílo, sdílejte je s přáteli, nebo si zkopírujte výzvu pro pozdější použití.
+Dreamio je váš dokonalý společník při vytváření jedinečného a krásného AI umění. Začněte tvořit nyní!

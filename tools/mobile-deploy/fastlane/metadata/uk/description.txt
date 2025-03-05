@@ -1,14 +1,13 @@
-AI Генератор Мистецтва - Dreamio
+AI Art Generator - Dreamio
 
-Розкрийте свою креативність за допомогою Dreamio – найкращого безкоштовного генератора мистецтва на базі ШІ. Просто введіть текстовий запит, виберіть бажаний стиль і спостерігайте, як Dreamio створює вражаючі твори мистецтва, натхненні вашою уявою. Завдяки потужному безкоштовному Pollination API, Dreamio дозволяє легко створювати високоякісні зображення.
+Unleash your creativity with Dreamio, the ultimate free AI-powered art generator. Simply input a prompt, select your desired style, and watch Dreamio create stunning artworks inspired by your imagination. Utilising the free Pollination API, Dreamio allows you to effortlessly produce high-quality images.
 
-Основні можливості:
+Key Features:
 
-• Безкоштовно та просто у використанні: Dreamio є повністю безкоштовним, без жодних прихованих платежів.
-• Різноманітність стилів: обирайте з різних художніх стилів, які відповідають вашому баченню.
-• Напишіть свої запити: налаштуйте генерацію мистецтва власними запитами для по-справжньому персоналізованого результату.
-• Історія: зберігайте улюблені твори у історії для зручного доступу.
-• Завантаження та обмін: завантажуйте свої зображення, діліться ними з друзями або копіюйте запити для повторного використання.
-• Пріоритет конфіденційності: усі дані зберігаються локально на вашому пристрої. Ми не збираємо та не зберігаємо дані користувачів.
+Free and Easy to Use: Dreamio is entirely free to use, with no hidden costs.
+Multiple Styles: Choose from a diverse range of artistic styles to align with your vision.
+Write Your Prompts: Personalise the art generation process with your own prompts for a truly bespoke result.
+History: Save your favourite creations in your history for easy access.
+Download & Share: Download your artwork, share it with friends, or copy the prompt for later use.
 
-Dreamio – ваш ідеальний супутник для генерації унікального та прекрасного мистецтва за допомогою ШІ, зберігаючи вашу інформацію в безпеці. Почніть творити вже зараз!
+Dreamio is your ideal companion for generating unique and beautiful AI art. Start creating now!

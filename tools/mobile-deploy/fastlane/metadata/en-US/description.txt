@@ -9,5 +9,4 @@ Multiple Styles: Choose from a variety of artistic styles to match your vision.
 Write Your Prompts: Customize the art generation with your own prompts for a truly personalized result.
 History: Save your favorite creations in your history for easy access.
 Download & Share: Download your artwork, share it with friends, or copy the prompt to reuse it later.
-Privacy First: All data remains local on your device. We do not collect or store any user data.
-Dreamio is your perfect companion for generating unique and beautiful AI art, while keeping your information private. Start creating now!
+Dreamio is your perfect companion for generating unique and beautiful AI art. Start creating now!

@@ -1,13 +1,12 @@
-Générateur d'Art AI - Dreamio
+Générateur d'art IA - Dreamio
 
-Libérez votre créativité avec Dreamio, le générateur d'art ultime propulsé par l'IA, entièrement gratuit. Il vous suffit d'entrer un texte d'invite, de sélectionner le style désiré et de voir Dreamio créer des œuvres d'art époustouflantes basées sur votre imagination. Grâce à la puissance de l'API Pollination gratuite, Dreamio vous permet de produire des images de haute qualité sans effort.
+Libérez votre créativité avec Dreamio, le générateur d'art ultime alimenté par l'IA, et entièrement gratuit. Il vous suffit d’entrer une invite, de sélectionner le style souhaité, et de regarder Dreamio créer des œuvres d'art époustouflantes basées sur votre imagination. Grâce à la puissance de l'API Pollination gratuite, Dreamio vous permet de produire des images de haute qualité sans effort.
 
 Fonctionnalités Clés :
 
-Gratuit et Facile à Utiliser : Dreamio est entièrement gratuit, sans frais cachés.
+Gratuit et Facile à Utiliser : Dreamio est totalement gratuit, sans frais cachés.
 Styles Multiples : Choisissez parmi une variété de styles artistiques pour correspondre à votre vision.
-Écrivez Vos Invites : Personnalisez la génération d'art avec vos propres invites pour un résultat vraiment personnalisé.
-Historique : Sauvegardez vos créations préférées dans votre historique pour y accéder facilement.
-Téléchargez & Partagez : Téléchargez votre œuvre d'art, partagez-la avec vos amis ou copiez l'invite pour la réutiliser plus tard.
-Priorité à la Vie Privée : Toutes les données restent locales sur votre appareil. Nous ne collectons ni ne stockons aucune donnée utilisateur.
-Dreamio est votre compagnon parfait pour générer des œuvres d'art uniques et magnifiques grâce à l'IA, tout en protégeant vos informations personnelles. Commencez à créer dès maintenant !
+Rédigez Vos Invites : Personnalisez la génération d'art avec vos propres invites pour un résultat véritablement unique.
+Historique : Enregistrez vos créations préférées dans votre historique pour un accès facile.
+Téléchargez et Partagez : Téléchargez vos œuvres d'art, partagez-les avec des amis ou copiez l'invite pour l'utiliser plus tard.
+Dreamio est votre compagnon parfait pour générer des œuvres d'art IA uniques et magnifiques. Commencez à créer maintenant !

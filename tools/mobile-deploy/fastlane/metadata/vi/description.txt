@@ -1,13 +1,12 @@
-Trình Tạo Nghệ Thuật AI - Dreamio
+AI Art Generator - Dreamio
 
-Khơi dậy sự sáng tạo của bạn với Dreamio, trình tạo nghệ thuật được hỗ trợ bởi AI hoàn hảo miễn phí. Chỉ cần nhập một đề bài, chọn phong cách bạn mong muốn, và hãy xem Dreamio tạo ra những tác phẩm nghệ thuật tuyệt đẹp dựa trên trí tưởng tượng của bạn. Với sức mạnh của API Pollination miễn phí, Dreamio giúp bạn tạo ra hình ảnh chất lượng cao một cách dễ dàng.
+Khơi dậy sự sáng tạo của bạn với Dreamio, trình tạo nghệ thuật AI miễn phí hoàn hảo. Chỉ cần nhập một gợi ý, chọn phong cách bạn mong muốn, và xem Dreamio tạo ra những tác phẩm nghệ thuật ấn tượng dựa trên trí tưởng tượng của bạn. Với sức mạnh của API Pollination miễn phí, Dreamio giúp bạn tạo ra hình ảnh chất lượng cao một cách dễ dàng.
 
-Tính Năng Nổi Bật:
+Tính năng nổi bật:
 
-Miễn Phí và Dễ Sử Dụng: Dreamio hoàn toàn miễn phí với không có phí ẩn.
-Nhiều Phong Cách: Lựa chọn từ nhiều phong cách nghệ thuật khác nhau để phù hợp với tầm nhìn của bạn.
-Viết Đề Bài Của Bạn: Tùy chỉnh quá trình tạo nghệ thuật với các đề bài của riêng bạn để có được kết quả thật sự cá nhân hóa.
-Lịch Sử: Lưu lại những tác phẩm yêu thích trong lịch sử để dễ dàng truy cập.
-Tải Xuống & Chia Sẻ: Tải xuống tác phẩm nghệ thuật của bạn, chia sẻ với bạn bè hoặc sao chép đề bài để sử dụng lại sau này.
-Bảo Mật Dữ Liệu: Tất cả dữ liệu vẫn được lưu trữ cục bộ trên thiết bị của bạn. Chúng tôi không thu thập hoặc lưu trữ bất kỳ dữ liệu nào của người dùng.
-Dreamio là người bạn đồng hành hoàn hảo của bạn trong việc tạo ra nghệ thuật AI độc đáo và đẹp mắt, đồng thời giữ thông tin của bạn riêng tư. Hãy bắt đầu sáng tạo ngay hôm nay!
+Miễn phí và Dễ sử dụng: Dreamio hoàn toàn miễn phí với không có chi phí ẩn.
+Nhiều phong cách: Chọn từ nhiều phong cách nghệ thuật khác nhau để phù hợp với tầm nhìn của bạn.
+Viết Gợi ý của bạn: Tùy chỉnh quá trình tạo nghệ thuật với các gợi ý của riêng bạn để đạt được kết quả thật sự cá nhân hóa.
+Lịch sử: Lưu lại những sáng tạo yêu thích của bạn trong lịch sử để dễ dàng truy cập.
+Tải xuống & Chia sẻ: Tải xuống tác phẩm nghệ thuật của bạn, chia sẻ với bạn bè hoặc sao chép gợi ý để sử dụng lại sau này.
+Dreamio là người bạn đồng hành hoàn hảo của bạn để tạo ra những tác phẩm nghệ thuật AI độc đáo và đẹp mắt. Bắt đầu sáng tạo ngay bây giờ!

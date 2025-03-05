@@ -1,13 +1,12 @@
 Generator Seni AI - Dreamio
 
-Lepaskan kreativitas Anda dengan Dreamio, generator seni bertenaga AI yang terbaik dan Gratis. Cukup masukkan prompt, pilih gaya yang diinginkan, dan saksikan Dreamio menciptakan karya seni menakjubkan berdasarkan imajinasi Anda. Dengan kekuatan API Pollination yang gratis, Dreamio memungkinkan Anda menghasilkan gambar berkualitas tinggi dengan mudah.
+Lepaskan kreativitas Anda dengan Dreamio, generator seni bertenaga AI gratis yang terbaik. Cukup masukkan sebuah prompt, pilih gaya yang diinginkan, dan saksikan Dreamio menciptakan karya seni yang menakjubkan berdasarkan imajinasi Anda. Dengan kekuatan API Pollination yang gratis, Dreamio memudahkan Anda untuk menghasilkan gambar berkualitas tinggi tanpa usaha.
 
 Fitur Utama:
 
-Gratis dan Mudah Digunakan: Dreamio sepenuhnya gratis tanpa biaya tersembunyi.
-Beragam Gaya: Pilih dari berbagai gaya artistik untuk mencocokkan visi Anda.
-Tulis Prompt Anda: Sesuaikan penghasilan seni dengan prompt Anda sendiri untuk hasil yang benar-benar personal.
-Riwayat: Simpan karya favorit Anda dalam riwayat untuk akses yang mudah.
+Gratis dan Mudah Digunakan: Dreamio sepenuhnya gratis digunakan tanpa biaya tersembunyi.
+Berbagai Gaya: Pilih dari berbagai gaya artistik untuk menyesuaikan dengan visi Anda.
+Tulis Prompt Anda: Sesuaikan proses generasi seni dengan prompt Anda sendiri untuk hasil yang benar-benar personal.
+Riwayat: Simpan kreasi favorit Anda dalam riwayat untuk akses yang mudah.
 Unduh & Bagikan: Unduh karya seni Anda, bagikan dengan teman, atau salin prompt untuk digunakan kembali nanti.
-Privasi Pertama: Semua data tetap lokal di perangkat Anda. Kami tidak mengumpulkan atau menyimpan data pengguna.
-Dreamio adalah pendamping sempurna Anda untuk menghasilkan seni AI yang unik dan indah, sambil menjaga informasi Anda tetap pribadi. Mulailah berkarya sekarang!
+Dreamio adalah pendamping sempurna Anda untuk menghasilkan seni AI yang unik dan indah. Mulailah berkarya sekarang!

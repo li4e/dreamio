@@ -1,13 +1,12 @@
 Generator Sztuki AI - Dreamio
 
-Uwolnij swoją kreatywność z Dreamio, najlepszym darmowym generatorem sztuki z wykorzystaniem AI. Wystarczy wpisać zapytanie, wybrać pożądany styl i obserwować, jak Dreamio tworzy oszałamiające dzieła sztuki na podstawie Twojej wyobraźni. Dzięki mocy bezpłatnego API Pollination, Dreamio umożliwia łatwe tworzenie obrazów o wysokiej jakości.
+Uwolnij swoją kreatywność z Dreamio, najlepszym darmowym generatorem sztuki zasilanym przez sztuczną inteligencję. Wystarczy wprowadzić polecenie, wybrać pożądany styl i obserwować, jak Dreamio tworzy oszałamiające dzieła sztuki oparte na Twojej wyobraźni. Dzięki mocy darmowego interfejsu API Pollination, Dreamio umożliwia produkcję wysokiej jakości obrazów bez wysiłku.
 
 Kluczowe funkcje:
 
-Darmowe i Łatwe w Użyciu: Dreamio jest całkowicie darmowe, bez ukrytych opłat.
-Wiele Stylów: Wybierz spośród różnych stylów artystycznych, aby dopasować je do swojej wizji.
-Twórz Własne Zapytania: Dostosuj generację sztuki, korzystając z własnych zapytań, aby uzyskać naprawdę spersonalizowany efekt.
-Historia: Zapisz swoje ulubione dzieła w historii, aby mieć do nich łatwy dostęp.
-Pobierz i Udostępnij: Pobierz swoje dzieło, podziel się nim z przyjaciółmi lub skopiuj zapytanie, aby ponownie go użyć później.
-Prywatność Na Pierwszym Miejscu: Wszystkie dane pozostają lokalnie na Twoim urządzeniu. Nie zbieramy ani nie przechowujemy żadnych danych użytkowników.
-Dreamio to idealny towarzysz w tworzeniu unikalnej i pięknej sztuki AI, dbając jednocześnie o Twoją prywatność. Zacznij tworzyć już teraz!
+Darmowy i Łatwy w Użyciu: Dreamio jest całkowicie darmowe w użyciu, bez ukrytych opłat.
+Wiele Stylów: Wybierz z różnych stylów artystycznych, aby dopasować je do swojej wizji.
+Pisanie Poleceń: Dostosuj tworzenie sztuki swoimi własnymi poleceniami, aby uzyskać naprawdę spersonalizowany efekt.
+Historia: Zapisz swoje ulubione kreacje w historii, aby mieć do nich łatwy dostęp.
+Pobieranie i Udostępnianie: Pobierz swoje dzieło, podziel się nim z przyjaciółmi lub skopiuj polecenie, aby użyć go później.
+Dreamio to idealny towarzysz w generowaniu unikalnej i pięknej sztuki AI. Zacznij tworzyć już teraz!

@@ -1,13 +1,12 @@
 AI Kunstgenerator - Dreamio
 
-Slip løs på din kreativitet med Dreamio, den ultimative gratis AI-drevne kunstgenerator. Indtast blot en prompt, vælg din ønskede stil, og se Dreamio skabe fantastiske kunstværker baseret på din fantasi. Med kraften fra den gratis Pollination API gør Dreamio det muligt for dig at producere billeder af høj kvalitet uden besvær.
+Slip din kreativitet løs med Dreamio, den ultimative gratis AI-drevne kunstgenerator. Indtast blot en prompt, vælg din ønskede stil, og se Dreamio skabe fantastiske kunstværker baseret på din fantasi. Med styrken fra den gratis Pollination API muliggør Dreamio, at du nemt kan producere billeder af høj kvalitet.
 
 Nøglefunktioner:
 
-Gratis og Nem at Bruge: Dreamio er helt gratis at bruge uden skjulte gebyrer.
-Flere Stile: Vælg imellem en række kunstneriske stilarter, der matcher din vision.
-Skriv Dine Prompts: Tilpas kunstgenereringen med dine egne prompts for et virkelig personligt resultat.
+Gratis og Brugervenlig: Dreamio er helt gratis at bruge uden skjulte omkostninger.
+Flere Stilarter: Vælg blandt en række kunstneriske stilarter for at matche din vision.
+Skriv Dine Prompter: Tilpas kunstgenereringen med dine egne prompter for et ægte personligt resultat.
 Historik: Gem dine yndlingskreationer i din historik for nem adgang.
-Download & Del: Download dit kunstværk, del det med venner, eller kopier prompten til senere brug.
-Privatliv Først: Alle data forbliver lokale på din enhed. Vi indsamler eller opbevarer ikke brugerdata.
-Dreamio er din perfekte partner til at generere unik og smuk AI-kunst, samtidig med at dine oplysninger forbliver private. Begynd at skabe nu!
+Download & Del: Download dit kunstværk, del det med venner eller kopier promten til senere brug.
+Dreamio er din perfekte følgesvend til at generere unik og smuk AI-kunst. Begynd at skabe nu!
