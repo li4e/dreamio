@@ -1,1 +1,1 @@
-ai,fotografija,slika,generator,ilustrator,tekst,avatari,umjetnost
+ai,foto,slika,generator,ilustrator,tekst,avatar,kreator,umjetnost,anime

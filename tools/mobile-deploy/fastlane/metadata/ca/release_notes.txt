@@ -1,2 +1,1 @@
-— Millora del comportament d'aparició del teclat: ara la pantalla es desplaça per mantenir visible l'entrada de text i el botó d'inici.  
-— Refinament del disseny de l'escreen "Resultat de la Generació" per a una millor coherència.
+— S'ha afegit la capacitat de seleccionar diverses imatges a la pantalla d'Historial per facilitar l'eliminació en massa. Això simplifica el procés i millora l'experiència de l'usuari.

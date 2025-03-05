@@ -1,2 +1,1 @@
-— Amélioration du comportement d'apparence du clavier : l'écran défile désormais pour garder le champ de saisie de texte et le bouton de démarrage visibles.
-— Affinement du design de l'écran "Résultat de la génération" pour une meilleure cohérence.
+— Ajout de la possibilité de sélectionner plusieurs images dans l’écran d’historique pour faciliter la suppression en masse. Cela simplifie le processus et améliore l’expérience utilisateur.

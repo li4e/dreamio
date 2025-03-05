@@ -1,1 +1,1 @@
-ai,foto, gambar, generator, ilustrator, teks, avatar, pencipta, seni
+ai,foto,gambar,pembuat,ilustrator,teks,avatar,seni,anime

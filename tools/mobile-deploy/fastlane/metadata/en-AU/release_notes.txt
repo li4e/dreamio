@@ -1,2 +1,1 @@
-— Enhanced keyboard appearance behaviour: the screen now scrolls to ensure the text input and start button remain visible.  
-— Improved the design of the "Result of Generation" screen for better consistency.
+— Introduced the capability to select multiple images in the History screen for more efficient bulk deletion. This enhancement streamlines the process and enhances user experience.

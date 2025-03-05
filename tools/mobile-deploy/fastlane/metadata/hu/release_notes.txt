@@ -1,2 +1,1 @@
-— Fejlesztettük a billentyűzet megjelenésének viselkedését: a képernyő most görget, hogy a szövegbevitel és a kezdő gomb mindig látható maradjon.  
-— Finomítottuk a „Generálás Eredménye” képernyő dizájnját a jobb konzisztencia érdekében.
+— Lehetőséget biztosítottunk több kép kiválasztására a Történelem képernyőn, ezzel megkönnyítve a tömeges törlést. Ez egyszerűsíti a folyamatot és javítja a felhasználói élményt.

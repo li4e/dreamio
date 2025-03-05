@@ -1,2 +1,1 @@
-— Verbeterd het gedrag van de toetsenbordweergave: het scherm scrollt nu om de tekstinvoer en de startknop zichtbaar te houden.  
-— Ontworpen de "Resultaat van Generatie" scherm verfijnd voor betere consistentie.
+- De mogelijkheid toegevoegd om meerdere afbeeldingen te selecteren op het Geschiedenis-scherm voor eenvoudigere bulkverwijdering. Dit vereenvoudigt het proces en verbetert de gebruikerservaring.

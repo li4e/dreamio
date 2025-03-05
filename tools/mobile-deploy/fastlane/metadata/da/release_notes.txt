@@ -1,2 +1,1 @@
-— Forbedret tastaturvisningsadfærd: Skærmen ruller nu for at holde tekstinput og startknappen synlige.  
-— Forfinet designet af skærmen "Resultat af generation" for bedre konsistens.
+— Tilføjet muligheden for at vælge flere billeder på Historikskærmen for nemmere masse-sletning. Dette forenkler processen og forbedrer brugeroplevelsen.

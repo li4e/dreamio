@@ -1,1 +1,1 @@
-ai,foto,afbeelding,generator,illustrator,tekst,avatar,maker,kunst
+ai,foto,image,generator,illustrator,tekst,avatar,creator,kunst,anime

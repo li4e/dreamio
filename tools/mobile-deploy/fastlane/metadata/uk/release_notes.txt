@@ -1,2 +1,1 @@
-— Enhanced keyboard appearance functionality: the screen now scrolls to ensure that the text input and start button remain visible.  
-— Improved the design of the "Result of Generation" screen for better consistency.
+— Додано можливість вибору кількох зображень на екрані Історії для зручнішого масового видалення. Це спрощує процес і покращує користувацький досвід.

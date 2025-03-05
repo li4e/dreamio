@@ -1,2 +1,1 @@
-— Mejorada la apariencia del teclado: ahora la pantalla se desplaza para mantener visible el campo de texto y el botón de inicio.  
-— Refinado el diseño de la pantalla "Resultado de Generación" para una mejor consistencia.
+— Se ha añadido la capacidad de seleccionar múltiples imágenes en la pantalla de Historial para facilitar la eliminación masiva. Esto simplifica el proceso y mejora la experiencia del usuario.

@@ -1,2 +1,1 @@
-— Migliorato il comportamento dell'aspetto della tastiera: ora lo schermo si scorre per mantenere visibili l'input di testo e il pulsante di avvio.  
-— Affinato il design della schermata "Risultato della Generazione" per una migliore coerenza.
+— Aggiunta la possibilità di selezionare più immagini nella schermata Cronologia per facilitare la cancellazione in blocco. Questo semplifica il processo e migliora l'esperienza dell'utente.

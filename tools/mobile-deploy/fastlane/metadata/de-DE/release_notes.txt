@@ -1,2 +1,1 @@
-— Verbesserte Darstellung des Tastaturverhaltens: Der Bildschirm scrollt jetzt, um die Texteingabe und die Schaltfläche "Start" sichtbar zu halten.  
-— Das Design des Bildschirms "Ergebnis der Generierung" wurde verfeinert, um eine bessere Konsistenz zu gewährleisten.
+— Eine neue Funktion wurde hinzugefügt, mit der mehrere Bilder im Verlauf-Bildschirm ausgewählt werden können, um eine einfachere Massenlöschung zu ermöglichen. Dies vereinfacht den Prozess und verbessert die Benutzererfahrung.

@@ -1,2 +1,1 @@
-— Parannettu näppäimistön ulkoasun käytöstä: näyttö vierittää nyt, jotta tekstisyöttö ja aloituspainike pysyvät näkyvissä.  
-— Hienosäädetty "Luonnin tulos" -näytön designin yhtenäisyyden parantamiseksi.
+— Lisätty mahdollisuus valita useita kuvia Historia-näytössä helpottamaan massapoistoa. Tämä yksinkertaistaa prosessia ja parantaa käyttäjäkokemusta.

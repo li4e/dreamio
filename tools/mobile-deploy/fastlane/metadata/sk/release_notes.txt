@@ -1,2 +1,1 @@
-— Vylepšené správanie klávesnice: teraz sa obrazovka posúva, aby bol viditeľný textový vstup a tlačidlo na spustenie.
-— Prepracovaný dizajn obrazovky „Výsledok generovania“ pre lepšiu konzistenciu.
+— Pridaná možnosť vybrať viacero obrázkov na obrazovke Histórie pre jednoduchšie hromadné vymazanie. To zjednodušuje proces a zlepšuje používateľský zážitok.

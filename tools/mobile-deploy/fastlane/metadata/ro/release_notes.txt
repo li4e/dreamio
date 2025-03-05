@@ -1,2 +1,1 @@
-— Comportamentul de apariție al tastaturii îmbunătățit: acum ecranul se derulează pentru a menține vizibile zona de introducere a textului și butonul de start.
-— Designul ecranului "Rezultatul Generării" rafinat pentru o mai bună consistență.
+— Am adăugat opțiunea de a selecta mai multe imagini în ecranul Istoric pentru a facilita ștergerea în masă. Aceasta simplifică procesul și îmbunătățește experiența utilizatorului.

@@ -1,1 +1,1 @@
-ia,foto,imagem,gerador,ilustrador,texto,avatar,criador,arte
+ia,foto,imagem,gerador,ilustrador,texto,avatar,criador,arte,anime

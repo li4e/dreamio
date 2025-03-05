@@ -1,2 +1,1 @@
-— Poboljšano ponašanje prikaza tipkovnice: ekran se sada pomiče kako bi tekstualni unos i gumb za početak ostali vidljivi.  
-— Doređena je dizajn "Rezultat generacije" ekrana radi bolje usklađenosti.
+— Dodana mogućnost odabira više slika na ekranu Povijest radi lakšeg grupnog brisanja. To pojednostavljuje postupak i poboljšava korisničko iskustvo.

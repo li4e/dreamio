@@ -1,2 +1,1 @@
-— Klavye görünüm davranışı iyileştirildi: ekran, metin girişi ve başlat butonunu görünür tutmak için kaydırılıyor.  
-— "Üretim Sonucu" ekranının tasarımı, daha iyi bir tutarlılık sağlamak için yeniden düzenlendi.
+— Geçmiş ekranında toplu silme işlemini kolaylaştırmak için birden fazla resim seçme özelliği eklendi. Bu, işlemi basitleştirir ve kullanıcı deneyimini iyileştirir.

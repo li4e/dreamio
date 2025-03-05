@@ -1,2 +1,1 @@
-— Cải thiện hành vi hiển thị bàn phím: màn hình giờ đây sẽ cuộn để giữ cho ô nhập liệu và nút bắt đầu luôn được hiển thị.  
-— Tinh chỉnh thiết kế màn hình "Kết quả Tạo Ra" để đảm bảo tính nhất quán tốt hơn.
+— Đã thêm khả năng chọn nhiều hình ảnh trong màn hình Lịch sử để dễ dàng xóa hàng loạt. Điều này giúp đơn giản hóa quy trình và nâng cao trải nghiệm người dùng.

@@ -1,2 +1,1 @@
-— Förbättrad beteende för tangentbordets utseende: skärmen rullar nu för att hålla textinmatningen och startknappen synliga.
-— Förbättrad design av skärmen "Resultat av generationen" för bättre konsistens.
+– La till möjligheten att välja flera bilder i Historikskärmen för enklare massradering. Detta förenklar processen och förbättrar användarupplevelsen.

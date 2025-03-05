@@ -1,2 +1,1 @@
-— Vylepšeno chování vzhledu klávesnice: obrazovka se nyní posouvá, aby byla textová pole a tlačítko pro spuštění viditelná.  
-— Zlepšena designová konzistence obrazovky „Výsledek generování“.
+— Přidána možnost vybrat více obrázků na obrazovce Historie pro jednodušší hromadné mazání. To usnadňuje proces a zlepšuje uživatelskou zkušenost.

@@ -1,2 +1,1 @@
-— Ulepszono zachowanie wyświetlania klawiatury: ekran teraz przewija się, aby zachować widoczność pola tekstowego i przycisku rozpoczęcia.
-— Doprecyzowano design ekranu „Wynik generacji” w celu poprawy spójności.
+— Dodano możliwość wyboru wielu obrazów na ekranie Historii, co ułatwia ich masowe usuwanie. To upraszcza proces i poprawia doświadczenia użytkownika.
