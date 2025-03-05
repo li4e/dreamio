@@ -22,18 +22,19 @@ export function StickyHeader(
   props: {
     scrollY: SharedValue<number>
     hidden?: SharedValue<boolean>
+    autoHide?: boolean
   } & ViewProps
 ) {
-  const { children, scrollY, hidden, style, ...rest } = props
+  const { children, scrollY, hidden, style, autoHide = false, ...rest } = props
   const headerTranslateY = useSharedValue(0)
-  const headerVisibility = useDerivedValue(
-    () =>
-      hidden?.value
-        ? 0
-        : interpolate(headerTranslateY.value, [0, HEADER_HEIGHT], [1, 0]),
-
-    [headerTranslateY, hidden]
-  )
+  const headerVisibility = useDerivedValue(() => {
+    if (!autoHide) {
+      return 1
+    }
+    return hidden?.value
+      ? 0
+      : interpolate(headerTranslateY.value, [0, HEADER_HEIGHT], [1, 0])
+  }, [headerTranslateY, hidden, autoHide])
   const toggleTimeout = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const clearToggleTimeout = useCallback(() => {

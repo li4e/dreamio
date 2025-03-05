@@ -494,7 +494,7 @@ function Header(props: {
   const { openReporDialog } = useReportDialog()
 
   return (
-    <StickyHeader scrollY={scrollY} hidden={shouldBeHidden}>
+    <StickyHeader scrollY={scrollY} hidden={shouldBeHidden} autoHide>
       {generation && resultImage && (
         <HeaderGenDeleteButton
           generation={generation}

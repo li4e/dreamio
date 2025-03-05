@@ -97,7 +97,7 @@ export function GenerationResultScreen(
           </View>
         </View>
       </Animated.ScrollView>
-      <StickyHeader scrollY={scrollY}>
+      <StickyHeader scrollY={scrollY} autoHide>
         <Header generation={generation} />
       </StickyHeader>
       <View

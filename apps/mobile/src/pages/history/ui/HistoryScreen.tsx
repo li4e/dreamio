@@ -12,19 +12,64 @@ import {
   ActivityIndicator,
   Appbar,
   Button,
+  Icon,
   Text,
   TouchableRipple,
+  useTheme,
 } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { GenerationEntity } from 'entities/generation'
+import { GenerationEntity, useGenerationsDelete } from 'entities/generation'
 import { useHistory } from '../models/useGenHistory'
 import EmptyAnimation from './assets/austroman.json'
-import { toJS } from 'mobx'
+import {
+  has,
+  makeAutoObservable,
+  observable,
+  remove,
+  runInAction,
+  set,
+  toJS,
+  values,
+} from 'mobx'
 import { CachedImage } from 'shared/ui/CachedImage'
-import { FlashList } from '@shopify/flash-list'
+import { FlashList, ListRenderItem } from '@shopify/flash-list'
 import { StickyHeader } from 'shared/ui/StickyHeader'
-import { useSharedValue } from 'react-native-reanimated'
-import { useCallback } from 'react'
+import { SharedValue, useSharedValue } from 'react-native-reanimated'
+import { useCallback, useMemo } from 'react'
+import { useStoreData } from 'shared/store'
+
+class SelectionStore {
+  private _isActive = false
+  readonly selectedItems = observable.set<number>([])
+  constructor() {
+    makeAutoObservable(this)
+  }
+
+  get isActive() {
+    return this._isActive
+  }
+
+  set isActive(value: boolean) {
+    this._isActive = value
+  }
+
+  get ids() {
+    return values(this.selectedItems)
+  }
+
+  addSelection(item: number) {
+    set(this.selectedItems, item)
+  }
+
+  removeSelection(item: number) {
+    remove(this.selectedItems, item)
+  }
+
+  cancel() {
+    this.selectedItems.clear()
+    this.isActive = false
+  }
+}
 
 function getNumColumns(totalLength: number) {
   // return totalLength > 4 ? 3 : totalLength > 1 ? 2 : 1
@@ -40,14 +85,27 @@ export function HistoryScreen() {
   const topinset = StickyHeader.useTopInset()
   const listTotalSize =
     Math.ceil(history.length / numColumns) * itemSize + 300 + topinset
-  const { t } = useTranslation()
   const scrollY = useSharedValue(0)
+  const selectionStore = useMemo(() => new SelectionStore(), [])
 
   const handleScroll = useCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       scrollY.value = event.nativeEvent.contentOffset.y
     },
     [scrollY]
+  )
+
+  const renderItem: ListRenderItem<GenerationEntity> = useCallback(
+    ({ item, index }) => {
+      return (
+        <HistoryItem
+          generation={item}
+          index={index}
+          selectionStore={selectionStore}
+        />
+      )
+    },
+    [selectionStore]
   )
 
   return (
@@ -71,9 +129,7 @@ export function HistoryScreen() {
           }}
           key={`history_list_col_${numColumns}`}
           data={history}
-          renderItem={({ item, index }) => (
-            <HistoryItem generation={item} index={index} />
-          )}
+          renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListHeaderComponent={<View style={{ height: topinset }} />}
           ListFooterComponent={
@@ -92,10 +148,59 @@ export function HistoryScreen() {
         />
       )}
 
-      <StickyHeader scrollY={scrollY}>
-        <Appbar.Content title={t('screens.history.title')} />
-      </StickyHeader>
+      <Header scrollY={scrollY} selectionStore={selectionStore} />
     </View>
+  )
+}
+
+function Header(props: {
+  scrollY: SharedValue<number>
+  selectionStore: SelectionStore
+}) {
+  const { scrollY, selectionStore } = props
+  const { t } = useTranslation()
+  const { isActive, selectedCount } = useStoreData(() => ({
+    isActive: selectionStore.isActive,
+    selectedCount: selectionStore.selectedItems.size,
+  }))
+  const deleteImages = useGenerationsDelete()
+
+  return (
+    <StickyHeader scrollY={scrollY} autoHide={!isActive}>
+      {isActive && (
+        <Appbar.Action
+          icon="close"
+          onPress={() => {
+            selectionStore.cancel()
+          }}
+        />
+      )}
+      <Appbar.Content
+        title={
+          isActive ? `Selected: ${selectedCount}` : t('screens.history.title')
+        }
+      />
+      {!isActive && (
+        <Appbar.Action
+          icon="checkbox-multiple-blank-outline"
+          onPress={() => {
+            selectionStore.isActive = true
+          }}
+        />
+      )}
+      {isActive && (
+        <Appbar.Action
+          icon="trash-can"
+          onPress={() => {
+            if (selectionStore.selectedItems.size > 0) {
+              deleteImages(selectionStore.ids.slice(), () => {
+                selectionStore.cancel()
+              })
+            }
+          }}
+        />
+      )}
+    </StickyHeader>
   )
 }
 
@@ -112,28 +217,80 @@ const styles = StyleSheet.create({
   },
 })
 
-function HistoryItem(props: { generation: GenerationEntity; index: number }) {
-  const { generation, index } = props
+function HistoryItem(props: {
+  generation: GenerationEntity
+  index: number
+  selectionStore: SelectionStore
+}) {
+  const { generation, selectionStore } = props
   const { navigate } = useNavigation()
   const url = generation.images[0]
+  const { isActive, isSelected } = useStoreData(
+    () => ({
+      isSelected: has(selectionStore.selectedItems, generation.id),
+      isActive: selectionStore.isActive,
+    }),
+    [selectionStore, generation.id]
+  )
+
+  const onPress = () => {
+    if (isActive) {
+      if (isSelected) {
+        selectionStore.removeSelection(generation.id)
+      } else {
+        selectionStore.addSelection(generation.id)
+      }
+    } else {
+      navigate('generation_result', { generation: toJS(generation) })
+    }
+  }
+
+  const onLongPress = () => {
+    if (!isActive) {
+      runInAction(() => {
+        selectionStore.isActive = true
+        selectionStore.addSelection(generation.id)
+      })
+    }
+  }
+
+  const { colors } = useTheme()
 
   return (
     <View className={'w-full aspect-square p-[0.5]'}>
       <TouchableRipple
-        onPress={() =>
-          navigate('generation_result', { generation: toJS(generation) })
-        }
+        onPress={onPress}
+        onLongPress={onLongPress}
         className="flex-1"
       >
-        <CachedImage
-          contentFit="cover"
-          contentPosition="center"
-          transition={200}
-          recyclingKey={url}
-          className="flex-1"
-          source={url}
-        />
+        <View className="flex-1">
+          <CachedImage
+            contentFit="cover"
+            contentPosition="center"
+            transition={200}
+            recyclingKey={url}
+            className="flex-1"
+            source={url}
+          />
+          {isSelected && (
+            <View className="absolute top-0 right-0 bottom-0 left-0">
+              <View
+                className="flex-1 opacity-60"
+                style={{ backgroundColor: colors.primaryContainer }}
+              />
+
+              <View className="absolute top-5 right-5">
+                <Icon
+                  size={24}
+                  source="checkbox-marked-circle"
+                  color={colors.onPrimaryContainer}
+                />
+              </View>
+            </View>
+          )}
+        </View>
       </TouchableRipple>
+      {/* {isActive} */}
     </View>
   )
 }

@@ -54,6 +54,20 @@ export class GenerationDataService {
     }
   }
 
+  async removeGeneratios(ids: number[]) {
+    const items = ids
+      .map((id) => this.store.getItem(id))
+      .filter((item) => item !== null)
+
+    const removedItems = await Promise.all(
+      items.map((generation) => this.removeGeneration(generation))
+    )
+
+    return async () => {
+      await Promise.all(removedItems.map((restore) => restore()))
+    }
+  }
+
   async clear() {
     await this.db.clear()
     this.store.clear()

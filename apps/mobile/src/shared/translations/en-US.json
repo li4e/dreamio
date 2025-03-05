@@ -158,10 +158,12 @@
       "promptLabel": "Your Input:",
       "promtCopied": "Prompt has been copied successfully",
       "deleted": "Generation has been deleted",
+      "deletedMultiple": "Generations have been deleted",
       "undo": "Undo",
       "deleteDialog": {
         "title": "Are you sure?",
         "description": "This action will permanently delete the generated image and cannot be undone. Are you sure you want to proceed?",
+        "descriptionMultiple": "This action will permanently delete all the selected generated images and cannot be undone. Are you sure you want to proceed?",
         "confirm": "Delete",
         "cancel": "Cancel"
       }
