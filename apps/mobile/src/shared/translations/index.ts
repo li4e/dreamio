@@ -84,3 +84,4 @@ export const SUPPORTED_LANGUAGES = Object.keys(resources)
 
 export const defaultNS = 'translation'
 export const defaultLang = 'en-US'
+export const defaultDict = resources['en-US'].translation

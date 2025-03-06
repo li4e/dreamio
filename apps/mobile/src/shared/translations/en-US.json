@@ -43,6 +43,24 @@
         "title": "Report Submitted Successfully",
         "description": "We will analyze the issue."
       }
+    },
+    "styleCard": {
+      "styles": {
+        "Anime": "Anime",
+        "Photo Realistic": "Photo Realistic",
+        "Pixel Art": "Pixel Art",
+        "Oil Painting": "Oil Painting",
+        "Noir": "Noir",
+        "Cyberpunk": "Cyberpunk",
+        "Retro": "Retro",
+        "Pop Art": "Pop Art",
+        "Impressionism": "Impressionism",
+        "Abstract": "Abstract",
+        "Gothic": "Gothic",
+        "Vintage": "Vintage",
+        "Surreal": "Surreal",
+        "Watercolor": "Watercolor"
+      }
     }
   },
   "screens": {
@@ -50,7 +68,7 @@
       "title": "New Image",
       "inputPlaceholder": "What do you want to create? Describe every detail for the best results...",
       "inputPromptGeneration": "Generating your prompt, please wait a moment...",
-      "styleLabel": "Choose Your Style",
+      "styleLabel": "Style",
       "startButton": "Start Magic",
       "reStartButton": "Create More",
       "styleDialog": {

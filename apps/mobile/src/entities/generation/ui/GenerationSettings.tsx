@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Chip, useTheme } from 'react-native-paper'
 import { useMemo } from 'react'
 import { getAspectRatioFromSize } from 'shared/ui/AspectedRatioView'
+import { useTranslatedStyle } from 'shared/ui/hooks/useTranslatedStyle'
 
 export interface GenerationSettings extends ViewProps {
   data: {
@@ -41,6 +42,10 @@ export function GenerationSettings(props: GenerationSettings) {
     return undefined
     // return { backgroundColor: colors.primaryContainer }
   }, [colors])
+
+  const styleName =
+    useTranslatedStyle(data.style) ??
+    t('screens.generation.settings.style.none')
 
   return (
     <View className="flex-row flex-wrap" {...rest}>
@@ -83,7 +88,7 @@ export function GenerationSettings(props: GenerationSettings) {
       </Chip>
 
       <Chip
-        className="mb-1 mr-1"
+        className="mb-1 mr-1 capitalize"
         disabled={disabled}
         onPress={onStylePress}
         style={!data.style ? inactiveStyles : activeStyles}
@@ -96,7 +101,7 @@ export function GenerationSettings(props: GenerationSettings) {
           }
         }
       >
-        {data.style || t('screens.generation.settings.style.none')}
+        {styleName}
       </Chip>
     </View>
   )

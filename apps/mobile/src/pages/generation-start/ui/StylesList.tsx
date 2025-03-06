@@ -14,6 +14,10 @@ import { useStoreData } from 'shared/store'
 import { makeAutoObservable } from 'mobx'
 import { Image, ImageSource } from 'expo-image'
 import { useShowStyleInfoDialog } from 'entities/generation'
+import {
+  TranslatedStyleName,
+  useTranslatedStyle,
+} from 'shared/ui/hooks/useTranslatedStyle'
 
 interface StylesListProps {
   value: string | null
@@ -86,6 +90,9 @@ export function StylesList(props: StylesListProps) {
     [handleChange, stylesListStore]
   )
 
+  const styleName =
+    useTranslatedStyle(value) ?? t('screens.generation.settings.style.none')
+
   return (
     <View>
       <List.Item
@@ -93,11 +100,9 @@ export function StylesList(props: StylesListProps) {
         left={(props) => <List.Icon icon="palette" {...props} />}
         title={t('screens.generation.styleLabel')}
         right={() => (
-          <View className="self-center pl-4">
-            <Text variant="labelLarge">
-              {value || t('screens.generation.settings.style.none')}
-            </Text>
-          </View>
+          <Text variant="labelLarge" className="capitalize pl-4 self-center">
+            {styleName}
+          </Text>
         )}
       />
 
@@ -130,6 +135,7 @@ export function StyleCard(props: StyleCardProps) {
     () => store.selected === item.name,
     [store, item.name]
   )
+  const name = useTranslatedStyle(item.name)
 
   return (
     <TouchableRipple
@@ -166,7 +172,7 @@ export function StyleCard(props: StyleCardProps) {
         >
           <Text
             numberOfLines={1}
-            className={'text-center py-1 px-2'}
+            className="text-center py-1 px-2 capitalize"
             variant="labelMedium"
             style={{
               color: isSelected
@@ -174,7 +180,7 @@ export function StyleCard(props: StyleCardProps) {
                 : colors.onPrimaryContainer,
             }}
           >
-            {item.name}
+            {name}
           </Text>
         </View>
       </View>
@@ -183,7 +189,7 @@ export function StyleCard(props: StyleCardProps) {
 }
 
 export interface ArtStyle {
-  name: string
+  name: TranslatedStyleName
   imageSource: ImageSource
 }
 
