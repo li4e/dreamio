@@ -561,14 +561,18 @@ function HeaderGenDeleteButton(props: {
     }
   }, [generation, uiStateStore])
 
-  const onDeletePress = useGenDelete(generation, handleDelete, handleRestore)
+  const onDelete = useGenDelete()
+
+  const handlePress = useCallback(() => {
+    onDelete(generation, handleDelete, handleRestore)
+  }, [generation, handleDelete, handleRestore])
 
   return (
     <Animated.View
       entering={SlideInLeft.duration(500)}
       exiting={SlideOutLeft.duration(200)}
     >
-      <Appbar.Action icon="trash-can" onPress={onDeletePress} />
+      <Appbar.Action icon="trash-can" onPress={handlePress} />
     </Animated.View>
   )
 }

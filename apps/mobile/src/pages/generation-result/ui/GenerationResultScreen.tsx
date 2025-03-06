@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import * as Clipboard from 'expo-clipboard'
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 import { Appbar, Icon, IconButton, Text, useTheme } from 'react-native-paper'
@@ -35,7 +35,10 @@ export function GenerationResultScreen(
   const { t } = useTranslation()
   const { colors } = useTheme()
   const insets = useSafeAreaInsets()
-  const onDelete = useGenDelete(generation, goBack)
+  const onDelete = useGenDelete()
+  const handleDeletePress = useCallback(() => {
+    onDelete(generation, goBack)
+  }, [generation, goBack])
   const onCopy = useOnCopy(generation)
   const onRework = useOnRework(generation)
   const scrollViewRef = useAnimatedRef<Animated.ScrollView>()
@@ -73,7 +76,7 @@ export function GenerationResultScreen(
                 <RelativeTime time={generation.createdAt} />
               </Text>
             </View>
-            <IconButton onPress={onDelete} icon="trash-can" />
+            <IconButton onPress={handleDeletePress} icon="trash-can" />
           </View>
           <View className="px-5">
             <GenerationSettings
