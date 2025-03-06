@@ -167,7 +167,8 @@
           "title": "Censorship has been activated",
           "description": "It seems you are not ready for such power"
         }
-      }
+      },
+      "version": "Version {{version}}. Build {{build}}"
     },
     "generationResult": {
       "enhancer": "Enhancer",

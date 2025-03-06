@@ -15,12 +15,7 @@ import { Divider, List, useTheme, Text } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
-import {
-  APP_NAME,
-  BOTTOM_BAR_HEIGHT,
-  SUPPORT_EMAIL,
-  URLS,
-} from 'shared/constants'
+import { BOTTOM_BAR_HEIGHT, SUPPORT_EMAIL, URLS } from 'shared/constants'
 import { useDialog } from 'shared/ui/Dialog'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import { Button } from 'shared/ui/styled'
@@ -28,6 +23,7 @@ import { styled } from 'nativewind'
 import { useDI } from 'shared/di'
 import { useStoreData } from 'shared/store'
 import * as Application from 'expo-application'
+import RNTestFlight from 'react-native-test-flight'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
@@ -151,13 +147,26 @@ export function SettingsScreen() {
             </View>
           </View>
 
-          <Button
-            textColor={colors.error}
-            className="my-5 self-center"
-            onPress={clearAllData}
-          >
-            {t('screens.settings.clear.button')}
-          </Button>
+          <View>
+            <Button
+              textColor={colors.error}
+              className="my-5 self-center"
+              onPress={clearAllData}
+            >
+              {t('screens.settings.clear.button')}
+            </Button>
+            <Text className="text-center mb-5" variant="bodySmall">
+              {t('screens.settings.version', {
+                version: Application.nativeApplicationVersion,
+                build: Application.nativeBuildVersion,
+              })}
+            </Text>
+            {RNTestFlight.isTestFlight === true && (
+              <Text className="text-center mb-5" variant="bodySmall">
+                App is from Testflight
+              </Text>
+            )}
+          </View>
         </View>
       </ScrollView>
     </View>
