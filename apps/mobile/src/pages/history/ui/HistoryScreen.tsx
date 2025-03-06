@@ -177,7 +177,9 @@ function Header(props: {
       )}
       <Appbar.Content
         title={
-          isActive ? `Selected: ${selectedCount}` : t('screens.history.title')
+          isActive
+            ? t('screens.history.selectedTitle', { count: selectedCount })
+            : t('screens.history.title')
         }
       />
       {!isActive && (
