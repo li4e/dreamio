@@ -181,6 +181,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const topInset = modalState ? 0 : baseTopInset
 
   const showAllSettings = !generation && !isPending && !hasError
+  const isButtonFloating = !showAllSettings
 
   return (
     <KeyboardAvoidingView withBottomBar>
@@ -193,7 +194,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           automaticallyAdjustsScrollIndicatorInsets={false}
           contentContainerStyle={{
             paddingTop: topInset,
-            paddingBottom: 20,
+            paddingBottom: isButtonFloating && showStartButton ? 60 : 20,
             flexGrow: 1,
           }}
         >
@@ -238,7 +239,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             uiStateStore={uiStateStore}
             className="mx-5"
           />
-          {showStartButton && (
+          {!isButtonFloating && showStartButton && (
             <StartButton
               hasGeneration={resultImage !== null}
               control={control}
@@ -274,6 +275,16 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           )}
         </Animated.ScrollView>
       </View>
+      {isButtonFloating && showStartButton && (
+        <StartButton
+          hasGeneration={resultImage !== null}
+          control={control}
+          isPending={isPending}
+          disabled={isPendingPromptGen}
+          onPress={handleSubmit(handleStartPress)}
+          className="absolute bottom-2 right-0 left-0"
+        />
+      )}
       <Header uiStateStore={uiStateStore} scrollY={scrollY} />
       <AspectRatioSelectDialog control={control} uiStateStore={uiStateStore} />
       <StyleSelectDialog control={control} uiStateStore={uiStateStore} />
