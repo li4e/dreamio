@@ -143,6 +143,14 @@
             "light": "Light"
           }
         },
+        "autoSave": {
+          "title": "Auto Save",
+          "dialog": {
+            "title": "Auto Save",
+            "description": "Enabling this feature will automatically save all generated images to your phone's gallery.",
+            "button": "Got it"
+          }
+        },
         "language": "Language"
       },
       "about": {

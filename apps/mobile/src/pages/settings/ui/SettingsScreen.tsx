@@ -11,7 +11,7 @@ import {
   View,
   Image,
 } from 'react-native'
-import { Divider, List, useTheme, Text } from 'react-native-paper'
+import { Divider, List, useTheme, Text, Switch } from 'react-native-paper'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useGenerationDataService } from 'entities/generation'
@@ -28,6 +28,7 @@ import {
   SelectedColorScheme,
   useColorSchemeStore,
 } from 'shared/store/ColorSchemeStore'
+import { useSettingsStore } from 'shared/store/SettingsStore'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
@@ -44,7 +45,7 @@ export function SettingsScreen() {
     pressedCount.current++
     if (pressedCount.current > 10) {
       pressedCount.current = 0
-      store.settings.setCensorship(!store.settings.censorship)
+      store.settings.censorship = !store.settings.censorship
 
       showSnackbar(
         {
@@ -102,6 +103,8 @@ export function SettingsScreen() {
             >
               <SubHeader>{t('screens.settings.user.title')}</SubHeader>
               <Divider />
+              <AutoSaveRow />
+              <Divider />
               <ThemeRow />
             </List.Section>
 
@@ -143,7 +146,9 @@ export function SettingsScreen() {
 
           <View>
             <Button
-              textColor={colors.error}
+              mode="contained-tonal"
+              buttonColor={colors.errorContainer}
+              textColor={colors.onErrorContainer}
               className="my-5 self-center"
               onPress={clearAllData}
             >
@@ -210,6 +215,46 @@ function ThemeRow() {
         <Text variant="labelLarge" {...props}>
           {valuesMap[selectedColorScheme]}
         </Text>
+      )}
+    />
+  )
+}
+
+function AutoSaveRow() {
+  const { t } = useTranslation()
+  const { showDialog } = useDialog()
+  const settingsStore = useSettingsStore()
+  const autoSaveEnabled = useStoreData(
+    () => settingsStore.autoSave,
+    [settingsStore]
+  )
+
+  const onPress = () => {
+    showDialog({
+      title: t('screens.settings.user.autoSave.dialog.title'),
+      content: t('screens.settings.user.autoSave.dialog.description'),
+      renderActions(dismiss) {
+        return (
+          <Button onPress={dismiss}>
+            {t('screens.settings.user.autoSave.dialog.button')}
+          </Button>
+        )
+      },
+    })
+  }
+
+  return (
+    <List.Item
+      onPress={onPress}
+      title={t('screens.settings.user.autoSave.title')}
+      right={() => (
+        <Switch
+          value={autoSaveEnabled}
+          onValueChange={(selectedValue: boolean) => {
+            settingsStore.autoSave = selectedValue
+          }}
+          className="self-center"
+        />
       )}
     />
   )

@@ -127,11 +127,11 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   }, [createGenService])
 
   useEffect(() => {
-    if (generation) {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+    if (!isPending) {
       runOnUI(() => scrollTo(scrollViewRef, 0, 0, true))()
     }
-  }, [generation, scrollViewRef])
+  }, [isPending, scrollViewRef])
 
   const updateForm = useCallback(
     (generation: GenerationEntity) => {

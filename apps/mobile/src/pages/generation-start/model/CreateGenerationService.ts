@@ -15,11 +15,15 @@ import {
   GenerationEntityStatus,
   isEqualGeneration,
 } from 'entities/generation/model/GenerationEntity'
+import { useOnSaveImage } from 'shared/ui/CachedImage'
+import { SettingsStore, useSettingsStore } from 'shared/store/SettingsStore'
 
 class CreateGenerationService {
   constructor(
     private readonly generationDataService: GenerationDataService,
-    private uiStateStore: UIStateStore
+    private uiStateStore: UIStateStore,
+    private settingsStore: SettingsStore,
+    private saveImage: (image: string) => void
   ) {}
 
   private async createGeneration(data: CreateGenerationRequest) {
@@ -32,6 +36,9 @@ class CreateGenerationService {
   private async fetchGenerationResult(entity: GenerationEntity) {
     const generation = await this.generationDataService.getGeneration(entity)
     this.uiStateStore.generation = generation
+    if (this.settingsStore.autoSave) {
+      this.saveImage(generation.images[0])
+    }
   }
 
   async submit(data: CreateGenerationRequest) {
@@ -83,9 +90,19 @@ class CreateGenerationService {
 }
 
 export function useCreateGenService(uiStateStore: UIStateStore) {
+  const saveImage = useOnSaveImage()
+  const settingsStore = useSettingsStore()
+
   const genDataService = useGenerationDataService()
   return useMemo(
-    () => new CreateGenerationService(genDataService, uiStateStore),
-    [genDataService, uiStateStore]
+    () =>
+      new CreateGenerationService(
+        genDataService,
+        uiStateStore,
+        settingsStore,
+        saveImage
+      ),
+
+    [genDataService, uiStateStore, saveImage, settingsStore]
   )
 }

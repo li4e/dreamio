@@ -35,50 +35,55 @@ export function useOnSaveImage() {
   const { showSnackbar } = useSnackbar()
   const { t } = useTranslation()
 
-  return useCallback(async (url: string) => {
-    const saved = await saveImage(url)
-    const snackOptions = { position: 'top', offset: HEADER_HEIGHT } as const
+  return useCallback(
+    async (url: string) => {
+      const saved = await saveImage(url)
+      const snackOptions = { position: 'top', offset: HEADER_HEIGHT } as const
 
-    if (saved === null) {
-      showSnackbar(
-        {
-          title: t('components.snackBar.saveImage.noAccess.title'),
-          description: t('components.snackBar.saveImage.noAccess.description'),
-        },
-        {
-          ...snackOptions,
-          variant: SnackBarVariant.ERROR,
-          rightAction: {
-            handler: () => {
-              Linking.openSettings()
-            },
-            label: t('components.snackBar.saveImage.noAccess.button'),
+      if (saved === null) {
+        showSnackbar(
+          {
+            title: t('components.snackBar.saveImage.noAccess.title'),
+            description: t(
+              'components.snackBar.saveImage.noAccess.description'
+            ),
           },
-        }
-      )
-    } else if (saved === true) {
-      showSnackbar(
-        {
-          title: t('components.snackBar.saveImage.success.title'),
-          description: t('components.snackBar.saveImage.success.description'),
-        },
-        snackOptions
-      )
-    } else {
-      showSnackbar(
-        {
-          title: t('components.snackBar.saveImage.error.title'),
-          description: t('components.snackBar.saveImage.error.description'),
-        },
-        {
-          ...snackOptions,
-          variant: SnackBarVariant.ERROR,
-          position: 'top',
-          offset: HEADER_HEIGHT,
-        }
-      )
-    }
-  }, [])
+          {
+            ...snackOptions,
+            variant: SnackBarVariant.ERROR,
+            rightAction: {
+              handler: () => {
+                Linking.openSettings()
+              },
+              label: t('components.snackBar.saveImage.noAccess.button'),
+            },
+          }
+        )
+      } else if (saved === true) {
+        showSnackbar(
+          {
+            title: t('components.snackBar.saveImage.success.title'),
+            description: t('components.snackBar.saveImage.success.description'),
+          },
+          snackOptions
+        )
+      } else {
+        showSnackbar(
+          {
+            title: t('components.snackBar.saveImage.error.title'),
+            description: t('components.snackBar.saveImage.error.description'),
+          },
+          {
+            ...snackOptions,
+            variant: SnackBarVariant.ERROR,
+            position: 'top',
+            offset: HEADER_HEIGHT,
+          }
+        )
+      }
+    },
+    [t]
+  )
 }
 
 export async function getFileTempCachePath(url: string) {
