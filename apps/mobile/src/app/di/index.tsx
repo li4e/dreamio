@@ -1,11 +1,9 @@
-import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
-import { DiContext } from 'shared/di'
+import { useEffect, useMemo, useState } from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 import { appDataSource } from './db'
 import { Store } from './store'
-import { ImageCacheDeprecated } from 'shared/ui/CachedImage'
 
-export function DiProvider({ children }: PropsWithChildren) {
+export function useDIProvider() {
   const [dbReady, setDbReady] = useState(false)
 
   const di = useMemo(() => {
@@ -25,20 +23,16 @@ export function DiProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (!di.db.isInitialized) {
-      Promise.all([
-        di.db.initialize().catch((error) => {
+      di.db
+        .initialize()
+        .catch((error) => {
           console.log('DB initialization error', error)
-        }),
-        ImageCacheDeprecated.clearAllCache(),
-      ]).then(() => {
-        setDbReady(true)
-      })
+        })
+        .then(() => {
+          setDbReady(true)
+        })
     }
   }, [di.db])
 
-  if (!dbReady) {
-    return null
-  }
-
-  return <DiContext.Provider value={di}>{children}</DiContext.Provider>
+  return { dbReady, di }
 }

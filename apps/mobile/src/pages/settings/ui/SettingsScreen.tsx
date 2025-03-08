@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
 import LottieView from 'lottie-react-native'
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   Linking,
@@ -24,6 +24,10 @@ import { useDI } from 'shared/di'
 import { useStoreData } from 'shared/store'
 import * as Application from 'expo-application'
 import RNTestFlight from 'react-native-test-flight'
+import {
+  SelectedColorScheme,
+  useColorSchemeStore,
+} from 'shared/store/ColorSchemeStore'
 
 export function SettingsScreen() {
   const { t } = useTranslation()
@@ -71,7 +75,6 @@ export function SettingsScreen() {
         contentContainerStyle={{
           flexGrow: 1,
           paddingTop: insets.top,
-          paddingHorizontal: 20,
           paddingBottom: 0,
         }}
       >
@@ -92,59 +95,50 @@ export function SettingsScreen() {
               )}
             </TouchableWithoutFeedback>
           </View>
-          <View className="flex-grow justify-center">
-            {/* <List.Section>
-            <SubHeader>{t('screens.settings.user.title')}</SubHeader>
-            <List.Item
-              title={t('screens.settings.user.darkMode')}
-              right={({ color }) => <Switch value={true} />}
-            />
-            <List.Item
-              title={t('screens.settings.user.language')}
-              right={({ color }) => (
-                <Text variant="labelLarge" style={{ color }}>
-                  English
-                </Text>
-              )}
-            />
-          </List.Section>
-          <SettingsDivider /> */}
-
-            <View
-              className="rounded-2xl pb-1"
-              style={{ backgroundColor: colors.inverseOnSurface }}
+          <View className="flex-grow justify-center px-5">
+            <List.Section
+              className="rounded-lg mb-10"
+              style={{ backgroundColor: colors.elevation.level3 }}
             >
-              <List.Section>
-                <SubHeader>{t('screens.settings.about.title')}</SubHeader>
-                <List.Item
-                  onPress={() => {
-                    navigate('webview', {
-                      title: t('screens.settings.about.privacy'),
-                      url: URLS.PRIVACY,
-                    })
-                  }}
-                  title={t('screens.settings.about.privacy')}
-                  right={({ color }) => <RightIcon color={color} />}
-                />
-                <Divider />
-                <List.Item
-                  onPress={() => {
-                    navigate('webview', {
-                      title: t('screens.settings.about.terms'),
-                      url: URLS.TERMS,
-                    })
-                  }}
-                  title={t('screens.settings.about.terms')}
-                  right={({ color }) => <RightIcon color={color} />}
-                />
-                <Divider />
-                <List.Item
-                  onPress={contactUs}
-                  title={t('screens.settings.about.contact')}
-                  right={({ color }) => <RightIcon color={color} />}
-                />
-              </List.Section>
-            </View>
+              <SubHeader>{t('screens.settings.user.title')}</SubHeader>
+              <Divider />
+              <ThemeRow />
+            </List.Section>
+
+            <List.Section
+              className="rounded-lg"
+              style={{ backgroundColor: colors.elevation.level3 }}
+            >
+              <SubHeader>{t('screens.settings.about.title')}</SubHeader>
+              <Divider />
+              <List.Item
+                onPress={() => {
+                  navigate('webview', {
+                    title: t('screens.settings.about.privacy'),
+                    url: URLS.PRIVACY,
+                  })
+                }}
+                title={t('screens.settings.about.privacy')}
+                right={({ color }) => <RightIcon color={color} />}
+              />
+              <Divider />
+              <List.Item
+                onPress={() => {
+                  navigate('webview', {
+                    title: t('screens.settings.about.terms'),
+                    url: URLS.TERMS,
+                  })
+                }}
+                title={t('screens.settings.about.terms')}
+                right={({ color }) => <RightIcon color={color} />}
+              />
+              <Divider />
+              <List.Item
+                onPress={contactUs}
+                title={t('screens.settings.about.contact')}
+                right={({ color }) => <RightIcon color={color} />}
+              />
+            </List.Section>
           </View>
 
           <View>
@@ -173,7 +167,59 @@ export function SettingsScreen() {
   )
 }
 
-const SubHeader = styled(List.Subheader, 'text-base font-semibold ')
+const themesListInOrder: SelectedColorScheme[] = ['dark', 'light', 'system']
+function ThemeRow() {
+  const { t } = useTranslation()
+
+  const colorSchemeStore = useColorSchemeStore()
+  const selectedColorScheme = useStoreData(
+    () => colorSchemeStore.selectedColorScheme,
+    [colorSchemeStore]
+  )
+
+  const valuesMap = useMemo<Record<SelectedColorScheme, string>>(
+    () => ({
+      dark: t('screens.settings.user.theme.values.dark'),
+      light: t('screens.settings.user.theme.values.light'),
+      system: t('screens.settings.user.theme.values.system'),
+    }),
+    [t]
+  )
+
+  const handlePress = useCallback(() => {
+    let currentIndex = themesListInOrder.findIndex(
+      (item) => item === colorSchemeStore.selectedColorScheme
+    )
+    if (currentIndex >= 0) {
+      currentIndex++
+      if (currentIndex > themesListInOrder.length - 1) {
+        currentIndex = 0
+      }
+    } else {
+      currentIndex = 0
+    }
+
+    colorSchemeStore.selectedColorScheme = themesListInOrder[currentIndex]
+  }, [colorSchemeStore])
+
+  return (
+    <List.Item
+      onPress={handlePress}
+      title={t('screens.settings.user.theme.title')}
+      right={(...props) => (
+        <Text variant="labelLarge" {...props}>
+          {valuesMap[selectedColorScheme]}
+        </Text>
+      )}
+    />
+  )
+}
+
+const SubHeader = styled(
+  List.Subheader,
+  'text-lg font-bold capitalize text-center'
+)
+
 const RightIcon = (props: { color: string }) => (
   <MaterialCommunityIcons color={props.color} name="arrow-right" size={20} />
 )

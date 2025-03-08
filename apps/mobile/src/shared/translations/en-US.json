@@ -135,7 +135,14 @@
       "title": "Settings",
       "user": {
         "title": "User Settings",
-        "darkMode": "Dark Mode",
+        "theme": {
+          "title": "Theme",
+          "values": {
+            "system": "System",
+            "dark": "Dark",
+            "light": "Light"
+          }
+        },
         "language": "Language"
       },
       "about": {
