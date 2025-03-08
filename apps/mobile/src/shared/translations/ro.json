@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Aceasta durează de obicei aproximativ 15 secunde...",
   "screens.settings.title": "Setări",
   "screens.settings.user.title": "Setări utilizator",
-  "screens.settings.user.darkMode": "Mod întunecat",
   "screens.settings.user.language": "Limbă",
   "screens.settings.about.title": "Despre aplicație",
   "screens.settings.about.privacy": "Politica de Confidențialitate",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Acvarelă",
-  "screens.history.selectedTitle": "Selectat: {{count}}"
+  "screens.history.selectedTitle": "Selectat: {{count}}",
+  "screens.settings.user.theme.title": "Temă",
+  "screens.settings.user.theme.values.system": "Sistem",
+  "screens.settings.user.theme.values.dark": "Întunecat",
+  "screens.settings.user.theme.values.light": "Luminosu",
+  "screens.settings.user.autoSave.title": "Salvare automată",
+  "screens.settings.user.autoSave.dialog.title": "Salvare Automată",
+  "screens.settings.user.autoSave.dialog.description": "Activarea acestei funcții va salva automat toate imaginile generate în galeria telefonului dumneavoastră.",
+  "screens.settings.user.autoSave.dialog.button": "Înțeles.",
+  "screens.settings.version": "Versiunea {{version}}. Construcția {{build}}"
 }

@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "To zazwyczaj zajmuje około 15 sekund...",
   "screens.settings.title": "Ustawienia",
   "screens.settings.user.title": "Ustawienia użytkownika",
-  "screens.settings.user.darkMode": "Tryb ciemny",
   "screens.settings.user.language": "Język",
   "screens.settings.about.title": "Informacje o aplikacji",
   "screens.settings.about.privacy": "Polityka prywatności",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Styl vintage",
   "components.styleCard.styles.Surreal": "Surrealny",
   "components.styleCard.styles.Watercolor": "Akwarela",
-  "screens.history.selectedTitle": "Wybrano: {{count}}"
+  "screens.history.selectedTitle": "Wybrano: {{count}}",
+  "screens.settings.user.theme.title": "Motyw",
+  "screens.settings.user.theme.values.system": "Systemowy",
+  "screens.settings.user.theme.values.dark": "Ciemny",
+  "screens.settings.user.theme.values.light": "Jasny",
+  "screens.settings.user.autoSave.title": "Automatyczne zapisywanie",
+  "screens.settings.user.autoSave.dialog.title": "Automatyczne zapisywanie",
+  "screens.settings.user.autoSave.dialog.description": "Włączenie tej funkcji automatycznie zapisze wszystkie wygenerowane obrazy w galerii telefonu.",
+  "screens.settings.user.autoSave.dialog.button": "Rozumiem",
+  "screens.settings.version": "Wersja {{version}}. Kompilacja {{build}}"
 }

@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "通常、これは約15秒かかります…",
   "screens.settings.title": "設定",
   "screens.settings.user.title": "ユーザー設定",
-  "screens.settings.user.darkMode": "ダークモード",
   "screens.settings.user.language": "言語",
   "screens.settings.about.title": "アプリについて",
   "screens.settings.about.privacy": "プライバシーポリシー",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "ヴィンテージ",
   "components.styleCard.styles.Surreal": "超現実的",
   "components.styleCard.styles.Watercolor": "水彩画",
-  "screens.history.selectedTitle": "選択されました: {{count}}"
+  "screens.history.selectedTitle": "選択されました: {{count}}",
+  "screens.settings.user.theme.title": "テーマ",
+  "screens.settings.user.theme.values.system": "システム",
+  "screens.settings.user.theme.values.dark": "ダーク",
+  "screens.settings.user.theme.values.light": "ライト",
+  "screens.settings.user.autoSave.title": "自動保存",
+  "screens.settings.user.autoSave.dialog.title": "自動保存",
+  "screens.settings.user.autoSave.dialog.description": "この機能を有効にすると、生成されたすべての画像が自動的にあなたの携帯電話のギャラリーに保存されます。",
+  "screens.settings.user.autoSave.dialog.button": "承知しました。",
+  "screens.settings.version": "バージョン {{version}}。ビルド {{build}}"
 }

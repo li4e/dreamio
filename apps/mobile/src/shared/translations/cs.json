@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Obvykle to trvá asi 15 sekund...",
   "screens.settings.title": "Nastavení",
   "screens.settings.user.title": "Nastavení uživatele",
-  "screens.settings.user.darkMode": "Tmavý režim",
   "screens.settings.user.language": "Jazyk",
   "screens.settings.about.title": "O aplikaci",
   "screens.settings.about.privacy": "Zásady ochrany osobních údajů",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Akvarel",
-  "screens.history.selectedTitle": "Vybráno: {{count}}"
+  "screens.history.selectedTitle": "Vybráno: {{count}}",
+  "screens.settings.user.theme.title": "Téma",
+  "screens.settings.user.theme.values.system": "Systém",
+  "screens.settings.user.theme.values.dark": "Tmavý",
+  "screens.settings.user.theme.values.light": "Světlý",
+  "screens.settings.user.autoSave.title": "Automatické ukládání",
+  "screens.settings.user.autoSave.dialog.title": "Automatické ukládání",
+  "screens.settings.user.autoSave.dialog.description": "Povolení této funkce automaticky uloží všechny generované obrázky do galerie vašeho telefonu.",
+  "screens.settings.user.autoSave.dialog.button": "Rozumím",
+  "screens.settings.version": "Verze {{version}}. Vytvoření {{build}}."
 }

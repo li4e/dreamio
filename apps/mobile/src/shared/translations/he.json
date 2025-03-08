@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "זה בדרך כלל לוקח כ-15 שניות...",
   "screens.settings.title": "הגדרות",
   "screens.settings.user.title": "הגדרות משתמש",
-  "screens.settings.user.darkMode": "מצב כהה",
   "screens.settings.user.language": "שפה",
   "screens.settings.about.title": "אודות האפליקציה",
   "screens.settings.about.privacy": "מדיניות פרטיות",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "נוסטלגי",
   "components.styleCard.styles.Surreal": "סריאליסטי",
   "components.styleCard.styles.Watercolor": "אקוורל",
-  "screens.history.selectedTitle": "נבחר: {{count}}"
+  "screens.history.selectedTitle": "נבחר: {{count}}",
+  "screens.settings.user.theme.title": "נושא",
+  "screens.settings.user.theme.values.system": "מערכת",
+  "screens.settings.user.theme.values.dark": "כהה",
+  "screens.settings.user.theme.values.light": "בהיר",
+  "screens.settings.user.autoSave.title": "שמור אוטומטית",
+  "screens.settings.user.autoSave.dialog.title": "שמור אוטומטית",
+  "screens.settings.user.autoSave.dialog.description": "הפעלת תכונה זו תשמור באופן אוטומטי את כל התמונות שהופקו בגלריה של הטלפון שלך.",
+  "screens.settings.user.autoSave.dialog.button": "בזמן שנשמר אוטומטית, האם אתה בטוח שברצונך לאפס את ההגדרה הזו?",
+  "screens.settings.version": "גרסה {{version}}. גרסה {{build}}"
 }

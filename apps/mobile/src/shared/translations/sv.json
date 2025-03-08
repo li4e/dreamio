@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Detta tar vanligtvis cirka 15 sekunder...",
   "screens.settings.title": "Inställningar",
   "screens.settings.user.title": "Användarinställningar",
-  "screens.settings.user.darkMode": "Mörkt läge",
   "screens.settings.user.language": "Språk",
   "screens.settings.about.title": "Om appen",
   "screens.settings.about.privacy": "Integritetspolicy",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Vattenfärg",
-  "screens.history.selectedTitle": "Valt: {{count}}"
+  "screens.history.selectedTitle": "Valt: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Systemet",
+  "screens.settings.user.theme.values.dark": "Mörk",
+  "screens.settings.user.theme.values.light": "Ljus",
+  "screens.settings.user.autoSave.title": "Automatisk sparande",
+  "screens.settings.user.autoSave.dialog.title": "Automatisk Spara",
+  "screens.settings.user.autoSave.dialog.description": "Att aktivera denna funktion kommer automatiskt att spara alla genererade bilder i din telefons galleri.",
+  "screens.settings.user.autoSave.dialog.button": "Förstår.",
+  "screens.settings.version": "Version {{version}}. Bygg {{build}}"
 }

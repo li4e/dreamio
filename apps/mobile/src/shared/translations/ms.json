@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Ini biasanya mengambil masa kira-kira 15 saat...",
   "screens.settings.title": "Tetapan",
   "screens.settings.user.title": "Tetapan Pengguna",
-  "screens.settings.user.darkMode": "Mod Gelap",
   "screens.settings.user.language": "Bahasa",
   "screens.settings.about.title": "Mengenai Apl",
   "screens.settings.about.privacy": "Dasar Privasi",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Klasik",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Cat air brush",
-  "screens.history.selectedTitle": "Dipilih: {{count}}"
+  "screens.history.selectedTitle": "Dipilih: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Sistem",
+  "screens.settings.user.theme.values.dark": "Gelap",
+  "screens.settings.user.theme.values.light": "Cahaya",
+  "screens.settings.user.autoSave.title": "Simpan Secara Automatik",
+  "screens.settings.user.autoSave.dialog.title": "Simpan Secara Automatik",
+  "screens.settings.user.autoSave.dialog.description": "Mengaktifkan ciri ini akan menyimpan secara automatik semua imej yang dihasilkan ke galeri telefon anda.",
+  "screens.settings.user.autoSave.dialog.button": "Understood.",
+  "screens.settings.version": "Versi {{version}}. Pembinaan {{build}}"
 }

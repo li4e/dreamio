@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Ini biasanya memakan waktu sekitar 15 detik...",
   "screens.settings.title": "Pengaturan",
   "screens.settings.user.title": "Pengaturan Pengguna",
-  "screens.settings.user.darkMode": "Mode Gelap",
   "screens.settings.user.language": "Bahasa",
   "screens.settings.about.title": "Tentang Aplikasi",
   "screens.settings.about.privacy": "Kebijakan Privasi",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Klasik",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Cat air warna",
-  "screens.history.selectedTitle": "Terpilih: {{count}}"
+  "screens.history.selectedTitle": "Terpilih: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Sistem",
+  "screens.settings.user.theme.values.dark": "Gelap",
+  "screens.settings.user.theme.values.light": "Cahaya",
+  "screens.settings.user.autoSave.title": "Simpan Otomatis",
+  "screens.settings.user.autoSave.dialog.title": "Simpan Otomatis",
+  "screens.settings.user.autoSave.dialog.description": "Mengaktifkan fitur ini akan secara otomatis menyimpan semua gambar yang dihasilkan ke galeri ponsel Anda.",
+  "screens.settings.user.autoSave.dialog.button": "Diterima",
+  "screens.settings.version": "Versi {{version}}. Build {{build}}"
 }

@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Αυτό συνήθως διαρκεί περίπου 15 δευτερόλεπτα...",
   "screens.settings.title": "Ρυθμίσεις",
   "screens.settings.user.title": "Ρυθμίσεις Χρήστη",
-  "screens.settings.user.darkMode": "Σκοτεινή Λειτουργία",
   "screens.settings.user.language": "Γλώσσα",
   "screens.settings.about.title": "Πληροφορίες Εφαρμογής",
   "screens.settings.about.privacy": "Πολιτική Απορρήτου",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Παλιό",
   "components.styleCard.styles.Surreal": "Σουρεαλιστικός",
   "components.styleCard.styles.Watercolor": "Ακουαρέλα",
-  "screens.history.selectedTitle": "Επιλεγμένο: {{count}}"
+  "screens.history.selectedTitle": "Επιλεγμένο: {{count}}",
+  "screens.settings.user.theme.title": "Θέμα",
+  "screens.settings.user.theme.values.system": "Σύστημα",
+  "screens.settings.user.theme.values.dark": "Σκοτεινό",
+  "screens.settings.user.theme.values.light": "Φωτεινός",
+  "screens.settings.user.autoSave.title": "Αυτόματη Αποθήκευση",
+  "screens.settings.user.autoSave.dialog.title": "Αυτόματη Αποθήκευση",
+  "screens.settings.user.autoSave.dialog.description": "Η ενεργοποίηση αυτής της δυνατότητας θα αποθηκεύει αυτόματα όλες τις παραγόμενες εικόνες στη γκαλερί του τηλεφώνου σας.",
+  "screens.settings.user.autoSave.dialog.button": "Κατάλαβα",
+  "screens.settings.version": "Έκδοση {{version}}. Δημιουργία {{build}}"
 }

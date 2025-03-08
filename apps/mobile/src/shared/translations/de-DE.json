@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Dies dauert normalerweise etwa 15 Sekunden...",
   "screens.settings.title": "Einstellungen",
   "screens.settings.user.title": "Benutzereinstellungen",
-  "screens.settings.user.darkMode": "Dunkelmodus",
   "screens.settings.user.language": "Sprache",
   "screens.settings.about.title": "Über die App",
   "screens.settings.about.privacy": "Datenschutzrichtlinie",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Aquarell",
-  "screens.history.selectedTitle": "Ausgewählt: {{count}}"
+  "screens.history.selectedTitle": "Ausgewählt: {{count}}",
+  "screens.settings.user.theme.title": "Thema",
+  "screens.settings.user.theme.values.system": "System",
+  "screens.settings.user.theme.values.dark": "Dunkel",
+  "screens.settings.user.theme.values.light": "Hell",
+  "screens.settings.user.autoSave.title": "Automatische Speicherung",
+  "screens.settings.user.autoSave.dialog.title": "Automatisches Speichern",
+  "screens.settings.user.autoSave.dialog.description": "Die Aktivierung dieser Funktion speichert automatisch alle generierten Bilder in der Galerie Ihres Telefons.",
+  "screens.settings.user.autoSave.dialog.button": "Verstanden.",
+  "screens.settings.version": "Version {{version}}. Build {{build}}"
 }

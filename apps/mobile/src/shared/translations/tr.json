@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Bu genellikle yaklaşık 15 saniye sürer...",
   "screens.settings.title": "Ayarlar",
   "screens.settings.user.title": "Kullanıcı Ayarları",
-  "screens.settings.user.darkMode": "Karanlık Modu",
   "screens.settings.user.language": "Dil",
   "screens.settings.about.title": "Uygulama Hakkında",
   "screens.settings.about.privacy": "Gizlilik Politikası",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Eski Tarz",
   "components.styleCard.styles.Surreal": "Sürreel",
   "components.styleCard.styles.Watercolor": "Sulu Boya",
-  "screens.history.selectedTitle": "Seçilen: {{count}}"
+  "screens.history.selectedTitle": "Seçilen: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Sistem",
+  "screens.settings.user.theme.values.dark": "Karanlık",
+  "screens.settings.user.theme.values.light": "Aydınlık",
+  "screens.settings.user.autoSave.title": "Otomatik Kaydet",
+  "screens.settings.user.autoSave.dialog.title": "Otomatik Kaydet",
+  "screens.settings.user.autoSave.dialog.description": "Bu özelliği etkinleştirirseniz, oluşturulan tüm görseller telefonunuzun galerisine otomatik olarak kaydedilecektir.",
+  "screens.settings.user.autoSave.dialog.button": "Anladım",
+  "screens.settings.version": "Sürüm {{version}}. Derleme {{build}}"
 }

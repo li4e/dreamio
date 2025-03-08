@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Это обычно занимает около 15 секунд...",
   "screens.settings.title": "Настройки",
   "screens.settings.user.title": "Настройки пользователя",
-  "screens.settings.user.darkMode": "Темный режим",
   "screens.settings.user.language": "Язык",
   "screens.settings.about.title": "О приложении",
   "screens.settings.about.privacy": "Политика конфиденциальности",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Винтажный",
   "components.styleCard.styles.Surreal": "Сюрреалистичный",
   "components.styleCard.styles.Watercolor": "Акварель",
-  "screens.history.selectedTitle": "Выбрано: {{count}}"
+  "screens.history.selectedTitle": "Выбрано: {{count}}",
+  "screens.settings.user.theme.title": "Тема",
+  "screens.settings.user.theme.values.system": "Система",
+  "screens.settings.user.theme.values.dark": "Темный",
+  "screens.settings.user.theme.values.light": "Светлая",
+  "screens.settings.user.autoSave.title": "Авто-сохранение",
+  "screens.settings.user.autoSave.dialog.title": "Автосохранение",
+  "screens.settings.user.autoSave.dialog.description": "Включение этой функции автоматически сохранит все созданные изображения в галерее вашего телефона.",
+  "screens.settings.user.autoSave.dialog.button": "Понял",
+  "screens.settings.version": "Версия {{version}}. Сборка {{build}}"
 }

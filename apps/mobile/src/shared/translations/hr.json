@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Ovo obično traje oko 15 sekundi...",
   "screens.settings.title": "Postavke",
   "screens.settings.user.title": "Postavke korisnika",
-  "screens.settings.user.darkMode": "Tamni način rada",
   "screens.settings.user.language": "Jezik",
   "screens.settings.about.title": "O aplikaciji",
   "screens.settings.about.privacy": "Pravila o privatnosti",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Suralno",
   "components.styleCard.styles.Watercolor": "Akvarel",
-  "screens.history.selectedTitle": "Odabrano: {{count}}"
+  "screens.history.selectedTitle": "Odabrano: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Sustav",
+  "screens.settings.user.theme.values.dark": "Tamna",
+  "screens.settings.user.theme.values.light": "Svijetla",
+  "screens.settings.user.autoSave.title": "Automatsko spremanje",
+  "screens.settings.user.autoSave.dialog.title": "Automatsko spremanje",
+  "screens.settings.user.autoSave.dialog.description": "Omogućavanje ove značajke automatski će spremiti sve generirane slike u galeriju vašeg telefona.",
+  "screens.settings.user.autoSave.dialog.button": "Razumijem",
+  "screens.settings.version": "Verzija {{version}}. Gradnja {{build}}"
 }

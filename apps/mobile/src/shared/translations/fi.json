@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Tämä kestää yleensä noin 15 sekuntia...",
   "screens.settings.title": "Asetukset",
   "screens.settings.user.title": "Käyttäjän asetukset",
-  "screens.settings.user.darkMode": "Tumma tila",
   "screens.settings.user.language": "Kieli",
   "screens.settings.about.title": "Tietoja sovelluksesta",
   "screens.settings.about.privacy": "Tietosuojakäytäntö",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintagemallinen",
   "components.styleCard.styles.Surreal": "Epätodellinen",
   "components.styleCard.styles.Watercolor": "Vesiväri",
-  "screens.history.selectedTitle": "Valittu: {{count}}"
+  "screens.history.selectedTitle": "Valittu: {{count}}",
+  "screens.settings.user.theme.title": "Teema",
+  "screens.settings.user.theme.values.system": "Järjestelmä",
+  "screens.settings.user.theme.values.dark": "Tumma",
+  "screens.settings.user.theme.values.light": "Vaalea",
+  "screens.settings.user.autoSave.title": "Automaatinen tallennus",
+  "screens.settings.user.autoSave.dialog.title": "Automaattinen tallennus",
+  "screens.settings.user.autoSave.dialog.description": "Tämän ominaisuuden käyttöönotto tallentaa automaattisesti kaikki luodut kuvat puhelimesi galleriaan.",
+  "screens.settings.user.autoSave.dialog.button": "Saatiin selville",
+  "screens.settings.version": "Versio {{version}}. Rakennus {{build}}"
 }

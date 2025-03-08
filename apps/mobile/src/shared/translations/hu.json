@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Ez általában körülbelül 15 másodpercet vesz igénybe...",
   "screens.settings.title": "Beállítások",
   "screens.settings.user.title": "Felhasználói beállítások",
-  "screens.settings.user.darkMode": "Sötét mód",
   "screens.settings.user.language": "Nyelv",
   "screens.settings.about.title": "Alkalmazásról",
   "screens.settings.about.privacy": "Adatvédelmi szabályzat",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Szürreális",
   "components.styleCard.styles.Watercolor": "Akvarel",
-  "screens.history.selectedTitle": "Kiválasztva: {{count}}"
+  "screens.history.selectedTitle": "Kiválasztva: {{count}}",
+  "screens.settings.user.theme.title": "Téma",
+  "screens.settings.user.theme.values.system": "Rendszer",
+  "screens.settings.user.theme.values.dark": "Sötét",
+  "screens.settings.user.theme.values.light": "Világos",
+  "screens.settings.user.autoSave.title": "Automatikus mentés",
+  "screens.settings.user.autoSave.dialog.title": "Automatikus mentés",
+  "screens.settings.user.autoSave.dialog.description": "Ez a funkció lehetővé teszi, hogy automatikusan mentse az összes generált képet a telefon galériájába.",
+  "screens.settings.user.autoSave.dialog.button": "Értem",
+  "screens.settings.version": "Verzió {{version}}. Build {{build}}"
 }

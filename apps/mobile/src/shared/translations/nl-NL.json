@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Dit duurt meestal ongeveer 15 seconden...",
   "screens.settings.title": "Instellingen",
   "screens.settings.user.title": "Gebruikersinstellingen",
-  "screens.settings.user.darkMode": "Donkere modus",
   "screens.settings.user.language": "Taal",
   "screens.settings.about.title": "Over de app",
   "screens.settings.about.privacy": "Privacybeleid",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Aquarel",
-  "screens.history.selectedTitle": "Geselecteerd: {{count}}"
+  "screens.history.selectedTitle": "Geselecteerd: {{count}}",
+  "screens.settings.user.theme.title": "Thema",
+  "screens.settings.user.theme.values.system": "Systeem",
+  "screens.settings.user.theme.values.dark": "Donker",
+  "screens.settings.user.theme.values.light": "Licht",
+  "screens.settings.user.autoSave.title": "Automatisch Opslaan",
+  "screens.settings.user.autoSave.dialog.title": "Automatische Opslag",
+  "screens.settings.user.autoSave.dialog.description": "Het inschakelen van deze functie zal automatisch alle gegenereerde afbeeldingen opslaan in de galerij van je telefoon.",
+  "screens.settings.user.autoSave.dialog.button": "Begrijp het",
+  "screens.settings.version": "Versie {{version}}. Build {{build}}"
 }

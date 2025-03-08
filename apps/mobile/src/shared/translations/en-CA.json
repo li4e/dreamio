@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Cela prend généralement environ 15 secondes...",
   "screens.settings.title": "Paramètres",
   "screens.settings.user.title": "Paramètres utilisateur",
-  "screens.settings.user.darkMode": "Mode sombre",
   "screens.settings.user.language": "Langue",
   "screens.settings.about.title": "À propos de l'application",
   "screens.settings.about.privacy": "Politique de Confidentialité",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Watercolour",
-  "screens.history.selectedTitle": "Selected: {{count}}"
+  "screens.history.selectedTitle": "Selected: {{count}}",
+  "screens.settings.user.theme.title": "Theme",
+  "screens.settings.user.theme.values.system": "System",
+  "screens.settings.user.theme.values.dark": "Dark",
+  "screens.settings.user.theme.values.light": "Light",
+  "screens.settings.user.autoSave.title": "Auto Save",
+  "screens.settings.user.autoSave.dialog.title": "Automatic Save",
+  "screens.settings.user.autoSave.dialog.description": "Enabling this feature will automatically save all generated images to your phone's photo gallery.",
+  "screens.settings.user.autoSave.dialog.button": "Understood.",
+  "screens.settings.version": "Version {{version}}. Build {{build}}"
 }

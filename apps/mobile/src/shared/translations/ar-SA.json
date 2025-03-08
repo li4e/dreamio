@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "عادةً ما يستغرق ذلك حوالي 15 ثانية...",
   "screens.settings.title": "الإعدادات",
   "screens.settings.user.title": "إعدادات المستخدم",
-  "screens.settings.user.darkMode": "الوضع الداكن",
   "screens.settings.user.language": "اللغة",
   "screens.settings.about.title": "حول التطبيق",
   "screens.settings.about.privacy": "سياسة الخصوصية",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "عتيق",
   "components.styleCard.styles.Surreal": "سريالي",
   "components.styleCard.styles.Watercolor": "أكواريل",
-  "screens.history.selectedTitle": "المحدد: {{count}}"
+  "screens.history.selectedTitle": "المحدد: {{count}}",
+  "screens.settings.user.theme.title": "موضوع",
+  "screens.settings.user.theme.values.system": "النظام",
+  "screens.settings.user.theme.values.dark": "داكن",
+  "screens.settings.user.theme.values.light": "فاتح",
+  "screens.settings.user.autoSave.title": "حفظ تلقائي",
+  "screens.settings.user.autoSave.dialog.title": "الحفظ التلقائي",
+  "screens.settings.user.autoSave.dialog.description": "تفعيل هذه الميزة سيؤدي إلى حفظ جميع الصور المولّدة تلقائيًا في معرض الصور على هاتفك.",
+  "screens.settings.user.autoSave.dialog.button": "فهمت",
+  "screens.settings.version": "الإصدار {{version}}. البناء {{build}}"
 }

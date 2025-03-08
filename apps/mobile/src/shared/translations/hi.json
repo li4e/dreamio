@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "यह आमतौर पर लगभग 15 सेकंड लेता है...",
   "screens.settings.title": "सेटिंग्स",
   "screens.settings.user.title": "उपयोगकर्ता सेटिंग्स",
-  "screens.settings.user.darkMode": "डार्क मोड",
   "screens.settings.user.language": "भाषा",
   "screens.settings.about.title": "ऐप के बारे में",
   "screens.settings.about.privacy": "गोपनीयता नीति",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "विंटेज",
   "components.styleCard.styles.Surreal": "असत्यवादी",
   "components.styleCard.styles.Watercolor": "जल रंग",
-  "screens.history.selectedTitle": "चुना गया: {{count}}"
+  "screens.history.selectedTitle": "चुना गया: {{count}}",
+  "screens.settings.user.theme.title": "थीम",
+  "screens.settings.user.theme.values.system": "सिस्टम",
+  "screens.settings.user.theme.values.dark": "गहरा",
+  "screens.settings.user.theme.values.light": "हल्का",
+  "screens.settings.user.autoSave.title": "स्वतः सहेजें",
+  "screens.settings.user.autoSave.dialog.title": "स्वतः सहेजें",
+  "screens.settings.user.autoSave.dialog.description": "इस फीचर को सक्रिय करने से सभी उत्पन्न छवियाँ स्वचालित रूप से आपके फोन की गैलरी में सहेजी जाएँगी।",
+  "screens.settings.user.autoSave.dialog.button": "समझ गया",
+  "screens.settings.version": "संस्करण {{version}}. निर्माण {{build}}"
 }

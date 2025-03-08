@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "這通常需要大約 15 秒…",
   "screens.settings.title": "設定",
   "screens.settings.user.title": "用戶設定",
-  "screens.settings.user.darkMode": "深色模式",
   "screens.settings.user.language": "語言",
   "screens.settings.about.title": "關於應用程式",
   "screens.settings.about.privacy": "隱私政策",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "復古",
   "components.styleCard.styles.Surreal": "超現實",
   "components.styleCard.styles.Watercolor": "水彩畫",
-  "screens.history.selectedTitle": "已選擇: {{count}}"
+  "screens.history.selectedTitle": "已選擇: {{count}}",
+  "screens.settings.user.theme.title": "主題",
+  "screens.settings.user.theme.values.system": "系統",
+  "screens.settings.user.theme.values.dark": "深色",
+  "screens.settings.user.theme.values.light": "淺色",
+  "screens.settings.user.autoSave.title": "自動儲存",
+  "screens.settings.user.autoSave.dialog.title": "自動儲存",
+  "screens.settings.user.autoSave.dialog.description": "啟用此功能將自動將所有生成的圖像保存到您手機的相冊中。",
+  "screens.settings.user.autoSave.dialog.button": "明白了",
+  "screens.settings.version": "版本 {{version}}。构建 {{build}}"
 }

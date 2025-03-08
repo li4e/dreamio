@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Dette tar vanligvis omtrent 15 sekunder...",
   "screens.settings.title": "Innstillinger",
   "screens.settings.user.title": "Brukerinnstillinger",
-  "screens.settings.user.darkMode": "Mørk modus",
   "screens.settings.user.language": "Språk",
   "screens.settings.about.title": "Om appen",
   "screens.settings.about.privacy": "Personvernerklæring",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Akvarell",
-  "screens.history.selectedTitle": "Valgt: {{count}}"
+  "screens.history.selectedTitle": "Valgt: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "System",
+  "screens.settings.user.theme.values.dark": "Mørk",
+  "screens.settings.user.theme.values.light": "Lys",
+  "screens.settings.user.autoSave.title": "Automatisk lagring",
+  "screens.settings.user.autoSave.dialog.title": "Automatisk lagring",
+  "screens.settings.user.autoSave.dialog.description": "Å aktivere denne funksjonen vil automatisk lagre alle genererte bilder til galleriet på telefonen din.",
+  "screens.settings.user.autoSave.dialog.button": "For the key \"screens.settings.user.autoSave.dialog.button\", the translation from en-US to no would be:\n\n\"Få det\"",
+  "screens.settings.version": "Versjon {{version}}. Bygg {{build}}"
 }

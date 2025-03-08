@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Це зазвичай займає близько 15 секунд...",
   "screens.settings.title": "Налаштування",
   "screens.settings.user.title": "Налаштування користувача",
-  "screens.settings.user.darkMode": "Темний режим",
   "screens.settings.user.language": "Мова",
   "screens.settings.about.title": "Про додаток",
   "screens.settings.about.privacy": "Політика конфіденційності",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Вінтаж",
   "components.styleCard.styles.Surreal": "Сюрреалістичний",
   "components.styleCard.styles.Watercolor": "Акварель",
-  "screens.history.selectedTitle": "Вибрано: {{count}}"
+  "screens.history.selectedTitle": "Вибрано: {{count}}",
+  "screens.settings.user.theme.title": "Тема",
+  "screens.settings.user.theme.values.system": "Система",
+  "screens.settings.user.theme.values.dark": "Темна",
+  "screens.settings.user.theme.values.light": "Світла",
+  "screens.settings.user.autoSave.title": "Автоматичне збереження",
+  "screens.settings.user.autoSave.dialog.title": "Автоматичне збереження",
+  "screens.settings.user.autoSave.dialog.description": "Увімкнення цієї функції автоматично зберігатиме всі згенеровані зображення у галереї вашого телефону.",
+  "screens.settings.user.autoSave.dialog.button": "Зрозумів",
+  "screens.settings.version": "Версія {{version}}. Збірка {{build}}"
 }

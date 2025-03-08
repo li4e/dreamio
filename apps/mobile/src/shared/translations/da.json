@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "Dette tager normalt omkring 15 sekunder...",
   "screens.settings.title": "Indstillinger",
   "screens.settings.user.title": "Brugerindstillinger",
-  "screens.settings.user.darkMode": "Mørk tilstand",
   "screens.settings.user.language": "Sprog",
   "screens.settings.about.title": "Om appen",
   "screens.settings.about.privacy": "Privatlivspolitik",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "Vintage",
   "components.styleCard.styles.Surreal": "Surreal",
   "components.styleCard.styles.Watercolor": "Akvarelle",
-  "screens.history.selectedTitle": "Valgt: {{count}}"
+  "screens.history.selectedTitle": "Valgt: {{count}}",
+  "screens.settings.user.theme.title": "Tema",
+  "screens.settings.user.theme.values.system": "Systemet",
+  "screens.settings.user.theme.values.dark": "Mørk",
+  "screens.settings.user.theme.values.light": "Lys",
+  "screens.settings.user.autoSave.title": "Automatisk gemmesystem",
+  "screens.settings.user.autoSave.dialog.title": "Automatisk gemming",
+  "screens.settings.user.autoSave.dialog.description": "At aktivere denne funktion vil automatisk gemme alle genererede billeder til din telefons galleri.",
+  "screens.settings.user.autoSave.dialog.button": "For your request related to \"screens.settings.user.autoSave.dialog.button,\" please provide the specific text you need to be translated from en-US to da, and I'll be happy to assist you!",
+  "screens.settings.version": "Version {{version}}. Bygget {{build}}"
 }

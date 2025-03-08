@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "이 작업은 보통 약 15초가 소요됩니다...",
   "screens.settings.title": "설정",
   "screens.settings.user.title": "사용자 설정",
-  "screens.settings.user.darkMode": "다크 모드",
   "screens.settings.user.language": "언어",
   "screens.settings.about.title": "앱 정보",
   "screens.settings.about.privacy": "개인정보 보호정책",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "복고풍",
   "components.styleCard.styles.Surreal": "초현실적",
   "components.styleCard.styles.Watercolor": "수채화",
-  "screens.history.selectedTitle": "선택됨: {{count}}"
+  "screens.history.selectedTitle": "선택됨: {{count}}",
+  "screens.settings.user.theme.title": "테마",
+  "screens.settings.user.theme.values.system": "시스템",
+  "screens.settings.user.theme.values.dark": "어두운 테마",
+  "screens.settings.user.theme.values.light": "밝은 테마",
+  "screens.settings.user.autoSave.title": "자동 저장",
+  "screens.settings.user.autoSave.dialog.title": "자동 저장",
+  "screens.settings.user.autoSave.dialog.description": "이 기능을 활성화하면 생성된 모든 이미지가 자동으로 휴대폰의 갤러리에 저장됩니다.",
+  "screens.settings.user.autoSave.dialog.button": "알겠습니다",
+  "screens.settings.version": "버전 {{version}}. 빌드 {{build}}"
 }

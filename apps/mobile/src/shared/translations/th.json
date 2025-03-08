@@ -19,7 +19,6 @@
   "screens.generation.modalGeneration.description": "กระบวนการนี้โดยปกติจะใช้เวลาประมาณ 15 วินาที...",
   "screens.settings.title": "การตั้งค่า",
   "screens.settings.user.title": "การตั้งค่าผู้ใช้",
-  "screens.settings.user.darkMode": "โหมดมืด",
   "screens.settings.user.language": "ภาษา",
   "screens.settings.about.title": "เกี่ยวกับแอป",
   "screens.settings.about.privacy": "นโยบายความเป็นส่วนตัว",
@@ -115,5 +114,14 @@
   "components.styleCard.styles.Vintage": "วินเทจ",
   "components.styleCard.styles.Surreal": "เหนือจริง",
   "components.styleCard.styles.Watercolor": "สีน้ำ",
-  "screens.history.selectedTitle": "เลือกแล้ว: {{count}}"
+  "screens.history.selectedTitle": "เลือกแล้ว: {{count}}",
+  "screens.settings.user.theme.title": "ธีม",
+  "screens.settings.user.theme.values.system": "ระบบ",
+  "screens.settings.user.theme.values.dark": "มืด",
+  "screens.settings.user.theme.values.light": "แสงสว่าง",
+  "screens.settings.user.autoSave.title": "บันทึกอัตโนมัติ",
+  "screens.settings.user.autoSave.dialog.title": "บันทึกอัตโนมัติ",
+  "screens.settings.user.autoSave.dialog.description": "การเปิดใช้งานฟีเจอร์นี้จะบันทึกภาพที่สร้างขึ้นทั้งหมดไปยังแกลเลอรีในโทรศัพท์ของคุณโดยอัตโนมัติ",
+  "screens.settings.user.autoSave.dialog.button": "ได้รับแล้ว",
+  "screens.settings.version": "เวอร์ชัน {{version}}. การสร้าง {{build}}"
 }
