@@ -40,7 +40,7 @@ export class ColorSchemeStore {
     return this.selectedColorScheme
   }
 
-  private readonly persistingKey = 'colorSchemeStore'
+  private readonly persistingKey = 'store.colorScheme'
 
   private persist() {
     const data: ColorSchemeStorePersistindData = {
@@ -57,8 +57,8 @@ export class ColorSchemeStore {
         storedData
       ) as ColorSchemeStorePersistindData
 
-      this.selectedColorScheme = parsedData.selectedColorScheme
-      this.systemColorScheme = parsedData.systemColorScheme
+      this._selectedColorScheme = parsedData.selectedColorScheme
+      this._systemColorScheme = parsedData.systemColorScheme
     }
   }
 }

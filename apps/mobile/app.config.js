@@ -25,6 +25,8 @@ module.exports = {
       },
       bundleIdentifier: process.env.IOS_APP_IDENTIFIER || 'com.dreamio',
       googleServicesFile: './GoogleService-Info.plist',
+      appStoreUrl:
+        'https://apps.apple.com/us/app/ai-image-generator-dreamio/id6740452958',
       config: {
         usesNonExemptEncryption: false,
       },
@@ -39,6 +41,8 @@ module.exports = {
       },
       package: process.env.ANDROID_APP_IDENTIFIER || 'com.dreamio',
       googleServicesFile: './google-services.json',
+      playStoreUrl:
+        'https://play.google.com/store/apps/details?id=me.ilsur.aidreamio',
     },
     web: {
       favicon: './assets/icon.png',

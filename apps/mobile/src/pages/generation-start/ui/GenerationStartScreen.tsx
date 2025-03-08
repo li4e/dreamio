@@ -67,6 +67,7 @@ import { PromptInput } from './PromptInput'
 import { twMerge } from 'tailwind-merge'
 import { StickyHeader } from 'shared/ui/StickyHeader'
 import { useReportDialog } from 'shared/ui/ReportDialog'
+import { useRateApp } from 'shared/ui/hooks/useRateApp'
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
@@ -182,6 +183,8 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 
   const showAllSettings = !generation && !isPending && !hasError
   const isButtonFloating = !showAllSettings
+
+  useRateApp()
 
   return (
     <KeyboardAvoidingView withBottomBar>

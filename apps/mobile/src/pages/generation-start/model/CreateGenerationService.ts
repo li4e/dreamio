@@ -17,12 +17,17 @@ import {
 } from 'entities/generation/model/GenerationEntity'
 import { useOnSaveImage } from 'shared/ui/CachedImage'
 import { SettingsStore, useSettingsStore } from 'shared/store/SettingsStore'
+import {
+  StatisticsStore,
+  useStatisticsStore,
+} from 'shared/store/StatisticsStore'
 
 class CreateGenerationService {
   constructor(
     private readonly generationDataService: GenerationDataService,
     private uiStateStore: UIStateStore,
     private settingsStore: SettingsStore,
+    private statisticsStore: StatisticsStore,
     private saveImage: (image: string) => void
   ) {}
 
@@ -39,6 +44,7 @@ class CreateGenerationService {
     if (this.settingsStore.autoSave) {
       this.saveImage(generation.images[0])
     }
+    this.statisticsStore.generationsCount++
   }
 
   async submit(data: CreateGenerationRequest) {
@@ -53,6 +59,7 @@ class CreateGenerationService {
 
       await this.fetchGenerationResult(generation)
     } catch (error) {
+      this.statisticsStore.errorsCount++
       if (error instanceof GetGenerationError) {
         this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
           error.type
@@ -92,6 +99,7 @@ class CreateGenerationService {
 export function useCreateGenService(uiStateStore: UIStateStore) {
   const saveImage = useOnSaveImage()
   const settingsStore = useSettingsStore()
+  const statisticsStore = useStatisticsStore()
 
   const genDataService = useGenerationDataService()
   return useMemo(
@@ -100,9 +108,10 @@ export function useCreateGenService(uiStateStore: UIStateStore) {
         genDataService,
         uiStateStore,
         settingsStore,
+        statisticsStore,
         saveImage
       ),
 
-    [genDataService, uiStateStore, saveImage, settingsStore]
+    [genDataService, uiStateStore, saveImage, settingsStore, statisticsStore]
   )
 }
