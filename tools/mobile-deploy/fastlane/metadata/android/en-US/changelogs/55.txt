@@ -1,1 +1,0 @@
-— Added the ability to select multiple images in the History screen for easier bulk deletion. This simplifies the process and improves user experience.
