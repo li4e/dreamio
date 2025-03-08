@@ -1,1 +1,2 @@
-— Přidána možnost vybrat více obrázků na obrazovce Historie pro jednodušší hromadné mazání. To usnadňuje proces a zlepšuje uživatelskou zkušenost.
+— Přidána možnost přizpůsobit vzhled aplikace v obrazovce Nastavení.  
+— Přidána možnost automaticky ukládat vygenerované obrázky do galerie po úspěšném vygenerování v obrazovce Nastavení.

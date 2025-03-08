@@ -1,1 +1,2 @@
-- De mogelijkheid toegevoegd om meerdere afbeeldingen te selecteren op het Geschiedenis-scherm voor eenvoudigere bulkverwijdering. Dit vereenvoudigt het proces en verbetert de gebruikerservaring.
+— Een optie toegevoegd om de uitstraling van de app aan te passen op het instellingen scherm.  
+— Een optie toegevoegd om gegenereerde afbeeldingen automatisch op te slaan in de galerij na succesvolle generatie op het instellingen scherm.

@@ -1,1 +1,2 @@
-— Menambah kemampuan untuk memilih_multiple imej dalam skrin Sejarah bagi memudahkan penghapusan secara pukal. Ini menyelaraskan proses dan meningkatkan pengalaman pengguna.
+— Menambah pilihan untuk menyesuaikan penampilan aplikasi di skrin Tetapan.  
+— Menambah pilihan untuk menyimpan secara automatik gambar yang dijana ke dalam galeri setelah berjaya dijana di skrin Tetapan.

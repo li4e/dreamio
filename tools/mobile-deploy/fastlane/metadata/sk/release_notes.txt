@@ -1,1 +1,2 @@
-— Pridaná možnosť vybrať viacero obrázkov na obrazovke Histórie pre jednoduchšie hromadné vymazanie. To zjednodušuje proces a zlepšuje používateľský zážitok.
+— Pridaná možnosť prispôsobiť vzhľad aplikácie na obrazovke Nastavenia.  
+— Pridaná možnosť automaticky ukladať generované obrázky do galérie po úspešnej generácii na obrazovke Nastavenia.

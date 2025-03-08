@@ -1,1 +1,2 @@
-— Se añadió la capacidad de seleccionar múltiples imágenes en la pantalla de Historial para facilitar la eliminación en masa. Esto simplifica el proceso y mejora la experiencia del usuario.
+— Se añadió una opción para personalizar la apariencia de la aplicación en la pantalla de Configuración.  
+— Se añadió una opción para guardar automáticamente las imágenes generadas en la galería tras una generación exitosa en la pantalla de Configuración.

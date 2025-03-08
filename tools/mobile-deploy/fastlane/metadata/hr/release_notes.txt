@@ -1,1 +1,2 @@
-— Dodana mogućnost odabira više slika na ekranu Povijest radi lakšeg grupnog brisanja. To pojednostavljuje postupak i poboljšava korisničko iskustvo.
+— Dodana opcija za prilagodbu izgleda aplikacije na ekranu Postavke.  
+— Dodana opcija za automatsko spremanje generiranih slika u galeriju nakon uspješne generacije na ekranu Postavke.

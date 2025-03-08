@@ -1,1 +1,2 @@
-— Adicionada a capacidade de selecionar várias imagens no ecrã de Histórico para facilitar a eliminação em massa. Isto simplifica o processo e melhora a experiência do utilizador.
+— Adicionada uma opção para personalizar a aparência da aplicação no ecrã de Definições.  
+— Adicionada uma opção para salvar automaticamente as imagens geradas na galeria após a geração bem-sucedida no ecrã de Definições.

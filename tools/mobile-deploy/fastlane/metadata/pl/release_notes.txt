@@ -1,1 +1,2 @@
-— Dodano możliwość wyboru wielu obrazów na ekranie Historii, co ułatwia ich masowe usuwanie. To upraszcza proces i poprawia doświadczenia użytkownika.
+— Dodano możliwość dostosowania wyglądu aplikacji w ekranie Ustawienia.  
+— Dodano opcję automatycznego zapisywania wygenerowanych obrazów do galerii po udanej generacji w ekranie Ustawienia.

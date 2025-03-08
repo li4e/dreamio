@@ -1,1 +1,2 @@
-— Introduced the option to select multiple images on the History screen for more convenient bulk deletion. This enhancement streamlines the process and elevates user experience.
+— Added an option to customize the app's appearance in the Settings menu.  
+— Introduced a feature to automatically save generated images to the gallery after successful creation in the Settings menu.

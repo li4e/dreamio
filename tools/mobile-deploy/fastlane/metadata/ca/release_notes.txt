@@ -1,1 +1,2 @@
-— S'ha afegit la capacitat de seleccionar diverses imatges a la pantalla d'Historial per facilitar l'eliminació en massa. Això simplifica el procés i millora l'experiència de l'usuari.
+— S'ha afegit una opció per personalitzar l'aparença de l'aplicació a la pantalla de configuració.  
+— S'ha afegit una opció per desar automàticament les imatges generades a la galeria després de la generació amb èxit a la pantalla de configuració.

@@ -1,1 +1,2 @@
-— Aggiunta la possibilità di selezionare più immagini nella schermata Cronologia per facilitare la cancellazione in blocco. Questo semplifica il processo e migliora l'esperienza dell'utente.
+— Aggiunta un'opzione per personalizzare l'aspetto dell'app nella schermata Impostazioni.  
+— Aggiunta un'opzione per salvare automaticamente le immagini generate nella galleria al termine della generazione con successo nella schermata Impostazioni.

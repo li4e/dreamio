@@ -1,1 +1,2 @@
-— Geçmiş ekranında toplu silme işlemini kolaylaştırmak için birden fazla resim seçme özelliği eklendi. Bu, işlemi basitleştirir ve kullanıcı deneyimini iyileştirir.
+— Uygulamanın görünümünü Ayarlar ekranında özelleştirme seçeneği eklendi.  
+— Başarılı bir şekilde oluşturulan görsellerin galeriye otomatik olarak kaydedilmesi için Ayarlar ekranında bir seçenek eklendi.

@@ -1,1 +1,2 @@
-— Lagt til muligheten for å velge flere bilder på Historikk-skjermen for enklere masse-sletting. Dette forenkler prosessen og forbedrer brukeropplevelsen.
+— Lagt til et alternativ for å tilpasse appens utseende på innstillingsskjermen.  
+— Lagt til et alternativ for automatisk å lagre genererte bilder til galleriet ved vellykket generering i innstillingsskjermen.

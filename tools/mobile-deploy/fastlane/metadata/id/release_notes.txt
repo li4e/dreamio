@@ -1,1 +1,2 @@
-— Menambahkan kemampuan untuk memilih beberapa gambar di layar Riwayat untuk memudahkan penghapusan massal. Ini menyederhanakan proses dan meningkatkan pengalaman pengguna.
+— Menambahkan opsi untuk menyesuaikan tampilan aplikasi di layar Pengaturan.  
+— Menambahkan opsi untuk secara otomatis menyimpan gambar yang dihasilkan ke galeri setelah berhasil dibuat di layar Pengaturan.

@@ -1,1 +1,2 @@
-— Lisätty mahdollisuus valita useita kuvia Historia-näytössä helpottamaan massapoistoa. Tämä yksinkertaistaa prosessia ja parantaa käyttäjäkokemusta.
+— Lisätty vaihtoehto mukauttaa sovelluksen ulkoasua Asetukset-näytössä.  
+— Lisätty vaihtoehto tallentaa automaattisesti luodut kuvat galleriaa, kun luonti on onnistunut Asetukset-näytössä.

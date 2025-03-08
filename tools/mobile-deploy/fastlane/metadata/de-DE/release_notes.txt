@@ -1,1 +1,2 @@
-— Eine neue Funktion wurde hinzugefügt, mit der mehrere Bilder im Verlauf-Bildschirm ausgewählt werden können, um eine einfachere Massenlöschung zu ermöglichen. Dies vereinfacht den Prozess und verbessert die Benutzererfahrung.
+— Eine Option hinzugefügt, um das Erscheinungsbild der App im Einstellungsbildschirm anzupassen.  
+— Eine Option hinzugefügt, um generierte Bilder nach erfolgreicher Erstellung automatisch in der Galerie zu speichern, ebenfalls im Einstellungsbildschirm.

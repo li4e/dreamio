@@ -1,1 +1,2 @@
-– La till möjligheten att välja flera bilder i Historikskärmen för enklare massradering. Detta förenklar processen och förbättrar användarupplevelsen.
+— Lagt till ett alternativ för att anpassa appens utseende på inställningsskärmen.  
+— Lagt till ett alternativ för att automatiskt spara genererade bilder i galleriet efter en lyckad generation på inställningsskärmen.

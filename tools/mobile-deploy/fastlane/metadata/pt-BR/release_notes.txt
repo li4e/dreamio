@@ -1,1 +1,2 @@
-— Adicionada a capacidade de selecionar várias imagens na tela de Histórico para facilitar a exclusão em massa. Isso simplifica o processo e melhora a experiência do usuário.
+— Adicionada uma opção para personalizar a aparência do app na tela de Configurações.  
+— Adicionada uma opção para salvar automaticamente as imagens geradas na galeria após a geração bem-sucedida na tela de Configurações.

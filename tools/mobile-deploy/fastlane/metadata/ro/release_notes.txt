@@ -1,1 +1,2 @@
-— Am adăugat opțiunea de a selecta mai multe imagini în ecranul Istoric pentru a facilita ștergerea în masă. Aceasta simplifică procesul și îmbunătățește experiența utilizatorului.
+— A fost adăugată o opțiune pentru personalizarea aspectului aplicației în ecranul de Setări.  
+— A fost adăugată o opțiune pentru a salva automat imaginile generate în galerie după o generare reușită, în ecranul de Setări.
