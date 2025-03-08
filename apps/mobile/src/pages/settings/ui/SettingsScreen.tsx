@@ -141,6 +141,19 @@ export function SettingsScreen() {
                 title={t('screens.settings.about.contact')}
                 right={({ color }) => <RightIcon color={color} />}
               />
+              <Divider />
+
+              <Text className="text-center my-5" variant="bodySmall">
+                {t('screens.settings.version', {
+                  version: Application.nativeApplicationVersion,
+                  build: Application.nativeBuildVersion,
+                })}
+              </Text>
+              {RNTestFlight.isTestFlight === true && (
+                <Text className="text-center mb-5" variant="bodySmall">
+                  App is from Testflight
+                </Text>
+              )}
             </List.Section>
           </View>
 
@@ -154,17 +167,6 @@ export function SettingsScreen() {
             >
               {t('screens.settings.clear.button')}
             </Button>
-            <Text className="text-center mb-5" variant="bodySmall">
-              {t('screens.settings.version', {
-                version: Application.nativeApplicationVersion,
-                build: Application.nativeBuildVersion,
-              })}
-            </Text>
-            {RNTestFlight.isTestFlight === true && (
-              <Text className="text-center mb-5" variant="bodySmall">
-                App is from Testflight
-              </Text>
-            )}
           </View>
         </View>
       </ScrollView>
