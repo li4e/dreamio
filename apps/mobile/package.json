@@ -67,7 +67,8 @@
     "reflect-metadata": "^0.2.2",
     "tailwind-merge": "^2.6.0",
     "typeorm": "^0.3.20",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "expo-store-review": "~8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
