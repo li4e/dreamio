@@ -4,7 +4,7 @@
 
 ## Overview
 
-Dreamio is a free React Native app built following the **Feature-Sliced Design (FSD)** methodology ([learn more](https://feature-sliced.design/)). It generates AI art using the Pollinations API and is available on the [App Store](https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958) and [Google Play Store]([https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958](https://play.google.com/store/apps/details?id=me.ilsur.aidreamio)).
+Dreamio is a free React Native app built following the **Feature-Sliced Design (FSD)** methodology ([learn more](https://feature-sliced.design/)). It generates AI art using the Pollinations API and is available on the [App Store](https://apps.apple.com/us/app/ai-art-generator-dreamio/id6740452958) and [Google Play Store](https://play.google.com/store/apps/details?id=me.ilsur.aidreamio).
 
 The source code for the mobile application is located in the apps/mobile directory.
 
