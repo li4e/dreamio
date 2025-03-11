@@ -24,7 +24,6 @@ The source code for the mobile application is located in the apps/mobile directo
 - **Axios**: Simplified API requests.
 - **Firebase**: Hosts static files like Terms and Privacy Policy.
 - **i18next**: Strongly typed localization strings, based on the base en dictionary.
-- **Google Translate API**: Utilized for translating prompts into English before sending them for art generation.
 - **Fastlane**: Used for automating the deployment process.
 
 ## Development Notes
