@@ -1,2 +1,1 @@
-— Adicionada uma opção para personalizar a aparência da aplicação no ecrã de Definições.  
-— Adicionada uma opção para salvar automaticamente as imagens geradas na galeria após a geração bem-sucedida no ecrã de Definições.
+— Corrigido um erro que provocava uma mensagem de erro persistente durante a geração do pop-up em caso de um erro real, como problemas no servidor ou na conectividade à internet.

@@ -1,2 +1,1 @@
-— Introduced an option to personalise the app's appearance within the Settings screen.  
-— Added a feature to automatically save generated images to the gallery upon successful creation, available in the Settings screen.
+— Resolved a bug that resulted in a continuous error message appearing during the generation of the pop-up in the event of a genuine error, such as server issues or internet connectivity problems.

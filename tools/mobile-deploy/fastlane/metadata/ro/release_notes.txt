@@ -1,2 +1,1 @@
-— A fost adăugată o opțiune pentru personalizarea aspectului aplicației în ecranul de Setări.  
-— A fost adăugată o opțiune pentru a salva automat imaginile generate în galerie după o generare reușită, în ecranul de Setări.
+— A fost rezolvată o eroare care provoca un mesaj de eroare persistent în timpul generării pop-up-ului în cazul unei erori reale, cum ar fi problemele cu serverul sau conectivitatea la internet.

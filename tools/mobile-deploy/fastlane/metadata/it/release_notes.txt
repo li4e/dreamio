@@ -1,2 +1,1 @@
-— Aggiunta un'opzione per personalizzare l'aspetto dell'app nella schermata Impostazioni.  
-— Aggiunta un'opzione per salvare automaticamente le immagini generate nella galleria al termine della generazione con successo nella schermata Impostazioni.
+— Risolto un errore che causava un messaggio di errore persistente durante la generazione del pop-up in caso di un errore reale, come problemi con il server o di connettività Internet.

@@ -1,2 +1,1 @@
-— Se ha añadido una opción para personalizar la apariencia de la aplicación en la pantalla de Configuración.  
-— Se ha añadido una opción para guardar automáticamente las imágenes generadas en la galería tras una generación exitosa en la pantalla de Configuración.
+— Se ha corregido un error que provocaba un mensaje de error persistente durante la generación del aviso emergente en caso de un error real, como problemas con el servidor o de conectividad a internet.

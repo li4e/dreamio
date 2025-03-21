@@ -1,2 +1,1 @@
-— Přidána možnost přizpůsobit vzhled aplikace v obrazovce Nastavení.  
-— Přidána možnost automaticky ukládat vygenerované obrázky do galerie po úspěšném vygenerování v obrazovce Nastavení.
+— Opraven problém, který způsoboval trvalou chybovou zprávu při generování vyskakovacího okna v případě skutečné chyby, jako jsou problémy se serverem nebo spojení s internetem.

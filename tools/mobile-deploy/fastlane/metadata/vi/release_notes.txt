@@ -1,2 +1,1 @@
-— Đã thêm tùy chọn để tùy chỉnh giao diện ứng dụng trong màn hình Cài đặt.
-— Đã thêm tùy chọn để tự động lưu hình ảnh đã tạo vào thư viện khi quá trình tạo thành công trong màn hình Cài đặt.
+— Đã sửa một lỗi gây ra thông báo lỗi liên tục trong quá trình tạo cửa sổ pop-up khi xảy ra lỗi thực, chẳng hạn như sự cố với máy chủ hoặc vấn đề kết nối internet.

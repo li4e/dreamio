@@ -1,2 +1,1 @@
-— Een optie toegevoegd om de uitstraling van de app aan te passen op het instellingen scherm.  
-— Een optie toegevoegd om gegenereerde afbeeldingen automatisch op te slaan in de galerij na succesvolle generatie op het instellingen scherm.
+— Een bug verholpen die zorgde voor een aanhoudende foutmelding tijdens het genereren van de pop-up bij een echte fout, zoals serverproblemen of verbindingsproblemen met het internet.

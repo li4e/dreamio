@@ -1,2 +1,1 @@
-— Lehetőség került hozzáadásra az alkalmazás megjelenésének testreszabására a Beállítások képernyőn.  
-— Lehetőség került hozzáadásra, hogy a sikeresen előállított képeket automatikusan a galériába mentse a Beállítások képernyőn.
+— Kijavítottunk egy hibát, amely állandó hibaüzenetet okozott a felugró ablak generálása során, ha valódi hiba lépett fel, például szerverproblémák vagy internetkapcsolati gondok miatt.

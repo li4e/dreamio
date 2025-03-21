@@ -1,2 +1,0 @@
-— Added an option to customize the app's appearance in the Settings screen.
-— Added an option to automatically save generated images to the gallery upon successful generation in the Settings screen.

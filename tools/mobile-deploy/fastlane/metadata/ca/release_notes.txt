@@ -1,2 +1,1 @@
-— S'ha afegit una opció per personalitzar l'aparença de l'aplicació a la pantalla de configuració.  
-— S'ha afegit una opció per desar automàticament les imatges generades a la galeria després de la generació amb èxit a la pantalla de configuració.
+— S'ha solucionat un error que provocava un missatge d'error persistent durant la generació del pop-up en cas d'un error real, com ara problemes amb el servidor o de connectivitat a Internet.

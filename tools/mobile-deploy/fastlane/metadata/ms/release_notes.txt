@@ -1,2 +1,1 @@
-— Menambah pilihan untuk menyesuaikan penampilan aplikasi di skrin Tetapan.  
-— Menambah pilihan untuk menyimpan secara automatik gambar yang dijana ke dalam galeri setelah berjaya dijana di skrin Tetapan.
+— Memperbaiki pepijat yang menyebabkan mesej ralat berterusan semasa penghasilan pop-up sekiranya terdapat ralat sebenar, seperti isu pelayan atau masalah sambungan internet.

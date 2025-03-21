@@ -1,2 +1,1 @@
-— Lisätty vaihtoehto mukauttaa sovelluksen ulkoasua Asetukset-näytössä.  
-— Lisätty vaihtoehto tallentaa automaattisesti luodut kuvat galleriaa, kun luonti on onnistunut Asetukset-näytössä.
+— Korjattu virhe, joka aiheutti jatkuvan virheilmoituksen ponnahdusikkunan luomisen aikana todellisessa virhetilanteessa, kuten palvelinongelmien tai Internet-yhteysongelmien tapauksessa.

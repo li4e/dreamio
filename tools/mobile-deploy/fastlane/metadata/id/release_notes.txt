@@ -1,2 +1,1 @@
-— Menambahkan opsi untuk menyesuaikan tampilan aplikasi di layar Pengaturan.  
-— Menambahkan opsi untuk secara otomatis menyimpan gambar yang dihasilkan ke galeri setelah berhasil dibuat di layar Pengaturan.
+— Memperbaiki bug yang menyebabkan pesan kesalahan persisten muncul selama pembuatan pop-up dalam kasus kesalahan nyata, seperti masalah server atau konektivitas internet.

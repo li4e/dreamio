@@ -1,2 +1,1 @@
-— Eine Option hinzugefügt, um das Erscheinungsbild der App im Einstellungsbildschirm anzupassen.  
-— Eine Option hinzugefügt, um generierte Bilder nach erfolgreicher Erstellung automatisch in der Galerie zu speichern, ebenfalls im Einstellungsbildschirm.
+— Ein Fehler wurde behoben, der eine dauerhafte Fehlermeldung während der Erstellung des Pop-ups bei einem echten Fehler, wie z. B. Serverproblemen oder Internetverbindungsproblemen, verursachte.

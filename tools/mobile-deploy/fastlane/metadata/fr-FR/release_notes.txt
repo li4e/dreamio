@@ -1,2 +1,1 @@
-— Ajout d'une option pour personnaliser l'apparence de l'application dans l'écran des paramètres.  
-— Ajout d'une option pour enregistrer automatiquement les images générées dans la galerie après une génération réussie, dans l'écran des paramètres.
+— Correction d'un bug ayant provoqué l'affichage d'un message d'erreur persistant lors de la génération du pop-up en cas d'erreur réelle, telle que des problèmes de serveur ou de connectivité Internet.

@@ -1,2 +1,1 @@
-— Uygulamanın görünümünü Ayarlar ekranında özelleştirme seçeneği eklendi.  
-— Başarılı bir şekilde oluşturulan görsellerin galeriye otomatik olarak kaydedilmesi için Ayarlar ekranında bir seçenek eklendi.
+— Sunucu sorunları veya internet bağlantı problemleri gibi gerçek bir hata durumunda açılır mesajın oluşturulması sırasında sürekli bir hata mesajına neden olan bir hata düzeltildi.

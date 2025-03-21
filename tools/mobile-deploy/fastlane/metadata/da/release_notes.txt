@@ -1,2 +1,1 @@
-— Tilføjet en mulighed for at tilpasse appens udseende på indstillingsskærmen.  
-— Tilføjet en mulighed for automatisk at gemme genererede billeder i galleriet, når de er blevet genereret med succes, på indstillingsskærmen.
+— Rettet en fejl, der forårsagede en vedholdende fejlmeddelelse under genereringen af pop-up'en i tilfælde af en reel fejl, såsom serverproblemer eller problemer med internetforbindelsen.

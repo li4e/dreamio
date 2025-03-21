@@ -1,2 +1,1 @@
-— Pridaná možnosť prispôsobiť vzhľad aplikácie na obrazovke Nastavenia.  
-— Pridaná možnosť automaticky ukladať generované obrázky do galérie po úspešnej generácii na obrazovke Nastavenia.
+— Opravená chyba, ktorá spôsobovala pretrvávajúcu chybovú hlášku pri generovaní vyskakovacieho okna v prípade skutočnej chyby, ako sú problémy so serverom alebo pripojením na internet.
