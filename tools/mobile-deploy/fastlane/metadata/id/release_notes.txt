@@ -1,1 +1,1 @@
-— Memperbaiki bug yang menyebabkan pesan kesalahan persisten muncul selama pembuatan pop-up dalam kasus kesalahan nyata, seperti masalah server atau konektivitas internet.
+— Memperbaiki bug yang menyebabkan pesan kesalahan persisten saat proses pembuatan jika terjadi kesalahan nyata, seperti masalah server.

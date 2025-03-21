@@ -1,1 +1,1 @@
-— Naprawiono błąd, który powodował wyświetlanie trwałego komunikatu o błędzie podczas generowania wyskakującego okienka w przypadku wystąpienia rzeczywistego błędu, takiego jak problemy z serwerem lub łącznością internetową.
+- Naprawiono błąd, który powodował występowanie stałego komunikatu o błędzie podczas generowania w przypadku rzeczywistego błędu, takiego jak problemy z serwerem.

@@ -1,1 +1,1 @@
-— Åtgärdat en bugg som orsakade ett ihållande felmeddelande vid generering av popup-fönstret i händelse av ett verkligt fel, såsom serverproblem eller internetanslutningsproblem.
+— Åtgärdat ett fel som orsakade ett bestående felmeddelande vid generering i händelse av ett verkligt fel, såsom serverproblem.

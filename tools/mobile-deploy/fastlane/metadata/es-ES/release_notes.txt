@@ -1,1 +1,1 @@
-— Se ha corregido un error que provocaba un mensaje de error persistente durante la generación del aviso emergente en caso de un error real, como problemas con el servidor o de conectividad a internet.
+— Se ha corregido un error que causaba un mensaje de error persistente durante la generación en caso de un error real, como problemas con el servidor.

@@ -1,1 +1,1 @@
-— S'ha solucionat un error que provocava un missatge d'error persistent durant la generació del pop-up en cas d'un error real, com ara problemes amb el servidor o de connectivitat a Internet.
+— S’ha solucionat un error que provocava un missatge d’error persistent durant la generació en cas d’un error real, com ara problemes amb el servidor.

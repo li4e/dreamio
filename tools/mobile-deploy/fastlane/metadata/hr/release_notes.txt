@@ -1,1 +1,1 @@
-— Ispravljen je bug koji je uzrokovao trajnu poruku o pogrešci tijekom generiranja iskačućeg prozora u slučaju stvarne pogreške, poput problema sa serverom ili internet konekcijom.
+— Ispravljen je bug koji je uzrokovao trajnu poruku o grešci tijekom generiranja u slučaju stvarne greške, poput problema sa poslužiteljem.

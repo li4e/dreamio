@@ -1,1 +1,1 @@
-— Fixed a bug that caused a persistent error message during the generation of the pop-up in case of a real error, such as server issues or internet connectivity problems.
+— Fixed a bug that caused a persistent error message during the generation in case of a real error, such as server issues.

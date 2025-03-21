@@ -1,1 +1,1 @@
-— Ein Fehler wurde behoben, der eine dauerhafte Fehlermeldung während der Erstellung des Pop-ups bei einem echten Fehler, wie z. B. Serverproblemen oder Internetverbindungsproblemen, verursachte.
+- Ein Fehler wurde behoben, der eine persistente Fehlermeldung während der Generierung verursachte, falls ein tatsächlicher Fehler auftrat, wie z. B. Serverprobleme.

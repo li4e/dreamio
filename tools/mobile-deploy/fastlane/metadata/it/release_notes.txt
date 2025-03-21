@@ -1,1 +1,1 @@
-— Risolto un errore che causava un messaggio di errore persistente durante la generazione del pop-up in caso di un errore reale, come problemi con il server o di connettività Internet.
+— Risolto un problema che causava un messaggio di errore persistente durante la generazione in caso di un errore reale, come problemi di server.

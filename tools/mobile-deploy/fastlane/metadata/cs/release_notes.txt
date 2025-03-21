@@ -1,1 +1,1 @@
-— Opraven problém, který způsoboval trvalou chybovou zprávu při generování vyskakovacího okna v případě skutečné chyby, jako jsou problémy se serverem nebo spojení s internetem.
+— Opraven problém, který způsobil trvalou chybovou zprávu během generování v případě skutečné chyby, jako jsou problémy se serverem.

@@ -1,1 +1,1 @@
-— Een bug verholpen die zorgde voor een aanhoudende foutmelding tijdens het genereren van de pop-up bij een echte fout, zoals serverproblemen of verbindingsproblemen met het internet.
+— Een bug verholpen die een aanhoudende foutmelding veroorzaakte tijdens de generatie in het geval van een echte fout, zoals serverproblemen.

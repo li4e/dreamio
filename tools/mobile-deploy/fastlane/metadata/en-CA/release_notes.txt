@@ -1,1 +1,1 @@
-— Resolved an issue that resulted in a continuous error message during pop-up generation when a real error occurred, including server issues or internet connectivity problems.
+— Resolved a bug that triggered a recurring error message during generation when a genuine issue occurred, such as server problems.

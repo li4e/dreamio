@@ -1,1 +1,1 @@
-— Kijavítottunk egy hibát, amely állandó hibaüzenetet okozott a felugró ablak generálása során, ha valódi hiba lépett fel, például szerverproblémák vagy internetkapcsolati gondok miatt.
+— Javítottunk egy hibát, amely tartós hibaüzenetet okozott a generálás során, ha valós probléma merült fel, például szerverproblémák esetén.

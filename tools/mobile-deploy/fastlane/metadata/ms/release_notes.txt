@@ -1,1 +1,1 @@
-— Memperbaiki pepijat yang menyebabkan mesej ralat berterusan semasa penghasilan pop-up sekiranya terdapat ralat sebenar, seperti isu pelayan atau masalah sambungan internet.
+— Memperbaiki ralat yang menyebabkan mesej ralat berterusan semasa proses penjanaan berlaku apabila terdapat ralat sebenar, seperti isu pelayan.

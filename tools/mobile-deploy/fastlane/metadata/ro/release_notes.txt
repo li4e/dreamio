@@ -1,1 +1,1 @@
-— A fost rezolvată o eroare care provoca un mesaj de eroare persistent în timpul generării pop-up-ului în cazul unei erori reale, cum ar fi problemele cu serverul sau conectivitatea la internet.
+— A fost remediată o eroare care provoca un mesaj de eroare persistent în timpul generației, în cazul unei probleme reale, cum ar fi problemele de server.

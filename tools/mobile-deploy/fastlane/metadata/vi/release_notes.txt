@@ -1,1 +1,1 @@
-— Đã sửa một lỗi gây ra thông báo lỗi liên tục trong quá trình tạo cửa sổ pop-up khi xảy ra lỗi thực, chẳng hạn như sự cố với máy chủ hoặc vấn đề kết nối internet.
+— Đã sửa lỗi gây ra thông báo lỗi liên tục trong quá trình tạo ra nếu có lỗi thực, chẳng hạn như sự cố máy chủ.

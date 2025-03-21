@@ -1,1 +1,1 @@
-— Korjattu virhe, joka aiheutti jatkuvan virheilmoituksen ponnahdusikkunan luomisen aikana todellisessa virhetilanteessa, kuten palvelinongelmien tai Internet-yhteysongelmien tapauksessa.
+— Korjattu virhe, joka aiheutti jatkuvan virheilmoituksen generaation aikana todellisen virheen, kuten palvelinongelmien, sattuessa.

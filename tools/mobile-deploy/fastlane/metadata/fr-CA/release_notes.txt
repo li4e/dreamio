@@ -1,1 +1,1 @@
-— Correction d'un bogue qui causait un message d'erreur persistant lors de la génération de la fenêtre contextuelle en cas de véritable erreur, telle que des problèmes de serveur ou de connectivité Internet.
+— Correction d’un bogue qui provoquait l’apparition d’un message d’erreur persistant lors de la génération en cas de véritable erreur, comme des problèmes de serveur.

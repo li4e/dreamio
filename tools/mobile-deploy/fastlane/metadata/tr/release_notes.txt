@@ -1,1 +1,1 @@
-— Sunucu sorunları veya internet bağlantı problemleri gibi gerçek bir hata durumunda açılır mesajın oluşturulması sırasında sürekli bir hata mesajına neden olan bir hata düzeltildi.
+— Gerçek bir hata, örneğin sunucu sorunları gibi durumlarda sürekli bir hata mesajı üreten bir hata düzeltildi.

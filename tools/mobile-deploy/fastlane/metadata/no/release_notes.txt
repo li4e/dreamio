@@ -1,1 +1,1 @@
-— Løst et problem som forårsaket en vedvarende feilmelding under generering av popup-vinduet ved virkelige feil, som serverproblemer eller problemer med internettilkoblingen.
+— Fikset et feil som forårsaket en vedvarende feilmelding under genereringen ved reelle feil, som serverproblemer.

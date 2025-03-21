@@ -1,1 +1,1 @@
-— Opravená chyba, ktorá spôsobovala pretrvávajúcu chybovú hlášku pri generovaní vyskakovacieho okna v prípade skutočnej chyby, ako sú problémy so serverom alebo pripojením na internet.
+— Opravená chyba, ktorá spôsobovala trvalú chybovú správu počas generácie v prípade skutočnej chyby, ako sú problémy so serverom.
