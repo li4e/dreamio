@@ -78,6 +78,22 @@ class CreateGenerationService {
       this.uiStateStore.generation.status !== GenerationEntityStatus.SUCCESS
     ) {
       try {
+        // START - TODO: Remove after some time, temporary fix for current users
+        this.uiStateStore.generation = {
+          ...this.uiStateStore.generation,
+          images: this.uiStateStore.generation.images.map((url) => {
+            const newUrl = new URL(url)
+            const params = new URLSearchParams(newUrl.search)
+            params.set(
+              'seed',
+              String(Math.trunc(Math.random() * 1000000000000))
+            )
+            newUrl.search = params.toString()
+            return newUrl.toString()
+          }),
+        }
+        // END
+
         this.uiStateStore.isPending = true
         this.uiStateStore.error = null
         await this.fetchGenerationResult(this.uiStateStore.generation)

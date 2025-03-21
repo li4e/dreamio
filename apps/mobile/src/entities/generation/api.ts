@@ -60,10 +60,9 @@ export class Api {
     const startTime = Date.now()
     const timeout = 60 * 1000
     await axios
-      .head(imageUrl, {
+      .get(imageUrl, {
         timeout,
       })
-      .then((res) => res.status)
       .catch((error) => {
         if (axios.isAxiosError(error)) {
           if (
