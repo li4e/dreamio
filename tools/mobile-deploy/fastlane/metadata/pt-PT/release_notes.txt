@@ -1,1 +1,1 @@
-— Corrigido um erro que provocava uma mensagem de erro persistente durante a geração, no caso de um erro real, como problemas de servidor.
+— Melhorada a estabilidade da geração de imagens, tornando-a mais fiável quando ocorrem problemas temporários no servidor. A aplicação agora tenta automaticamente solicitar novamente os pedidos que falharam, reduzindo interrupções e melhorando a experiência global.

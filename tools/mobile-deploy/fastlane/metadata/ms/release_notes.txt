@@ -1,1 +1,1 @@
-— Memperbaiki ralat yang menyebabkan mesej ralat berterusan semasa proses penjanaan berlaku apabila terdapat ralat sebenar, seperti isu pelayan.
+— Meningkatkan kestabilan penjanaan imej dengan menjadikannya lebih boleh dipercayai semasa isu server sementara berlaku. Aplikasi kini secara automatik mencuba semula permintaan yang gagal, mengurangkan gangguan dan meningkatkan pengalaman keseluruhan.

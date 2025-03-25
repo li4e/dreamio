@@ -1,1 +1,1 @@
-— Fikset et feil som forårsaket en vedvarende feilmelding under genereringen ved reelle feil, som serverproblemer.
+— Forbedret stabiliteten ved bildegenerering ved å gjøre den mer pålitelig når det oppstår midlertidige serverproblemer. Appen prøver nå automatisk på nytt ved mislykkede forespørslener, noe som reduserer avbrudd og forbedrer den totale opplevelsen.

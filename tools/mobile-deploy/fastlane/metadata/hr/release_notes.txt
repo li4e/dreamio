@@ -1,1 +1,1 @@
-— Ispravljen je bug koji je uzrokovao trajnu poruku o grešci tijekom generiranja u slučaju stvarne greške, poput problema sa poslužiteljem.
+— Poboljšana stabilnost generiranja slika čini ga pouzdanijim u slučaju privremenih problema s poslužiteljem. Aplikacija sada automatski ponavlja neuspjele zahtjeve, smanjujući prekide i poboljšavajući cjelokupno iskustvo.

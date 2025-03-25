@@ -1,1 +1,1 @@
-— Resolved an issue that resulted in a continuous error message during generation when a genuine error occurred, such as server problems.
+— Enhanced the stability of image generation, ensuring greater reliability during temporary server issues. The app now automatically retries any failed requests, minimising interruptions and elevating the overall experience.

@@ -1,1 +1,1 @@
-- Ein Fehler wurde behoben, der eine persistente Fehlermeldung während der Generierung verursachte, falls ein tatsächlicher Fehler auftrat, wie z. B. Serverprobleme.
+— Die Stabilität der Bildgenerierung wurde verbessert, sodass sie zuverlässiger ist, wenn vorübergehende Serverprobleme auftreten. Die App versucht nun automatisch, fehlgeschlagene Anfragen erneut zu senden, wodurch Unterbrechungen minimiert und das Gesamterlebnis verbessert wird.

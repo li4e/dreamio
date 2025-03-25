@@ -1,1 +1,1 @@
-— Opravená chyba, ktorá spôsobovala trvalú chybovú správu počas generácie v prípade skutočnej chyby, ako sú problémy so serverom.
+— Zlepšila sa stabilita generovania obrázkov tým, že je teraz spoľahlivejšie aj pri dočasných problémoch so serverom. Aplikácia teraz automaticky opakuje neúspešné požiadavky, čím sa znižujú prerušenia a zlepšuje celkový zážitok.

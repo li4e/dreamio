@@ -1,1 +1,1 @@
-— Risolto un problema che causava un messaggio di errore persistente durante la generazione in caso di un errore reale, come problemi di server.
+— Migliorata la stabilità della generazione delle immagini, rendendola più affidabile in caso di problemi temporanei del server. L'app ora riprova automaticamente le richieste non riuscite, riducendo le interruzioni e migliorando l'esperienza complessiva.

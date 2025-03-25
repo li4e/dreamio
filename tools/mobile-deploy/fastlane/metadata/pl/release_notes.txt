@@ -1,1 +1,1 @@
-- Naprawiono błąd, który powodował występowanie stałego komunikatu o błędzie podczas generowania w przypadku rzeczywistego błędu, takiego jak problemy z serwerem.
+— Poprawiono stabilność generowania obrazów, co zwiększa niezawodność w przypadku chwilowych problemów z serwerem. Aplikacja teraz automatycznie powtarza nieudane żądania, co zmniejsza przerwy w działaniu i poprawia ogólne wrażenia.

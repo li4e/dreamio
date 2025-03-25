@@ -1,1 +1,1 @@
-— Gerçek bir hata, örneğin sunucu sorunları gibi durumlarda sürekli bir hata mesajı üreten bir hata düzeltildi.
+— Geçici sunucu sorunları meydana geldiğinde görüntü oluşturma işleminin daha güvenilir olmasını sağlayarak stabilitesini artırdık. Uygulama artık başarısız talepleri otomatik olarak yeniden deniyor, bu da kesintileri azaltarak genel deneyimi iyileştiriyor.

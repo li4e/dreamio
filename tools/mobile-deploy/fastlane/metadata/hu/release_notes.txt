@@ -1,1 +1,1 @@
-— Javítottunk egy hibát, amely tartós hibaüzenetet okozott a generálás során, ha valós probléma merült fel, például szerverproblémák esetén.
+— Javítottuk a képgenerálás stabilitását, így megbízhatóbbá vált ideiglenes szerverproblémák esetén. Az alkalmazás ezentúl automatikusan újrapróbálkozik a sikertelen kérésekkel, csökkentve a megszakításokat és javítva a felhasználói élményt.

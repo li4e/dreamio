@@ -1,1 +1,1 @@
-— Виправлено помилку, яка спричиняла постійне повідомлення про помилку під час генерації у випадку фактичної помилки, наприклад, проблем з сервером.
+— Enhanced the stability of image generation, ensuring greater reliability during temporary server issues. The app now automatically retries failed requests, minimising interruptions and enhancing the overall experience.

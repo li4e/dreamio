@@ -1,1 +1,1 @@
-— Memperbaiki bug yang menyebabkan pesan kesalahan persisten saat proses pembuatan jika terjadi kesalahan nyata, seperti masalah server.
+— Meningkatkan stabilitas generasi gambar dengan membuatnya lebih andal saat terjadi masalah server sementara. Aplikasi sekarang secara otomatis mencoba ulang permintaan yang gagal, mengurangi gangguan dan meningkatkan pengalaman keseluruhan.

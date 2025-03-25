@@ -1,1 +1,1 @@
-— A fost remediată o eroare care provoca un mesaj de eroare persistent în timpul generației, în cazul unei probleme reale, cum ar fi problemele de server.
+— Am îmbunătățit stabilitatea generării de imagini, făcând-o mai fiabilă în cazul apariției unor probleme temporare cu serverul. Aplicația încearcă automat din nou cererile eșuate, reducând întreruperile și îmbunătățind experiența generală.

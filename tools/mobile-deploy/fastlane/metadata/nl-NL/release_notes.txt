@@ -1,1 +1,1 @@
-— Een bug verholpen die een aanhoudende foutmelding veroorzaakte tijdens de generatie in het geval van een echte fout, zoals serverproblemen.
+— De stabiliteit van de afbeeldingsgeneratie is verbeterd, waardoor deze betrouwbaarder is bij tijdelijke serverproblemen. De app probeert nu automatisch om mislukt verzoeken opnieuw uit te voeren, waardoor onderbrekingen worden verminderd en de algehele ervaring wordt verbeterd.

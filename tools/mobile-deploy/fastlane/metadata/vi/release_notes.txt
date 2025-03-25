@@ -1,1 +1,1 @@
-— Đã sửa lỗi gây ra thông báo lỗi liên tục trong quá trình tạo ra nếu có lỗi thực, chẳng hạn như sự cố máy chủ.
+— Cải thiện tính ổn định của việc tạo hình ảnh bằng cách làm cho nó đáng tin cậy hơn khi xảy ra sự cố tạm thời với máy chủ. Ứng dụng giờ đây tự động thử lại các yêu cầu không thành công, giảm thiểu sự gián đoạn và nâng cao trải nghiệm tổng thể.

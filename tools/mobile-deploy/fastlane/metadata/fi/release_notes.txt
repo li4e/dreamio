@@ -1,1 +1,1 @@
-— Korjattu virhe, joka aiheutti jatkuvan virheilmoituksen generaation aikana todellisen virheen, kuten palvelinongelmien, sattuessa.
+— Parannettu kuvanluonnin vakautta tekemällä siitä luotettavampaa tilapäisten palvelinongelmien aikana. Sovellus yrittää nyt automaattisesti uusia epäonnistuneita pyyntöjä, mikä vähentää keskeytyksiä ja parantaa kokonaiskokemusta.

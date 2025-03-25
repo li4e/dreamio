@@ -1,1 +1,1 @@
-— S’ha solucionat un error que provocava un missatge d’error persistent durant la generació en cas d’un error real, com ara problemes amb el servidor.
+— Millora de la stabilitat en la generació d'imatges, fent-la més fiable davant de problemes temporals amb el servidor. L'aplicació ara torna a intentar automàticament les sol·licituds fallides, reduint les interrupcions i millorant l'experiència global.

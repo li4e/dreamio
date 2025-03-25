@@ -1,1 +1,1 @@
-— Opraven problém, který způsobil trvalou chybovou zprávu během generování v případě skutečné chyby, jako jsou problémy se serverem.
+— Zlepšena stabilita generování obrázků, které je nyní spolehlivější i při dočasných problémových situacích na serveru. Aplikace nyní automaticky opakuje neúspěšné požadavky, čímž snižuje přerušení a zlepšuje celkový zážitek.
