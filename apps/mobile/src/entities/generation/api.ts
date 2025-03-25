@@ -3,6 +3,7 @@ import { Image } from 'expo-image'
 import { translator } from 'shared/api'
 import { mkkvStorage } from 'shared/lib/mmkv'
 import { SettingsStore } from 'shared/store/SettingsStore'
+import { retryUntilTimeout } from 'shared/utils/retryUntilTimeout'
 
 export enum GenerationAPIErrorType {
   PROMPT_UNSAFE = 1,
@@ -57,32 +58,33 @@ export class Api {
       throw new Error('There is no an image in the passed GenerationDTO')
     }
 
-    const startTime = Date.now()
     const timeout = 60 * 1000
-    await axios
-      .get(imageUrl, {
-        timeout,
-      })
-      .catch((error) => {
+
+    await retryUntilTimeout(async () => {
+      try {
+        // Try to fetch the image
+        await axios.get(imageUrl, { timeout })
+        const prefetched = await Image.prefetch(imageUrl)
+        if (!prefetched) {
+          throw new Error('Error happened during image prefetching')
+        }
+      } catch (error) {
         if (axios.isAxiosError(error)) {
-          if (
-            (error.status && error.status >= 500) ||
-            (error.code &&
-              ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code) &&
-              Date.now() - startTime >= timeout)
-          ) {
+          // Check if error has a server response with status 500 or higher
+          const isServerError = error.response && error.response.status >= 500
+          // Check if error code is one of the network-related errors
+          const isNetworkError =
+            error.code && ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code)
+
+          if (isServerError || isNetworkError) {
             throw new GetGenerationError(
               GenerationAPIErrorType.SERVICE_UNAVAILABLE
             )
           }
         }
         throw error
-      })
-
-    const prefetched = await Image.prefetch(imageUrl)
-    if (!prefetched) {
-      throw new Error('Error happened during image prefetching')
-    }
+      }
+    }, 120_000)
 
     generation.status = GenerationStatusDTO.Completed
     generation.updatedAt = new Date().toString()
@@ -135,17 +137,20 @@ export class Api {
 
   async isPromptSafe(promptToCheck: string): Promise<boolean> {
     const prompt = `Check if the following prompt is safe: "${promptToCheck}". A safe prompt means it does not contain harmful, offensive, NSFW (Not Safe For Work) content, hate speech, or other inappropriate material. Return a JSON object with the field {safe: boolean}, where 'true' means safe (no harmful content detected) and 'false' means not safe (harmful content detected).`
-    return await axios
-      .get(
-        `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`
-      )
-      .then((res) => {
-        const data = res.data
-        if (typeof data.safe !== 'boolean') {
-          throw new Error('AI Response is invalid')
-        }
-        return data.safe
-      })
+
+    return await retryUntilTimeout(() => {
+      return axios
+        .get(
+          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`
+        )
+        .then((res) => {
+          const data = res.data
+          if (typeof data.safe !== 'boolean') {
+            throw new Error('AI Response is invalid')
+          }
+          return data.safe
+        })
+    }, 30_000)
   }
 
   private readonly __deprecated__persistingKey = 'api'
