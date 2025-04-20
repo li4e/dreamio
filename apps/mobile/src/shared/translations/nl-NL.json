@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatische Opslag",
   "screens.settings.user.autoSave.dialog.description": "Het inschakelen van deze functie zal automatisch alle gegenereerde afbeeldingen opslaan in de galerij van je telefoon.",
   "screens.settings.user.autoSave.dialog.button": "Begrijp het",
-  "screens.settings.version": "Versie {{version}}. Build {{build}}"
+  "screens.settings.version": "Versie {{version}}. Build {{build}}",
+  "screens.generation.cancel": "Stop met genereren"
 }

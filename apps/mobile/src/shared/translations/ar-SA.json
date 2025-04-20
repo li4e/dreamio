@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "الحفظ التلقائي",
   "screens.settings.user.autoSave.dialog.description": "تفعيل هذه الميزة سيؤدي إلى حفظ جميع الصور المولّدة تلقائيًا في معرض الصور على هاتفك.",
   "screens.settings.user.autoSave.dialog.button": "فهمت",
-  "screens.settings.version": "الإصدار {{version}}. البناء {{build}}"
+  "screens.settings.version": "الإصدار {{version}}. البناء {{build}}",
+  "screens.generation.cancel": "إيقاف التوليد"
 }

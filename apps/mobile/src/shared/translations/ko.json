@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "자동 저장",
   "screens.settings.user.autoSave.dialog.description": "이 기능을 활성화하면 생성된 모든 이미지가 자동으로 휴대폰의 갤러리에 저장됩니다.",
   "screens.settings.user.autoSave.dialog.button": "알겠습니다",
-  "screens.settings.version": "버전 {{version}}. 빌드 {{build}}"
+  "screens.settings.version": "버전 {{version}}. 빌드 {{build}}",
+  "screens.generation.cancel": "생성 중지"
 }

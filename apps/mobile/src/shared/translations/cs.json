@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatické ukládání",
   "screens.settings.user.autoSave.dialog.description": "Povolení této funkce automaticky uloží všechny generované obrázky do galerie vašeho telefonu.",
   "screens.settings.user.autoSave.dialog.button": "Rozumím",
-  "screens.settings.version": "Verze {{version}}. Vytvoření {{build}}."
+  "screens.settings.version": "Verze {{version}}. Vytvoření {{build}}.",
+  "screens.generation.cancel": "Zastavit generování"
 }

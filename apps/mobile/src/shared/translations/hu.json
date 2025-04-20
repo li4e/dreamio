@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatikus mentés",
   "screens.settings.user.autoSave.dialog.description": "Ez a funkció lehetővé teszi, hogy automatikusan mentse az összes generált képet a telefon galériájába.",
   "screens.settings.user.autoSave.dialog.button": "Értem",
-  "screens.settings.version": "Verzió {{version}}. Build {{build}}"
+  "screens.settings.version": "Verzió {{version}}. Build {{build}}",
+  "screens.generation.cancel": "Generálás leállítása"
 }

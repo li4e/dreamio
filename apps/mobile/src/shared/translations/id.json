@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Simpan Otomatis",
   "screens.settings.user.autoSave.dialog.description": "Mengaktifkan fitur ini akan secara otomatis menyimpan semua gambar yang dihasilkan ke galeri ponsel Anda.",
   "screens.settings.user.autoSave.dialog.button": "Diterima",
-  "screens.settings.version": "Versi {{version}}. Build {{build}}"
+  "screens.settings.version": "Versi {{version}}. Build {{build}}",
+  "screens.generation.cancel": "Hentikan Pembuatan"
 }

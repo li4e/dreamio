@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Автоматичне збереження",
   "screens.settings.user.autoSave.dialog.description": "Увімкнення цієї функції автоматично зберігатиме всі згенеровані зображення у галереї вашого телефону.",
   "screens.settings.user.autoSave.dialog.button": "Зрозумів",
-  "screens.settings.version": "Версія {{version}}. Збірка {{build}}"
+  "screens.settings.version": "Версія {{version}}. Збірка {{build}}",
+  "screens.generation.cancel": "Скасувати генерацію"
 }

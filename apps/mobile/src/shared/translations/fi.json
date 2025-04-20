@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automaattinen tallennus",
   "screens.settings.user.autoSave.dialog.description": "Tämän ominaisuuden käyttöönotto tallentaa automaattisesti kaikki luodut kuvat puhelimesi galleriaan.",
   "screens.settings.user.autoSave.dialog.button": "Saatiin selville",
-  "screens.settings.version": "Versio {{version}}. Rakennus {{build}}"
+  "screens.settings.version": "Versio {{version}}. Rakennus {{build}}",
+  "screens.generation.cancel": "Keskeytä luonti"
 }

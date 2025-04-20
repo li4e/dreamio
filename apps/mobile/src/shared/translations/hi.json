@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "स्वतः सहेजें",
   "screens.settings.user.autoSave.dialog.description": "इस फीचर को सक्रिय करने से सभी उत्पन्न छवियाँ स्वचालित रूप से आपके फोन की गैलरी में सहेजी जाएँगी।",
   "screens.settings.user.autoSave.dialog.button": "समझ गया",
-  "screens.settings.version": "संस्करण {{version}}. निर्माण {{build}}"
+  "screens.settings.version": "संस्करण {{version}}. निर्माण {{build}}",
+  "screens.generation.cancel": "जनरेट करना रोकें"
 }

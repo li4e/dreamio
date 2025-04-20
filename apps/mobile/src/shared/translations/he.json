@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "שמור אוטומטית",
   "screens.settings.user.autoSave.dialog.description": "הפעלת תכונה זו תשמור באופן אוטומטי את כל התמונות שהופקו בגלריה של הטלפון שלך.",
   "screens.settings.user.autoSave.dialog.button": "בזמן שנשמר אוטומטית, האם אתה בטוח שברצונך לאפס את ההגדרה הזו?",
-  "screens.settings.version": "גרסה {{version}}. גרסה {{build}}"
+  "screens.settings.version": "גרסה {{version}}. גרסה {{build}}",
+  "screens.generation.cancel": "הפסק לייצר"
 }

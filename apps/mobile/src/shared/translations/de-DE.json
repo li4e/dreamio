@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatisches Speichern",
   "screens.settings.user.autoSave.dialog.description": "Die Aktivierung dieser Funktion speichert automatisch alle generierten Bilder in der Galerie Ihres Telefons.",
   "screens.settings.user.autoSave.dialog.button": "Verstanden.",
-  "screens.settings.version": "Version {{version}}. Build {{build}}"
+  "screens.settings.version": "Version {{version}}. Build {{build}}",
+  "screens.generation.cancel": "Generierung stoppen"
 }

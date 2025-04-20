@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatisk gemming",
   "screens.settings.user.autoSave.dialog.description": "At aktivere denne funktion vil automatisk gemme alle genererede billeder til din telefons galleri.",
   "screens.settings.user.autoSave.dialog.button": "For your request related to \"screens.settings.user.autoSave.dialog.button,\" please provide the specific text you need to be translated from en-US to da, and I'll be happy to assist you!",
-  "screens.settings.version": "Version {{version}}. Bygget {{build}}"
+  "screens.settings.version": "Version {{version}}. Bygget {{build}}",
+  "screens.generation.cancel": "Stop med at generere"
 }

@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "自動儲存",
   "screens.settings.user.autoSave.dialog.description": "啟用此功能將自動將所有生成的圖像保存到您手機的相冊中。",
   "screens.settings.user.autoSave.dialog.button": "明白了",
-  "screens.settings.version": "版本 {{version}}。构建 {{build}}"
+  "screens.settings.version": "版本 {{version}}。构建 {{build}}",
+  "screens.generation.cancel": "停止生成"
 }

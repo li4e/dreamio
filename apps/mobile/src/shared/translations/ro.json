@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Salvare Automată",
   "screens.settings.user.autoSave.dialog.description": "Activarea acestei funcții va salva automat toate imaginile generate în galeria telefonului dumneavoastră.",
   "screens.settings.user.autoSave.dialog.button": "Înțeles.",
-  "screens.settings.version": "Versiunea {{version}}. Construcția {{build}}"
+  "screens.settings.version": "Versiunea {{version}}. Construcția {{build}}",
+  "screens.generation.cancel": "Oprește Generarea"
 }

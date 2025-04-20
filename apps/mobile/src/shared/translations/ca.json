@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Desa automàticament",
   "screens.settings.user.autoSave.dialog.description": "Activar aquesta funció desarà automàticament totes les imatges generades a la galeria del teu telèfon.",
   "screens.settings.user.autoSave.dialog.button": "Entès.",
-  "screens.settings.version": "Versió {{version}}. Compilació {{build}}"
+  "screens.settings.version": "Versió {{version}}. Compilació {{build}}",
+  "screens.generation.cancel": "Atura la generació"
 }

@@ -5459,5 +5459,48 @@
       "zh-Hans",
       "zh-Hant"
     ]
+  },
+  "screens.generation.cancel": {
+    "original": "Stop Generating",
+    "translations": [
+      "ar-SA",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl-NL",
+      "no",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
   }
 }

@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Αυτόματη Αποθήκευση",
   "screens.settings.user.autoSave.dialog.description": "Η ενεργοποίηση αυτής της δυνατότητας θα αποθηκεύει αυτόματα όλες τις παραγόμενες εικόνες στη γκαλερί του τηλεφώνου σας.",
   "screens.settings.user.autoSave.dialog.button": "Κατάλαβα",
-  "screens.settings.version": "Έκδοση {{version}}. Δημιουργία {{build}}"
+  "screens.settings.version": "Έκδοση {{version}}. Δημιουργία {{build}}",
+  "screens.generation.cancel": "Διακοπή Δημιουργίας"
 }

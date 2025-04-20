@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Tự động lưu",
   "screens.settings.user.autoSave.dialog.description": "Kích hoạt tính năng này sẽ tự động lưu tất cả hình ảnh được tạo vào thư viện của điện thoại bạn.",
   "screens.settings.user.autoSave.dialog.button": "Hi! It seems you did not provide any text to translate. Please provide the text you would like to have translated, and I'll be happy to assist you!",
-  "screens.settings.version": "Phiên bản {{version}}. Xây dựng {{build}}"
+  "screens.settings.version": "Phiên bản {{version}}. Xây dựng {{build}}",
+  "screens.generation.cancel": "Dừng tạo ra"
 }

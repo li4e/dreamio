@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Otomatik Kaydet",
   "screens.settings.user.autoSave.dialog.description": "Bu özelliği etkinleştirirseniz, oluşturulan tüm görseller telefonunuzun galerisine otomatik olarak kaydedilecektir.",
   "screens.settings.user.autoSave.dialog.button": "Anladım",
-  "screens.settings.version": "Sürüm {{version}}. Derleme {{build}}"
+  "screens.settings.version": "Sürüm {{version}}. Derleme {{build}}",
+  "screens.generation.cancel": "Üretimi Durdur"
 }

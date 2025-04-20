@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatisk lagring",
   "screens.settings.user.autoSave.dialog.description": "Å aktivere denne funksjonen vil automatisk lagre alle genererte bilder til galleriet på telefonen din.",
   "screens.settings.user.autoSave.dialog.button": "For the key \"screens.settings.user.autoSave.dialog.button\", the translation from en-US to no would be:\n\n\"Få det\"",
-  "screens.settings.version": "Versjon {{version}}. Bygg {{build}}"
+  "screens.settings.version": "Versjon {{version}}. Bygg {{build}}",
+  "screens.generation.cancel": "Stopp generering"
 }

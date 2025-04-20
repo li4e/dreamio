@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "Automatsko spremanje",
   "screens.settings.user.autoSave.dialog.description": "Omogućavanje ove značajke automatski će spremiti sve generirane slike u galeriju vašeg telefona.",
   "screens.settings.user.autoSave.dialog.button": "Razumijem",
-  "screens.settings.version": "Verzija {{version}}. Gradnja {{build}}"
+  "screens.settings.version": "Verzija {{version}}. Gradnja {{build}}",
+  "screens.generation.cancel": "Prekini generiranje"
 }

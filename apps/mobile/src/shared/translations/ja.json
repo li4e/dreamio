@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "自動保存",
   "screens.settings.user.autoSave.dialog.description": "この機能を有効にすると、生成されたすべての画像が自動的にあなたの携帯電話のギャラリーに保存されます。",
   "screens.settings.user.autoSave.dialog.button": "承知しました。",
-  "screens.settings.version": "バージョン {{version}}。ビルド {{build}}"
+  "screens.settings.version": "バージョン {{version}}。ビルド {{build}}",
+  "screens.generation.cancel": "生成を停止する"
 }

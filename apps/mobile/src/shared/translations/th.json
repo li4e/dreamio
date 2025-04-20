@@ -123,5 +123,6 @@
   "screens.settings.user.autoSave.dialog.title": "บันทึกอัตโนมัติ",
   "screens.settings.user.autoSave.dialog.description": "การเปิดใช้งานฟีเจอร์นี้จะบันทึกภาพที่สร้างขึ้นทั้งหมดไปยังแกลเลอรีในโทรศัพท์ของคุณโดยอัตโนมัติ",
   "screens.settings.user.autoSave.dialog.button": "ได้รับแล้ว",
-  "screens.settings.version": "เวอร์ชัน {{version}}. การสร้าง {{build}}"
+  "screens.settings.version": "เวอร์ชัน {{version}}. การสร้าง {{build}}",
+  "screens.generation.cancel": "หยุดการสร้าง"
 }
