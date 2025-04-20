@@ -5,7 +5,7 @@ import { franc } from 'franc'
 import { retryUntilTimeout } from './utils/retryUntilTimeout'
 
 class Api {
-  async generatePrompt(): Promise<string> {
+  async generatePrompt(signal: AbortSignal): Promise<string> {
     const userLang = i18n.language
     const seed = Math.trunc(Math.random() * 1000000000000)
 
@@ -22,7 +22,7 @@ class Api {
     )
 
     try {
-      return await translator.translate(generatedPrompt, i18n.language)
+      return await translator.translate(generatedPrompt, i18n.language, signal)
     } catch {
       return generatedPrompt
     }
@@ -39,7 +39,11 @@ class Api {
 class Translator {
   private readonly revertionCache = new Map<string, string>()
 
-  async translate(value: string, lang: string): Promise<string> {
+  async translate(
+    value: string,
+    lang: string,
+    signal: AbortSignal
+  ): Promise<string> {
     const destLangIsEn = Translator.isEnLang(lang)
     const valueIsEn = franc(value) === 'eng'
 
@@ -54,9 +58,13 @@ class Translator {
       }
     }
 
-    const { text } = await translate(value, {
-      to: lang,
-    }).catch((error) => {
+    const { text } = await translate(
+      value,
+      {
+        to: lang,
+      },
+      signal
+    ).catch((error) => {
       console.error('Error during translation', error)
       throw error
     })
@@ -86,7 +94,8 @@ export const api = new Api()
 
 async function translate(
   value: string,
-  options: { to: string }
+  options: { to: string },
+  signal: AbortSignal
 ): Promise<{ text: string }> {
   const prompt = `Translate the following text into "${options.to}" language without any additional explanation or introductory text: "${value}"`
 
@@ -94,11 +103,15 @@ async function translate(
     () =>
       axios
         .get(
-          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true`
+          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true`,
+          {
+            signal,
+          }
         )
         .catch(() =>
           axios.get(
-            `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&model=llama`
+            `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&model=llama`,
+            { signal }
           )
         )
         .then((res) => res.data),

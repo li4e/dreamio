@@ -121,7 +121,7 @@ function RandomButton(props: RandomButtonProps) {
   const onPress = async () => {
     uiStateStore.isPendingPromptGen = true
     try {
-      const prompt = await api.generatePrompt()
+      const prompt = await api.generatePrompt(new AbortController().signal)
       onChange(prompt)
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
     } catch {

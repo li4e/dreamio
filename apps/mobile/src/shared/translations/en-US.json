@@ -129,7 +129,8 @@
           "none": "None"
         }
       },
-      "allSettings": "All Settings"
+      "allSettings": "All Settings",
+      "cancel": "Stop Generating"
     },
     "settings": {
       "title": "Settings",

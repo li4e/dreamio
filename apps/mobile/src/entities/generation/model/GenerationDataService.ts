@@ -19,9 +19,12 @@ export class GenerationDataService {
     private db: GenerationRepository
   ) {}
 
-  getGeneration(generation: GenerationEntity): Promise<GenerationEntity> {
+  getGeneration(
+    generation: GenerationEntity,
+    signal: AbortSignal
+  ): Promise<GenerationEntity> {
     return api
-      .getGeneration(mapGenerationEntityToDTO(generation))
+      .getGeneration(mapGenerationEntityToDTO(generation), signal)
       .then(async (res) => {
         const generation = mapGenerationDtoToEntity(res.generation)
         if (generation.status === GenerationEntityStatus.SUCCESS) {
@@ -30,14 +33,16 @@ export class GenerationDataService {
         return generation
       })
       .catch((error) => {
-        console.log(error)
         throw error
       })
   }
 
-  createGeneration(data: CreateGenerationRequest): Promise<GenerationEntity> {
+  createGeneration(
+    data: CreateGenerationRequest,
+    signal: AbortSignal
+  ): Promise<GenerationEntity> {
     return api
-      .createGeneration(mapCreateGenerationRequestToDto(data))
+      .createGeneration(mapCreateGenerationRequestToDto(data), signal)
       .then(async (res) => {
         const { generation } = res
 

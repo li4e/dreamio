@@ -50,7 +50,8 @@ export class Api {
   }
 
   getGeneration = async (
-    generation: GenerationDTO
+    generation: GenerationDTO,
+    signal: AbortSignal
   ): Promise<{ generation: GenerationDTO }> => {
     const imageUrl = generation.images[0]
 
@@ -63,7 +64,7 @@ export class Api {
     await retryUntilTimeout(async () => {
       try {
         // Try to fetch the image
-        await axios.get(imageUrl, { timeout })
+        await axios.get(imageUrl, { timeout, signal })
         const prefetched = await Image.prefetch(imageUrl)
         if (!prefetched) {
           throw new Error('Error happened during image prefetching')
@@ -95,19 +96,20 @@ export class Api {
   }
 
   createGeneration = async (
-    data: StartGenerationBodyDTO
+    data: StartGenerationBodyDTO,
+    signal: AbortSignal
   ): Promise<{ generation: GenerationDTO }> => {
     const withCensorship = new SettingsStore().censorship
 
     if (withCensorship) {
-      const isPromptSafe = await this.isPromptSafe(data.prompt)
+      const isPromptSafe = await this.isPromptSafe(data.prompt, signal)
       if (!isPromptSafe) {
         throw new GetGenerationError(GenerationAPIErrorType.PROMPT_UNSAFE)
       }
     }
 
     const prompt = await translator
-      .translate(data.prompt, 'en')
+      .translate(data.prompt, 'en', signal)
       .catch(() => data.prompt)
 
     const newGeneration = {
@@ -135,13 +137,19 @@ export class Api {
     }
   }
 
-  async isPromptSafe(promptToCheck: string): Promise<boolean> {
+  async isPromptSafe(
+    promptToCheck: string,
+    signal: AbortSignal
+  ): Promise<boolean> {
     const prompt = `Check if the following prompt is safe: "${promptToCheck}". A safe prompt means it does not contain harmful, offensive, NSFW (Not Safe For Work) content, hate speech, or other inappropriate material. Return a JSON object with the field {safe: boolean}, where 'true' means safe (no harmful content detected) and 'false' means not safe (harmful content detected).`
 
     return await retryUntilTimeout(() => {
       return axios
         .get(
-          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`
+          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`,
+          {
+            signal,
+          }
         )
         .then((res) => {
           const data = res.data

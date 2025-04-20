@@ -21,8 +21,11 @@ import {
   StatisticsStore,
   useStatisticsStore,
 } from 'shared/store/StatisticsStore'
+import { CanceledError } from 'axios'
 
 class CreateGenerationService {
+  private abortController = new AbortController()
+
   constructor(
     private readonly generationDataService: GenerationDataService,
     private uiStateStore: UIStateStore,
@@ -33,13 +36,19 @@ class CreateGenerationService {
 
   private async createGeneration(data: CreateGenerationRequest) {
     this.uiStateStore.generation = null
-    let generation = await this.generationDataService.createGeneration(data)
+    let generation = await this.generationDataService.createGeneration(
+      data,
+      this.abortController.signal
+    )
     this.uiStateStore.generation = generation
     return generation
   }
 
   private async fetchGenerationResult(entity: GenerationEntity) {
-    const generation = await this.generationDataService.getGeneration(entity)
+    const generation = await this.generationDataService.getGeneration(
+      entity,
+      this.abortController.signal
+    )
     this.uiStateStore.generation = generation
     if (this.settingsStore.autoSave) {
       this.saveImage(generation.images[0])
@@ -48,6 +57,8 @@ class CreateGenerationService {
   }
 
   async submit(data: CreateGenerationRequest) {
+    this.abortController = new AbortController()
+
     try {
       this.uiStateStore.isPending = true
       this.uiStateStore.error = null
@@ -58,13 +69,13 @@ class CreateGenerationService {
           : await this.createGeneration(data)
 
       await this.fetchGenerationResult(generation)
-    } catch (error) {
+    } catch (error: any) {
       this.statisticsStore.errorsCount++
       if (error instanceof GetGenerationError) {
         this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
           error.type
         )
-      } else {
+      } else if (!(error instanceof CanceledError)) {
         this.uiStateStore.error = StateGenerationError.General
       }
     } finally {
@@ -73,6 +84,8 @@ class CreateGenerationService {
   }
 
   async fetchResultIfNeeded() {
+    this.abortController = new AbortController()
+
     if (
       this.uiStateStore.generation &&
       this.uiStateStore.generation.status !== GenerationEntityStatus.SUCCESS
@@ -97,18 +110,23 @@ class CreateGenerationService {
         this.uiStateStore.isPending = true
         this.uiStateStore.error = null
         await this.fetchGenerationResult(this.uiStateStore.generation)
-      } catch (error) {
+      } catch (error: any) {
         if (error instanceof GetGenerationError) {
           this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
             error.type
           )
-        } else {
+        } else if (!(error instanceof CanceledError)) {
           this.uiStateStore.error = StateGenerationError.General
         }
       } finally {
         this.uiStateStore.isPending = false
       }
     }
+  }
+
+  async cancelGeneration() {
+    this.abortController.abort()
+    this.uiStateStore.generation = null
   }
 }
 

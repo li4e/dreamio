@@ -288,6 +288,18 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
           className="absolute bottom-2 right-0 left-0"
         />
       )}
+      {!showStartButton && (
+        <View className="items-center absolute bottom-2 right-0 left-0">
+          <Button
+            icon="cancel"
+            mode="outlined"
+            className="rounded-full"
+            onPress={() => createGenService.cancelGeneration()}
+          >
+            {t('screens.generation.cancel')}
+          </Button>
+        </View>
+      )}
       <Header uiStateStore={uiStateStore} scrollY={scrollY} />
       <AspectRatioSelectDialog control={control} uiStateStore={uiStateStore} />
       <StyleSelectDialog control={control} uiStateStore={uiStateStore} />
