@@ -97,7 +97,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             .min(3, ({ min }) =>
               t('screens.generation.promptValidationErrors.minLength', { min })
             )
-            .max(500, ({ max }) =>
+            .max(1000, ({ max }) =>
               t('screens.generation.promptValidationErrors.maxLength', { max })
             )
             .required(t('screens.generation.promptValidationErrors.required')),
