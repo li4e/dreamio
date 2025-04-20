@@ -1,1 +1,0 @@
-— Improved the stability of image generation by making it more reliable when temporary server issues occur. The app now automatically retries failed requests, reducing interruptions and improving the overall experience.
