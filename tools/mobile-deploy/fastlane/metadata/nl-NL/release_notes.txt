@@ -1,1 +1,2 @@
-— De stabiliteit van de afbeeldingsgeneratie is verbeterd, waardoor deze betrouwbaarder is bij tijdelijke serverproblemen. De app probeert nu automatisch om mislukt verzoeken opnieuw uit te voeren, waardoor onderbrekingen worden verminderd en de algehele ervaring wordt verbeterd.
+— De limiet voor het invoeren van prompts is verhoogd van 500 naar 1000 tekens — geef je ideeën meer detail en creativiteit.
+— Mogelijkheid toegevoegd om de generatie te annuleren nadat deze is gestart — ideaal wanneer je je prompt wilt aanpassen zonder te wachten op de voltooiing van de huidige afbeelding.

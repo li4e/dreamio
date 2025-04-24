@@ -1,1 +1,2 @@
-— Millora de la stabilitat en la generació d'imatges, fent-la més fiable davant de problemes temporals amb el servidor. L'aplicació ara torna a intentar automàticament les sol·licituds fallides, reduint les interrupcions i millorant l'experiència global.
+— S'ha augmentat el límit d'entrada del prompt de 500 a 1000 caràcters — expressa les teves idees amb més detall i creativitat.  
+— S'ha afegit la capacitat de cancel·lar la generació un cop s'ha iniciat — perfecte per quan vols ajustar el teu prompt sense haver d'esperar que acabi la imatge actual.

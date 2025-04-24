@@ -1,1 +1,2 @@
-— Javítottuk a képgenerálás stabilitását, így megbízhatóbbá vált ideiglenes szerverproblémák esetén. Az alkalmazás ezentúl automatikusan újrapróbálkozik a sikertelen kérésekkel, csökkentve a megszakításokat és javítva a felhasználói élményt.
+— Megnöveltük a megadott szövegkarakterek számát 500-ról 1000 karakterre — fejezd ki ötleteidet részletesebben és kreatívabban.
+— Hozzáadtuk a lehetőséget, hogy leállíthatod a generálást, miután elindult — ideális, ha szeretnéd finomítani a kérésed anélkül, hogy meg kellene várnod a jelenlegi kép befejezését.

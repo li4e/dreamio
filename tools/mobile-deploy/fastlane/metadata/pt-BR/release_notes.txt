@@ -1,1 +1,2 @@
-— Melhorou a estabilidade da geração de imagens, tornando-a mais confiável em casos de problemas temporários no servidor. O aplicativo agora tenta automaticamente repetir solicitações falhadas, reduzindo interrupções e melhorando a experiência geral.
+— Aumentamos o limite de entrada de prompt de 500 para 1000 caracteres — expresse suas ideias com mais detalhes e criatividade.  
+— Adicionamos a capacidade de cancelar a geração após o início — perfeito para quando você deseja ajustar seu prompt sem esperar que a imagem atual seja concluída.

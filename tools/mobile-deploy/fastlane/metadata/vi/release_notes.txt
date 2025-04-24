@@ -1,1 +1,2 @@
-— Cải thiện tính ổn định của việc tạo hình ảnh bằng cách làm cho nó đáng tin cậy hơn khi xảy ra sự cố tạm thời với máy chủ. Ứng dụng giờ đây tự động thử lại các yêu cầu không thành công, giảm thiểu sự gián đoạn và nâng cao trải nghiệm tổng thể.
+— Tăng giới hạn ký tự đầu vào từ 500 lên 1000 — diễn đạt ý tưởng của bạn với nhiều chi tiết và sự sáng tạo hơn.
+— Thêm khả năng hủy bỏ quá trình tạo hình ảnh sau khi bắt đầu — hoàn hảo khi bạn muốn điều chỉnh yêu cầu mà không cần chờ đợi hình ảnh hiện tại hoàn thành.

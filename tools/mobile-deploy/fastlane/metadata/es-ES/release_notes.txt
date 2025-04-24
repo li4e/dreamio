@@ -1,1 +1,2 @@
-— Se ha mejorado la estabilidad de la generación de imágenes, haciéndola más fiable ante problemas temporales del servidor. La aplicación ahora reintenta automáticamente las solicitudes fallidas, reduciendo interrupciones y mejorando la experiencia general.
+— Se ha aumentado el límite de caracteres en la entrada de texto de 500 a 1000 — expresa tus ideas con más detalle y creatividad.  
+— Se ha añadido la opción de cancelar la generación una vez que ha comenzado — ideal para cuando deseas ajustar tu entrada sin tener que esperar a que finalice la imagen actual.

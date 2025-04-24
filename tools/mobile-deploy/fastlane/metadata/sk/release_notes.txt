@@ -1,1 +1,2 @@
-— Zlepšila sa stabilita generovania obrázkov tým, že je teraz spoľahlivejšie aj pri dočasných problémoch so serverom. Aplikácia teraz automaticky opakuje neúspešné požiadavky, čím sa znižujú prerušenia a zlepšuje celkový zážitok.
+— Zvýšili sme limit vstupu pre výzvy z 500 na 1000 znakov — vyjadrite svoje myšlienky s väčšou hĺbkou a kreativitou.  
+— Pridali sme možnosť zrušiť generovanie po jeho začatí — ideálne, keď chcete upraviť svoju výzvu bez čakania na dokončenie aktuálneho obrázku.

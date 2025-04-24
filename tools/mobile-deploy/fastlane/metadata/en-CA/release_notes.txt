@@ -1,1 +1,2 @@
-— Enhanced the stability of image generation to ensure greater reliability during temporary server issues. The app now automatically retries failed requests, minimizing interruptions and elevating the overall user experience.
+— Increased the prompt input limit from 500 to 1000 characters — share your ideas with greater detail and creativity.  
+— Added the option to cancel generation once it begins — ideal for when you want to adjust your prompt without waiting for the current image to complete.

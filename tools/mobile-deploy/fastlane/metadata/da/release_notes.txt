@@ -1,1 +1,2 @@
-— Forbedret stabiliteten i billedgenerering ved at gøre den mere pålidelig, når der opstår midlertidige serverproblemer. Appen forsøger nu automatisk at gentage mislykkede anmodninger, hvilket reducerer afbrydelser og forbedrer den samlede oplevelse.
+— Øget grænsen for prompt input fra 500 til 1000 tegn — udtryk dine idéer med mere detaljer og kreativitet.  
+— Tilføjet muligheden for at annullere generationen, efter den er startet — perfekt, når du ønsker at justere din prompt uden at vente på, at det nuværende billede bliver færdigt.

@@ -1,1 +1,2 @@
-— Poboljšana stabilnost generiranja slika čini ga pouzdanijim u slučaju privremenih problema s poslužiteljem. Aplikacija sada automatski ponavlja neuspjele zahtjeve, smanjujući prekide i poboljšavajući cjelokupno iskustvo.
+— Povećan limit za unos uputstava s 500 na 1000 znakova — izražite svoje ideje s više detalja i kreativnosti.  
+— Dodana mogućnost otkazivanja generacije nakon što započne — savršeno za situacije kada želite prilagoditi svoje upute bez čekanja da se trenutna slika završi.

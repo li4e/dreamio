@@ -1,1 +1,2 @@
-— Förbättrad stabilitet i bildgenereringen genom att göra den mer pålitlig vid tillfälliga serverproblem. Appen försöker nu automatiskt igen vid misslyckade förfrågningar, vilket minskar avbrott och förbättrar den övergripande upplevelsen.
+— Ökat teckenbegränsning för promptinmatning från 500 till 1000 tecken — uttryck dina idéer med mer detalj och kreativitet.  
+— Lagt till möjligheten att avbryta generationen efter att den startat — perfekt när du vill justera din prompt utan att behöva vänta på att den aktuella bilden ska bli klar.

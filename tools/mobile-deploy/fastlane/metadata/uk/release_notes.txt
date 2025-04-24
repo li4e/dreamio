@@ -1,1 +1,2 @@
-— Enhanced the stability of image generation, ensuring greater reliability during temporary server issues. The app now automatically retries failed requests, minimising interruptions and enhancing the overall experience.
+— Збільшено обмеження на ввід запитів з 500 до 1000 символів — ви можете виразити свої ідеї з більшою детальністю та креативністю.  
+— Додана можливість скасування генерації після початку — ідеально, коли ви хочете внести зміни у свій запит, не чекаючи завершення поточного зображення.

@@ -1,1 +1,2 @@
-— Poprawiono stabilność generowania obrazów, co zwiększa niezawodność w przypadku chwilowych problemów z serwerem. Aplikacja teraz automatycznie powtarza nieudane żądania, co zmniejsza przerwy w działaniu i poprawia ogólne wrażenia.
+— Zwiększono limit znaków w polu wprowadzania z 500 do 1000 — wyrażaj swoje pomysły z większą szczegółowością i kreatywnością.  
+— Dodano możliwość anulowania generowania po jego rozpoczęciu — idealne, gdy chcesz dostosować swój prompt bez czekania na zakończenie bieżącego obrazu.

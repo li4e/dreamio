@@ -1,1 +1,2 @@
-— Geçici sunucu sorunları meydana geldiğinde görüntü oluşturma işleminin daha güvenilir olmasını sağlayarak stabilitesini artırdık. Uygulama artık başarısız talepleri otomatik olarak yeniden deniyor, bu da kesintileri azaltarak genel deneyimi iyileştiriyor.
+— İfade alanı sınırı 500 karakterden 1000 karaktere çıkarıldı — fikirlerinizi daha fazla detay ve yaratıcılıkla ifade edin.  
+— Üretim başladıktan sonra iptal etme yeteneği eklendi — mevcut görüntünün tamamlanmasını beklemeden, isteminizi ayarlamak istediğinizde mükemmel bir özellik.

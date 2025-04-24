@@ -1,1 +1,2 @@
-— Parannettu kuvanluonnin vakautta tekemällä siitä luotettavampaa tilapäisten palvelinongelmien aikana. Sovellus yrittää nyt automaattisesti uusia epäonnistuneita pyyntöjä, mikä vähentää keskeytyksiä ja parantaa kokonaiskokemusta.
+— Nostimme syötteen rajan 500:sta 1000 merkkiin — voit nyt ilmaista ideasi tarkemmin ja luovemmin.  
+— Lisäsimme mahdollisuuden peruuttaa generointi sen alkaessa — täydellinen, kun haluat muokata syötettäsi odottamatta nykyisen kuvan valmistumista.
