@@ -78,7 +78,7 @@
   "screens.generation.styleSelectorDialog.deselect": "No Style",
   "screens.generation.styleSelectorDialog.close": "Close",
   "screens.generation.settings.enhancer.on": "Enabled",
-  "screens.generation.settings.enhancer.off": "Switch off",
+  "screens.generation.settings.enhancer.off": "Disabled",
   "screens.generation.settings.style.none": "None",
   "screens.generation.allSettings": "All Settings",
   "screens.generationResult.enhancer": "Enhancer",
