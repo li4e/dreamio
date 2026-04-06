@@ -56,6 +56,7 @@ module.exports = {
           },
           android: {
             targetSdkVersion: 35,
+            useLegacyPackaging: false,
             enableProguardInReleaseBuilds: true,
             extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
             allowBackup: false,
