@@ -19,6 +19,12 @@ export class GenerationDataService {
     private db: GenerationRepository
   ) {}
 
+  async cancelGeneration(entity: GenerationEntity) {
+    if (entity.remoteId) {
+      await api.cancelGeneration(entity.remoteId)
+    }
+  }
+
   getGeneration(
     generation: GenerationEntity,
     signal: AbortSignal

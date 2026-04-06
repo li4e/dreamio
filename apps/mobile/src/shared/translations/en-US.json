@@ -94,6 +94,14 @@
         "title": "Service Temporarily Unavailable",
         "description": "Our free service is experiencing high traffic at the moment. Please wait a few minutes and try again."
       },
+      "errorInsufficientCredits": {
+        "title": "Not Enough Credits",
+        "description": "You don't have enough credits to generate an image. Please purchase more credits or wait for your free quota to refill."
+      },
+      "errorRateLimited": {
+        "title": "Please Wait",
+        "description": "You already have an active generation in progress. Please wait for it to complete before starting a new one."
+      },
       "modalGeneration": {
         "title": "Magic in Progress",
         "description": "This usually takes about 15 seconds..."

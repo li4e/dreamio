@@ -32,6 +32,7 @@ export function mapGenerationDtoToEntity(
 ): GenerationEntity {
   return {
     id: generation.id,
+    remoteId: generation.remoteId ?? null,
     prompt: generation.prompt,
     style: generation.style,
     status: statusMapping[generation.status],
@@ -40,26 +41,18 @@ export function mapGenerationDtoToEntity(
     enhance: generation.enhance,
     width: generation.width,
     height: generation.height,
-    images: generation.images
-      ? mapImages(generation.images).map((image) => image.url)
-      : [],
+    images: generation.images ?? [],
   }
 }
 
 export function mapGenerationEntityToDTO(
   generation: GenerationEntity
 ): GenerationDTO {
-  const image = generation.images[0]
-  if (!image) {
-    throw new Error('Image is not defined, unable to map to DTO')
-  }
-  const promptFull = decodeURIComponent(
-    image.replace('https://image.pollinations.ai/prompt/', '').split('?')[0]
-  )
-
   return {
     id: generation.id,
+    remoteId: generation.remoteId ?? null,
     prompt: generation.prompt,
+    promptFull: generation.prompt,
     style: generation.style,
     status: mapEntityStatusToDTOStatus(generation.status),
     createdAt: convertTimeStampToDateString(generation.createdAt),
@@ -67,10 +60,7 @@ export function mapGenerationEntityToDTO(
     enhance: generation.enhance,
     width: generation.width,
     height: generation.height,
-    images: generation.images
-      ? mapImages(generation.images).map((image) => image.url)
-      : [],
-    promptFull,
+    images: generation.images ?? [],
   }
 }
 
@@ -92,8 +82,4 @@ function convertDateToTimestamp(dateString: string): number {
 
 function convertTimeStampToDateString(timestamp: number): string {
   return new Date(timestamp).toString()
-}
-
-function mapImages(images: string[]): { url: string }[] {
-  return images.map((image) => ({ url: image }))
 }

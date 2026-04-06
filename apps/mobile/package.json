@@ -38,7 +38,6 @@
     "expo-splash-screen": "~0.29.21",
     "expo-status-bar": "~2.0.1",
     "expo-system-ui": "~4.0.7",
-    "franc": "*",
     "i18next": "^24.2.1",
     "lottie-react-native": "7.1.0",
     "md5": "^2.3.0",
@@ -68,7 +67,8 @@
     "tailwind-merge": "^2.6.0",
     "typeorm": "^0.3.20",
     "yup": "^1.6.1",
-    "expo-store-review": "~8.0.1"
+    "expo-store-review": "~8.0.1",
+    "expo-image-manipulator": "~13.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

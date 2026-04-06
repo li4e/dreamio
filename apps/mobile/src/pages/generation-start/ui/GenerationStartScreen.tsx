@@ -68,15 +68,51 @@ import { twMerge } from 'tailwind-merge'
 import { StickyHeader } from 'shared/ui/StickyHeader'
 import { useReportDialog } from 'shared/ui/ReportDialog'
 import { useRateApp } from 'shared/ui/hooks/useRateApp'
+import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
+import { BOTTOM_BAR_HEIGHT } from 'shared/constants'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
+function useCreateErrorHandler() {
+  const { t } = useTranslation()
+  const { showSnackbar } = useSnackbar()
+  const { bottom } = useSafeAreaInsets()
+
+  return useCallback(
+    (error: StateGenerationError, serverMessage?: string) => {
+      const keyMap: Record<StateGenerationError, string> = {
+        [StateGenerationError.General]: 'screens.generation.modalError',
+        [StateGenerationError.PromptUnsafe]: 'screens.generation.errorUnsafePrompt',
+        [StateGenerationError.ServiceUnavailable]: 'screens.generation.errorServiceUnavailable',
+        [StateGenerationError.InsufficientCredits]: 'screens.generation.errorInsufficientCredits',
+        [StateGenerationError.RateLimited]: 'screens.generation.errorRateLimited',
+      }
+      const key = keyMap[error] ?? keyMap[StateGenerationError.General]
+      showSnackbar(
+        {
+          title: t(`${key}.title`),
+          description: serverMessage ?? t(`${key}.description`),
+        },
+        {
+          variant: SnackBarVariant.ERROR,
+          offset: BOTTOM_BAR_HEIGHT + bottom,
+        }
+      )
+    },
+    [t, showSnackbar, bottom]
+  )
+}
 
 export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
   const { generation: generationFromNavigation } = props.route.params || {}
   const { t } = useTranslation()
   const scrollViewRef = useAnimatedRef<Animated.ScrollView>()
   const [uiStateStore] = useState(new UIStateStore())
-  const createGenService = useCreateGenService(uiStateStore)
+  const onCreateError = useCreateErrorHandler()
+  const createGenService = useCreateGenService(uiStateStore, onCreateError)
   const {
     generation,
+    isCreating,
+    isCancelling,
     isPending,
     isPendingPromptGen,
     status,
@@ -246,7 +282,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
             <StartButton
               hasGeneration={resultImage !== null}
               control={control}
-              isPending={isPending}
+              loading={isCreating}
               disabled={isPendingPromptGen}
               onPress={handleSubmit(handleStartPress)}
               className="mb-4"
@@ -282,18 +318,20 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
         <StartButton
           hasGeneration={resultImage !== null}
           control={control}
-          isPending={isPending}
+          loading={isCreating}
           disabled={isPendingPromptGen}
           onPress={handleSubmit(handleStartPress)}
           className="absolute bottom-2 right-0 left-0"
         />
       )}
-      {!showStartButton && (
+      {(isPending || isCancelling) && (
         <View className="items-center absolute bottom-2 right-0 left-0">
           <Button
             icon="cancel"
             mode="outlined"
             className="rounded-full"
+            loading={isCancelling}
+            disabled={isCancelling}
             onPress={() => createGenService.cancelGeneration()}
           >
             {t('screens.generation.cancel')}
@@ -310,16 +348,16 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
 function StartButton(
   props: {
     control: FormControl
-    isPending: boolean
+    loading: boolean
     disabled: boolean
     hasGeneration: boolean
     onPress: () => void
   } & ViewProps
 ) {
-  const { isPending, onPress, control, disabled, hasGeneration, ...rest } =
+  const { loading, onPress, control, disabled, hasGeneration, ...rest } =
     props
   const { submitCount, isValid } = useFormState({ control })
-  const isDisabled = isPending || (submitCount > 0 && !isValid)
+  const isDisabled = loading || (submitCount > 0 && !isValid)
   const { t } = useTranslation()
 
   return (
@@ -331,7 +369,7 @@ function StartButton(
         contentStyle="px-4 py-2"
         onPress={onPress}
         disabled={isDisabled || disabled}
-        loading={isPending}
+        loading={loading}
       >
         {t(
           hasGeneration
@@ -354,6 +392,10 @@ function mapCurGenStatusToModalState(
       return StateModalVariant.ErrorServiceUnavailable
     } else if (error === StateGenerationError.PromptUnsafe) {
       return StateModalVariant.ErrorUsafePrompt
+    } else if (error === StateGenerationError.InsufficientCredits) {
+      return StateModalVariant.ErrorInsufficientCredits
+    } else if (error === StateGenerationError.RateLimited) {
+      return StateModalVariant.ErrorRateLimited
     }
     return StateModalVariant.Error
   }
@@ -475,7 +517,7 @@ function SelectedSettings(
 
 function getSizeFromAspectRatio(
   ratio: string,
-  maxSize: number = 1280
+  maxSize: number = 1024
 ): { width: number; height: number } {
   switch (ratio) {
     case AspectRatio.square:

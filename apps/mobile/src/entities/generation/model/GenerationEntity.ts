@@ -6,11 +6,12 @@ export enum GenerationEntityStatus {
 
 export interface GenerationEntity {
   id: number
+  remoteId: string | null
   prompt: string
   style: string | null
   status: GenerationEntityStatus
-  createdAt: number // timestamp in nanoseconds
-  updatedAt: number // timestamp in nanoseconds
+  createdAt: number // timestamp in milliseconds
+  updatedAt: number // timestamp in milliseconds
   images: Array<string>
   enhance: boolean
   width: number

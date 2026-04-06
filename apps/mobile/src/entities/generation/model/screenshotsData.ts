@@ -6,6 +6,7 @@ const prompt = i18n.t('promptExample')
 export const screenshotsData: GenerationEntity[] = [
   {
     id: 1,
+    remoteId: null,
     prompt,
     style: 'Anime',
     status: GenerationEntityStatus.SUCCESS,
@@ -18,6 +19,7 @@ export const screenshotsData: GenerationEntity[] = [
   },
   {
     id: 2,
+    remoteId: null,
     prompt,
     style: 'Anime',
     status: GenerationEntityStatus.SUCCESS,
@@ -30,6 +32,7 @@ export const screenshotsData: GenerationEntity[] = [
   },
   {
     id: 3,
+    remoteId: null,
     prompt,
     style: 'Anime',
     status: GenerationEntityStatus.SUCCESS,
@@ -42,6 +45,7 @@ export const screenshotsData: GenerationEntity[] = [
   },
   {
     id: 4,
+    remoteId: null,
     prompt,
     style: 'Anime',
     status: GenerationEntityStatus.SUCCESS,

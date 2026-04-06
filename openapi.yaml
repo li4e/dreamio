@@ -1,0 +1,574 @@
+openapi: 3.1.0
+info:
+  title: DreamIO API
+  version: 1.0.0
+  description: Image generation API for DreamIO
+
+servers:
+  - url: /api/v1
+
+components:
+  securitySchemes:
+    firebaseAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Firebase ID Token
+
+  schemas:
+    GenerationResult:
+      type: object
+      properties:
+        storageId:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        thumbnailUrl:
+          type: string
+          format: uri
+      required: [storageId, imageUrl, thumbnailUrl]
+
+    Request:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        prompt:
+          type: string
+        enhancePrompt:
+          type: boolean
+        finalPrompt:
+          type: string
+          nullable: true
+        model:
+          type: string
+          enum: [flux-schnell]
+        modelSettings:
+          type: object
+          nullable: true
+        status:
+          type: string
+          enum: [QUEUED, RUNNING, COMPLETED, FAILED, CANCELLED]
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+        source:
+          type: string
+          enum: [GPU, FALLBACK]
+        cost:
+          type: number
+        creditSourceType:
+          type: string
+          enum: [subscription, credit_pack, free_quota]
+          nullable: true
+        creditSourceId:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenerationResult'
+        error:
+          type: string
+          nullable: true
+        deleted:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+          nullable: true
+        completedAt:
+          type: string
+          format: date-time
+          nullable: true
+        failedAt:
+          type: string
+          format: date-time
+          nullable: true
+        cancelledAt:
+          type: string
+          format: date-time
+          nullable: true
+        refundedAt:
+          type: string
+          format: date-time
+          nullable: true
+      required:
+        - id
+        - userId
+        - prompt
+        - enhancePrompt
+        - model
+        - status
+        - progress
+        - source
+        - cost
+        - results
+        - deleted
+        - createdAt
+        - updatedAt
+
+    Lora:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        strengthModel:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 1
+        strengthClip:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 1
+      required: [name]
+
+    RequestSettings:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+        seed:
+          type: integer
+          minimum: -1
+        steps:
+          type: integer
+          minimum: 1
+          maximum: 150
+        cfg:
+          type: number
+          minimum: 0
+          maximum: 30
+        sampler:
+          type: string
+          enum:
+            - euler
+            - euler_ancestral
+            - heun
+            - dpm_2
+            - dpm_2_ancestral
+            - lms
+            - dpmpp_2s_ancestral
+            - dpmpp_2m
+            - dpmpp_sde
+            - dpmpp_2m_sde
+            - dpmpp_3m_sde
+            - ddpm
+            - lcm
+            - uni_pc
+        scheduler:
+          type: string
+          enum:
+            - normal
+            - karras
+            - exponential
+            - sgm_uniform
+            - simple
+            - ddim_uniform
+            - beta
+        denoise:
+          type: number
+          minimum: 0
+          maximum: 1
+        negativePrompt:
+          type: string
+          maxLength: 2000
+        checkpoint:
+          type: string
+          minLength: 1
+          maxLength: 200
+        loras:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lora'
+          maxItems: 5
+        inputImageUrl:
+          type: string
+          format: uri
+        inputImageDenoise:
+          type: number
+          minimum: 0
+          maximum: 1
+        style:
+          type: string
+          minLength: 1
+          maxLength: 50
+        enhance:
+          type: boolean
+      required: [width, height]
+      description: |
+        Allowed resolutions (width x height):
+        1280x1280, 1280x720, 1280x960, 1280x1707,
+        720x1280, 1024x1024, 768x768, 512x512
+
+    MeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          nullable: true
+        isAnonymous:
+          type: boolean
+        credits:
+          type: object
+          properties:
+            subscription:
+              type: object
+              nullable: true
+              properties:
+                planId:
+                  type: string
+                status:
+                  type: string
+                available:
+                  type: number
+                expiresAt:
+                  type: string
+                  format: date-time
+              required: [planId, status, available, expiresAt]
+            creditPacks:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  available:
+                    type: number
+                  total:
+                    type: number
+                required: [id, available, total]
+            freeQuota:
+              type: object
+              nullable: true
+              properties:
+                tokens:
+                  type: number
+                maxTokens:
+                  type: number
+                nextRefillAt:
+                  type: string
+                  format: date-time
+              required: [tokens, maxTokens, nextRefillAt]
+          required: [subscription, creditPacks, freeQuota]
+      required: [id, email, isAnonymous, credits]
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+      required: [message]
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: getHealth
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                required: [ok]
+
+  /claim:
+    post:
+      summary: Submit a content complaint
+      operationId: createClaim
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                urls:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+                  minItems: 1
+                  maxItems: 10
+                description:
+                  type: string
+                  maxLength: 1000
+              required: [urls]
+      responses:
+        '200':
+          description: Claim accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                required: [success, message]
+
+  /me:
+    get:
+      summary: Get current user profile and credits
+      operationId: getMe
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: User profile with credit info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /prompts/random:
+    get:
+      summary: Generate a random creative image prompt
+      operationId: getRandomPrompt
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: language
+          in: query
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 50
+          description: Language for the generated prompt (e.g. "English", "Russian")
+      responses:
+        '200':
+          description: Generated prompt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt:
+                    type: string
+                required: [prompt]
+        '429':
+          description: Rate limit exceeded (max 10 req/min)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /requests:
+    post:
+      summary: Create an image generation request
+      operationId: createRequest
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  minLength: 1
+                  maxLength: 2000
+                enhancePrompt:
+                  type: boolean
+                  default: false
+                settings:
+                  $ref: '#/components/schemas/RequestSettings'
+              required: [prompt, settings]
+      responses:
+        '201':
+          description: Request created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+        '402':
+          description: Insufficient credits
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Free user already has an active request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    get:
+      summary: List user's generation requests
+      operationId: listRequests
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: lastUpdatedAt
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Cursor for pagination
+        - name: lastId
+          in: query
+          schema:
+            type: string
+          description: Cursor for pagination
+        - name: direction
+          in: query
+          schema:
+            type: string
+            enum: [before, after]
+            default: before
+          description: |
+            "before" — standard pagination (older items).
+            "after" — sync mode, returns items updated after the cursor. Response includes `deletedIds` array.
+      responses:
+        '200':
+          description: Paginated list of requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Request'
+                  deletedIds:
+                    type: array
+                    items:
+                      type: string
+                    description: Only present when direction=after
+                  lastUpdatedAt:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  lastId:
+                    type: string
+                    nullable: true
+                required: [items, lastUpdatedAt, lastId]
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /requests/{id}:
+    get:
+      summary: Get a specific generation request
+      operationId: getRequest
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Request details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /requests/{id}/cancel:
+    post:
+      summary: Cancel a generation request
+      operationId: cancelRequest
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cancelled request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Request is not cancellable (already completed/failed/cancelled)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'

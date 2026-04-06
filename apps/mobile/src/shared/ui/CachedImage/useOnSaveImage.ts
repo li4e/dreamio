@@ -5,6 +5,7 @@ import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import * as MediaLibrary from 'expo-media-library'
 import * as FileSystem from 'expo-file-system'
 import { Image } from 'expo-image'
+import { ImageManipulator, SaveFormat } from 'expo-image-manipulator'
 import md5 from 'md5'
 import { HEADER_HEIGHT } from 'shared/constants'
 
@@ -17,9 +18,16 @@ export async function saveImage(url: string): Promise<boolean | null> {
     }
 
     if (permissions.granted) {
-      const cachedPath = await getFileTempCachePath(url)
-      await MediaLibrary.saveToLibraryAsync(cachedPath)
-      await FileSystem.deleteAsync(cachedPath)
+      let savePath = await getFileTempCachePath(url)
+      if (/\.webp(\?|$)/i.test(url)) {
+        const image = ImageManipulator.manipulate(savePath)
+        const ref = await image.renderAsync()
+        const result = await ref.saveAsync({ format: SaveFormat.JPEG })
+        await FileSystem.deleteAsync(savePath)
+        savePath = result.uri
+      }
+      await MediaLibrary.saveToLibraryAsync(savePath)
+      await FileSystem.deleteAsync(savePath)
       return true
     } else {
       return null
@@ -37,6 +45,7 @@ export function useOnSaveImage() {
 
   return useCallback(
     async (url: string) => {
+      console.log({url})
       const saved = await saveImage(url)
       const snackOptions = { position: 'top', offset: HEADER_HEIGHT } as const
 
@@ -102,7 +111,8 @@ export async function getFileTempCachePath(url: string) {
     cachedPath = `file://${cachedPath}`
   }
 
-  const savePath = `${FileSystem.cacheDirectory}${md5(url)}.jpg`
+  const ext = url.match(/\.(jpe?g|png|webp|gif)(\?|$)/i)?.[1] ?? 'jpg'
+  const savePath = `${FileSystem.cacheDirectory}${md5(url)}.${ext}`
 
   await FileSystem.copyAsync({ from: cachedPath, to: savePath })
   return savePath

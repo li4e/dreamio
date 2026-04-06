@@ -5,6 +5,8 @@ import { GenerationEntity, GenerationEntityStatus } from '../GenerationEntity'
 export class Generation implements GenerationEntity {
   @PrimaryColumn()
   id: number
+  @Column({ nullable: true })
+  remoteId: string | null
   @Column()
   prompt: string
   @Column({ nullable: true })

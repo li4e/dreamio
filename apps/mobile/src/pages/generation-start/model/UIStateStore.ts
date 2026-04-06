@@ -11,6 +11,10 @@ export function mapGenerationAPIErrorToUIStateStoreError(
     return StateGenerationError.PromptUnsafe
   } else if (error === GenerationAPIErrorType.SERVICE_UNAVAILABLE) {
     return StateGenerationError.ServiceUnavailable
+  } else if (error === GenerationAPIErrorType.INSUFFICIENT_CREDITS) {
+    return StateGenerationError.InsufficientCredits
+  } else if (error === GenerationAPIErrorType.RATE_LIMITED) {
+    return StateGenerationError.RateLimited
   }
   return StateGenerationError.General
 }
@@ -30,13 +34,17 @@ export enum StateGenerationError {
   PromptUnsafe = 1,
   ServiceUnavailable = 2,
   General = 3,
+  InsufficientCredits = 4,
+  RateLimited = 5,
 }
 
 export class UIStateStore {
   private _aspectRatioModalOpened = false
   private _styleSelectorModalOpened = false
   private _isFormDisabled = false
+  private _isCreating = false
   private _isPending = false
+  private _isCancelling = false
   private _isPendingPromptGen = false
   private _error: StateGenerationError | null = null
   private _generation: GenerationEntity | null = null
@@ -65,6 +73,20 @@ export class UIStateStore {
   }
   get isFormDisabled() {
     return this._isFormDisabled
+  }
+
+  set isCreating(value: boolean) {
+    this._isCreating = value
+  }
+  get isCreating() {
+    return this._isCreating
+  }
+
+  set isCancelling(value: boolean) {
+    this._isCancelling = value
+  }
+  get isCancelling() {
+    return this._isCancelling
   }
 
   set isPending(value: boolean) {
@@ -132,6 +154,8 @@ export class UIStateStore {
       status: this.status,
       generation: this.generation,
       resultImage: this.resultImage,
+      isCreating: this.isCreating,
+      isCancelling: this.isCancelling,
       isPending: this.isPending,
       isPendingPromptGen: this.isPendingPromptGen,
       hasError: this.hasError,
@@ -144,7 +168,7 @@ export class UIStateStore {
     return {
       generation:
         this.generation?.status !== GenerationEntityStatus.SUCCESS &&
-        this.error !== StateGenerationError.PromptUnsafe
+        this._error === null
           ? this.generation
           : null,
     }

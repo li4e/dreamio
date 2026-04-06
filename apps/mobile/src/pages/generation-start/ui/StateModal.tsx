@@ -11,6 +11,8 @@ export enum StateModalVariant {
   Error = 'error',
   ErrorUsafePrompt = 'error_prompt',
   ErrorServiceUnavailable = 'error_service_unavailable',
+  ErrorInsufficientCredits = 'error_insufficient_credits',
+  ErrorRateLimited = 'error_rate_limited',
 }
 
 interface StateModalProps {
@@ -164,6 +166,30 @@ function useStateContent(variant: StateModalVariant): StateContent {
       [StateModalVariant.ErrorUsafePrompt]: {
         title: t('screens.generation.errorUnsafePrompt.title'),
         description: t('screens.generation.errorUnsafePrompt.description'),
+        button: t('screens.generation.modalError.button'),
+        animation: {
+          source: require('./animations/error.json'),
+          style: { width: 90, height: 90 },
+          autoPlay: true,
+          loop: false,
+        },
+      },
+      [StateModalVariant.ErrorInsufficientCredits]: {
+        title: t('screens.generation.errorInsufficientCredits.title'),
+        description: t(
+          'screens.generation.errorInsufficientCredits.description'
+        ),
+        button: t('screens.generation.modalError.button'),
+        animation: {
+          source: require('./animations/error.json'),
+          style: { width: 90, height: 90 },
+          autoPlay: true,
+          loop: false,
+        },
+      },
+      [StateModalVariant.ErrorRateLimited]: {
+        title: t('screens.generation.errorRateLimited.title'),
+        description: t('screens.generation.errorRateLimited.description'),
         button: t('screens.generation.modalError.button'),
         animation: {
           source: require('./animations/error.json'),

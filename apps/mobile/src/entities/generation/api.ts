@@ -1,13 +1,12 @@
-import axios from 'axios'
+import { CanceledError } from 'axios'
 import { Image } from 'expo-image'
-import { translator } from 'shared/api'
-import { mkkvStorage } from 'shared/lib/mmkv'
-import { SettingsStore } from 'shared/store/SettingsStore'
-import { retryUntilTimeout } from 'shared/utils/retryUntilTimeout'
+import { apiClient } from 'shared/api'
 
 export enum GenerationAPIErrorType {
   PROMPT_UNSAFE = 1,
   SERVICE_UNAVAILABLE = 2,
+  INSUFFICIENT_CREDITS = 3,
+  RATE_LIMITED = 4,
 }
 
 export class GetGenerationError extends Error {
@@ -24,6 +23,7 @@ export enum GenerationStatusDTO {
 
 export interface GenerationDTO {
   id: number
+  remoteId: string | null
   prompt: string
   promptFull: string
   style: string | null
@@ -44,124 +44,146 @@ export interface StartGenerationBodyDTO {
   style?: string
 }
 
+interface BackendRequest {
+  id: string
+  prompt: string
+  enhancePrompt: boolean
+  finalPrompt: string | null
+  status: 'QUEUED' | 'RUNNING' | 'COMPLETED' | 'FAILED' | 'CANCELLED'
+  progress: number
+  results: Array<{ storageId: string; imageUrl: string; thumbnailUrl: string }>
+  error: string | null
+  createdAt: string
+  updatedAt: string
+  modelSettings: Record<string, unknown> | null
+}
+
+function mapBackendStatus(status: BackendRequest['status']): GenerationStatusDTO {
+  switch (status) {
+    case 'COMPLETED':
+      return GenerationStatusDTO.Completed
+    case 'FAILED':
+    case 'CANCELLED':
+      return GenerationStatusDTO.Error
+    default:
+      return GenerationStatusDTO.Processing
+  }
+}
+
+function mapBackendToDTO(
+  backendRequest: BackendRequest,
+  localId: number,
+  data: { style: string | null; enhance: boolean; width: number; height: number }
+): GenerationDTO {
+  return {
+    id: localId,
+    remoteId: backendRequest.id,
+    prompt: backendRequest.prompt,
+    promptFull: backendRequest.finalPrompt ?? backendRequest.prompt,
+    style: data.style,
+    status: mapBackendStatus(backendRequest.status),
+    enhance: data.enhance,
+    width: data.width,
+    height: data.height,
+    images: backendRequest.results.map((r) => r.imageUrl),
+    createdAt: backendRequest.createdAt,
+    updatedAt: backendRequest.updatedAt,
+  }
+}
+
 export class Api {
-  constructor() {
-    mkkvStorage.delete(this.__deprecated__persistingKey)
+  createGeneration = async (
+    data: StartGenerationBodyDTO,
+    signal: AbortSignal
+  ): Promise<{ generation: GenerationDTO }> => {
+    try {
+      const res = await apiClient.post<BackendRequest>(
+        '/requests',
+        {
+          prompt: data.prompt,
+          enhancePrompt: data.enhance,
+          settings: {
+            width: data.width,
+            height: data.height,
+            style: data.style,
+            enhance: data.enhance,
+          },
+        },
+        { signal }
+      )
+
+      const generation = mapBackendToDTO(res.data, Date.now(), {
+        style: data.style ?? null,
+        enhance: data.enhance,
+        width: data.width,
+        height: data.height,
+      })
+
+      return { generation }
+    } catch (error: any) {
+      if (error.response?.status === 402) {
+        throw new GetGenerationError(GenerationAPIErrorType.INSUFFICIENT_CREDITS)
+      }
+      if (error.response?.status === 429) {
+        throw new GetGenerationError(GenerationAPIErrorType.RATE_LIMITED)
+      }
+      throw error
+    }
   }
 
   getGeneration = async (
     generation: GenerationDTO,
     signal: AbortSignal
   ): Promise<{ generation: GenerationDTO }> => {
-    const imageUrl = generation.images[0]
-
-    if (!imageUrl) {
-      throw new Error('There is no an image in the passed GenerationDTO')
+    if (!generation.remoteId) {
+      throw new Error('Cannot poll generation without remoteId')
     }
 
-    const timeout = 60 * 1000
+    const remoteId = generation.remoteId
+    let result: BackendRequest | null = null
 
-    await retryUntilTimeout(async () => {
-      try {
-        // Try to fetch the image
-        await axios.get(imageUrl, { timeout, signal })
-        const prefetched = await Image.prefetch(imageUrl)
-        if (!prefetched) {
-          throw new Error('Error happened during image prefetching')
-        }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          // Check if error has a server response with status 500 or higher
-          const isServerError = error.response && error.response.status >= 500
-          // Check if error code is one of the network-related errors
-          const isNetworkError =
-            error.code && ['ERR_NETWORK', 'ECONNABORTED'].includes(error.code)
-
-          if (isServerError || isNetworkError) {
-            throw new GetGenerationError(
-              GenerationAPIErrorType.SERVICE_UNAVAILABLE
-            )
-          }
-        }
-        throw error
+    while (true) {
+      if (signal.aborted) {
+        throw new CanceledError()
       }
-    }, 120_000)
 
-    generation.status = GenerationStatusDTO.Completed
-    generation.updatedAt = new Date().toString()
+      const res = await apiClient.get<BackendRequest>(`/requests/${remoteId}`, {
+        signal,
+      })
 
-    return {
-      generation,
-    }
-  }
+      const backendRequest = res.data
 
-  createGeneration = async (
-    data: StartGenerationBodyDTO,
-    signal: AbortSignal
-  ): Promise<{ generation: GenerationDTO }> => {
-    const withCensorship = new SettingsStore().censorship
-
-    if (withCensorship) {
-      const isPromptSafe = await this.isPromptSafe(data.prompt, signal)
-      if (!isPromptSafe) {
-        throw new GetGenerationError(GenerationAPIErrorType.PROMPT_UNSAFE)
+      if (backendRequest.status === 'FAILED' || backendRequest.status === 'CANCELLED') {
+        throw new GetGenerationError(GenerationAPIErrorType.SERVICE_UNAVAILABLE)
       }
+
+      if (backendRequest.status === 'COMPLETED') {
+        result = backendRequest
+        break
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 500))
     }
 
-    const prompt = await translator
-      .translate(data.prompt, 'en', signal)
-      .catch(() => data.prompt)
+    const updatedGeneration = mapBackendToDTO(result, generation.id, {
+      style: generation.style,
+      enhance: generation.enhance,
+      width: generation.width,
+      height: generation.height,
+    })
 
-    const newGeneration = {
-      id: Date.now(),
-      prompt: data.prompt,
-      enhance: data.enhance,
-      width: data.width,
-      height: data.height,
-      promptFull: data.style
-        ? `"${prompt}" in the "${data.style}" style.`
-        : prompt,
-      style: data.style ?? null,
-      status: GenerationStatusDTO.Processing,
-      createdAt: new Date().toString(),
-      updatedAt: new Date().toString(),
-      images: [] as string[],
+    // Prefetch the result image
+    const imageUrl = updatedGeneration.images[0]
+    if (imageUrl) {
+      await Image.prefetch(imageUrl, 'disk')
     }
 
-    const seed = Math.trunc(Math.random() * 1000000000000)
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(newGeneration.promptFull)}?private=true&nologo=true&enhance=${newGeneration.enhance}&safe=${withCensorship}&seed=${seed}&width=${newGeneration.width}&height=${newGeneration.height}`
-    newGeneration.images.push(imageUrl)
-
-    return {
-      generation: newGeneration,
-    }
+    return { generation: updatedGeneration }
   }
 
-  async isPromptSafe(
-    promptToCheck: string,
-    signal: AbortSignal
-  ): Promise<boolean> {
-    const prompt = `Check if the following prompt is safe: "${promptToCheck}". A safe prompt means it does not contain harmful, offensive, NSFW (Not Safe For Work) content, hate speech, or other inappropriate material. Return a JSON object with the field {safe: boolean}, where 'true' means safe (no harmful content detected) and 'false' means not safe (harmful content detected).`
-
-    return await retryUntilTimeout(() => {
-      return axios
-        .get(
-          `https://text.pollinations.ai/${encodeURIComponent(prompt)}?private=true&json=true`,
-          {
-            signal,
-          }
-        )
-        .then((res) => {
-          const data = res.data
-          if (typeof data.safe !== 'boolean') {
-            throw new Error('AI Response is invalid')
-          }
-          return data.safe
-        })
-    }, 30_000)
+  cancelGeneration = async (remoteId: string): Promise<void> => {
+    await apiClient.post(`/requests/${remoteId}/cancel`)
   }
-
-  private readonly __deprecated__persistingKey = 'api'
 }
 
 export const api = new Api()

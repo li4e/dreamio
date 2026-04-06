@@ -31,7 +31,8 @@ class CreateGenerationService {
     private uiStateStore: UIStateStore,
     private settingsStore: SettingsStore,
     private statisticsStore: StatisticsStore,
-    private saveImage: (image: string) => void
+    private saveImage: (image: string) => void,
+    private onCreateError: (error: StateGenerationError, serverMessage?: string) => void
   ) {}
 
   private async createGeneration(data: CreateGenerationRequest) {
@@ -58,16 +59,36 @@ class CreateGenerationService {
 
   async submit(data: CreateGenerationRequest) {
     this.abortController = new AbortController()
+    this.uiStateStore.error = null
 
+    // Phase 1: Create request (button loader, no modal)
+    let generation: GenerationEntity
+    const existedGen = this.uiStateStore.generation
+    if (existedGen && isEqualGeneration(data, existedGen)) {
+      generation = existedGen
+    } else {
+      try {
+        this.uiStateStore.isCreating = true
+        generation = await this.createGeneration(data)
+      } catch (error: any) {
+        this.uiStateStore.isCreating = false
+        this.statisticsStore.errorsCount++
+        if (error instanceof GetGenerationError) {
+          this.onCreateError(
+            mapGenerationAPIErrorToUIStateStoreError(error.type)
+          )
+        } else if (!(error instanceof CanceledError)) {
+          this.onCreateError(StateGenerationError.General)
+        }
+        return
+      } finally {
+        this.uiStateStore.isCreating = false
+      }
+    }
+
+    // Phase 2: Poll for result (generation modal)
     try {
       this.uiStateStore.isPending = true
-      this.uiStateStore.error = null
-      const existedGen = this.uiStateStore.generation
-      const generation =
-        existedGen && isEqualGeneration(data, existedGen)
-          ? existedGen
-          : await this.createGeneration(data)
-
       await this.fetchGenerationResult(generation)
     } catch (error: any) {
       this.statisticsStore.errorsCount++
@@ -86,30 +107,21 @@ class CreateGenerationService {
   async fetchResultIfNeeded() {
     this.abortController = new AbortController()
 
+    const generation = this.uiStateStore.generation
     if (
-      this.uiStateStore.generation &&
-      this.uiStateStore.generation.status !== GenerationEntityStatus.SUCCESS
+      generation &&
+      generation.status !== GenerationEntityStatus.SUCCESS
     ) {
-      try {
-        // START - TODO: Remove after some time, temporary fix for current users
-        this.uiStateStore.generation = {
-          ...this.uiStateStore.generation,
-          images: this.uiStateStore.generation.images.map((url) => {
-            const newUrl = new URL(url)
-            const params = new URLSearchParams(newUrl.search)
-            params.set(
-              'seed',
-              String(Math.trunc(Math.random() * 1000000000000))
-            )
-            newUrl.search = params.toString()
-            return newUrl.toString()
-          }),
-        }
-        // END
+      // Discard pre-migration generations that have no remoteId
+      if (!generation.remoteId) {
+        this.uiStateStore.generation = null
+        return
+      }
 
+      try {
         this.uiStateStore.isPending = true
         this.uiStateStore.error = null
-        await this.fetchGenerationResult(this.uiStateStore.generation)
+        await this.fetchGenerationResult(generation)
       } catch (error: any) {
         if (error instanceof GetGenerationError) {
           this.uiStateStore.error = mapGenerationAPIErrorToUIStateStoreError(
@@ -125,12 +137,34 @@ class CreateGenerationService {
   }
 
   async cancelGeneration() {
-    this.abortController.abort()
-    this.uiStateStore.generation = null
+    const generation = this.uiStateStore.generation
+    if (generation?.remoteId) {
+      this.uiStateStore.isCancelling = true
+      try {
+        await this.generationDataService.cancelGeneration(generation)
+        this.abortController.abort()
+        this.uiStateStore.generation = null
+      } catch (error: any) {
+        const data = error?.response?.data
+        const message =
+          typeof data === 'string'
+            ? data
+            : data?.error ?? data?.message
+        this.onCreateError(StateGenerationError.General, message || undefined)
+      } finally {
+        this.uiStateStore.isCancelling = false
+      }
+    } else {
+      this.abortController.abort()
+      this.uiStateStore.generation = null
+    }
   }
 }
 
-export function useCreateGenService(uiStateStore: UIStateStore) {
+export function useCreateGenService(
+  uiStateStore: UIStateStore,
+  onCreateError: (error: StateGenerationError, serverMessage?: string) => void
+) {
   const saveImage = useOnSaveImage()
   const settingsStore = useSettingsStore()
   const statisticsStore = useStatisticsStore()
@@ -143,9 +177,17 @@ export function useCreateGenService(uiStateStore: UIStateStore) {
         uiStateStore,
         settingsStore,
         statisticsStore,
-        saveImage
+        saveImage,
+        onCreateError
       ),
 
-    [genDataService, uiStateStore, saveImage, settingsStore, statisticsStore]
+    [
+      genDataService,
+      uiStateStore,
+      saveImage,
+      settingsStore,
+      statisticsStore,
+      onCreateError,
+    ]
   )
 }
