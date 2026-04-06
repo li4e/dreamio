@@ -1,2 +1,2 @@
-— Die Eingabegrenze für Aufforderungen wurde von 500 auf 1000 Zeichen erhöht – drücken Sie Ihre Ideen mit mehr Detail und Kreativität aus.
-— Die Möglichkeit wurde hinzugefügt, die Generierung nach dem Start abzubrechen – ideal, wenn Sie Ihre Aufforderung anpassen möchten, ohne auf die Fertigstellung des aktuellen Bildes zu warten.
+— Schnellere Bildgenerierung — Ihre Kreationen sind schneller als je bereit.  
+— Verbesserte Stabilität — weniger Unterbrechungen und zuverlässigere Ergebnisse.

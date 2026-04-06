@@ -1,2 +1,2 @@
-— Augmentation de la limite de caractères pour l'entrée de prompt, passant de 500 à 1000 caractères — exprimez vos idées avec plus de détails et de créativité.  
-— Ajout de la possibilité d'annuler la génération après son démarrage — idéal pour ajuster votre prompt sans attendre la fin de l'image en cours.
+— Génération d'images plus rapide — vos créations sont prêtes plus vite que jamais.  
+— Stabilité améliorée — moins d'interruptions et des résultats plus fiables.

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "הפעלת תכונה זו תשמור באופן אוטומטי את כל התמונות שהופקו בגלריה של הטלפון שלך.",
   "screens.settings.user.autoSave.dialog.button": "בזמן שנשמר אוטומטית, האם אתה בטוח שברצונך לאפס את ההגדרה הזו?",
   "screens.settings.version": "גרסה {{version}}. גרסה {{build}}",
-  "screens.generation.cancel": "הפסק לייצר"
+  "screens.generation.cancel": "הפסק לייצר",
+  "screens.generation.errorInsufficientCredits.title": "לא מספיק קרדיטים",
+  "screens.generation.errorInsufficientCredits.description": "אין לך מספיק אשראי כדי ליצור תמונה. אנא רכש עוד אשראי או חכה שהמכסה החינמית שלך תתמלא מחדש.",
+  "screens.generation.errorRateLimited.title": "אנא המתן",
+  "screens.generation.errorRateLimited.description": "כבר יש לך תהליך יצירה פעיל מתמשך. אנא המתן עד להשלמתו לפני שתתחיל חדש."
 }

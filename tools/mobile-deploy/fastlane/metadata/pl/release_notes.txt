@@ -1,2 +1,2 @@
-— Zwiększono limit znaków w polu wprowadzania z 500 do 1000 — wyrażaj swoje pomysły z większą szczegółowością i kreatywnością.  
-— Dodano możliwość anulowania generowania po jego rozpoczęciu — idealne, gdy chcesz dostosować swój prompt bez czekania na zakończenie bieżącego obrazu.
+— Szybsza generacja obrazów — Twoje kreacje są gotowe szybciej niż kiedykolwiek.  
+— Poprawiona stabilność — mniej przerw i bardziej niezawodne wyniki.

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Включение этой функции автоматически сохранит все созданные изображения в галерее вашего телефона.",
   "screens.settings.user.autoSave.dialog.button": "Понял",
   "screens.settings.version": "Версия {{version}}. Сборка {{build}}",
-  "screens.generation.cancel": "Прекратить генерирование"
+  "screens.generation.cancel": "Прекратить генерирование",
+  "screens.generation.errorInsufficientCredits.title": "Недостаточно кредитов",
+  "screens.generation.errorInsufficientCredits.description": "У вас недостаточно кредитов для генерации изображения. Пожалуйста, приобретите больше кредитов или подождите, пока ваш бесплатный лимит не пополнится.",
+  "screens.generation.errorRateLimited.title": "Пожалуйста, подождите",
+  "screens.generation.errorRateLimited.description": "У вас уже есть активная генерация. Пожалуйста, подождите, пока она завершится, прежде чем начинать новую."
 }

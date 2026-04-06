@@ -1,2 +1,2 @@
-— Se ha aumentado el límite de caracteres en la entrada de texto de 500 a 1000 — expresa tus ideas con más detalle y creatividad.  
-— Se ha añadido la opción de cancelar la generación una vez que ha comenzado — ideal para cuando deseas ajustar tu entrada sin tener que esperar a que finalice la imagen actual.
+— Generación de imágenes más rápida: tus creaciones están listas más rápido que nunca.  
+— Mayor estabilidad: menos interrupciones y resultados más fiables.

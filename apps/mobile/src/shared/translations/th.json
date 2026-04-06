@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "การเปิดใช้งานฟีเจอร์นี้จะบันทึกภาพที่สร้างขึ้นทั้งหมดไปยังแกลเลอรีในโทรศัพท์ของคุณโดยอัตโนมัติ",
   "screens.settings.user.autoSave.dialog.button": "ได้รับแล้ว",
   "screens.settings.version": "เวอร์ชัน {{version}}. การสร้าง {{build}}",
-  "screens.generation.cancel": "หยุดการสร้าง"
+  "screens.generation.cancel": "หยุดการสร้าง",
+  "screens.generation.errorInsufficientCredits.title": "เครดิตไม่เพียงพอ",
+  "screens.generation.errorInsufficientCredits.description": "คุณไม่มีเครดิตเพียงพอในการสร้างภาพ กรุณาซื้อเครดิตเพิ่มเติมหรือต่อรอให้โควต้าฟรีของคุณเติมเต็ม",
+  "screens.generation.errorRateLimited.title": "โปรดรอ",
+  "screens.generation.errorRateLimited.description": "คุณมีการสร้างที่กำลังดำเนินการอยู่ในขณะนี้ กรุณารอให้เสร็จสิ้นก่อนเริ่มการสร้างใหม่"
 }

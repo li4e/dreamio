@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Tämän ominaisuuden käyttöönotto tallentaa automaattisesti kaikki luodut kuvat puhelimesi galleriaan.",
   "screens.settings.user.autoSave.dialog.button": "Saatiin selville",
   "screens.settings.version": "Versio {{version}}. Rakennus {{build}}",
-  "screens.generation.cancel": "Keskeytä luonti"
+  "screens.generation.cancel": "Keskeytä luonti",
+  "screens.generation.errorInsufficientCredits.title": "Ei riittävästi krediittejä",
+  "screens.generation.errorInsufficientCredits.description": "Sinulla ei ole tarpeeksi krediittejä kuvan luomiseen. Ole hyvä ja osta lisää krediittejä tai odota, että ilmainen kiintiösi täyttyy.",
+  "screens.generation.errorRateLimited.title": "Ole hyvä ja odota",
+  "screens.generation.errorRateLimited.description": "Sinulla on jo käynnissä oleva generointi. Ole hyvä ja odota sen valmistumista ennen uuden aloittamista."
 }

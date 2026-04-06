@@ -1,2 +1,2 @@
-— Increased the prompt input limit from 500 to 1000 characters — express your ideas with greater detail and creativity.  
-— Introduced the option to cancel generation after it starts — ideal for when you want to refine your prompt without waiting for the current image to complete.
+— Faster image generation — your creations are ready quicker than ever before.  
+— Enhanced stability — experience fewer interruptions and more consistent results.

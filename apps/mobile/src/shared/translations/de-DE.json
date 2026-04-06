@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Die Aktivierung dieser Funktion speichert automatisch alle generierten Bilder in der Galerie Ihres Telefons.",
   "screens.settings.user.autoSave.dialog.button": "Verstanden.",
   "screens.settings.version": "Version {{version}}. Build {{build}}",
-  "screens.generation.cancel": "Generierung stoppen"
+  "screens.generation.cancel": "Generierung stoppen",
+  "screens.generation.errorInsufficientCredits.title": "Nicht genügend Guthaben",
+  "screens.generation.errorInsufficientCredits.description": "Sie haben nicht genügend Guthaben, um ein Bild zu generieren. Bitte kaufen Sie mehr Guthaben oder warten Sie, bis Ihr kostenloses Kontingent wieder aufgefüllt ist.",
+  "screens.generation.errorRateLimited.title": "Bitte warten",
+  "screens.generation.errorRateLimited.description": "Eine aktive Generierung ist bereits im Gange. Bitte warten Sie, bis sie abgeschlossen ist, bevor Sie eine neue starten."
 }

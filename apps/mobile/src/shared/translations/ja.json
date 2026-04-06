@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "この機能を有効にすると、生成されたすべての画像が自動的にあなたの携帯電話のギャラリーに保存されます。",
   "screens.settings.user.autoSave.dialog.button": "承知しました。",
   "screens.settings.version": "バージョン {{version}}。ビルド {{build}}",
-  "screens.generation.cancel": "生成を停止する"
+  "screens.generation.cancel": "生成を停止する",
+  "screens.generation.errorInsufficientCredits.title": "クレジットが不足しています",
+  "screens.generation.errorInsufficientCredits.description": "画像を生成するための十分なクレジットがありません。クレジットを追加購入するか、無料のクオータがリフィルされるのをお待ちください。",
+  "screens.generation.errorRateLimited.title": "お待ちください",
+  "screens.generation.errorRateLimited.description": "現在、生成処理が進行中です。新しい生成を開始する前に、処理が完了するまでお待ちください。"
 }

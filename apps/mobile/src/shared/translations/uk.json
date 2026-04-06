@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Увімкнення цієї функції автоматично зберігатиме всі згенеровані зображення у галереї вашого телефону.",
   "screens.settings.user.autoSave.dialog.button": "Зрозумів",
   "screens.settings.version": "Версія {{version}}. Збірка {{build}}",
-  "screens.generation.cancel": "Скасувати генерацію"
+  "screens.generation.cancel": "Скасувати генерацію",
+  "screens.generation.errorInsufficientCredits.title": "Недостатньо кредитів",
+  "screens.generation.errorInsufficientCredits.description": "You do not have enough credits to generate an image. Please purchase additional credits or wait for your free quota to replenish.",
+  "screens.generation.errorRateLimited.title": "Будь ласка, зачекайте",
+  "screens.generation.errorRateLimited.description": "У вас вже є активний процес генерації. Будь ласка, дочекайтеся його завершення, перш ніж починати новий."
 }

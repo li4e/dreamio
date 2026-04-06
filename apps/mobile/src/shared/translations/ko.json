@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "이 기능을 활성화하면 생성된 모든 이미지가 자동으로 휴대폰의 갤러리에 저장됩니다.",
   "screens.settings.user.autoSave.dialog.button": "알겠습니다",
   "screens.settings.version": "버전 {{version}}. 빌드 {{build}}",
-  "screens.generation.cancel": "생성 중지"
+  "screens.generation.cancel": "생성 중지",
+  "screens.generation.errorInsufficientCredits.title": "크레딧이 부족합니다",
+  "screens.generation.errorInsufficientCredits.description": "이미지를 생성할 수 있는 충분한 크레딧이 없습니다. 더 많은 크레딧을 구매하시거나 무료 할당량이 채워질 때까지 기다려 주십시오.",
+  "screens.generation.errorRateLimited.title": "잠시만 기다려 주세요",
+  "screens.generation.errorRateLimited.description": "이미 활성화된 생성이 진행 중입니다. 새 생성을 시작하기 전에 완료될 때까지 기다려 주십시오."
 }

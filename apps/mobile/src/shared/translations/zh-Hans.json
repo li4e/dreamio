@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "启用此功能将自动将所有生成的图像保存到您手机的图库中。",
   "screens.settings.user.autoSave.dialog.button": "明白了",
   "screens.settings.version": "版本 {{version}}. 编译 {{build}}",
-  "screens.generation.cancel": "停止生成"
+  "screens.generation.cancel": "停止生成",
+  "screens.generation.errorInsufficientCredits.title": "积分不足",
+  "screens.generation.errorInsufficientCredits.description": "您没有足够的积分来生成图像。请购买更多积分或等待您的免费配额重新补充。",
+  "screens.generation.errorRateLimited.title": "请稍候",
+  "screens.generation.errorRateLimited.description": "您已经有一个正在进行的生成。请等它完成后再开始新的生成。"
 }

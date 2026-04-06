@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Activarea acestei funcții va salva automat toate imaginile generate în galeria telefonului dumneavoastră.",
   "screens.settings.user.autoSave.dialog.button": "Înțeles.",
   "screens.settings.version": "Versiunea {{version}}. Construcția {{build}}",
-  "screens.generation.cancel": "Oprește Generarea"
+  "screens.generation.cancel": "Oprește Generarea",
+  "screens.generation.errorInsufficientCredits.title": "Credite insuficiente",
+  "screens.generation.errorInsufficientCredits.description": "Nu aveți suficiente credite pentru a genera o imagine. Vă rugăm să cumpărați mai multe credite sau să așteptați să se reîncarce cota dvs. gratuită.",
+  "screens.generation.errorRateLimited.title": "Vă rugăm să așteptați",
+  "screens.generation.errorRateLimited.description": "Aveți deja o generare activă în curs. Vă rugăm să așteptați finalizarea acesteia înainte de a începe una nouă."
 }

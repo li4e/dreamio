@@ -1,2 +1,2 @@
-— Povećan limit za unos uputstava s 500 na 1000 znakova — izražite svoje ideje s više detalja i kreativnosti.  
-— Dodana mogućnost otkazivanja generacije nakon što započne — savršeno za situacije kada želite prilagoditi svoje upute bez čekanja da se trenutna slika završi.
+— Brža generacija slika — vaše kreacije su spremne brže nego ikad.  
+— Poboljšana stabilnost — manje prekida i pouzdaniji rezultati.

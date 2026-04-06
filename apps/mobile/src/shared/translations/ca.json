@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Activar aquesta funció desarà automàticament totes les imatges generades a la galeria del teu telèfon.",
   "screens.settings.user.autoSave.dialog.button": "Entès.",
   "screens.settings.version": "Versió {{version}}. Compilació {{build}}",
-  "screens.generation.cancel": "Atura la generació"
+  "screens.generation.cancel": "Atura la generació",
+  "screens.generation.errorInsufficientCredits.title": "No hi ha prou crèdits",
+  "screens.generation.errorInsufficientCredits.description": "No tens prou crèdits per generar una imatge. Si us plau, compra més crèdits o espera que es reompli la teva quota gratuïta.",
+  "screens.generation.errorRateLimited.title": "Si us plau, espera.",
+  "screens.generation.errorRateLimited.description": "Ja tens una generació activa en curs. Si us plau, espera que finalitzi abans de començar-ne una de nova."
 }

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Het inschakelen van deze functie zal automatisch alle gegenereerde afbeeldingen opslaan in de galerij van je telefoon.",
   "screens.settings.user.autoSave.dialog.button": "Begrijp het",
   "screens.settings.version": "Versie {{version}}. Build {{build}}",
-  "screens.generation.cancel": "Stop met genereren"
+  "screens.generation.cancel": "Stop met genereren",
+  "screens.generation.errorInsufficientCredits.title": "Niet genoeg tegoeden",
+  "screens.generation.errorInsufficientCredits.description": "Je hebt niet genoeg credits om een afbeelding te genereren. Koop meer credits of wacht tot je gratis quotum is aangevuld.",
+  "screens.generation.errorRateLimited.title": "Even geduld alstublieft",
+  "screens.generation.errorRateLimited.description": "Er is al een actieve generatie bezig. Gelieve te wachten tot deze is voltooid voordat u een nieuwe begint."
 }

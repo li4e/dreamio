@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Włączenie tej funkcji automatycznie zapisze wszystkie wygenerowane obrazy w galerii telefonu.",
   "screens.settings.user.autoSave.dialog.button": "Rozumiem",
   "screens.settings.version": "Wersja {{version}}. Kompilacja {{build}}",
-  "screens.generation.cancel": "Zatrzymaj generowanie"
+  "screens.generation.cancel": "Zatrzymaj generowanie",
+  "screens.generation.errorInsufficientCredits.title": "Niewystarczająca ilość kredytów",
+  "screens.generation.errorInsufficientCredits.description": "Nie masz wystarczającej liczby kredytów, aby wygenerować obraz. Proszę zakupić więcej kredytów lub poczekać, aż twoja darmowa pula się uzupełni.",
+  "screens.generation.errorRateLimited.title": "Proszę czekać",
+  "screens.generation.errorRateLimited.description": "Masz już aktywną generację w toku. Proszę poczekać na jej zakończenie, zanim rozpoczniesz nową."
 }

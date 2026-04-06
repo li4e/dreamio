@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "تفعيل هذه الميزة سيؤدي إلى حفظ جميع الصور المولّدة تلقائيًا في معرض الصور على هاتفك.",
   "screens.settings.user.autoSave.dialog.button": "فهمت",
   "screens.settings.version": "الإصدار {{version}}. البناء {{build}}",
-  "screens.generation.cancel": "إيقاف التوليد"
+  "screens.generation.cancel": "إيقاف التوليد",
+  "screens.generation.errorInsufficientCredits.title": "رصيد غير كافٍ",
+  "screens.generation.errorInsufficientCredits.description": "ليس لديك أرصدة كافية لإنشاء صورة. يرجى شراء المزيد من الأرصدة أو الانتظار حتى يتم تجديد حصتك المجانية.",
+  "screens.generation.errorRateLimited.title": "يرجى الانتظار",
+  "screens.generation.errorRateLimited.description": "لديك بالفعل عملية توليد نشطة جارٍ تنفيذها. يرجى الانتظار حتى تكتمل قبل بدء واحدة جديدة."
 }

@@ -1,2 +1,2 @@
-— Meningkatkan batas input prompt dari 500 menjadi 1000 karakter — ekspresikan ide-ide Anda dengan lebih detail dan kreativitas.  
-— Menambahkan kemampuan untuk membatalkan proses generasi setelah dimulai — sempurna untuk saat Anda ingin menyesuaikan prompt tanpa menunggu gambar yang sedang dibuat selesai.
+— Generasi gambar lebih cepat — kreasi Anda siap lebih cepat dari sebelumnya.  
+— Stabilitas yang ditingkatkan — lebih sedikit gangguan dan hasil yang lebih dapat diandalkan.

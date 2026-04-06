@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "L'activation de cette fonctionnalité sauvegardera automatiquement toutes les images générées dans la galerie de votre téléphone.",
   "screens.settings.user.autoSave.dialog.button": "Compris",
   "screens.settings.version": "Version {{version}}. Compilation {{build}}",
-  "screens.generation.cancel": "Arrêter la génération"
+  "screens.generation.cancel": "Arrêter la génération",
+  "screens.generation.errorInsufficientCredits.title": "Crédits Insuffisants",
+  "screens.generation.errorInsufficientCredits.description": "Vous n'avez pas assez de crédits pour générer une image. Veuillez acheter davantage de crédits ou attendre que votre quota gratuit se réapprovisionne.",
+  "screens.generation.errorRateLimited.title": "Veuillez patienter",
+  "screens.generation.errorRateLimited.description": "Vous avez déjà une génération active en cours. Veuillez attendre qu'elle soit terminée avant d'en commencer une nouvelle."
 }

@@ -1,2 +1,2 @@
-— Zvýšili sme limit vstupu pre výzvy z 500 na 1000 znakov — vyjadrite svoje myšlienky s väčšou hĺbkou a kreativitou.  
-— Pridali sme možnosť zrušiť generovanie po jeho začatí — ideálne, keď chcete upraviť svoju výzvu bez čakania na dokončenie aktuálneho obrázku.
+— Rýchlejšie generovanie obrázkov — vaše výtvory sú pripravené rýchlejšie než kedykoľvek predtým.  
+— Vylepšená stabilita — menej prerušením a spoľahlivejšie výsledky.

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Mengaktifkan fitur ini akan secara otomatis menyimpan semua gambar yang dihasilkan ke galeri ponsel Anda.",
   "screens.settings.user.autoSave.dialog.button": "Diterima",
   "screens.settings.version": "Versi {{version}}. Build {{build}}",
-  "screens.generation.cancel": "Hentikan Pembuatan"
+  "screens.generation.cancel": "Hentikan Pembuatan",
+  "screens.generation.errorInsufficientCredits.title": "Kredit Tidak Cukup",
+  "screens.generation.errorInsufficientCredits.description": "Anda tidak memiliki cukup kredit untuk menghasilkan gambar. Silakan beli lebih banyak kredit atau tunggu hingga kuota gratis Anda terisi kembali.",
+  "screens.generation.errorRateLimited.title": "Silakan Tunggu",
+  "screens.generation.errorRateLimited.description": "Anda sudah memiliki proses pembuatan yang sedang berlangsung. Silakan tunggu hingga selesai sebelum memulai yang baru."
 }

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Ez a funkció lehetővé teszi, hogy automatikusan mentse az összes generált képet a telefon galériájába.",
   "screens.settings.user.autoSave.dialog.button": "Értem",
   "screens.settings.version": "Verzió {{version}}. Build {{build}}",
-  "screens.generation.cancel": "Generálás leállítása"
+  "screens.generation.cancel": "Generálás leállítása",
+  "screens.generation.errorInsufficientCredits.title": "Nem elegendő kredit",
+  "screens.generation.errorInsufficientCredits.description": "Nincsenek elegendő kredited az kép generálásához. Kérlek, vásárolj több kreditet, vagy várj, amíg a szabad kereted feltöltődik.",
+  "screens.generation.errorRateLimited.title": "Kérlek, várj",
+  "screens.generation.errorRateLimited.description": "Jelenleg már fut egy aktív generálás. Kérjük, várjon a befejezésére, mielőtt újra kezdene egyet."
 }

@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "इस फीचर को सक्रिय करने से सभी उत्पन्न छवियाँ स्वचालित रूप से आपके फोन की गैलरी में सहेजी जाएँगी।",
   "screens.settings.user.autoSave.dialog.button": "समझ गया",
   "screens.settings.version": "संस्करण {{version}}. निर्माण {{build}}",
-  "screens.generation.cancel": "जनरेट करना रोकें"
+  "screens.generation.cancel": "जनरेट करना रोकें",
+  "screens.generation.errorInsufficientCredits.title": "पर्याप्त क्रेडिट नहीं हैं",
+  "screens.generation.errorInsufficientCredits.description": "आपके पास एक चित्र बनाने के लिए पर्याप्त क्रेडिट नहीं हैं। कृपया अधिक क्रेडिट खरीदें या अपने मुफ्त कोटा के फिर से भरने का इंतजार करें।",
+  "screens.generation.errorRateLimited.title": "कृपया प्रतीक्षा करें",
+  "screens.generation.errorRateLimited.description": "आपके पास पहले से ही एक सक्रिय जनरेशन हो रही है। कृपया एक नई जनरेशन शुरू करने से पहले इसे पूरा होने की प्रतीक्षा करें।"
 }

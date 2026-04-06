@@ -1,2 +1,2 @@
-— hadkan input prompt ditingkatkan dari 500 kepada 1000 watak — sampaikan idea anda dengan lebih terperinci dan kreatif.  
-— Ditambah kemampuan untuk membatalkan generasi setelah ia bermula — sempurna untuk ketika anda ingin mengubah prompt anda tanpa perlu menunggu imej semasa selesai.
+— Penjanaan imej yang lebih pantas — ciptaan anda siap lebih cepat daripada sebelumnya.  
+— Kestabilan yang dipertingkatkan — gangguan yang lebih sedikit dan hasil yang lebih boleh dipercayai.

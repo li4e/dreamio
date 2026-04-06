@@ -1,2 +1,2 @@
-— Økt grensen for inndata fra 500 til 1000 tegn — uttrykk ideene dine med mer detalj og kreativitet.
-— Lagt til muligheten for å avbryte genereringen etter at den er startet — perfekt når du ønsker å justere prompten din uten å måtte vente på at det nåværende bildet skal bli ferdig.
+— Raskere bildebehandling — dine kreasjoner er klare raskere enn noensinne.
+— Forbedret stabilitet — færre avbrudd og mer pålitelige resultater.

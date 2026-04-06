@@ -1,2 +1,2 @@
-— Aumentato il limite di input del prompt da 500 a 1000 caratteri — esprimi le tue idee con maggiore dettaglio e creatività.  
-— Aggiunta la possibilità di annullare la generazione dopo l’inizio — ideale quando desideri modificare il tuo prompt senza dover aspettare il termine dell’immagine attuale.
+— Generazione delle immagini più veloce — le tue creazioni sono pronte più rapidamente che mai.  
+— Stabilità migliorata — meno interruzioni e risultati più affidabili.

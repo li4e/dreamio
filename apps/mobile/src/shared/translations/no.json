@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Å aktivere denne funksjonen vil automatisk lagre alle genererte bilder til galleriet på telefonen din.",
   "screens.settings.user.autoSave.dialog.button": "For the key \"screens.settings.user.autoSave.dialog.button\", the translation from en-US to no would be:\n\n\"Få det\"",
   "screens.settings.version": "Versjon {{version}}. Bygg {{build}}",
-  "screens.generation.cancel": "Stopp generering"
+  "screens.generation.cancel": "Stopp generering",
+  "screens.generation.errorInsufficientCredits.title": "Ikke nok kreditter",
+  "screens.generation.errorInsufficientCredits.description": "Du har ikke nok kreditter til å generere et bilde. Vennligst kjøp flere kreditter eller vent til din gratis kvote blir fylt opp igjen.",
+  "screens.generation.errorRateLimited.title": "Vennligst vent",
+  "screens.generation.errorRateLimited.description": "Du har allerede en aktiv generering på gang. Vennligst vent til den er fullført før du starter en ny."
 }

@@ -1,2 +1,2 @@
-— S'ha augmentat el límit d'entrada del prompt de 500 a 1000 caràcters — expressa les teves idees amb més detall i creativitat.  
-— S'ha afegit la capacitat de cancel·lar la generació un cop s'ha iniciat — perfecte per quan vols ajustar el teu prompt sense haver d'esperar que acabi la imatge actual.
+— Generació d'imatges més ràpida — les teves creacions estan llestes més ràpid que mai.  
+— Millora de la stabilitat — menys interrupcions i resultats més fiables.

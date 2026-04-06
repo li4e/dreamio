@@ -1,2 +1,2 @@
-— Nostimme syötteen rajan 500:sta 1000 merkkiin — voit nyt ilmaista ideasi tarkemmin ja luovemmin.  
-— Lisäsimme mahdollisuuden peruuttaa generointi sen alkaessa — täydellinen, kun haluat muokata syötettäsi odottamatta nykyisen kuvan valmistumista.
+— Nopeampi kuvagenerointi — luomuksesi ovat valmiina entistä nopeammin.  
+— Parannettu vakaus — vähemmän keskeytyksiä ja luotettavampia tuloksia.

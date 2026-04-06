@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Η ενεργοποίηση αυτής της δυνατότητας θα αποθηκεύει αυτόματα όλες τις παραγόμενες εικόνες στη γκαλερί του τηλεφώνου σας.",
   "screens.settings.user.autoSave.dialog.button": "Κατάλαβα",
   "screens.settings.version": "Έκδοση {{version}}. Δημιουργία {{build}}",
-  "screens.generation.cancel": "Διακοπή Δημιουργίας"
+  "screens.generation.cancel": "Διακοπή Δημιουργίας",
+  "screens.generation.errorInsufficientCredits.title": "Όχι αρκετά πιστώσεις",
+  "screens.generation.errorInsufficientCredits.description": "Δεν έχετε αρκετούς πιστωτικούς πόντους για να δημιουργήσετε μια εικόνα. Παρακαλώ αγοράστε περισσότερους πόντους ή περιμένετε να ανακαλυφθεί η δωρεάν ποσόστωση σας.",
+  "screens.generation.errorRateLimited.title": "Παρακαλώ περιμένετε",
+  "screens.generation.errorRateLimited.description": "Έχετε ήδη μία ενεργή διαδικασία δημιουργίας σε εξέλιξη. Παρακαλούμε περιμένετε να ολοκληρωθεί πριν ξεκινήσετε μία νέα."
 }

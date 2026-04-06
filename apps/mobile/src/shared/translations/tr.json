@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Bu özelliği etkinleştirirseniz, oluşturulan tüm görseller telefonunuzun galerisine otomatik olarak kaydedilecektir.",
   "screens.settings.user.autoSave.dialog.button": "Anladım",
   "screens.settings.version": "Sürüm {{version}}. Derleme {{build}}",
-  "screens.generation.cancel": "Üretimi Durdur"
+  "screens.generation.cancel": "Üretimi Durdur",
+  "screens.generation.errorInsufficientCredits.title": "Yeterli Kredi Yok",
+  "screens.generation.errorInsufficientCredits.description": "Yeterli kredisiniz yok, bir görsel oluşturmak için. Lütfen daha fazla kredi satın alın veya ücretsiz kotanızın yenilenmesini bekleyin.",
+  "screens.generation.errorRateLimited.title": "Lütfen Bekleyin",
+  "screens.generation.errorRateLimited.description": "Zaten devam eden bir oluşturma işleminiz var. Yeni birine başlamadan önce tamamlanmasını bekleyin."
 }

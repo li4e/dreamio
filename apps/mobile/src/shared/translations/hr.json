@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Omogućavanje ove značajke automatski će spremiti sve generirane slike u galeriju vašeg telefona.",
   "screens.settings.user.autoSave.dialog.button": "Razumijem",
   "screens.settings.version": "Verzija {{version}}. Gradnja {{build}}",
-  "screens.generation.cancel": "Prekini generiranje"
+  "screens.generation.cancel": "Prekini generiranje",
+  "screens.generation.errorInsufficientCredits.title": "Nedovoljno kredita",
+  "screens.generation.errorInsufficientCredits.description": "Nemate dovoljno kredita za generiranje slike. Molimo kupite više kredita ili pričekajte da vam se besplatan kvota obnovi.",
+  "screens.generation.errorRateLimited.title": "Molimo pričekajte",
+  "screens.generation.errorRateLimited.description": "Već imate aktivnu generaciju u tijeku. Molimo pričekajte da završi prije nego što započnete novu."
 }

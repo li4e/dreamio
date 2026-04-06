@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Povolením tejto funkcie sa všetky generované obrázky automaticky uložia do galérie vášho telefónu.",
   "screens.settings.user.autoSave.dialog.button": "Rozumiem",
   "screens.settings.version": "Verzia {{version}}. Sestavenie {{build}}",
-  "screens.generation.cancel": "Zastaviť generovanie"
+  "screens.generation.cancel": "Zastaviť generovanie",
+  "screens.generation.errorInsufficientCredits.title": "Nedostatočné kredity",
+  "screens.generation.errorInsufficientCredits.description": "Nemáte dostatok kreditov na vytvorenie obrázka. Prosím, zakúpte si ďalšie kredity alebo počkajte, kým sa vaša bezplatná kvóta obnoví.",
+  "screens.generation.errorRateLimited.title": "Prosím, počkajte",
+  "screens.generation.errorRateLimited.description": "Už máte aktívny proces generovania. Prosím, počkajte, kým sa dokončí, predtým ako začnete nový."
 }

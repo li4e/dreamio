@@ -124,5 +124,9 @@
   "screens.settings.user.autoSave.dialog.description": "Mengaktifkan ciri ini akan menyimpan secara automatik semua imej yang dihasilkan ke galeri telefon anda.",
   "screens.settings.user.autoSave.dialog.button": "Understood.",
   "screens.settings.version": "Versi {{version}}. Pembinaan {{build}}",
-  "screens.generation.cancel": "Hentikan Penjanaan"
+  "screens.generation.cancel": "Hentikan Penjanaan",
+  "screens.generation.errorInsufficientCredits.title": "Kredit Tidak Cukup",
+  "screens.generation.errorInsufficientCredits.description": "Anda tidak mempunyai cukup kredit untuk menghasilkan imej. Sila beli lebih banyak kredit atau tunggu kuota percuma anda diisi semula.",
+  "screens.generation.errorRateLimited.title": "Sila Tunggu",
+  "screens.generation.errorRateLimited.description": "Anda sudah mempunyai generasi aktif yang sedang diproses. Sila tunggu hingga ia selesai sebelum memulakan yang baru."
 }
