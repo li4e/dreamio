@@ -58,7 +58,9 @@ interface BackendRequest {
   modelSettings: Record<string, unknown> | null
 }
 
-function mapBackendStatus(status: BackendRequest['status']): GenerationStatusDTO {
+function mapBackendStatus(
+  status: BackendRequest['status']
+): GenerationStatusDTO {
   switch (status) {
     case 'COMPLETED':
       return GenerationStatusDTO.Completed
@@ -73,7 +75,12 @@ function mapBackendStatus(status: BackendRequest['status']): GenerationStatusDTO
 function mapBackendToDTO(
   backendRequest: BackendRequest,
   localId: number,
-  data: { style: string | null; enhance: boolean; width: number; height: number }
+  data: {
+    style: string | null
+    enhance: boolean
+    width: number
+    height: number
+  }
 ): GenerationDTO {
   return {
     id: localId,
@@ -122,7 +129,9 @@ export class Api {
       return { generation }
     } catch (error: any) {
       if (error.response?.status === 402) {
-        throw new GetGenerationError(GenerationAPIErrorType.INSUFFICIENT_CREDITS)
+        throw new GetGenerationError(
+          GenerationAPIErrorType.INSUFFICIENT_CREDITS
+        )
       }
       if (error.response?.status === 429) {
         throw new GetGenerationError(GenerationAPIErrorType.RATE_LIMITED)
@@ -142,6 +151,17 @@ export class Api {
     const remoteId = generation.remoteId
     let result: BackendRequest | null = null
 
+    // Wait 3 seconds before starting to poll
+    await new Promise<void>((resolve, reject) => {
+      const onAbort = () => reject(new CanceledError())
+      if (signal.aborted) return onAbort()
+      signal.addEventListener('abort', onAbort, { once: true })
+      setTimeout(() => {
+        signal.removeEventListener('abort', onAbort)
+        resolve()
+      }, 3 * 1000)
+    })
+
     while (true) {
       if (signal.aborted) {
         throw new CanceledError()
@@ -153,7 +173,10 @@ export class Api {
 
       const backendRequest = res.data
 
-      if (backendRequest.status === 'FAILED' || backendRequest.status === 'CANCELLED') {
+      if (
+        backendRequest.status === 'FAILED' ||
+        backendRequest.status === 'CANCELLED'
+      ) {
         throw new GetGenerationError(GenerationAPIErrorType.SERVICE_UNAVAILABLE)
       }
 
@@ -162,7 +185,7 @@ export class Api {
         break
       }
 
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
     }
 
     const updatedGeneration = mapBackendToDTO(result, generation.id, {
