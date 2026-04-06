@@ -64,10 +64,7 @@ class CreateGenerationService {
     // Phase 1: Create request (button loader, no modal)
     let generation: GenerationEntity
     const existedGen = this.uiStateStore.generation
-    if (existedGen && isEqualGeneration(data, existedGen)) {
-      generation = existedGen
-    } else {
-      try {
+    try {
         this.uiStateStore.isCreating = true
         generation = await this.createGeneration(data)
       } catch (error: any) {
@@ -84,7 +81,6 @@ class CreateGenerationService {
       } finally {
         this.uiStateStore.isCreating = false
       }
-    }
 
     // Phase 2: Poll for result (generation modal)
     try {

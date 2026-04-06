@@ -32,13 +32,13 @@ export class GenerationDataService {
     return api
       .getGeneration(mapGenerationEntityToDTO(generation), signal)
       .then(async (res) => {
+        
         const generation = mapGenerationDtoToEntity(res.generation)
-        if (generation.status === GenerationEntityStatus.SUCCESS) {
-          await this.setItem(generation)
-        }
+        await this.setItem(generation)
         return generation
       })
       .catch((error) => {
+        console.log(error)
         throw error
       })
   }
