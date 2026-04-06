@@ -63,4 +63,4 @@ function KeyboardAvoidingViewFallback(props: KeyboardAvoidingViewProps) {
 //     ? KeyboardAvoidingViewAnimated
 //     : KeyboardAvoidingViewFallback
 
-export const KeyboardAvoidingView = KeyboardAvoidingViewAnimated
+export const KeyboardAvoidingView = KeyboardAvoidingViewFallback
