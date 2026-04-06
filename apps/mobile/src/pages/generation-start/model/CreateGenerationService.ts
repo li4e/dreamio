@@ -32,11 +32,13 @@ class CreateGenerationService {
     private settingsStore: SettingsStore,
     private statisticsStore: StatisticsStore,
     private saveImage: (image: string) => void,
-    private onCreateError: (error: StateGenerationError, serverMessage?: string) => void
+    private onCreateError: (
+      error: StateGenerationError,
+      serverMessage?: string
+    ) => void
   ) {}
 
   private async createGeneration(data: CreateGenerationRequest) {
-    this.uiStateStore.generation = null
     let generation = await this.generationDataService.createGeneration(
       data,
       this.abortController.signal
@@ -63,24 +65,21 @@ class CreateGenerationService {
 
     // Phase 1: Create request (button loader, no modal)
     let generation: GenerationEntity
-    const existedGen = this.uiStateStore.generation
     try {
-        this.uiStateStore.isCreating = true
-        generation = await this.createGeneration(data)
-      } catch (error: any) {
-        this.uiStateStore.isCreating = false
-        this.statisticsStore.errorsCount++
-        if (error instanceof GetGenerationError) {
-          this.onCreateError(
-            mapGenerationAPIErrorToUIStateStoreError(error.type)
-          )
-        } else if (!(error instanceof CanceledError)) {
-          this.onCreateError(StateGenerationError.General)
-        }
-        return
-      } finally {
-        this.uiStateStore.isCreating = false
+      this.uiStateStore.isCreating = true
+      generation = await this.createGeneration(data)
+    } catch (error: any) {
+      this.uiStateStore.isCreating = false
+      this.statisticsStore.errorsCount++
+      if (error instanceof GetGenerationError) {
+        this.onCreateError(mapGenerationAPIErrorToUIStateStoreError(error.type))
+      } else if (!(error instanceof CanceledError)) {
+        this.onCreateError(StateGenerationError.General)
       }
+      return
+    } finally {
+      this.uiStateStore.isCreating = false
+    }
 
     // Phase 2: Poll for result (generation modal)
     try {
@@ -104,10 +103,7 @@ class CreateGenerationService {
     this.abortController = new AbortController()
 
     const generation = this.uiStateStore.generation
-    if (
-      generation &&
-      generation.status !== GenerationEntityStatus.SUCCESS
-    ) {
+    if (generation && generation.status !== GenerationEntityStatus.SUCCESS) {
       // Discard pre-migration generations that have no remoteId
       if (!generation.remoteId) {
         this.uiStateStore.generation = null
@@ -143,9 +139,7 @@ class CreateGenerationService {
       } catch (error: any) {
         const data = error?.response?.data
         const message =
-          typeof data === 'string'
-            ? data
-            : data?.error ?? data?.message
+          typeof data === 'string' ? data : (data?.error ?? data?.message)
         this.onCreateError(StateGenerationError.General, message || undefined)
       } finally {
         this.uiStateStore.isCancelling = false
