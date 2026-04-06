@@ -55,6 +55,7 @@ module.exports = {
             useFrameworks: 'static',
           },
           android: {
+            targetSdkVersion: 35,
             enableProguardInReleaseBuilds: true,
             extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
             allowBackup: false,
