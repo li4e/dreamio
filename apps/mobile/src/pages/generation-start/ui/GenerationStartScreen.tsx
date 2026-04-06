@@ -81,10 +81,14 @@ function useCreateErrorHandler() {
     (error: StateGenerationError, serverMessage?: string) => {
       const keyMap: Record<StateGenerationError, string> = {
         [StateGenerationError.General]: 'screens.generation.modalError',
-        [StateGenerationError.PromptUnsafe]: 'screens.generation.errorUnsafePrompt',
-        [StateGenerationError.ServiceUnavailable]: 'screens.generation.errorServiceUnavailable',
-        [StateGenerationError.InsufficientCredits]: 'screens.generation.errorInsufficientCredits',
-        [StateGenerationError.RateLimited]: 'screens.generation.errorRateLimited',
+        [StateGenerationError.PromptUnsafe]:
+          'screens.generation.errorUnsafePrompt',
+        [StateGenerationError.ServiceUnavailable]:
+          'screens.generation.errorServiceUnavailable',
+        [StateGenerationError.InsufficientCredits]:
+          'screens.generation.errorInsufficientCredits',
+        [StateGenerationError.RateLimited]:
+          'screens.generation.errorRateLimited',
       }
       const key = keyMap[error] ?? keyMap[StateGenerationError.General]
       showSnackbar(
@@ -154,7 +158,7 @@ export function GenerationStartScreen(props: TabsScreenProps<'generation'>) {
     defaultValues: {
       prompt: '',
       style: null,
-      enhance: true,
+      enhance: false,
       aspectRatio: AspectRatio.square,
     },
   })
@@ -354,8 +358,7 @@ function StartButton(
     onPress: () => void
   } & ViewProps
 ) {
-  const { loading, onPress, control, disabled, hasGeneration, ...rest } =
-    props
+  const { loading, onPress, control, disabled, hasGeneration, ...rest } = props
   const { submitCount, isValid } = useFormState({ control })
   const isDisabled = loading || (submitCount > 0 && !isValid)
   const { t } = useTranslation()
