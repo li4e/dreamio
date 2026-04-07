@@ -15,13 +15,27 @@ export function getAspectRatioFromSize(size: {
   height: number
 }): AspectRatio {
   const { width, height } = size
-  const ratio = width / height
 
-  if (Math.abs(ratio - 1) < 0.01) return AspectRatio.square
-  if (Math.abs(ratio - 16 / 9) < 0.01) return AspectRatio.widescreen
-  if (Math.abs(ratio - 4 / 3) < 0.01) return AspectRatio.classic
-  if (Math.abs(ratio - 3 / 4) < 0.01) return AspectRatio.portrait
-  if (Math.abs(ratio - 9 / 16) < 0.01) return AspectRatio.vertical
+  const exact = `${width}x${height}`
+  switch (exact) {
+    case '1024x1024':
+      return AspectRatio.square
+    case '1360x768':
+      return AspectRatio.widescreen
+    case '1184x888':
+      return AspectRatio.classic
+    case '888x1184':
+      return AspectRatio.portrait
+    case '768x1360':
+      return AspectRatio.vertical
+  }
+
+  const ratio = width / height
+  if (Math.abs(ratio - 1) < 0.05) return AspectRatio.square
+  if (Math.abs(ratio - 16 / 9) < 0.05) return AspectRatio.widescreen
+  if (Math.abs(ratio - 4 / 3) < 0.05) return AspectRatio.classic
+  if (Math.abs(ratio - 3 / 4) < 0.05) return AspectRatio.portrait
+  if (Math.abs(ratio - 9 / 16) < 0.05) return AspectRatio.vertical
 
   return AspectRatio.square
 }

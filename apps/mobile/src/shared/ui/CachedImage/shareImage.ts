@@ -1,6 +1,6 @@
 import Share from 'react-native-share'
 import { getFileTempCachePath } from './useOnSaveImage'
-import * as FileSystem from 'expo-file-system'
+import * as FileSystem from 'expo-file-system/legacy'
 
 export async function shareImage(url: string, prompt: string) {
   let localPath: string | null = null

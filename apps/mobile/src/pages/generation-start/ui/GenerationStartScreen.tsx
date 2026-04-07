@@ -518,23 +518,23 @@ function SelectedSettings(
   )
 }
 
-function getSizeFromAspectRatio(
-  ratio: string,
-  maxSize: number = 1024
-): { width: number; height: number } {
+function getSizeFromAspectRatio(ratio: string): {
+  width: number
+  height: number
+} {
   switch (ratio) {
     case AspectRatio.square:
-      return { width: maxSize, height: maxSize }
+      return { width: 1024, height: 1024 }
     case AspectRatio.widescreen:
-      return { width: maxSize, height: Math.round((maxSize * 9) / 16) } // 16:9
+      return { width: 1360, height: 768 } // 16:9
     case AspectRatio.classic:
-      return { width: maxSize, height: Math.round((maxSize * 3) / 4) } // 4:3
+      return { width: 1184, height: 888 } // 4:3
     case AspectRatio.portrait:
-      return { width: maxSize, height: Math.round((maxSize * 4) / 3) } // 3:4
+      return { width: 888, height: 1184 } // 3:4
     case AspectRatio.vertical:
-      return { width: Math.round((maxSize * 9) / 16), height: maxSize } // 9:16
+      return { width: 768, height: 1360 } // 9:16
     default:
-      return { width: maxSize, height: maxSize } // Default fallback
+      return { width: 1024, height: 1024 }
   }
 }
 

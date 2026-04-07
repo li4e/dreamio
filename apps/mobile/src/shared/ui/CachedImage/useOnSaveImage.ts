@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Linking, Platform } from 'react-native'
 import { SnackBarVariant, useSnackbar } from 'shared/ui/Snackbar'
 import * as MediaLibrary from 'expo-media-library'
-import * as FileSystem from 'expo-file-system'
+import * as FileSystem from 'expo-file-system/legacy'
 import { Image } from 'expo-image'
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator'
 import md5 from 'md5'
@@ -45,7 +45,7 @@ export function useOnSaveImage() {
 
   return useCallback(
     async (url: string) => {
-      console.log({url})
+      console.log({ url })
       const saved = await saveImage(url)
       const snackOptions = { position: 'top', offset: HEADER_HEIGHT } as const
 

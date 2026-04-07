@@ -75,6 +75,11 @@ module.exports = {
           },
         },
       ],
+      'expo-localization',
+      'expo-media-library',
+      'expo-image',
+      'expo-mail-composer',
+
       [
         'react-native-share',
         {
@@ -88,9 +93,6 @@ module.exports = {
           enableBase64ShareAndroid: true,
         },
       ],
-      '@config-plugins/detox',
-      'expo-localization',
-      'expo-media-library',
 
       '@react-native-firebase/app',
       '@react-native-firebase/auth',
