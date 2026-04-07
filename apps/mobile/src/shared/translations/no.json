@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Noe gikk galt. Vennligst sjekk internettforbindelsen din og prøv igjen.",
   "screens.generation.modalError.button": "Fortsett",
   "screens.generation.modalGeneration.title": "Magien skjer nå",
-  "screens.generation.modalGeneration.description": "Dette tar vanligvis omtrent 15 sekunder...",
+  "screens.generation.modalGeneration.description": "Dette tar vanligvis omtrent 5 sekunder...",
   "screens.settings.title": "Innstillinger",
   "screens.settings.user.title": "Brukerinnstillinger",
   "screens.settings.user.language": "Språk",

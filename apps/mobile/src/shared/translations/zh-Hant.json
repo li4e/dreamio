@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "發生了一些錯誤。請檢查您的網絡連接並再試一次。",
   "screens.generation.modalError.button": "繼續",
   "screens.generation.modalGeneration.title": "魔法進行中",
-  "screens.generation.modalGeneration.description": "這通常需要大約 15 秒…",
+  "screens.generation.modalGeneration.description": "這通常需要約 5 秒鐘...",
   "screens.settings.title": "設定",
   "screens.settings.user.title": "用戶設定",
   "screens.settings.user.language": "語言",

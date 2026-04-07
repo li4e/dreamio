@@ -15,7 +15,7 @@
   "screens.generation.modalError.description": "Ocorreu um erro. Por favor, verifique a sua ligação à internet e tente novamente.",
   "screens.generation.modalError.button": "Continuar",
   "screens.generation.modalGeneration.title": "Magia em Progresso",
-  "screens.generation.modalGeneration.description": "Isto geralmente demora cerca de 15 segundos...",
+  "screens.generation.modalGeneration.description": "Isto geralmente demora cerca de 5 segundos...",
   "screens.settings.title": "Definições",
   "screens.settings.user.title": "Configurações do Utilizador",
   "screens.settings.user.language": "Idioma",

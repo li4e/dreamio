@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Etwas ist schiefgegangen. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
   "screens.generation.modalError.button": "Fortfahren",
   "screens.generation.modalGeneration.title": "Magie in Arbeit",
-  "screens.generation.modalGeneration.description": "Dies dauert normalerweise etwa 15 Sekunden...",
+  "screens.generation.modalGeneration.description": "Das dauert normalerweise etwa 5 Sekunden...",
   "screens.settings.title": "Einstellungen",
   "screens.settings.user.title": "Benutzereinstellungen",
   "screens.settings.user.language": "Sprache",

@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Щось пішло не так. Будь ласка, перевірте ваше інтернет з'єднання та спробуйте ще раз.",
   "screens.generation.modalError.button": "Продовжити",
   "screens.generation.modalGeneration.title": "Магія триває",
-  "screens.generation.modalGeneration.description": "Це зазвичай займає близько 15 секунд...",
+  "screens.generation.modalGeneration.description": "Це зазвичай займає близько 5 секунд...",
   "screens.settings.title": "Налаштування",
   "screens.settings.user.title": "Налаштування користувача",
   "screens.settings.user.language": "Мова",

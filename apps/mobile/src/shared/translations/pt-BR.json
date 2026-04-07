@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Algo deu errado. Por favor, verifique sua conexão com a internet e tente novamente.",
   "screens.generation.modalError.button": "Continuar",
   "screens.generation.modalGeneration.title": "Magia em Andamento",
-  "screens.generation.modalGeneration.description": "Isso geralmente leva cerca de 15 segundos...",
+  "screens.generation.modalGeneration.description": "Isso geralmente leva cerca de 5 segundos...",
   "screens.settings.title": "Configurações",
   "screens.settings.user.title": "Configurações do Usuário",
   "screens.settings.user.language": "Idioma",

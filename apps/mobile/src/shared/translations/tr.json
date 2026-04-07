@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Bir şeyler yolunda gitmedi. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
   "screens.generation.modalError.button": "Devam Et",
   "screens.generation.modalGeneration.title": "Sihir Devam Ediyor",
-  "screens.generation.modalGeneration.description": "Bu genellikle yaklaşık 15 saniye sürer...",
+  "screens.generation.modalGeneration.description": "Bu genellikle yaklaşık 5 saniye sürer...",
   "screens.settings.title": "Ayarlar",
   "screens.settings.user.title": "Kullanıcı Ayarları",
   "screens.settings.user.language": "Dil",

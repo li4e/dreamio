@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Đã xảy ra sự cố. Vui lòng kiểm tra kết nối internet của bạn và thử lại.",
   "screens.generation.modalError.button": "Tiếp tục",
   "screens.generation.modalGeneration.title": "Đang Tạo Phép Thuật",
-  "screens.generation.modalGeneration.description": "Điều này thường mất khoảng 15 giây...",
+  "screens.generation.modalGeneration.description": "Điều này thường mất khoảng 5 giây...",
   "screens.settings.title": "Cài đặt",
   "screens.settings.user.title": "Cài đặt Người dùng",
   "screens.settings.user.language": "Ngôn ngữ",

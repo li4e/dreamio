@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Si è verificato un errore. Controlla la tua connessione a Internet e riprova.",
   "screens.generation.modalError.button": "Continua",
   "screens.generation.modalGeneration.title": "Magia in corso",
-  "screens.generation.modalGeneration.description": "Di solito richiede circa 15 secondi...",
+  "screens.generation.modalGeneration.description": "Questo di solito richiede circa 5 secondi...",
   "screens.settings.title": "Impostazioni",
   "screens.settings.user.title": "Impostazioni utente",
   "screens.settings.user.language": "Lingua",

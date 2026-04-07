@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "حدث خطأ ما. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
   "screens.generation.modalError.button": "استمرار",
   "screens.generation.modalGeneration.title": "السحر قيد التنفيذ",
-  "screens.generation.modalGeneration.description": "عادةً ما يستغرق ذلك حوالي 15 ثانية...",
+  "screens.generation.modalGeneration.description": "عادة ما يستغرق هذا حوالي 5 ثوانٍ...",
   "screens.settings.title": "الإعدادات",
   "screens.settings.user.title": "إعدادات المستخدم",
   "screens.settings.user.language": "اللغة",

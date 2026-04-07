@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Terjadi kesalahan. Silakan periksa koneksi internet Anda dan coba lagi.",
   "screens.generation.modalError.button": "Lanjutkan",
   "screens.generation.modalGeneration.title": "Sihir Sedang Berlangsung",
-  "screens.generation.modalGeneration.description": "Ini biasanya memakan waktu sekitar 15 detik...",
+  "screens.generation.modalGeneration.description": "Ini biasanya memerlukan waktu sekitar 5 detik...",
   "screens.settings.title": "Pengaturan",
   "screens.settings.user.title": "Pengaturan Pengguna",
   "screens.settings.user.language": "Bahasa",

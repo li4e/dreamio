@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Nešto je pošlo po zlu. Molimo vas provjerite svoju internetsku vezu i pokušajte ponovno.",
   "screens.generation.modalError.button": "Nastavi",
   "screens.generation.modalGeneration.title": "Čarolija u tijeku",
-  "screens.generation.modalGeneration.description": "Ovo obično traje oko 15 sekundi...",
+  "screens.generation.modalGeneration.description": "To obično traje oko 5 sekundi...",
   "screens.settings.title": "Postavke",
   "screens.settings.user.title": "Postavke korisnika",
   "screens.settings.user.language": "Jezik",

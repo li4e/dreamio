@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "เกิดข้อผิดพลาดบางประการ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณและลองอีกครั้ง",
   "screens.generation.modalError.button": "ดำเนินการต่อ",
   "screens.generation.modalGeneration.title": "กำลังสร้างเวทมนตร์",
-  "screens.generation.modalGeneration.description": "กระบวนการนี้โดยปกติจะใช้เวลาประมาณ 15 วินาที...",
+  "screens.generation.modalGeneration.description": "ปกตินี่จะใช้เวลาประมาณ 5 วินาที...",
   "screens.settings.title": "การตั้งค่า",
   "screens.settings.user.title": "การตั้งค่าผู้ใช้",
   "screens.settings.user.language": "ภาษา",

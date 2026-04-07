@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Something went wrong. Please check your internet connection and try again.",
   "screens.generation.modalError.button": "Continue",
   "screens.generation.modalGeneration.title": "Magic in Progress",
-  "screens.generation.modalGeneration.description": "This typically takes about 15 seconds...",
+  "screens.generation.modalGeneration.description": "This typically takes around 5 seconds...",
   "screens.settings.title": "Settings",
   "screens.settings.user.title": "User Preferences",
   "screens.settings.user.language": "Language",

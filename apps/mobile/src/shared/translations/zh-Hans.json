@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "出现了问题。请检查您的网络连接，然后重试。",
   "screens.generation.modalError.button": "继续",
   "screens.generation.modalGeneration.title": "生成中，请稍候",
-  "screens.generation.modalGeneration.description": "这通常需要大约 15 秒……",
+  "screens.generation.modalGeneration.description": "这通常需要大约 5 秒钟…",
   "screens.settings.title": "设置",
   "screens.settings.user.title": "用户设置",
   "screens.settings.user.language": "语言",

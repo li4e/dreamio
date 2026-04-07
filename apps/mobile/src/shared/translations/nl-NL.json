@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Er is iets misgegaan. Controleer uw internetverbinding en probeer het opnieuw.",
   "screens.generation.modalError.button": "Doorgaan",
   "screens.generation.modalGeneration.title": "Magie in uitvoering",
-  "screens.generation.modalGeneration.description": "Dit duurt meestal ongeveer 15 seconden...",
+  "screens.generation.modalGeneration.description": "Dit duurt meestal ongeveer 5 seconden...",
   "screens.settings.title": "Instellingen",
   "screens.settings.user.title": "Gebruikersinstellingen",
   "screens.settings.user.language": "Taal",

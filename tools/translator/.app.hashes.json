@@ -1032,7 +1032,7 @@
     ]
   },
   "screens.generation.modalGeneration.description": {
-    "original": "This usually takes about 15 seconds...",
+    "original": "This usually takes about 5 seconds...",
     "translations": [
       "ar-SA",
       "ca",

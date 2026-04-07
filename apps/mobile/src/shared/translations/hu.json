@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Valami hiba történt. Kérjük, ellenőrizze az internetkapcsolatát, és próbálja újra.",
   "screens.generation.modalError.button": "Folytatás",
   "screens.generation.modalGeneration.title": "Varázslat folyamatban",
-  "screens.generation.modalGeneration.description": "Ez általában körülbelül 15 másodpercet vesz igénybe...",
+  "screens.generation.modalGeneration.description": "Ez általában körülbelül 5 másodpercet vesz igénybe...",
   "screens.settings.title": "Beállítások",
   "screens.settings.user.title": "Felhasználói beállítások",
   "screens.settings.user.language": "Nyelv",

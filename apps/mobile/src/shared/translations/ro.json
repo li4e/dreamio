@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Ceva a mers prost. Vă rugăm să verificați conexiunea la internet și să reîncercați.",
   "screens.generation.modalError.button": "Continuă",
   "screens.generation.modalGeneration.title": "Magie în curs de desfășurare",
-  "screens.generation.modalGeneration.description": "Aceasta durează de obicei aproximativ 15 secunde...",
+  "screens.generation.modalGeneration.description": "Acest lucru durează de obicei aproximativ 5 secunde...",
   "screens.settings.title": "Setări",
   "screens.settings.user.title": "Setări utilizator",
   "screens.settings.user.language": "Limbă",

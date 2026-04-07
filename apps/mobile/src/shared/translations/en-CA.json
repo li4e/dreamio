@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Something went wrong. Please verify your internet connection and try again.",
   "screens.generation.modalError.button": "Continuer",
   "screens.generation.modalGeneration.title": "Magie en cours",
-  "screens.generation.modalGeneration.description": "Cela prend généralement environ 15 secondes...",
+  "screens.generation.modalGeneration.description": "This typically takes about 5 seconds...",
   "screens.settings.title": "Paramètres",
   "screens.settings.user.title": "Paramètres utilisateur",
   "screens.settings.user.language": "Langue",

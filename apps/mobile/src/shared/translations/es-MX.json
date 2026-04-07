@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Algo salió mal. Por favor, verifica tu conexión a internet y vuelve a intentarlo.",
   "screens.generation.modalError.button": "Continuar",
   "screens.generation.modalGeneration.title": "Magia en Progreso",
-  "screens.generation.modalGeneration.description": "Esto generalmente toma unos 15 segundos...",
+  "screens.generation.modalGeneration.description": "Esto normalmente toma alrededor de 5 segundos...",
   "screens.settings.title": "Configuración",
   "screens.settings.user.title": "Configuración del usuario",
   "screens.settings.user.language": "Idioma",

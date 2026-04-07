@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Niečo sa pokazilo. Skontrolujte svoje pripojenie na internet a skúste to znova.",
   "screens.generation.modalError.button": "Pokračovať",
   "screens.generation.modalGeneration.title": "Prebieha čarovanie",
-  "screens.generation.modalGeneration.description": "Toto zvyčajne trvá približne 15 sekúnd...",
+  "screens.generation.modalGeneration.description": "Toto zvyčajne trvá približne 5 sekúnd...",
   "screens.settings.title": "Nastavenia",
   "screens.settings.user.title": "Používateľské nastavenia",
   "screens.settings.user.language": "Jazyk",

@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Noget gik galt. Tjek venligst din internetforbindelse, og prøv igen.",
   "screens.generation.modalError.button": "Fortsæt",
   "screens.generation.modalGeneration.title": "Trylleriet er i gang",
-  "screens.generation.modalGeneration.description": "Dette tager normalt omkring 15 sekunder...",
+  "screens.generation.modalGeneration.description": "Dette tager normalt omkring 5 sekunder...",
   "screens.settings.title": "Indstillinger",
   "screens.settings.user.title": "Brugerindstillinger",
   "screens.settings.user.language": "Sprog",

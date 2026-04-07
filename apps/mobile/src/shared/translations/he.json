@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "התרחשה שגיאה. אנא בדוק את חיבור האינטרנט שלך ונסה שוב.",
   "screens.generation.modalError.button": "המשך",
   "screens.generation.modalGeneration.title": "קסם בתהליך",
-  "screens.generation.modalGeneration.description": "זה בדרך כלל לוקח כ-15 שניות...",
+  "screens.generation.modalGeneration.description": "זה בדרך כלל לוקח כ-5 שניות...",
   "screens.settings.title": "הגדרות",
   "screens.settings.user.title": "הגדרות משתמש",
   "screens.settings.user.language": "שפה",

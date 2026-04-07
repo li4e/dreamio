@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Coś poszło nie tak. Proszę sprawdzić połączenie z internetem i spróbować ponownie.",
   "screens.generation.modalError.button": "Kontynuuj",
   "screens.generation.modalGeneration.title": "Magia w toku",
-  "screens.generation.modalGeneration.description": "To zazwyczaj zajmuje około 15 sekund...",
+  "screens.generation.modalGeneration.description": "To zazwyczaj zajmuje około 5 sekund...",
   "screens.settings.title": "Ustawienia",
   "screens.settings.user.title": "Ustawienia użytkownika",
   "screens.settings.user.language": "Język",

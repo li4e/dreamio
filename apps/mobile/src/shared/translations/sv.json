@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Något gick fel. Vänligen kontrollera din internetanslutning och försök igen.",
   "screens.generation.modalError.button": "Fortsätt",
   "screens.generation.modalGeneration.title": "Magin pågår",
-  "screens.generation.modalGeneration.description": "Detta tar vanligtvis cirka 15 sekunder...",
+  "screens.generation.modalGeneration.description": "Detta tar vanligtvis ungefär 5 sekunder...",
   "screens.settings.title": "Inställningar",
   "screens.settings.user.title": "Användarinställningar",
   "screens.settings.user.language": "Språk",

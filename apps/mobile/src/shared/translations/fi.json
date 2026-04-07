@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Jossain meni vikaan. Tarkista internet-yhteytesi ja yritä uudelleen.",
   "screens.generation.modalError.button": "Jatka",
   "screens.generation.modalGeneration.title": "Taikuus käynnissä",
-  "screens.generation.modalGeneration.description": "Tämä kestää yleensä noin 15 sekuntia...",
+  "screens.generation.modalGeneration.description": "Tämä kestää yleensä noin 5 sekuntia...",
   "screens.settings.title": "Asetukset",
   "screens.settings.user.title": "Käyttäjän asetukset",
   "screens.settings.user.language": "Kieli",

@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Alguna cosa ha anat malament. Si us plau, verifica la teva connexió a internet i torna a provar-ho.",
   "screens.generation.modalError.button": "Continua",
   "screens.generation.modalGeneration.title": "Màgia en Progrés",
-  "screens.generation.modalGeneration.description": "Això sol durar uns 15 segons...",
+  "screens.generation.modalGeneration.description": "Això normalment triga uns 5 segons...",
   "screens.settings.title": "Configuració",
   "screens.settings.user.title": "Configuració de l'Usuari",
   "screens.settings.user.language": "Idioma",

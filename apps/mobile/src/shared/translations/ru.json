@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Что-то пошло не так. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
   "screens.generation.modalError.button": "Продолжить",
   "screens.generation.modalGeneration.title": "Магия в процессе",
-  "screens.generation.modalGeneration.description": "Это обычно занимает около 15 секунд...",
+  "screens.generation.modalGeneration.description": "Это обычно занимает около 5 секунд...",
   "screens.settings.title": "Настройки",
   "screens.settings.user.title": "Настройки пользователя",
   "screens.settings.user.language": "Язык",

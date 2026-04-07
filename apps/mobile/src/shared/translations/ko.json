@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "문제가 발생했습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.",
   "screens.generation.modalError.button": "계속하기",
   "screens.generation.modalGeneration.title": "마법 진행 중",
-  "screens.generation.modalGeneration.description": "이 작업은 보통 약 15초가 소요됩니다...",
+  "screens.generation.modalGeneration.description": "보통 약 5초 정도 걸립니다...",
   "screens.settings.title": "설정",
   "screens.settings.user.title": "사용자 설정",
   "screens.settings.user.language": "언어",

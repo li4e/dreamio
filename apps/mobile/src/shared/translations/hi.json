@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "कुछ गलत हो गया। कृपया अपनी इंटरनेट कनेक्शन की जांच करें और फिर से प्रयास करें।",
   "screens.generation.modalError.button": "जारी रखें",
   "screens.generation.modalGeneration.title": "जादू जारी है",
-  "screens.generation.modalGeneration.description": "यह आमतौर पर लगभग 15 सेकंड लेता है...",
+  "screens.generation.modalGeneration.description": "यह आमतौर पर लगभग 5 सेकंड लेता है...",
   "screens.settings.title": "सेटिंग्स",
   "screens.settings.user.title": "उपयोगकर्ता सेटिंग्स",
   "screens.settings.user.language": "भाषा",

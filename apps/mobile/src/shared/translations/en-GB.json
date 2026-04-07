@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Something went wrong. Please check your internet connection and try again.",
   "screens.generation.modalError.button": "Continue",
   "screens.generation.modalGeneration.title": "Creating Magic",
-  "screens.generation.modalGeneration.description": "This usually takes about 15 seconds...",
+  "screens.generation.modalGeneration.description": "This usually takes around 5 seconds...",
   "screens.settings.title": "Preferences",
   "screens.settings.user.title": "User Settings",
   "screens.settings.user.language": "Language",

@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "Une erreur est survenue. Veuillez vérifier votre connexion Internet et réessayer.",
   "screens.generation.modalError.button": "Continuer",
   "screens.generation.modalGeneration.title": "Magie en cours",
-  "screens.generation.modalGeneration.description": "Cela prend généralement environ 15 secondes...",
+  "screens.generation.modalGeneration.description": "Cela prend généralement environ 5 secondes...",
   "screens.settings.title": "Paramètres",
   "screens.settings.user.title": "Paramètres de l'utilisateur",
   "screens.settings.user.language": "Langue",

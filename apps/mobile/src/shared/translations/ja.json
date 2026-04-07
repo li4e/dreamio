@@ -16,7 +16,7 @@
   "screens.generation.modalError.description": "何かがうまくいきませんでした。インターネット接続を確認し、再試行してください。",
   "screens.generation.modalError.button": "続行する",
   "screens.generation.modalGeneration.title": "進行中のマジック",
-  "screens.generation.modalGeneration.description": "通常、これは約15秒かかります…",
+  "screens.generation.modalGeneration.description": "通常、これには約5秒かかります...",
   "screens.settings.title": "設定",
   "screens.settings.user.title": "ユーザー設定",
   "screens.settings.user.language": "言語",
