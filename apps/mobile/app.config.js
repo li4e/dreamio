@@ -53,6 +53,12 @@ module.exports = {
         {
           ios: {
             useFrameworks: 'static',
+            forceStaticLinking: [
+              'RNFBApp',
+              'RNFBAuth',
+              'RNFBAnalytics',
+              'RNFBCrashlytics',
+            ],
           },
           android: {
             targetSdkVersion: 35,
