@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "¿Le gustaría recibir notificaciones para mantenerse informado sobre nuevas publicaciones, « me gusta », comentarios y cuándo sus creaciones están listas?",
-  "NSPhotoLibraryAddUsageDescription": "Permite que la aplicación guarde fotos en tu galería."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "¿Le gustaría recibir notificaciones para mantenerse informado sobre nuevas publicaciones, « me gusta », comentarios y cuándo sus creaciones están listas?",
+    "NSPhotoLibraryAddUsageDescription": "Permite que la aplicación guarde fotos en tu galería."
+  }
 }

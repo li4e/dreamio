@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "新しい投稿、いいね、コメント、そしてあなたの作品の準備完了時などの通知を受け取って最新情報をキャッチしますか？",
-  "NSPhotoLibraryAddUsageDescription": "このアプリがギャラリーに写真を保存できるようにします。"
+  "ios": {
+    "NSUserNotificationsUsageDescription": "新しい投稿、いいね、コメント、そしてあなたの作品の準備完了時などの通知を受け取って最新情報をキャッチしますか？",
+    "NSPhotoLibraryAddUsageDescription": "このアプリがギャラリーに写真を保存できるようにします。"
+  }
 }

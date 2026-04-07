@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Doriți să primiți notificări pentru a fi la curent cu postările noi, aprecierile, comentariile și când creațiile dumneavoastră sunt gata?",
-  "NSPhotoLibraryAddUsageDescription": "Permiteți aplicației să salveze fotografii în galeria dumneavoastră."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Doriți să primiți notificări pentru a fi la curent cu postările noi, aprecierile, comentariile și când creațiile dumneavoastră sunt gata?",
+    "NSPhotoLibraryAddUsageDescription": "Permiteți aplicației să salveze fotografii în galeria dumneavoastră."
+  }
 }

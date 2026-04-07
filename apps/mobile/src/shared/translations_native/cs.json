@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Chcete dostávat oznámení, abyste byli informováni o nových příspěvcích, označeních « líbí se », komentářích a když jsou vaše výtvory připraveny?",
-  "NSPhotoLibraryAddUsageDescription": "Povolit aplikaci ukládání fotografií do vaší galerie."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Chcete dostávat oznámení, abyste byli informováni o nových příspěvcích, označeních « líbí se », komentářích a když jsou vaše výtvory připraveny?",
+    "NSPhotoLibraryAddUsageDescription": "Povolit aplikaci ukládání fotografií do vaší galerie."
+  }
 }

@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Apakah Anda ingin menerima notifikasi untuk tetap mendapatkan pembaruan tentang postingan baru, suka, komentar, dan ketika kreasi Anda sudah siap?",
-  "NSPhotoLibraryAddUsageDescription": "Izinkan aplikasi untuk menyimpan foto ke galeri Anda."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Apakah Anda ingin menerima notifikasi untuk tetap mendapatkan pembaruan tentang postingan baru, suka, komentar, dan ketika kreasi Anda sudah siap?",
+    "NSPhotoLibraryAddUsageDescription": "Izinkan aplikasi untuk menyimpan foto ke galeri Anda."
+  }
 }

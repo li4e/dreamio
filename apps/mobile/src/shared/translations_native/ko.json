@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "새 게시물, 좋아요, 댓글, 그리고 생성물이 준비되었을 때 알림을 받아 최신 정보를 유지하시겠습니까?",
-  "NSPhotoLibraryAddUsageDescription": "앱이 사진을 갤러리에 저장할 수 있도록 허용합니다."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "새 게시물, 좋아요, 댓글, 그리고 생성물이 준비되었을 때 알림을 받아 최신 정보를 유지하시겠습니까?",
+    "NSPhotoLibraryAddUsageDescription": "앱이 사진을 갤러리에 저장할 수 있도록 허용합니다."
+  }
 }

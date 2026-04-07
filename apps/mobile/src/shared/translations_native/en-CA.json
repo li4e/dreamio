@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Souhaitez-vous recevoir des notifications pour rester informé des nouvelles publications, des mentions J'aime, des commentaires et lorsque vos créations sont prêtes?",
-  "NSPhotoLibraryAddUsageDescription": "Allow the app to save photos to your library."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Souhaitez-vous recevoir des notifications pour rester informé des nouvelles publications, des mentions J'aime, des commentaires et lorsque vos créations sont prêtes?",
+    "NSPhotoLibraryAddUsageDescription": "Allow the app to save photos to your library."
+  }
 }

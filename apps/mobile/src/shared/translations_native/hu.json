@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Szeretnél értesítéseket kapni, hogy naprakészen értesülj az új bejegyzésekről, kedvelésekről, hozzászólásokról, valamint amikor elkészülnek a saját alkotásaid?",
-  "NSPhotoLibraryAddUsageDescription": "Engedélyezze az alkalmazásnak, hogy fényképeket mentsen a galériájába."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Szeretnél értesítéseket kapni, hogy naprakészen értesülj az új bejegyzésekről, kedvelésekről, hozzászólásokról, valamint amikor elkészülnek a saját alkotásaid?",
+    "NSPhotoLibraryAddUsageDescription": "Engedélyezze az alkalmazásnak, hogy fényképeket mentsen a galériájába."
+  }
 }

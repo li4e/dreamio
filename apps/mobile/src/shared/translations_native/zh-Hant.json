@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "您是否希望接收通知，以便隨時掌握新帖子、讚、評論以及您的創作準備就緒時的信息？",
-  "NSPhotoLibraryAddUsageDescription": "允許應用程式將照片儲存到您的圖庫。"
+  "ios": {
+    "NSUserNotificationsUsageDescription": "您是否希望接收通知，以便隨時掌握新帖子、讚、評論以及您的創作準備就緒時的信息？",
+    "NSPhotoLibraryAddUsageDescription": "允許應用程式將照片儲存到您的圖庫。"
+  }
 }

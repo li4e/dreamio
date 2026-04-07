@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Haluatko vastaanottaa ilmoituksia, jotta pysyt ajan tasalla uusista julkaisuista, tykkäyksistä, kommenteista ja siitä, milloin luomuksesi ovat valmiita?",
-  "NSPhotoLibraryAddUsageDescription": "Salli sovelluksen tallentaa valokuvia galleriaasi."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Haluatko vastaanottaa ilmoituksia, jotta pysyt ajan tasalla uusista julkaisuista, tykkäyksistä, kommenteista ja siitä, milloin luomuksesi ovat valmiita?",
+    "NSPhotoLibraryAddUsageDescription": "Salli sovelluksen tallentaa valokuvia galleriaasi."
+  }
 }

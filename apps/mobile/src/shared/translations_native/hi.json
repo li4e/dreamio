@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "क्या आप सूचनाएं प्राप्त करना चाहेंगे ताकि नए पोस्ट, लाइक्स, टिप्पणियाँ और जब आपके निर्माण तैयार हों, तब अपडेट रह सकें?",
-  "NSPhotoLibraryAddUsageDescription": "ऐप को आपकी गैलरी में फ़ोटो सहेजने की अनुमति दें।"
+  "ios": {
+    "NSUserNotificationsUsageDescription": "क्या आप सूचनाएं प्राप्त करना चाहेंगे ताकि नए पोस्ट, लाइक्स, टिप्पणियाँ और जब आपके निर्माण तैयार हों, तब अपडेट रह सकें?",
+    "NSPhotoLibraryAddUsageDescription": "ऐप को आपकी गैलरी में फ़ोटो सहेजने की अनुमति दें।"
+  }
 }

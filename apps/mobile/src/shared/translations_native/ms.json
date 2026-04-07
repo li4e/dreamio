@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Adakah anda ingin menerima pemberitahuan untuk kekal kemas kini tentang kiriman baharu, suka, komen, dan apabila ciptaan anda sedia?",
-  "NSPhotoLibraryAddUsageDescription": "Benarkan aplikasi untuk menyimpan foto ke galeri anda."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Adakah anda ingin menerima pemberitahuan untuk kekal kemas kini tentang kiriman baharu, suka, komen, dan apabila ciptaan anda sedia?",
+    "NSPhotoLibraryAddUsageDescription": "Benarkan aplikasi untuk menyimpan foto ke galeri anda."
+  }
 }

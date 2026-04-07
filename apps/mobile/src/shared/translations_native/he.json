@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "?האם תרצה לקבל התראות כדי להישאר מעודכן בפוסטים חדשים, לייקים, תגובות וכאשר היצירות שלך מוכנות",
-  "NSPhotoLibraryAddUsageDescription": "אפשר לאפליקציה לשמור תמונות לגלריה שלך."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "?האם תרצה לקבל התראות כדי להישאר מעודכן בפוסטים חדשים, לייקים, תגובות וכאשר היצירות שלך מוכנות",
+    "NSPhotoLibraryAddUsageDescription": "אפשר לאפליקציה לשמור תמונות לגלריה שלך."
+  }
 }

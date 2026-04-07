@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Yeni gönderiler, beğeniler, yorumlar ve içerikleriniz hazır olduğunda sizi güncel tutmak için bildirim almak ister misiniz?",
-  "NSPhotoLibraryAddUsageDescription": "Uygulamanın fotoğrafları galerinizde kaydetmesine izin verin."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Yeni gönderiler, beğeniler, yorumlar ve içerikleriniz hazır olduğunda sizi güncel tutmak için bildirim almak ister misiniz?",
+    "NSPhotoLibraryAddUsageDescription": "Uygulamanın fotoğrafları galerinizde kaydetmesine izin verin."
+  }
 }

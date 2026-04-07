@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Vil du motta varsler for å holde deg oppdatert om nye innlegg, likerklikk, kommentarer og når dine kreasjoner er klare?",
-  "NSPhotoLibraryAddUsageDescription": "Tillat appen å lagre bilder i galleriet ditt."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Vil du motta varsler for å holde deg oppdatert om nye innlegg, likerklikk, kommentarer og når dine kreasjoner er klare?",
+    "NSPhotoLibraryAddUsageDescription": "Tillat appen å lagre bilder i galleriet ditt."
+  }
 }

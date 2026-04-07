@@ -19,7 +19,7 @@ async function loadHashes(
   }
 }
 
-async function loadTranslation(path: string): Promise<Record<string, string>> {
+async function loadTranslation(path: string): Promise<Record<string, any>> {
   try {
     const data = await fs.readFile(path, 'utf-8')
     return JSON.parse(data.trim())
@@ -28,7 +28,7 @@ async function loadTranslation(path: string): Promise<Record<string, string>> {
   }
 }
 
-async function saveTranslation(path: string, content: Record<string, string>) {
+async function saveTranslation(path: string, content: Record<string, any>) {
   try {
     await fs.writeFile(path, JSON.stringify(content, null, 2), 'utf-8')
   } catch (error) {
@@ -85,7 +85,8 @@ async function translateText(
 async function translateAppByLocale(
   destLang: string,
   translationsFolder: string,
-  sourceLang: string = 'en-US'
+  sourceLang: string = 'en-US',
+  wrapperKey?: string
 ) {
   const inputFile = path.resolve(translationsFolder, `${sourceLang}.json`) // Directory for source files
   const outputFile = path.resolve(translationsFolder, `${destLang}.json`) // Directory for translated files
@@ -96,9 +97,10 @@ async function translateAppByLocale(
     const hashes = await loadHashes(hashesFile)
 
     // 3. Get the list of all keys in the source directory
-    const original = (await fs
-      .readFile(inputFile, 'utf-8')
-      .then((data) => flatten(JSON.parse(data)))) as Record<string, string>
+    const rawData = JSON.parse(await fs.readFile(inputFile, 'utf-8'))
+    const original = flatten(
+      wrapperKey ? rawData[wrapperKey] : rawData
+    ) as Record<string, string>
 
     for (const key in original) {
       try {
@@ -139,7 +141,10 @@ async function translateAppByLocale(
           key
         )
         const currentTranslationFile = await loadTranslation(outputFile)
-        currentTranslationFile[key] = translation
+        const translations = wrapperKey
+          ? (currentTranslationFile[wrapperKey] ??= {})
+          : currentTranslationFile
+        ;(translations as Record<string, string>)[key] = translation
         await saveTranslation(outputFile, currentTranslationFile)
 
         console.log(`Key translated and saved: ${destLang} - ${key}`)
@@ -161,15 +166,21 @@ async function translateAppByLocale(
 
     const keys = Object.keys(original)
     const currentTranslationFile = await loadTranslation(outputFile)
+    const currentTranslations = wrapperKey
+      ? (currentTranslationFile[wrapperKey] ?? {})
+      : currentTranslationFile
 
-    for (const key in currentTranslationFile) {
+    for (const key in currentTranslations) {
       if (!keys.includes(key)) {
         console.log(
           `${key} has been deleted from ${sourceLang} file, deleting it from ${destLang} translation file and hashes.`
         )
-        delete currentTranslationFile[key]
+        delete currentTranslations[key]
         delete hashes[key]
       }
+    }
+    if (wrapperKey) {
+      currentTranslationFile[wrapperKey] = currentTranslations
     }
     await saveTranslation(outputFile, currentTranslationFile)
     await saveHashes(hashesFile, hashes)
@@ -189,7 +200,9 @@ export async function translateApp() {
     )
     await translateAppByLocale(
       locale,
-      '../../apps/mobile/src/shared/translations_native'
+      '../../apps/mobile/src/shared/translations_native',
+      'en-US',
+      'ios'
     )
   }
 }

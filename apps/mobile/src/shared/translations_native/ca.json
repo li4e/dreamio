@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Voleu rebre notificacions per estar informat sobre noves publicacions, likes, comentaris i quan les vostres creacions estiguin llestes?",
-  "NSPhotoLibraryAddUsageDescription": "Permet a l'aplicació desar fotos a la teva galeria."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Voleu rebre notificacions per estar informat sobre noves publicacions, likes, comentaris i quan les vostres creacions estiguin llestes?",
+    "NSPhotoLibraryAddUsageDescription": "Permet a l'aplicació desar fotos a la teva galeria."
+  }
 }

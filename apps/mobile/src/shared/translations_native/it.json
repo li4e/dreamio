@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Desideri ricevere notifiche per rimanere aggiornato su nuovi post, like, commenti e quando le tue creazioni sono pronte?",
-  "NSPhotoLibraryAddUsageDescription": "Consenti all'app di salvare le foto nella tua galleria."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Desideri ricevere notifiche per rimanere aggiornato su nuovi post, like, commenti e quando le tue creazioni sono pronte?",
+    "NSPhotoLibraryAddUsageDescription": "Consenti all'app di salvare le foto nella tua galleria."
+  }
 }

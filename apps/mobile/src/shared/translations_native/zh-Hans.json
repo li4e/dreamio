@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "您是否希望接收通知以了解新帖、点赞、评论以及您的创作准备就绪时的最新动态？",
-  "NSPhotoLibraryAddUsageDescription": "允许应用保存照片到您的图库。"
+  "ios": {
+    "NSUserNotificationsUsageDescription": "您是否希望接收通知以了解新帖、点赞、评论以及您的创作准备就绪时的最新动态？",
+    "NSPhotoLibraryAddUsageDescription": "允许应用保存照片到您的图库。"
+  }
 }

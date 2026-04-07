@@ -1,4 +1,6 @@
 {
-  "NSUserNotificationsUsageDescription": "Möchten Sie Benachrichtigungen erhalten, um über neue Beiträge, Likes, Kommentare und wenn Ihre Kreationen fertig sind, informiert zu bleiben?",
-  "NSPhotoLibraryAddUsageDescription": "Erlauben Sie der App, Fotos in Ihrer Galerie zu speichern."
+  "ios": {
+    "NSUserNotificationsUsageDescription": "Möchten Sie Benachrichtigungen erhalten, um über neue Beiträge, Likes, Kommentare und wenn Ihre Kreationen fertig sind, informiert zu bleiben?",
+    "NSPhotoLibraryAddUsageDescription": "Erlauben Sie der App, Fotos in Ihrer Galerie zu speichern."
+  }
 }
