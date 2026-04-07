@@ -1,6 +1,9 @@
 import { PropsWithChildren } from 'react'
 import { Platform, KeyboardAvoidingView as KV, View } from 'react-native'
-import { useKeyboardHandler } from 'react-native-keyboard-controller'
+import {
+  useKeyboardHandler,
+  useAnimatedKeyboard,
+} from 'react-native-keyboard-controller'
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -29,7 +32,8 @@ interface KeyboardAvoidingViewProps extends PropsWithChildren {
 function KeyboardAvoidingViewAnimated(props: KeyboardAvoidingViewProps) {
   const { children, withBottomBar } = props
   const { bottom } = useSafeAreaInsets()
-  const { height } = useKeyboardHeight()
+  // const { height } = useKeyboardHeight()
+  const { height } = useAnimatedKeyboard()
 
   const style = useAnimatedStyle(() => {
     let paddingBottom = height.value
@@ -63,4 +67,4 @@ function KeyboardAvoidingViewFallback(props: KeyboardAvoidingViewProps) {
 //     ? KeyboardAvoidingViewAnimated
 //     : KeyboardAvoidingViewFallback
 
-export const KeyboardAvoidingView = KeyboardAvoidingViewFallback
+export const KeyboardAvoidingView = KeyboardAvoidingViewAnimated
