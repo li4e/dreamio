@@ -60,6 +60,7 @@ module.exports = {
             enableProguardInReleaseBuilds: true,
             extraProguardRules: '-keep public class com.horcrux.svg.** {*;}',
             allowBackup: false,
+            page16KBSupport: true,
           },
         },
       ],
