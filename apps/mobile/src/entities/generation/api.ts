@@ -177,6 +177,9 @@ export class Api {
         backendRequest.status === 'FAILED' ||
         backendRequest.status === 'CANCELLED'
       ) {
+        if (backendRequest.error === 'NSFW_CONTENT_DETECTED') {
+          throw new GetGenerationError(GenerationAPIErrorType.PROMPT_UNSAFE)
+        }
         throw new GetGenerationError(GenerationAPIErrorType.SERVICE_UNAVAILABLE)
       }
 
